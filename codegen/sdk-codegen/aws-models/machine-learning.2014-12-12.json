@@ -216,7 +216,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Machine Learning"
+        "smithy.api#title": "Amazon Machine Learning",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://machinelearning.amazonaws.com/doc/2014-12-12/"
+        }
       }
     },
     "com.amazon.eml.v20141212#AwsUserArn": {
@@ -2764,7 +2767,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.eml.v20141212#IntegerType": {
@@ -2785,7 +2789,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An error on the server occurred when trying to process a request.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.eml.v20141212#InvalidInputException": {
@@ -2800,7 +2805,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An error on the client occurred. Typically, the cause is an invalid input value.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.eml.v20141212#InvalidTagException": {
@@ -2835,7 +2841,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as <code>DataSource</code>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 417
       }
     },
     "com.amazon.eml.v20141212#LongType": {
@@ -3169,7 +3176,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The exception is thrown when a predict request is made to an unmounted <code>MLModel</code>.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.eml.v20141212#PresignedS3Url": {
@@ -3637,7 +3645,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A specified resource cannot be located.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.eml.v20141212#RoleARN": {

@@ -868,7 +868,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> An internal server error occurred. Retry your request. </p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.deepinsight.medical#InvalidEncodingException": {
@@ -880,7 +881,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> The input text was not in valid UTF-8 character encoding. Check your text then retry your\n   request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.deepinsight.medical#InvalidRequestException": {
@@ -892,7 +894,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> The request that you made is invalid. Check your request to determine why it's invalid and\n   then retry the request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.deepinsight.medical#JobId": {
@@ -1147,7 +1150,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource identified by the specified Amazon Resource Name (ARN) was not found. Check the\n   ARN and try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.deepinsight.medical#S3Bucket": {
@@ -1179,7 +1183,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> The Amazon Comprehend Medical service is temporarily unavailable. Please wait and then retry your request.\n  </p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.deepinsight.medical#StartEntitiesDetectionV2Job": {
@@ -1469,7 +1474,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> The size of the text you submitted exceeds the size limit. Reduce the size of the text or\n   use a smaller document and then retry your request. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.deepinsight.medical#Timestamp": {
@@ -1484,7 +1490,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p> You have made too many requests within a short period of time. Wait for a short time and\n   then try your request again. Contact customer support for more information about a service limit\n   increase. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.deepinsight.medical#Trait": {
@@ -1548,7 +1555,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The filter that you specified for the operation is invalid. Check the filter values that you\n   entered and try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     }
   }

@@ -58,7 +58,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon CloudSearch Domain"
+        "smithy.api#title": "Amazon CloudSearch Domain",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
+        }
       }
     },
     "com.a9.cloudsearch.service2013#Blob": {

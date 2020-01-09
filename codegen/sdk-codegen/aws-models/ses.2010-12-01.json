@@ -34,7 +34,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that email sending is disabled for your entire Amazon SES account.</p>\n        <p>You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#AddHeaderAction": {
@@ -83,7 +84,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a resource could not be created because of a naming conflict.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#AmazonResourceName": {
@@ -367,7 +369,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the delete operation could not be completed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#Charset": {
@@ -508,7 +511,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the configuration set could not be created because of a naming\n            conflict.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#ConfigurationSetAttribute": {
@@ -551,7 +555,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the configuration set does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#ConfigurationSetName": {
@@ -572,7 +577,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that email sending is disabled for the configuration set.</p>\n        <p>You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#ConfigurationSets": {
@@ -1062,7 +1068,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that custom verification email template provided content is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplate": {
@@ -1118,7 +1125,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a custom verification email template with the name you specified\n            already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplateDoesNotExistException": {
@@ -1136,7 +1144,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a custom verification email template with the name you specified does\n            not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#CustomVerificationEmailTemplates": {
@@ -1946,7 +1955,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the event destination could not be created because of a naming\n            conflict.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#EventDestinationDoesNotExistException": {
@@ -1970,7 +1980,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the event destination does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#EventDestinationName": {
@@ -2077,7 +2088,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the sender address specified for a custom verification email is not\n            verified, and is therefore not eligible to send the custom verification email. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc#GetAccountSendingEnabled": {
@@ -2671,7 +2683,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the Amazon CloudWatch destination is invalid. See the error message for\n            details.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidConfigurationSetException": {
@@ -2683,7 +2696,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the configuration set is invalid. See the error message for\n            details.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidDeliveryOptionsException": {
@@ -2695,7 +2709,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that provided delivery option is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidFirehoseDestinationException": {
@@ -2719,7 +2734,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the Amazon Kinesis Firehose destination is invalid. See the error\n            message for details.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidLambdaFunctionException": {
@@ -2737,7 +2753,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided AWS Lambda function is invalid, or that Amazon SES could\n            not execute the provided function, possibly due to permissions issues. For information\n            about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES\n                Developer Guide</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidPolicyException": {
@@ -2749,7 +2766,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided policy is invalid. Check the error stack for more\n            information about what caused the error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidRenderingParameterException": {
@@ -2764,7 +2782,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that one or more of the replacement values you provided is invalid. This\n            error may occur when the TemplateData object contains invalid JSON.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidS3ConfigurationException": {
@@ -2782,7 +2801,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided Amazon S3 bucket or AWS KMS encryption key is invalid, or\n            that Amazon SES could not publish to the bucket, possibly due to permissions issues. For\n            information about giving permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES\n                Developer Guide</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidSNSDestinationException": {
@@ -2806,7 +2826,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the Amazon Simple Notification Service (Amazon SNS) destination is\n            invalid. See the error message for details.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidSnsTopicException": {
@@ -2824,7 +2845,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided Amazon SNS topic is invalid, or that Amazon SES could not\n            publish to the topic, possibly due to permissions issues. For information about giving\n            permissions, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html\">Amazon SES\n                Developer Guide</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidTemplateException": {
@@ -2839,7 +2861,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the template that you specified could not be rendered. This issue may\n            occur when a template refers to a partial that does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvalidTrackingOptionsException": {
@@ -2851,7 +2874,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the custom domain to be used for open and click tracking redirects is\n            invalid. This error appears most often in the following situations:</p>\n        <ul>\n            <li>\n                <p>When the tracking domain you specified is not verified in Amazon SES.</p>\n            </li>\n            <li>\n                <p>When the tracking domain you specified is not a valid domain or\n                    subdomain.</p>\n            </li>\n         </ul>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#InvocationType": {
@@ -2927,7 +2951,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that a resource could not be created because of service limits. For a list\n            of Amazon SES limits, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html\">Amazon SES Developer\n            Guide</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc#ListConfigurationSets": {
@@ -3315,7 +3340,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p> Indicates that the message could not be sent because Amazon SES could not read the MX\n            record required to use the specified MAIL FROM domain. For information about editing the\n            custom MAIL FROM domain settings for an identity, see the <a href=\"https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html\">Amazon SES Developer\n                Guide</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#Max24HourSend": {
@@ -3404,7 +3430,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the action failed, and the message could not be sent. Check the error\n            stack for more information about what caused the error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.common.svc#MessageTag": {
@@ -3453,7 +3480,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that one or more of the replacement values for the specified template was\n            not specified. Ensure that the TemplateData object contains references to all of the\n            replacement tags in the specified template.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#NextToken": {
@@ -3522,7 +3550,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the account has not been granted production access.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc#PutConfigurationSetDeliveryOptions": {
@@ -4015,7 +4044,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided receipt rule does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#RuleOrRuleSetName": {
@@ -4036,7 +4066,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the provided receipt rule set does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#S3Action": {
@@ -5429,7 +5460,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the Template object you specified does not exist in your Amazon SES\n            account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#TemplateMetadata": {
@@ -5562,7 +5594,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the configuration set you specified already contains a TrackingOptions\n            object.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc.common#TrackingOptionsDoesNotExistException": {
@@ -5580,7 +5613,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the TrackingOptions object you specified does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.bacon.frontend.svc#UpdateAccountSendingEnabled": {

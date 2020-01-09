@@ -114,7 +114,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource with the name requested already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#Arn": {
@@ -145,7 +146,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An error occurred during a CloudFormation registry operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#CancelUpdateStack": {
@@ -288,7 +290,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified change set name or ID doesn't exit. To view valid change sets for a\n         stack, use the <code>ListChangeSets</code> action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "amzn.aws21.activities#ChangeSetStatus": {
@@ -1204,7 +1207,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource exists, but has been changed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "amzn.aws21.activities#CreationTime": {
@@ -3107,7 +3111,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The template contains resources with capabilities that weren't specified in the\n         Capabilities parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#InvalidChangeSetStatusException": {
@@ -3119,7 +3124,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified change set can't be used to update the stack. For example, the change\n         set status might be <code>CREATE_IN_PROGRESS</code>, or the stack status might be\n            <code>UPDATE_IN_PROGRESS</code>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.maestro.service.v20160713#InvalidOperationException": {
@@ -3131,7 +3137,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified operation isn't valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#InvalidStateTransitionException": {
@@ -3143,7 +3150,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#Key": {
@@ -3161,7 +3169,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The quota for the resource has already been reached.</p>\n         <p>For information on resource and stack limitations, see <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cloudformation-limits.html\">Limits</a> in\n         the <i>AWS CloudFormation User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#LimitName": {
@@ -4031,7 +4040,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified name is already in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "amzn.aws21.activities#NextToken": {
@@ -4089,7 +4099,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified operation ID already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.maestro.service.v20160713#OperationInProgressException": {
@@ -4101,7 +4112,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Another operation is currently in progress for this stack set. Only one operation can\n         be performed for a stack set at a given time.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.maestro.service.v20160713#OperationNotFoundException": {
@@ -4113,7 +4125,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified ID refers to an operation that doesn't exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "amzn.aws21.activities#OperationStatus": {
@@ -4144,7 +4157,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Error reserved for use by the <a href=\"https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html\">CloudFormation CLI</a>. CloudFormation does not return this error to users.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "amzn.aws21.activities#OptionalSecureUrl": {
@@ -5654,7 +5668,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified stack instance doesn't exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.maestro.service.v20160713#StackInstanceStatus": {
@@ -6343,7 +6358,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You can't yet delete this stack set, because it still contains one or more stack\n         instances. Delete all stack instances from the stack set before deleting the stack\n         set.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "amzn.aws21.activities#StackSetNotFoundException": {
@@ -6355,7 +6371,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified stack set doesn't exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.maestro.service.v20160713#StackSetOperation": {
@@ -6838,7 +6855,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Another operation has been performed on this stack set since the specified operation\n         was performed. </p>\n      \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "amzn.aws21.activities#StatusMessage": {
@@ -7040,7 +7058,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A client request token already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.maestro.service.v20160713#TotalStackInstancesCount": {
@@ -7092,7 +7111,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified type does not exist in the CloudFormation registry.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "amzn.aws21.activities#TypeSchema": {

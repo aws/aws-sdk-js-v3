@@ -246,7 +246,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>More than one process tried to modify a resource at the same time.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#Counts": {
@@ -314,7 +315,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Some part of the dashboard data is invalid.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#DashboardName": {
@@ -338,7 +340,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The specified dashboard does not exist.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#DashboardValidationMessage": {
@@ -2125,7 +2128,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Request processing has failed due to some unknown error, exception, or failure.</p>\n\t     ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#InvalidFormatFault": {
@@ -2140,7 +2144,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Data was not syntactically valid JSON.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#InvalidNextToken": {
@@ -2155,7 +2160,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The next token specified is invalid.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterCombinationException": {
@@ -2170,7 +2176,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Parameters were used together that cannot be used together.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterValueException": {
@@ -2185,7 +2192,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The value of an input parameter is bad or out-of-range.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#LastModified": {
@@ -2200,7 +2208,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The operation exceeded one or more limits.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#LimitExceededFault": {
@@ -2215,7 +2224,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The quota for alarms for this customer has already been reached.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#ListDashboards": {
@@ -2909,7 +2919,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>An input parameter that is required is missing.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#Namespace": {
@@ -3393,7 +3404,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The named resource does not exist.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#ResourceNotFoundException": {
@@ -3411,7 +3423,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The named resource does not exist.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cloudwatch.v2010_08_01#ResourceType": {

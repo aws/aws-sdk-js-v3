@@ -349,7 +349,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Cognito Identity Provider"
+        "smithy.api#title": "Amazon Cognito Identity Provider",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://cognito-idp.amazonaws.com/doc/2016-04-18/"
+        }
       }
     },
     "com.amazonaws.cognito.identity.idp.model#AccountRecoverySettingType": {
@@ -2722,7 +2725,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user tries to confirm the account with an email or\n            phone number that has already been supplied as an alias from a different account. This\n            exception tells user that an account with this email or phone already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#AnalyticsConfigurationType": {
@@ -3403,7 +3407,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a verification code fails to deliver\n            successfully.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#CodeMismatchException": {
@@ -3418,7 +3423,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown if the provided code does not match what the server was\n            expecting.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#CompletionMessageType": {
@@ -3492,7 +3498,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown if two or more modifications are happening\n            concurrently.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#ConfirmDevice": {
@@ -5762,7 +5769,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the provider is already supported by the user\n            pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#EmailAddressType": {
@@ -5891,7 +5899,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when there is a code mismatch and the service fails to\n            configure the software token TOTP multi-factor authentication (MFA).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#EventContextDataType": {
@@ -6053,7 +6062,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown if a code has expired.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#ExplicitAuthFlowsListType": {
@@ -6997,7 +7007,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when Amazon Cognito encounters a group that already exists in\n            the user pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#GroupListType": {
@@ -7371,7 +7382,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when Amazon Cognito is not allowed to use your email\n            identity. HTTP status code: 400.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidLambdaResponseException": {
@@ -7386,7 +7398,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service encounters an invalid AWS\n            Lambda response.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidOAuthFlowException": {
@@ -7398,7 +7411,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the specified OAuth flow is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidParameterException": {
@@ -7413,7 +7427,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service encounters an invalid\n            parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidPasswordException": {
@@ -7428,7 +7443,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service encounters an invalid\n            password.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleAccessPolicyException": {
@@ -7443,7 +7459,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is returned when the role provided for SMS configuration does not have\n            permission to publish using Amazon SNS.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidSmsRoleTrustRelationshipException": {
@@ -7458,7 +7475,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the trust relationship is invalid for the role provided\n            for SMS configuration. This can happen if you do not trust <b>cognito-idp.amazonaws.com</b> or the external ID provided in the role does\n            not match what is provided in the SMS configuration for the user pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#InvalidUserPoolConfigurationException": {
@@ -7473,7 +7491,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the user pool configuration is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#LambdaConfigType": {
@@ -7556,7 +7575,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user exceeds the limit for a requested AWS\n            resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#ListDevices": {
@@ -8384,7 +8404,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when Amazon Cognito cannot find a multi-factor authentication\n            (MFA) method.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#MFAOptionListType": {
@@ -8487,7 +8508,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user is not authorized.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.cognito.identity.idp.model#NotifyConfigurationType": {
@@ -8693,7 +8715,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a password reset is required.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#PasswordType": {
@@ -8746,7 +8769,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a precondition is not met.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#PreventUserExistenceErrorTypes": {
@@ -9089,7 +9113,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service cannot find the requested\n            resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cognito.identity.idp.model#ResourceServerIdentifierType": {
@@ -9571,7 +9596,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the specified scope does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#ScopeListType": {
@@ -10240,7 +10266,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the software token TOTP multi-factor authentication\n            (MFA) is not enabled for the user pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#SoftwareTokenMFAUserCodeType": {
@@ -10563,7 +10590,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the user has made too many failed attempts for a given\n            action (e.g., sign in).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#TooManyRequestsException": {
@@ -10578,7 +10606,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the user has made too many requests for a given\n            operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UICustomizationType": {
@@ -10643,7 +10672,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service encounters an unexpected\n            exception with the AWS Lambda service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UnsupportedIdentityProviderException": {
@@ -10655,7 +10685,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the specified identifier is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UnsupportedUserStateException": {
@@ -10670,7 +10701,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request failed because the user is in an unsupported state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UntagResource": {
@@ -11654,7 +11686,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when you are trying to modify a user pool while a user import\n            job is in progress for that pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserImportJobIdType": {
@@ -11818,7 +11851,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when the Amazon Cognito service encounters a user validation\n            exception with the AWS Lambda service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserMFASettingListType": {
@@ -11839,7 +11873,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user is not confirmed successfully.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserNotFoundException": {
@@ -11854,7 +11889,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user is not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnNotEnabledException": {
@@ -11866,7 +11902,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when user pool add-ons are not enabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserPoolAddOnsType": {
@@ -12148,7 +12185,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when a user pool tag cannot be set or updated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UserPoolTagsListType": {
@@ -12463,7 +12501,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This exception is thrown when Amazon Cognito encounters a user name that already\n            exists in the user pool.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.idp.model#UsernameType": {

@@ -128,7 +128,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request is not understood by the server.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.ec2windowsbarley#ComponentConfiguration": {
@@ -1083,7 +1084,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The server encountered an internal error and is unable to complete the request.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.ec2windowsbarley#LifeCycle": {
@@ -1868,7 +1870,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource is already created or in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.ec2windowsbarley#ResourceList": {
@@ -1886,7 +1889,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The resource does not exist in the customer account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.ec2windowsbarley#ResourceType": {
@@ -2040,7 +2044,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Tags are already registered for the specified application ARN.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.ec2windowsbarley#Tier": {
@@ -2077,7 +2082,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The number of the provided tags is beyond the limit, or\n         the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.ec2windowsbarley#Unit": {
@@ -2405,7 +2411,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The parameter is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.ec2windowsbarley#Value": {

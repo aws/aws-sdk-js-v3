@@ -2633,7 +2633,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon DynamoDB"
+        "smithy.api#title": "Amazon DynamoDB",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://dynamodb.amazonaws.com/doc/2012-08-10/"
+        }
       }
     },
     "com.amazon.aws.sdk.endpointdiscovery#Endpoint": {
@@ -3324,7 +3327,8 @@
         }
       },
       "traits": {
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 421
       }
     },
     "com.amazonaws.dynamodb.v20120810#InvalidRestoreTimeException": {

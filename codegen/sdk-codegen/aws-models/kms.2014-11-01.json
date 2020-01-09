@@ -95,7 +95,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to create a resource that already\n      exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.trent#ArnType": {
@@ -189,7 +190,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified AWS CloudHSM cluster is already associated with a\n      custom key store or it shares a backup history with a cluster that is associated with a custom\n      key store. Each custom key store must be associated with a different AWS CloudHSM cluster.</p>\n         <p>Clusters that share a backup history have the same cluster certificate. To view the\n      cluster certificate of a cluster, use the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html\">DescribeClusters</a> operation.</p> \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CloudHsmClusterInvalidConfigurationException": {
@@ -201,7 +203,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the associated AWS CloudHSM cluster did not meet the\n      configuration requirements for a custom key store.</p>\n\n         <ul>\n            <li>\n               <p>The cluster must be configured with private subnets in at least two different\n          Availability Zones in the Region.</p>\n            </li>\n            <li>\n               <p>The <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html\">security group for\n            the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must\n          include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The\n            <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group\n          ID. These rules are set by default when you create the cluster. Do not delete or change\n          them. To get information about a particular security group, use the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html\">DescribeSecurityGroups</a> operation.</p>\n            </li>\n            <li>\n               <p>The cluster must contain at least as many HSMs as the operation requires. To add HSMs,\n          use the AWS CloudHSM <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html\">CreateHsm</a> operation.</p>\n               <p>For the <a>CreateCustomKeyStore</a>, <a>UpdateCustomKeyStore</a>, and <a>CreateKey</a> operations, the AWS CloudHSM cluster must have at least two\n          active HSMs, each in a different Availability Zone. For the <a>ConnectCustomKeyStore</a> operation, the AWS CloudHSM must contain at least one active\n          HSM.</p>\n            </li>\n         </ul>\n         <p>For information about the requirements for an AWS CloudHSM cluster that is associated with a\n      custom key store, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keystore.html#before-keystore\">Assemble the Prerequisites</a>\n      in the <i>AWS Key Management Service Developer Guide</i>. For information about creating a private subnet for an AWS CloudHSM cluster,\n      see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/create-subnets.html\">Create a Private\n        Subnet</a> in the <i>AWS CloudHSM User Guide</i>. For information about cluster security groups, see\n        <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html\">Configure a Default Security\n        Group</a> in the <i>\n               <i>AWS CloudHSM User Guide</i>\n            </i>. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CloudHsmClusterNotActiveException": {
@@ -213,7 +216,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the AWS CloudHSM cluster that is associated with the custom key\n      store is not active. Initialize and activate the cluster and try the command again. For\n      detailed instructions, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/getting-started.html\">Getting Started</a> in the <i>AWS CloudHSM User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CloudHsmClusterNotFoundException": {
@@ -225,7 +229,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because AWS KMS cannot find the AWS CloudHSM cluster with the specified\n      cluster ID. Retry the request with a different cluster ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CloudHsmClusterNotRelatedException": {
@@ -237,7 +242,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified AWS CloudHSM cluster has a different cluster\n      certificate than the original cluster. You cannot use the operation to specify an unrelated\n      cluster.</p>\n         <p>Specify a cluster that shares a backup history with the original cluster. This includes\n      clusters that were created from a backup of the current cluster, and clusters that were\n      created from the same backup that produced the current cluster.</p> \n         <p>Clusters that share a backup history have the same cluster certificate. To view the\n      cluster certificate of a cluster, use the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html\">DescribeClusters</a> operation.</p> \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#ConnectCustomKeyStore": {
@@ -684,7 +690,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the custom key store contains AWS KMS customer master keys\n      (CMKs). After verifying that you do not need to use the CMKs, use the <a>ScheduleKeyDeletion</a> operation to delete the CMKs. After they are deleted, you\n      can delete the custom key store.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CustomKeyStoreIdType": {
@@ -705,7 +712,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because of the <code>ConnectionState</code> of the custom key\n      store. To get the <code>ConnectionState</code> of a custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>\n         <p>This exception is thrown under the following conditions:</p>\n         <ul>\n            <li>\n               <p>You requested the <a>CreateKey</a> or <a>GenerateRandom</a>\n          operation in a custom key store that is not connected. These operations are valid only\n          when the custom key store <code>ConnectionState</code> is <code>CONNECTED</code>.</p>\n            </li>\n            <li>\n               <p>You requested the <a>UpdateCustomKeyStore</a> or <a>DeleteCustomKeyStore</a> operation on a custom key store that is not\n          disconnected. This operation is valid only when the custom key store\n            <code>ConnectionState</code> is <code>DISCONNECTED</code>.</p>\n            </li>\n            <li>\n               <p>You requested the <a>ConnectCustomKeyStore</a> operation on a custom key\n          store with a <code>ConnectionState</code> of <code>DISCONNECTING</code> or\n            <code>FAILED</code>. This operation is valid for all other <code>ConnectionState</code>\n          values.</p>\n            </li>\n         </ul>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CustomKeyStoreNameInUseException": {
@@ -717,7 +725,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified custom key store name is already assigned\n      to another custom key store in the account. Try again with a custom key store name that is\n      unique in the account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CustomKeyStoreNameType": {
@@ -738,7 +747,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because AWS KMS cannot find a custom key store with the specified\n      key store name or ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#CustomKeyStoresList": {
@@ -1102,7 +1112,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The system timed out while trying to fulfill the request. The request can be\n      retried.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazon.trent#DescribeCustomKeyStores": {
@@ -1332,7 +1343,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified CMK is not enabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.trent#DisconnectCustomKeyStore": {
@@ -1619,7 +1631,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified import token is expired. Use <a>GetParametersForImport</a> to get a new import token and public key, use the new\n      public key to encrypt the key material, and then try the request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#GenerateDataKey": {
@@ -2648,7 +2661,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified CMK cannot decrypt the data. The\n        <code>KeyId</code> in a <a>Decrypt</a> request and the <code>SourceKeyId</code>\n      in a <a>ReEncrypt</a> request must identify the same CMK that was used to encrypt\n      the ciphertext.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#IncorrectKeyMaterialException": {
@@ -2660,7 +2674,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the key material in the request is, expired, invalid, or\n      is not the same key material that was previously imported into this customer master key\n      (CMK).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#IncorrectTrustAnchorException": {
@@ -2672,7 +2687,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the trust anchor certificate in the request is not the\n      trust anchor certificate for the specified AWS CloudHSM cluster.</p>\n         <p>When you <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html#sign-csr\">initialize the cluster</a>, you create the trust anchor certificate and save it in the\n      <code>customerCA.crt</code> file.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidAliasNameException": {
@@ -2684,7 +2700,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified alias name is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidArnException": {
@@ -2696,7 +2713,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because a specified ARN, or an ARN in a key policy, is not\n      valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidCiphertextException": {
@@ -2708,7 +2726,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>From the <a>Decrypt</a> or <a>ReEncrypt</a> operation, the request was rejected because the specified ciphertext, or additional authenticated data\n      incorporated into the ciphertext, such as the encryption context, is corrupted, missing, or\n      otherwise invalid.</p>\n         <p>From the <a>ImportKeyMaterial</a> operation, the request was rejected because\n      AWS KMS could not decrypt the encrypted (wrapped) key material. </p>\n      \n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidGrantIdException": {
@@ -2720,7 +2739,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified <code>GrantId</code> is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidGrantTokenException": {
@@ -2732,7 +2752,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified grant token is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidImportTokenException": {
@@ -2744,7 +2765,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the provided import token is invalid or is associated\n      with a different customer master key (CMK).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidKeyUsageException": {
@@ -2756,7 +2778,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected for one of the following reasons: </p>\n         <ul>\n            <li>\n               <p>The <code>KeyUsage</code> value of the CMK is incompatible with the API operation.</p>\n            </li>\n            <li>\n               <p>The encryption algorithm or signing algorithm specified for the operation is incompatible with\n          the type of key material in the CMK <code>(CustomerMasterKeySpec</code>).</p>\n            </li>\n         </ul>\n         <p>For encrypting, decrypting, re-encrypting, and generating data keys, the <code>KeyUsage</code> must be\n        <code>ENCRYPT_DECRYPT</code>. For signing and verifying, the <code>KeyUsage</code> must be\n        <code>SIGN_VERIFY</code>. To find the <code>KeyUsage</code> of a CMK, use the <a>DescribeKey</a> operation.</p>\n         <p>To find the encryption or signing algorithms supported for a particular CMK, use the <a>DescribeKey</a> operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#InvalidMarkerException": {
@@ -2768,7 +2791,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the marker that specifies where pagination should next\n      begin is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#KMSInternalException": {
@@ -2780,7 +2804,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because an internal exception occurred. The request can be\n      retried.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.trent#KMSInvalidStateException": {
@@ -2792,7 +2817,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the state of the specified resource is not valid for this\n      request.</p>\n         <p>For more information about how key state affects the use of a CMK, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">How Key State Affects Use of a\n        Customer Master Key</a> in the <i>\n               <i>AWS Key Management Service Developer Guide</i>\n            </i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.trent#KeyIdType": {
@@ -3000,7 +3026,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified CMK was not available. You can retry the\n      request.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.trent#KeyUsageType": {
@@ -3025,7 +3052,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because a limit was exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/limits.html\">Limits</a> in the\n      <i>AWS Key Management Service Developer Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#LimitType": {
@@ -3490,7 +3518,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified policy is not syntactically or semantically\n      correct.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#MarkerType": {
@@ -3525,7 +3554,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the specified entity or resource could not be\n      found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.trent#NumberOfBytesType": {
@@ -4154,7 +4184,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because one or more tags are not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#TagKeyList": {
@@ -4394,7 +4425,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Key Management Service"
+        "smithy.api#title": "AWS Key Management Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://trent.amazonaws.com/doc/2014-11-01/"
+        }
       }
     },
     "com.amazon.trent#TrustAnchorCertificateType": {
@@ -4415,7 +4449,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because a specified parameter is not supported or a specified\n      resource is not valid for this operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.trent#UntagResource": {

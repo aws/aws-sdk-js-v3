@@ -2410,7 +2410,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon CloudWatch Logs"
+        "smithy.api#title": "Amazon CloudWatch Logs",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://monitoring.amazonaws.com/doc/2014-03-28/"
+        }
       }
     },
     "com.amazonaws.logs.v20140328#MalformedQueryException": {

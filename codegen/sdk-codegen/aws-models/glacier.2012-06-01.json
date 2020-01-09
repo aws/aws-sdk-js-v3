@@ -1578,7 +1578,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Glacier"
+        "smithy.api#title": "Amazon Glacier",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://glacier.amazonaws.com/doc/2012-06-01/"
+        }
       }
     },
     "com.amazonaws.glacier.core.types#GlacierJobDescription": {

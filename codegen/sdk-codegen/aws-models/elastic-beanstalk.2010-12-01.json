@@ -903,7 +903,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>AWS CodeBuild is not available in the specified region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#ComposeEnvironments": {
@@ -3546,7 +3547,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account does not have sufficient privileges for one or more AWS\n      services.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.elasticbeanstalk#Integer": {
@@ -3564,7 +3566,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more input parameters is not valid. Please correct the input parameters and try\n      the operation again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#Latency": {
@@ -3992,7 +3995,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Cannot modify the managed action in its current state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#ManagedActions": {
@@ -4125,7 +4129,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Unable to perform the specified operation because another operation that effects an\n      element in this activity is already in progress.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#OptionNamespace": {
@@ -4526,7 +4531,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You cannot delete the platform version because there are still environments running on it.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#Queue": {
@@ -4667,7 +4673,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A resource doesn't exist for the specified Amazon Resource Name (ARN).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#ResourceQuota": {
@@ -4751,7 +4758,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The type of the specified Amazon Resource Name (ARN) isn't supported for this operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#RestartAppServer": {
@@ -4886,7 +4894,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified S3 bucket does not belong to the S3 region in which the service is\n      running. The following regions are supported:</p>\n         <ul>\n            <li>\n\t              <p>IAD/us-east-1</p>\n\t           </li>\n            <li>\n\t              <p>PDX/us-west-2</p>\n\t           </li>\n            <li>\n\t              <p>DUB/eu-west-1</p>\n\t           </li>\n         </ul>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#S3SubscriptionRequiredException": {
@@ -4901,7 +4910,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account does not have a subscription to Amazon S3.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#SampleTimestamp": {
@@ -5045,7 +5055,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Unable to delete the Amazon S3 source bundle associated with the application version.\n      The application version was deleted successfully.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#SourceConfiguration": {
@@ -5366,7 +5377,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account has reached its limit of applications.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#TooManyBucketsException": {
@@ -5381,7 +5393,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account has reached its limit of Amazon S3 buckets.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#TooManyConfigurationTemplatesException": {
@@ -5396,7 +5409,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account has reached its limit of configuration templates.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#TooManyEnvironmentsException": {
@@ -5411,7 +5425,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified account has reached its limit of environments.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#TooManyPlatformsException": {
@@ -5426,7 +5441,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You have exceeded the maximum number of allowed platforms associated with the account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#TooManyTagsException": {
@@ -5441,7 +5457,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The number of tags in the resource would exceed the number of tags that each resource\n      can have.</p>\n         <p>To calculate this, the operation considers both the number of tags the resource already has\n      and the tags this operation would add if it succeeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.elasticbeanstalk#Trigger": {

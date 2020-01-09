@@ -497,7 +497,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Kinesis Video Streams"
+        "smithy.api#title": "Amazon Kinesis Video Streams",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://kinesisvideo.amazonaws.com/doc/2017-09-30/"
+        }
       }
     },
     "com.amazon.kinesis.video.v20170930#KmsKeyId": {

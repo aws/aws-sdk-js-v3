@@ -99,7 +99,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The owner of the specified snapshot has not authorized your account to access the\n            snapshot.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#AccountAttribute": {
@@ -234,7 +235,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified CIDR block or EC2 security group is already authorized for the\n            specified cluster security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#AuthorizationNotFoundFault": {
@@ -246,7 +248,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified CIDR IP range or EC2 security group is not authorized for the\n            specified cluster security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#AuthorizationQuotaExceededFault": {
@@ -258,7 +261,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The authorization quota for the cluster security group has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#AuthorizeClusterSecurityGroupIngress": {
@@ -464,7 +468,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The maximum number for a batch delete of snapshots has been reached. The limit is\n            100. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#BatchModifyClusterSnapshots": {
@@ -496,7 +501,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The maximum number for snapshot identifiers has been reached. The limit is 100.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#BatchModifyClusterSnapshotsMessage": {
@@ -576,7 +582,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Could not find the specified S3 bucket.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#CancelResize": {
@@ -910,7 +917,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The account already has a cluster with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterAssociatedToSchedule": {
@@ -1096,7 +1104,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The <code>ClusterIdentifier</code> parameter does not refer to an existing cluster.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#ClusterOnLatestRevisionFault": {
@@ -1108,7 +1117,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Cluster is already on the latest database revision.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterParameterGroup": {
@@ -1152,7 +1162,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A cluster parameter group with the same name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterParameterGroupDetails": {
@@ -1204,7 +1215,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The parameter group name does not refer to an existing parameter group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#ClusterParameterGroupQuotaExceededFault": {
@@ -1216,7 +1228,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of cluster\n            parameter groups. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterParameterGroupStatus": {
@@ -1315,7 +1328,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would exceed the allowed number of cluster instances for this account.\n            \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSecurityGroup": {
@@ -1365,7 +1379,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A cluster security group with the same name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSecurityGroupMembership": {
@@ -1435,7 +1450,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster security group name does not refer to an existing cluster security\n            group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#ClusterSecurityGroupQuotaExceededFault": {
@@ -1447,7 +1463,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of cluster\n            security groups. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSecurityGroups": {
@@ -1468,7 +1485,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value specified as a snapshot identifier is already used by an existing\n            snapshot.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSnapshotCopyStatus": {
@@ -1512,7 +1530,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The snapshot identifier does not refer to an existing cluster snapshot.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#ClusterSnapshotQuotaExceededFault": {
@@ -1524,7 +1543,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of cluster\n            snapshots.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSubnetGroup": {
@@ -1580,7 +1600,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A <i>ClusterSubnetGroupName</i> is already used by an existing\n            cluster subnet group. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSubnetGroupMessage": {
@@ -1612,7 +1633,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster subnet group name does not refer to an existing cluster subnet\n            group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#ClusterSubnetGroupQuotaExceededFault": {
@@ -1624,7 +1646,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in user exceeding the allowed number of cluster subnet\n            groups. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterSubnetGroups": {
@@ -1645,7 +1668,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in user exceeding the allowed number of subnets in a\n            cluster subnet groups. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ClusterVersion": {
@@ -1795,7 +1819,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Cross-region snapshot copy was temporarily disabled. Try your request\n            again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#CreateCluster": {
@@ -3397,7 +3422,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be completed because a dependent service is throttling requests\n            made by Amazon Redshift on your behalf. Wait and retry the request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#DependentServiceUnavailableFault": {
@@ -3409,7 +3435,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Your request cannot be completed because a dependent internal service is\n            temporarily unavailable. Wait 30 to 60 seconds and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#DescribeAccountAttributes": {
@@ -5505,7 +5532,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would exceed the allowed number of event subscriptions for this\n            account. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#EventSubscriptionsList": {
@@ -5737,7 +5765,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There is already an existing Amazon Redshift HSM client certificate with the specified\n            identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#HsmClientCertificateList": {
@@ -5778,7 +5807,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There is no Amazon Redshift HSM client certificate with the specified\n            identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#HsmClientCertificateQuotaExceededFault": {
@@ -5790,7 +5820,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for HSM client certificates has been reached. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#HsmConfiguration": {
@@ -5840,7 +5871,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There is already an existing Amazon Redshift HSM configuration with the specified\n            identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#HsmConfigurationList": {
@@ -5881,7 +5913,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There is no Amazon Redshift HSM configuration with the specified identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#HsmConfigurationQuotaExceededFault": {
@@ -5893,7 +5926,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for HSM configurations has been reached. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#HsmStatus": {
@@ -5993,7 +6027,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the allowed number of table restore requests. Wait for your\n            current table restore requests to complete before making a new request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#IncompatibleOrderableOptions": {
@@ -6005,7 +6040,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified options are incompatible.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InsufficientClusterCapacityFault": {
@@ -6017,7 +6053,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The number of nodes specified exceeds the allotted capacity of the\n            cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InsufficientS3BucketPolicyFault": {
@@ -6029,7 +6066,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster does not have read bucket or put object permissions on the S3 bucket\n            specified when enabling logging.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#Integer": {
@@ -6050,7 +6088,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster parameter group action can not be completed because another task is in\n            progress that involves the parameter group. Wait a few moments and try the operation\n            again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterSecurityGroupStateFault": {
@@ -6062,7 +6101,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The state of the cluster security group is not <code>available</code>. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterSnapshotScheduleStateFault": {
@@ -6074,7 +6114,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster snapshot schedule state is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterSnapshotStateFault": {
@@ -6086,7 +6127,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified cluster snapshot is not in the <code>available</code> state, or other\n            accounts are authorized to access the snapshot. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterStateFault": {
@@ -6098,7 +6140,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified cluster is not in the <code>available</code> state. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterSubnetGroupStateFault": {
@@ -6110,7 +6153,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster subnet group cannot be deleted because it is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterSubnetStateFault": {
@@ -6122,7 +6166,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The state of the subnet is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidClusterTrackFault": {
@@ -6134,7 +6179,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The provided cluster track name is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidElasticIpFault": {
@@ -6146,7 +6192,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The Elastic IP (EIP) is invalid or cannot be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidHsmClientCertificateStateFault": {
@@ -6158,7 +6205,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified HSM client certificate is not in the <code>available</code> state, or\n            it is still in use by one or more Amazon Redshift clusters.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidHsmConfigurationStateFault": {
@@ -6170,7 +6218,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified HSM configuration is not in the <code>available</code> state, or it\n            is still in use by one or more Amazon Redshift clusters.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidReservedNodeStateFault": {
@@ -6182,7 +6231,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the Reserved Node being exchanged is not in an active state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidRestoreFault": {
@@ -6194,7 +6244,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The restore is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 406
       }
     },
     "redshift.admin#InvalidRetentionPeriodFault": {
@@ -6206,7 +6257,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The retention period specified is either in the past or is not a valid value.</p>\n\n        <p>The value must be either -1 or an integer between 1 and 3,653.</p>\n\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidS3BucketNameFault": {
@@ -6218,7 +6270,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\n        <p>The S3 bucket name is invalid. For more information about naming rules, go to\n                <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html\">Bucket\n                Restrictions and Limitations</a> in the Amazon Simple Storage Service (S3)\n            Developer Guide.</p>\n\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidS3KeyPrefixFault": {
@@ -6230,7 +6283,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The string specified for the logging S3 key prefix does not comply with the\n            documented constraints.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidScheduleFault": {
@@ -6242,7 +6296,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The schedule you submitted isn't valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidScheduledActionFault": {
@@ -6254,7 +6309,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The scheduled action is not valid. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidSnapshotCopyGrantStateFault": {
@@ -6266,7 +6322,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The snapshot copy grant can't be deleted because it is used by one or more\n            clusters.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidSubnet": {
@@ -6278,7 +6335,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested subnet is not valid, or not all of the subnets are in the same\n            VPC.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidSubscriptionStateFault": {
@@ -6290,7 +6348,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The subscription request is invalid because it is a duplicate request. This\n            subscription request is already in progress.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidTableRestoreArgumentFault": {
@@ -6302,7 +6361,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value specified for the <code>sourceDatabaseName</code>,\n                <code>sourceSchemaName</code>, or <code>sourceTableName</code> parameter, or a\n            combination of these, doesn't exist in the snapshot.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidTagFault": {
@@ -6314,7 +6374,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The tag is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#InvalidVPCNetworkStateFault": {
@@ -6326,7 +6387,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster subnet group does not cover all Availability Zones.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#LimitExceededFault": {
@@ -6338,7 +6400,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The encryption key has exceeded its grant limit in AWS KMS.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#LoggingStatus": {
@@ -7382,7 +7445,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation would exceed the number of nodes allowed for a cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#NumberOfNodesQuotaExceededFault": {
@@ -7394,7 +7458,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation would exceed the number of nodes allotted to the account.\n            \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#OperatorType": {
@@ -8146,7 +8211,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>User already has a reservation with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#ReservedNodeAlreadyMigratedFault": {
@@ -8158,7 +8224,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates that the reserved node has already been exchanged.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ReservedNodeList": {
@@ -8179,7 +8246,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified reserved compute node not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#ReservedNodeOffering": {
@@ -8262,7 +8330,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Specified offering does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#ReservedNodeOfferingType": {
@@ -8303,7 +8372,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Request would exceed the user's compute node quota. \nFor information about increasing your quota, go to <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/amazon-redshift-limits.html\">Limits in Amazon Redshift</a> \nin the <i>Amazon Redshift Cluster Management Guide</i>.\n</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ReservedNodesMessage": {
@@ -8480,7 +8550,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A resize operation for the specified cluster is not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#ResizeProgressMessage": {
@@ -8596,7 +8667,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The resource could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#RestorableNodeTypeList": {
@@ -9192,7 +9264,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Amazon SNS has responded that there is a problem with the specified Amazon SNS\n            topic.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SNSNoAuthorizationFault": {
@@ -9204,7 +9277,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You do not have permission to publish to the specified Amazon SNS topic.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SNSTopicArnNotFoundFault": {
@@ -9216,7 +9290,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An Amazon SNS topic with the specified Amazon Resource Name (ARN) does not\n            exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#ScheduleDefinitionList": {
@@ -9237,7 +9312,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The definition you submitted is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ScheduleState": {
@@ -9321,7 +9397,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The scheduled action already exists. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ScheduledActionFilter": {
@@ -9386,7 +9463,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The scheduled action cannot be found. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#ScheduledActionQuotaExceededFault": {
@@ -9398,7 +9476,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for scheduled actions exceeded. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ScheduledActionState": {
@@ -9446,7 +9525,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The action type specified for a scheduled action is not supported. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#ScheduledActionTypeValues": {
@@ -9722,7 +9802,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster already has cross-region snapshot copy disabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SnapshotCopyAlreadyEnabledFault": {
@@ -9734,7 +9815,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The cluster already has cross-region snapshot copy enabled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SnapshotCopyDisabledFault": {
@@ -9746,7 +9828,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Cross-region snapshot copy was temporarily disabled. Try your request\n            again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SnapshotCopyGrant": {
@@ -9784,7 +9867,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The snapshot copy grant can't be created because a grant with the same name already\n            exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SnapshotCopyGrantList": {
@@ -9825,7 +9909,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified snapshot copy grant can't be found. Make sure that the name is typed\n            correctly and that the grant exists in the destination region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SnapshotCopyGrantQuotaExceededFault": {
@@ -9837,7 +9922,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The AWS account has exceeded the maximum number of snapshot copy grants in this\n            region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SnapshotErrorMessage": {
@@ -9969,7 +10055,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified snapshot schedule already exists. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SnapshotScheduleList": {
@@ -9990,7 +10077,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>We could not find the specified snapshot schedule. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SnapshotScheduleQuotaExceededFault": {
@@ -10002,7 +10090,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the quota of snapshot schedules. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SnapshotScheduleUpdateInProgressFault": {
@@ -10014,7 +10103,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified snapshot schedule is already being updated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SnapshotSortingEntity": {
@@ -10078,7 +10168,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified Amazon Redshift event source could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#SourceType": {
@@ -10131,7 +10222,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A specified subnet is already in use by another cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#SubnetIdentifierList": {
@@ -10161,7 +10253,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There is already an existing event notification subscription with the specified\n            name.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#SubscriptionCategoryNotFoundFault": {
@@ -10173,7 +10266,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value specified for the event category was not one of the allowed values, or it\n            specified a category that does not apply to the specified source type. The allowed\n            values are Configuration, Management, Monitoring, and Security.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#SubscriptionEventIdNotFoundFault": {
@@ -10185,7 +10279,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An Amazon Redshift event with the specified event ID does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#SubscriptionNotFoundFault": {
@@ -10197,7 +10292,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An Amazon Redshift event notification subscription with the specified name does not\n            exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#SubscriptionSeverityNotFoundFault": {
@@ -10209,7 +10305,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value specified for the event severity was not one of the allowed values, or it\n            specified a severity that does not apply to the specified source type. The allowed\n            values are ERROR and INFO.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin.v20121201#SupportedOperation": {
@@ -10270,7 +10367,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The number of tables in the cluster exceeds the limit for the requested new cluster\n            node type. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#TableRestoreNotFoundFault": {
@@ -10282,7 +10380,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified <code>TableRestoreRequestId</code> value was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#TableRestoreStatus": {
@@ -10456,7 +10555,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the number of tags allowed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#TagList": {
@@ -10567,7 +10667,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Your account is not authorized to perform the requested operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#UnknownSnapshotCopyRegionFault": {
@@ -10579,7 +10680,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified region is incorrect or does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "redshift.admin#UnsupportedOperationFault": {
@@ -10591,7 +10693,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested operation isn't supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin#UnsupportedOptionFault": {
@@ -10603,7 +10706,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A request option was specified that is not supported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "redshift.admin.v20121201#UpdateTarget": {

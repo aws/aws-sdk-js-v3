@@ -121,7 +121,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Application Discovery Service"
+        "smithy.api#title": "AWS Application Discovery Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ec2.amazon.com/awsposiedon/V2015_11_01/"
+        }
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#AgentConfigurationStatus": {
@@ -360,7 +363,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The AWS user account does not have permission to perform the action. Check the IAM\n      policy associated with this account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#BatchDeleteImportData": {
@@ -565,7 +569,10 @@
     "com.amazonaws.awsposeidon.V2015_11_01#ConfigurationTagSet": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsposeidon.V2015_11_01#ConfigurationTag"
+        "target": "com.amazonaws.awsposeidon.V2015_11_01#ConfigurationTag",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#Configurations": {
@@ -589,7 +596,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#ContinuousExportDescription": {
@@ -1854,7 +1862,10 @@
     "com.amazonaws.awsposeidon.V2015_11_01#FilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsposeidon.V2015_11_01#FilterValue"
+        "target": "com.amazonaws.awsposeidon.V2015_11_01#FilterValue",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#Filters": {
@@ -1946,7 +1957,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The home region is not set. Set the home region to continue.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#ImportStatus": {
@@ -2171,7 +2183,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more parameters are not valid. Verify the parameters and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#InvalidParameterValueException": {
@@ -2183,7 +2196,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The value of one or more parameters are either invalid or out of range. Verify the\n      parameter values and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#ListConfigurations": {
@@ -2425,7 +2439,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>This operation is not permitted.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#OrderByElement": {
@@ -2464,7 +2479,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>This issue occurs when the same <code>clientRequestToken</code> is used with the\n        <code>StartImportTask</code> action, but with different parameters. For example, you use the\n      same request token but have two different import URLs, you can encounter this issue. If the\n      import tasks are meant to be different, use a different <code>clientRequestToken</code>, and\n      try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#ResourceNotFoundException": {
@@ -2476,7 +2492,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified configuration ID was not located. Verify the configuration ID and try\n      again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#S3Bucket": {
@@ -2503,7 +2520,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The server experienced an internal error. Try again.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#StartContinuousExport": {
@@ -2963,7 +2981,10 @@
     "com.amazonaws.awsposeidon.V2015_11_01#TagSet": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.awsposeidon.V2015_11_01#Tag"
+        "target": "com.amazonaws.awsposeidon.V2015_11_01#Tag",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.awsposeidon.V2015_11_01#TagValue": {

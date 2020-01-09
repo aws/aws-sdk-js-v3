@@ -94,7 +94,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Batch"
+        "smithy.api#title": "AWS Batch",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://batch.amazonaws.com/doc/2016-08-10/"
+        }
       }
     },
     "com.amazonaws.dilithium.frontend#ArrayJobDependency": {

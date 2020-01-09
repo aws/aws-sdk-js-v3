@@ -1015,7 +1015,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#ConcurrentModificationMessage": {
@@ -2002,7 +2003,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the most recent credential report has expired. To\n      generate a new credential report, use <a>GenerateCredentialReport</a>. For more\n      information about credential report expiration, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting Credential Reports</a> in the\n        <i>IAM User Guide</i>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 410
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#CredentialReportNotPresentException": {
@@ -2014,7 +2016,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the credential report does not exist. To generate a\n      credential report, use <a>GenerateCredentialReport</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 410
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#CredentialReportNotReadyException": {
@@ -2026,7 +2029,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the credential report is still being\n      generated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#DeactivateMFADevice": {
@@ -2167,7 +2171,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to delete a resource that has attached\n      subordinate entities. The error message describes these entities.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#DeleteGroup": {
@@ -3091,7 +3096,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the same certificate is associated with an IAM user in\n      the account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#DuplicateSSHPublicKeyException": {
@@ -3103,7 +3109,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the SSH public key is already associated with the\n      specified IAM user.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#EnableMFADevice": {
@@ -3177,7 +3184,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to create a resource that already\n      exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#EntityDetails": {
@@ -3251,7 +3259,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it referenced an entity that is temporarily\n      unmodifiable, such as a user name that was deleted and then recreated. The error indicates\n      that the request is likely to succeed if you try again after waiting several minutes. The\n      error message describes the entity.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#EntityType": {
@@ -5148,7 +5157,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the authentication code was not recognized. The error\n      message describes the specific error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#InvalidCertificateException": {
@@ -5160,7 +5170,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the certificate is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#InvalidInputException": {
@@ -5172,7 +5183,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because an invalid or out-of-range value was supplied for an\n      input parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#InvalidPublicKeyException": {
@@ -5184,7 +5196,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the public key is malformed or otherwise\n      invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#InvalidUserTypeException": {
@@ -5196,7 +5209,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the type of user for the transaction was\n      incorrect.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#KeyPairMismatchException": {
@@ -5208,7 +5222,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the public key certificate and the private key do not\n      match.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#LimitExceededException": {
@@ -5220,7 +5235,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it attempted to create resources beyond the current\n      AWS account limits. The error message describes the limit exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#LineNumber": {
@@ -7352,7 +7368,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the certificate was malformed or expired. The error\n      message describes the specific error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#MalformedPolicyDocumentException": {
@@ -7364,7 +7381,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the policy document was malformed. The error message\n      describes the specific error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#ManagedPolicyDetail": {
@@ -7459,7 +7477,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because it referenced a resource entity that does not exist. The error\n      message describes the resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#OpenIDConnectProviderListEntry": {
@@ -7583,7 +7602,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the provided password did not meet the requirements\n      imposed by the account password policy.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#PermissionsBoundaryAttachmentType": {
@@ -7712,7 +7732,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request failed because a provided policy could not be successfully evaluated. An\n      additional detailed message indicates the source of the failure.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#PolicyGrantingServiceAccess": {
@@ -7790,7 +7811,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request failed because AWS service role policies can only be attached to the\n      service-linked role for that service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#PolicyRole": {
@@ -8330,7 +8352,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request failed because the maximum number of concurrent requests for this\n    account are already running.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#ReportStateDescriptionType": {
@@ -8953,7 +8976,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request processing has failed because of an unknown error, exception or\n      failure.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#ServiceLastAccessed": {
@@ -9005,7 +9029,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified service does not support service-specific credentials.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#ServiceSpecificCredential": {
@@ -9623,7 +9648,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because only the service that depends on the service-linked\n      role can modify or delete the role on your behalf. The error message includes the name of the\n      service that depends on this service-linked role. You must request the change through that\n      service.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#UnrecognizedPublicKeyEncodingException": {
@@ -9635,7 +9661,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request was rejected because the public key encoding format is unsupported or\n      unrecognized.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.webservices.auth.identity.v20100508#UntagRole": {

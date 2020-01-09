@@ -1510,7 +1510,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Kinesis Firehose"
+        "smithy.api#title": "Amazon Kinesis Firehose",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://firehose.amazonaws.com/doc/2015-08-04"
+        }
       }
     },
     "com.amazonaws.firehose.v20150804#HECAcknowledgmentTimeoutInSeconds": {
@@ -3045,7 +3048,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The service is unavailable. Back off and retry the operation. If you continue to see\n         the exception, throughput limits for the delivery stream may have been exceeded. For more\n         information about limits and how to request an increase, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/limits.html\">Amazon Kinesis Data Firehose\n         Limits</a>.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.firehose.v20150804#SizeInMBs": {

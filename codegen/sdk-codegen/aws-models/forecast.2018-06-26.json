@@ -2296,7 +2296,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>We can't process the request because it includes an invalid value or a value that exceeds\n      the valid range.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.seer.service#InvalidNextTokenException": {
@@ -2308,7 +2309,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The token is not valid. Tokens expire after 24 hours.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.seer.service#KMSKeyArn": {
@@ -2330,7 +2332,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The limit on the number of resources per account has been exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.seer.service#ListDatasetGroups": {
@@ -2932,7 +2935,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>There is already a resource with this name. Try again with a different name.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.seer.service#ResourceInUseException": {
@@ -2944,7 +2948,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.seer.service#ResourceNotFoundException": {
@@ -2956,7 +2961,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n    \n         <p>We can't find a resource with that Amazon Resource Name (ARN). Check the ARN and try\n      again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.seer.service#S3Config": {

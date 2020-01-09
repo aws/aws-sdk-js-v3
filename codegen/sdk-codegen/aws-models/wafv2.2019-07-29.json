@@ -154,7 +154,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS WAFV2"
+        "smithy.api#title": "AWS WAFV2",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://waf.amazonaws.com/doc/2019-07-29/"
+        }
       }
     },
     "com.amazonaws.gokucustomerapiv2.v20190729#Action": {

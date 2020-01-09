@@ -169,7 +169,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS AppSync"
+        "smithy.api#title": "AWS AppSync",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://appsync.amazonaws.com"
+        }
       }
     },
     "com.amazonaws.deepdish.controlplane#AccessDeniedException": {

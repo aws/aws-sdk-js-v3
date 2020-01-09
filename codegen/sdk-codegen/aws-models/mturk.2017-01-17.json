@@ -2559,7 +2559,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Mechanical Turk"
+        "smithy.api#title": "Amazon Mechanical Turk",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://requester.mturk.com/2017-01-17/"
+        }
       }
     },
     "com.amazonaws.services.mturk.requester.V20170117#NotificationSpecification": {
@@ -3150,7 +3153,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Your request is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.mturk.requester.V20170117#ResultSize": {
@@ -3485,7 +3489,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Amazon Mechanical Turk is temporarily unable to process your request. Try your call again.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.services.mturk.requester.V20170117#String": {

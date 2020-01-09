@@ -1632,7 +1632,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n  <p>The request was rejected because it attempted an operation which is not enabled.</p>\n  ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.a9.cloudsearch.config2013#DocumentSuggesterOptions": {
@@ -2303,7 +2304,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n    <p>An internal error occurred while processing the request. If this problem persists,\n      report an issue from the <a href=\"http://status.aws.amazon.com/\" target=\"_blank\">Service Health Dashboard</a>.</p>\n  ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.a9.cloudsearch.config2013#InvalidTypeException": {
@@ -2318,7 +2320,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n  <p>The request was rejected because it specified an invalid type definition.</p>\n  ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.a9.cloudsearch.config2013#LatLonOptions": {
@@ -2374,7 +2377,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n  <p>The request was rejected because a resource limit has already been met.</p>\n  ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.a9.cloudsearch.config2013#Limits": {
@@ -2622,7 +2626,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n  <p>The request was rejected because it attempted to reference a resource that does not exist.</p>\n  ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.a9.cloudsearch.config2013#ScalingParameters": {
@@ -3158,7 +3163,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n    <p>The request was rejected because it has invalid parameters.</p>\n  ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.a9.cloudsearch.config2013#Word": {

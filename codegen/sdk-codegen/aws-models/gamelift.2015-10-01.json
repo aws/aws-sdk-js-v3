@@ -4241,7 +4241,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon GameLift"
+        "smithy.api#title": "Amazon GameLift",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://gamelift.amazonaws.com/doc/"
+        }
       }
     },
     "com.amazonaws.gameliftapi.v20151001#GameProperty": {

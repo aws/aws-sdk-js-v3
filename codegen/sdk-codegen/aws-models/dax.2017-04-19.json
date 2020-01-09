@@ -109,7 +109,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon DynamoDB Accelerator (DAX)"
+        "smithy.api#title": "Amazon DynamoDB Accelerator (DAX)",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://dax.amazonaws.com/doc/2017-04-19/"
+        }
       }
     },
     "dax.admin.v20170419#AvailabilityZoneList": {
@@ -249,7 +252,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have a DAX cluster with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#ClusterList": {
@@ -273,7 +277,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cluster ID does not refer to an existing DAX cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#ClusterQuotaForCustomerExceededFault": {
@@ -285,7 +290,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have attempted to exceed the maximum number of DAX clusters for your AWS\n            account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#CreateCluster": {
@@ -1348,7 +1354,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>There are not enough system resources to create the cluster you requested (or to\n            resize an already-existing cluster). </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#Integer": {
@@ -1369,7 +1376,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidClusterStateFault": {
@@ -1381,7 +1389,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested DAX cluster is not in the <i>available</i>\n            state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterCombinationException": {
@@ -1393,7 +1402,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Two or more incompatible parameters were specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidParameterGroupStateFault": {
@@ -1405,7 +1415,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>One or more parameters in a parameter group are in an invalid state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterValueException": {
@@ -1417,7 +1428,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value for a parameter is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidSubnet": {
@@ -1429,7 +1441,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An invalid subnet identifier was specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidVPCNetworkStateFault": {
@@ -1441,7 +1454,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The VPC network is in an invalid state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#IsModifiable": {
@@ -1592,7 +1606,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>None of the nodes in the cluster have the given node ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#NodeQuotaForClusterExceededFault": {
@@ -1604,7 +1619,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have attempted to exceed the maximum number of nodes for a DAX\n            cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#NodeQuotaForCustomerExceededFault": {
@@ -1616,7 +1632,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have attempted to exceed the maximum number of nodes for your AWS\n            account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#NodeTypeSpecificValue": {
@@ -1762,7 +1779,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified parameter group already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#ParameterGroupList": {
@@ -1786,7 +1804,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified parameter group does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#ParameterGroupQuotaExceededFault": {
@@ -1798,7 +1817,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have attempted to exceed the maximum number of parameter groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#ParameterGroupStatus": {
@@ -2017,7 +2037,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified service linked role (SLR) was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#SourceType": {
@@ -2094,7 +2115,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified subnet group already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#SubnetGroupInUseFault": {
@@ -2106,7 +2128,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified subnet group is currently in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#SubnetGroupList": {
@@ -2130,7 +2153,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested subnet group name does not refer to an existing subnet\n            group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#SubnetGroupQuotaExceededFault": {
@@ -2142,7 +2166,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of\n            subnets in a subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#SubnetIdentifierList": {
@@ -2160,7 +2185,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested subnet is being used by another subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#SubnetList": {
@@ -2178,7 +2204,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of\n            subnets in a subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#TStamp": {
@@ -2219,7 +2246,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The tag does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#TagQuotaPerResourceExceeded": {
@@ -2231,7 +2259,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the maximum number of tags for this DAX cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "dax.admin.v20170419#TagResource": {

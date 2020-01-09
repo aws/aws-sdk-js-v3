@@ -189,7 +189,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The pagination token expired. Try again without a pagination token.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awspricelistservice#Filter": {
@@ -422,7 +423,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An error on the server occurred during the processing of your request. Try again later.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.awspricelistservice#InvalidNextTokenException": {
@@ -434,7 +436,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The pagination token is invalid. Try again without a pagination token.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awspricelistservice#InvalidParameterException": {
@@ -446,7 +449,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>One or more parameters had an invalid value.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awspricelistservice#NotFoundException": {
@@ -458,7 +462,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The requested resource can't be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awspricelistservice#PriceList": {

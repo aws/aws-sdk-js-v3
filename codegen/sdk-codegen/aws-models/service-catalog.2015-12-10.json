@@ -2210,6 +2210,7 @@
           "target": "com.amazonaws.aws242.library#TagOptionId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The TagOption identifier.</p>\n      ",
+            "smithy.api#httpQuery": "id",
             "smithy.api#required": true
           }
         }
@@ -3125,6 +3126,7 @@
           "target": "com.amazonaws.aws242.library#TagOptionId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The TagOption identifier.</p>\n      ",
+            "smithy.api#httpQuery": "id",
             "smithy.api#required": true
           }
         }
@@ -3399,6 +3401,7 @@
           "target": "com.amazonaws.aws242.library#ResourceId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The resource identifier.</p>\n      ",
+            "smithy.api#httpQuery": "resourceId",
             "smithy.api#required": true
           }
         },
@@ -3406,6 +3409,7 @@
           "target": "com.amazonaws.aws242.library#TagOptionId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The TagOption identifier.</p>\n      ",
+            "smithy.api#httpQuery": "tagOptionId",
             "smithy.api#required": true
           }
         }
@@ -4842,25 +4846,29 @@
         "PageSize": {
           "target": "com.amazonaws.aws242.library#PageSize",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The maximum number of items to return with this call.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The maximum number of items to return with this call.</p>\n      ",
+            "smithy.api#httpQuery": "pageSize"
           }
         },
         "PageToken": {
           "target": "com.amazonaws.aws242.servicecatalog.v20151210#PageToken",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>\n      "
+            "smithy.api#documentation": "\n         <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>\n      ",
+            "smithy.api#httpQuery": "pageToken"
           }
         },
         "ResourceType": {
           "target": "com.amazonaws.aws242.library#ResourceType",
           "traits": {
-            "smithy.api#documentation": "\n         <p>The resource type.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Portfolio</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Product</code>\n               </p>\n            </li>\n         </ul>\n      "
+            "smithy.api#documentation": "\n         <p>The resource type.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Portfolio</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>Product</code>\n               </p>\n            </li>\n         </ul>\n      ",
+            "smithy.api#httpQuery": "resourceType"
           }
         },
         "TagOptionId": {
           "target": "com.amazonaws.aws242.library#TagOptionId",
           "traits": {
             "smithy.api#documentation": "\n         <p>The TagOption identifier.</p>\n      ",
+            "smithy.api#httpQuery": "tagOptionId",
             "smithy.api#required": true
           }
         }

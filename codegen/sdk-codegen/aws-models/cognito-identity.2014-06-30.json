@@ -118,7 +118,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Cognito Identity"
+        "smithy.api#title": "Amazon Cognito Identity",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://cognito-identity.amazonaws.com/doc/2014-06-30/"
+        }
       }
     },
     "com.amazonaws.cognito.identity.model#AccessKeyString": {
@@ -240,7 +243,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown if there are parallel requests to modify a resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#CreateIdentityPool": {
@@ -577,7 +581,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The provided developer user identifier is already registered with Cognito under a\n         different identity ID.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#DeveloperUserIdentifier": {
@@ -620,7 +625,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception thrown when a dependent service such as Facebook or Twitter is not\n         responding</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#GetCredentialsForIdentity": {
@@ -1293,7 +1299,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown if the identity pool has no role associated for the given auth type\n         (auth/unauth) or if the AssumeRole fails.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#InvalidParameterException": {
@@ -1308,7 +1315,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown for missing or bad input parameter(s).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#LimitExceededException": {
@@ -1323,7 +1331,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown when the total number of user pools has exceeded a preset limit.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.cognito.identity.model#ListIdentities": {
@@ -1816,7 +1825,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown when a user is not authorized to access the requested resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.cognito.identity.model#OIDCProviderList": {
@@ -1858,7 +1868,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown when a user tries to use a login which is already linked to another\n         account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.cognito.identity.model#ResourceNotFoundException": {
@@ -1873,7 +1884,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown when the requested resource (for example, a dataset or record) does not\n         exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.cognito.identity.model#RoleMapping": {
@@ -2134,7 +2146,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Thrown when a request is throttled.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.cognito.identity.model#UnlinkDeveloperIdentity": {

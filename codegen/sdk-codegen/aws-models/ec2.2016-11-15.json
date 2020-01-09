@@ -27761,9 +27761,6 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.ec2#InferenceDeviceInfo"
-      },
-      "traits": {
-        "smithy.api#xmlName": "item"
       }
     },
     "com.amazonaws.ec2#InferenceDeviceManufacturerName": {
@@ -38953,8 +38950,7 @@
         "smithy.api#length": {
           "min": 0,
           "max": 100
-        },
-        "smithy.api#xmlName": "InstanceType"
+        }
       }
     },
     "com.amazonaws.ec2#RequestLaunchTemplateData": {

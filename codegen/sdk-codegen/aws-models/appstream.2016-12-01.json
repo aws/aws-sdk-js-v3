@@ -463,7 +463,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An API error occurred. Wait a few minutes and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#CopyImage": {
@@ -3235,7 +3236,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The image does not support storage connectors.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#Integer": {
@@ -3253,7 +3255,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n            <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>\n        ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#InvalidParameterCombinationException": {
@@ -3265,7 +3268,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#InvalidRoleException": {
@@ -3277,7 +3281,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified role is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#LastReportGenerationExecutionError": {
@@ -3315,7 +3320,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested limit exceeds the permitted limit for an account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#ListAssociatedFleets": {
@@ -3525,7 +3531,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The attempted operation is not permitted.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#OrganizationalUnitDistinguishedName": {
@@ -3758,7 +3765,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#ResourceError": {
@@ -3811,7 +3819,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#ResourceNotAvailableException": {
@@ -3823,7 +3832,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource exists and is not in use, but isn't available.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.photon#ResourceNotFoundException": {
@@ -3835,7 +3845,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.photon#SecurityGroupIdList": {

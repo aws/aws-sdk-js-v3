@@ -91,7 +91,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon QLDB"
+        "smithy.api#title": "Amazon QLDB",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://ledger.amazonaws.com/doc/2019-01-02/"
+        }
       }
     },
     "com.amazonaws.ledger.v20190102#Arn": {

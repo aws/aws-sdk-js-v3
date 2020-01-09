@@ -175,7 +175,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Amplify"
+        "smithy.api#title": "AWS Amplify",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://amplify.amazonaws.com"
+        }
       }
     },
     "com.amazonaws.amplify#App": {

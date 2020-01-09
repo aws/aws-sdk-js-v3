@@ -1765,7 +1765,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.iot.thingsgraph.types#InvalidRequestException": {
@@ -1777,7 +1778,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.iot.thingsgraph#IotThingsGraphFrontEndService": {
@@ -1918,7 +1920,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 410
       }
     },
     "com.amazonaws.iot.thingsgraph#ListFlowExecutionMessages": {
@@ -2144,7 +2147,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.iot.thingsgraph.types#ResourceArn": {
@@ -2165,7 +2169,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 412
       }
     },
     "com.amazonaws.iot.thingsgraph.types#ResourceNotFoundException": {
@@ -2177,7 +2182,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.iot.thingsgraph.types#RoleArn": {
@@ -3133,7 +3139,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.iot.thingsgraph.types#Timestamp": {

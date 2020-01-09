@@ -253,7 +253,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Elasticsearch Service"
+        "smithy.api#title": "Amazon Elasticsearch Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://es.amazonaws.com/doc/2015-01-01/"
+        }
       }
     },
     "com.a9.es.exceptions#BaseException": {
@@ -2694,7 +2697,10 @@
     "com.a9.es.config2015#RecurringChargeList": {
       "type": "list",
       "member": {
-        "target": "com.a9.es.config2015#RecurringCharge"
+        "target": "com.a9.es.config2015#RecurringCharge",
+        "traits": {
+          "smithy.api#xmlName": "RecurringCharge"
+        }
       }
     },
     "com.a9.es.config2015#RemoveTags": {
@@ -2904,7 +2910,10 @@
     "com.a9.es.config2015#ReservedElasticsearchInstanceOfferingList": {
       "type": "list",
       "member": {
-        "target": "com.a9.es.config2015#ReservedElasticsearchInstanceOffering"
+        "target": "com.a9.es.config2015#ReservedElasticsearchInstanceOffering",
+        "traits": {
+          "smithy.api#xmlName": "ReservedElasticsearchInstanceOffering"
+        }
       }
     },
     "com.a9.es.config2015#ReservedElasticsearchInstancePaymentOption": {

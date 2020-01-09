@@ -136,7 +136,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Fraud Detector"
+        "smithy.api#title": "Amazon Fraud Detector",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://hawksnest.amazonaws.com/doc/2019-11-15"
+        }
       }
     },
     "com.amazonaws.hawksnest.servicefacade#BatchCreateVariable": {
@@ -1834,7 +1837,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception indicating an internal server error.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.hawksnest.servicefacade#IsOpaque": {
@@ -2659,7 +2663,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception indicating the specified resource was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.hawksnest.servicefacade#Role": {
@@ -2809,7 +2814,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception indicating a throttling error.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.hawksnest.servicefacade#TrainingDataSource": {
@@ -3285,7 +3291,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception indicating a specified value is not allowed.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.hawksnest.servicefacade#Variable": {

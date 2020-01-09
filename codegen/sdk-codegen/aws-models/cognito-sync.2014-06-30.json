@@ -97,7 +97,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Cognito Sync"
+        "smithy.api#title": "Amazon Cognito Sync",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://cognito-sync.amazonaws.com/doc/2014-06-30/"
+        }
       }
     },
     "com.amazonaws.cognito.sync.model#AlreadyStreamedException": {

@@ -34,7 +34,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The customer has exceeded the allowed rate of API calls.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#AZMode": {
@@ -326,7 +327,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified Amazon EC2 security group is already authorized for the specified cache security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#AuthorizationNotFoundFault": {
@@ -338,7 +340,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified Amazon EC2 security group is not authorized for the specified cache security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#AuthorizeCacheSecurityGroupIngress": {
@@ -711,7 +714,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have a cluster with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheClusterIdList": {
@@ -764,7 +768,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cluster ID does not refer to an existing cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#CacheEngineVersion": {
@@ -1102,7 +1107,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A cache parameter group with the requested name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheParameterGroupDetails": {
@@ -1163,7 +1169,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache parameter group name does not refer to an existing cache parameter group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#CacheParameterGroupQuotaExceededFault": {
@@ -1175,7 +1182,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the maximum number of cache security groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheParameterGroupStatus": {
@@ -1265,7 +1273,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A cache security group with the specified name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheSecurityGroupMembership": {
@@ -1335,7 +1344,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache security group name does not refer to an existing cache security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#CacheSecurityGroupQuotaExceededFault": {
@@ -1347,7 +1357,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of cache security groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheSecurityGroups": {
@@ -1400,7 +1411,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache subnet group name is already in use by an existing cache subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#CacheSubnetGroupInUse": {
@@ -1412,7 +1424,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache subnet group is currently in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheSubnetGroupMessage": {
@@ -1444,7 +1457,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache subnet group name does not refer to an existing cache subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#CacheSubnetGroupQuotaExceededFault": {
@@ -1456,7 +1470,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of cache subnet groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CacheSubnetGroups": {
@@ -1477,7 +1492,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of subnets in a cache subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#ChangeType": {
@@ -1507,7 +1523,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of clusters per customer.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#CompleteMigration": {
@@ -3901,7 +3918,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache node type is not available in the specified Availability Zone.\n            For more information, see <a href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY\">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#Integer": {
@@ -3922,7 +3940,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidCacheClusterStateFault": {
@@ -3934,7 +3953,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cluster is not in the <code>available</code> state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidCacheParameterGroupStateFault": {
@@ -3946,7 +3966,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The current state of the cache parameter group does not allow the requested operation to occur.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidCacheSecurityGroupStateFault": {
@@ -3958,7 +3979,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The current state of the cache security group does not allow deletion.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidKMSKeyFault": {
@@ -3970,7 +3992,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The KMS key supplied is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterCombinationException": {
@@ -3985,7 +4008,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Two or more incompatible parameters were specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazon.coral.service#InvalidParameterValueException": {
@@ -4000,7 +4024,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The value for a parameter is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidReplicationGroupStateFault": {
@@ -4012,7 +4037,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested replication group is not in the <code>available</code> state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidSnapshotStateFault": {
@@ -4024,7 +4050,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The current state of the snapshot does not allow the requested operation to occur.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidSubnet": {
@@ -4036,7 +4063,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An invalid subnet identifier was specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#InvalidVPCNetworkStateFault": {
@@ -4048,7 +4076,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The VPC network is in an invalid state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#KeyList": {
@@ -4698,7 +4727,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The operation was not performed because no changes were required.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#NodeGroup": {
@@ -4928,7 +4958,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The node group specified by the <code>NodeGroupId</code> parameter could not be found.\n            Please verify that the node group exists and that you spelled the <code>NodeGroupId</code> value correctly.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#NodeGroupUpdateStatus": {
@@ -4969,7 +5000,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the maximum allowed number\n            of node groups (shards) in a single replication group. The default maximum is 90</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#NodeGroupsToRemoveList": {
@@ -4999,7 +5031,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of cache nodes in a single cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#NodeQuotaForCustomerExceededFault": {
@@ -5011,7 +5044,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the allowed number of cache nodes per customer.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#NodeSnapshot": {
@@ -5653,7 +5687,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified replication group already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin#ReplicationGroupAlreadyUnderMigrationFault": {
@@ -5665,7 +5700,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The targeted replication group is not available. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#ReplicationGroupIdList": {
@@ -5718,7 +5754,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified replication group does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#ReplicationGroupNotUnderMigrationFault": {
@@ -5730,7 +5767,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The designated replication group is not available for data migration.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#ReplicationGroupPendingModifiedValues": {
@@ -5860,7 +5898,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have a reservation with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#ReservedCacheNodeList": {
@@ -5901,7 +5940,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested reserved cache node was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#ReservedCacheNodeQuotaExceededFault": {
@@ -5913,7 +5953,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the user's cache node quota.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#ReservedCacheNodesOffering": {
@@ -6010,7 +6051,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested cache node offering does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#ResetCacheParameterGroup": {
@@ -6211,7 +6253,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified service linked role (SLR) was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#ServiceUpdate": {
@@ -6312,7 +6355,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The service update doesn't exist</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin.v20150202#ServiceUpdateSeverity": {
@@ -6586,7 +6630,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You already have a snapshot with the given name.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#SnapshotArnsList": {
@@ -6607,7 +6652,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You attempted one of the following operations:</p>\n        <ul>\n            <li>\n               <p>Creating a snapshot of a Redis cluster running on a <code>cache.t1.micro</code> cache\n                    node.</p>\n            </li>\n            <li>\n               <p>Creating a snapshot of a cluster that is running Memcached rather than Redis.</p>\n            </li>\n         </ul>\n        <p>Neither of these are supported by ElastiCache.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#SnapshotList": {
@@ -6628,7 +6674,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested snapshot name does not refer to an existing snapshot.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#SnapshotQuotaExceededFault": {
@@ -6640,7 +6687,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would exceed the maximum number of snapshots.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#SourceType": {
@@ -6749,7 +6797,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested subnet is being used by another cache subnet group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#SubnetList": {
@@ -6816,7 +6865,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested tag was not found on this resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "elmo.admin#TagQuotaPerResourceExceeded": {
@@ -6828,7 +6878,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request cannot be processed because it would cause the resource to have more than the allowed number of tags. The maximum number of tags permitted on a resource is 50.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#TestFailover": {
@@ -6900,7 +6951,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The <code>TestFailover</code> action is not available.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "elmo.admin.v20150202#TimeRangeFilter": {

@@ -34,7 +34,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You do not have sufficient access to perform this action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#AccountId": {
@@ -900,7 +901,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request processing has failed because of an unknown error, exception, or\n            failure.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#InvalidParameterValueException": {
@@ -912,7 +914,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An invalid or out-of-range value was supplied for the input parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#LastRefreshTimestamp": {
@@ -983,7 +986,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request must contain either a valid (registered) AWS access key ID or X.509\n            certificate.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#NextToken": {
@@ -998,7 +1002,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You must opt in to the service to perform this action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#PerformanceRisk": {
@@ -1178,7 +1183,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#ServiceUnavailableException": {
@@ -1190,7 +1196,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request has failed due to a temporary failure of the server.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#Status": {
@@ -1256,7 +1263,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The limit on the number of requests per second was exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.computeoptimizer.version_2019_11_01#Timestamp": {

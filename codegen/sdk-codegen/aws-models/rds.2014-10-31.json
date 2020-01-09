@@ -769,7 +769,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified CIDR IP range or Amazon EC2 security group is already authorized for\n            the specified DB security group.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#AuthorizationNotFoundFault": {
@@ -781,7 +782,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified CIDR IP range or Amazon EC2 security group might not be authorized\n            for the specified DB security group.</p>\n        <p>Or, RDS might not be authorized to perform necessary actions using IAM on your\n            behalf.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#AuthorizationQuotaExceededFault": {
@@ -793,7 +795,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB security group authorization quota has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#AuthorizeDBSecurityGroupIngress": {
@@ -993,7 +996,8 @@
         "smithy.api#deprecated": {
           "message": "Please avoid using this fault"
         },
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#Boolean": {
@@ -1087,7 +1091,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>CertificateIdentifier</code> doesn't refer to an\n        existing certificate.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#CharacterSet": {
@@ -3221,7 +3226,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>CustomAvailabilityZoneName</code> is already used by an existing custom\n            Availability Zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#CustomAvailabilityZoneList": {
@@ -3259,7 +3265,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>CustomAvailabilityZoneId</code> doesn't refer to an existing custom\n            Availability Zone identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#CustomAvailabilityZoneQuotaExceededFault": {
@@ -3271,7 +3278,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the maximum number of custom Availability Zones.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBCluster": {
@@ -3594,7 +3602,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The user already has a DB cluster with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBClusterBacktrack": {
@@ -3679,7 +3688,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>BacktrackIdentifier</code> doesn't refer to an existing backtrack. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBClusterCapacityInfo": {
@@ -3794,7 +3804,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified custom endpoint can't be created because it already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBClusterEndpointList": {
@@ -3832,7 +3843,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified custom endpoint doesn't exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBClusterEndpointQuotaExceededFault": {
@@ -3844,7 +3856,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The cluster already has the maximum number of custom endpoints.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "rds.admin.v20141031#DBClusterList": {
@@ -3926,7 +3939,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBClusterOptionGroupMemberships": {
@@ -4042,7 +4056,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB\n            cluster parameter group. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBClusterParameterGroupsMessage": {
@@ -4074,7 +4089,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The user attempted to create a new DB cluster and the user has already reached the\n            maximum allowed DB cluster quota.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "rds.admin.v20141031#DBClusterRole": {
@@ -4112,7 +4128,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified IAM role Amazon Resource Name (ARN) is already associated with the specified DB cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBClusterRoleNotFoundFault": {
@@ -4124,7 +4141,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified IAM role Amazon Resource Name (ARN) isn't associated with the specified DB cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBClusterRoleQuotaExceededFault": {
@@ -4136,7 +4154,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBClusterRoles": {
@@ -4285,7 +4304,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The user already has a DB cluster snapshot with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBClusterSnapshotAttribute": {
@@ -4375,7 +4395,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBEngineVersion": {
@@ -4870,7 +4891,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The user already has a DB instance with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBInstanceAutomatedBackup": {
@@ -5057,7 +5079,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n    \t    <p>No automated backup for this DB instance was found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBInstanceAutomatedBackupQuotaExceededFault": {
@@ -5069,7 +5092,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The quota for retained automated backups was exceeded. This prevents you\n            from retaining any additional automated backups. The retained automated backups \n            quota is the same as your DB Instance quota.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBInstanceList": {
@@ -5110,7 +5134,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBInstanceRole": {
@@ -5148,7 +5173,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified <code>RoleArn</code> or <code>FeatureName</code> value is already associated with the DB instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBInstanceRoleNotFoundFault": {
@@ -5160,7 +5186,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified <code>RoleArn</code> value doesn't match the specified feature for\n            the DB instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBInstanceRoleQuotaExceededFault": {
@@ -5172,7 +5199,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You can't associate any more AWS Identity and Access Management (IAM) roles with the DB instance because the quota has been reached.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBInstanceRoles": {
@@ -5234,7 +5262,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>LogFileName</code> doesn't refer to an existing DB log file.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBParameterGroup": {
@@ -5278,7 +5307,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A DB parameter group with the same name exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBParameterGroupDetails": {
@@ -5333,7 +5363,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBParameterGroupName</code> doesn't refer to an\n        existing DB parameter group.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBParameterGroupQuotaExceededFault": {
@@ -5345,7 +5376,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of DB parameter\n            groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBParameterGroupStatus": {
@@ -5498,7 +5530,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified proxy name must be unique for all proxies owned by your AWS account in the specified AWS Region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBProxyList": {
@@ -5516,7 +5549,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified proxy name doesn't correspond to a proxy owned by your AWS accoutn in the specified AWS Region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBProxyQuotaExceededFault": {
@@ -5528,7 +5562,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Your AWS account already has the maximum number of proxies in the specified AWS Region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBProxyStatus": {
@@ -5609,7 +5644,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The proxy is already associated with the specified RDS DB instance or Aurora DB cluster.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBProxyTargetGroup": {
@@ -5677,7 +5713,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified target group isn't available for a proxy owned by your AWS account in the specified AWS Region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBProxyTargetNotFoundFault": {
@@ -5689,7 +5726,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified RDS DB instance or Aurora DB cluster isn't available for a proxy owned by your AWS account in the specified AWS Region.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBSecurityGroup": {
@@ -5751,7 +5789,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n        A DB security group with the name specified in\n        <code>DBSecurityGroupName</code> already exists.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBSecurityGroupMembership": {
@@ -5821,7 +5860,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBSecurityGroupName</code> doesn't refer to an existing DB security group.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBSecurityGroupNotSupportedFault": {
@@ -5833,7 +5873,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>A DB security group isn't allowed for this action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBSecurityGroupQuotaExceededFault": {
@@ -5845,7 +5886,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of DB security\n            groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBSecurityGroups": {
@@ -6042,7 +6084,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBSnapshotIdentifier</code> is already used by an existing snapshot.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBSnapshotAttribute": {
@@ -6132,7 +6175,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#DBSubnetGroup": {
@@ -6188,7 +6232,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBSubnetGroupName</code> is already used by an existing DB subnet group.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBSubnetGroupDoesNotCoverEnoughAZs": {
@@ -6200,7 +6245,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBSubnetGroupMessage": {
@@ -6232,7 +6278,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DBSubnetGroup shouldn't be specified while creating read replicas that lie\n            in the same region as the source instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBSubnetGroupNotFoundFault": {
@@ -6244,7 +6291,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#DBSubnetGroupQuotaExceededFault": {
@@ -6256,7 +6304,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of DB subnet\n            groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DBSubnetGroups": {
@@ -6277,7 +6326,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of subnets in a\n            DB subnet groups.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#DBUpgradeDependencyFailureFault": {
@@ -6289,7 +6339,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB upgrade failed because a resource the DB depends on can't be\n            modified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#DeleteCustomAvailabilityZone": {
@@ -9265,7 +9316,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>Domain</code> doesn't refer to an existing Active Directory domain.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#Double": {
@@ -9677,7 +9729,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have reached the maximum number of event subscriptions.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#EventSubscriptionsList": {
@@ -9899,7 +9952,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#GlobalClusterList": {
@@ -9955,7 +10009,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#GlobalClusterQuotaExceededFault": {
@@ -9967,7 +10022,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#GlobalClustersMessage": {
@@ -10154,7 +10210,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified installation medium has already been imported.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#InstallationMediaFailureCause": {
@@ -10206,7 +10263,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>InstallationMediaID</code> doesn't refer to an existing installation medium.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#InstanceQuotaExceededFault": {
@@ -10218,7 +10276,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of DB\n            instances.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InsufficientDBClusterCapacityFault": {
@@ -10230,7 +10289,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB cluster doesn't have enough capacity for the current operation.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "rds.admin#InsufficientDBInstanceCapacityFault": {
@@ -10242,7 +10302,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified DB instance class isn't available in the specified Availability\n            Zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InsufficientStorageClusterCapacityFault": {
@@ -10254,7 +10315,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>There is insufficient storage available for the current action. You might be able to\n            resolve this error by updating your subnet group to use different Availability Zones\n            that have more storage available.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#Integer": {
@@ -10275,7 +10337,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>Capacity</code> isn't a valid Aurora Serverless DB cluster\n            capacity. Valid capacity values are <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, \n            <code>32</code>, <code>64</code>, <code>128</code>, and <code>256</code>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBClusterEndpointStateFault": {
@@ -10287,7 +10350,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The requested operation can't be performed on the endpoint while the endpoint is in this state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBClusterSnapshotStateFault": {
@@ -10299,7 +10363,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The supplied value isn't a valid DB cluster snapshot state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBClusterStateFault": {
@@ -10311,7 +10376,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested operation can't be performed while the cluster is in this state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBInstanceAutomatedBackupStateFault": {
@@ -10323,7 +10389,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n    \t    <p>The automated backup is in an invalid state. \n    \t    For example, this automated backup is associated with an active instance. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBInstanceStateFault": {
@@ -10335,7 +10402,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB instance isn't in a valid state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBParameterGroupStateFault": {
@@ -10347,7 +10415,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB parameter group is in use or is in an invalid state. If you are attempting\n            to delete the parameter group, you can't delete it when the parameter group is in\n            this state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBProxyStateFault": {
@@ -10359,7 +10428,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The requested operation can't be performed while the proxy is in this state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBSecurityGroupStateFault": {
@@ -10371,7 +10441,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The state of the DB security group doesn't allow deletion.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBSnapshotStateFault": {
@@ -10383,7 +10454,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The state of the DB snapshot doesn't allow deletion.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBSubnetGroupFault": {
@@ -10395,7 +10467,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing\n            cross-region read replica of the same source instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBSubnetGroupStateFault": {
@@ -10407,7 +10480,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB subnet group cannot be deleted because it's in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidDBSubnetStateFault": {
@@ -10419,7 +10493,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            The DB subnet isn't in the <i>available</i> state.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidEventSubscriptionStateFault": {
@@ -10431,7 +10506,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>This error can occur if someone else is modifying a subscription. You should retry the action.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidGlobalClusterStateFault": {
@@ -10443,7 +10519,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidOptionGroupStateFault": {
@@ -10455,7 +10532,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            The option group isn't in the <i>available</i> state.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidRestoreFault": {
@@ -10467,7 +10545,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Cannot restore from VPC backup to non-VPC DB instance.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidS3BucketFault": {
@@ -10479,7 +10558,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified Amazon S3 bucket name can't be found or Amazon RDS isn't\n            authorized to access the specified Amazon S3 bucket. Verify the <b>SourceS3BucketName</b> and <b>S3IngestionRoleArn</b> values and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidSubnet": {
@@ -10491,7 +10571,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested subnet is invalid, or multiple subnets were requested that are not all in a common VPC.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#InvalidVPCNetworkStateFault": {
@@ -10503,7 +10584,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB subnet group doesn't cover all Availability Zones after it's\n            created because of users' change.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#KMSKeyNotAccessibleFault": {
@@ -10515,7 +10597,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>An error occurred accessing an AWS KMS key.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#KeyList": {
@@ -12033,7 +12116,8 @@
       },
       "traits": {
         "smithy.api#documentation": "   \n        <p>The option group you are trying to create already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#OptionGroupMembership": {
@@ -12074,7 +12158,8 @@
       },
       "traits": {
         "smithy.api#documentation": "   \n        <p>The specified option group could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#OptionGroupOption": {
@@ -12293,7 +12378,8 @@
       },
       "traits": {
         "smithy.api#documentation": "   \n        <p>The quota of 20 option groups was exceeded for this AWS account.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#OptionGroups": {
@@ -12928,7 +13014,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>\n            <code>SourceDBInstanceIdentifier</code>\n        refers to a DB instance with\n        <code>BackupRetentionPeriod</code> equal to 0.\n        </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#ProcessorFeature": {
@@ -13051,7 +13138,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Provisioned IOPS not available in the specified Availability Zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#PurchaseReservedDBInstancesOffering": {
@@ -13649,7 +13737,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>User already has a reservation with the given identifier.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#ReservedDBInstanceList": {
@@ -13690,7 +13779,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified reserved DB Instance not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#ReservedDBInstanceQuotaExceededFault": {
@@ -13702,7 +13792,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Request would exceed the user's DB Instance quota.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#ReservedDBInstancesOffering": {
@@ -13811,7 +13902,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Specified offering does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#ResetDBClusterParameterGroup": {
@@ -13917,7 +14009,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The specified resource ID was not found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#ResourcePendingMaintenanceActions": {
@@ -15500,7 +15593,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>SNS has responded that there is a problem with the SND topic specified.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#SNSNoAuthorizationFault": {
@@ -15512,7 +15606,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You do not have permission to publish to the SNS topic ARN.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#SNSTopicArnNotFoundFault": {
@@ -15524,7 +15619,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The SNS topic ARN does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#ScalingConfiguration": {
@@ -15612,7 +15708,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>You have exceeded the maximum number of accounts that you can share a manual DB snapshot with.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#SnapshotQuotaExceededFault": {
@@ -15624,7 +15721,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed number of DB\n            snapshots.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#SourceIdsList": {
@@ -15645,7 +15743,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The requested source could not be found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#SourceRegion": {
@@ -16070,7 +16169,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The request would result in the user exceeding the allowed amount of storage\n            available across all DB instances.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#StorageTypeNotSupportedFault": {
@@ -16082,7 +16182,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Storage of the <code>StorageType</code> specified can't be associated\n            with the DB instance. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#String": {
@@ -16132,7 +16233,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The DB subnet is already in use in the Availability Zone.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin.v20141031#SubnetIdentifierList": {
@@ -16162,7 +16264,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The supplied subscription name already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "rds.admin#SubscriptionCategoryNotFoundFault": {
@@ -16174,7 +16277,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The supplied category does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin#SubscriptionNotFoundFault": {
@@ -16186,7 +16290,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The subscription name does not exist.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "rds.admin.v20141031#SupportedCharacterSetsList": {

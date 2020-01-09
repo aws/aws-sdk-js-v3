@@ -500,7 +500,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The number of documents in the request exceeds the limit of 25. Try your request again\n      with fewer documents.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#ClassifierEvaluationMetrics": {
@@ -869,7 +870,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Concurrent modification of the tags associated with an Amazon Comprehend resource is not supported. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#CreateDocumentClassifier": {
@@ -3233,7 +3235,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An internal server error occurred. Retry your request.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.comprehend#InvalidFilterException": {
@@ -3245,7 +3248,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The filter specified for the operation is invalid.\n      Specify a different filter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#InvalidRequestException": {
@@ -3257,7 +3261,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request\n      is invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#JobId": {
@@ -3289,7 +3294,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified job was not found. Check the job ID and try again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.comprehend#JobStatus": {
@@ -3485,7 +3491,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The KMS customer managed key (CMK) entered cannot be validated. Verify the key and re-enter it.</p>\n     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#LanguageCode": {
@@ -4433,7 +4440,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified name is already in use. Use a different name and try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#ResourceLimitExceededException": {
@@ -4445,7 +4453,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#ResourceNotFoundException": {
@@ -4457,7 +4466,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.comprehend#ResourceUnavailableException": {
@@ -4469,7 +4479,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource is not available. Check to see if the resource is in\n      the <code>TRAINED</code> state and try your request again.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.comprehend#S3Uri": {
@@ -5792,7 +5803,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The size of the input text exceeds the limit. Use a smaller document.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#Timestamp": {
@@ -5807,7 +5819,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The number of requests exceeds the limit. Resubmit your request later.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.comprehend#TooManyTagKeysException": {
@@ -5819,7 +5832,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource).</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#TooManyTagsException": {
@@ -5831,7 +5845,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum\n      number of tags includes both existing tags and those included in your current request.    </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#TopicsDetectionJobFilter": {
@@ -5961,7 +5976,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Amazon Comprehend can't process the language of the input text. For all custom entity recognition\n      APIs (such as <code>CreateEntityRecognizer</code>), only English is accepted. For most other APIs, such as those for Custom Classification, Amazon Comprehend accepts text in \n      all supported languages. For a list of supported languages, see <a>supported-languages</a>. </p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.comprehend#UntagResource": {

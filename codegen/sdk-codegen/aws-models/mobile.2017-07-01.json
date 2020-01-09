@@ -73,7 +73,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Mobile"
+        "smithy.api#title": "AWS Mobile",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://mobile.amazonaws.com"
+        }
       }
     },
     "com.amazonaws.services.mobile.model#AccountActionRequiredException": {

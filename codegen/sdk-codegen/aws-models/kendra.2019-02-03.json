@@ -132,7 +132,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.kendra#AclConfiguration": {
@@ -598,7 +599,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.kendra#ConnectionConfiguration": {
@@ -2464,7 +2466,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.kendra#KmsKeyId": {
@@ -3230,7 +3233,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.kendra#ResourceInUseException": {
@@ -3242,7 +3246,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.kendra#ResourceNotFoundException": {
@@ -3254,7 +3259,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.kendra#ResourceUnavailableException": {
@@ -3266,7 +3272,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.kendra#ResultId": {
@@ -3440,7 +3447,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 402
       }
     },
     "com.amazonaws.kendra#SharePointConfiguration": {
@@ -3764,7 +3772,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.kendra#TimeRange": {
@@ -3958,7 +3967,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p></p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.kendra#ValueImportanceMap": {

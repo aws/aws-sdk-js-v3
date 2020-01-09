@@ -884,7 +884,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Polly"
+        "smithy.api#title": "Amazon Polly",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://polly.amazonaws.com/doc/v1"
+        }
       }
     },
     "com.amazonaws.parrot.v1#PutLexicon": {

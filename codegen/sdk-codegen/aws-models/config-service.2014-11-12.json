@@ -9724,7 +9724,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Config"
+        "smithy.api#title": "AWS Config",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://config.amazonaws.com/doc/2014-11-12/"
+        }
       }
     },
     "com.amazonaws.starling.dove#StartConfigRulesEvaluation": {

@@ -3082,7 +3082,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Directory Service"
+        "smithy.api#title": "AWS Directory Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://directoryservice.amazonaws.com/doc/2015-04-16/"
+        }
       }
     },
     "com.amazonaws.directoryservice.v20150416#DirectoryShortName": {

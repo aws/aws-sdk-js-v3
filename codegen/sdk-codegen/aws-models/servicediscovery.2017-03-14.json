@@ -352,7 +352,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The health check for the instance that is specified by <code>ServiceId</code> and <code>InstanceId</code> is not a custom health check. </p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#CustomHealthStatus": {
@@ -691,7 +692,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The operation is already in progress.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ErrorMessage": {
@@ -735,7 +737,10 @@
     "com.amazonaws.route53.autonaming.v20170314#FilterValues": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#FilterValue"
+        "target": "com.amazonaws.route53.autonaming.v20170314#FilterValue",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#GetInstance": {
@@ -1181,7 +1186,10 @@
     "com.amazonaws.route53.autonaming.v20170314#InstanceIdList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#ResourceId"
+        "target": "com.amazonaws.route53.autonaming.v20170314#ResourceId",
+        "traits": {
+          "smithy.api#xmlName": "InstanceId"
+        }
       },
       "traits": {
         "smithy.api#length": {
@@ -1198,7 +1206,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>No instance exists with the specified ID, or the instance was recently registered, and information about the instance hasn't propagated yet.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#InstanceSummary": {
@@ -1224,7 +1233,10 @@
     "com.amazonaws.route53.autonaming.v20170314#InstanceSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#InstanceSummary"
+        "target": "com.amazonaws.route53.autonaming.v20170314#InstanceSummary",
+        "traits": {
+          "smithy.api#xmlName": "InstanceSummary"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#InvalidInput": {
@@ -1236,7 +1248,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>One or more specified values aren't valid. For example, a required value might be missing, a numeric value might be outside the allowed range, \n\t\t\tor a string value might exceed length constraints.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ListInstances": {
@@ -1587,7 +1600,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The namespace that you're trying to create already exists.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#NamespaceFilter": {
@@ -1631,7 +1645,10 @@
     "com.amazonaws.route53.autonaming.v20170314#NamespaceFilters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#NamespaceFilter"
+        "target": "com.amazonaws.route53.autonaming.v20170314#NamespaceFilter",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#NamespaceName": {
@@ -1652,7 +1669,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>No namespace exists with the specified ID.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#NamespaceProperties": {
@@ -1868,7 +1886,10 @@
     "com.amazonaws.route53.autonaming.v20170314#OperationFilters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#OperationFilter"
+        "target": "com.amazonaws.route53.autonaming.v20170314#OperationFilter",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#OperationId": {
@@ -1889,7 +1910,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>No operation exists with the specified ID.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#OperationStatus": {
@@ -1934,7 +1956,10 @@
     "com.amazonaws.route53.autonaming.v20170314#OperationSummaryList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#OperationSummary"
+        "target": "com.amazonaws.route53.autonaming.v20170314#OperationSummary",
+        "traits": {
+          "smithy.api#xmlName": "OperationSummary"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#OperationTargetType": {
@@ -2119,7 +2144,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The specified resource can't be deleted because it contains other resources. For example, you can't delete a service that \n\t\t\tcontains any instances.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded": {
@@ -2131,7 +2157,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The resource can't be created because you've reached the limit on the number of resources.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ResourcePath": {
@@ -2335,7 +2362,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The service can't be created because a service with the same name already exists.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ServiceChange": {
@@ -2403,7 +2431,10 @@
     "com.amazonaws.route53.autonaming.v20170314#ServiceFilters": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.route53.autonaming.v20170314#ServiceFilter"
+        "target": "com.amazonaws.route53.autonaming.v20170314#ServiceFilter",
+        "traits": {
+          "smithy.api#xmlName": "item"
+        }
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ServiceName": {
@@ -2421,7 +2452,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>No service exists with the specified ID.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.route53.autonaming.v20170314#ServiceSummariesList": {

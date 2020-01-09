@@ -728,7 +728,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>Exception thrown as a result of concurrent modification to an application. For example, two individuals attempting to edit the same application at the same time.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.kinesis.analytics.v20150814#CreateApplication": {
@@ -1871,7 +1872,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Kinesis Analytics"
+        "smithy.api#title": "Amazon Kinesis Analytics",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://analytics.kinesis.amazonaws.com/doc/2015-08-14"
+        }
       }
     },
     "com.amazonaws.kinesis.analytics.v20150814#KinesisFirehoseInput": {
@@ -2929,7 +2933,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n        <p>The service is unavailable. Back off and retry the operation. </p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.kinesis.analytics.v20150814#SourceSchema": {

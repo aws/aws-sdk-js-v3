@@ -1139,7 +1139,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS CodeDeploy"
+        "smithy.api#title": "AWS CodeDeploy",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://codedeploy.amazonaws.com/doc/2014-10-06/"
+        }
       }
     },
     "com.amazonaws.codedeploy#CommitId": {

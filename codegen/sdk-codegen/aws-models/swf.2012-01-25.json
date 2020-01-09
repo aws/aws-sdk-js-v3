@@ -4843,7 +4843,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Simple Workflow Service"
+        "smithy.api#title": "Amazon Simple Workflow Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://swf.amazonaws.com/doc/2012-01-25"
+        }
       }
     },
     "com.amazonaws.swf.base.model#StartChildWorkflowExecutionDecisionAttributes": {
@@ -5563,7 +5566,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>You've exceeded the number of tags allowed for a domain.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.swf.base.model#Truncated": {

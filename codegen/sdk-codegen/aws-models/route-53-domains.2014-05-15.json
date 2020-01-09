@@ -751,7 +751,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The number of domains has exceeded the allowed threshold for the account.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#DomainName": {
@@ -860,7 +861,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The request is already in progress for the domain.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#DurationInYears": {
@@ -1506,7 +1508,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation \n\t\t\tthat is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#InvoiceId": {
@@ -1756,7 +1759,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#OperationStatus": {
@@ -2309,7 +2313,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon Route 53 Domains"
+        "smithy.api#title": "Amazon Route 53 Domains",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://route53domains.amazonaws.com/doc/2014-05-15/"
+        }
       }
     },
     "com.amazonaws.route53domains.v20140515#State": {
@@ -2336,7 +2343,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>The top-level domain does not support this operation.</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#Tag": {
@@ -2541,7 +2549,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n\t\t       <p>Amazon Route 53 does not support this top-level domain (TLD).</p>\n\t     ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.route53domains.v20140515#UpdateDomainContact": {

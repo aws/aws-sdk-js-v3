@@ -43,7 +43,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when the user cannot be authenticated or uses invalid\n      credentials to access a resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.lightsail#AccessDirection": {
@@ -77,7 +78,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when an account is still in the setup in progress\n      state.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 428
       }
     },
     "com.amazonaws.lightsail#AddOn": {
@@ -187,7 +189,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Allocates a static IP address.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Allocates a static IP address.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/AllocateStaticIp",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#AllocateStaticIpRequest": {
@@ -245,7 +252,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes\n      it to the instance with the specified disk name.</p>\n         <p>The <code>attach disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Attaches a block storage disk to a running or stopped Lightsail instance and exposes\n      it to the instance with the specified disk name.</p>\n         <p>The <code>attach disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/AttachDisk",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#AttachDiskRequest": {
@@ -317,7 +329,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attaches one or more Lightsail instances to a load balancer.</p>\n         <p>After some time, the instances are attached to the load balancer and the health check\n      status is available.</p>\n         <p>The <code>attach instances to load balancer</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Attaches one or more Lightsail instances to a load balancer.</p>\n         <p>After some time, the instances are attached to the load balancer and the health check\n      status is available.</p>\n         <p>The <code>attach instances to load balancer</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/AttachInstancesToLoadBalancer",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#AttachInstancesToLoadBalancerRequest": {
@@ -382,7 +399,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is\n      just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>Once you create and validate your certificate, you can attach it to your load balancer.\n      You can also use this API to rotate the certificates on your account. Use the <code>attach\n        load balancer tls certificate</code> operation with the non-attached certificate, and it\n      will replace the existing one and become the attached certificate.</p>\n         <p>The <code>attach load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Attaches a Transport Layer Security (TLS) certificate to your load balancer. TLS is\n      just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>Once you create and validate your certificate, you can attach it to your load balancer.\n      You can also use this API to rotate the certificates on your account. Use the <code>attach\n        load balancer tls certificate</code> operation with the non-attached certificate, and it\n      will replace the existing one and become the attached certificate.</p>\n         <p>The <code>attach load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/AttachLoadBalancerTlsCertificate",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#AttachLoadBalancerTlsCertificateRequest": {
@@ -447,7 +469,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Attaches a static IP address to a specific Amazon Lightsail instance.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/AttachStaticIp",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#AttachStaticIpRequest": {
@@ -832,7 +859,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Closes the public ports on a specific Amazon Lightsail instance.</p>\n         <p>The <code>close instance public ports</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>instance name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Closes the public ports on a specific Amazon Lightsail instance.</p>\n         <p>The <code>close instance public ports</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>instance name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CloseInstancePublicPorts",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CloseInstancePublicPortsRequest": {
@@ -1001,7 +1033,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Copies a manual instance or disk snapshot as another manual snapshot, or copies an\n      automatic instance or disk snapshot as a manual snapshot. This operation can also be used to\n      copy a manual or automatic snapshot of an instance or a disk from one AWS Region to another\n      in Amazon Lightsail.</p>\n         <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source\n        region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code>\n      parameters.</p>\n         <p>When copying an <i>automatic snapshot</i>, be sure to define the\n        <code>source region</code>, <code>source resource name</code>, <code>target snapshot\n        name</code>, and either the <code>restore date</code> or the <code>use latest restorable\n        auto snapshot</code> parameters.</p>\n         <note>\n            <p>Database snapshots cannot be copied at this time.</p>\n         </note>\n      "
+        "smithy.api#documentation": "\n         <p>Copies a manual instance or disk snapshot as another manual snapshot, or copies an\n      automatic instance or disk snapshot as a manual snapshot. This operation can also be used to\n      copy a manual or automatic snapshot of an instance or a disk from one AWS Region to another\n      in Amazon Lightsail.</p>\n         <p>When copying a <i>manual snapshot</i>, be sure to define the <code>source\n        region</code>, <code>source snapshot name</code>, and <code>target snapshot name</code>\n      parameters.</p>\n         <p>When copying an <i>automatic snapshot</i>, be sure to define the\n        <code>source region</code>, <code>source resource name</code>, <code>target snapshot\n        name</code>, and either the <code>restore date</code> or the <code>use latest restorable\n        auto snapshot</code> parameters.</p>\n         <note>\n            <p>Database snapshots cannot be copied at this time.</p>\n         </note>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CopySnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CopySnapshotRequest": {
@@ -1090,7 +1127,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported\n      Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be\n      used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack\n        records</code> operation to get a list of the CloudFormation stacks created.</p>\n         <important>\n            <p>Wait until after your new Amazon EC2 instance is created before running the <code>create\n          cloud formation stack</code> operation again with the same export snapshot record.</p>\n         </important>\n      "
+        "smithy.api#documentation": "\n         <p>Creates an AWS CloudFormation stack, which creates a new Amazon EC2 instance from an exported\n      Amazon Lightsail snapshot. This operation results in a CloudFormation stack record that can be\n      used to track the AWS CloudFormation stack created. Use the <code>get cloud formation stack\n        records</code> operation to get a list of the CloudFormation stacks created.</p>\n         <important>\n            <p>Wait until after your new Amazon EC2 instance is created before running the <code>create\n          cloud formation stack</code> operation again with the same export snapshot record.</p>\n         </important>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateCloudFormationStack",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateCloudFormationStackRequest": {
@@ -1148,7 +1190,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the\n      same Availability Zone (e.g., <code>us-east-2a</code>).</p>\n         <p>The <code>create disk</code> operation supports tag-based access control via request\n      tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a block storage disk that can be attached to an Amazon Lightsail instance in the\n      same Availability Zone (e.g., <code>us-east-2a</code>).</p>\n         <p>The <code>create disk</code> operation supports tag-based access control via request\n      tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateDisk",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateDiskFromSnapshot": {
@@ -1183,7 +1230,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The\n      resulting disk can be attached to an Amazon Lightsail instance in the same Availability Zone\n      (e.g., <code>us-east-2a</code>).</p>\n         <p>The <code>create disk from snapshot</code> operation supports tag-based access control\n      via request tags and resource tags applied to the resource identified by <code>disk snapshot\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a block storage disk from a manual or automatic snapshot of a disk. The\n      resulting disk can be attached to an Amazon Lightsail instance in the same Availability Zone\n      (e.g., <code>us-east-2a</code>).</p>\n         <p>The <code>create disk from snapshot</code> operation supports tag-based access control\n      via request tags and resource tags applied to the resource identified by <code>disk snapshot\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateDiskFromSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateDiskFromSnapshotRequest": {
@@ -1340,7 +1392,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make\n      copies of disks, and to save data before shutting down a Lightsail instance.</p>\n         <p>You can take a snapshot of an attached disk that is in use; however, snapshots only\n      capture data that has been written to your disk at the time the snapshot command is issued.\n      This may exclude any data that has been cached by any applications or the operating system. If\n      you can pause any file systems on the disk long enough to take a snapshot, your snapshot\n      should be complete. Nevertheless, if you cannot pause all file writes to the disk, you should\n      unmount the disk from within the Lightsail instance, issue the create disk snapshot command,\n      and then remount the disk to ensure a consistent and complete snapshot. You may remount and\n      use your disk while the snapshot status is pending.</p>\n         <p>You can also use this operation to create a snapshot of an instance's system volume. You\n      might want to do this, for example, to recover data from the system volume of a botched\n      instance or to create a backup of the system volume like you would for a block storage disk.\n      To create a snapshot of a system volume, just define the <code>instance name</code> parameter\n      when issuing the snapshot command, and a snapshot of the defined instance's system volume will\n      be created. After the snapshot is available, you can create a block storage disk from the\n      snapshot and attach it to a running instance to access the data on the disk.</p>\n      \n         <p>The <code>create disk snapshot</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a snapshot of a block storage disk. You can use snapshots for backups, to make\n      copies of disks, and to save data before shutting down a Lightsail instance.</p>\n         <p>You can take a snapshot of an attached disk that is in use; however, snapshots only\n      capture data that has been written to your disk at the time the snapshot command is issued.\n      This may exclude any data that has been cached by any applications or the operating system. If\n      you can pause any file systems on the disk long enough to take a snapshot, your snapshot\n      should be complete. Nevertheless, if you cannot pause all file writes to the disk, you should\n      unmount the disk from within the Lightsail instance, issue the create disk snapshot command,\n      and then remount the disk to ensure a consistent and complete snapshot. You may remount and\n      use your disk while the snapshot status is pending.</p>\n         <p>You can also use this operation to create a snapshot of an instance's system volume. You\n      might want to do this, for example, to recover data from the system volume of a botched\n      instance or to create a backup of the system volume like you would for a block storage disk.\n      To create a snapshot of a system volume, just define the <code>instance name</code> parameter\n      when issuing the snapshot command, and a snapshot of the defined instance's system volume will\n      be created. After the snapshot is available, you can create a block storage disk from the\n      snapshot and attach it to a running instance to access the data on the disk.</p>\n      \n         <p>The <code>create disk snapshot</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateDiskSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateDiskSnapshotRequest": {
@@ -1416,7 +1473,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a domain resource for the specified domain (e.g., example.com).</p>\n         <p>The <code>create domain</code> operation supports tag-based access control via request\n      tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a domain resource for the specified domain (e.g., example.com).</p>\n         <p>The <code>create domain</code> operation supports tag-based access control via request\n      tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateDomain",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateDomainEntry": {
@@ -1451,7 +1513,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates one of the following entry records associated with the domain: Address (A),\n      canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA),\n      service locator (SRV), or text (TXT).</p>\n         <p>The <code>create domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates one of the following entry records associated with the domain: Address (A),\n      canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority (SOA),\n      service locator (SRV), or text (TXT).</p>\n         <p>The <code>create domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateDomainEntry",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateDomainEntryRequest": {
@@ -1545,7 +1612,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a snapshot of a specific virtual private server, or\n        <i>instance</i>. You can use a snapshot to create a new instance that is based\n      on that snapshot.</p>\n         <p>The <code>create instance snapshot</code> operation supports tag-based access control\n      via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a snapshot of a specific virtual private server, or\n        <i>instance</i>. You can use a snapshot to create a new instance that is based\n      on that snapshot.</p>\n         <p>The <code>create instance snapshot</code> operation supports tag-based access control\n      via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateInstanceSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateInstanceSnapshotRequest": {
@@ -1616,7 +1688,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates one or more Amazon Lightsail instances.</p>\n         <p>The <code>create instances</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates one or more Amazon Lightsail instances.</p>\n         <p>The <code>create instances</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateInstances",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateInstancesFromSnapshot": {
@@ -1651,7 +1728,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates one or more new instances from a manual or automatic snapshot of an\n      instance.</p>\n         <p>The <code>create instances from snapshot</code> operation supports tag-based access\n      control via request tags and resource tags applied to the resource identified by\n        <code>instance snapshot name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates one or more new instances from a manual or automatic snapshot of an\n      instance.</p>\n         <p>The <code>create instances from snapshot</code> operation supports tag-based access\n      control via request tags and resource tags applied to the resource identified by\n        <code>instance snapshot name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateInstancesFromSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateInstancesFromSnapshotRequest": {
@@ -1852,7 +1934,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates an SSH key pair.</p>\n         <p>The <code>create key pair</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates an SSH key pair.</p>\n         <p>The <code>create key pair</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateKeyPair",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateKeyPairRequest": {
@@ -1934,7 +2021,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a Lightsail load balancer. To learn more about deciding whether to load\n      balance your application, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing\">Configure your Lightsail instances for load balancing</a>. You can create up to 5\n      load balancers per AWS Region in your account.</p>\n         <p>When you create a load balancer, you can specify a unique name and port settings. To\n      change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>\n      operation.</p>\n         <p>The <code>create load balancer</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a Lightsail load balancer. To learn more about deciding whether to load\n      balance your application, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/how-to/article/configure-lightsail-instances-for-load-balancing\">Configure your Lightsail instances for load balancing</a>. You can create up to 5\n      load balancers per AWS Region in your account.</p>\n         <p>When you create a load balancer, you can specify a unique name and port settings. To\n      change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>\n      operation.</p>\n         <p>The <code>create load balancer</code> operation supports tag-based access control via\n      request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateLoadBalancer",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateLoadBalancerRequest": {
@@ -2029,7 +2121,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a Lightsail load balancer TLS certificate.</p>\n         <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>The <code>create load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a Lightsail load balancer TLS certificate.</p>\n         <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>The <code>create load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateLoadBalancerTlsCertificate",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateLoadBalancerTlsCertificateRequest": {
@@ -2113,7 +2210,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a new database in Amazon Lightsail.</p>\n         <p>The <code>create relational database</code> operation supports tag-based access control\n      via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a new database in Amazon Lightsail.</p>\n         <p>The <code>create relational database</code> operation supports tag-based access control\n      via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateRelationalDatabaseFromSnapshot": {
@@ -2148,7 +2250,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>\n         <p>You can create a new database from a snapshot in if something goes wrong with your\n      original database, or to change it to a different plan, such as a high availability or\n      standard plan.</p>\n         <p>The <code>create relational database from snapshot</code> operation supports tag-based\n      access control via request tags and resource tags applied to the resource identified by\n      relationalDatabaseSnapshotName. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a new database from an existing database snapshot in Amazon Lightsail.</p>\n         <p>You can create a new database from a snapshot in if something goes wrong with your\n      original database, or to change it to a different plan, such as a high availability or\n      standard plan.</p>\n         <p>The <code>create relational database from snapshot</code> operation supports tag-based\n      access control via request tags and resource tags applied to the resource identified by\n      relationalDatabaseSnapshotName. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateRelationalDatabaseFromSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateRelationalDatabaseFromSnapshotRequest": {
@@ -2341,7 +2448,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for\n      backups, to make copies of a database, and to save data before deleting a database.</p>\n         <p>The <code>create relational database snapshot</code> operation supports tag-based\n      access control via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Creates a snapshot of your database in Amazon Lightsail. You can use snapshots for\n      backups, to make copies of a database, and to save data before deleting a database.</p>\n         <p>The <code>create relational database snapshot</code> operation supports tag-based\n      access control via request tags. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/CreateRelationalDatabaseSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#CreateRelationalDatabaseSnapshotRequest": {
@@ -2409,7 +2521,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes an automatic snapshot for an instance or disk.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes an automatic snapshot for an instance or disk.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteAutoSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteAutoSnapshotRequest": {
@@ -2474,7 +2591,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified block storage disk. The disk must be in the\n        <code>available</code> state (not attached to a Lightsail instance).</p>\n         <note>\n            <p>The disk may remain in the <code>deleting</code> state for several minutes.</p>\n\n         </note>\n         <p>The <code>delete disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes the specified block storage disk. The disk must be in the\n        <code>available</code> state (not attached to a Lightsail instance).</p>\n         <note>\n            <p>The disk may remain in the <code>deleting</code> state for several minutes.</p>\n\n         </note>\n         <p>The <code>delete disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteDisk",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteDiskRequest": {
@@ -2538,7 +2660,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified disk snapshot.</p>\n         <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the\n      blocks on the device that have changed since your last snapshot are saved in the new snapshot.\n      When you delete a snapshot, only the data not needed for any other snapshot is removed. So\n      regardless of which prior snapshots have been deleted, all active snapshots will have access\n      to all the information needed to restore the disk.</p>\n         <p>The <code>delete disk snapshot</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>disk snapshot name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes the specified disk snapshot.</p>\n         <p>When you make periodic snapshots of a disk, the snapshots are incremental, and only the\n      blocks on the device that have changed since your last snapshot are saved in the new snapshot.\n      When you delete a snapshot, only the data not needed for any other snapshot is removed. So\n      regardless of which prior snapshots have been deleted, all active snapshots will have access\n      to all the information needed to restore the disk.</p>\n         <p>The <code>delete disk snapshot</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>disk snapshot name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteDiskSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteDiskSnapshotRequest": {
@@ -2596,7 +2723,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified domain recordset and all of its domain records.</p>\n         <p>The <code>delete domain</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>domain name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes the specified domain recordset and all of its domain records.</p>\n         <p>The <code>delete domain</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>domain name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteDomain",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteDomainEntry": {
@@ -2631,7 +2763,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a specific domain entry.</p>\n         <p>The <code>delete domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a specific domain entry.</p>\n         <p>The <code>delete domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteDomainEntry",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteDomainEntryRequest": {
@@ -2719,7 +2856,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes an Amazon Lightsail instance.</p>\n         <p>The <code>delete instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes an Amazon Lightsail instance.</p>\n         <p>The <code>delete instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteInstance",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteInstanceRequest": {
@@ -2783,7 +2925,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a specific snapshot of a virtual private server (or\n        <i>instance</i>).</p>\n         <p>The <code>delete instance snapshot</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance snapshot name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a specific snapshot of a virtual private server (or\n        <i>instance</i>).</p>\n         <p>The <code>delete instance snapshot</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance snapshot name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteInstanceSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteInstanceSnapshotRequest": {
@@ -2841,7 +2988,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a specific SSH key pair.</p>\n         <p>The <code>delete key pair</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>key pair name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a specific SSH key pair.</p>\n         <p>The <code>delete key pair</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>key pair name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteKeyPair",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteKeyPairRequest": {
@@ -2899,7 +3051,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or\n      RDP clients to authenticate an instance. This operation enables the Lightsail browser-based\n      SSH or RDP clients to connect to the instance after a host key mismatch.</p>\n         <important>\n            <p>Perform this operation only if you were expecting the host key or certificate mismatch\n        or if you are familiar with the new host key or certificate on the instance. For more\n        information, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection\">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP\n          client</a>.</p>\n         </important>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes the known host key or certificate used by the Amazon Lightsail browser-based SSH or\n      RDP clients to authenticate an instance. This operation enables the Lightsail browser-based\n      SSH or RDP clients to connect to the instance after a host key mismatch.</p>\n         <important>\n            <p>Perform this operation only if you were expecting the host key or certificate mismatch\n        or if you are familiar with the new host key or certificate on the instance. For more\n        information, see <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection\">Troubleshooting connection issues when using the Amazon Lightsail browser-based SSH or RDP\n          client</a>.</p>\n         </important>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteKnownHostKeys",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteKnownHostKeysRequest": {
@@ -2957,7 +3114,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once\n      the load balancer is deleted, you will need to create a new load balancer, create a new\n      certificate, and verify domain ownership again.</p>\n         <p>The <code>delete load balancer</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>load balancer name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once\n      the load balancer is deleted, you will need to create a new load balancer, create a new\n      certificate, and verify domain ownership again.</p>\n         <p>The <code>delete load balancer</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>load balancer name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteLoadBalancer",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteLoadBalancerRequest": {
@@ -3015,7 +3177,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>\n         <p>The <code>delete load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes an SSL/TLS certificate associated with a Lightsail load balancer.</p>\n         <p>The <code>delete load balancer tls certificate</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteLoadBalancerTlsCertificate",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteLoadBalancerTlsCertificateRequest": {
@@ -3086,7 +3253,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a database in Amazon Lightsail.</p>\n         <p>The <code>delete relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a database in Amazon Lightsail.</p>\n         <p>The <code>delete relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteRelationalDatabaseRequest": {
@@ -3156,7 +3328,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a database snapshot in Amazon Lightsail.</p>\n         <p>The <code>delete relational database snapshot</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by relationalDatabaseName.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a database snapshot in Amazon Lightsail.</p>\n         <p>The <code>delete relational database snapshot</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by relationalDatabaseName.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DeleteRelationalDatabaseSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DeleteRelationalDatabaseSnapshotRequest": {
@@ -3234,7 +3411,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount\n      any file systems on the device within your operating system before stopping the instance and\n      detaching the disk.</p>\n         <p>The <code>detach disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Detaches a stopped block storage disk from a Lightsail instance. Make sure to unmount\n      any file systems on the device within your operating system before stopping the instance and\n      detaching the disk.</p>\n         <p>The <code>detach disk</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>disk name</code>. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DetachDisk",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DetachDiskRequest": {
@@ -3292,7 +3474,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Detaches the specified instances from a Lightsail load balancer.</p>\n         <p>This operation waits until the instances are no longer needed before they are detached\n      from the load balancer.</p>\n         <p>The <code>detach instances from load balancer</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Detaches the specified instances from a Lightsail load balancer.</p>\n         <p>This operation waits until the instances are no longer needed before they are detached\n      from the load balancer.</p>\n         <p>The <code>detach instances from load balancer</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DetachInstancesFromLoadBalancer",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DetachInstancesFromLoadBalancerRequest": {
@@ -3357,7 +3544,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Detaches a static IP from the Amazon Lightsail instance to which it is\n      attached.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Detaches a static IP from the Amazon Lightsail instance to which it is\n      attached.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DetachStaticIp",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DetachStaticIpRequest": {
@@ -3412,7 +3604,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Disables an add-on for an Amazon Lightsail resource. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DisableAddOn",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DisableAddOnRequest": {
@@ -3955,7 +4152,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Downloads the default SSH key pair from the user's account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Downloads the default SSH key pair from the user's account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/DownloadDefaultKeyPair",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#DownloadDefaultKeyPairRequest": {
@@ -4008,7 +4210,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Enables or modifies an add-on for an Amazon Lightsail resource. For more information, see\n      the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/EnableAddOn",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#EnableAddOnRequest": {
@@ -4073,7 +4280,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).\n      This operation results in an export snapshot record that can be used with the <code>create\n        cloud formation stack</code> operation to create new Amazon EC2 instances.</p>\n         <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the\n      instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in\n      Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the\n      source Lightsail snapshot.</p>\n         <p></p>\n         <p>The <code>export snapshot</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>source snapshot name</code>. For\n      more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n         <note>\n            <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>\n        operations to get a list of snapshots that you can export to Amazon EC2.</p>\n         </note>\n      "
+        "smithy.api#documentation": "\n         <p>Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic Compute Cloud (Amazon EC2).\n      This operation results in an export snapshot record that can be used with the <code>create\n        cloud formation stack</code> operation to create new Amazon EC2 instances.</p>\n         <p>Exported instance snapshots appear in Amazon EC2 as Amazon Machine Images (AMIs), and the\n      instance system disk appears as an Amazon Elastic Block Store (Amazon EBS) volume. Exported disk snapshots appear in\n      Amazon EC2 as Amazon EBS volumes. Snapshots are exported to the same Amazon Web Services Region in Amazon EC2 as the\n      source Lightsail snapshot.</p>\n         <p></p>\n         <p>The <code>export snapshot</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>source snapshot name</code>. For\n      more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n         <note>\n            <p>Use the <code>get instance snapshots</code> or <code>get disk snapshots</code>\n        operations to get a list of snapshots that you can export to Amazon EC2.</p>\n         </note>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/ExportSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#ExportSnapshotRecord": {
@@ -4262,7 +4474,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the names of all active (not deleted) resources.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the names of all active (not deleted) resources.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetActiveNames",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetActiveNamesRequest": {
@@ -4322,7 +4539,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the available automatic snapshots for the specified resource name. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the available automatic snapshots for the specified resource name. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetAutoSnapshots",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetAutoSnapshotsRequest": {
@@ -4392,7 +4614,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the list of available instance images, or <i>blueprints</i>. You\n      can use a blueprint to create a new instance already running a specific operating system, as\n      well as a preinstalled app or development stack. The software each instance is running depends\n      on the blueprint image you choose.</p>\n         <note>\n            <p>Use active blueprints when creating new instances. Inactive blueprints are listed to\n        support customers with existing instances and are not necessarily available to create new\n        instances. Blueprints are marked inactive when they become outdated due to operating system\n        updates or new application releases.</p>\n         </note>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the list of available instance images, or <i>blueprints</i>. You\n      can use a blueprint to create a new instance already running a specific operating system, as\n      well as a preinstalled app or development stack. The software each instance is running depends\n      on the blueprint image you choose.</p>\n         <note>\n            <p>Use active blueprints when creating new instances. Inactive blueprints are listed to\n        support customers with existing instances and are not necessarily available to create new\n        instances. Blueprints are marked inactive when they become outdated due to operating system\n        updates or new application releases.</p>\n         </note>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetBlueprints",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetBlueprintsRequest": {
@@ -4461,7 +4688,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the list of bundles that are available for purchase. A bundle describes the\n      specs for your virtual private server (or <i>instance</i>).</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the list of bundles that are available for purchase. A bundle describes the\n      specs for your virtual private server (or <i>instance</i>).</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetBundles",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetBundlesRequest": {
@@ -4530,7 +4762,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the CloudFormation stack record created as a result of the <code>create cloud\n        formation stack</code> operation.</p>\n         <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail\n      snapshot.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the CloudFormation stack record created as a result of the <code>create cloud\n        formation stack</code> operation.</p>\n         <p>An AWS CloudFormation stack is used to create a new Amazon EC2 instance from an exported Lightsail\n      snapshot.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetCloudFormationStackRecords",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetCloudFormationStackRecordsRequest": {
@@ -4593,7 +4830,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific block storage disk.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific block storage disk.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDisk",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDiskRequest": {
@@ -4651,7 +4893,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific block storage disk snapshot.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific block storage disk snapshot.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDiskSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDiskSnapshotRequest": {
@@ -4709,7 +4956,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all block storage disk snapshots in your AWS account and\n      region.</p>\n         <p>If you are describing a long list of disk snapshots, you can paginate the output to\n      make the list more manageable. You can use the pageToken and nextPageToken values to retrieve\n      the next items in the list.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all block storage disk snapshots in your AWS account and\n      region.</p>\n         <p>If you are describing a long list of disk snapshots, you can paginate the output to\n      make the list more manageable. You can use the pageToken and nextPageToken values to retrieve\n      the next items in the list.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDiskSnapshots",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDiskSnapshotsRequest": {
@@ -4772,7 +5024,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all block storage disks in your AWS account and\n      region.</p>\n         <p>If you are describing a long list of disks, you can paginate the output to make the\n      list more manageable. You can use the pageToken and nextPageToken values to retrieve the next\n      items in the list.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all block storage disks in your AWS account and\n      region.</p>\n         <p>If you are describing a long list of disks, you can paginate the output to make the\n      list more manageable. You can use the pageToken and nextPageToken values to retrieve the next\n      items in the list.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDisks",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDisksRequest": {
@@ -4835,7 +5092,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific domain recordset.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific domain recordset.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDomain",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDomainRequest": {
@@ -4893,7 +5155,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of all domains in the user's account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of all domains in the user's account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetDomains",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetDomainsRequest": {
@@ -4956,7 +5223,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>\n      operation.</p>\n         <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related\n      resources with the <code>create cloud formation stack</code> operation.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the export snapshot record created as a result of the <code>export snapshot</code>\n      operation.</p>\n         <p>An export snapshot record can be used to create a new Amazon EC2 instance and its related\n      resources with the <code>create cloud formation stack</code> operation.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetExportSnapshotRecords",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetExportSnapshotRecordsRequest": {
@@ -5019,7 +5291,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific Amazon Lightsail instance, which is a virtual\n      private server.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific Amazon Lightsail instance, which is a virtual\n      private server.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstance",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceAccessDetails": {
@@ -5054,7 +5331,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns temporary SSH keys you can use to connect to a specific virtual private server,\n      or <i>instance</i>.</p>\n         <p>The <code>get instance access details</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>instance name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns temporary SSH keys you can use to connect to a specific virtual private server,\n      or <i>instance</i>.</p>\n         <p>The <code>get instance access details</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>instance name</code>.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstanceAccessDetails",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceAccessDetailsRequest": {
@@ -5118,7 +5400,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the data points for the specified Amazon Lightsail instance metric, given an\n      instance name.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the data points for the specified Amazon Lightsail instance metric, given an\n      instance name.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstanceMetricData",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceMetricDataRequest": {
@@ -5224,7 +5511,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the port states for a specific virtual private server, or\n        <i>instance</i>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the port states for a specific virtual private server, or\n        <i>instance</i>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstancePortStates",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstancePortStatesRequest": {
@@ -5305,7 +5597,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific instance snapshot.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific instance snapshot.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstanceSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceSnapshotRequest": {
@@ -5363,7 +5660,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns all instance snapshots for the user's account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns all instance snapshots for the user's account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstanceSnapshots",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceSnapshotsRequest": {
@@ -5426,7 +5728,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the state of a specific instance. Works on one instance at a time.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the state of a specific instance. Works on one instance at a time.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstanceState",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstanceStateRequest": {
@@ -5484,7 +5791,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all Amazon Lightsail virtual private servers, or\n        <i>instances</i>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all Amazon Lightsail virtual private servers, or\n        <i>instances</i>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetInstances",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetInstancesRequest": {
@@ -5547,7 +5859,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific key pair.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific key pair.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetKeyPair",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetKeyPairRequest": {
@@ -5605,7 +5922,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all key pairs in the user's account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all key pairs in the user's account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetKeyPairs",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetKeyPairsRequest": {
@@ -5668,7 +5990,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about the specified Lightsail load balancer.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about the specified Lightsail load balancer.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetLoadBalancer",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetLoadBalancerMetricData": {
@@ -5703,7 +6030,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about health metrics for your Lightsail load balancer.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about health metrics for your Lightsail load balancer.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetLoadBalancerMetricData",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetLoadBalancerMetricDataRequest": {
@@ -5832,7 +6164,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about the TLS certificates that are associated with the specified\n      Lightsail load balancer.</p>\n         <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>You can have a maximum of 2 certificates associated with a Lightsail load balancer.\n      One is active and the other is inactive.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about the TLS certificates that are associated with the specified\n      Lightsail load balancer.</p>\n         <p>TLS is just an updated, more secure version of Secure Socket Layer (SSL).</p>\n         <p>You can have a maximum of 2 certificates associated with a Lightsail load balancer.\n      One is active and the other is inactive.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetLoadBalancerTlsCertificates",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetLoadBalancerTlsCertificatesRequest": {
@@ -5890,7 +6227,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all load balancers in an account.</p>\n         <p>If you are describing a long list of load balancers, you can paginate the output to\n      make the list more manageable. You can use the pageToken and nextPageToken values to retrieve\n      the next items in the list.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all load balancers in an account.</p>\n         <p>If you are describing a long list of load balancers, you can paginate the output to\n      make the list more manageable. You can use the pageToken and nextPageToken values to retrieve\n      the next items in the list.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetLoadBalancers",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetLoadBalancersRequest": {
@@ -5953,7 +6295,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific operation. Operations include events such as when\n      you create an instance, allocate a static IP, attach a static IP, and so on.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific operation. Operations include events such as when\n      you create an instance, allocate a static IP, attach a static IP, and so on.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetOperation",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetOperationRequest": {
@@ -6011,7 +6358,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all operations.</p>\n         <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be\n      paged by making each subsequent call to <code>GetOperations</code> use the maximum (last)\n        <code>statusChangedAt</code> value from the previous request.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all operations.</p>\n         <p>Results are returned from oldest to newest, up to a maximum of 200. Results can be\n      paged by making each subsequent call to <code>GetOperations</code> use the maximum (last)\n        <code>statusChangedAt</code> value from the previous request.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetOperations",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetOperationsForResource": {
@@ -6046,7 +6398,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>\n      "
+        "smithy.api#documentation": "\n         <p>Gets operations for a specific resource (e.g., an instance or a static IP).</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetOperationsForResource",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetOperationsForResourceRequest": {
@@ -6151,7 +6508,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include\n        availability zones</code> parameter to also return the Availability Zones in a\n      region.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of all valid regions for Amazon Lightsail. Use the <code>include\n        availability zones</code> parameter to also return the Availability Zones in a\n      region.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRegions",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRegionsRequest": {
@@ -6214,7 +6576,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific database in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific database in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseBlueprints": {
@@ -6249,7 +6616,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint\n      describes the major engine version of a database.</p>\n         <p>You can use a blueprint ID to create a new database that runs a specific database\n      engine.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of available database blueprints in Amazon Lightsail. A blueprint\n      describes the major engine version of a database.</p>\n         <p>You can use a blueprint ID to create a new database that runs a specific database\n      engine.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseBlueprints",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseBlueprintsRequest": {
@@ -6312,7 +6684,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes\n      the performance specifications for a database.</p>\n         <p>You can use a bundle ID to create a new database with explicit performance\n      specifications.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the list of bundles that are available in Amazon Lightsail. A bundle describes\n      the performance specifications for a database.</p>\n         <p>You can use a bundle ID to create a new database with explicit performance\n      specifications.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseBundles",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseBundlesRequest": {
@@ -6375,7 +6752,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of events for a specific database in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of events for a specific database in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseEvents",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseEventsRequest": {
@@ -6451,7 +6833,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of log events for a database in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of log events for a database in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseLogEvents",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseLogEventsRequest": {
@@ -6552,7 +6939,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a list of available log streams for a specific database in\n      Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a list of available log streams for a specific database in\n      Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseLogStreams",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseLogStreamsRequest": {
@@ -6610,7 +7002,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the current, previous, or pending versions of the master user password for a\n      Lightsail database.</p>\n         <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by\n      relationalDatabaseName.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the current, previous, or pending versions of the master user password for a\n      Lightsail database.</p>\n         <p>The <code>GetRelationalDatabaseMasterUserPassword</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by\n      relationalDatabaseName.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseMasterUserPassword",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseMasterUserPasswordRequest": {
@@ -6680,7 +7077,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns the data points of the specified metric for a database in\n      Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns the data points of the specified metric for a database in\n      Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseMetricData",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseMetricDataRequest": {
@@ -6786,7 +7188,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns all of the runtime parameters offered by the underlying database software, or\n      engine, for a specific database in Amazon Lightsail.</p>\n         <p>In addition to the parameter names and values, this operation returns other information\n      about each parameter. This information includes whether changes require a reboot, whether the\n      parameter is modifiable, the allowed values, and the data types.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns all of the runtime parameters offered by the underlying database software, or\n      engine, for a specific database in Amazon Lightsail.</p>\n         <p>In addition to the parameter names and values, this operation returns other information\n      about each parameter. This information includes whether changes require a reboot, whether the\n      parameter is modifiable, the allowed values, and the data types.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseParameters",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseParametersRequest": {
@@ -6879,7 +7286,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific database snapshot in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseSnapshot",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseSnapshotRequest": {
@@ -6937,7 +7349,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all of your database snapshots in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabaseSnapshots",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabaseSnapshotsRequest": {
@@ -7000,7 +7417,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all of your databases in Amazon Lightsail.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all of your databases in Amazon Lightsail.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetRelationalDatabases",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetRelationalDatabasesRequest": {
@@ -7063,7 +7485,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about a specific static IP.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about a specific static IP.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetStaticIp",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetStaticIpRequest": {
@@ -7121,7 +7548,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns information about all static IPs in the user's account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns information about all static IPs in the user's account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/GetStaticIps",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#GetStaticIpsRequest": {
@@ -7240,7 +7672,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Imports a public SSH key from a specific key pair.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Imports a public SSH key from a specific key pair.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/ImportKeyPair",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#ImportKeyPairRequest": {
@@ -8007,7 +8444,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when user input does not conform to the validation\n      rules of an input field.</p>\n         <note>\n            <p>Domain-related APIs are only available in the N. Virginia (us-east-1) Region. Please\n        set your AWS Region configuration to us-east-1 to create, view, or edit these\n        resources.</p>\n         </note>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.lightsail#IpAddress": {
@@ -8054,7 +8492,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Returns a Boolean value indicating whether your Lightsail VPC is peered.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/IsVpcPeered",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#IsVpcPeeredRequest": {
@@ -9355,7 +9798,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when it cannot find a resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.lightsail#OpenInstancePublicPorts": {
@@ -9390,7 +9834,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds public ports to an Amazon Lightsail instance.</p>\n         <p>The <code>open instance public ports</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Adds public ports to an Amazon Lightsail instance.</p>\n         <p>The <code>open instance public ports</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/OpenInstancePublicPorts",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#OpenInstancePublicPortsRequest": {
@@ -9521,7 +9970,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when an operation fails to execute.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.lightsail#OperationList": {
@@ -9752,7 +10202,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Tries to peer the Lightsail VPC with the user's default VPC.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/PeerVpc",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#PeerVpcRequest": {
@@ -9952,7 +10407,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Sets the specified open ports for an Amazon Lightsail instance, and closes all ports for\n      every protocol not included in the current request.</p>\n         <p>The <code>put instance public ports</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Sets the specified open ports for an Amazon Lightsail instance, and closes all ports for\n      every protocol not included in the current request.</p>\n         <p>The <code>put instance public ports</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/PutInstancePublicPorts",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#PutInstancePublicPortsRequest": {
@@ -10017,7 +10477,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Restarts a specific instance.</p>\n         <p>The <code>reboot instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Restarts a specific instance.</p>\n         <p>The <code>reboot instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/RebootInstance",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#RebootInstanceRequest": {
@@ -10075,7 +10540,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Restarts a specific database in Amazon Lightsail.</p>\n         <p>The <code>reboot relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Restarts a specific database in Amazon Lightsail.</p>\n         <p>The <code>reboot relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/RebootRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#RebootRelationalDatabaseRequest": {
@@ -10831,7 +11301,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes a specific static IP from your account.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes a specific static IP from your account.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/ReleaseStaticIp",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#ReleaseStaticIpRequest": {
@@ -10968,7 +11443,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A general service exception.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.lightsail#StartInstance": {
@@ -11003,7 +11479,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an\n      instance, use the <code>reboot instance</code> operation.</p>\n         <note>\n            <p>When you start a stopped instance, Lightsail assigns a new public IP address to the\n        instance. To use the same IP address after stopping and starting an instance, create a\n        static IP address and attach it to the instance. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip\">Lightsail Dev Guide</a>.</p>\n         </note>\n         <p>The <code>start instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Starts a specific Amazon Lightsail instance from a stopped state. To restart an\n      instance, use the <code>reboot instance</code> operation.</p>\n         <note>\n            <p>When you start a stopped instance, Lightsail assigns a new public IP address to the\n        instance. To use the same IP address after stopping and starting an instance, create a\n        static IP address and attach it to the instance. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip\">Lightsail Dev Guide</a>.</p>\n         </note>\n         <p>The <code>start instance</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>instance name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/StartInstance",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#StartInstanceRequest": {
@@ -11061,7 +11542,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a\n      database, use the <code>reboot relational database</code> operation.</p>\n         <p>The <code>start relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Starts a specific database from a stopped state in Amazon Lightsail. To restart a\n      database, use the <code>reboot relational database</code> operation.</p>\n         <p>The <code>start relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/StartRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#StartRelationalDatabaseRequest": {
@@ -11187,7 +11673,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops a specific Amazon Lightsail instance that is currently running.</p>\n         <note>\n            <p>When you start a stopped instance, Lightsail assigns a new public IP address to the\n        instance. To use the same IP address after stopping and starting an instance, create a\n        static IP address and attach it to the instance. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip\">Lightsail Dev Guide</a>.</p>\n         </note>\n         <p>The <code>stop instance</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>instance name</code>. For more information,\n      see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Stops a specific Amazon Lightsail instance that is currently running.</p>\n         <note>\n            <p>When you start a stopped instance, Lightsail assigns a new public IP address to the\n        instance. To use the same IP address after stopping and starting an instance, create a\n        static IP address and attach it to the instance. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/lightsail-create-static-ip\">Lightsail Dev Guide</a>.</p>\n         </note>\n         <p>The <code>stop instance</code> operation supports tag-based access control via resource\n      tags applied to the resource identified by <code>instance name</code>. For more information,\n      see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/StopInstance",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#StopInstanceRequest": {
@@ -11251,7 +11742,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Stops a specific database that is currently running in Amazon Lightsail.</p>\n         <p>The <code>stop relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Stops a specific database that is currently running in Amazon Lightsail.</p>\n         <p>The <code>stop relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/StopRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#StopRelationalDatabaseRequest": {
@@ -11365,7 +11861,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a\n      maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique\n      per resource. For more information about tags, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags\">Lightsail\n        Dev Guide</a>.</p>\n         <p>The <code>tag resource</code> operation supports tag-based access control via request tags\n      and resource tags applied to the resource identified by <code>resource name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Adds one or more tags to the specified Amazon Lightsail resource. Each resource can have a\n      maximum of 50 tags. Each tag consists of a key and an optional value. Tag keys must be unique\n      per resource. For more information about tags, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-tags\">Lightsail\n        Dev Guide</a>.</p>\n         <p>The <code>tag resource</code> operation supports tag-based access control via request tags\n      and resource tags applied to the resource identified by <code>resource name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/TagResource",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#TagResourceRequest": {
@@ -11431,7 +11932,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Lightsail throws this exception when the user has not been authenticated.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 401
       }
     },
     "com.amazonaws.lightsail#UnpeerVpc": {
@@ -11466,7 +11968,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Attempts to unpeer the Lightsail VPC from the user's default VPC.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UnpeerVpc",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UnpeerVpcRequest": {
@@ -11516,7 +12023,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail\n      resource.</p>\n         <p>The <code>untag resource</code> operation supports tag-based access control via request\n      tags and resource tags applied to the resource identified by <code>resource name</code>. For\n      more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Deletes the specified set of tag keys and their values from the specified Amazon Lightsail\n      resource.</p>\n         <p>The <code>untag resource</code> operation supports tag-based access control via request\n      tags and resource tags applied to the resource identified by <code>resource name</code>. For\n      more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UntagResource",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UntagResourceRequest": {
@@ -11587,7 +12099,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates a domain recordset after it is created.</p>\n         <p>The <code>update domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Updates a domain recordset after it is created.</p>\n         <p>The <code>update domain entry</code> operation supports tag-based access control via\n      resource tags applied to the resource identified by <code>domain name</code>. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UpdateDomainEntry",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UpdateDomainEntryRequest": {
@@ -11652,7 +12169,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Updates the specified attribute for a load balancer. You can only update one attribute\n      at a time.</p>\n         <p>The <code>update load balancer attribute</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Updates the specified attribute for a load balancer. You can only update one attribute\n      at a time.</p>\n         <p>The <code>update load balancer attribute</code> operation supports tag-based access\n      control via resource tags applied to the resource identified by <code>load balancer\n        name</code>. For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UpdateLoadBalancerAttribute",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UpdateLoadBalancerAttributeRequest": {
@@ -11724,7 +12246,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>\n         <p>Updates are applied immediately, or in cases where the updates could result in an\n      outage, are applied during the database's predefined maintenance window.</p>\n         <p>The <code>update relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Allows the update of one or more attributes of a database in Amazon Lightsail.</p>\n         <p>Updates are applied immediately, or in cases where the updates could result in an\n      outage, are applied during the database's predefined maintenance window.</p>\n         <p>The <code>update relational database</code> operation supports tag-based access control\n      via resource tags applied to the resource identified by relationalDatabaseName. For more\n      information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UpdateRelationalDatabase",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UpdateRelationalDatabaseParameters": {
@@ -11759,7 +12286,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "\n         <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>\n         <p>Parameter updates don't cause outages; therefore, their application is not subject to\n      the preferred maintenance window. However, there are two ways in which paramater updates are\n      applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters marked with a\n        <code>dynamic</code> apply type are applied immediately. Parameters marked with a\n        <code>pending-reboot</code> apply type are applied only after the database is rebooted using\n      the <code>reboot relational database</code> operation.</p>\n         <p>The <code>update relational database parameters</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by relationalDatabaseName.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      "
+        "smithy.api#documentation": "\n         <p>Allows the update of one or more parameters of a database in Amazon Lightsail.</p>\n         <p>Parameter updates don't cause outages; therefore, their application is not subject to\n      the preferred maintenance window. However, there are two ways in which paramater updates are\n      applied: <code>dynamic</code> or <code>pending-reboot</code>. Parameters marked with a\n        <code>dynamic</code> apply type are applied immediately. Parameters marked with a\n        <code>pending-reboot</code> apply type are applied only after the database is rebooted using\n      the <code>reboot relational database</code> operation.</p>\n         <p>The <code>update relational database parameters</code> operation supports tag-based\n      access control via resource tags applied to the resource identified by relationalDatabaseName.\n      For more information, see the <a href=\"https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags\">Lightsail Dev Guide</a>.</p>\n      ",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ls/api/2016-11-28/UpdateRelationalDatabaseParameters",
+          "code": 200
+        }
       }
     },
     "com.amazonaws.lightsail#UpdateRelationalDatabaseParametersRequest": {
