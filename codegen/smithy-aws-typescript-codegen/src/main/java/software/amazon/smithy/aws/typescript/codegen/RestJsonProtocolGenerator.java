@@ -110,8 +110,9 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
     @Override
     protected void writeErrorCodeParser(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        writer.write("errorCode = output.headers[\"x-amzn-errortype\"].split(':')[0];");
+        writer.openBlock("if (output.headers[\"x-amzn-errortype\"]) {", "}", () -> {
+            writer.write("errorCode = output.headers[\"x-amzn-errortype\"].split(':')[0];");
+        });
     }
 
     @Override
