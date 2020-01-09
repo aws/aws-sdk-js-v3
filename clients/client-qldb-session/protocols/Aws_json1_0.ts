@@ -70,10 +70,7 @@ export async function deserializeAws_json1_0SendCommandCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendCommandResult(
-    data.SendCommandResult,
-    context
-  );
+  contents = deserializeAws_json1_0SendCommandResult(data, context);
   const response: SendCommandCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendCommandResult",
@@ -92,7 +89,7 @@ async function deserializeAws_json1_0SendCommandCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -133,7 +130,6 @@ async function deserializeAws_json1_0SendCommandCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.qldb.session#${errorCode}`,
         $fault: "client",

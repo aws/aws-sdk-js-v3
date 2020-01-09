@@ -652,8 +652,10 @@ async function deserializeAws_restJson1_1CreateFileSystemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -698,7 +700,6 @@ async function deserializeAws_restJson1_1CreateFileSystemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -764,8 +765,10 @@ async function deserializeAws_restJson1_1CreateMountTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -852,7 +855,6 @@ async function deserializeAws_restJson1_1CreateMountTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -885,8 +887,10 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -910,7 +914,6 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -946,8 +949,10 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -978,7 +983,6 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1014,8 +1018,10 @@ async function deserializeAws_restJson1_1DeleteMountTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1046,7 +1052,6 @@ async function deserializeAws_restJson1_1DeleteMountTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1079,8 +1084,10 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1104,7 +1111,6 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1157,8 +1163,10 @@ async function deserializeAws_restJson1_1DescribeFileSystemsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1182,7 +1190,6 @@ async function deserializeAws_restJson1_1DescribeFileSystemsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1227,8 +1234,10 @@ async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1252,7 +1261,6 @@ async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1297,8 +1305,10 @@ async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1329,7 +1339,6 @@ async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1382,8 +1391,10 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1414,7 +1425,6 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1461,8 +1471,10 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1486,7 +1498,6 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1522,8 +1533,10 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1568,7 +1581,6 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1613,8 +1625,10 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1645,7 +1659,6 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",
@@ -1746,8 +1759,10 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1799,7 +1814,6 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.magnolio.api.v20150201#${errorCode}`,
         $fault: "client",

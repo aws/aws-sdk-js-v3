@@ -3862,10 +3862,7 @@ export async function deserializeAws_json1_1GetTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagsResponse(
-    data.GetTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTagsResponse(data, context);
   const response: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTagsResponse",
@@ -3884,7 +3881,7 @@ async function deserializeAws_json1_1GetTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3918,7 +3915,6 @@ async function deserializeAws_json1_1GetTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
@@ -3937,10 +3933,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -3959,7 +3952,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3993,7 +3986,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
@@ -4012,10 +4004,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -4034,7 +4023,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4068,7 +4057,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue#${errorCode}`,
         $fault: "client",
@@ -4090,10 +4078,7 @@ export async function deserializeAws_json1_1BatchCreatePartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchCreatePartitionResponse(
-    data.BatchCreatePartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchCreatePartitionResponse(data, context);
   const response: BatchCreatePartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchCreatePartitionResponse",
@@ -4112,7 +4097,7 @@ async function deserializeAws_json1_1BatchCreatePartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4167,7 +4152,6 @@ async function deserializeAws_json1_1BatchCreatePartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4189,10 +4173,7 @@ export async function deserializeAws_json1_1BatchDeleteConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteConnectionResponse(
-    data.BatchDeleteConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteConnectionResponse(data, context);
   const response: BatchDeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteConnectionResponse",
@@ -4211,7 +4192,7 @@ async function deserializeAws_json1_1BatchDeleteConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4231,7 +4212,6 @@ async function deserializeAws_json1_1BatchDeleteConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4253,10 +4233,7 @@ export async function deserializeAws_json1_1BatchDeletePartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeletePartitionResponse(
-    data.BatchDeletePartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeletePartitionResponse(data, context);
   const response: BatchDeletePartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeletePartitionResponse",
@@ -4275,7 +4252,7 @@ async function deserializeAws_json1_1BatchDeletePartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4309,7 +4286,6 @@ async function deserializeAws_json1_1BatchDeletePartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4328,10 +4304,7 @@ export async function deserializeAws_json1_1BatchDeleteTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteTableResponse(
-    data.BatchDeleteTableResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteTableResponse(data, context);
   const response: BatchDeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteTableResponse",
@@ -4350,7 +4323,7 @@ async function deserializeAws_json1_1BatchDeleteTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4384,7 +4357,6 @@ async function deserializeAws_json1_1BatchDeleteTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4407,7 +4379,7 @@ export async function deserializeAws_json1_1BatchDeleteTableVersionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDeleteTableVersionResponse(
-    data.BatchDeleteTableVersionResponse,
+    data,
     context
   );
   const response: BatchDeleteTableVersionCommandOutput = {
@@ -4428,7 +4400,7 @@ async function deserializeAws_json1_1BatchDeleteTableVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4462,7 +4434,6 @@ async function deserializeAws_json1_1BatchDeleteTableVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4481,10 +4452,7 @@ export async function deserializeAws_json1_1BatchGetPartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetPartitionResponse(
-    data.BatchGetPartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetPartitionResponse(data, context);
   const response: BatchGetPartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetPartitionResponse",
@@ -4503,7 +4471,7 @@ async function deserializeAws_json1_1BatchGetPartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4544,7 +4512,6 @@ async function deserializeAws_json1_1BatchGetPartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4563,10 +4530,7 @@ export async function deserializeAws_json1_1CreateConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateConnectionResponse(
-    data.CreateConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateConnectionResponse(data, context);
   const response: CreateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateConnectionResponse",
@@ -4585,7 +4549,7 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4626,7 +4590,6 @@ async function deserializeAws_json1_1CreateConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4645,10 +4608,7 @@ export async function deserializeAws_json1_1CreateDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDatabaseResponse(
-    data.CreateDatabaseResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDatabaseResponse(data, context);
   const response: CreateDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDatabaseResponse",
@@ -4667,7 +4627,7 @@ async function deserializeAws_json1_1CreateDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4715,7 +4675,6 @@ async function deserializeAws_json1_1CreateDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4734,10 +4693,7 @@ export async function deserializeAws_json1_1CreatePartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePartitionResponse(
-    data.CreatePartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePartitionResponse(data, context);
   const response: CreatePartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePartitionResponse",
@@ -4756,7 +4712,7 @@ async function deserializeAws_json1_1CreatePartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4811,7 +4767,6 @@ async function deserializeAws_json1_1CreatePartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4830,10 +4785,7 @@ export async function deserializeAws_json1_1CreateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTableResponse(
-    data.CreateTableResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTableResponse(data, context);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTableResponse",
@@ -4852,7 +4804,7 @@ async function deserializeAws_json1_1CreateTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4907,7 +4859,6 @@ async function deserializeAws_json1_1CreateTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -4930,7 +4881,7 @@ export async function deserializeAws_json1_1CreateUserDefinedFunctionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserDefinedFunctionResponse(
-    data.CreateUserDefinedFunctionResponse,
+    data,
     context
   );
   const response: CreateUserDefinedFunctionCommandOutput = {
@@ -4951,7 +4902,7 @@ async function deserializeAws_json1_1CreateUserDefinedFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5006,7 +4957,6 @@ async function deserializeAws_json1_1CreateUserDefinedFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5025,10 +4975,7 @@ export async function deserializeAws_json1_1DeleteConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteConnectionResponse(
-    data.DeleteConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteConnectionResponse(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteConnectionResponse",
@@ -5047,7 +4994,7 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5067,7 +5014,6 @@ async function deserializeAws_json1_1DeleteConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5086,10 +5032,7 @@ export async function deserializeAws_json1_1DeleteDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDatabaseResponse(
-    data.DeleteDatabaseResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDatabaseResponse(data, context);
   const response: DeleteDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDatabaseResponse",
@@ -5108,7 +5051,7 @@ async function deserializeAws_json1_1DeleteDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5142,7 +5085,6 @@ async function deserializeAws_json1_1DeleteDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5161,10 +5103,7 @@ export async function deserializeAws_json1_1DeletePartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePartitionResponse(
-    data.DeletePartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeletePartitionResponse(data, context);
   const response: DeletePartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeletePartitionResponse",
@@ -5183,7 +5122,7 @@ async function deserializeAws_json1_1DeletePartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5217,7 +5156,6 @@ async function deserializeAws_json1_1DeletePartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5239,10 +5177,7 @@ export async function deserializeAws_json1_1DeleteResourcePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(
-    data.DeleteResourcePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteResourcePolicyResponse",
@@ -5261,7 +5196,7 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5302,7 +5237,6 @@ async function deserializeAws_json1_1DeleteResourcePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5321,10 +5255,7 @@ export async function deserializeAws_json1_1DeleteTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTableResponse(
-    data.DeleteTableResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTableResponse(data, context);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTableResponse",
@@ -5343,7 +5274,7 @@ async function deserializeAws_json1_1DeleteTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5377,7 +5308,6 @@ async function deserializeAws_json1_1DeleteTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5399,10 +5329,7 @@ export async function deserializeAws_json1_1DeleteTableVersionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTableVersionResponse(
-    data.DeleteTableVersionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTableVersionResponse(data, context);
   const response: DeleteTableVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTableVersionResponse",
@@ -5421,7 +5348,7 @@ async function deserializeAws_json1_1DeleteTableVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5455,7 +5382,6 @@ async function deserializeAws_json1_1DeleteTableVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5478,7 +5404,7 @@ export async function deserializeAws_json1_1DeleteUserDefinedFunctionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteUserDefinedFunctionResponse(
-    data.DeleteUserDefinedFunctionResponse,
+    data,
     context
   );
   const response: DeleteUserDefinedFunctionCommandOutput = {
@@ -5499,7 +5425,7 @@ async function deserializeAws_json1_1DeleteUserDefinedFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5533,7 +5459,6 @@ async function deserializeAws_json1_1DeleteUserDefinedFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5556,7 +5481,7 @@ export async function deserializeAws_json1_1GetCatalogImportStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCatalogImportStatusResponse(
-    data.GetCatalogImportStatusResponse,
+    data,
     context
   );
   const response: GetCatalogImportStatusCommandOutput = {
@@ -5577,7 +5502,7 @@ async function deserializeAws_json1_1GetCatalogImportStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5597,7 +5522,6 @@ async function deserializeAws_json1_1GetCatalogImportStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5616,10 +5540,7 @@ export async function deserializeAws_json1_1GetConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConnectionResponse(
-    data.GetConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConnectionResponse(data, context);
   const response: GetConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConnectionResponse",
@@ -5638,7 +5559,7 @@ async function deserializeAws_json1_1GetConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5672,7 +5593,6 @@ async function deserializeAws_json1_1GetConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5691,10 +5611,7 @@ export async function deserializeAws_json1_1GetConnectionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetConnectionsResponse(
-    data.GetConnectionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetConnectionsResponse(data, context);
   const response: GetConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetConnectionsResponse",
@@ -5713,7 +5630,7 @@ async function deserializeAws_json1_1GetConnectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5747,7 +5664,6 @@ async function deserializeAws_json1_1GetConnectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5770,7 +5686,7 @@ export async function deserializeAws_json1_1GetDataCatalogEncryptionSettingsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDataCatalogEncryptionSettingsResponse(
-    data.GetDataCatalogEncryptionSettingsResponse,
+    data,
     context
   );
   const response: GetDataCatalogEncryptionSettingsCommandOutput = {
@@ -5791,7 +5707,7 @@ async function deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5818,7 +5734,6 @@ async function deserializeAws_json1_1GetDataCatalogEncryptionSettingsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5837,10 +5752,7 @@ export async function deserializeAws_json1_1GetDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDatabaseResponse(
-    data.GetDatabaseResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDatabaseResponse(data, context);
   const response: GetDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDatabaseResponse",
@@ -5859,7 +5771,7 @@ async function deserializeAws_json1_1GetDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5900,7 +5812,6 @@ async function deserializeAws_json1_1GetDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5919,10 +5830,7 @@ export async function deserializeAws_json1_1GetDatabasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDatabasesResponse(
-    data.GetDatabasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDatabasesResponse(data, context);
   const response: GetDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDatabasesResponse",
@@ -5941,7 +5849,7 @@ async function deserializeAws_json1_1GetDatabasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5975,7 +5883,6 @@ async function deserializeAws_json1_1GetDatabasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -5994,10 +5901,7 @@ export async function deserializeAws_json1_1GetPartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPartitionResponse(
-    data.GetPartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPartitionResponse(data, context);
   const response: GetPartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPartitionResponse",
@@ -6016,7 +5920,7 @@ async function deserializeAws_json1_1GetPartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6057,7 +5961,6 @@ async function deserializeAws_json1_1GetPartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6076,10 +5979,7 @@ export async function deserializeAws_json1_1GetPartitionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPartitionsResponse(
-    data.GetPartitionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPartitionsResponse(data, context);
   const response: GetPartitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPartitionsResponse",
@@ -6098,7 +5998,7 @@ async function deserializeAws_json1_1GetPartitionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6139,7 +6039,6 @@ async function deserializeAws_json1_1GetPartitionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6158,10 +6057,7 @@ export async function deserializeAws_json1_1GetResourcePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcePolicyResponse(
-    data.GetResourcePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResourcePolicyResponse",
@@ -6180,7 +6076,7 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6214,7 +6110,6 @@ async function deserializeAws_json1_1GetResourcePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6233,10 +6128,7 @@ export async function deserializeAws_json1_1GetTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTableResponse(
-    data.GetTableResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTableResponse(data, context);
   const response: GetTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTableResponse",
@@ -6255,7 +6147,7 @@ async function deserializeAws_json1_1GetTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6296,7 +6188,6 @@ async function deserializeAws_json1_1GetTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6315,10 +6206,7 @@ export async function deserializeAws_json1_1GetTableVersionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTableVersionResponse(
-    data.GetTableVersionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTableVersionResponse(data, context);
   const response: GetTableVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTableVersionResponse",
@@ -6337,7 +6225,7 @@ async function deserializeAws_json1_1GetTableVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6378,7 +6266,6 @@ async function deserializeAws_json1_1GetTableVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6397,10 +6284,7 @@ export async function deserializeAws_json1_1GetTableVersionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTableVersionsResponse(
-    data.GetTableVersionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTableVersionsResponse(data, context);
   const response: GetTableVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTableVersionsResponse",
@@ -6419,7 +6303,7 @@ async function deserializeAws_json1_1GetTableVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6460,7 +6344,6 @@ async function deserializeAws_json1_1GetTableVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6479,10 +6362,7 @@ export async function deserializeAws_json1_1GetTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTablesResponse(
-    data.GetTablesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTablesResponse(data, context);
   const response: GetTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTablesResponse",
@@ -6501,7 +6381,7 @@ async function deserializeAws_json1_1GetTablesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6542,7 +6422,6 @@ async function deserializeAws_json1_1GetTablesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6565,7 +6444,7 @@ export async function deserializeAws_json1_1GetUserDefinedFunctionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetUserDefinedFunctionResponse(
-    data.GetUserDefinedFunctionResponse,
+    data,
     context
   );
   const response: GetUserDefinedFunctionCommandOutput = {
@@ -6586,7 +6465,7 @@ async function deserializeAws_json1_1GetUserDefinedFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6627,7 +6506,6 @@ async function deserializeAws_json1_1GetUserDefinedFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6650,7 +6528,7 @@ export async function deserializeAws_json1_1GetUserDefinedFunctionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetUserDefinedFunctionsResponse(
-    data.GetUserDefinedFunctionsResponse,
+    data,
     context
   );
   const response: GetUserDefinedFunctionsCommandOutput = {
@@ -6671,7 +6549,7 @@ async function deserializeAws_json1_1GetUserDefinedFunctionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6712,7 +6590,6 @@ async function deserializeAws_json1_1GetUserDefinedFunctionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6734,10 +6611,7 @@ export async function deserializeAws_json1_1ImportCatalogToGlueCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportCatalogToGlueResponse(
-    data.ImportCatalogToGlueResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportCatalogToGlueResponse(data, context);
   const response: ImportCatalogToGlueCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportCatalogToGlueResponse",
@@ -6756,7 +6630,7 @@ async function deserializeAws_json1_1ImportCatalogToGlueCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6776,7 +6650,6 @@ async function deserializeAws_json1_1ImportCatalogToGlueCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6799,7 +6672,7 @@ export async function deserializeAws_json1_1PutDataCatalogEncryptionSettingsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutDataCatalogEncryptionSettingsResponse(
-    data.PutDataCatalogEncryptionSettingsResponse,
+    data,
     context
   );
   const response: PutDataCatalogEncryptionSettingsCommandOutput = {
@@ -6820,7 +6693,7 @@ async function deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6847,7 +6720,6 @@ async function deserializeAws_json1_1PutDataCatalogEncryptionSettingsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6866,10 +6738,7 @@ export async function deserializeAws_json1_1PutResourcePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResourcePolicyResponse(
-    data.PutResourcePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutResourcePolicyResponse",
@@ -6888,7 +6757,7 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6929,7 +6798,6 @@ async function deserializeAws_json1_1PutResourcePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -6948,10 +6816,7 @@ export async function deserializeAws_json1_1SearchTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchTablesResponse(
-    data.SearchTablesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SearchTablesResponse(data, context);
   const response: SearchTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchTablesResponse",
@@ -6970,7 +6835,7 @@ async function deserializeAws_json1_1SearchTablesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6997,7 +6862,6 @@ async function deserializeAws_json1_1SearchTablesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7016,10 +6880,7 @@ export async function deserializeAws_json1_1UpdateConnectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateConnectionResponse(
-    data.UpdateConnectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateConnectionResponse(data, context);
   const response: UpdateConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateConnectionResponse",
@@ -7038,7 +6899,7 @@ async function deserializeAws_json1_1UpdateConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7072,7 +6933,6 @@ async function deserializeAws_json1_1UpdateConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7091,10 +6951,7 @@ export async function deserializeAws_json1_1UpdateDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDatabaseResponse(
-    data.UpdateDatabaseResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDatabaseResponse(data, context);
   const response: UpdateDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDatabaseResponse",
@@ -7113,7 +6970,7 @@ async function deserializeAws_json1_1UpdateDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7154,7 +7011,6 @@ async function deserializeAws_json1_1UpdateDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7173,10 +7029,7 @@ export async function deserializeAws_json1_1UpdatePartitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePartitionResponse(
-    data.UpdatePartitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePartitionResponse(data, context);
   const response: UpdatePartitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePartitionResponse",
@@ -7195,7 +7048,7 @@ async function deserializeAws_json1_1UpdatePartitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7236,7 +7089,6 @@ async function deserializeAws_json1_1UpdatePartitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7255,10 +7107,7 @@ export async function deserializeAws_json1_1UpdateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTableResponse(
-    data.UpdateTableResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTableResponse(data, context);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTableResponse",
@@ -7277,7 +7126,7 @@ async function deserializeAws_json1_1UpdateTableCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7332,7 +7181,6 @@ async function deserializeAws_json1_1UpdateTableCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7355,7 +7203,7 @@ export async function deserializeAws_json1_1UpdateUserDefinedFunctionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserDefinedFunctionResponse(
-    data.UpdateUserDefinedFunctionResponse,
+    data,
     context
   );
   const response: UpdateUserDefinedFunctionCommandOutput = {
@@ -7376,7 +7224,7 @@ async function deserializeAws_json1_1UpdateUserDefinedFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7417,7 +7265,6 @@ async function deserializeAws_json1_1UpdateUserDefinedFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.datacatalog.coral#${errorCode}`,
         $fault: "client",
@@ -7439,10 +7286,7 @@ export async function deserializeAws_json1_1BatchGetDevEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetDevEndpointsResponse(
-    data.BatchGetDevEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetDevEndpointsResponse(data, context);
   const response: BatchGetDevEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetDevEndpointsResponse",
@@ -7461,7 +7305,7 @@ async function deserializeAws_json1_1BatchGetDevEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7495,7 +7339,6 @@ async function deserializeAws_json1_1BatchGetDevEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7514,10 +7357,7 @@ export async function deserializeAws_json1_1CreateDevEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDevEndpointResponse(
-    data.CreateDevEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDevEndpointResponse(data, context);
   const response: CreateDevEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDevEndpointResponse",
@@ -7536,7 +7376,7 @@ async function deserializeAws_json1_1CreateDevEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7598,7 +7438,6 @@ async function deserializeAws_json1_1CreateDevEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7621,7 +7460,7 @@ export async function deserializeAws_json1_1CreateSecurityConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateSecurityConfigurationResponse(
-    data.CreateSecurityConfigurationResponse,
+    data,
     context
   );
   const response: CreateSecurityConfigurationCommandOutput = {
@@ -7642,7 +7481,7 @@ async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7683,7 +7522,6 @@ async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7702,10 +7540,7 @@ export async function deserializeAws_json1_1DeleteDevEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDevEndpointResponse(
-    data.DeleteDevEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDevEndpointResponse(data, context);
   const response: DeleteDevEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDevEndpointResponse",
@@ -7724,7 +7559,7 @@ async function deserializeAws_json1_1DeleteDevEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7758,7 +7593,6 @@ async function deserializeAws_json1_1DeleteDevEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7781,7 +7615,7 @@ export async function deserializeAws_json1_1DeleteSecurityConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteSecurityConfigurationResponse(
-    data.DeleteSecurityConfigurationResponse,
+    data,
     context
   );
   const response: DeleteSecurityConfigurationCommandOutput = {
@@ -7802,7 +7636,7 @@ async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7836,7 +7670,6 @@ async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7855,10 +7688,7 @@ export async function deserializeAws_json1_1GetDevEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDevEndpointResponse(
-    data.GetDevEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDevEndpointResponse(data, context);
   const response: GetDevEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDevEndpointResponse",
@@ -7877,7 +7707,7 @@ async function deserializeAws_json1_1GetDevEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7911,7 +7741,6 @@ async function deserializeAws_json1_1GetDevEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -7930,10 +7759,7 @@ export async function deserializeAws_json1_1GetDevEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDevEndpointsResponse(
-    data.GetDevEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDevEndpointsResponse(data, context);
   const response: GetDevEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDevEndpointsResponse",
@@ -7952,7 +7778,7 @@ async function deserializeAws_json1_1GetDevEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7986,7 +7812,6 @@ async function deserializeAws_json1_1GetDevEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8005,10 +7830,7 @@ export async function deserializeAws_json1_1GetJobBookmarkCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobBookmarkResponse(
-    data.GetJobBookmarkResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobBookmarkResponse(data, context);
   const response: GetJobBookmarkCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobBookmarkResponse",
@@ -8027,7 +7849,7 @@ async function deserializeAws_json1_1GetJobBookmarkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8068,7 +7890,6 @@ async function deserializeAws_json1_1GetJobBookmarkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8091,7 +7912,7 @@ export async function deserializeAws_json1_1GetSecurityConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSecurityConfigurationResponse(
-    data.GetSecurityConfigurationResponse,
+    data,
     context
   );
   const response: GetSecurityConfigurationCommandOutput = {
@@ -8112,7 +7933,7 @@ async function deserializeAws_json1_1GetSecurityConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8146,7 +7967,6 @@ async function deserializeAws_json1_1GetSecurityConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8169,7 +7989,7 @@ export async function deserializeAws_json1_1GetSecurityConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSecurityConfigurationsResponse(
-    data.GetSecurityConfigurationsResponse,
+    data,
     context
   );
   const response: GetSecurityConfigurationsCommandOutput = {
@@ -8190,7 +8010,7 @@ async function deserializeAws_json1_1GetSecurityConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8224,7 +8044,6 @@ async function deserializeAws_json1_1GetSecurityConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8243,10 +8062,7 @@ export async function deserializeAws_json1_1ListDevEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDevEndpointsResponse(
-    data.ListDevEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDevEndpointsResponse(data, context);
   const response: ListDevEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDevEndpointsResponse",
@@ -8265,7 +8081,7 @@ async function deserializeAws_json1_1ListDevEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8299,7 +8115,6 @@ async function deserializeAws_json1_1ListDevEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8318,10 +8133,7 @@ export async function deserializeAws_json1_1ResetJobBookmarkCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResetJobBookmarkResponse(
-    data.ResetJobBookmarkResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ResetJobBookmarkResponse(data, context);
   const response: ResetJobBookmarkCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResetJobBookmarkResponse",
@@ -8340,7 +8152,7 @@ async function deserializeAws_json1_1ResetJobBookmarkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8374,7 +8186,6 @@ async function deserializeAws_json1_1ResetJobBookmarkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8393,10 +8204,7 @@ export async function deserializeAws_json1_1UpdateDevEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDevEndpointResponse(
-    data.UpdateDevEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDevEndpointResponse(data, context);
   const response: UpdateDevEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDevEndpointResponse",
@@ -8415,7 +8223,7 @@ async function deserializeAws_json1_1UpdateDevEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8456,7 +8264,6 @@ async function deserializeAws_json1_1UpdateDevEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.jobexecutor#${errorCode}`,
         $fault: "client",
@@ -8475,10 +8282,7 @@ export async function deserializeAws_json1_1CancelMLTaskRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelMLTaskRunResponse(
-    data.CancelMLTaskRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CancelMLTaskRunResponse(data, context);
   const response: CancelMLTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelMLTaskRunResponse",
@@ -8497,7 +8301,7 @@ async function deserializeAws_json1_1CancelMLTaskRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8531,7 +8335,6 @@ async function deserializeAws_json1_1CancelMLTaskRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8550,10 +8353,7 @@ export async function deserializeAws_json1_1CreateMLTransformCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMLTransformResponse(
-    data.CreateMLTransformResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateMLTransformResponse(data, context);
   const response: CreateMLTransformCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMLTransformResponse",
@@ -8572,7 +8372,7 @@ async function deserializeAws_json1_1CreateMLTransformCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8627,7 +8427,6 @@ async function deserializeAws_json1_1CreateMLTransformCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8646,10 +8445,7 @@ export async function deserializeAws_json1_1DeleteMLTransformCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteMLTransformResponse(
-    data.DeleteMLTransformResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteMLTransformResponse(data, context);
   const response: DeleteMLTransformCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteMLTransformResponse",
@@ -8668,7 +8464,7 @@ async function deserializeAws_json1_1DeleteMLTransformCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8702,7 +8498,6 @@ async function deserializeAws_json1_1DeleteMLTransformCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8721,10 +8516,7 @@ export async function deserializeAws_json1_1GetMLTaskRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLTaskRunResponse(
-    data.GetMLTaskRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetMLTaskRunResponse(data, context);
   const response: GetMLTaskRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMLTaskRunResponse",
@@ -8743,7 +8535,7 @@ async function deserializeAws_json1_1GetMLTaskRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8777,7 +8569,6 @@ async function deserializeAws_json1_1GetMLTaskRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8796,10 +8587,7 @@ export async function deserializeAws_json1_1GetMLTaskRunsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLTaskRunsResponse(
-    data.GetMLTaskRunsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetMLTaskRunsResponse(data, context);
   const response: GetMLTaskRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMLTaskRunsResponse",
@@ -8818,7 +8606,7 @@ async function deserializeAws_json1_1GetMLTaskRunsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8852,7 +8640,6 @@ async function deserializeAws_json1_1GetMLTaskRunsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8871,10 +8658,7 @@ export async function deserializeAws_json1_1GetMLTransformCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLTransformResponse(
-    data.GetMLTransformResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetMLTransformResponse(data, context);
   const response: GetMLTransformCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMLTransformResponse",
@@ -8893,7 +8677,7 @@ async function deserializeAws_json1_1GetMLTransformCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8927,7 +8711,6 @@ async function deserializeAws_json1_1GetMLTransformCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -8946,10 +8729,7 @@ export async function deserializeAws_json1_1GetMLTransformsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMLTransformsResponse(
-    data.GetMLTransformsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetMLTransformsResponse(data, context);
   const response: GetMLTransformsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMLTransformsResponse",
@@ -8968,7 +8748,7 @@ async function deserializeAws_json1_1GetMLTransformsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9002,7 +8782,6 @@ async function deserializeAws_json1_1GetMLTransformsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9025,7 +8804,7 @@ export async function deserializeAws_json1_1StartExportLabelsTaskRunCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartExportLabelsTaskRunResponse(
-    data.StartExportLabelsTaskRunResponse,
+    data,
     context
   );
   const response: StartExportLabelsTaskRunCommandOutput = {
@@ -9046,7 +8825,7 @@ async function deserializeAws_json1_1StartExportLabelsTaskRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9080,7 +8859,6 @@ async function deserializeAws_json1_1StartExportLabelsTaskRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9103,7 +8881,7 @@ export async function deserializeAws_json1_1StartImportLabelsTaskRunCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartImportLabelsTaskRunResponse(
-    data.StartImportLabelsTaskRunResponse,
+    data,
     context
   );
   const response: StartImportLabelsTaskRunCommandOutput = {
@@ -9124,7 +8902,7 @@ async function deserializeAws_json1_1StartImportLabelsTaskRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9165,7 +8943,6 @@ async function deserializeAws_json1_1StartImportLabelsTaskRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9188,7 +8965,7 @@ export async function deserializeAws_json1_1StartMLEvaluationTaskRunCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartMLEvaluationTaskRunResponse(
-    data.StartMLEvaluationTaskRunResponse,
+    data,
     context
   );
   const response: StartMLEvaluationTaskRunCommandOutput = {
@@ -9209,7 +8986,7 @@ async function deserializeAws_json1_1StartMLEvaluationTaskRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9257,7 +9034,6 @@ async function deserializeAws_json1_1StartMLEvaluationTaskRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9280,7 +9056,7 @@ export async function deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunResponse(
-    data.StartMLLabelingSetGenerationTaskRunResponse,
+    data,
     context
   );
   const response: StartMLLabelingSetGenerationTaskRunCommandOutput = {
@@ -9301,7 +9077,7 @@ async function deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9342,7 +9118,6 @@ async function deserializeAws_json1_1StartMLLabelingSetGenerationTaskRunCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9361,10 +9136,7 @@ export async function deserializeAws_json1_1UpdateMLTransformCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateMLTransformResponse(
-    data.UpdateMLTransformResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateMLTransformResponse(data, context);
   const response: UpdateMLTransformCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateMLTransformResponse",
@@ -9383,7 +9155,7 @@ async function deserializeAws_json1_1UpdateMLTransformCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9424,7 +9196,6 @@ async function deserializeAws_json1_1UpdateMLTransformCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.ml.coral#${errorCode}`,
         $fault: "client",
@@ -9443,10 +9214,7 @@ export async function deserializeAws_json1_1BatchGetJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetJobsResponse(
-    data.BatchGetJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetJobsResponse(data, context);
   const response: BatchGetJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetJobsResponse",
@@ -9465,7 +9233,7 @@ async function deserializeAws_json1_1BatchGetJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9492,7 +9260,6 @@ async function deserializeAws_json1_1BatchGetJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9511,10 +9278,7 @@ export async function deserializeAws_json1_1BatchGetTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetTriggersResponse(
-    data.BatchGetTriggersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetTriggersResponse(data, context);
   const response: BatchGetTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetTriggersResponse",
@@ -9533,7 +9297,7 @@ async function deserializeAws_json1_1BatchGetTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9560,7 +9324,6 @@ async function deserializeAws_json1_1BatchGetTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9579,10 +9342,7 @@ export async function deserializeAws_json1_1BatchGetWorkflowsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetWorkflowsResponse(
-    data.BatchGetWorkflowsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetWorkflowsResponse(data, context);
   const response: BatchGetWorkflowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetWorkflowsResponse",
@@ -9601,7 +9361,7 @@ async function deserializeAws_json1_1BatchGetWorkflowsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9628,7 +9388,6 @@ async function deserializeAws_json1_1BatchGetWorkflowsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9647,10 +9406,7 @@ export async function deserializeAws_json1_1BatchStopJobRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchStopJobRunResponse(
-    data.BatchStopJobRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchStopJobRunResponse(data, context);
   const response: BatchStopJobRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchStopJobRunResponse",
@@ -9669,7 +9425,7 @@ async function deserializeAws_json1_1BatchStopJobRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9696,7 +9452,6 @@ async function deserializeAws_json1_1BatchStopJobRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9715,10 +9470,7 @@ export async function deserializeAws_json1_1CreateJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateJobResponse(
-    data.CreateJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateJobResponse(data, context);
   const response: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateJobResponse",
@@ -9737,7 +9489,7 @@ async function deserializeAws_json1_1CreateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9792,7 +9544,6 @@ async function deserializeAws_json1_1CreateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9811,10 +9562,7 @@ export async function deserializeAws_json1_1CreateTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTriggerResponse(
-    data.CreateTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTriggerResponse(data, context);
   const response: CreateTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTriggerResponse",
@@ -9833,7 +9581,7 @@ async function deserializeAws_json1_1CreateTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9895,7 +9643,6 @@ async function deserializeAws_json1_1CreateTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -9914,10 +9661,7 @@ export async function deserializeAws_json1_1CreateWorkflowCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkflowResponse(
-    data.CreateWorkflowResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWorkflowResponse(data, context);
   const response: CreateWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWorkflowResponse",
@@ -9936,7 +9680,7 @@ async function deserializeAws_json1_1CreateWorkflowCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9984,7 +9728,6 @@ async function deserializeAws_json1_1CreateWorkflowCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10003,10 +9746,7 @@ export async function deserializeAws_json1_1DeleteJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteJobResponse(
-    data.DeleteJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteJobResponse(data, context);
   const response: DeleteJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteJobResponse",
@@ -10025,7 +9765,7 @@ async function deserializeAws_json1_1DeleteJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10052,7 +9792,6 @@ async function deserializeAws_json1_1DeleteJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10071,10 +9810,7 @@ export async function deserializeAws_json1_1DeleteTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTriggerResponse(
-    data.DeleteTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTriggerResponse(data, context);
   const response: DeleteTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTriggerResponse",
@@ -10093,7 +9829,7 @@ async function deserializeAws_json1_1DeleteTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10127,7 +9863,6 @@ async function deserializeAws_json1_1DeleteTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10146,10 +9881,7 @@ export async function deserializeAws_json1_1DeleteWorkflowCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkflowResponse(
-    data.DeleteWorkflowResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWorkflowResponse(data, context);
   const response: DeleteWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWorkflowResponse",
@@ -10168,7 +9900,7 @@ async function deserializeAws_json1_1DeleteWorkflowCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10202,7 +9934,6 @@ async function deserializeAws_json1_1DeleteWorkflowCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10221,7 +9952,7 @@ export async function deserializeAws_json1_1GetJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobResponse(data.GetJobResponse, context);
+  contents = deserializeAws_json1_1GetJobResponse(data, context);
   const response: GetJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobResponse",
@@ -10240,7 +9971,7 @@ async function deserializeAws_json1_1GetJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10274,7 +10005,6 @@ async function deserializeAws_json1_1GetJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10293,10 +10023,7 @@ export async function deserializeAws_json1_1GetJobRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobRunResponse(
-    data.GetJobRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobRunResponse(data, context);
   const response: GetJobRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobRunResponse",
@@ -10315,7 +10042,7 @@ async function deserializeAws_json1_1GetJobRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10349,7 +10076,6 @@ async function deserializeAws_json1_1GetJobRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10368,10 +10094,7 @@ export async function deserializeAws_json1_1GetJobRunsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobRunsResponse(
-    data.GetJobRunsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobRunsResponse(data, context);
   const response: GetJobRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobRunsResponse",
@@ -10390,7 +10113,7 @@ async function deserializeAws_json1_1GetJobRunsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10424,7 +10147,6 @@ async function deserializeAws_json1_1GetJobRunsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10443,10 +10165,7 @@ export async function deserializeAws_json1_1GetJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobsResponse(
-    data.GetJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetJobsResponse(data, context);
   const response: GetJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobsResponse",
@@ -10465,7 +10184,7 @@ async function deserializeAws_json1_1GetJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10499,7 +10218,6 @@ async function deserializeAws_json1_1GetJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10518,10 +10236,7 @@ export async function deserializeAws_json1_1GetTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTriggerResponse(
-    data.GetTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTriggerResponse(data, context);
   const response: GetTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTriggerResponse",
@@ -10540,7 +10255,7 @@ async function deserializeAws_json1_1GetTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10574,7 +10289,6 @@ async function deserializeAws_json1_1GetTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10593,10 +10307,7 @@ export async function deserializeAws_json1_1GetTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTriggersResponse(
-    data.GetTriggersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTriggersResponse(data, context);
   const response: GetTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTriggersResponse",
@@ -10615,7 +10326,7 @@ async function deserializeAws_json1_1GetTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10649,7 +10360,6 @@ async function deserializeAws_json1_1GetTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10668,10 +10378,7 @@ export async function deserializeAws_json1_1GetWorkflowCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkflowResponse(
-    data.GetWorkflowResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkflowResponse(data, context);
   const response: GetWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkflowResponse",
@@ -10690,7 +10397,7 @@ async function deserializeAws_json1_1GetWorkflowCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10724,7 +10431,6 @@ async function deserializeAws_json1_1GetWorkflowCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10743,10 +10449,7 @@ export async function deserializeAws_json1_1GetWorkflowRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkflowRunResponse(
-    data.GetWorkflowRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkflowRunResponse(data, context);
   const response: GetWorkflowRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkflowRunResponse",
@@ -10765,7 +10468,7 @@ async function deserializeAws_json1_1GetWorkflowRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10799,7 +10502,6 @@ async function deserializeAws_json1_1GetWorkflowRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10822,7 +10524,7 @@ export async function deserializeAws_json1_1GetWorkflowRunPropertiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetWorkflowRunPropertiesResponse(
-    data.GetWorkflowRunPropertiesResponse,
+    data,
     context
   );
   const response: GetWorkflowRunPropertiesCommandOutput = {
@@ -10843,7 +10545,7 @@ async function deserializeAws_json1_1GetWorkflowRunPropertiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10877,7 +10579,6 @@ async function deserializeAws_json1_1GetWorkflowRunPropertiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10896,10 +10597,7 @@ export async function deserializeAws_json1_1GetWorkflowRunsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkflowRunsResponse(
-    data.GetWorkflowRunsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkflowRunsResponse(data, context);
   const response: GetWorkflowRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkflowRunsResponse",
@@ -10918,7 +10616,7 @@ async function deserializeAws_json1_1GetWorkflowRunsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10952,7 +10650,6 @@ async function deserializeAws_json1_1GetWorkflowRunsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -10971,10 +10668,7 @@ export async function deserializeAws_json1_1ListJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListJobsResponse(
-    data.ListJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListJobsResponse(data, context);
   const response: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJobsResponse",
@@ -10993,7 +10687,7 @@ async function deserializeAws_json1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11027,7 +10721,6 @@ async function deserializeAws_json1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11046,10 +10739,7 @@ export async function deserializeAws_json1_1ListTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTriggersResponse(
-    data.ListTriggersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTriggersResponse(data, context);
   const response: ListTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTriggersResponse",
@@ -11068,7 +10758,7 @@ async function deserializeAws_json1_1ListTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11102,7 +10792,6 @@ async function deserializeAws_json1_1ListTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11121,10 +10810,7 @@ export async function deserializeAws_json1_1ListWorkflowsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkflowsResponse(
-    data.ListWorkflowsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListWorkflowsResponse(data, context);
   const response: ListWorkflowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWorkflowsResponse",
@@ -11143,7 +10829,7 @@ async function deserializeAws_json1_1ListWorkflowsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11170,7 +10856,6 @@ async function deserializeAws_json1_1ListWorkflowsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11193,7 +10878,7 @@ export async function deserializeAws_json1_1PutWorkflowRunPropertiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutWorkflowRunPropertiesResponse(
-    data.PutWorkflowRunPropertiesResponse,
+    data,
     context
   );
   const response: PutWorkflowRunPropertiesCommandOutput = {
@@ -11214,7 +10899,7 @@ async function deserializeAws_json1_1PutWorkflowRunPropertiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11269,7 +10954,6 @@ async function deserializeAws_json1_1PutWorkflowRunPropertiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11288,10 +10972,7 @@ export async function deserializeAws_json1_1StartJobRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartJobRunResponse(
-    data.StartJobRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartJobRunResponse(data, context);
   const response: StartJobRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartJobRunResponse",
@@ -11310,7 +10991,7 @@ async function deserializeAws_json1_1StartJobRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11358,7 +11039,6 @@ async function deserializeAws_json1_1StartJobRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11377,10 +11057,7 @@ export async function deserializeAws_json1_1StartTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTriggerResponse(
-    data.StartTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartTriggerResponse(data, context);
   const response: StartTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTriggerResponse",
@@ -11399,7 +11076,7 @@ async function deserializeAws_json1_1StartTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11447,7 +11124,6 @@ async function deserializeAws_json1_1StartTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11466,10 +11142,7 @@ export async function deserializeAws_json1_1StartWorkflowRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartWorkflowRunResponse(
-    data.StartWorkflowRunResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartWorkflowRunResponse(data, context);
   const response: StartWorkflowRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartWorkflowRunResponse",
@@ -11488,7 +11161,7 @@ async function deserializeAws_json1_1StartWorkflowRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11536,7 +11209,6 @@ async function deserializeAws_json1_1StartWorkflowRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11555,10 +11227,7 @@ export async function deserializeAws_json1_1StopTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopTriggerResponse(
-    data.StopTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopTriggerResponse(data, context);
   const response: StopTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopTriggerResponse",
@@ -11577,7 +11246,7 @@ async function deserializeAws_json1_1StopTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11618,7 +11287,6 @@ async function deserializeAws_json1_1StopTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11637,10 +11305,7 @@ export async function deserializeAws_json1_1UpdateJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateJobResponse(
-    data.UpdateJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateJobResponse(data, context);
   const response: UpdateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateJobResponse",
@@ -11659,7 +11324,7 @@ async function deserializeAws_json1_1UpdateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11700,7 +11365,6 @@ async function deserializeAws_json1_1UpdateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11719,10 +11383,7 @@ export async function deserializeAws_json1_1UpdateTriggerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTriggerResponse(
-    data.UpdateTriggerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTriggerResponse(data, context);
   const response: UpdateTriggerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTriggerResponse",
@@ -11741,7 +11402,7 @@ async function deserializeAws_json1_1UpdateTriggerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11782,7 +11443,6 @@ async function deserializeAws_json1_1UpdateTriggerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11801,10 +11461,7 @@ export async function deserializeAws_json1_1UpdateWorkflowCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWorkflowResponse(
-    data.UpdateWorkflowResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWorkflowResponse(data, context);
   const response: UpdateWorkflowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWorkflowResponse",
@@ -11823,7 +11480,7 @@ async function deserializeAws_json1_1UpdateWorkflowCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11864,7 +11521,6 @@ async function deserializeAws_json1_1UpdateWorkflowCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.glue.orchestration#${errorCode}`,
         $fault: "client",
@@ -11883,10 +11539,7 @@ export async function deserializeAws_json1_1BatchGetCrawlersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetCrawlersResponse(
-    data.BatchGetCrawlersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetCrawlersResponse(data, context);
   const response: BatchGetCrawlersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetCrawlersResponse",
@@ -11905,7 +11558,7 @@ async function deserializeAws_json1_1BatchGetCrawlersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11925,7 +11578,6 @@ async function deserializeAws_json1_1BatchGetCrawlersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -11944,10 +11596,7 @@ export async function deserializeAws_json1_1CreateClassifierCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateClassifierResponse(
-    data.CreateClassifierResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateClassifierResponse(data, context);
   const response: CreateClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateClassifierResponse",
@@ -11966,7 +11615,7 @@ async function deserializeAws_json1_1CreateClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11993,7 +11642,6 @@ async function deserializeAws_json1_1CreateClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12012,10 +11660,7 @@ export async function deserializeAws_json1_1CreateCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCrawlerResponse(
-    data.CreateCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCrawlerResponse(data, context);
   const response: CreateCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCrawlerResponse",
@@ -12034,7 +11679,7 @@ async function deserializeAws_json1_1CreateCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12068,7 +11713,6 @@ async function deserializeAws_json1_1CreateCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12087,10 +11731,7 @@ export async function deserializeAws_json1_1CreateScriptCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateScriptResponse(
-    data.CreateScriptResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateScriptResponse(data, context);
   const response: CreateScriptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateScriptResponse",
@@ -12109,7 +11750,7 @@ async function deserializeAws_json1_1CreateScriptCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12136,7 +11777,6 @@ async function deserializeAws_json1_1CreateScriptCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12155,10 +11795,7 @@ export async function deserializeAws_json1_1DeleteClassifierCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteClassifierResponse(
-    data.DeleteClassifierResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteClassifierResponse(data, context);
   const response: DeleteClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteClassifierResponse",
@@ -12177,7 +11814,7 @@ async function deserializeAws_json1_1DeleteClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12197,7 +11834,6 @@ async function deserializeAws_json1_1DeleteClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12216,10 +11852,7 @@ export async function deserializeAws_json1_1DeleteCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCrawlerResponse(
-    data.DeleteCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteCrawlerResponse(data, context);
   const response: DeleteCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteCrawlerResponse",
@@ -12238,7 +11871,7 @@ async function deserializeAws_json1_1DeleteCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12272,7 +11905,6 @@ async function deserializeAws_json1_1DeleteCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12291,10 +11923,7 @@ export async function deserializeAws_json1_1GetClassifierCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetClassifierResponse(
-    data.GetClassifierResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetClassifierResponse(data, context);
   const response: GetClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetClassifierResponse",
@@ -12313,7 +11942,7 @@ async function deserializeAws_json1_1GetClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12333,7 +11962,6 @@ async function deserializeAws_json1_1GetClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12352,10 +11980,7 @@ export async function deserializeAws_json1_1GetClassifiersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetClassifiersResponse(
-    data.GetClassifiersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetClassifiersResponse(data, context);
   const response: GetClassifiersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetClassifiersResponse",
@@ -12374,7 +11999,7 @@ async function deserializeAws_json1_1GetClassifiersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12387,7 +12012,6 @@ async function deserializeAws_json1_1GetClassifiersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12406,10 +12030,7 @@ export async function deserializeAws_json1_1GetCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCrawlerResponse(
-    data.GetCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCrawlerResponse(data, context);
   const response: GetCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCrawlerResponse",
@@ -12428,7 +12049,7 @@ async function deserializeAws_json1_1GetCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12448,7 +12069,6 @@ async function deserializeAws_json1_1GetCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12467,10 +12087,7 @@ export async function deserializeAws_json1_1GetCrawlerMetricsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCrawlerMetricsResponse(
-    data.GetCrawlerMetricsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCrawlerMetricsResponse(data, context);
   const response: GetCrawlerMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCrawlerMetricsResponse",
@@ -12489,7 +12106,7 @@ async function deserializeAws_json1_1GetCrawlerMetricsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12502,7 +12119,6 @@ async function deserializeAws_json1_1GetCrawlerMetricsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12521,10 +12137,7 @@ export async function deserializeAws_json1_1GetCrawlersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCrawlersResponse(
-    data.GetCrawlersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCrawlersResponse(data, context);
   const response: GetCrawlersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCrawlersResponse",
@@ -12543,7 +12156,7 @@ async function deserializeAws_json1_1GetCrawlersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12556,7 +12169,6 @@ async function deserializeAws_json1_1GetCrawlersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12575,10 +12187,7 @@ export async function deserializeAws_json1_1GetDataflowGraphCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDataflowGraphResponse(
-    data.GetDataflowGraphResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDataflowGraphResponse(data, context);
   const response: GetDataflowGraphCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDataflowGraphResponse",
@@ -12597,7 +12206,7 @@ async function deserializeAws_json1_1GetDataflowGraphCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12624,7 +12233,6 @@ async function deserializeAws_json1_1GetDataflowGraphCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12643,10 +12251,7 @@ export async function deserializeAws_json1_1GetMappingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMappingResponse(
-    data.GetMappingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetMappingResponse(data, context);
   const response: GetMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMappingResponse",
@@ -12665,7 +12270,7 @@ async function deserializeAws_json1_1GetMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12699,7 +12304,6 @@ async function deserializeAws_json1_1GetMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12718,10 +12322,7 @@ export async function deserializeAws_json1_1GetPlanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPlanResponse(
-    data.GetPlanResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPlanResponse(data, context);
   const response: GetPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPlanResponse",
@@ -12740,7 +12341,7 @@ async function deserializeAws_json1_1GetPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12767,7 +12368,6 @@ async function deserializeAws_json1_1GetPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12786,10 +12386,7 @@ export async function deserializeAws_json1_1ListCrawlersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCrawlersResponse(
-    data.ListCrawlersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListCrawlersResponse(data, context);
   const response: ListCrawlersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCrawlersResponse",
@@ -12808,7 +12405,7 @@ async function deserializeAws_json1_1ListCrawlersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12821,7 +12418,6 @@ async function deserializeAws_json1_1ListCrawlersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12840,10 +12436,7 @@ export async function deserializeAws_json1_1StartCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartCrawlerResponse(
-    data.StartCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartCrawlerResponse(data, context);
   const response: StartCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartCrawlerResponse",
@@ -12862,7 +12455,7 @@ async function deserializeAws_json1_1StartCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12889,7 +12482,6 @@ async function deserializeAws_json1_1StartCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12911,10 +12503,7 @@ export async function deserializeAws_json1_1StartCrawlerScheduleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartCrawlerScheduleResponse(
-    data.StartCrawlerScheduleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartCrawlerScheduleResponse(data, context);
   const response: StartCrawlerScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartCrawlerScheduleResponse",
@@ -12933,7 +12522,7 @@ async function deserializeAws_json1_1StartCrawlerScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12974,7 +12563,6 @@ async function deserializeAws_json1_1StartCrawlerScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -12993,10 +12581,7 @@ export async function deserializeAws_json1_1StopCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopCrawlerResponse(
-    data.StopCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopCrawlerResponse(data, context);
   const response: StopCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopCrawlerResponse",
@@ -13015,7 +12600,7 @@ async function deserializeAws_json1_1StopCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13049,7 +12634,6 @@ async function deserializeAws_json1_1StopCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -13071,10 +12655,7 @@ export async function deserializeAws_json1_1StopCrawlerScheduleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopCrawlerScheduleResponse(
-    data.StopCrawlerScheduleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopCrawlerScheduleResponse(data, context);
   const response: StopCrawlerScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopCrawlerScheduleResponse",
@@ -13093,7 +12674,7 @@ async function deserializeAws_json1_1StopCrawlerScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13127,7 +12708,6 @@ async function deserializeAws_json1_1StopCrawlerScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -13146,10 +12726,7 @@ export async function deserializeAws_json1_1UpdateClassifierCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateClassifierResponse(
-    data.UpdateClassifierResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateClassifierResponse(data, context);
   const response: UpdateClassifierCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateClassifierResponse",
@@ -13168,7 +12745,7 @@ async function deserializeAws_json1_1UpdateClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13202,7 +12779,6 @@ async function deserializeAws_json1_1UpdateClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -13221,10 +12797,7 @@ export async function deserializeAws_json1_1UpdateCrawlerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCrawlerResponse(
-    data.UpdateCrawlerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateCrawlerResponse(data, context);
   const response: UpdateCrawlerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateCrawlerResponse",
@@ -13243,7 +12816,7 @@ async function deserializeAws_json1_1UpdateCrawlerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13284,7 +12857,6 @@ async function deserializeAws_json1_1UpdateCrawlerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",
@@ -13306,10 +12878,7 @@ export async function deserializeAws_json1_1UpdateCrawlerScheduleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCrawlerScheduleResponse(
-    data.UpdateCrawlerScheduleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateCrawlerScheduleResponse(data, context);
   const response: UpdateCrawlerScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateCrawlerScheduleResponse",
@@ -13328,7 +12897,7 @@ async function deserializeAws_json1_1UpdateCrawlerScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13369,7 +12938,6 @@ async function deserializeAws_json1_1UpdateCrawlerScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.gluedataplane.coral#${errorCode}`,
         $fault: "client",

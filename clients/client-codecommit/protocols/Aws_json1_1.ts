@@ -2546,7 +2546,7 @@ async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepository
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2636,7 +2636,6 @@ async function deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepository
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -2659,7 +2658,7 @@ export async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(
-    data.BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
+    data,
     context
   );
   const response: BatchAssociateApprovalRuleTemplateWithRepositoriesCommandOutput = {
@@ -2680,7 +2679,7 @@ async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepos
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2756,7 +2755,6 @@ async function deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepos
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -2779,7 +2777,7 @@ export async function deserializeAws_json1_1BatchDescribeMergeConflictsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDescribeMergeConflictsOutput(
-    data.BatchDescribeMergeConflictsOutput,
+    data,
     context
   );
   const response: BatchDescribeMergeConflictsCommandOutput = {
@@ -2800,7 +2798,7 @@ async function deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2953,7 +2951,6 @@ async function deserializeAws_json1_1BatchDescribeMergeConflictsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -2976,7 +2973,7 @@ export async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplat
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput(
-    data.BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput,
+    data,
     context
   );
   const response: BatchDisassociateApprovalRuleTemplateFromRepositoriesCommandOutput = {
@@ -2997,7 +2994,7 @@ async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRe
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3073,7 +3070,6 @@ async function deserializeAws_json1_1BatchDisassociateApprovalRuleTemplateFromRe
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3092,10 +3088,7 @@ export async function deserializeAws_json1_1BatchGetCommitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetCommitsOutput(
-    data.BatchGetCommitsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetCommitsOutput(data, context);
   const response: BatchGetCommitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetCommitsOutput",
@@ -3114,7 +3107,7 @@ async function deserializeAws_json1_1BatchGetCommitsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3190,7 +3183,6 @@ async function deserializeAws_json1_1BatchGetCommitsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3212,10 +3204,7 @@ export async function deserializeAws_json1_1BatchGetRepositoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetRepositoriesOutput(
-    data.BatchGetRepositoriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetRepositoriesOutput(data, context);
   const response: BatchGetRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetRepositoriesOutput",
@@ -3234,7 +3223,7 @@ async function deserializeAws_json1_1BatchGetRepositoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3296,7 +3285,6 @@ async function deserializeAws_json1_1BatchGetRepositoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3319,7 +3307,7 @@ export async function deserializeAws_json1_1CreateApprovalRuleTemplateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateApprovalRuleTemplateOutput(
-    data.CreateApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: CreateApprovalRuleTemplateCommandOutput = {
@@ -3340,7 +3328,7 @@ async function deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3395,7 +3383,6 @@ async function deserializeAws_json1_1CreateApprovalRuleTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3428,7 +3415,7 @@ async function deserializeAws_json1_1CreateBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3532,7 +3519,6 @@ async function deserializeAws_json1_1CreateBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3551,10 +3537,7 @@ export async function deserializeAws_json1_1CreateCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCommitOutput(
-    data.CreateCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCommitOutput(data, context);
   const response: CreateCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCommitOutput",
@@ -3573,7 +3556,7 @@ async function deserializeAws_json1_1CreateCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3845,7 +3828,6 @@ async function deserializeAws_json1_1CreateCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -3864,10 +3846,7 @@ export async function deserializeAws_json1_1CreatePullRequestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePullRequestOutput(
-    data.CreatePullRequestOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePullRequestOutput(data, context);
   const response: CreatePullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePullRequestOutput",
@@ -3886,7 +3865,7 @@ async function deserializeAws_json1_1CreatePullRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4067,7 +4046,6 @@ async function deserializeAws_json1_1CreatePullRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4090,7 +4068,7 @@ export async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePullRequestApprovalRuleOutput(
-    data.CreatePullRequestApprovalRuleOutput,
+    data,
     context
   );
   const response: CreatePullRequestApprovalRuleCommandOutput = {
@@ -4111,7 +4089,7 @@ async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4222,7 +4200,6 @@ async function deserializeAws_json1_1CreatePullRequestApprovalRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4241,10 +4218,7 @@ export async function deserializeAws_json1_1CreateRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRepositoryOutput(
-    data.CreateRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRepositoryOutput(data, context);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRepositoryOutput",
@@ -4263,7 +4237,7 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4367,7 +4341,6 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4390,7 +4363,7 @@ export async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUnreferencedMergeCommitOutput(
-    data.CreateUnreferencedMergeCommitOutput,
+    data,
     context
   );
   const response: CreateUnreferencedMergeCommitCommandOutput = {
@@ -4411,7 +4384,7 @@ async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4669,7 +4642,6 @@ async function deserializeAws_json1_1CreateUnreferencedMergeCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4692,7 +4664,7 @@ export async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApprovalRuleTemplateOutput(
-    data.DeleteApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: DeleteApprovalRuleTemplateCommandOutput = {
@@ -4713,7 +4685,7 @@ async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4740,7 +4712,6 @@ async function deserializeAws_json1_1DeleteApprovalRuleTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4759,10 +4730,7 @@ export async function deserializeAws_json1_1DeleteBranchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBranchOutput(
-    data.DeleteBranchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBranchOutput(data, context);
   const response: DeleteBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBranchOutput",
@@ -4781,7 +4749,7 @@ async function deserializeAws_json1_1DeleteBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4864,7 +4832,6 @@ async function deserializeAws_json1_1DeleteBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4886,10 +4853,7 @@ export async function deserializeAws_json1_1DeleteCommentContentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCommentContentOutput(
-    data.DeleteCommentContentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteCommentContentOutput(data, context);
   const response: DeleteCommentContentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteCommentContentOutput",
@@ -4908,7 +4872,7 @@ async function deserializeAws_json1_1DeleteCommentContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4942,7 +4906,6 @@ async function deserializeAws_json1_1DeleteCommentContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -4961,10 +4924,7 @@ export async function deserializeAws_json1_1DeleteFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFileOutput(
-    data.DeleteFileOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteFileOutput(data, context);
   const response: DeleteFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFileOutput",
@@ -4983,7 +4943,7 @@ async function deserializeAws_json1_1DeleteFileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5143,7 +5103,6 @@ async function deserializeAws_json1_1DeleteFileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5166,7 +5125,7 @@ export async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeletePullRequestApprovalRuleOutput(
-    data.DeletePullRequestApprovalRuleOutput,
+    data,
     context
   );
   const response: DeletePullRequestApprovalRuleCommandOutput = {
@@ -5187,7 +5146,7 @@ async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5277,7 +5236,6 @@ async function deserializeAws_json1_1DeletePullRequestApprovalRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5296,10 +5254,7 @@ export async function deserializeAws_json1_1DeleteRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryOutput(
-    data.DeleteRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRepositoryOutput(data, context);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRepositoryOutput",
@@ -5318,7 +5273,7 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5373,7 +5328,6 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5395,10 +5349,7 @@ export async function deserializeAws_json1_1DescribeMergeConflictsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeMergeConflictsOutput(
-    data.DescribeMergeConflictsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeMergeConflictsOutput(data, context);
   const response: DescribeMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeMergeConflictsOutput",
@@ -5417,7 +5368,7 @@ async function deserializeAws_json1_1DescribeMergeConflictsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5584,7 +5535,6 @@ async function deserializeAws_json1_1DescribeMergeConflictsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5607,7 +5557,7 @@ export async function deserializeAws_json1_1DescribePullRequestEventsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePullRequestEventsOutput(
-    data.DescribePullRequestEventsOutput,
+    data,
     context
   );
   const response: DescribePullRequestEventsCommandOutput = {
@@ -5628,7 +5578,7 @@ async function deserializeAws_json1_1DescribePullRequestEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5725,7 +5675,6 @@ async function deserializeAws_json1_1DescribePullRequestEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5761,7 +5710,7 @@ async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromReposit
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5844,7 +5793,6 @@ async function deserializeAws_json1_1DisassociateApprovalRuleTemplateFromReposit
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5867,7 +5815,7 @@ export async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EvaluatePullRequestApprovalRulesOutput(
-    data.EvaluatePullRequestApprovalRulesOutput,
+    data,
     context
   );
   const response: EvaluatePullRequestApprovalRulesCommandOutput = {
@@ -5888,7 +5836,7 @@ async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5971,7 +5919,6 @@ async function deserializeAws_json1_1EvaluatePullRequestApprovalRulesCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -5993,10 +5940,7 @@ export async function deserializeAws_json1_1GetApprovalRuleTemplateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetApprovalRuleTemplateOutput(
-    data.GetApprovalRuleTemplateOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetApprovalRuleTemplateOutput(data, context);
   const response: GetApprovalRuleTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetApprovalRuleTemplateOutput",
@@ -6015,7 +5959,7 @@ async function deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6042,7 +5986,6 @@ async function deserializeAws_json1_1GetApprovalRuleTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6061,7 +6004,7 @@ export async function deserializeAws_json1_1GetBlobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlobOutput(data.GetBlobOutput, context);
+  contents = deserializeAws_json1_1GetBlobOutput(data, context);
   const response: GetBlobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBlobOutput",
@@ -6080,7 +6023,7 @@ async function deserializeAws_json1_1GetBlobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6170,7 +6113,6 @@ async function deserializeAws_json1_1GetBlobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6189,10 +6131,7 @@ export async function deserializeAws_json1_1GetBranchCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBranchOutput(
-    data.GetBranchOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetBranchOutput(data, context);
   const response: GetBranchCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBranchOutput",
@@ -6211,7 +6150,7 @@ async function deserializeAws_json1_1GetBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6294,7 +6233,6 @@ async function deserializeAws_json1_1GetBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6313,10 +6251,7 @@ export async function deserializeAws_json1_1GetCommentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommentOutput(
-    data.GetCommentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetCommentOutput(data, context);
   const response: GetCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCommentOutput",
@@ -6335,7 +6270,7 @@ async function deserializeAws_json1_1GetCommentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6369,7 +6304,6 @@ async function deserializeAws_json1_1GetCommentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6392,7 +6326,7 @@ export async function deserializeAws_json1_1GetCommentsForComparedCommitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCommentsForComparedCommitOutput(
-    data.GetCommentsForComparedCommitOutput,
+    data,
     context
   );
   const response: GetCommentsForComparedCommitCommandOutput = {
@@ -6413,7 +6347,7 @@ async function deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6510,7 +6444,6 @@ async function deserializeAws_json1_1GetCommentsForComparedCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6533,7 +6466,7 @@ export async function deserializeAws_json1_1GetCommentsForPullRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCommentsForPullRequestOutput(
-    data.GetCommentsForPullRequestOutput,
+    data,
     context
   );
   const response: GetCommentsForPullRequestCommandOutput = {
@@ -6554,7 +6487,7 @@ async function deserializeAws_json1_1GetCommentsForPullRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6679,7 +6612,6 @@ async function deserializeAws_json1_1GetCommentsForPullRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6698,10 +6630,7 @@ export async function deserializeAws_json1_1GetCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCommitOutput(
-    data.GetCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetCommitOutput(data, context);
   const response: GetCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCommitOutput",
@@ -6720,7 +6649,7 @@ async function deserializeAws_json1_1GetCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6803,7 +6732,6 @@ async function deserializeAws_json1_1GetCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6822,10 +6750,7 @@ export async function deserializeAws_json1_1GetDifferencesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDifferencesOutput(
-    data.GetDifferencesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetDifferencesOutput(data, context);
   const response: GetDifferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDifferencesOutput",
@@ -6844,7 +6769,7 @@ async function deserializeAws_json1_1GetDifferencesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6962,7 +6887,6 @@ async function deserializeAws_json1_1GetDifferencesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -6981,7 +6905,7 @@ export async function deserializeAws_json1_1GetFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFileOutput(data.GetFileOutput, context);
+  contents = deserializeAws_json1_1GetFileOutput(data, context);
   const response: GetFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFileOutput",
@@ -7000,7 +6924,7 @@ async function deserializeAws_json1_1GetFileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7104,7 +7028,6 @@ async function deserializeAws_json1_1GetFileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7123,10 +7046,7 @@ export async function deserializeAws_json1_1GetFolderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFolderOutput(
-    data.GetFolderOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetFolderOutput(data, context);
   const response: GetFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFolderOutput",
@@ -7145,7 +7065,7 @@ async function deserializeAws_json1_1GetFolderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7242,7 +7162,6 @@ async function deserializeAws_json1_1GetFolderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7261,10 +7180,7 @@ export async function deserializeAws_json1_1GetMergeCommitCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeCommitOutput(
-    data.GetMergeCommitOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeCommitOutput(data, context);
   const response: GetMergeCommitCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeCommitOutput",
@@ -7283,7 +7199,7 @@ async function deserializeAws_json1_1GetMergeCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7380,7 +7296,6 @@ async function deserializeAws_json1_1GetMergeCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7399,10 +7314,7 @@ export async function deserializeAws_json1_1GetMergeConflictsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeConflictsOutput(
-    data.GetMergeConflictsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeConflictsOutput(data, context);
   const response: GetMergeConflictsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeConflictsOutput",
@@ -7421,7 +7333,7 @@ async function deserializeAws_json1_1GetMergeConflictsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7581,7 +7493,6 @@ async function deserializeAws_json1_1GetMergeConflictsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7600,10 +7511,7 @@ export async function deserializeAws_json1_1GetMergeOptionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetMergeOptionsOutput(
-    data.GetMergeOptionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetMergeOptionsOutput(data, context);
   const response: GetMergeOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMergeOptionsOutput",
@@ -7622,7 +7530,7 @@ async function deserializeAws_json1_1GetMergeOptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7740,7 +7648,6 @@ async function deserializeAws_json1_1GetMergeOptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7759,10 +7666,7 @@ export async function deserializeAws_json1_1GetPullRequestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPullRequestOutput(
-    data.GetPullRequestOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetPullRequestOutput(data, context);
   const response: GetPullRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPullRequestOutput",
@@ -7781,7 +7685,7 @@ async function deserializeAws_json1_1GetPullRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7843,7 +7747,6 @@ async function deserializeAws_json1_1GetPullRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7866,7 +7769,7 @@ export async function deserializeAws_json1_1GetPullRequestApprovalStatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPullRequestApprovalStatesOutput(
-    data.GetPullRequestApprovalStatesOutput,
+    data,
     context
   );
   const response: GetPullRequestApprovalStatesCommandOutput = {
@@ -7887,7 +7790,7 @@ async function deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7963,7 +7866,6 @@ async function deserializeAws_json1_1GetPullRequestApprovalStatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -7986,7 +7888,7 @@ export async function deserializeAws_json1_1GetPullRequestOverrideStateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPullRequestOverrideStateOutput(
-    data.GetPullRequestOverrideStateOutput,
+    data,
     context
   );
   const response: GetPullRequestOverrideStateCommandOutput = {
@@ -8007,7 +7909,7 @@ async function deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8083,7 +7985,6 @@ async function deserializeAws_json1_1GetPullRequestOverrideStateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8102,10 +8003,7 @@ export async function deserializeAws_json1_1GetRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryOutput(
-    data.GetRepositoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetRepositoryOutput(data, context);
   const response: GetRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRepositoryOutput",
@@ -8124,7 +8022,7 @@ async function deserializeAws_json1_1GetRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8186,7 +8084,6 @@ async function deserializeAws_json1_1GetRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8208,10 +8105,7 @@ export async function deserializeAws_json1_1GetRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryTriggersOutput(
-    data.GetRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetRepositoryTriggersOutput(data, context);
   const response: GetRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRepositoryTriggersOutput",
@@ -8230,7 +8124,7 @@ async function deserializeAws_json1_1GetRepositoryTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8292,7 +8186,6 @@ async function deserializeAws_json1_1GetRepositoryTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8315,7 +8208,7 @@ export async function deserializeAws_json1_1ListApprovalRuleTemplatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListApprovalRuleTemplatesOutput(
-    data.ListApprovalRuleTemplatesOutput,
+    data,
     context
   );
   const response: ListApprovalRuleTemplatesCommandOutput = {
@@ -8336,7 +8229,7 @@ async function deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8356,7 +8249,6 @@ async function deserializeAws_json1_1ListApprovalRuleTemplatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8379,7 +8271,7 @@ export async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesF
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepositoryOutput(
-    data.ListAssociatedApprovalRuleTemplatesForRepositoryOutput,
+    data,
     context
   );
   const response: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput = {
@@ -8400,7 +8292,7 @@ async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepos
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8476,7 +8368,6 @@ async function deserializeAws_json1_1ListAssociatedApprovalRuleTemplatesForRepos
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8495,10 +8386,7 @@ export async function deserializeAws_json1_1ListBranchesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBranchesOutput(
-    data.ListBranchesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBranchesOutput(data, context);
   const response: ListBranchesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBranchesOutput",
@@ -8517,7 +8405,7 @@ async function deserializeAws_json1_1ListBranchesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8586,7 +8474,6 @@ async function deserializeAws_json1_1ListBranchesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8605,10 +8492,7 @@ export async function deserializeAws_json1_1ListPullRequestsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPullRequestsOutput(
-    data.ListPullRequestsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPullRequestsOutput(data, context);
   const response: ListPullRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPullRequestsOutput",
@@ -8627,7 +8511,7 @@ async function deserializeAws_json1_1ListPullRequestsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8724,7 +8608,6 @@ async function deserializeAws_json1_1ListPullRequestsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8743,10 +8626,7 @@ export async function deserializeAws_json1_1ListRepositoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRepositoriesOutput(
-    data.ListRepositoriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListRepositoriesOutput(data, context);
   const response: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRepositoriesOutput",
@@ -8765,7 +8645,7 @@ async function deserializeAws_json1_1ListRepositoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8792,7 +8672,6 @@ async function deserializeAws_json1_1ListRepositoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8815,7 +8694,7 @@ export async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTempl
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateOutput(
-    data.ListRepositoriesForApprovalRuleTemplateOutput,
+    data,
     context
   );
   const response: ListRepositoriesForApprovalRuleTemplateCommandOutput = {
@@ -8836,7 +8715,7 @@ async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8912,7 +8791,6 @@ async function deserializeAws_json1_1ListRepositoriesForApprovalRuleTemplateComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -8934,10 +8812,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -8956,7 +8831,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8990,7 +8865,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -9013,7 +8887,7 @@ export async function deserializeAws_json1_1MergeBranchesByFastForwardCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergeBranchesByFastForwardOutput(
-    data.MergeBranchesByFastForwardOutput,
+    data,
     context
   );
   const response: MergeBranchesByFastForwardCommandOutput = {
@@ -9034,7 +8908,7 @@ async function deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9173,7 +9047,6 @@ async function deserializeAws_json1_1MergeBranchesByFastForwardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -9195,10 +9068,7 @@ export async function deserializeAws_json1_1MergeBranchesBySquashCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesBySquashOutput(
-    data.MergeBranchesBySquashOutput,
-    context
-  );
+  contents = deserializeAws_json1_1MergeBranchesBySquashOutput(data, context);
   const response: MergeBranchesBySquashCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MergeBranchesBySquashOutput",
@@ -9217,7 +9087,7 @@ async function deserializeAws_json1_1MergeBranchesBySquashCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9496,7 +9366,6 @@ async function deserializeAws_json1_1MergeBranchesBySquashCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -9518,10 +9387,7 @@ export async function deserializeAws_json1_1MergeBranchesByThreeWayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MergeBranchesByThreeWayOutput(
-    data.MergeBranchesByThreeWayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1MergeBranchesByThreeWayOutput(data, context);
   const response: MergeBranchesByThreeWayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MergeBranchesByThreeWayOutput",
@@ -9540,7 +9406,7 @@ async function deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9819,7 +9685,6 @@ async function deserializeAws_json1_1MergeBranchesByThreeWayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -9842,7 +9707,7 @@ export async function deserializeAws_json1_1MergePullRequestByFastForwardCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestByFastForwardOutput(
-    data.MergePullRequestByFastForwardOutput,
+    data,
     context
   );
   const response: MergePullRequestByFastForwardCommandOutput = {
@@ -9863,7 +9728,7 @@ async function deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10002,7 +9867,6 @@ async function deserializeAws_json1_1MergePullRequestByFastForwardCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -10025,7 +9889,7 @@ export async function deserializeAws_json1_1MergePullRequestBySquashCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestBySquashOutput(
-    data.MergePullRequestBySquashOutput,
+    data,
     context
   );
   const response: MergePullRequestBySquashCommandOutput = {
@@ -10046,7 +9910,7 @@ async function deserializeAws_json1_1MergePullRequestBySquashCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10318,7 +10182,6 @@ async function deserializeAws_json1_1MergePullRequestBySquashCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -10341,7 +10204,7 @@ export async function deserializeAws_json1_1MergePullRequestByThreeWayCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1MergePullRequestByThreeWayOutput(
-    data.MergePullRequestByThreeWayOutput,
+    data,
     context
   );
   const response: MergePullRequestByThreeWayCommandOutput = {
@@ -10362,7 +10225,7 @@ async function deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10634,7 +10497,6 @@ async function deserializeAws_json1_1MergePullRequestByThreeWayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -10670,7 +10532,7 @@ async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10781,7 +10643,6 @@ async function deserializeAws_json1_1OverridePullRequestApprovalRulesCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -10804,7 +10665,7 @@ export async function deserializeAws_json1_1PostCommentForComparedCommitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PostCommentForComparedCommitOutput(
-    data.PostCommentForComparedCommitOutput,
+    data,
     context
   );
   const response: PostCommentForComparedCommitCommandOutput = {
@@ -10825,7 +10686,7 @@ async function deserializeAws_json1_1PostCommentForComparedCommitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10992,7 +10853,6 @@ async function deserializeAws_json1_1PostCommentForComparedCommitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11015,7 +10875,7 @@ export async function deserializeAws_json1_1PostCommentForPullRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PostCommentForPullRequestOutput(
-    data.PostCommentForPullRequestOutput,
+    data,
     context
   );
   const response: PostCommentForPullRequestCommandOutput = {
@@ -11036,7 +10896,7 @@ async function deserializeAws_json1_1PostCommentForPullRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11231,7 +11091,6 @@ async function deserializeAws_json1_1PostCommentForPullRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11250,10 +11109,7 @@ export async function deserializeAws_json1_1PostCommentReplyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PostCommentReplyOutput(
-    data.PostCommentReplyOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PostCommentReplyOutput(data, context);
   const response: PostCommentReplyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PostCommentReplyOutput",
@@ -11272,7 +11128,7 @@ async function deserializeAws_json1_1PostCommentReplyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11334,7 +11190,6 @@ async function deserializeAws_json1_1PostCommentReplyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11353,7 +11208,7 @@ export async function deserializeAws_json1_1PutFileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutFileOutput(data.PutFileOutput, context);
+  contents = deserializeAws_json1_1PutFileOutput(data, context);
   const response: PutFileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutFileOutput",
@@ -11372,7 +11227,7 @@ async function deserializeAws_json1_1PutFileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11588,7 +11443,6 @@ async function deserializeAws_json1_1PutFileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11610,10 +11464,7 @@ export async function deserializeAws_json1_1PutRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutRepositoryTriggersOutput(
-    data.PutRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1PutRepositoryTriggersOutput(data, context);
   const response: PutRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRepositoryTriggersOutput",
@@ -11632,7 +11483,7 @@ async function deserializeAws_json1_1PutRepositoryTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11785,7 +11636,6 @@ async function deserializeAws_json1_1PutRepositoryTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11818,7 +11668,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11887,7 +11737,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -11909,10 +11758,7 @@ export async function deserializeAws_json1_1TestRepositoryTriggersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestRepositoryTriggersOutput(
-    data.TestRepositoryTriggersOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TestRepositoryTriggersOutput(data, context);
   const response: TestRepositoryTriggersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestRepositoryTriggersOutput",
@@ -11931,7 +11777,7 @@ async function deserializeAws_json1_1TestRepositoryTriggersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12084,7 +11930,6 @@ async function deserializeAws_json1_1TestRepositoryTriggersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12117,7 +11962,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12186,7 +12031,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12209,7 +12053,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateContentOutput(
-    data.UpdateApprovalRuleTemplateContentOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateContentCommandOutput = {
@@ -12230,7 +12074,7 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12278,7 +12122,6 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateContentCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12301,7 +12144,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionOutput(
-    data.UpdateApprovalRuleTemplateDescriptionOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateDescriptionCommandOutput = {
@@ -12322,7 +12165,7 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12356,7 +12199,6 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateDescriptionComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12379,7 +12221,7 @@ export async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateApprovalRuleTemplateNameOutput(
-    data.UpdateApprovalRuleTemplateNameOutput,
+    data,
     context
   );
   const response: UpdateApprovalRuleTemplateNameCommandOutput = {
@@ -12400,7 +12242,7 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12434,7 +12276,6 @@ async function deserializeAws_json1_1UpdateApprovalRuleTemplateNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12453,10 +12294,7 @@ export async function deserializeAws_json1_1UpdateCommentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCommentOutput(
-    data.UpdateCommentOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateCommentOutput(data, context);
   const response: UpdateCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateCommentOutput",
@@ -12475,7 +12313,7 @@ async function deserializeAws_json1_1UpdateCommentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12530,7 +12368,6 @@ async function deserializeAws_json1_1UpdateCommentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12566,7 +12403,7 @@ async function deserializeAws_json1_1UpdateDefaultBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12649,7 +12486,6 @@ async function deserializeAws_json1_1UpdateDefaultBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12672,7 +12508,7 @@ export async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContent
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdatePullRequestApprovalRuleContentOutput(
-    data.UpdatePullRequestApprovalRuleContentOutput,
+    data,
     context
   );
   const response: UpdatePullRequestApprovalRuleContentCommandOutput = {
@@ -12693,7 +12529,7 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12811,7 +12647,6 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12847,7 +12682,7 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12965,7 +12800,6 @@ async function deserializeAws_json1_1UpdatePullRequestApprovalStateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -12988,7 +12822,7 @@ export async function deserializeAws_json1_1UpdatePullRequestDescriptionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdatePullRequestDescriptionOutput(
-    data.UpdatePullRequestDescriptionOutput,
+    data,
     context
   );
   const response: UpdatePullRequestDescriptionCommandOutput = {
@@ -13009,7 +12843,7 @@ async function deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13050,7 +12884,6 @@ async function deserializeAws_json1_1UpdatePullRequestDescriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -13072,10 +12905,7 @@ export async function deserializeAws_json1_1UpdatePullRequestStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestStatusOutput(
-    data.UpdatePullRequestStatusOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePullRequestStatusOutput(data, context);
   const response: UpdatePullRequestStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePullRequestStatusOutput",
@@ -13094,7 +12924,7 @@ async function deserializeAws_json1_1UpdatePullRequestStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13177,7 +13007,6 @@ async function deserializeAws_json1_1UpdatePullRequestStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -13199,10 +13028,7 @@ export async function deserializeAws_json1_1UpdatePullRequestTitleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePullRequestTitleOutput(
-    data.UpdatePullRequestTitleOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePullRequestTitleOutput(data, context);
   const response: UpdatePullRequestTitleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePullRequestTitleOutput",
@@ -13221,7 +13047,7 @@ async function deserializeAws_json1_1UpdatePullRequestTitleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13269,7 +13095,6 @@ async function deserializeAws_json1_1UpdatePullRequestTitleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -13305,7 +13130,7 @@ async function deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13374,7 +13199,6 @@ async function deserializeAws_json1_1UpdateRepositoryDescriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",
@@ -13410,7 +13234,7 @@ async function deserializeAws_json1_1UpdateRepositoryNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13444,7 +13268,6 @@ async function deserializeAws_json1_1UpdateRepositoryNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codecommit#${errorCode}`,
         $fault: "client",

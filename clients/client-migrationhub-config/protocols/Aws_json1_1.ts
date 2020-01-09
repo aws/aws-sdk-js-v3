@@ -126,10 +126,7 @@ export async function deserializeAws_json1_1CreateHomeRegionControlCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHomeRegionControlResult(
-    data.CreateHomeRegionControlResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHomeRegionControlResult(data, context);
   const response: CreateHomeRegionControlCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHomeRegionControlResult",
@@ -148,7 +145,7 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -189,7 +186,6 @@ async function deserializeAws_json1_1CreateHomeRegionControlCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
@@ -212,7 +208,7 @@ export async function deserializeAws_json1_1DescribeHomeRegionControlsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeHomeRegionControlsResult(
-    data.DescribeHomeRegionControlsResult,
+    data,
     context
   );
   const response: DescribeHomeRegionControlsCommandOutput = {
@@ -233,7 +229,7 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -267,7 +263,6 @@ async function deserializeAws_json1_1DescribeHomeRegionControlsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",
@@ -286,10 +281,7 @@ export async function deserializeAws_json1_1GetHomeRegionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetHomeRegionResult(
-    data.GetHomeRegionResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetHomeRegionResult(data, context);
   const response: GetHomeRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetHomeRegionResult",
@@ -308,7 +300,7 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -342,7 +334,6 @@ async function deserializeAws_json1_1GetHomeRegionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsmigrationhubmultiaccount#${errorCode}`,
         $fault: "client",

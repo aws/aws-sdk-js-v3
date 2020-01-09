@@ -836,8 +836,10 @@ async function deserializeAws_restJson1_1BulkPublishCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyStreamedException":
     case "com.amazonaws.cognito.sync.model#AlreadyStreamedException":
@@ -882,7 +884,6 @@ async function deserializeAws_restJson1_1BulkPublishCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -921,8 +922,10 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -967,7 +970,6 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1009,8 +1011,10 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1048,7 +1052,6 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1093,8 +1096,10 @@ async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1132,7 +1137,6 @@ async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1177,8 +1181,10 @@ async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1216,7 +1222,6 @@ async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1282,8 +1287,10 @@ async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1314,7 +1321,6 @@ async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1356,8 +1362,10 @@ async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1395,7 +1403,6 @@ async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1451,8 +1458,10 @@ async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1490,7 +1499,6 @@ async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1540,8 +1548,10 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1572,7 +1582,6 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1629,8 +1638,10 @@ async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1661,7 +1672,6 @@ async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1739,8 +1749,10 @@ async function deserializeAws_restJson1_1ListRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1771,7 +1783,6 @@ async function deserializeAws_restJson1_1ListRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1813,8 +1824,10 @@ async function deserializeAws_restJson1_1RegisterDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1859,7 +1872,6 @@ async function deserializeAws_restJson1_1RegisterDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1895,8 +1907,10 @@ async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1934,7 +1948,6 @@ async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -1990,8 +2003,10 @@ async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.sync.model#ConcurrentModificationException":
@@ -2036,7 +2051,6 @@ async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -2073,8 +2087,10 @@ async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -2119,7 +2135,6 @@ async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -2156,8 +2171,10 @@ async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -2202,7 +2219,6 @@ async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",
@@ -2244,8 +2260,10 @@ async function deserializeAws_restJson1_1UpdateRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -2318,7 +2336,6 @@ async function deserializeAws_restJson1_1UpdateRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.sync.model#${errorCode}`,
         $fault: "client",

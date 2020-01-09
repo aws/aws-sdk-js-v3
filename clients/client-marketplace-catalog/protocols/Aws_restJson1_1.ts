@@ -274,8 +274,10 @@ async function deserializeAws_restJson1_1CancelChangeSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -320,7 +322,6 @@ async function deserializeAws_restJson1_1CancelChangeSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
@@ -393,8 +394,10 @@ async function deserializeAws_restJson1_1DescribeChangeSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -432,7 +435,6 @@ async function deserializeAws_restJson1_1DescribeChangeSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
@@ -490,8 +492,10 @@ async function deserializeAws_restJson1_1DescribeEntityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -536,7 +540,6 @@ async function deserializeAws_restJson1_1DescribeEntityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
@@ -585,8 +588,10 @@ async function deserializeAws_restJson1_1ListChangeSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -617,7 +622,6 @@ async function deserializeAws_restJson1_1ListChangeSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
@@ -663,8 +667,10 @@ async function deserializeAws_restJson1_1ListEntitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -702,7 +708,6 @@ async function deserializeAws_restJson1_1ListEntitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",
@@ -748,8 +753,10 @@ async function deserializeAws_restJson1_1StartChangeSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.marketplace.seymour.model#AccessDeniedException":
@@ -801,7 +808,6 @@ async function deserializeAws_restJson1_1StartChangeSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.seymour.model#${errorCode}`,
         $fault: "client",

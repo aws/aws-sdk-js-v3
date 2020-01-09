@@ -1673,7 +1673,7 @@ export async function deserializeAws_json1_1BatchDetectDominantLanguageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDetectDominantLanguageResponse(
-    data.BatchDetectDominantLanguageResponse,
+    data,
     context
   );
   const response: BatchDetectDominantLanguageCommandOutput = {
@@ -1694,7 +1694,7 @@ async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1728,7 +1728,6 @@ async function deserializeAws_json1_1BatchDetectDominantLanguageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -1750,10 +1749,7 @@ export async function deserializeAws_json1_1BatchDetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectEntitiesResponse(
-    data.BatchDetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectEntitiesResponse(data, context);
   const response: BatchDetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectEntitiesResponse",
@@ -1772,7 +1768,7 @@ async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1813,7 +1809,6 @@ async function deserializeAws_json1_1BatchDetectEntitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -1835,10 +1830,7 @@ export async function deserializeAws_json1_1BatchDetectKeyPhrasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectKeyPhrasesResponse(
-    data.BatchDetectKeyPhrasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectKeyPhrasesResponse(data, context);
   const response: BatchDetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectKeyPhrasesResponse",
@@ -1857,7 +1849,7 @@ async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1898,7 +1890,6 @@ async function deserializeAws_json1_1BatchDetectKeyPhrasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -1920,10 +1911,7 @@ export async function deserializeAws_json1_1BatchDetectSentimentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectSentimentResponse(
-    data.BatchDetectSentimentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectSentimentResponse(data, context);
   const response: BatchDetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectSentimentResponse",
@@ -1942,7 +1930,7 @@ async function deserializeAws_json1_1BatchDetectSentimentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1983,7 +1971,6 @@ async function deserializeAws_json1_1BatchDetectSentimentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2002,10 +1989,7 @@ export async function deserializeAws_json1_1BatchDetectSyntaxCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDetectSyntaxResponse(
-    data.BatchDetectSyntaxResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDetectSyntaxResponse(data, context);
   const response: BatchDetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDetectSyntaxResponse",
@@ -2024,7 +2008,7 @@ async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2065,7 +2049,6 @@ async function deserializeAws_json1_1BatchDetectSyntaxCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2084,10 +2067,7 @@ export async function deserializeAws_json1_1ClassifyDocumentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ClassifyDocumentResponse(
-    data.ClassifyDocumentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ClassifyDocumentResponse(data, context);
   const response: ClassifyDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ClassifyDocumentResponse",
@@ -2106,7 +2086,7 @@ async function deserializeAws_json1_1ClassifyDocumentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2140,7 +2120,6 @@ async function deserializeAws_json1_1ClassifyDocumentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2163,7 +2142,7 @@ export async function deserializeAws_json1_1CreateDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateDocumentClassifierResponse(
-    data.CreateDocumentClassifierResponse,
+    data,
     context
   );
   const response: CreateDocumentClassifierCommandOutput = {
@@ -2184,7 +2163,7 @@ async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2246,7 +2225,6 @@ async function deserializeAws_json1_1CreateDocumentClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2265,10 +2243,7 @@ export async function deserializeAws_json1_1CreateEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEndpointResponse(
-    data.CreateEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEndpointResponse(data, context);
   const response: CreateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEndpointResponse",
@@ -2287,7 +2262,7 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2349,7 +2324,6 @@ async function deserializeAws_json1_1CreateEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2372,7 +2346,7 @@ export async function deserializeAws_json1_1CreateEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateEntityRecognizerResponse(
-    data.CreateEntityRecognizerResponse,
+    data,
     context
   );
   const response: CreateEntityRecognizerCommandOutput = {
@@ -2393,7 +2367,7 @@ async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2455,7 +2429,6 @@ async function deserializeAws_json1_1CreateEntityRecognizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2478,7 +2451,7 @@ export async function deserializeAws_json1_1DeleteDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteDocumentClassifierResponse(
-    data.DeleteDocumentClassifierResponse,
+    data,
     context
   );
   const response: DeleteDocumentClassifierCommandOutput = {
@@ -2499,7 +2472,7 @@ async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2547,7 +2520,6 @@ async function deserializeAws_json1_1DeleteDocumentClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2566,10 +2538,7 @@ export async function deserializeAws_json1_1DeleteEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteEndpointResponse(
-    data.DeleteEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteEndpointResponse(data, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteEndpointResponse",
@@ -2588,7 +2557,7 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2629,7 +2598,6 @@ async function deserializeAws_json1_1DeleteEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2652,7 +2620,7 @@ export async function deserializeAws_json1_1DeleteEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEntityRecognizerResponse(
-    data.DeleteEntityRecognizerResponse,
+    data,
     context
   );
   const response: DeleteEntityRecognizerCommandOutput = {
@@ -2673,7 +2641,7 @@ async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2721,7 +2689,6 @@ async function deserializeAws_json1_1DeleteEntityRecognizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2744,7 +2711,7 @@ export async function deserializeAws_json1_1DescribeDocumentClassificationJobCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDocumentClassificationJobResponse(
-    data.DescribeDocumentClassificationJobResponse,
+    data,
     context
   );
   const response: DescribeDocumentClassificationJobCommandOutput = {
@@ -2765,7 +2732,7 @@ async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2799,7 +2766,6 @@ async function deserializeAws_json1_1DescribeDocumentClassificationJobCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2822,7 +2788,7 @@ export async function deserializeAws_json1_1DescribeDocumentClassifierCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDocumentClassifierResponse(
-    data.DescribeDocumentClassifierResponse,
+    data,
     context
   );
   const response: DescribeDocumentClassifierCommandOutput = {
@@ -2843,7 +2809,7 @@ async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2877,7 +2843,6 @@ async function deserializeAws_json1_1DescribeDocumentClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2900,7 +2865,7 @@ export async function deserializeAws_json1_1DescribeDominantLanguageDetectionJob
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDominantLanguageDetectionJobResponse(
-    data.DescribeDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeDominantLanguageDetectionJobCommandOutput = {
@@ -2921,7 +2886,7 @@ async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2955,7 +2920,6 @@ async function deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -2974,10 +2938,7 @@ export async function deserializeAws_json1_1DescribeEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEndpointResponse(
-    data.DescribeEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEndpointResponse(data, context);
   const response: DescribeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointResponse",
@@ -2996,7 +2957,7 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3030,7 +2991,6 @@ async function deserializeAws_json1_1DescribeEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3053,7 +3013,7 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntitiesDetectionJobResponse(
-    data.DescribeEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeEntitiesDetectionJobCommandOutput = {
@@ -3074,7 +3034,7 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3108,7 +3068,6 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3131,7 +3090,7 @@ export async function deserializeAws_json1_1DescribeEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntityRecognizerResponse(
-    data.DescribeEntityRecognizerResponse,
+    data,
     context
   );
   const response: DescribeEntityRecognizerCommandOutput = {
@@ -3152,7 +3111,7 @@ async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3186,7 +3145,6 @@ async function deserializeAws_json1_1DescribeEntityRecognizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3209,7 +3167,7 @@ export async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeKeyPhrasesDetectionJobResponse(
-    data.DescribeKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeKeyPhrasesDetectionJobCommandOutput = {
@@ -3230,7 +3188,7 @@ async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3264,7 +3222,6 @@ async function deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3287,7 +3244,7 @@ export async function deserializeAws_json1_1DescribeSentimentDetectionJobCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSentimentDetectionJobResponse(
-    data.DescribeSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeSentimentDetectionJobCommandOutput = {
@@ -3308,7 +3265,7 @@ async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3342,7 +3299,6 @@ async function deserializeAws_json1_1DescribeSentimentDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3365,7 +3321,7 @@ export async function deserializeAws_json1_1DescribeTopicsDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTopicsDetectionJobResponse(
-    data.DescribeTopicsDetectionJobResponse,
+    data,
     context
   );
   const response: DescribeTopicsDetectionJobCommandOutput = {
@@ -3386,7 +3342,7 @@ async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3420,7 +3376,6 @@ async function deserializeAws_json1_1DescribeTopicsDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3443,7 +3398,7 @@ export async function deserializeAws_json1_1DetectDominantLanguageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DetectDominantLanguageResponse(
-    data.DetectDominantLanguageResponse,
+    data,
     context
   );
   const response: DetectDominantLanguageCommandOutput = {
@@ -3464,7 +3419,7 @@ async function deserializeAws_json1_1DetectDominantLanguageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3491,7 +3446,6 @@ async function deserializeAws_json1_1DetectDominantLanguageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3510,10 +3464,7 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesResponse(
-    data.DetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesResponse",
@@ -3532,7 +3483,7 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3566,7 +3517,6 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3585,10 +3535,7 @@ export async function deserializeAws_json1_1DetectKeyPhrasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectKeyPhrasesResponse(
-    data.DetectKeyPhrasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectKeyPhrasesResponse(data, context);
   const response: DetectKeyPhrasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectKeyPhrasesResponse",
@@ -3607,7 +3554,7 @@ async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3641,7 +3588,6 @@ async function deserializeAws_json1_1DetectKeyPhrasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3660,10 +3606,7 @@ export async function deserializeAws_json1_1DetectSentimentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectSentimentResponse(
-    data.DetectSentimentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectSentimentResponse(data, context);
   const response: DetectSentimentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectSentimentResponse",
@@ -3682,7 +3625,7 @@ async function deserializeAws_json1_1DetectSentimentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3716,7 +3659,6 @@ async function deserializeAws_json1_1DetectSentimentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3735,10 +3677,7 @@ export async function deserializeAws_json1_1DetectSyntaxCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectSyntaxResponse(
-    data.DetectSyntaxResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectSyntaxResponse(data, context);
   const response: DetectSyntaxCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectSyntaxResponse",
@@ -3757,7 +3696,7 @@ async function deserializeAws_json1_1DetectSyntaxCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3791,7 +3730,6 @@ async function deserializeAws_json1_1DetectSyntaxCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3814,7 +3752,7 @@ export async function deserializeAws_json1_1ListDocumentClassificationJobsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDocumentClassificationJobsResponse(
-    data.ListDocumentClassificationJobsResponse,
+    data,
     context
   );
   const response: ListDocumentClassificationJobsCommandOutput = {
@@ -3835,7 +3773,7 @@ async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3869,7 +3807,6 @@ async function deserializeAws_json1_1ListDocumentClassificationJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3892,7 +3829,7 @@ export async function deserializeAws_json1_1ListDocumentClassifiersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDocumentClassifiersResponse(
-    data.ListDocumentClassifiersResponse,
+    data,
     context
   );
   const response: ListDocumentClassifiersCommandOutput = {
@@ -3913,7 +3850,7 @@ async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3947,7 +3884,6 @@ async function deserializeAws_json1_1ListDocumentClassifiersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -3970,7 +3906,7 @@ export async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDominantLanguageDetectionJobsResponse(
-    data.ListDominantLanguageDetectionJobsResponse,
+    data,
     context
   );
   const response: ListDominantLanguageDetectionJobsCommandOutput = {
@@ -3991,7 +3927,7 @@ async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4025,7 +3961,6 @@ async function deserializeAws_json1_1ListDominantLanguageDetectionJobsCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4044,10 +3979,7 @@ export async function deserializeAws_json1_1ListEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEndpointsResponse(
-    data.ListEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEndpointsResponse(data, context);
   const response: ListEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEndpointsResponse",
@@ -4066,7 +3998,7 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4093,7 +4025,6 @@ async function deserializeAws_json1_1ListEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4116,7 +4047,7 @@ export async function deserializeAws_json1_1ListEntitiesDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListEntitiesDetectionJobsResponse(
-    data.ListEntitiesDetectionJobsResponse,
+    data,
     context
   );
   const response: ListEntitiesDetectionJobsCommandOutput = {
@@ -4137,7 +4068,7 @@ async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4171,7 +4102,6 @@ async function deserializeAws_json1_1ListEntitiesDetectionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4193,10 +4123,7 @@ export async function deserializeAws_json1_1ListEntityRecognizersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEntityRecognizersResponse(
-    data.ListEntityRecognizersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEntityRecognizersResponse(data, context);
   const response: ListEntityRecognizersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEntityRecognizersResponse",
@@ -4215,7 +4142,7 @@ async function deserializeAws_json1_1ListEntityRecognizersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4249,7 +4176,6 @@ async function deserializeAws_json1_1ListEntityRecognizersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4272,7 +4198,7 @@ export async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse(
-    data.ListKeyPhrasesDetectionJobsResponse,
+    data,
     context
   );
   const response: ListKeyPhrasesDetectionJobsCommandOutput = {
@@ -4293,7 +4219,7 @@ async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4327,7 +4253,6 @@ async function deserializeAws_json1_1ListKeyPhrasesDetectionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4350,7 +4275,7 @@ export async function deserializeAws_json1_1ListSentimentDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListSentimentDetectionJobsResponse(
-    data.ListSentimentDetectionJobsResponse,
+    data,
     context
   );
   const response: ListSentimentDetectionJobsCommandOutput = {
@@ -4371,7 +4296,7 @@ async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4405,7 +4330,6 @@ async function deserializeAws_json1_1ListSentimentDetectionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4427,10 +4351,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -4449,7 +4370,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4476,7 +4397,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4499,7 +4419,7 @@ export async function deserializeAws_json1_1ListTopicsDetectionJobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTopicsDetectionJobsResponse(
-    data.ListTopicsDetectionJobsResponse,
+    data,
     context
   );
   const response: ListTopicsDetectionJobsCommandOutput = {
@@ -4520,7 +4440,7 @@ async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4554,7 +4474,6 @@ async function deserializeAws_json1_1ListTopicsDetectionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4577,7 +4496,7 @@ export async function deserializeAws_json1_1StartDocumentClassificationJobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDocumentClassificationJobResponse(
-    data.StartDocumentClassificationJobResponse,
+    data,
     context
   );
   const response: StartDocumentClassificationJobCommandOutput = {
@@ -4598,7 +4517,7 @@ async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4646,7 +4565,6 @@ async function deserializeAws_json1_1StartDocumentClassificationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4669,7 +4587,7 @@ export async function deserializeAws_json1_1StartDominantLanguageDetectionJobCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDominantLanguageDetectionJobResponse(
-    data.StartDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: StartDominantLanguageDetectionJobCommandOutput = {
@@ -4690,7 +4608,7 @@ async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4724,7 +4642,6 @@ async function deserializeAws_json1_1StartDominantLanguageDetectionJobCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4747,7 +4664,7 @@ export async function deserializeAws_json1_1StartEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartEntitiesDetectionJobResponse(
-    data.StartEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: StartEntitiesDetectionJobCommandOutput = {
@@ -4768,7 +4685,7 @@ async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4816,7 +4733,6 @@ async function deserializeAws_json1_1StartEntitiesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4839,7 +4755,7 @@ export async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartKeyPhrasesDetectionJobResponse(
-    data.StartKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: StartKeyPhrasesDetectionJobCommandOutput = {
@@ -4860,7 +4776,7 @@ async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4894,7 +4810,6 @@ async function deserializeAws_json1_1StartKeyPhrasesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4917,7 +4832,7 @@ export async function deserializeAws_json1_1StartSentimentDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartSentimentDetectionJobResponse(
-    data.StartSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: StartSentimentDetectionJobCommandOutput = {
@@ -4938,7 +4853,7 @@ async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4972,7 +4887,6 @@ async function deserializeAws_json1_1StartSentimentDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -4995,7 +4909,7 @@ export async function deserializeAws_json1_1StartTopicsDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartTopicsDetectionJobResponse(
-    data.StartTopicsDetectionJobResponse,
+    data,
     context
   );
   const response: StartTopicsDetectionJobCommandOutput = {
@@ -5016,7 +4930,7 @@ async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5050,7 +4964,6 @@ async function deserializeAws_json1_1StartTopicsDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5073,7 +4986,7 @@ export async function deserializeAws_json1_1StopDominantLanguageDetectionJobComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopDominantLanguageDetectionJobResponse(
-    data.StopDominantLanguageDetectionJobResponse,
+    data,
     context
   );
   const response: StopDominantLanguageDetectionJobCommandOutput = {
@@ -5094,7 +5007,7 @@ async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5121,7 +5034,6 @@ async function deserializeAws_json1_1StopDominantLanguageDetectionJobCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5144,7 +5056,7 @@ export async function deserializeAws_json1_1StopEntitiesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopEntitiesDetectionJobResponse(
-    data.StopEntitiesDetectionJobResponse,
+    data,
     context
   );
   const response: StopEntitiesDetectionJobCommandOutput = {
@@ -5165,7 +5077,7 @@ async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5192,7 +5104,6 @@ async function deserializeAws_json1_1StopEntitiesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5215,7 +5126,7 @@ export async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopKeyPhrasesDetectionJobResponse(
-    data.StopKeyPhrasesDetectionJobResponse,
+    data,
     context
   );
   const response: StopKeyPhrasesDetectionJobCommandOutput = {
@@ -5236,7 +5147,7 @@ async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5263,7 +5174,6 @@ async function deserializeAws_json1_1StopKeyPhrasesDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5286,7 +5196,7 @@ export async function deserializeAws_json1_1StopSentimentDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopSentimentDetectionJobResponse(
-    data.StopSentimentDetectionJobResponse,
+    data,
     context
   );
   const response: StopSentimentDetectionJobCommandOutput = {
@@ -5307,7 +5217,7 @@ async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5334,7 +5244,6 @@ async function deserializeAws_json1_1StopSentimentDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5357,7 +5266,7 @@ export async function deserializeAws_json1_1StopTrainingDocumentClassifierComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopTrainingDocumentClassifierResponse(
-    data.StopTrainingDocumentClassifierResponse,
+    data,
     context
   );
   const response: StopTrainingDocumentClassifierCommandOutput = {
@@ -5378,7 +5287,7 @@ async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5412,7 +5321,6 @@ async function deserializeAws_json1_1StopTrainingDocumentClassifierCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5435,7 +5343,7 @@ export async function deserializeAws_json1_1StopTrainingEntityRecognizerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopTrainingEntityRecognizerResponse(
-    data.StopTrainingEntityRecognizerResponse,
+    data,
     context
   );
   const response: StopTrainingEntityRecognizerCommandOutput = {
@@ -5456,7 +5364,7 @@ async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5490,7 +5398,6 @@ async function deserializeAws_json1_1StopTrainingEntityRecognizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5509,10 +5416,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -5531,7 +5435,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5572,7 +5476,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5591,10 +5494,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -5613,7 +5513,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5654,7 +5554,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",
@@ -5673,10 +5572,7 @@ export async function deserializeAws_json1_1UpdateEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEndpointResponse(
-    data.UpdateEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEndpointResponse(data, context);
   const response: UpdateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEndpointResponse",
@@ -5695,7 +5591,7 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5750,7 +5646,6 @@ async function deserializeAws_json1_1UpdateEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.comprehend#${errorCode}`,
         $fault: "client",

@@ -2063,8 +2063,10 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2081,7 +2083,6 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2118,8 +2119,10 @@ async function deserializeAws_restJson1_1ArchiveFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2136,7 +2139,6 @@ async function deserializeAws_restJson1_1ArchiveFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2178,8 +2180,10 @@ async function deserializeAws_restJson1_1CreateDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2196,7 +2200,6 @@ async function deserializeAws_restJson1_1CreateDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2235,8 +2238,10 @@ async function deserializeAws_restJson1_1CreateFilterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2253,7 +2258,6 @@ async function deserializeAws_restJson1_1CreateFilterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2292,8 +2296,10 @@ async function deserializeAws_restJson1_1CreateIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2310,7 +2316,6 @@ async function deserializeAws_restJson1_1CreateIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2352,8 +2357,10 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2370,7 +2377,6 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2412,8 +2418,10 @@ async function deserializeAws_restJson1_1CreatePublishingDestinationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2430,7 +2438,6 @@ async function deserializeAws_restJson1_1CreatePublishingDestinationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2467,8 +2474,10 @@ async function deserializeAws_restJson1_1CreateSampleFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2485,7 +2494,6 @@ async function deserializeAws_restJson1_1CreateSampleFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2527,8 +2535,10 @@ async function deserializeAws_restJson1_1CreateThreatIntelSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2545,7 +2555,6 @@ async function deserializeAws_restJson1_1CreateThreatIntelSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2590,8 +2599,10 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2608,7 +2619,6 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2645,8 +2655,10 @@ async function deserializeAws_restJson1_1DeleteDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2663,7 +2675,6 @@ async function deserializeAws_restJson1_1DeleteDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2697,8 +2708,10 @@ async function deserializeAws_restJson1_1DeleteFilterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2715,7 +2728,6 @@ async function deserializeAws_restJson1_1DeleteFilterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2749,8 +2761,10 @@ async function deserializeAws_restJson1_1DeleteIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2767,7 +2781,6 @@ async function deserializeAws_restJson1_1DeleteIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2812,8 +2825,10 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2830,7 +2845,6 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2872,8 +2886,10 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2890,7 +2906,6 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2927,8 +2942,10 @@ async function deserializeAws_restJson1_1DeletePublishingDestinationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -2945,7 +2962,6 @@ async function deserializeAws_restJson1_1DeletePublishingDestinationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -2982,8 +2998,10 @@ async function deserializeAws_restJson1_1DeleteThreatIntelSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3000,7 +3018,6 @@ async function deserializeAws_restJson1_1DeleteThreatIntelSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3062,8 +3079,10 @@ async function deserializeAws_restJson1_1DescribePublishingDestinationCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3080,7 +3099,6 @@ async function deserializeAws_restJson1_1DescribePublishingDestinationCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3117,8 +3135,10 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3135,7 +3155,6 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3180,8 +3199,10 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3198,7 +3219,6 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3257,8 +3277,10 @@ async function deserializeAws_restJson1_1GetDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3275,7 +3297,6 @@ async function deserializeAws_restJson1_1GetDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3337,8 +3358,10 @@ async function deserializeAws_restJson1_1GetFilterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3355,7 +3378,6 @@ async function deserializeAws_restJson1_1GetFilterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3397,8 +3419,10 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3415,7 +3439,6 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3460,8 +3483,10 @@ async function deserializeAws_restJson1_1GetFindingsStatisticsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3478,7 +3503,6 @@ async function deserializeAws_restJson1_1GetFindingsStatisticsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3533,8 +3557,10 @@ async function deserializeAws_restJson1_1GetIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3551,7 +3577,6 @@ async function deserializeAws_restJson1_1GetIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3593,8 +3618,10 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3611,7 +3638,6 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3653,8 +3679,10 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3671,7 +3699,6 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3717,8 +3744,10 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3735,7 +3764,6 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3793,8 +3821,10 @@ async function deserializeAws_restJson1_1GetThreatIntelSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3811,7 +3841,6 @@ async function deserializeAws_restJson1_1GetThreatIntelSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3853,8 +3882,10 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3871,7 +3902,6 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3917,8 +3947,10 @@ async function deserializeAws_restJson1_1ListDetectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3935,7 +3967,6 @@ async function deserializeAws_restJson1_1ListDetectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -3981,8 +4012,10 @@ async function deserializeAws_restJson1_1ListFiltersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -3999,7 +4032,6 @@ async function deserializeAws_restJson1_1ListFiltersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4045,8 +4077,10 @@ async function deserializeAws_restJson1_1ListFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4063,7 +4097,6 @@ async function deserializeAws_restJson1_1ListFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4109,8 +4142,10 @@ async function deserializeAws_restJson1_1ListIPSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4127,7 +4162,6 @@ async function deserializeAws_restJson1_1ListIPSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4176,8 +4210,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4194,7 +4230,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4237,8 +4272,10 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4255,7 +4292,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4304,8 +4340,10 @@ async function deserializeAws_restJson1_1ListPublishingDestinationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4322,7 +4360,6 @@ async function deserializeAws_restJson1_1ListPublishingDestinationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4364,8 +4401,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4382,7 +4421,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4431,8 +4469,10 @@ async function deserializeAws_restJson1_1ListThreatIntelSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4449,7 +4489,6 @@ async function deserializeAws_restJson1_1ListThreatIntelSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4494,8 +4533,10 @@ async function deserializeAws_restJson1_1StartMonitoringMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4512,7 +4553,6 @@ async function deserializeAws_restJson1_1StartMonitoringMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4557,8 +4597,10 @@ async function deserializeAws_restJson1_1StopMonitoringMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4575,7 +4617,6 @@ async function deserializeAws_restJson1_1StopMonitoringMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4609,8 +4650,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4627,7 +4670,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4664,8 +4706,10 @@ async function deserializeAws_restJson1_1UnarchiveFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4682,7 +4726,6 @@ async function deserializeAws_restJson1_1UnarchiveFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4716,8 +4759,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4734,7 +4779,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4771,8 +4815,10 @@ async function deserializeAws_restJson1_1UpdateDetectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4789,7 +4835,6 @@ async function deserializeAws_restJson1_1UpdateDetectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4828,8 +4873,10 @@ async function deserializeAws_restJson1_1UpdateFilterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4846,7 +4893,6 @@ async function deserializeAws_restJson1_1UpdateFilterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4883,8 +4929,10 @@ async function deserializeAws_restJson1_1UpdateFindingsFeedbackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4901,7 +4949,6 @@ async function deserializeAws_restJson1_1UpdateFindingsFeedbackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4935,8 +4982,10 @@ async function deserializeAws_restJson1_1UpdateIPSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -4953,7 +5002,6 @@ async function deserializeAws_restJson1_1UpdateIPSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -4990,8 +5038,10 @@ async function deserializeAws_restJson1_1UpdatePublishingDestinationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -5008,7 +5058,6 @@ async function deserializeAws_restJson1_1UpdatePublishingDestinationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",
@@ -5045,8 +5094,10 @@ async function deserializeAws_restJson1_1UpdateThreatIntelSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.guardduty#BadRequestException":
@@ -5063,7 +5114,6 @@ async function deserializeAws_restJson1_1UpdateThreatIntelSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guardduty#${errorCode}`,
         $fault: "client",

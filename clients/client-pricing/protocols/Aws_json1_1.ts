@@ -119,10 +119,7 @@ export async function deserializeAws_json1_1DescribeServicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServicesResponse(
-    data.DescribeServicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeServicesResponse(data, context);
   const response: DescribeServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServicesResponse",
@@ -141,7 +138,7 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -182,7 +179,6 @@ async function deserializeAws_json1_1DescribeServicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awspricelistservice#${errorCode}`,
         $fault: "client",
@@ -204,10 +200,7 @@ export async function deserializeAws_json1_1GetAttributeValuesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAttributeValuesResponse(
-    data.GetAttributeValuesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAttributeValuesResponse(data, context);
   const response: GetAttributeValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAttributeValuesResponse",
@@ -226,7 +219,7 @@ async function deserializeAws_json1_1GetAttributeValuesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -267,7 +260,6 @@ async function deserializeAws_json1_1GetAttributeValuesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awspricelistservice#${errorCode}`,
         $fault: "client",
@@ -286,10 +278,7 @@ export async function deserializeAws_json1_1GetProductsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProductsResponse(
-    data.GetProductsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetProductsResponse(data, context);
   const response: GetProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProductsResponse",
@@ -308,7 +297,7 @@ async function deserializeAws_json1_1GetProductsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -349,7 +338,6 @@ async function deserializeAws_json1_1GetProductsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awspricelistservice#${errorCode}`,
         $fault: "client",

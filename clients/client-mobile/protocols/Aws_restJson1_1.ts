@@ -331,8 +331,10 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -384,7 +386,6 @@ async function deserializeAws_restJson1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -433,8 +434,10 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.services.mobile.model#InternalFailureException":
@@ -472,7 +475,6 @@ async function deserializeAws_restJson1_1DeleteProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -517,8 +519,10 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -563,7 +567,6 @@ async function deserializeAws_restJson1_1DescribeBundleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -608,8 +611,10 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -654,7 +659,6 @@ async function deserializeAws_restJson1_1DescribeProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -693,8 +697,10 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -739,7 +745,6 @@ async function deserializeAws_restJson1_1ExportBundleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -786,8 +791,10 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -832,7 +839,6 @@ async function deserializeAws_restJson1_1ExportProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -878,8 +884,10 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -917,7 +925,6 @@ async function deserializeAws_restJson1_1ListBundlesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -963,8 +970,10 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.services.mobile.model#BadRequestException":
@@ -1002,7 +1011,6 @@ async function deserializeAws_restJson1_1ListProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",
@@ -1044,8 +1052,10 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccountActionRequiredException":
     case "com.amazonaws.services.mobile.model#AccountActionRequiredException":
@@ -1104,7 +1114,6 @@ async function deserializeAws_restJson1_1UpdateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mobile.model#${errorCode}`,
         $fault: "client",

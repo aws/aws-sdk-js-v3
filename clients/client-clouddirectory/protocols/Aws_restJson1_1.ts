@@ -2601,8 +2601,10 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -2668,7 +2670,6 @@ async function deserializeAws_restJson1_1AddFacetToObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -2711,8 +2712,10 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -2778,7 +2781,6 @@ async function deserializeAws_restJson1_1ApplySchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -2817,8 +2819,10 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -2898,7 +2902,6 @@ async function deserializeAws_restJson1_1AttachObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -2932,8 +2935,10 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -2999,7 +3004,6 @@ async function deserializeAws_restJson1_1AttachPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3038,8 +3042,10 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3126,7 +3132,6 @@ async function deserializeAws_restJson1_1AttachToIndexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3171,8 +3176,10 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3245,7 +3252,6 @@ async function deserializeAws_restJson1_1AttachTypedLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3287,8 +3293,10 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3340,7 +3348,6 @@ async function deserializeAws_restJson1_1BatchReadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3382,8 +3389,10 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3442,7 +3451,6 @@ async function deserializeAws_restJson1_1BatchWriteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3496,8 +3504,10 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3556,7 +3566,6 @@ async function deserializeAws_restJson1_1CreateDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3590,8 +3599,10 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3664,7 +3675,6 @@ async function deserializeAws_restJson1_1CreateFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3703,8 +3713,10 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3784,7 +3796,6 @@ async function deserializeAws_restJson1_1CreateIndexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3823,8 +3834,10 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3904,7 +3917,6 @@ async function deserializeAws_restJson1_1CreateObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -3943,8 +3955,10 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -3996,7 +4010,6 @@ async function deserializeAws_restJson1_1CreateSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4033,8 +4046,10 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4107,7 +4122,6 @@ async function deserializeAws_restJson1_1CreateTypedLinkFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4149,8 +4163,10 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4216,7 +4232,6 @@ async function deserializeAws_restJson1_1DeleteDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4250,8 +4265,10 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4317,7 +4334,6 @@ async function deserializeAws_restJson1_1DeleteFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4351,8 +4367,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4418,7 +4436,6 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4457,8 +4474,10 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4517,7 +4536,6 @@ async function deserializeAws_restJson1_1DeleteSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4554,8 +4572,10 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4614,7 +4634,6 @@ async function deserializeAws_restJson1_1DeleteTypedLinkFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4656,8 +4675,10 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4730,7 +4751,6 @@ async function deserializeAws_restJson1_1DetachFromIndexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4769,8 +4789,10 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4836,7 +4858,6 @@ async function deserializeAws_restJson1_1DetachObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4870,8 +4891,10 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -4937,7 +4960,6 @@ async function deserializeAws_restJson1_1DetachPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -4973,8 +4995,10 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5040,7 +5064,6 @@ async function deserializeAws_restJson1_1DetachTypedLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5082,8 +5105,10 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5142,7 +5167,6 @@ async function deserializeAws_restJson1_1DisableDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5184,8 +5208,10 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5244,7 +5270,6 @@ async function deserializeAws_restJson1_1EnableDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5286,8 +5311,10 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5339,7 +5366,6 @@ async function deserializeAws_restJson1_1GetAppliedSchemaVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5381,8 +5407,10 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5427,7 +5455,6 @@ async function deserializeAws_restJson1_1GetDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5466,8 +5493,10 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5526,7 +5555,6 @@ async function deserializeAws_restJson1_1GetFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5571,8 +5599,10 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5638,7 +5668,6 @@ async function deserializeAws_restJson1_1GetLinkAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5683,8 +5712,10 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5750,7 +5781,6 @@ async function deserializeAws_restJson1_1GetObjectAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5799,8 +5829,10 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5859,7 +5891,6 @@ async function deserializeAws_restJson1_1GetObjectInformationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -5905,8 +5936,10 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -5958,7 +5991,6 @@ async function deserializeAws_restJson1_1GetSchemaAsJsonCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6003,8 +6035,10 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6070,7 +6104,6 @@ async function deserializeAws_restJson1_1GetTypedLinkFacetInformationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6119,8 +6152,10 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6179,7 +6214,6 @@ async function deserializeAws_restJson1_1ListAppliedSchemaArnsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6228,8 +6262,10 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6288,7 +6324,6 @@ async function deserializeAws_restJson1_1ListAttachedIndicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6337,8 +6372,10 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6397,7 +6434,6 @@ async function deserializeAws_restJson1_1ListDevelopmentSchemaArnsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6446,8 +6482,10 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6499,7 +6537,6 @@ async function deserializeAws_restJson1_1ListDirectoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6548,8 +6585,10 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6615,7 +6654,6 @@ async function deserializeAws_restJson1_1ListFacetAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6664,8 +6702,10 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6724,7 +6764,6 @@ async function deserializeAws_restJson1_1ListFacetNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6773,8 +6812,10 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6847,7 +6888,6 @@ async function deserializeAws_restJson1_1ListIncomingTypedLinksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -6893,8 +6933,10 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -6974,7 +7016,6 @@ async function deserializeAws_restJson1_1ListIndexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7023,8 +7064,10 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7069,7 +7112,6 @@ async function deserializeAws_restJson1_1ListManagedSchemaArnsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7118,8 +7160,10 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7192,7 +7236,6 @@ async function deserializeAws_restJson1_1ListObjectAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7241,8 +7284,10 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7315,7 +7360,6 @@ async function deserializeAws_restJson1_1ListObjectChildrenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7364,8 +7408,10 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7431,7 +7477,6 @@ async function deserializeAws_restJson1_1ListObjectParentPathsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7487,8 +7532,10 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7561,7 +7608,6 @@ async function deserializeAws_restJson1_1ListObjectParentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7610,8 +7656,10 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7677,7 +7725,6 @@ async function deserializeAws_restJson1_1ListObjectPoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7726,8 +7773,10 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7800,7 +7849,6 @@ async function deserializeAws_restJson1_1ListOutgoingTypedLinksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7849,8 +7897,10 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -7923,7 +7973,6 @@ async function deserializeAws_restJson1_1ListPolicyAttachmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -7972,8 +8021,10 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8032,7 +8083,6 @@ async function deserializeAws_restJson1_1ListPublishedSchemaArnsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8078,8 +8128,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8138,7 +8190,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8187,8 +8238,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8254,7 +8307,6 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetAttributesCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8303,8 +8355,10 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8363,7 +8417,6 @@ async function deserializeAws_restJson1_1ListTypedLinkFacetNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8409,8 +8462,10 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8476,7 +8531,6 @@ async function deserializeAws_restJson1_1LookupPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8515,8 +8569,10 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8575,7 +8631,6 @@ async function deserializeAws_restJson1_1PublishSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8617,8 +8672,10 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8677,7 +8734,6 @@ async function deserializeAws_restJson1_1PutSchemaFromJsonCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8714,8 +8770,10 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8781,7 +8839,6 @@ async function deserializeAws_restJson1_1RemoveFacetFromObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8815,8 +8872,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8875,7 +8934,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -8909,8 +8967,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -8969,7 +9029,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9003,8 +9062,10 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9084,7 +9145,6 @@ async function deserializeAws_restJson1_1UpdateFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9121,8 +9181,10 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9188,7 +9250,6 @@ async function deserializeAws_restJson1_1UpdateLinkAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9230,8 +9291,10 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9304,7 +9367,6 @@ async function deserializeAws_restJson1_1UpdateObjectAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9343,8 +9405,10 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9396,7 +9460,6 @@ async function deserializeAws_restJson1_1UpdateSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9433,8 +9496,10 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9514,7 +9579,6 @@ async function deserializeAws_restJson1_1UpdateTypedLinkFacetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9560,8 +9624,10 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9627,7 +9693,6 @@ async function deserializeAws_restJson1_1UpgradeAppliedSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",
@@ -9669,8 +9734,10 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.clouddirectory.v20170111#AccessDeniedException":
@@ -9736,7 +9803,6 @@ async function deserializeAws_restJson1_1UpgradePublishedSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.clouddirectory.v20170111#${errorCode}`,
         $fault: "client",

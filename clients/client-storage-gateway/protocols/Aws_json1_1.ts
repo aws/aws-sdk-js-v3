@@ -2314,10 +2314,7 @@ export async function deserializeAws_json1_1ActivateGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ActivateGatewayOutput(
-    data.ActivateGatewayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ActivateGatewayOutput(data, context);
   const response: ActivateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivateGatewayOutput",
@@ -2336,7 +2333,7 @@ async function deserializeAws_json1_1ActivateGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2356,7 +2353,6 @@ async function deserializeAws_json1_1ActivateGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2375,7 +2371,7 @@ export async function deserializeAws_json1_1AddCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCacheOutput(data.AddCacheOutput, context);
+  contents = deserializeAws_json1_1AddCacheOutput(data, context);
   const response: AddCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddCacheOutput",
@@ -2394,7 +2390,7 @@ async function deserializeAws_json1_1AddCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2414,7 +2410,6 @@ async function deserializeAws_json1_1AddCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2433,10 +2428,7 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsToResourceOutput(
-    data.AddTagsToResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsToResourceOutput(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsToResourceOutput",
@@ -2455,7 +2447,7 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2475,7 +2467,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2494,10 +2485,7 @@ export async function deserializeAws_json1_1AddUploadBufferCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddUploadBufferOutput(
-    data.AddUploadBufferOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AddUploadBufferOutput(data, context);
   const response: AddUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddUploadBufferOutput",
@@ -2516,7 +2504,7 @@ async function deserializeAws_json1_1AddUploadBufferCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2536,7 +2524,6 @@ async function deserializeAws_json1_1AddUploadBufferCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2555,10 +2542,7 @@ export async function deserializeAws_json1_1AddWorkingStorageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddWorkingStorageOutput(
-    data.AddWorkingStorageOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AddWorkingStorageOutput(data, context);
   const response: AddWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddWorkingStorageOutput",
@@ -2577,7 +2561,7 @@ async function deserializeAws_json1_1AddWorkingStorageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2597,7 +2581,6 @@ async function deserializeAws_json1_1AddWorkingStorageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2616,10 +2599,7 @@ export async function deserializeAws_json1_1AssignTapePoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssignTapePoolOutput(
-    data.AssignTapePoolOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AssignTapePoolOutput(data, context);
   const response: AssignTapePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssignTapePoolOutput",
@@ -2638,7 +2618,7 @@ async function deserializeAws_json1_1AssignTapePoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2658,7 +2638,6 @@ async function deserializeAws_json1_1AssignTapePoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2677,10 +2656,7 @@ export async function deserializeAws_json1_1AttachVolumeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AttachVolumeOutput(
-    data.AttachVolumeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AttachVolumeOutput(data, context);
   const response: AttachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AttachVolumeOutput",
@@ -2699,7 +2675,7 @@ async function deserializeAws_json1_1AttachVolumeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2719,7 +2695,6 @@ async function deserializeAws_json1_1AttachVolumeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2738,10 +2713,7 @@ export async function deserializeAws_json1_1CancelArchivalCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelArchivalOutput(
-    data.CancelArchivalOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CancelArchivalOutput(data, context);
   const response: CancelArchivalCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelArchivalOutput",
@@ -2760,7 +2732,7 @@ async function deserializeAws_json1_1CancelArchivalCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2780,7 +2752,6 @@ async function deserializeAws_json1_1CancelArchivalCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2799,10 +2770,7 @@ export async function deserializeAws_json1_1CancelRetrievalCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelRetrievalOutput(
-    data.CancelRetrievalOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CancelRetrievalOutput(data, context);
   const response: CancelRetrievalCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelRetrievalOutput",
@@ -2821,7 +2789,7 @@ async function deserializeAws_json1_1CancelRetrievalCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2841,7 +2809,6 @@ async function deserializeAws_json1_1CancelRetrievalCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2863,10 +2830,7 @@ export async function deserializeAws_json1_1CreateCachediSCSIVolumeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCachediSCSIVolumeOutput(
-    data.CreateCachediSCSIVolumeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCachediSCSIVolumeOutput(data, context);
   const response: CreateCachediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCachediSCSIVolumeOutput",
@@ -2885,7 +2849,7 @@ async function deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2905,7 +2869,6 @@ async function deserializeAws_json1_1CreateCachediSCSIVolumeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2927,10 +2890,7 @@ export async function deserializeAws_json1_1CreateNFSFileShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNFSFileShareOutput(
-    data.CreateNFSFileShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNFSFileShareOutput(data, context);
   const response: CreateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNFSFileShareOutput",
@@ -2949,7 +2909,7 @@ async function deserializeAws_json1_1CreateNFSFileShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2969,7 +2929,6 @@ async function deserializeAws_json1_1CreateNFSFileShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -2991,10 +2950,7 @@ export async function deserializeAws_json1_1CreateSMBFileShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSMBFileShareOutput(
-    data.CreateSMBFileShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSMBFileShareOutput(data, context);
   const response: CreateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSMBFileShareOutput",
@@ -3013,7 +2969,7 @@ async function deserializeAws_json1_1CreateSMBFileShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3033,7 +2989,6 @@ async function deserializeAws_json1_1CreateSMBFileShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3052,10 +3007,7 @@ export async function deserializeAws_json1_1CreateSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotOutput(
-    data.CreateSnapshotOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSnapshotOutput(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSnapshotOutput",
@@ -3074,7 +3026,7 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3101,7 +3053,6 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3124,7 +3075,7 @@ export async function deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPoin
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput(
-    data.CreateSnapshotFromVolumeRecoveryPointOutput,
+    data,
     context
   );
   const response: CreateSnapshotFromVolumeRecoveryPointCommandOutput = {
@@ -3145,7 +3096,7 @@ async function deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3172,7 +3123,6 @@ async function deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3194,10 +3144,7 @@ export async function deserializeAws_json1_1CreateStorediSCSIVolumeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStorediSCSIVolumeOutput(
-    data.CreateStorediSCSIVolumeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateStorediSCSIVolumeOutput(data, context);
   const response: CreateStorediSCSIVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStorediSCSIVolumeOutput",
@@ -3216,7 +3163,7 @@ async function deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3236,7 +3183,6 @@ async function deserializeAws_json1_1CreateStorediSCSIVolumeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3258,10 +3204,7 @@ export async function deserializeAws_json1_1CreateTapeWithBarcodeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTapeWithBarcodeOutput(
-    data.CreateTapeWithBarcodeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTapeWithBarcodeOutput(data, context);
   const response: CreateTapeWithBarcodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTapeWithBarcodeOutput",
@@ -3280,7 +3223,7 @@ async function deserializeAws_json1_1CreateTapeWithBarcodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3300,7 +3243,6 @@ async function deserializeAws_json1_1CreateTapeWithBarcodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3319,10 +3261,7 @@ export async function deserializeAws_json1_1CreateTapesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTapesOutput(
-    data.CreateTapesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTapesOutput(data, context);
   const response: CreateTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTapesOutput",
@@ -3341,7 +3280,7 @@ async function deserializeAws_json1_1CreateTapesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3361,7 +3300,6 @@ async function deserializeAws_json1_1CreateTapesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3384,7 +3322,7 @@ export async function deserializeAws_json1_1DeleteBandwidthRateLimitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteBandwidthRateLimitOutput(
-    data.DeleteBandwidthRateLimitOutput,
+    data,
     context
   );
   const response: DeleteBandwidthRateLimitCommandOutput = {
@@ -3405,7 +3343,7 @@ async function deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3425,7 +3363,6 @@ async function deserializeAws_json1_1DeleteBandwidthRateLimitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3447,10 +3384,7 @@ export async function deserializeAws_json1_1DeleteChapCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteChapCredentialsOutput(
-    data.DeleteChapCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteChapCredentialsOutput(data, context);
   const response: DeleteChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteChapCredentialsOutput",
@@ -3469,7 +3403,7 @@ async function deserializeAws_json1_1DeleteChapCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3489,7 +3423,6 @@ async function deserializeAws_json1_1DeleteChapCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3508,10 +3441,7 @@ export async function deserializeAws_json1_1DeleteFileShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFileShareOutput(
-    data.DeleteFileShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteFileShareOutput(data, context);
   const response: DeleteFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFileShareOutput",
@@ -3530,7 +3460,7 @@ async function deserializeAws_json1_1DeleteFileShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3550,7 +3480,6 @@ async function deserializeAws_json1_1DeleteFileShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3569,10 +3498,7 @@ export async function deserializeAws_json1_1DeleteGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteGatewayOutput(
-    data.DeleteGatewayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteGatewayOutput(data, context);
   const response: DeleteGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteGatewayOutput",
@@ -3591,7 +3517,7 @@ async function deserializeAws_json1_1DeleteGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3611,7 +3537,6 @@ async function deserializeAws_json1_1DeleteGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3633,10 +3558,7 @@ export async function deserializeAws_json1_1DeleteSnapshotScheduleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSnapshotScheduleOutput(
-    data.DeleteSnapshotScheduleOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSnapshotScheduleOutput(data, context);
   const response: DeleteSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSnapshotScheduleOutput",
@@ -3655,7 +3577,7 @@ async function deserializeAws_json1_1DeleteSnapshotScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3675,7 +3597,6 @@ async function deserializeAws_json1_1DeleteSnapshotScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3694,10 +3615,7 @@ export async function deserializeAws_json1_1DeleteTapeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTapeOutput(
-    data.DeleteTapeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTapeOutput(data, context);
   const response: DeleteTapeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTapeOutput",
@@ -3716,7 +3634,7 @@ async function deserializeAws_json1_1DeleteTapeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3736,7 +3654,6 @@ async function deserializeAws_json1_1DeleteTapeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3755,10 +3672,7 @@ export async function deserializeAws_json1_1DeleteTapeArchiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTapeArchiveOutput(
-    data.DeleteTapeArchiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTapeArchiveOutput(data, context);
   const response: DeleteTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTapeArchiveOutput",
@@ -3777,7 +3691,7 @@ async function deserializeAws_json1_1DeleteTapeArchiveCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3797,7 +3711,6 @@ async function deserializeAws_json1_1DeleteTapeArchiveCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3816,10 +3729,7 @@ export async function deserializeAws_json1_1DeleteVolumeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteVolumeOutput(
-    data.DeleteVolumeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteVolumeOutput(data, context);
   const response: DeleteVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteVolumeOutput",
@@ -3838,7 +3748,7 @@ async function deserializeAws_json1_1DeleteVolumeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3858,7 +3768,6 @@ async function deserializeAws_json1_1DeleteVolumeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3881,7 +3790,7 @@ export async function deserializeAws_json1_1DescribeAvailabilityMonitorTestComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput(
-    data.DescribeAvailabilityMonitorTestOutput,
+    data,
     context
   );
   const response: DescribeAvailabilityMonitorTestCommandOutput = {
@@ -3902,7 +3811,7 @@ async function deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3922,7 +3831,6 @@ async function deserializeAws_json1_1DescribeAvailabilityMonitorTestCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -3945,7 +3853,7 @@ export async function deserializeAws_json1_1DescribeBandwidthRateLimitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeBandwidthRateLimitOutput(
-    data.DescribeBandwidthRateLimitOutput,
+    data,
     context
   );
   const response: DescribeBandwidthRateLimitCommandOutput = {
@@ -3966,7 +3874,7 @@ async function deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3986,7 +3894,6 @@ async function deserializeAws_json1_1DescribeBandwidthRateLimitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4005,10 +3912,7 @@ export async function deserializeAws_json1_1DescribeCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCacheOutput(
-    data.DescribeCacheOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCacheOutput(data, context);
   const response: DescribeCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCacheOutput",
@@ -4027,7 +3931,7 @@ async function deserializeAws_json1_1DescribeCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4047,7 +3951,6 @@ async function deserializeAws_json1_1DescribeCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4070,7 +3973,7 @@ export async function deserializeAws_json1_1DescribeCachediSCSIVolumesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCachediSCSIVolumesOutput(
-    data.DescribeCachediSCSIVolumesOutput,
+    data,
     context
   );
   const response: DescribeCachediSCSIVolumesCommandOutput = {
@@ -4091,7 +3994,7 @@ async function deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4111,7 +4014,6 @@ async function deserializeAws_json1_1DescribeCachediSCSIVolumesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4133,10 +4035,7 @@ export async function deserializeAws_json1_1DescribeChapCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeChapCredentialsOutput(
-    data.DescribeChapCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeChapCredentialsOutput(data, context);
   const response: DescribeChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeChapCredentialsOutput",
@@ -4155,7 +4054,7 @@ async function deserializeAws_json1_1DescribeChapCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4175,7 +4074,6 @@ async function deserializeAws_json1_1DescribeChapCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4198,7 +4096,7 @@ export async function deserializeAws_json1_1DescribeGatewayInformationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeGatewayInformationOutput(
-    data.DescribeGatewayInformationOutput,
+    data,
     context
   );
   const response: DescribeGatewayInformationCommandOutput = {
@@ -4219,7 +4117,7 @@ async function deserializeAws_json1_1DescribeGatewayInformationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4239,7 +4137,6 @@ async function deserializeAws_json1_1DescribeGatewayInformationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4262,7 +4159,7 @@ export async function deserializeAws_json1_1DescribeMaintenanceStartTimeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeMaintenanceStartTimeOutput(
-    data.DescribeMaintenanceStartTimeOutput,
+    data,
     context
   );
   const response: DescribeMaintenanceStartTimeCommandOutput = {
@@ -4283,7 +4180,7 @@ async function deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4303,7 +4200,6 @@ async function deserializeAws_json1_1DescribeMaintenanceStartTimeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4325,10 +4221,7 @@ export async function deserializeAws_json1_1DescribeNFSFileSharesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeNFSFileSharesOutput(
-    data.DescribeNFSFileSharesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeNFSFileSharesOutput(data, context);
   const response: DescribeNFSFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeNFSFileSharesOutput",
@@ -4347,7 +4240,7 @@ async function deserializeAws_json1_1DescribeNFSFileSharesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4367,7 +4260,6 @@ async function deserializeAws_json1_1DescribeNFSFileSharesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4389,10 +4281,7 @@ export async function deserializeAws_json1_1DescribeSMBFileSharesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSMBFileSharesOutput(
-    data.DescribeSMBFileSharesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSMBFileSharesOutput(data, context);
   const response: DescribeSMBFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSMBFileSharesOutput",
@@ -4411,7 +4300,7 @@ async function deserializeAws_json1_1DescribeSMBFileSharesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4431,7 +4320,6 @@ async function deserializeAws_json1_1DescribeSMBFileSharesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4453,10 +4341,7 @@ export async function deserializeAws_json1_1DescribeSMBSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSMBSettingsOutput(
-    data.DescribeSMBSettingsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSMBSettingsOutput(data, context);
   const response: DescribeSMBSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSMBSettingsOutput",
@@ -4475,7 +4360,7 @@ async function deserializeAws_json1_1DescribeSMBSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4495,7 +4380,6 @@ async function deserializeAws_json1_1DescribeSMBSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4518,7 +4402,7 @@ export async function deserializeAws_json1_1DescribeSnapshotScheduleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSnapshotScheduleOutput(
-    data.DescribeSnapshotScheduleOutput,
+    data,
     context
   );
   const response: DescribeSnapshotScheduleCommandOutput = {
@@ -4539,7 +4423,7 @@ async function deserializeAws_json1_1DescribeSnapshotScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4559,7 +4443,6 @@ async function deserializeAws_json1_1DescribeSnapshotScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4582,7 +4465,7 @@ export async function deserializeAws_json1_1DescribeStorediSCSIVolumesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStorediSCSIVolumesOutput(
-    data.DescribeStorediSCSIVolumesOutput,
+    data,
     context
   );
   const response: DescribeStorediSCSIVolumesCommandOutput = {
@@ -4603,7 +4486,7 @@ async function deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4623,7 +4506,6 @@ async function deserializeAws_json1_1DescribeStorediSCSIVolumesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4645,10 +4527,7 @@ export async function deserializeAws_json1_1DescribeTapeArchivesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapeArchivesOutput(
-    data.DescribeTapeArchivesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTapeArchivesOutput(data, context);
   const response: DescribeTapeArchivesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTapeArchivesOutput",
@@ -4667,7 +4546,7 @@ async function deserializeAws_json1_1DescribeTapeArchivesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4687,7 +4566,6 @@ async function deserializeAws_json1_1DescribeTapeArchivesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4710,7 +4588,7 @@ export async function deserializeAws_json1_1DescribeTapeRecoveryPointsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTapeRecoveryPointsOutput(
-    data.DescribeTapeRecoveryPointsOutput,
+    data,
     context
   );
   const response: DescribeTapeRecoveryPointsCommandOutput = {
@@ -4731,7 +4609,7 @@ async function deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4751,7 +4629,6 @@ async function deserializeAws_json1_1DescribeTapeRecoveryPointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4770,10 +4647,7 @@ export async function deserializeAws_json1_1DescribeTapesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTapesOutput(
-    data.DescribeTapesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTapesOutput(data, context);
   const response: DescribeTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTapesOutput",
@@ -4792,7 +4666,7 @@ async function deserializeAws_json1_1DescribeTapesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4812,7 +4686,6 @@ async function deserializeAws_json1_1DescribeTapesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4834,10 +4707,7 @@ export async function deserializeAws_json1_1DescribeUploadBufferCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUploadBufferOutput(
-    data.DescribeUploadBufferOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUploadBufferOutput(data, context);
   const response: DescribeUploadBufferCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUploadBufferOutput",
@@ -4856,7 +4726,7 @@ async function deserializeAws_json1_1DescribeUploadBufferCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4876,7 +4746,6 @@ async function deserializeAws_json1_1DescribeUploadBufferCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4898,10 +4767,7 @@ export async function deserializeAws_json1_1DescribeVTLDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeVTLDevicesOutput(
-    data.DescribeVTLDevicesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeVTLDevicesOutput(data, context);
   const response: DescribeVTLDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeVTLDevicesOutput",
@@ -4920,7 +4786,7 @@ async function deserializeAws_json1_1DescribeVTLDevicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4940,7 +4806,6 @@ async function deserializeAws_json1_1DescribeVTLDevicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -4962,10 +4827,7 @@ export async function deserializeAws_json1_1DescribeWorkingStorageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeWorkingStorageOutput(
-    data.DescribeWorkingStorageOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeWorkingStorageOutput(data, context);
   const response: DescribeWorkingStorageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWorkingStorageOutput",
@@ -4984,7 +4846,7 @@ async function deserializeAws_json1_1DescribeWorkingStorageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5004,7 +4866,6 @@ async function deserializeAws_json1_1DescribeWorkingStorageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5023,10 +4884,7 @@ export async function deserializeAws_json1_1DetachVolumeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetachVolumeOutput(
-    data.DetachVolumeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DetachVolumeOutput(data, context);
   const response: DetachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetachVolumeOutput",
@@ -5045,7 +4903,7 @@ async function deserializeAws_json1_1DetachVolumeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5065,7 +4923,6 @@ async function deserializeAws_json1_1DetachVolumeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5084,10 +4941,7 @@ export async function deserializeAws_json1_1DisableGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableGatewayOutput(
-    data.DisableGatewayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DisableGatewayOutput(data, context);
   const response: DisableGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableGatewayOutput",
@@ -5106,7 +4960,7 @@ async function deserializeAws_json1_1DisableGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5126,7 +4980,6 @@ async function deserializeAws_json1_1DisableGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5145,10 +4998,7 @@ export async function deserializeAws_json1_1JoinDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1JoinDomainOutput(
-    data.JoinDomainOutput,
-    context
-  );
+  contents = deserializeAws_json1_1JoinDomainOutput(data, context);
   const response: JoinDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "JoinDomainOutput",
@@ -5167,7 +5017,7 @@ async function deserializeAws_json1_1JoinDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5187,7 +5037,6 @@ async function deserializeAws_json1_1JoinDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5206,10 +5055,7 @@ export async function deserializeAws_json1_1ListFileSharesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListFileSharesOutput(
-    data.ListFileSharesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListFileSharesOutput(data, context);
   const response: ListFileSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListFileSharesOutput",
@@ -5228,7 +5074,7 @@ async function deserializeAws_json1_1ListFileSharesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5248,7 +5094,6 @@ async function deserializeAws_json1_1ListFileSharesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5267,10 +5112,7 @@ export async function deserializeAws_json1_1ListGatewaysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGatewaysOutput(
-    data.ListGatewaysOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListGatewaysOutput(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGatewaysOutput",
@@ -5289,7 +5131,7 @@ async function deserializeAws_json1_1ListGatewaysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5309,7 +5151,6 @@ async function deserializeAws_json1_1ListGatewaysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5328,10 +5169,7 @@ export async function deserializeAws_json1_1ListLocalDisksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLocalDisksOutput(
-    data.ListLocalDisksOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListLocalDisksOutput(data, context);
   const response: ListLocalDisksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLocalDisksOutput",
@@ -5350,7 +5188,7 @@ async function deserializeAws_json1_1ListLocalDisksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5370,7 +5208,6 @@ async function deserializeAws_json1_1ListLocalDisksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5392,10 +5229,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -5414,7 +5248,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5434,7 +5268,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5453,10 +5286,7 @@ export async function deserializeAws_json1_1ListTapesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTapesOutput(
-    data.ListTapesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTapesOutput(data, context);
   const response: ListTapesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTapesOutput",
@@ -5475,7 +5305,7 @@ async function deserializeAws_json1_1ListTapesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5495,7 +5325,6 @@ async function deserializeAws_json1_1ListTapesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5517,10 +5346,7 @@ export async function deserializeAws_json1_1ListVolumeInitiatorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumeInitiatorsOutput(
-    data.ListVolumeInitiatorsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListVolumeInitiatorsOutput(data, context);
   const response: ListVolumeInitiatorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListVolumeInitiatorsOutput",
@@ -5539,7 +5365,7 @@ async function deserializeAws_json1_1ListVolumeInitiatorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5559,7 +5385,6 @@ async function deserializeAws_json1_1ListVolumeInitiatorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5582,7 +5407,7 @@ export async function deserializeAws_json1_1ListVolumeRecoveryPointsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListVolumeRecoveryPointsOutput(
-    data.ListVolumeRecoveryPointsOutput,
+    data,
     context
   );
   const response: ListVolumeRecoveryPointsCommandOutput = {
@@ -5603,7 +5428,7 @@ async function deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5623,7 +5448,6 @@ async function deserializeAws_json1_1ListVolumeRecoveryPointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5642,10 +5466,7 @@ export async function deserializeAws_json1_1ListVolumesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVolumesOutput(
-    data.ListVolumesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListVolumesOutput(data, context);
   const response: ListVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListVolumesOutput",
@@ -5664,7 +5485,7 @@ async function deserializeAws_json1_1ListVolumesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5684,7 +5505,6 @@ async function deserializeAws_json1_1ListVolumesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5706,10 +5526,7 @@ export async function deserializeAws_json1_1NotifyWhenUploadedCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyWhenUploadedOutput(
-    data.NotifyWhenUploadedOutput,
-    context
-  );
+  contents = deserializeAws_json1_1NotifyWhenUploadedOutput(data, context);
   const response: NotifyWhenUploadedCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "NotifyWhenUploadedOutput",
@@ -5728,7 +5545,7 @@ async function deserializeAws_json1_1NotifyWhenUploadedCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5748,7 +5565,6 @@ async function deserializeAws_json1_1NotifyWhenUploadedCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5767,10 +5583,7 @@ export async function deserializeAws_json1_1RefreshCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RefreshCacheOutput(
-    data.RefreshCacheOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RefreshCacheOutput(data, context);
   const response: RefreshCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RefreshCacheOutput",
@@ -5789,7 +5602,7 @@ async function deserializeAws_json1_1RefreshCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5809,7 +5622,6 @@ async function deserializeAws_json1_1RefreshCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5831,10 +5643,7 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsFromResourceOutput(
-    data.RemoveTagsFromResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsFromResourceOutput(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsFromResourceOutput",
@@ -5853,7 +5662,7 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5873,7 +5682,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5892,10 +5700,7 @@ export async function deserializeAws_json1_1ResetCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResetCacheOutput(
-    data.ResetCacheOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ResetCacheOutput(data, context);
   const response: ResetCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResetCacheOutput",
@@ -5914,7 +5719,7 @@ async function deserializeAws_json1_1ResetCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5934,7 +5739,6 @@ async function deserializeAws_json1_1ResetCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -5956,10 +5760,7 @@ export async function deserializeAws_json1_1RetrieveTapeArchiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RetrieveTapeArchiveOutput(
-    data.RetrieveTapeArchiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RetrieveTapeArchiveOutput(data, context);
   const response: RetrieveTapeArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RetrieveTapeArchiveOutput",
@@ -5978,7 +5779,7 @@ async function deserializeAws_json1_1RetrieveTapeArchiveCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5998,7 +5799,6 @@ async function deserializeAws_json1_1RetrieveTapeArchiveCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6021,7 +5821,7 @@ export async function deserializeAws_json1_1RetrieveTapeRecoveryPointCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RetrieveTapeRecoveryPointOutput(
-    data.RetrieveTapeRecoveryPointOutput,
+    data,
     context
   );
   const response: RetrieveTapeRecoveryPointCommandOutput = {
@@ -6042,7 +5842,7 @@ async function deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6062,7 +5862,6 @@ async function deserializeAws_json1_1RetrieveTapeRecoveryPointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6084,10 +5883,7 @@ export async function deserializeAws_json1_1SetLocalConsolePasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetLocalConsolePasswordOutput(
-    data.SetLocalConsolePasswordOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SetLocalConsolePasswordOutput(data, context);
   const response: SetLocalConsolePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetLocalConsolePasswordOutput",
@@ -6106,7 +5902,7 @@ async function deserializeAws_json1_1SetLocalConsolePasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6126,7 +5922,6 @@ async function deserializeAws_json1_1SetLocalConsolePasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6148,10 +5943,7 @@ export async function deserializeAws_json1_1SetSMBGuestPasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetSMBGuestPasswordOutput(
-    data.SetSMBGuestPasswordOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SetSMBGuestPasswordOutput(data, context);
   const response: SetSMBGuestPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetSMBGuestPasswordOutput",
@@ -6170,7 +5962,7 @@ async function deserializeAws_json1_1SetSMBGuestPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6190,7 +5982,6 @@ async function deserializeAws_json1_1SetSMBGuestPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6209,10 +6000,7 @@ export async function deserializeAws_json1_1ShutdownGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ShutdownGatewayOutput(
-    data.ShutdownGatewayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ShutdownGatewayOutput(data, context);
   const response: ShutdownGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ShutdownGatewayOutput",
@@ -6231,7 +6019,7 @@ async function deserializeAws_json1_1ShutdownGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6251,7 +6039,6 @@ async function deserializeAws_json1_1ShutdownGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6274,7 +6061,7 @@ export async function deserializeAws_json1_1StartAvailabilityMonitorTestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartAvailabilityMonitorTestOutput(
-    data.StartAvailabilityMonitorTestOutput,
+    data,
     context
   );
   const response: StartAvailabilityMonitorTestCommandOutput = {
@@ -6295,7 +6082,7 @@ async function deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6315,7 +6102,6 @@ async function deserializeAws_json1_1StartAvailabilityMonitorTestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6334,10 +6120,7 @@ export async function deserializeAws_json1_1StartGatewayCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartGatewayOutput(
-    data.StartGatewayOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartGatewayOutput(data, context);
   const response: StartGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartGatewayOutput",
@@ -6356,7 +6139,7 @@ async function deserializeAws_json1_1StartGatewayCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6376,7 +6159,6 @@ async function deserializeAws_json1_1StartGatewayCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6399,7 +6181,7 @@ export async function deserializeAws_json1_1UpdateBandwidthRateLimitCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateBandwidthRateLimitOutput(
-    data.UpdateBandwidthRateLimitOutput,
+    data,
     context
   );
   const response: UpdateBandwidthRateLimitCommandOutput = {
@@ -6420,7 +6202,7 @@ async function deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6440,7 +6222,6 @@ async function deserializeAws_json1_1UpdateBandwidthRateLimitCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6462,10 +6243,7 @@ export async function deserializeAws_json1_1UpdateChapCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateChapCredentialsOutput(
-    data.UpdateChapCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateChapCredentialsOutput(data, context);
   const response: UpdateChapCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateChapCredentialsOutput",
@@ -6484,7 +6262,7 @@ async function deserializeAws_json1_1UpdateChapCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6504,7 +6282,6 @@ async function deserializeAws_json1_1UpdateChapCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6527,7 +6304,7 @@ export async function deserializeAws_json1_1UpdateGatewayInformationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateGatewayInformationOutput(
-    data.UpdateGatewayInformationOutput,
+    data,
     context
   );
   const response: UpdateGatewayInformationCommandOutput = {
@@ -6548,7 +6325,7 @@ async function deserializeAws_json1_1UpdateGatewayInformationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6568,7 +6345,6 @@ async function deserializeAws_json1_1UpdateGatewayInformationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6591,7 +6367,7 @@ export async function deserializeAws_json1_1UpdateGatewaySoftwareNowCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateGatewaySoftwareNowOutput(
-    data.UpdateGatewaySoftwareNowOutput,
+    data,
     context
   );
   const response: UpdateGatewaySoftwareNowCommandOutput = {
@@ -6612,7 +6388,7 @@ async function deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6632,7 +6408,6 @@ async function deserializeAws_json1_1UpdateGatewaySoftwareNowCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6655,7 +6430,7 @@ export async function deserializeAws_json1_1UpdateMaintenanceStartTimeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateMaintenanceStartTimeOutput(
-    data.UpdateMaintenanceStartTimeOutput,
+    data,
     context
   );
   const response: UpdateMaintenanceStartTimeCommandOutput = {
@@ -6676,7 +6451,7 @@ async function deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6696,7 +6471,6 @@ async function deserializeAws_json1_1UpdateMaintenanceStartTimeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6718,10 +6492,7 @@ export async function deserializeAws_json1_1UpdateNFSFileShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNFSFileShareOutput(
-    data.UpdateNFSFileShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNFSFileShareOutput(data, context);
   const response: UpdateNFSFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNFSFileShareOutput",
@@ -6740,7 +6511,7 @@ async function deserializeAws_json1_1UpdateNFSFileShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6760,7 +6531,6 @@ async function deserializeAws_json1_1UpdateNFSFileShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6782,10 +6552,7 @@ export async function deserializeAws_json1_1UpdateSMBFileShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSMBFileShareOutput(
-    data.UpdateSMBFileShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSMBFileShareOutput(data, context);
   const response: UpdateSMBFileShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSMBFileShareOutput",
@@ -6804,7 +6571,7 @@ async function deserializeAws_json1_1UpdateSMBFileShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6824,7 +6591,6 @@ async function deserializeAws_json1_1UpdateSMBFileShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6847,7 +6613,7 @@ export async function deserializeAws_json1_1UpdateSMBSecurityStrategyCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateSMBSecurityStrategyOutput(
-    data.UpdateSMBSecurityStrategyOutput,
+    data,
     context
   );
   const response: UpdateSMBSecurityStrategyCommandOutput = {
@@ -6868,7 +6634,7 @@ async function deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6888,7 +6654,6 @@ async function deserializeAws_json1_1UpdateSMBSecurityStrategyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6910,10 +6675,7 @@ export async function deserializeAws_json1_1UpdateSnapshotScheduleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSnapshotScheduleOutput(
-    data.UpdateSnapshotScheduleOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSnapshotScheduleOutput(data, context);
   const response: UpdateSnapshotScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSnapshotScheduleOutput",
@@ -6932,7 +6694,7 @@ async function deserializeAws_json1_1UpdateSnapshotScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6952,7 +6714,6 @@ async function deserializeAws_json1_1UpdateSnapshotScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",
@@ -6974,10 +6735,7 @@ export async function deserializeAws_json1_1UpdateVTLDeviceTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVTLDeviceTypeOutput(
-    data.UpdateVTLDeviceTypeOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateVTLDeviceTypeOutput(data, context);
   const response: UpdateVTLDeviceTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateVTLDeviceTypeOutput",
@@ -6996,7 +6754,7 @@ async function deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7016,7 +6774,6 @@ async function deserializeAws_json1_1UpdateVTLDeviceTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.storagegateway.v20130630#${errorCode}`,
         $fault: "client",

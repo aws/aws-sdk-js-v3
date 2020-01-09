@@ -925,10 +925,7 @@ export async function deserializeAws_json1_1BatchDeleteBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteBuildsOutput(
-    data.BatchDeleteBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteBuildsOutput(data, context);
   const response: BatchDeleteBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteBuildsOutput",
@@ -947,7 +944,7 @@ async function deserializeAws_json1_1BatchDeleteBuildsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -960,7 +957,6 @@ async function deserializeAws_json1_1BatchDeleteBuildsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -979,10 +975,7 @@ export async function deserializeAws_json1_1BatchGetBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetBuildsOutput(
-    data.BatchGetBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetBuildsOutput(data, context);
   const response: BatchGetBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetBuildsOutput",
@@ -1001,7 +994,7 @@ async function deserializeAws_json1_1BatchGetBuildsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1014,7 +1007,6 @@ async function deserializeAws_json1_1BatchGetBuildsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1033,10 +1025,7 @@ export async function deserializeAws_json1_1BatchGetProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetProjectsOutput(
-    data.BatchGetProjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetProjectsOutput(data, context);
   const response: BatchGetProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetProjectsOutput",
@@ -1055,7 +1044,7 @@ async function deserializeAws_json1_1BatchGetProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1068,7 +1057,6 @@ async function deserializeAws_json1_1BatchGetProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1090,10 +1078,7 @@ export async function deserializeAws_json1_1BatchGetReportGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportGroupsOutput(
-    data.BatchGetReportGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetReportGroupsOutput(data, context);
   const response: BatchGetReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetReportGroupsOutput",
@@ -1112,7 +1097,7 @@ async function deserializeAws_json1_1BatchGetReportGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1125,7 +1110,6 @@ async function deserializeAws_json1_1BatchGetReportGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1144,10 +1128,7 @@ export async function deserializeAws_json1_1BatchGetReportsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetReportsOutput(
-    data.BatchGetReportsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetReportsOutput(data, context);
   const response: BatchGetReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetReportsOutput",
@@ -1166,7 +1147,7 @@ async function deserializeAws_json1_1BatchGetReportsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1179,7 +1160,6 @@ async function deserializeAws_json1_1BatchGetReportsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1198,10 +1178,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectOutput(
-    data.CreateProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectOutput(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectOutput",
@@ -1220,7 +1197,7 @@ async function deserializeAws_json1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1247,7 +1224,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1266,10 +1242,7 @@ export async function deserializeAws_json1_1CreateReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateReportGroupOutput(
-    data.CreateReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateReportGroupOutput(data, context);
   const response: CreateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateReportGroupOutput",
@@ -1288,7 +1261,7 @@ async function deserializeAws_json1_1CreateReportGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1315,7 +1288,6 @@ async function deserializeAws_json1_1CreateReportGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1334,10 +1306,7 @@ export async function deserializeAws_json1_1CreateWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWebhookOutput(
-    data.CreateWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWebhookOutput(data, context);
   const response: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWebhookOutput",
@@ -1356,7 +1325,7 @@ async function deserializeAws_json1_1CreateWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1390,7 +1359,6 @@ async function deserializeAws_json1_1CreateWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1409,10 +1377,7 @@ export async function deserializeAws_json1_1DeleteProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectOutput(
-    data.DeleteProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProjectOutput(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectOutput",
@@ -1431,7 +1396,7 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1444,7 +1409,6 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1463,10 +1427,7 @@ export async function deserializeAws_json1_1DeleteReportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportOutput(
-    data.DeleteReportOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteReportOutput(data, context);
   const response: DeleteReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteReportOutput",
@@ -1485,7 +1446,7 @@ async function deserializeAws_json1_1DeleteReportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1498,7 +1459,6 @@ async function deserializeAws_json1_1DeleteReportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1517,10 +1477,7 @@ export async function deserializeAws_json1_1DeleteReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteReportGroupOutput(
-    data.DeleteReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteReportGroupOutput(data, context);
   const response: DeleteReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteReportGroupOutput",
@@ -1539,7 +1496,7 @@ async function deserializeAws_json1_1DeleteReportGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1552,7 +1509,6 @@ async function deserializeAws_json1_1DeleteReportGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1574,10 +1530,7 @@ export async function deserializeAws_json1_1DeleteSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(
-    data.DeleteSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(data, context);
   const response: DeleteSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSourceCredentialsOutput",
@@ -1596,7 +1549,7 @@ async function deserializeAws_json1_1DeleteSourceCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1616,7 +1569,6 @@ async function deserializeAws_json1_1DeleteSourceCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1635,10 +1587,7 @@ export async function deserializeAws_json1_1DeleteWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWebhookOutput(
-    data.DeleteWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebhookOutput",
@@ -1657,7 +1606,7 @@ async function deserializeAws_json1_1DeleteWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1684,7 +1633,6 @@ async function deserializeAws_json1_1DeleteWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1703,10 +1651,7 @@ export async function deserializeAws_json1_1DescribeTestCasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTestCasesOutput(
-    data.DescribeTestCasesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTestCasesOutput(data, context);
   const response: DescribeTestCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTestCasesOutput",
@@ -1725,7 +1670,7 @@ async function deserializeAws_json1_1DescribeTestCasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1745,7 +1690,6 @@ async function deserializeAws_json1_1DescribeTestCasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1767,10 +1711,7 @@ export async function deserializeAws_json1_1ImportSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportSourceCredentialsOutput(
-    data.ImportSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ImportSourceCredentialsOutput(data, context);
   const response: ImportSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportSourceCredentialsOutput",
@@ -1789,7 +1730,7 @@ async function deserializeAws_json1_1ImportSourceCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1816,7 +1757,6 @@ async function deserializeAws_json1_1ImportSourceCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1838,10 +1778,7 @@ export async function deserializeAws_json1_1InvalidateProjectCacheCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InvalidateProjectCacheOutput(
-    data.InvalidateProjectCacheOutput,
-    context
-  );
+  contents = deserializeAws_json1_1InvalidateProjectCacheOutput(data, context);
   const response: InvalidateProjectCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InvalidateProjectCacheOutput",
@@ -1860,7 +1797,7 @@ async function deserializeAws_json1_1InvalidateProjectCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1880,7 +1817,6 @@ async function deserializeAws_json1_1InvalidateProjectCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1899,10 +1835,7 @@ export async function deserializeAws_json1_1ListBuildsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsOutput(
-    data.ListBuildsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBuildsOutput(data, context);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBuildsOutput",
@@ -1921,7 +1854,7 @@ async function deserializeAws_json1_1ListBuildsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1934,7 +1867,6 @@ async function deserializeAws_json1_1ListBuildsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -1956,10 +1888,7 @@ export async function deserializeAws_json1_1ListBuildsForProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBuildsForProjectOutput(
-    data.ListBuildsForProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBuildsForProjectOutput(data, context);
   const response: ListBuildsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBuildsForProjectOutput",
@@ -1978,7 +1907,7 @@ async function deserializeAws_json1_1ListBuildsForProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1998,7 +1927,6 @@ async function deserializeAws_json1_1ListBuildsForProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2021,7 +1949,7 @@ export async function deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCuratedEnvironmentImagesOutput(
-    data.ListCuratedEnvironmentImagesOutput,
+    data,
     context
   );
   const response: ListCuratedEnvironmentImagesCommandOutput = {
@@ -2038,13 +1966,12 @@ async function deserializeAws_json1_1ListCuratedEnvironmentImagesCommandError(
 ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2063,10 +1990,7 @@ export async function deserializeAws_json1_1ListProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsOutput(
-    data.ListProjectsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListProjectsOutput(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsOutput",
@@ -2085,7 +2009,7 @@ async function deserializeAws_json1_1ListProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2098,7 +2022,6 @@ async function deserializeAws_json1_1ListProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2117,10 +2040,7 @@ export async function deserializeAws_json1_1ListReportGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportGroupsOutput(
-    data.ListReportGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListReportGroupsOutput(data, context);
   const response: ListReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListReportGroupsOutput",
@@ -2139,7 +2059,7 @@ async function deserializeAws_json1_1ListReportGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2152,7 +2072,6 @@ async function deserializeAws_json1_1ListReportGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2171,10 +2090,7 @@ export async function deserializeAws_json1_1ListReportsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReportsOutput(
-    data.ListReportsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListReportsOutput(data, context);
   const response: ListReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListReportsOutput",
@@ -2193,7 +2109,7 @@ async function deserializeAws_json1_1ListReportsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2206,7 +2122,6 @@ async function deserializeAws_json1_1ListReportsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2229,7 +2144,7 @@ export async function deserializeAws_json1_1ListReportsForReportGroupCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListReportsForReportGroupOutput(
-    data.ListReportsForReportGroupOutput,
+    data,
     context
   );
   const response: ListReportsForReportGroupCommandOutput = {
@@ -2250,7 +2165,7 @@ async function deserializeAws_json1_1ListReportsForReportGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2270,7 +2185,6 @@ async function deserializeAws_json1_1ListReportsForReportGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2292,10 +2206,7 @@ export async function deserializeAws_json1_1ListSourceCredentialsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSourceCredentialsOutput(
-    data.ListSourceCredentialsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListSourceCredentialsOutput(data, context);
   const response: ListSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSourceCredentialsOutput",
@@ -2310,13 +2221,12 @@ async function deserializeAws_json1_1ListSourceCredentialsCommandError(
 ): Promise<ListSourceCredentialsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2335,10 +2245,7 @@ export async function deserializeAws_json1_1StartBuildCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartBuildOutput(
-    data.StartBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartBuildOutput(data, context);
   const response: StartBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartBuildOutput",
@@ -2357,7 +2264,7 @@ async function deserializeAws_json1_1StartBuildCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2384,7 +2291,6 @@ async function deserializeAws_json1_1StartBuildCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2403,10 +2309,7 @@ export async function deserializeAws_json1_1StopBuildCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopBuildOutput(
-    data.StopBuildOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopBuildOutput(data, context);
   const response: StopBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopBuildOutput",
@@ -2425,7 +2328,7 @@ async function deserializeAws_json1_1StopBuildCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2445,7 +2348,6 @@ async function deserializeAws_json1_1StopBuildCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2464,10 +2366,7 @@ export async function deserializeAws_json1_1UpdateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectOutput(
-    data.UpdateProjectOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProjectOutput(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectOutput",
@@ -2486,7 +2385,7 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2506,7 +2405,6 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2525,10 +2423,7 @@ export async function deserializeAws_json1_1UpdateReportGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateReportGroupOutput(
-    data.UpdateReportGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateReportGroupOutput(data, context);
   const response: UpdateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateReportGroupOutput",
@@ -2547,7 +2442,7 @@ async function deserializeAws_json1_1UpdateReportGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2567,7 +2462,6 @@ async function deserializeAws_json1_1UpdateReportGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",
@@ -2586,10 +2480,7 @@ export async function deserializeAws_json1_1UpdateWebhookCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWebhookOutput(
-    data.UpdateWebhookOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWebhookOutput(data, context);
   const response: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWebhookOutput",
@@ -2608,7 +2499,7 @@ async function deserializeAws_json1_1UpdateWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2635,7 +2526,6 @@ async function deserializeAws_json1_1UpdateWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codebuild#${errorCode}`,
         $fault: "client",

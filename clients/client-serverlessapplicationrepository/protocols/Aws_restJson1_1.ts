@@ -719,8 +719,10 @@ async function deserializeAws_restJson1_1CreateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -758,7 +760,6 @@ async function deserializeAws_restJson1_1CreateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -838,8 +839,10 @@ async function deserializeAws_restJson1_1CreateApplicationVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -877,7 +880,6 @@ async function deserializeAws_restJson1_1CreateApplicationVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -931,8 +933,10 @@ async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -963,7 +967,6 @@ async function deserializeAws_restJson1_1CreateCloudFormationChangeSetCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1029,8 +1032,10 @@ async function deserializeAws_restJson1_1CreateCloudFormationTemplateCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1068,7 +1073,6 @@ async function deserializeAws_restJson1_1CreateCloudFormationTemplateCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1104,8 +1108,10 @@ async function deserializeAws_restJson1_1DeleteApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1150,7 +1156,6 @@ async function deserializeAws_restJson1_1DeleteApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1243,8 +1248,10 @@ async function deserializeAws_restJson1_1GetApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1282,7 +1289,6 @@ async function deserializeAws_restJson1_1GetApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1327,8 +1333,10 @@ async function deserializeAws_restJson1_1GetApplicationPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1366,7 +1374,6 @@ async function deserializeAws_restJson1_1GetApplicationPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1432,8 +1439,10 @@ async function deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1471,7 +1480,6 @@ async function deserializeAws_restJson1_1GetCloudFormationTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1520,8 +1528,10 @@ async function deserializeAws_restJson1_1ListApplicationDependenciesCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1559,7 +1569,6 @@ async function deserializeAws_restJson1_1ListApplicationDependenciesCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1608,8 +1617,10 @@ async function deserializeAws_restJson1_1ListApplicationVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1647,7 +1658,6 @@ async function deserializeAws_restJson1_1ListApplicationVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1696,8 +1706,10 @@ async function deserializeAws_restJson1_1ListApplicationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1728,7 +1740,6 @@ async function deserializeAws_restJson1_1ListApplicationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1773,8 +1784,10 @@ async function deserializeAws_restJson1_1PutApplicationPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1812,7 +1825,6 @@ async function deserializeAws_restJson1_1PutApplicationPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",
@@ -1905,8 +1917,10 @@ async function deserializeAws_restJson1_1UpdateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.serverlessapplicationrepository#BadRequestException":
@@ -1951,7 +1965,6 @@ async function deserializeAws_restJson1_1UpdateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.serverlessapplicationrepository#${errorCode}`,
         $fault: "client",

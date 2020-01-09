@@ -206,8 +206,10 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
@@ -231,7 +233,6 @@ async function deserializeAws_restJson1_1DeleteObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
@@ -288,8 +289,10 @@ async function deserializeAws_restJson1_1DescribeObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
@@ -313,7 +316,6 @@ async function deserializeAws_restJson1_1DescribeObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
@@ -374,8 +376,10 @@ async function deserializeAws_restJson1_1GetObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
@@ -406,7 +410,6 @@ async function deserializeAws_restJson1_1GetObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
@@ -449,8 +452,10 @@ async function deserializeAws_restJson1_1ListItemsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
@@ -467,7 +472,6 @@ async function deserializeAws_restJson1_1ListItemsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",
@@ -514,8 +518,10 @@ async function deserializeAws_restJson1_1PutObjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore.object#ContainerNotFoundException":
@@ -532,7 +538,6 @@ async function deserializeAws_restJson1_1PutObjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediastore.object#${errorCode}`,
         $fault: "client",

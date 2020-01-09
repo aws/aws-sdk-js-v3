@@ -1637,8 +1637,10 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -1697,7 +1699,6 @@ async function deserializeAws_restJson1_1CancelImageCreationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -1747,8 +1748,10 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -1821,7 +1824,6 @@ async function deserializeAws_restJson1_1CreateComponentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -1871,8 +1873,10 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -1945,7 +1949,6 @@ async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -1992,8 +1995,10 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2052,7 +2057,6 @@ async function deserializeAws_restJson1_1CreateImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2102,8 +2106,10 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2169,7 +2175,6 @@ async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2219,8 +2224,10 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2293,7 +2300,6 @@ async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2344,8 +2350,10 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2411,7 +2419,6 @@ async function deserializeAws_restJson1_1CreateInfrastructureConfigurationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2457,8 +2464,10 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2510,7 +2519,6 @@ async function deserializeAws_restJson1_1DeleteComponentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2556,8 +2564,10 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2609,7 +2619,6 @@ async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2652,8 +2661,10 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2705,7 +2716,6 @@ async function deserializeAws_restJson1_1DeleteImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2751,8 +2761,10 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2804,7 +2816,6 @@ async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2850,8 +2861,10 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -2903,7 +2916,6 @@ async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -2950,8 +2962,10 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3003,7 +3017,6 @@ async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3049,8 +3062,10 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3095,7 +3110,6 @@ async function deserializeAws_restJson1_1GetComponentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3141,8 +3155,10 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3187,7 +3203,6 @@ async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3236,8 +3251,10 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3282,7 +3299,6 @@ async function deserializeAws_restJson1_1GetDistributionConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3325,8 +3341,10 @@ async function deserializeAws_restJson1_1GetImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3371,7 +3389,6 @@ async function deserializeAws_restJson1_1GetImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3420,8 +3437,10 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3466,7 +3485,6 @@ async function deserializeAws_restJson1_1GetImagePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3512,8 +3530,10 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3558,7 +3578,6 @@ async function deserializeAws_restJson1_1GetImagePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3607,8 +3626,10 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3653,7 +3674,6 @@ async function deserializeAws_restJson1_1GetImageRecipeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3699,8 +3719,10 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3745,7 +3767,6 @@ async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3794,8 +3815,10 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3840,7 +3863,6 @@ async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -3890,8 +3912,10 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -3964,7 +3988,6 @@ async function deserializeAws_restJson1_1ImportComponentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4017,8 +4040,10 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4070,7 +4095,6 @@ async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4123,8 +4147,10 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4176,7 +4202,6 @@ async function deserializeAws_restJson1_1ListComponentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4229,8 +4254,10 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4282,7 +4309,6 @@ async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4335,8 +4361,10 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4388,7 +4416,6 @@ async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4441,8 +4468,10 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4501,7 +4530,6 @@ async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4554,8 +4582,10 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4607,7 +4637,6 @@ async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4660,8 +4689,10 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4713,7 +4744,6 @@ async function deserializeAws_restJson1_1ListImageRecipesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4763,8 +4793,10 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4816,7 +4848,6 @@ async function deserializeAws_restJson1_1ListImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4869,8 +4900,10 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -4922,7 +4955,6 @@ async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -4964,8 +4996,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
@@ -4989,7 +5023,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5035,8 +5068,10 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5095,7 +5130,6 @@ async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5141,8 +5175,10 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5201,7 +5237,6 @@ async function deserializeAws_restJson1_1PutImagePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5247,8 +5282,10 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5307,7 +5344,6 @@ async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5357,8 +5393,10 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5424,7 +5462,6 @@ async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5458,8 +5495,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
@@ -5483,7 +5522,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5517,8 +5555,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
@@ -5542,7 +5582,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5592,8 +5631,10 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5659,7 +5700,6 @@ async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5709,8 +5749,10 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5769,7 +5811,6 @@ async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
@@ -5820,8 +5861,10 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
@@ -5880,7 +5923,6 @@ async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",

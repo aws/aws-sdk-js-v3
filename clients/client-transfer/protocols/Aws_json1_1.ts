@@ -552,10 +552,7 @@ export async function deserializeAws_json1_1CreateServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServerResponse(
-    data.CreateServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServerResponse",
@@ -574,7 +571,7 @@ async function deserializeAws_json1_1CreateServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -608,7 +605,6 @@ async function deserializeAws_json1_1CreateServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -627,10 +623,7 @@ export async function deserializeAws_json1_1CreateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResponse(
-    data.CreateUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
@@ -649,7 +642,7 @@ async function deserializeAws_json1_1CreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -690,7 +683,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -723,7 +715,7 @@ async function deserializeAws_json1_1DeleteServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -757,7 +749,6 @@ async function deserializeAws_json1_1DeleteServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -793,7 +784,7 @@ async function deserializeAws_json1_1DeleteSshPublicKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -834,7 +825,6 @@ async function deserializeAws_json1_1DeleteSshPublicKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -867,7 +857,7 @@ async function deserializeAws_json1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -901,7 +891,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -920,10 +909,7 @@ export async function deserializeAws_json1_1DescribeServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServerResponse(
-    data.DescribeServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeServerResponse(data, context);
   const response: DescribeServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServerResponse",
@@ -942,7 +928,7 @@ async function deserializeAws_json1_1DescribeServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -976,7 +962,6 @@ async function deserializeAws_json1_1DescribeServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -995,10 +980,7 @@ export async function deserializeAws_json1_1DescribeUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserResponse(
-    data.DescribeUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserResponse",
@@ -1017,7 +999,7 @@ async function deserializeAws_json1_1DescribeUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1051,7 +1033,6 @@ async function deserializeAws_json1_1DescribeUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1073,10 +1054,7 @@ export async function deserializeAws_json1_1ImportSshPublicKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportSshPublicKeyResponse(
-    data.ImportSshPublicKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportSshPublicKeyResponse(data, context);
   const response: ImportSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportSshPublicKeyResponse",
@@ -1095,7 +1073,7 @@ async function deserializeAws_json1_1ImportSshPublicKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1143,7 +1121,6 @@ async function deserializeAws_json1_1ImportSshPublicKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1162,10 +1139,7 @@ export async function deserializeAws_json1_1ListServersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServersResponse(
-    data.ListServersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListServersResponse(data, context);
   const response: ListServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServersResponse",
@@ -1184,7 +1158,7 @@ async function deserializeAws_json1_1ListServersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1218,7 +1192,6 @@ async function deserializeAws_json1_1ListServersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1240,10 +1213,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1262,7 +1232,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1296,7 +1266,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1315,10 +1284,7 @@ export async function deserializeAws_json1_1ListUsersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(
-    data.ListUsersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersResponse",
@@ -1337,7 +1303,7 @@ async function deserializeAws_json1_1ListUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1378,7 +1344,6 @@ async function deserializeAws_json1_1ListUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1411,7 +1376,7 @@ async function deserializeAws_json1_1StartServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1452,7 +1417,6 @@ async function deserializeAws_json1_1StartServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1485,7 +1449,7 @@ async function deserializeAws_json1_1StopServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1526,7 +1490,6 @@ async function deserializeAws_json1_1StopServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1559,7 +1522,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1593,7 +1556,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1615,10 +1577,7 @@ export async function deserializeAws_json1_1TestIdentityProviderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TestIdentityProviderResponse(
-    data.TestIdentityProviderResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TestIdentityProviderResponse(data, context);
   const response: TestIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestIdentityProviderResponse",
@@ -1637,7 +1596,7 @@ async function deserializeAws_json1_1TestIdentityProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1671,7 +1630,6 @@ async function deserializeAws_json1_1TestIdentityProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1704,7 +1662,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1738,7 +1696,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1757,10 +1714,7 @@ export async function deserializeAws_json1_1UpdateServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServerResponse(
-    data.UpdateServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServerResponse",
@@ -1779,7 +1733,7 @@ async function deserializeAws_json1_1UpdateServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1827,7 +1781,6 @@ async function deserializeAws_json1_1UpdateServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
@@ -1846,10 +1799,7 @@ export async function deserializeAws_json1_1UpdateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserResponse(
-    data.UpdateUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserResponse(data, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserResponse",
@@ -1868,7 +1818,7 @@ async function deserializeAws_json1_1UpdateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1909,7 +1859,6 @@ async function deserializeAws_json1_1UpdateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",

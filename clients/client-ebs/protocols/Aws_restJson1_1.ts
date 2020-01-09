@@ -188,8 +188,10 @@ async function deserializeAws_restJson1_1GetSnapshotBlockCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
@@ -206,7 +208,6 @@ async function deserializeAws_restJson1_1GetSnapshotBlockCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.zeppelindataservice#${errorCode}`,
         $fault: "client",
@@ -271,8 +272,10 @@ async function deserializeAws_restJson1_1ListChangedBlocksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
@@ -289,7 +292,6 @@ async function deserializeAws_restJson1_1ListChangedBlocksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.zeppelindataservice#${errorCode}`,
         $fault: "client",
@@ -351,8 +353,10 @@ async function deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazon.zeppelindataservice#ResourceNotFoundException":
@@ -369,7 +373,6 @@ async function deserializeAws_restJson1_1ListSnapshotBlocksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.zeppelindataservice#${errorCode}`,
         $fault: "client",

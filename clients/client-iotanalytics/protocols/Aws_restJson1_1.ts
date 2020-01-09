@@ -1347,8 +1347,10 @@ async function deserializeAws_restJson1_1CancelPipelineReprocessingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1386,7 +1388,6 @@ async function deserializeAws_restJson1_1CancelPipelineReprocessingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1436,8 +1437,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1482,7 +1485,6 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1532,8 +1534,10 @@ async function deserializeAws_restJson1_1CreateDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1578,7 +1582,6 @@ async function deserializeAws_restJson1_1CreateDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1620,8 +1623,10 @@ async function deserializeAws_restJson1_1CreateDatasetContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1659,7 +1664,6 @@ async function deserializeAws_restJson1_1CreateDatasetContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1712,8 +1716,10 @@ async function deserializeAws_restJson1_1CreateDatastoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1758,7 +1764,6 @@ async function deserializeAws_restJson1_1CreateDatastoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1804,8 +1809,10 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1850,7 +1857,6 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1883,8 +1889,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1922,7 +1930,6 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -1955,8 +1962,10 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -1994,7 +2003,6 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2030,8 +2038,10 @@ async function deserializeAws_restJson1_1DeleteDatasetContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2069,7 +2079,6 @@ async function deserializeAws_restJson1_1DeleteDatasetContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2105,8 +2114,10 @@ async function deserializeAws_restJson1_1DeleteDatastoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2144,7 +2155,6 @@ async function deserializeAws_restJson1_1DeleteDatastoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2180,8 +2190,10 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2219,7 +2231,6 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2268,8 +2279,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2307,7 +2320,6 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2349,8 +2361,10 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2388,7 +2402,6 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2440,8 +2453,10 @@ async function deserializeAws_restJson1_1DescribeDatastoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2479,7 +2494,6 @@ async function deserializeAws_restJson1_1DescribeDatastoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2524,8 +2538,10 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2563,7 +2579,6 @@ async function deserializeAws_restJson1_1DescribeLoggingOptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2608,8 +2623,10 @@ async function deserializeAws_restJson1_1DescribePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2647,7 +2664,6 @@ async function deserializeAws_restJson1_1DescribePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2707,8 +2723,10 @@ async function deserializeAws_restJson1_1GetDatasetContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2746,7 +2764,6 @@ async function deserializeAws_restJson1_1GetDatasetContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2792,8 +2809,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2824,7 +2843,6 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2873,8 +2891,10 @@ async function deserializeAws_restJson1_1ListDatasetContentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2912,7 +2932,6 @@ async function deserializeAws_restJson1_1ListDatasetContentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -2958,8 +2977,10 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -2990,7 +3011,6 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3039,8 +3059,10 @@ async function deserializeAws_restJson1_1ListDatastoresCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3071,7 +3093,6 @@ async function deserializeAws_restJson1_1ListDatastoresCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3117,8 +3138,10 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3149,7 +3172,6 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3191,8 +3213,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3237,7 +3261,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3273,8 +3296,10 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3305,7 +3330,6 @@ async function deserializeAws_restJson1_1PutLoggingOptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3354,8 +3378,10 @@ async function deserializeAws_restJson1_1RunPipelineActivityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3386,7 +3412,6 @@ async function deserializeAws_restJson1_1RunPipelineActivityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3431,8 +3456,10 @@ async function deserializeAws_restJson1_1SampleChannelDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3470,7 +3497,6 @@ async function deserializeAws_restJson1_1SampleChannelDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3512,8 +3538,10 @@ async function deserializeAws_restJson1_1StartPipelineReprocessingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3558,7 +3586,6 @@ async function deserializeAws_restJson1_1StartPipelineReprocessingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3592,8 +3619,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3638,7 +3667,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3672,8 +3700,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3718,7 +3748,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3751,8 +3780,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3790,7 +3821,6 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3823,8 +3853,10 @@ async function deserializeAws_restJson1_1UpdateDatasetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3862,7 +3894,6 @@ async function deserializeAws_restJson1_1UpdateDatasetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3898,8 +3929,10 @@ async function deserializeAws_restJson1_1UpdateDatastoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -3937,7 +3970,6 @@ async function deserializeAws_restJson1_1UpdateDatastoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -3973,8 +4005,10 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -4019,7 +4053,6 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger#${errorCode}`,
         $fault: "client",
@@ -4064,8 +4097,10 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailureException":
     case "com.amazonaws.iot.common.types#InternalFailureException":
@@ -4103,7 +4138,6 @@ async function deserializeAws_restJson1_1BatchPutMessageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.iot.krieger.data#${errorCode}`,
         $fault: "client",

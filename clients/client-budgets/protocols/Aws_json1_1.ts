@@ -467,10 +467,7 @@ export async function deserializeAws_json1_1CreateBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateBudgetResponse(
-    data.CreateBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateBudgetResponse(data, context);
   const response: CreateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBudgetResponse",
@@ -489,7 +486,7 @@ async function deserializeAws_json1_1CreateBudgetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -530,7 +527,6 @@ async function deserializeAws_json1_1CreateBudgetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -552,10 +548,7 @@ export async function deserializeAws_json1_1CreateNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNotificationResponse(
-    data.CreateNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNotificationResponse(data, context);
   const response: CreateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNotificationResponse",
@@ -574,7 +567,7 @@ async function deserializeAws_json1_1CreateNotificationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -622,7 +615,6 @@ async function deserializeAws_json1_1CreateNotificationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -641,10 +633,7 @@ export async function deserializeAws_json1_1CreateSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSubscriberResponse(
-    data.CreateSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSubscriberResponse(data, context);
   const response: CreateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSubscriberResponse",
@@ -663,7 +652,7 @@ async function deserializeAws_json1_1CreateSubscriberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -711,7 +700,6 @@ async function deserializeAws_json1_1CreateSubscriberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -730,10 +718,7 @@ export async function deserializeAws_json1_1DeleteBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteBudgetResponse(
-    data.DeleteBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteBudgetResponse(data, context);
   const response: DeleteBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBudgetResponse",
@@ -752,7 +737,7 @@ async function deserializeAws_json1_1DeleteBudgetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -786,7 +771,6 @@ async function deserializeAws_json1_1DeleteBudgetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -808,10 +792,7 @@ export async function deserializeAws_json1_1DeleteNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNotificationResponse(
-    data.DeleteNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNotificationResponse(data, context);
   const response: DeleteNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNotificationResponse",
@@ -830,7 +811,7 @@ async function deserializeAws_json1_1DeleteNotificationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -864,7 +845,6 @@ async function deserializeAws_json1_1DeleteNotificationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -883,10 +863,7 @@ export async function deserializeAws_json1_1DeleteSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSubscriberResponse(
-    data.DeleteSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSubscriberResponse(data, context);
   const response: DeleteSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSubscriberResponse",
@@ -905,7 +882,7 @@ async function deserializeAws_json1_1DeleteSubscriberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -939,7 +916,6 @@ async function deserializeAws_json1_1DeleteSubscriberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -958,10 +934,7 @@ export async function deserializeAws_json1_1DescribeBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBudgetResponse(
-    data.DescribeBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBudgetResponse(data, context);
   const response: DescribeBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBudgetResponse",
@@ -980,7 +953,7 @@ async function deserializeAws_json1_1DescribeBudgetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1014,7 +987,6 @@ async function deserializeAws_json1_1DescribeBudgetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1037,7 +1009,7 @@ export async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse(
-    data.DescribeBudgetPerformanceHistoryResponse,
+    data,
     context
   );
   const response: DescribeBudgetPerformanceHistoryCommandOutput = {
@@ -1058,7 +1030,7 @@ async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1106,7 +1078,6 @@ async function deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1125,10 +1096,7 @@ export async function deserializeAws_json1_1DescribeBudgetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeBudgetsResponse(
-    data.DescribeBudgetsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeBudgetsResponse(data, context);
   const response: DescribeBudgetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBudgetsResponse",
@@ -1147,7 +1115,7 @@ async function deserializeAws_json1_1DescribeBudgetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1195,7 +1163,6 @@ async function deserializeAws_json1_1DescribeBudgetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1218,7 +1185,7 @@ export async function deserializeAws_json1_1DescribeNotificationsForBudgetComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeNotificationsForBudgetResponse(
-    data.DescribeNotificationsForBudgetResponse,
+    data,
     context
   );
   const response: DescribeNotificationsForBudgetCommandOutput = {
@@ -1239,7 +1206,7 @@ async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1287,7 +1254,6 @@ async function deserializeAws_json1_1DescribeNotificationsForBudgetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1310,7 +1276,7 @@ export async function deserializeAws_json1_1DescribeSubscribersForNotificationCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSubscribersForNotificationResponse(
-    data.DescribeSubscribersForNotificationResponse,
+    data,
     context
   );
   const response: DescribeSubscribersForNotificationCommandOutput = {
@@ -1331,7 +1297,7 @@ async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1379,7 +1345,6 @@ async function deserializeAws_json1_1DescribeSubscribersForNotificationCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1398,10 +1363,7 @@ export async function deserializeAws_json1_1UpdateBudgetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateBudgetResponse(
-    data.UpdateBudgetResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateBudgetResponse(data, context);
   const response: UpdateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateBudgetResponse",
@@ -1420,7 +1382,7 @@ async function deserializeAws_json1_1UpdateBudgetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1454,7 +1416,6 @@ async function deserializeAws_json1_1UpdateBudgetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1476,10 +1437,7 @@ export async function deserializeAws_json1_1UpdateNotificationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNotificationResponse(
-    data.UpdateNotificationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNotificationResponse(data, context);
   const response: UpdateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNotificationResponse",
@@ -1498,7 +1456,7 @@ async function deserializeAws_json1_1UpdateNotificationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1539,7 +1497,6 @@ async function deserializeAws_json1_1UpdateNotificationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",
@@ -1558,10 +1515,7 @@ export async function deserializeAws_json1_1UpdateSubscriberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSubscriberResponse(
-    data.UpdateSubscriberResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSubscriberResponse(data, context);
   const response: UpdateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSubscriberResponse",
@@ -1580,7 +1534,7 @@ async function deserializeAws_json1_1UpdateSubscriberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1621,7 +1575,6 @@ async function deserializeAws_json1_1UpdateSubscriberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsbudgetservicegateway#${errorCode}`,
         $fault: "client",

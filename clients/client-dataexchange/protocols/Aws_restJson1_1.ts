@@ -893,8 +893,10 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.dataexchange#ConflictException":
@@ -932,7 +934,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1014,8 +1015,10 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1053,7 +1056,6 @@ async function deserializeAws_restJson1_1CreateDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1126,8 +1128,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1165,7 +1169,6 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1239,8 +1242,10 @@ async function deserializeAws_restJson1_1CreateRevisionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1278,7 +1283,6 @@ async function deserializeAws_restJson1_1CreateRevisionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1311,8 +1315,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1357,7 +1363,6 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1390,8 +1395,10 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1436,7 +1443,6 @@ async function deserializeAws_restJson1_1DeleteDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1472,8 +1478,10 @@ async function deserializeAws_restJson1_1DeleteRevisionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -1518,7 +1526,6 @@ async function deserializeAws_restJson1_1DeleteRevisionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1596,8 +1603,10 @@ async function deserializeAws_restJson1_1GetAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -1628,7 +1637,6 @@ async function deserializeAws_restJson1_1GetAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1710,8 +1718,10 @@ async function deserializeAws_restJson1_1GetDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -1742,7 +1752,6 @@ async function deserializeAws_restJson1_1GetDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1815,8 +1824,10 @@ async function deserializeAws_restJson1_1GetJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -1847,7 +1858,6 @@ async function deserializeAws_restJson1_1GetJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1918,8 +1928,10 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -1950,7 +1962,6 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -1999,8 +2010,10 @@ async function deserializeAws_restJson1_1ListDataSetRevisionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -2031,7 +2044,6 @@ async function deserializeAws_restJson1_1ListDataSetRevisionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2077,8 +2089,10 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -2109,7 +2123,6 @@ async function deserializeAws_restJson1_1ListDataSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2155,8 +2168,10 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -2187,7 +2202,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2236,8 +2250,10 @@ async function deserializeAws_restJson1_1ListRevisionAssetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.dataexchange#InternalServerException":
@@ -2268,7 +2284,6 @@ async function deserializeAws_restJson1_1ListRevisionAssetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2306,11 +2321,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2344,8 +2360,10 @@ async function deserializeAws_restJson1_1StartJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -2390,7 +2408,6 @@ async function deserializeAws_restJson1_1StartJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2419,11 +2436,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2452,11 +2470,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2534,8 +2553,10 @@ async function deserializeAws_restJson1_1UpdateAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -2580,7 +2601,6 @@ async function deserializeAws_restJson1_1UpdateAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2658,8 +2678,10 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -2697,7 +2719,6 @@ async function deserializeAws_restJson1_1UpdateDataSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",
@@ -2767,8 +2788,10 @@ async function deserializeAws_restJson1_1UpdateRevisionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.dataexchange#AccessDeniedException":
@@ -2813,7 +2836,6 @@ async function deserializeAws_restJson1_1UpdateRevisionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dataexchange#${errorCode}`,
         $fault: "client",

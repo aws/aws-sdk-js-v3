@@ -131,8 +131,10 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.transcribe.streaming#BadRequestException":
@@ -163,7 +165,6 @@ async function deserializeAws_restJson1_1StartStreamTranscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe.streaming#${errorCode}`,
         $fault: "client",
