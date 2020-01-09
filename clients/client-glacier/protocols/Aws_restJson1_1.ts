@@ -1491,7 +1491,9 @@ async function deserializeAws_restJson1_1AbortMultipartUploadCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1559,7 +1561,9 @@ async function deserializeAws_restJson1_1AbortVaultLockCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1627,7 +1631,9 @@ async function deserializeAws_restJson1_1AddTagsToVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1715,7 +1721,9 @@ async function deserializeAws_restJson1_1CompleteMultipartUploadCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1783,7 +1791,9 @@ async function deserializeAws_restJson1_1CompleteVaultLockCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1853,7 +1863,9 @@ async function deserializeAws_restJson1_1CreateVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1918,7 +1930,9 @@ async function deserializeAws_restJson1_1DeleteArchiveCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -1983,7 +1997,9 @@ async function deserializeAws_restJson1_1DeleteVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2051,7 +2067,9 @@ async function deserializeAws_restJson1_1DeleteVaultAccessPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2119,7 +2137,9 @@ async function deserializeAws_restJson1_1DeleteVaultNotificationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2279,7 +2299,9 @@ async function deserializeAws_restJson1_1DescribeJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2370,7 +2392,9 @@ async function deserializeAws_restJson1_1DescribeVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2447,7 +2471,9 @@ async function deserializeAws_restJson1_1GetDataRetrievalPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2529,7 +2555,9 @@ async function deserializeAws_restJson1_1GetJobOutputCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2601,7 +2629,9 @@ async function deserializeAws_restJson1_1GetVaultAccessPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2684,7 +2714,9 @@ async function deserializeAws_restJson1_1GetVaultLockCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2759,7 +2791,9 @@ async function deserializeAws_restJson1_1GetVaultNotificationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -2837,7 +2871,9 @@ async function deserializeAws_restJson1_1InitiateJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InsufficientCapacityException":
     case "com.amazonaws.glacier.gaws#InsufficientCapacityException":
@@ -2928,7 +2964,9 @@ async function deserializeAws_restJson1_1InitiateMultipartUploadCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3001,7 +3039,9 @@ async function deserializeAws_restJson1_1InitiateVaultLockCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3076,7 +3116,9 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3157,7 +3199,9 @@ async function deserializeAws_restJson1_1ListMultipartUploadsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3252,7 +3296,9 @@ async function deserializeAws_restJson1_1ListPartsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3329,7 +3375,9 @@ async function deserializeAws_restJson1_1ListProvisionedCapacityCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3396,7 +3444,9 @@ async function deserializeAws_restJson1_1ListTagsForVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3474,7 +3524,9 @@ async function deserializeAws_restJson1_1ListVaultsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3547,7 +3599,9 @@ async function deserializeAws_restJson1_1PurchaseProvisionedCapacityCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3615,7 +3669,9 @@ async function deserializeAws_restJson1_1RemoveTagsFromVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3683,7 +3739,9 @@ async function deserializeAws_restJson1_1SetDataRetrievalPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3744,7 +3802,9 @@ async function deserializeAws_restJson1_1SetVaultAccessPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3812,7 +3872,9 @@ async function deserializeAws_restJson1_1SetVaultNotificationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3890,7 +3952,9 @@ async function deserializeAws_restJson1_1UploadArchiveCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":
@@ -3970,7 +4034,9 @@ async function deserializeAws_restJson1_1UploadMultipartPartCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.glacier.gaws#InvalidParameterValueException":

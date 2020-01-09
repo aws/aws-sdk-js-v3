@@ -379,7 +379,9 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -478,7 +480,9 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -591,7 +595,9 @@ async function deserializeAws_restJson1_1PostContentCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -756,7 +762,9 @@ async function deserializeAws_restJson1_1PostTextCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -889,7 +897,9 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":

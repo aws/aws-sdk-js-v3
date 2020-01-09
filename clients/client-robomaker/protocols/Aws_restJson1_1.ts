@@ -1359,7 +1359,9 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1428,7 +1430,9 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1497,7 +1501,9 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1613,7 +1619,9 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
@@ -1721,7 +1729,9 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1816,7 +1826,9 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1932,7 +1944,9 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2051,7 +2065,9 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2181,7 +2197,9 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2314,7 +2332,9 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2485,7 +2505,9 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2572,7 +2594,9 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2631,7 +2655,9 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2693,7 +2719,9 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2755,7 +2783,9 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2826,7 +2856,9 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2949,7 +2981,9 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3056,7 +3090,9 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3171,7 +3207,9 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3280,7 +3318,9 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3403,7 +3443,9 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3582,7 +3624,9 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3663,7 +3707,9 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3741,7 +3787,9 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3822,7 +3870,9 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3890,7 +3940,9 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3971,7 +4023,9 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4045,7 +4099,9 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4112,7 +4168,9 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4187,7 +4245,9 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4263,7 +4323,9 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4382,7 +4444,9 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
@@ -4469,7 +4533,9 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4535,7 +4601,9 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4640,7 +4708,9 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4766,7 +4836,9 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":

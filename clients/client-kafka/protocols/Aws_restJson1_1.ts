@@ -784,7 +784,9 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -894,7 +896,9 @@ async function deserializeAws_restJson1_1CreateConfigurationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -990,7 +994,9 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1067,7 +1073,9 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1151,7 +1159,9 @@ async function deserializeAws_restJson1_1DescribeClusterOperationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1258,7 +1268,9 @@ async function deserializeAws_restJson1_1DescribeConfigurationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1362,7 +1374,9 @@ async function deserializeAws_restJson1_1DescribeConfigurationRevisionCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1454,7 +1468,9 @@ async function deserializeAws_restJson1_1GetBootstrapBrokersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1542,7 +1558,9 @@ async function deserializeAws_restJson1_1ListClusterOperationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1620,7 +1638,9 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1701,7 +1721,9 @@ async function deserializeAws_restJson1_1ListConfigurationRevisionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1796,7 +1818,9 @@ async function deserializeAws_restJson1_1ListConfigurationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1881,7 +1905,9 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -1958,7 +1984,9 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -2016,7 +2044,9 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -2074,7 +2104,9 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -2145,7 +2177,9 @@ async function deserializeAws_restJson1_1UpdateBrokerCountCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -2230,7 +2264,9 @@ async function deserializeAws_restJson1_1UpdateBrokerStorageCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":
@@ -2315,7 +2351,9 @@ async function deserializeAws_restJson1_1UpdateClusterConfigurationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.kafka#BadRequestException":

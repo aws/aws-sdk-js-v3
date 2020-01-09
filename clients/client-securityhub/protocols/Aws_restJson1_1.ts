@@ -1267,7 +1267,9 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1351,7 +1353,9 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1428,7 +1432,9 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1513,7 +1519,9 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1587,7 +1595,9 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1665,7 +1675,9 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1746,7 +1758,9 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1830,7 +1844,9 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1904,7 +1920,9 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1975,7 +1993,9 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2059,7 +2079,9 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2140,7 +2162,9 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2228,7 +2252,9 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2303,7 +2329,9 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2391,7 +2419,9 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2460,7 +2490,9 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2536,7 +2568,9 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2605,7 +2639,9 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2681,7 +2717,9 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2762,7 +2800,9 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2838,7 +2878,9 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securityhub#AccessDeniedException":
@@ -2926,7 +2968,9 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3004,7 +3048,9 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3081,7 +3127,9 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3166,7 +3214,9 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3247,7 +3297,9 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3324,7 +3376,9 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3412,7 +3466,9 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3493,7 +3549,9 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3581,7 +3639,9 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3655,7 +3715,9 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3733,7 +3795,9 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3807,7 +3871,9 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3866,7 +3932,9 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3925,7 +3993,9 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3987,7 +4057,9 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -4056,7 +4128,9 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -4129,7 +4203,9 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":

@@ -653,7 +653,9 @@ async function deserializeAws_restJson1_1CreateFileSystemCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -765,7 +767,9 @@ async function deserializeAws_restJson1_1CreateMountTargetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -886,7 +890,9 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -947,7 +953,9 @@ async function deserializeAws_restJson1_1DeleteFileSystemCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1015,7 +1023,9 @@ async function deserializeAws_restJson1_1DeleteMountTargetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1080,7 +1090,9 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1158,7 +1170,9 @@ async function deserializeAws_restJson1_1DescribeFileSystemsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1228,7 +1242,9 @@ async function deserializeAws_restJson1_1DescribeLifecycleConfigurationCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1298,7 +1314,9 @@ async function deserializeAws_restJson1_1DescribeMountTargetSecurityGroupsComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1383,7 +1401,9 @@ async function deserializeAws_restJson1_1DescribeMountTargetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1462,7 +1482,9 @@ async function deserializeAws_restJson1_1DescribeTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1523,7 +1545,9 @@ async function deserializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1614,7 +1638,9 @@ async function deserializeAws_restJson1_1PutLifecycleConfigurationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":
@@ -1747,7 +1773,9 @@ async function deserializeAws_restJson1_1UpdateFileSystemCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequest":
     case "com.amazon.magnolio.api#BadRequest":

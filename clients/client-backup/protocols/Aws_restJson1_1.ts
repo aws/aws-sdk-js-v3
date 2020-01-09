@@ -1680,7 +1680,9 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1773,7 +1775,9 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1866,7 +1870,9 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1963,7 +1969,9 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2038,7 +2046,9 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2106,7 +2116,9 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2181,7 +2193,9 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2249,7 +2263,9 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2317,7 +2333,9 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2479,7 +2497,9 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
@@ -2584,7 +2604,9 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2670,7 +2692,9 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2829,7 +2853,9 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2951,7 +2977,9 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
@@ -3032,7 +3060,9 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3146,7 +3176,9 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3223,7 +3255,9 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3307,7 +3341,9 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3404,7 +3440,9 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3486,7 +3524,9 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3575,7 +3615,9 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3660,7 +3702,9 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3737,7 +3781,9 @@ async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
@@ -3797,7 +3843,9 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3864,7 +3912,9 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3945,7 +3995,9 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4026,7 +4078,9 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4107,7 +4161,9 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4188,7 +4244,9 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4269,7 +4327,9 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4336,7 +4396,9 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4417,7 +4479,9 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4498,7 +4562,9 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4573,7 +4639,9 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4641,7 +4709,9 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4709,7 +4779,9 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4795,7 +4867,9 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4876,7 +4950,9 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4941,7 +5017,9 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5013,7 +5091,9 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5085,7 +5165,9 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5175,7 +5257,9 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5267,7 +5351,9 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":

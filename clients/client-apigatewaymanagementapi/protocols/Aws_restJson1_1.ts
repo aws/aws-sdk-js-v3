@@ -142,7 +142,9 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
@@ -217,7 +219,9 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
@@ -278,7 +282,9 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":

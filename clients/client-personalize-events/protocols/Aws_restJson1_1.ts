@@ -74,7 +74,9 @@ async function deserializeAws_restJson1_1PutEventsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.events.exceptions#InvalidInputException":

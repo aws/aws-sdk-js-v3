@@ -707,7 +707,9 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -771,7 +773,9 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -835,7 +839,9 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -890,7 +896,9 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -945,7 +953,9 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1000,7 +1010,9 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1067,7 +1079,9 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1134,7 +1148,9 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1201,7 +1217,9 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1258,7 +1276,9 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1322,7 +1342,9 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1390,7 +1412,9 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1451,7 +1475,9 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1503,7 +1529,9 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1567,7 +1595,9 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1631,7 +1661,9 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":

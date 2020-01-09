@@ -202,7 +202,9 @@ async function deserializeAws_restJson1_1SearchCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
@@ -262,7 +264,9 @@ async function deserializeAws_restJson1_1SuggestCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
@@ -330,7 +334,9 @@ async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DocumentServiceException":
     case "com.a9.cloudsearch.service2013#DocumentServiceException":

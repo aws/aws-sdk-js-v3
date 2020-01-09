@@ -925,7 +925,9 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1002,7 +1004,9 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1079,7 +1083,9 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1177,7 +1183,9 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1245,7 +1253,9 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1315,7 +1325,9 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1392,7 +1404,9 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1469,7 +1483,9 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1539,7 +1555,9 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1634,7 +1652,9 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -1715,7 +1735,9 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -1792,7 +1814,9 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1880,7 +1904,9 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1969,7 +1995,9 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2053,7 +2081,9 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2120,7 +2150,9 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2201,7 +2233,9 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2272,7 +2306,9 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2351,7 +2387,9 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -2430,7 +2468,9 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2500,7 +2540,9 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2577,7 +2619,9 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2673,7 +2717,9 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":

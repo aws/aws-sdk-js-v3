@@ -944,7 +944,9 @@ async function deserializeAws_restJson1_1AcceptResourceShareInvitationCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1067,7 +1069,9 @@ async function deserializeAws_restJson1_1AssociateResourceShareCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1187,7 +1191,9 @@ async function deserializeAws_restJson1_1AssociateResourceSharePermissionCommand
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
@@ -1289,7 +1295,9 @@ async function deserializeAws_restJson1_1CreateResourceShareCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1416,7 +1424,9 @@ async function deserializeAws_restJson1_1DeleteResourceShareCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1532,7 +1542,9 @@ async function deserializeAws_restJson1_1DisassociateResourceShareCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -1652,7 +1664,9 @@ async function deserializeAws_restJson1_1DisassociateResourceSharePermissionComm
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidClientTokenException":
@@ -1747,7 +1761,9 @@ async function deserializeAws_restJson1_1EnableSharingWithAwsOrganizationCommand
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "OperationNotPermittedException":
     case "com.amazonaws.resourcesharing.V2018_01_04#OperationNotPermittedException":
@@ -1814,7 +1830,9 @@ async function deserializeAws_restJson1_1GetPermissionCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -1909,7 +1927,9 @@ async function deserializeAws_restJson1_1GetResourcePoliciesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -1997,7 +2017,9 @@ async function deserializeAws_restJson1_1GetResourceShareAssociationsCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2099,7 +2121,9 @@ async function deserializeAws_restJson1_1GetResourceShareInvitationsCommandError
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidMaxResultsException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidMaxResultsException":
@@ -2201,7 +2225,9 @@ async function deserializeAws_restJson1_1GetResourceSharesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2296,7 +2322,9 @@ async function deserializeAws_restJson1_1ListPendingInvitationResourcesCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2412,7 +2440,9 @@ async function deserializeAws_restJson1_1ListPermissionsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2500,7 +2530,9 @@ async function deserializeAws_restJson1_1ListPrincipalsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2595,7 +2627,9 @@ async function deserializeAws_restJson1_1ListResourceSharePermissionsCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2694,7 +2728,9 @@ async function deserializeAws_restJson1_1ListResourcesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidNextTokenException":
@@ -2789,7 +2825,9 @@ async function deserializeAws_restJson1_1PromoteResourceShareCreatedFromPolicyCo
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -2884,7 +2922,9 @@ async function deserializeAws_restJson1_1RejectResourceShareInvitationCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":
@@ -2992,7 +3032,9 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -3079,7 +3121,9 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.resourcesharing.V2018_01_04#InvalidParameterException":
@@ -3153,7 +3197,9 @@ async function deserializeAws_restJson1_1UpdateResourceShareCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.resourcesharing.V2018_01_04#IdempotentParameterMismatchException":

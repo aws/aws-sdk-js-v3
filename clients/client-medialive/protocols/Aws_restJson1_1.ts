@@ -1953,7 +1953,9 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2052,7 +2054,9 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2151,7 +2155,9 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2242,7 +2248,9 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2333,7 +2341,9 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2438,7 +2448,9 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2531,7 +2543,9 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -2676,7 +2690,9 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2770,7 +2786,9 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2867,7 +2885,9 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3007,7 +3027,9 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3127,7 +3149,9 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3300,7 +3324,9 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3397,7 +3423,9 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3483,7 +3511,9 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -3631,7 +3661,9 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3790,7 +3822,9 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3911,7 +3945,9 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4051,7 +4087,9 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4164,7 +4202,9 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4302,7 +4342,9 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4468,7 +4510,9 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4570,7 +4614,9 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4669,7 +4715,9 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4764,7 +4812,9 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4856,7 +4906,9 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4951,7 +5003,9 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5053,7 +5107,9 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5145,7 +5201,9 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5240,7 +5298,9 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5328,7 +5388,9 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -5405,7 +5467,9 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5578,7 +5642,9 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5725,7 +5791,9 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5898,7 +5966,9 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6042,7 +6112,9 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6141,7 +6213,9 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6236,7 +6310,9 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6342,7 +6418,9 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6440,7 +6518,9 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6538,7 +6618,9 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6643,7 +6725,9 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6748,7 +6832,9 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":

@@ -837,7 +837,9 @@ async function deserializeAws_restJson1_1BulkPublishCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyStreamedException":
     case "com.amazonaws.cognito.sync.model#AlreadyStreamedException":
@@ -922,7 +924,9 @@ async function deserializeAws_restJson1_1DeleteDatasetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1010,7 +1014,9 @@ async function deserializeAws_restJson1_1DescribeDatasetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1094,7 +1100,9 @@ async function deserializeAws_restJson1_1DescribeIdentityPoolUsageCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1178,7 +1186,9 @@ async function deserializeAws_restJson1_1DescribeIdentityUsageCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1283,7 +1293,9 @@ async function deserializeAws_restJson1_1GetBulkPublishDetailsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1357,7 +1369,9 @@ async function deserializeAws_restJson1_1GetCognitoEventsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1452,7 +1466,9 @@ async function deserializeAws_restJson1_1GetIdentityPoolConfigurationCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1541,7 +1557,9 @@ async function deserializeAws_restJson1_1ListDatasetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1630,7 +1648,9 @@ async function deserializeAws_restJson1_1ListIdentityPoolUsageCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1740,7 +1760,9 @@ async function deserializeAws_restJson1_1ListRecordsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1814,7 +1836,9 @@ async function deserializeAws_restJson1_1RegisterDeviceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1896,7 +1920,9 @@ async function deserializeAws_restJson1_1SetCognitoEventsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -1991,7 +2017,9 @@ async function deserializeAws_restJson1_1SetIdentityPoolConfigurationCommandErro
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.cognito.sync.model#ConcurrentModificationException":
@@ -2074,7 +2102,9 @@ async function deserializeAws_restJson1_1SubscribeToDatasetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -2157,7 +2187,9 @@ async function deserializeAws_restJson1_1UnsubscribeFromDatasetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":
@@ -2245,7 +2277,9 @@ async function deserializeAws_restJson1_1UpdateRecordsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.cognito.sync.model#InternalErrorException":

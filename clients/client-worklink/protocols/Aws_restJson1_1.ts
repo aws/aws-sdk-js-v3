@@ -982,7 +982,9 @@ async function deserializeAws_restJson1_1AssociateDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1070,7 +1072,9 @@ async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCo
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1158,7 +1162,9 @@ async function deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCom
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1243,7 +1249,9 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1323,7 +1331,9 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1404,7 +1414,9 @@ async function deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1499,7 +1511,9 @@ async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationComm
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1620,7 +1634,9 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1701,7 +1717,9 @@ async function deserializeAws_restJson1_1DescribeDevicePolicyConfigurationComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1802,7 +1820,9 @@ async function deserializeAws_restJson1_1DescribeDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1915,7 +1935,9 @@ async function deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2004,7 +2026,9 @@ async function deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCo
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2097,7 +2121,9 @@ async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityComm
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2173,7 +2199,9 @@ async function deserializeAws_restJson1_1DisassociateDomainCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2249,7 +2277,9 @@ async function deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProvide
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2332,7 +2362,9 @@ async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthority
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2417,7 +2449,9 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2502,7 +2536,9 @@ async function deserializeAws_restJson1_1ListDomainsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2580,7 +2616,9 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2661,7 +2699,9 @@ async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2749,7 +2789,9 @@ async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2818,7 +2860,9 @@ async function deserializeAws_restJson1_1RestoreDomainAccessCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2894,7 +2938,9 @@ async function deserializeAws_restJson1_1RevokeDomainAccessCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2967,7 +3013,9 @@ async function deserializeAws_restJson1_1SignOutUserCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3043,7 +3091,9 @@ async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3119,7 +3169,9 @@ async function deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationComman
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3195,7 +3247,9 @@ async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandE
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3271,7 +3325,9 @@ async function deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3347,7 +3403,9 @@ async function deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3423,7 +3481,9 @@ async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurationComm
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":

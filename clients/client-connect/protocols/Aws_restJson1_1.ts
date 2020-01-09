@@ -1149,7 +1149,9 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
@@ -1235,7 +1237,9 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1313,7 +1317,9 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1397,7 +1403,9 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1481,7 +1489,9 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1565,7 +1575,9 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1647,7 +1659,9 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1731,7 +1745,9 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
@@ -1823,7 +1839,9 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1911,7 +1929,9 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1999,7 +2019,9 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2087,7 +2109,9 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2172,7 +2196,9 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2260,7 +2286,9 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2348,7 +2376,9 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2436,7 +2466,9 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2521,7 +2553,9 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2602,7 +2636,9 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DestinationNotAllowedException":
     case "com.amazonaws.amazonconnectservice.v20170808#DestinationNotAllowedException":
@@ -2689,7 +2725,9 @@ async function deserializeAws_restJson1_1StopContactCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContactNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ContactNotFoundException":
@@ -2765,7 +2803,9 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2833,7 +2873,9 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2908,7 +2950,9 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2983,7 +3027,9 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -3058,7 +3104,9 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -3133,7 +3181,9 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":

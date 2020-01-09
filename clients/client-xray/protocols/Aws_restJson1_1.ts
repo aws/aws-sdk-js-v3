@@ -752,7 +752,9 @@ async function deserializeAws_restJson1_1BatchGetTracesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -809,7 +811,9 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -872,7 +876,9 @@ async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -931,7 +937,9 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -994,7 +1002,9 @@ async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1057,7 +1067,9 @@ async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1114,7 +1126,9 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1178,7 +1192,9 @@ async function deserializeAws_restJson1_1GetGroupsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1245,7 +1261,9 @@ async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1312,7 +1330,9 @@ async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandErr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1390,7 +1410,9 @@ async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1475,7 +1497,9 @@ async function deserializeAws_restJson1_1GetServiceGraphCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1546,7 +1570,9 @@ async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandEr
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1610,7 +1636,9 @@ async function deserializeAws_restJson1_1GetTraceGraphCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1689,7 +1717,9 @@ async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1752,7 +1782,9 @@ async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1807,7 +1839,9 @@ async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1870,7 +1904,9 @@ async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1927,7 +1963,9 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
@@ -1990,7 +2028,9 @@ async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
