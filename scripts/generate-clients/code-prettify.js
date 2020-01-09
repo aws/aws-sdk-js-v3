@@ -1,6 +1,6 @@
 const path = require("path");
 const { readdirSync } = require("fs");
-const { spawnProcess } = require("./code-gen");
+const { spawnProcess } = require("./spawn-process");
 const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const prettifyCode = async () => {
