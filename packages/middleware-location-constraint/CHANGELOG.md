@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0-alpha.2 (2020-01-09)
+
+
+### Bug Fixes
+
+* resolve region ([#560](https://github.com/aws/aws-sdk-js-v3/issues/560)) ([3aca84f](https://github.com/aws/aws-sdk-js-v3/commit/3aca84f))
+
+
+### Features
+
+* location constraint migration ([#497](https://github.com/aws/aws-sdk-js-v3/issues/497)) ([ad7f978](https://github.com/aws/aws-sdk-js-v3/commit/ad7f978))
+
+
+
+
+
 # 1.0.0-alpha.1 (2020-01-08)
 
 

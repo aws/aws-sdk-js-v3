@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/chunked-blob-reader",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "scripts": {
     "prepublishOnly": "tsc",
     "pretest": "tsc -p tsconfig.test.json",
