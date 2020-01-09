@@ -706,8 +706,10 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -724,7 +726,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -770,8 +771,10 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -788,7 +791,6 @@ async function deserializeAws_restJson1_1CreateComputeEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -834,8 +836,10 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -852,7 +856,6 @@ async function deserializeAws_restJson1_1CreateJobQueueCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -889,8 +892,10 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -907,7 +912,6 @@ async function deserializeAws_restJson1_1DeleteComputeEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -944,8 +948,10 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -962,7 +968,6 @@ async function deserializeAws_restJson1_1DeleteJobQueueCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -999,8 +1004,10 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1017,7 +1024,6 @@ async function deserializeAws_restJson1_1DeregisterJobDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1066,8 +1072,10 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1084,7 +1092,6 @@ async function deserializeAws_restJson1_1DescribeComputeEnvironmentsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1133,8 +1140,10 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1151,7 +1160,6 @@ async function deserializeAws_restJson1_1DescribeJobDefinitionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1200,8 +1208,10 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1218,7 +1228,6 @@ async function deserializeAws_restJson1_1DescribeJobQueuesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1257,8 +1266,10 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1275,7 +1286,6 @@ async function deserializeAws_restJson1_1DescribeJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1321,8 +1331,10 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1339,7 +1351,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1389,8 +1400,10 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1407,7 +1420,6 @@ async function deserializeAws_restJson1_1RegisterJobDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1450,8 +1462,10 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1468,7 +1482,6 @@ async function deserializeAws_restJson1_1SubmitJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1502,8 +1515,10 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1520,7 +1535,6 @@ async function deserializeAws_restJson1_1TerminateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1566,8 +1580,10 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1584,7 +1600,6 @@ async function deserializeAws_restJson1_1UpdateComputeEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",
@@ -1630,8 +1645,10 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.dilithium.frontend#ClientException":
@@ -1648,7 +1665,6 @@ async function deserializeAws_restJson1_1UpdateJobQueueCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.dilithium.frontend#${errorCode}`,
         $fault: "client",

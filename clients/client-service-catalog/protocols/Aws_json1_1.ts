@@ -2680,10 +2680,7 @@ export async function deserializeAws_json1_1AcceptPortfolioShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptPortfolioShareOutput(
-    data.AcceptPortfolioShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1AcceptPortfolioShareOutput(data, context);
   const response: AcceptPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcceptPortfolioShareOutput",
@@ -2702,7 +2699,7 @@ async function deserializeAws_json1_1AcceptPortfolioShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2729,7 +2726,6 @@ async function deserializeAws_json1_1AcceptPortfolioShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -2752,7 +2748,7 @@ export async function deserializeAws_json1_1AssociateBudgetWithResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateBudgetWithResourceOutput(
-    data.AssociateBudgetWithResourceOutput,
+    data,
     context
   );
   const response: AssociateBudgetWithResourceCommandOutput = {
@@ -2773,7 +2769,7 @@ async function deserializeAws_json1_1AssociateBudgetWithResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2807,7 +2803,6 @@ async function deserializeAws_json1_1AssociateBudgetWithResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -2830,7 +2825,7 @@ export async function deserializeAws_json1_1AssociatePrincipalWithPortfolioComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput(
-    data.AssociatePrincipalWithPortfolioOutput,
+    data,
     context
   );
   const response: AssociatePrincipalWithPortfolioCommandOutput = {
@@ -2851,7 +2846,7 @@ async function deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2878,7 +2873,6 @@ async function deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -2901,7 +2895,7 @@ export async function deserializeAws_json1_1AssociateProductWithPortfolioCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateProductWithPortfolioOutput(
-    data.AssociateProductWithPortfolioOutput,
+    data,
     context
   );
   const response: AssociateProductWithPortfolioCommandOutput = {
@@ -2922,7 +2916,7 @@ async function deserializeAws_json1_1AssociateProductWithPortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2949,7 +2943,6 @@ async function deserializeAws_json1_1AssociateProductWithPortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -2972,7 +2965,7 @@ export async function deserializeAws_json1_1AssociateServiceActionWithProvisioni
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput(
-    data.AssociateServiceActionWithProvisioningArtifactOutput,
+    data,
     context
   );
   const response: AssociateServiceActionWithProvisioningArtifactCommandOutput = {
@@ -2993,7 +2986,7 @@ async function deserializeAws_json1_1AssociateServiceActionWithProvisioningArtif
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3020,7 +3013,6 @@ async function deserializeAws_json1_1AssociateServiceActionWithProvisioningArtif
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3043,7 +3035,7 @@ export async function deserializeAws_json1_1AssociateTagOptionWithResourceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateTagOptionWithResourceOutput(
-    data.AssociateTagOptionWithResourceOutput,
+    data,
     context
   );
   const response: AssociateTagOptionWithResourceCommandOutput = {
@@ -3064,7 +3056,7 @@ async function deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3112,7 +3104,6 @@ async function deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3135,7 +3126,7 @@ export async function deserializeAws_json1_1BatchAssociateServiceActionWithProvi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput(
-    data.BatchAssociateServiceActionWithProvisioningArtifactOutput,
+    data,
     context
   );
   const response: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = {
@@ -3156,7 +3147,7 @@ async function deserializeAws_json1_1BatchAssociateServiceActionWithProvisioning
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3169,7 +3160,6 @@ async function deserializeAws_json1_1BatchAssociateServiceActionWithProvisioning
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3194,7 +3184,7 @@ export async function deserializeAws_json1_1BatchDisassociateServiceActionFromPr
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput(
-    data.BatchDisassociateServiceActionFromProvisioningArtifactOutput,
+    data,
     context
   );
   const response: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput = {
@@ -3217,7 +3207,7 @@ async function deserializeAws_json1_1BatchDisassociateServiceActionFromProvision
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3230,7 +3220,6 @@ async function deserializeAws_json1_1BatchDisassociateServiceActionFromProvision
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3249,10 +3238,7 @@ export async function deserializeAws_json1_1CopyProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyProductOutput(
-    data.CopyProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CopyProductOutput(data, context);
   const response: CopyProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyProductOutput",
@@ -3271,7 +3257,7 @@ async function deserializeAws_json1_1CopyProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3291,7 +3277,6 @@ async function deserializeAws_json1_1CopyProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3310,10 +3295,7 @@ export async function deserializeAws_json1_1CreateConstraintCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateConstraintOutput(
-    data.CreateConstraintOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateConstraintOutput(data, context);
   const response: CreateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateConstraintOutput",
@@ -3332,7 +3314,7 @@ async function deserializeAws_json1_1CreateConstraintCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3366,7 +3348,6 @@ async function deserializeAws_json1_1CreateConstraintCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3385,10 +3366,7 @@ export async function deserializeAws_json1_1CreatePortfolioCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePortfolioOutput(
-    data.CreatePortfolioOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePortfolioOutput(data, context);
   const response: CreatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePortfolioOutput",
@@ -3407,7 +3385,7 @@ async function deserializeAws_json1_1CreatePortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3434,7 +3412,6 @@ async function deserializeAws_json1_1CreatePortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3456,10 +3433,7 @@ export async function deserializeAws_json1_1CreatePortfolioShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePortfolioShareOutput(
-    data.CreatePortfolioShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreatePortfolioShareOutput(data, context);
   const response: CreatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePortfolioShareOutput",
@@ -3478,7 +3452,7 @@ async function deserializeAws_json1_1CreatePortfolioShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3519,7 +3493,6 @@ async function deserializeAws_json1_1CreatePortfolioShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3538,10 +3511,7 @@ export async function deserializeAws_json1_1CreateProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProductOutput(
-    data.CreateProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProductOutput(data, context);
   const response: CreateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProductOutput",
@@ -3560,7 +3530,7 @@ async function deserializeAws_json1_1CreateProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3587,7 +3557,6 @@ async function deserializeAws_json1_1CreateProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3610,7 +3579,7 @@ export async function deserializeAws_json1_1CreateProvisionedProductPlanCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateProvisionedProductPlanOutput(
-    data.CreateProvisionedProductPlanOutput,
+    data,
     context
   );
   const response: CreateProvisionedProductPlanCommandOutput = {
@@ -3631,7 +3600,7 @@ async function deserializeAws_json1_1CreateProvisionedProductPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3658,7 +3627,6 @@ async function deserializeAws_json1_1CreateProvisionedProductPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3681,7 +3649,7 @@ export async function deserializeAws_json1_1CreateProvisioningArtifactCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateProvisioningArtifactOutput(
-    data.CreateProvisioningArtifactOutput,
+    data,
     context
   );
   const response: CreateProvisioningArtifactCommandOutput = {
@@ -3702,7 +3670,7 @@ async function deserializeAws_json1_1CreateProvisioningArtifactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3729,7 +3697,6 @@ async function deserializeAws_json1_1CreateProvisioningArtifactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3751,10 +3718,7 @@ export async function deserializeAws_json1_1CreateServiceActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateServiceActionOutput(
-    data.CreateServiceActionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateServiceActionOutput(data, context);
   const response: CreateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServiceActionOutput",
@@ -3773,7 +3737,7 @@ async function deserializeAws_json1_1CreateServiceActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3793,7 +3757,6 @@ async function deserializeAws_json1_1CreateServiceActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3812,10 +3775,7 @@ export async function deserializeAws_json1_1CreateTagOptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTagOptionOutput(
-    data.CreateTagOptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTagOptionOutput(data, context);
   const response: CreateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTagOptionOutput",
@@ -3834,7 +3794,7 @@ async function deserializeAws_json1_1CreateTagOptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3861,7 +3821,6 @@ async function deserializeAws_json1_1CreateTagOptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3880,10 +3839,7 @@ export async function deserializeAws_json1_1DeleteConstraintCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteConstraintOutput(
-    data.DeleteConstraintOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteConstraintOutput(data, context);
   const response: DeleteConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteConstraintOutput",
@@ -3902,7 +3858,7 @@ async function deserializeAws_json1_1DeleteConstraintCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3922,7 +3878,6 @@ async function deserializeAws_json1_1DeleteConstraintCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -3941,10 +3896,7 @@ export async function deserializeAws_json1_1DeletePortfolioCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePortfolioOutput(
-    data.DeletePortfolioOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeletePortfolioOutput(data, context);
   const response: DeletePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeletePortfolioOutput",
@@ -3963,7 +3915,7 @@ async function deserializeAws_json1_1DeletePortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3997,7 +3949,6 @@ async function deserializeAws_json1_1DeletePortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4019,10 +3970,7 @@ export async function deserializeAws_json1_1DeletePortfolioShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePortfolioShareOutput(
-    data.DeletePortfolioShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeletePortfolioShareOutput(data, context);
   const response: DeletePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeletePortfolioShareOutput",
@@ -4041,7 +3989,7 @@ async function deserializeAws_json1_1DeletePortfolioShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4075,7 +4023,6 @@ async function deserializeAws_json1_1DeletePortfolioShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4094,10 +4041,7 @@ export async function deserializeAws_json1_1DeleteProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProductOutput(
-    data.DeleteProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProductOutput(data, context);
   const response: DeleteProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProductOutput",
@@ -4116,7 +4060,7 @@ async function deserializeAws_json1_1DeleteProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4150,7 +4094,6 @@ async function deserializeAws_json1_1DeleteProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4173,7 +4116,7 @@ export async function deserializeAws_json1_1DeleteProvisionedProductPlanCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteProvisionedProductPlanOutput(
-    data.DeleteProvisionedProductPlanOutput,
+    data,
     context
   );
   const response: DeleteProvisionedProductPlanCommandOutput = {
@@ -4194,7 +4137,7 @@ async function deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4214,7 +4157,6 @@ async function deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4237,7 +4179,7 @@ export async function deserializeAws_json1_1DeleteProvisioningArtifactCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteProvisioningArtifactOutput(
-    data.DeleteProvisioningArtifactOutput,
+    data,
     context
   );
   const response: DeleteProvisioningArtifactCommandOutput = {
@@ -4258,7 +4200,7 @@ async function deserializeAws_json1_1DeleteProvisioningArtifactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4285,7 +4227,6 @@ async function deserializeAws_json1_1DeleteProvisioningArtifactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4307,10 +4248,7 @@ export async function deserializeAws_json1_1DeleteServiceActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteServiceActionOutput(
-    data.DeleteServiceActionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteServiceActionOutput(data, context);
   const response: DeleteServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServiceActionOutput",
@@ -4329,7 +4267,7 @@ async function deserializeAws_json1_1DeleteServiceActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4349,7 +4287,6 @@ async function deserializeAws_json1_1DeleteServiceActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4368,10 +4305,7 @@ export async function deserializeAws_json1_1DeleteTagOptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagOptionOutput(
-    data.DeleteTagOptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTagOptionOutput(data, context);
   const response: DeleteTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTagOptionOutput",
@@ -4390,7 +4324,7 @@ async function deserializeAws_json1_1DeleteTagOptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4417,7 +4351,6 @@ async function deserializeAws_json1_1DeleteTagOptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4439,10 +4372,7 @@ export async function deserializeAws_json1_1DescribeConstraintCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConstraintOutput(
-    data.DescribeConstraintOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeConstraintOutput(data, context);
   const response: DescribeConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeConstraintOutput",
@@ -4461,7 +4391,7 @@ async function deserializeAws_json1_1DescribeConstraintCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4474,7 +4404,6 @@ async function deserializeAws_json1_1DescribeConstraintCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4497,7 +4426,7 @@ export async function deserializeAws_json1_1DescribeCopyProductStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCopyProductStatusOutput(
-    data.DescribeCopyProductStatusOutput,
+    data,
     context
   );
   const response: DescribeCopyProductStatusCommandOutput = {
@@ -4518,7 +4447,7 @@ async function deserializeAws_json1_1DescribeCopyProductStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4531,7 +4460,6 @@ async function deserializeAws_json1_1DescribeCopyProductStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4550,10 +4478,7 @@ export async function deserializeAws_json1_1DescribePortfolioCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribePortfolioOutput(
-    data.DescribePortfolioOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribePortfolioOutput(data, context);
   const response: DescribePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePortfolioOutput",
@@ -4572,7 +4497,7 @@ async function deserializeAws_json1_1DescribePortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4585,7 +4510,6 @@ async function deserializeAws_json1_1DescribePortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4608,7 +4532,7 @@ export async function deserializeAws_json1_1DescribePortfolioShareStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePortfolioShareStatusOutput(
-    data.DescribePortfolioShareStatusOutput,
+    data,
     context
   );
   const response: DescribePortfolioShareStatusCommandOutput = {
@@ -4629,7 +4553,7 @@ async function deserializeAws_json1_1DescribePortfolioShareStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4656,7 +4580,6 @@ async function deserializeAws_json1_1DescribePortfolioShareStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4675,10 +4598,7 @@ export async function deserializeAws_json1_1DescribeProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductOutput(
-    data.DescribeProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProductOutput(data, context);
   const response: DescribeProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProductOutput",
@@ -4697,7 +4617,7 @@ async function deserializeAws_json1_1DescribeProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4717,7 +4637,6 @@ async function deserializeAws_json1_1DescribeProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4739,10 +4658,7 @@ export async function deserializeAws_json1_1DescribeProductAsAdminCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductAsAdminOutput(
-    data.DescribeProductAsAdminOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProductAsAdminOutput(data, context);
   const response: DescribeProductAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProductAsAdminOutput",
@@ -4761,7 +4677,7 @@ async function deserializeAws_json1_1DescribeProductAsAdminCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4774,7 +4690,6 @@ async function deserializeAws_json1_1DescribeProductAsAdminCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4796,10 +4711,7 @@ export async function deserializeAws_json1_1DescribeProductViewCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProductViewOutput(
-    data.DescribeProductViewOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProductViewOutput(data, context);
   const response: DescribeProductViewCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProductViewOutput",
@@ -4818,7 +4730,7 @@ async function deserializeAws_json1_1DescribeProductViewCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4838,7 +4750,6 @@ async function deserializeAws_json1_1DescribeProductViewCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4861,7 +4772,7 @@ export async function deserializeAws_json1_1DescribeProvisionedProductCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProvisionedProductOutput(
-    data.DescribeProvisionedProductOutput,
+    data,
     context
   );
   const response: DescribeProvisionedProductCommandOutput = {
@@ -4882,7 +4793,7 @@ async function deserializeAws_json1_1DescribeProvisionedProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4895,7 +4806,6 @@ async function deserializeAws_json1_1DescribeProvisionedProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4918,7 +4828,7 @@ export async function deserializeAws_json1_1DescribeProvisionedProductPlanComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProvisionedProductPlanOutput(
-    data.DescribeProvisionedProductPlanOutput,
+    data,
     context
   );
   const response: DescribeProvisionedProductPlanCommandOutput = {
@@ -4939,7 +4849,7 @@ async function deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4959,7 +4869,6 @@ async function deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -4982,7 +4891,7 @@ export async function deserializeAws_json1_1DescribeProvisioningArtifactCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProvisioningArtifactOutput(
-    data.DescribeProvisioningArtifactOutput,
+    data,
     context
   );
   const response: DescribeProvisioningArtifactCommandOutput = {
@@ -5003,7 +4912,7 @@ async function deserializeAws_json1_1DescribeProvisioningArtifactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5016,7 +4925,6 @@ async function deserializeAws_json1_1DescribeProvisioningArtifactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5039,7 +4947,7 @@ export async function deserializeAws_json1_1DescribeProvisioningParametersComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeProvisioningParametersOutput(
-    data.DescribeProvisioningParametersOutput,
+    data,
     context
   );
   const response: DescribeProvisioningParametersCommandOutput = {
@@ -5060,7 +4968,7 @@ async function deserializeAws_json1_1DescribeProvisioningParametersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5080,7 +4988,6 @@ async function deserializeAws_json1_1DescribeProvisioningParametersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5099,10 +5006,7 @@ export async function deserializeAws_json1_1DescribeRecordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRecordOutput(
-    data.DescribeRecordOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRecordOutput(data, context);
   const response: DescribeRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRecordOutput",
@@ -5121,7 +5025,7 @@ async function deserializeAws_json1_1DescribeRecordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5134,7 +5038,6 @@ async function deserializeAws_json1_1DescribeRecordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5156,10 +5059,7 @@ export async function deserializeAws_json1_1DescribeServiceActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeServiceActionOutput(
-    data.DescribeServiceActionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeServiceActionOutput(data, context);
   const response: DescribeServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServiceActionOutput",
@@ -5178,7 +5078,7 @@ async function deserializeAws_json1_1DescribeServiceActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5191,7 +5091,6 @@ async function deserializeAws_json1_1DescribeServiceActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5214,7 +5113,7 @@ export async function deserializeAws_json1_1DescribeServiceActionExecutionParame
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput(
-    data.DescribeServiceActionExecutionParametersOutput,
+    data,
     context
   );
   const response: DescribeServiceActionExecutionParametersCommandOutput = {
@@ -5235,7 +5134,7 @@ async function deserializeAws_json1_1DescribeServiceActionExecutionParametersCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5255,7 +5154,6 @@ async function deserializeAws_json1_1DescribeServiceActionExecutionParametersCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5274,10 +5172,7 @@ export async function deserializeAws_json1_1DescribeTagOptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagOptionOutput(
-    data.DescribeTagOptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagOptionOutput(data, context);
   const response: DescribeTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagOptionOutput",
@@ -5296,7 +5191,7 @@ async function deserializeAws_json1_1DescribeTagOptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5316,7 +5211,6 @@ async function deserializeAws_json1_1DescribeTagOptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5339,7 +5233,7 @@ export async function deserializeAws_json1_1DisableAWSOrganizationsAccessCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisableAWSOrganizationsAccessOutput(
-    data.DisableAWSOrganizationsAccessOutput,
+    data,
     context
   );
   const response: DisableAWSOrganizationsAccessCommandOutput = {
@@ -5360,7 +5254,7 @@ async function deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5387,7 +5281,6 @@ async function deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5410,7 +5303,7 @@ export async function deserializeAws_json1_1DisassociateBudgetFromResourceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateBudgetFromResourceOutput(
-    data.DisassociateBudgetFromResourceOutput,
+    data,
     context
   );
   const response: DisassociateBudgetFromResourceCommandOutput = {
@@ -5431,7 +5324,7 @@ async function deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5444,7 +5337,6 @@ async function deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5467,7 +5359,7 @@ export async function deserializeAws_json1_1DisassociatePrincipalFromPortfolioCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput(
-    data.DisassociatePrincipalFromPortfolioOutput,
+    data,
     context
   );
   const response: DisassociatePrincipalFromPortfolioCommandOutput = {
@@ -5488,7 +5380,7 @@ async function deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5508,7 +5400,6 @@ async function deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5531,7 +5422,7 @@ export async function deserializeAws_json1_1DisassociateProductFromPortfolioComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateProductFromPortfolioOutput(
-    data.DisassociateProductFromPortfolioOutput,
+    data,
     context
   );
   const response: DisassociateProductFromPortfolioCommandOutput = {
@@ -5552,7 +5443,7 @@ async function deserializeAws_json1_1DisassociateProductFromPortfolioCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5579,7 +5470,6 @@ async function deserializeAws_json1_1DisassociateProductFromPortfolioCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5602,7 +5492,7 @@ export async function deserializeAws_json1_1DisassociateServiceActionFromProvisi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput(
-    data.DisassociateServiceActionFromProvisioningArtifactOutput,
+    data,
     context
   );
   const response: DisassociateServiceActionFromProvisioningArtifactCommandOutput = {
@@ -5623,7 +5513,7 @@ async function deserializeAws_json1_1DisassociateServiceActionFromProvisioningAr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5636,7 +5526,6 @@ async function deserializeAws_json1_1DisassociateServiceActionFromProvisioningAr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5659,7 +5548,7 @@ export async function deserializeAws_json1_1DisassociateTagOptionFromResourceCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateTagOptionFromResourceOutput(
-    data.DisassociateTagOptionFromResourceOutput,
+    data,
     context
   );
   const response: DisassociateTagOptionFromResourceCommandOutput = {
@@ -5680,7 +5569,7 @@ async function deserializeAws_json1_1DisassociateTagOptionFromResourceCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5700,7 +5589,6 @@ async function deserializeAws_json1_1DisassociateTagOptionFromResourceCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5723,7 +5611,7 @@ export async function deserializeAws_json1_1EnableAWSOrganizationsAccessCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EnableAWSOrganizationsAccessOutput(
-    data.EnableAWSOrganizationsAccessOutput,
+    data,
     context
   );
   const response: EnableAWSOrganizationsAccessCommandOutput = {
@@ -5744,7 +5632,7 @@ async function deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5771,7 +5659,6 @@ async function deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5794,7 +5681,7 @@ export async function deserializeAws_json1_1ExecuteProvisionedProductPlanCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ExecuteProvisionedProductPlanOutput(
-    data.ExecuteProvisionedProductPlanOutput,
+    data,
     context
   );
   const response: ExecuteProvisionedProductPlanCommandOutput = {
@@ -5815,7 +5702,7 @@ async function deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5842,7 +5729,6 @@ async function deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5865,7 +5751,7 @@ export async function deserializeAws_json1_1ExecuteProvisionedProductServiceActi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput(
-    data.ExecuteProvisionedProductServiceActionOutput,
+    data,
     context
   );
   const response: ExecuteProvisionedProductServiceActionCommandOutput = {
@@ -5886,7 +5772,7 @@ async function deserializeAws_json1_1ExecuteProvisionedProductServiceActionComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5913,7 +5799,6 @@ async function deserializeAws_json1_1ExecuteProvisionedProductServiceActionComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -5936,7 +5821,7 @@ export async function deserializeAws_json1_1GetAWSOrganizationsAccessStatusComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput(
-    data.GetAWSOrganizationsAccessStatusOutput,
+    data,
     context
   );
   const response: GetAWSOrganizationsAccessStatusCommandOutput = {
@@ -5957,7 +5842,7 @@ async function deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5977,7 +5862,6 @@ async function deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6000,7 +5884,7 @@ export async function deserializeAws_json1_1ListAcceptedPortfolioSharesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAcceptedPortfolioSharesOutput(
-    data.ListAcceptedPortfolioSharesOutput,
+    data,
     context
   );
   const response: ListAcceptedPortfolioSharesCommandOutput = {
@@ -6021,7 +5905,7 @@ async function deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6041,7 +5925,6 @@ async function deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6063,10 +5946,7 @@ export async function deserializeAws_json1_1ListBudgetsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBudgetsForResourceOutput(
-    data.ListBudgetsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListBudgetsForResourceOutput(data, context);
   const response: ListBudgetsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBudgetsForResourceOutput",
@@ -6085,7 +5965,7 @@ async function deserializeAws_json1_1ListBudgetsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6105,7 +5985,6 @@ async function deserializeAws_json1_1ListBudgetsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6128,7 +6007,7 @@ export async function deserializeAws_json1_1ListConstraintsForPortfolioCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListConstraintsForPortfolioOutput(
-    data.ListConstraintsForPortfolioOutput,
+    data,
     context
   );
   const response: ListConstraintsForPortfolioCommandOutput = {
@@ -6149,7 +6028,7 @@ async function deserializeAws_json1_1ListConstraintsForPortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6169,7 +6048,6 @@ async function deserializeAws_json1_1ListConstraintsForPortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6188,10 +6066,7 @@ export async function deserializeAws_json1_1ListLaunchPathsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLaunchPathsOutput(
-    data.ListLaunchPathsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListLaunchPathsOutput(data, context);
   const response: ListLaunchPathsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLaunchPathsOutput",
@@ -6210,7 +6085,7 @@ async function deserializeAws_json1_1ListLaunchPathsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6230,7 +6105,6 @@ async function deserializeAws_json1_1ListLaunchPathsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6253,7 +6127,7 @@ export async function deserializeAws_json1_1ListOrganizationPortfolioAccessComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListOrganizationPortfolioAccessOutput(
-    data.ListOrganizationPortfolioAccessOutput,
+    data,
     context
   );
   const response: ListOrganizationPortfolioAccessCommandOutput = {
@@ -6274,7 +6148,7 @@ async function deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6301,7 +6175,6 @@ async function deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6323,10 +6196,7 @@ export async function deserializeAws_json1_1ListPortfolioAccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPortfolioAccessOutput(
-    data.ListPortfolioAccessOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPortfolioAccessOutput(data, context);
   const response: ListPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPortfolioAccessOutput",
@@ -6345,7 +6215,7 @@ async function deserializeAws_json1_1ListPortfolioAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6358,7 +6228,6 @@ async function deserializeAws_json1_1ListPortfolioAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6377,10 +6246,7 @@ export async function deserializeAws_json1_1ListPortfoliosCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPortfoliosOutput(
-    data.ListPortfoliosOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListPortfoliosOutput(data, context);
   const response: ListPortfoliosCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPortfoliosOutput",
@@ -6399,7 +6265,7 @@ async function deserializeAws_json1_1ListPortfoliosCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6412,7 +6278,6 @@ async function deserializeAws_json1_1ListPortfoliosCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6435,7 +6300,7 @@ export async function deserializeAws_json1_1ListPortfoliosForProductCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPortfoliosForProductOutput(
-    data.ListPortfoliosForProductOutput,
+    data,
     context
   );
   const response: ListPortfoliosForProductCommandOutput = {
@@ -6456,7 +6321,7 @@ async function deserializeAws_json1_1ListPortfoliosForProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6476,7 +6341,6 @@ async function deserializeAws_json1_1ListPortfoliosForProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6499,7 +6363,7 @@ export async function deserializeAws_json1_1ListPrincipalsForPortfolioCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPrincipalsForPortfolioOutput(
-    data.ListPrincipalsForPortfolioOutput,
+    data,
     context
   );
   const response: ListPrincipalsForPortfolioCommandOutput = {
@@ -6520,7 +6384,7 @@ async function deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6540,7 +6404,6 @@ async function deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6563,7 +6426,7 @@ export async function deserializeAws_json1_1ListProvisionedProductPlansCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListProvisionedProductPlansOutput(
-    data.ListProvisionedProductPlansOutput,
+    data,
     context
   );
   const response: ListProvisionedProductPlansCommandOutput = {
@@ -6584,7 +6447,7 @@ async function deserializeAws_json1_1ListProvisionedProductPlansCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6604,7 +6467,6 @@ async function deserializeAws_json1_1ListProvisionedProductPlansCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6627,7 +6489,7 @@ export async function deserializeAws_json1_1ListProvisioningArtifactsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListProvisioningArtifactsOutput(
-    data.ListProvisioningArtifactsOutput,
+    data,
     context
   );
   const response: ListProvisioningArtifactsCommandOutput = {
@@ -6648,7 +6510,7 @@ async function deserializeAws_json1_1ListProvisioningArtifactsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6668,7 +6530,6 @@ async function deserializeAws_json1_1ListProvisioningArtifactsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6691,7 +6552,7 @@ export async function deserializeAws_json1_1ListProvisioningArtifactsForServiceA
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput(
-    data.ListProvisioningArtifactsForServiceActionOutput,
+    data,
     context
   );
   const response: ListProvisioningArtifactsForServiceActionCommandOutput = {
@@ -6712,7 +6573,7 @@ async function deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6732,7 +6593,6 @@ async function deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6751,10 +6611,7 @@ export async function deserializeAws_json1_1ListRecordHistoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRecordHistoryOutput(
-    data.ListRecordHistoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListRecordHistoryOutput(data, context);
   const response: ListRecordHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRecordHistoryOutput",
@@ -6773,7 +6630,7 @@ async function deserializeAws_json1_1ListRecordHistoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6786,7 +6643,6 @@ async function deserializeAws_json1_1ListRecordHistoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6809,7 +6665,7 @@ export async function deserializeAws_json1_1ListResourcesForTagOptionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListResourcesForTagOptionOutput(
-    data.ListResourcesForTagOptionOutput,
+    data,
     context
   );
   const response: ListResourcesForTagOptionCommandOutput = {
@@ -6830,7 +6686,7 @@ async function deserializeAws_json1_1ListResourcesForTagOptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6857,7 +6713,6 @@ async function deserializeAws_json1_1ListResourcesForTagOptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6879,10 +6734,7 @@ export async function deserializeAws_json1_1ListServiceActionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServiceActionsOutput(
-    data.ListServiceActionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListServiceActionsOutput(data, context);
   const response: ListServiceActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServiceActionsOutput",
@@ -6901,7 +6753,7 @@ async function deserializeAws_json1_1ListServiceActionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6914,7 +6766,6 @@ async function deserializeAws_json1_1ListServiceActionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -6937,7 +6788,7 @@ export async function deserializeAws_json1_1ListServiceActionsForProvisioningArt
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput(
-    data.ListServiceActionsForProvisioningArtifactOutput,
+    data,
     context
   );
   const response: ListServiceActionsForProvisioningArtifactCommandOutput = {
@@ -6958,7 +6809,7 @@ async function deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6978,7 +6829,6 @@ async function deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7001,7 +6851,7 @@ export async function deserializeAws_json1_1ListStackInstancesForProvisionedProd
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput(
-    data.ListStackInstancesForProvisionedProductOutput,
+    data,
     context
   );
   const response: ListStackInstancesForProvisionedProductCommandOutput = {
@@ -7022,7 +6872,7 @@ async function deserializeAws_json1_1ListStackInstancesForProvisionedProductComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7042,7 +6892,6 @@ async function deserializeAws_json1_1ListStackInstancesForProvisionedProductComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7061,10 +6910,7 @@ export async function deserializeAws_json1_1ListTagOptionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagOptionsOutput(
-    data.ListTagOptionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagOptionsOutput(data, context);
   const response: ListTagOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagOptionsOutput",
@@ -7083,7 +6929,7 @@ async function deserializeAws_json1_1ListTagOptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7103,7 +6949,6 @@ async function deserializeAws_json1_1ListTagOptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7122,10 +6967,7 @@ export async function deserializeAws_json1_1ProvisionProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ProvisionProductOutput(
-    data.ProvisionProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ProvisionProductOutput(data, context);
   const response: ProvisionProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ProvisionProductOutput",
@@ -7144,7 +6986,7 @@ async function deserializeAws_json1_1ProvisionProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7171,7 +7013,6 @@ async function deserializeAws_json1_1ProvisionProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7193,10 +7034,7 @@ export async function deserializeAws_json1_1RejectPortfolioShareCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectPortfolioShareOutput(
-    data.RejectPortfolioShareOutput,
-    context
-  );
+  contents = deserializeAws_json1_1RejectPortfolioShareOutput(data, context);
   const response: RejectPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RejectPortfolioShareOutput",
@@ -7215,7 +7053,7 @@ async function deserializeAws_json1_1RejectPortfolioShareCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7228,7 +7066,6 @@ async function deserializeAws_json1_1RejectPortfolioShareCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7250,10 +7087,7 @@ export async function deserializeAws_json1_1ScanProvisionedProductsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ScanProvisionedProductsOutput(
-    data.ScanProvisionedProductsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ScanProvisionedProductsOutput(data, context);
   const response: ScanProvisionedProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScanProvisionedProductsOutput",
@@ -7272,7 +7106,7 @@ async function deserializeAws_json1_1ScanProvisionedProductsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7285,7 +7119,6 @@ async function deserializeAws_json1_1ScanProvisionedProductsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7304,10 +7137,7 @@ export async function deserializeAws_json1_1SearchProductsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProductsOutput(
-    data.SearchProductsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SearchProductsOutput(data, context);
   const response: SearchProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchProductsOutput",
@@ -7326,7 +7156,7 @@ async function deserializeAws_json1_1SearchProductsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7339,7 +7169,6 @@ async function deserializeAws_json1_1SearchProductsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7361,10 +7190,7 @@ export async function deserializeAws_json1_1SearchProductsAsAdminCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SearchProductsAsAdminOutput(
-    data.SearchProductsAsAdminOutput,
-    context
-  );
+  contents = deserializeAws_json1_1SearchProductsAsAdminOutput(data, context);
   const response: SearchProductsAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SearchProductsAsAdminOutput",
@@ -7383,7 +7209,7 @@ async function deserializeAws_json1_1SearchProductsAsAdminCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7403,7 +7229,6 @@ async function deserializeAws_json1_1SearchProductsAsAdminCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7426,7 +7251,7 @@ export async function deserializeAws_json1_1SearchProvisionedProductsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SearchProvisionedProductsOutput(
-    data.SearchProvisionedProductsOutput,
+    data,
     context
   );
   const response: SearchProvisionedProductsCommandOutput = {
@@ -7447,7 +7272,7 @@ async function deserializeAws_json1_1SearchProvisionedProductsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7460,7 +7285,6 @@ async function deserializeAws_json1_1SearchProvisionedProductsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7483,7 +7307,7 @@ export async function deserializeAws_json1_1TerminateProvisionedProductCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1TerminateProvisionedProductOutput(
-    data.TerminateProvisionedProductOutput,
+    data,
     context
   );
   const response: TerminateProvisionedProductCommandOutput = {
@@ -7504,7 +7328,7 @@ async function deserializeAws_json1_1TerminateProvisionedProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7517,7 +7341,6 @@ async function deserializeAws_json1_1TerminateProvisionedProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7536,10 +7359,7 @@ export async function deserializeAws_json1_1UpdateConstraintCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateConstraintOutput(
-    data.UpdateConstraintOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateConstraintOutput(data, context);
   const response: UpdateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateConstraintOutput",
@@ -7558,7 +7378,7 @@ async function deserializeAws_json1_1UpdateConstraintCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7578,7 +7398,6 @@ async function deserializeAws_json1_1UpdateConstraintCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7597,10 +7416,7 @@ export async function deserializeAws_json1_1UpdatePortfolioCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdatePortfolioOutput(
-    data.UpdatePortfolioOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdatePortfolioOutput(data, context);
   const response: UpdatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePortfolioOutput",
@@ -7619,7 +7435,7 @@ async function deserializeAws_json1_1UpdatePortfolioCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7653,7 +7469,6 @@ async function deserializeAws_json1_1UpdatePortfolioCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7672,10 +7487,7 @@ export async function deserializeAws_json1_1UpdateProductCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProductOutput(
-    data.UpdateProductOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProductOutput(data, context);
   const response: UpdateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProductOutput",
@@ -7694,7 +7506,7 @@ async function deserializeAws_json1_1UpdateProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7721,7 +7533,6 @@ async function deserializeAws_json1_1UpdateProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7744,7 +7555,7 @@ export async function deserializeAws_json1_1UpdateProvisionedProductCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateProvisionedProductOutput(
-    data.UpdateProvisionedProductOutput,
+    data,
     context
   );
   const response: UpdateProvisionedProductCommandOutput = {
@@ -7765,7 +7576,7 @@ async function deserializeAws_json1_1UpdateProvisionedProductCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7785,7 +7596,6 @@ async function deserializeAws_json1_1UpdateProvisionedProductCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7808,7 +7618,7 @@ export async function deserializeAws_json1_1UpdateProvisionedProductPropertiesCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput(
-    data.UpdateProvisionedProductPropertiesOutput,
+    data,
     context
   );
   const response: UpdateProvisionedProductPropertiesCommandOutput = {
@@ -7829,7 +7639,7 @@ async function deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7856,7 +7666,6 @@ async function deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7879,7 +7688,7 @@ export async function deserializeAws_json1_1UpdateProvisioningArtifactCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateProvisioningArtifactOutput(
-    data.UpdateProvisioningArtifactOutput,
+    data,
     context
   );
   const response: UpdateProvisioningArtifactCommandOutput = {
@@ -7900,7 +7709,7 @@ async function deserializeAws_json1_1UpdateProvisioningArtifactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7920,7 +7729,6 @@ async function deserializeAws_json1_1UpdateProvisioningArtifactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -7942,10 +7750,7 @@ export async function deserializeAws_json1_1UpdateServiceActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateServiceActionOutput(
-    data.UpdateServiceActionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateServiceActionOutput(data, context);
   const response: UpdateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceActionOutput",
@@ -7964,7 +7769,7 @@ async function deserializeAws_json1_1UpdateServiceActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7984,7 +7789,6 @@ async function deserializeAws_json1_1UpdateServiceActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",
@@ -8003,10 +7807,7 @@ export async function deserializeAws_json1_1UpdateTagOptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTagOptionOutput(
-    data.UpdateTagOptionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTagOptionOutput(data, context);
   const response: UpdateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTagOptionOutput",
@@ -8025,7 +7826,7 @@ async function deserializeAws_json1_1UpdateTagOptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8059,7 +7860,6 @@ async function deserializeAws_json1_1UpdateTagOptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.aws242.servicecatalog.v20151210#${errorCode}`,
         $fault: "client",

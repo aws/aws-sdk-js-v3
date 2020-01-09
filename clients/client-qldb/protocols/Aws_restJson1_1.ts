@@ -614,8 +614,10 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -646,7 +648,6 @@ async function deserializeAws_restJson1_1CreateLedgerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -679,8 +680,10 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -711,7 +714,6 @@ async function deserializeAws_restJson1_1DeleteLedgerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -756,8 +758,10 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
@@ -767,7 +771,6 @@ async function deserializeAws_restJson1_1DescribeJournalS3ExportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -829,8 +832,10 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -847,7 +852,6 @@ async function deserializeAws_restJson1_1DescribeLedgerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -889,8 +893,10 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.ledger.v20190102#ResourceNotFoundException":
@@ -907,7 +913,6 @@ async function deserializeAws_restJson1_1ExportJournalToS3CommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -950,8 +955,10 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -975,7 +982,6 @@ async function deserializeAws_restJson1_1GetBlockCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1021,8 +1027,10 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1046,7 +1054,6 @@ async function deserializeAws_restJson1_1GetDigestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1092,8 +1099,10 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1117,7 +1126,6 @@ async function deserializeAws_restJson1_1GetRevisionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1162,11 +1170,12 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsCommandError(
 ): Promise<ListJournalS3ExportsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1211,11 +1220,12 @@ async function deserializeAws_restJson1_1ListJournalS3ExportsForLedgerCommandErr
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1257,11 +1267,12 @@ async function deserializeAws_restJson1_1ListLedgersCommandError(
 ): Promise<ListLedgersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1303,8 +1314,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1321,7 +1334,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1355,8 +1367,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1373,7 +1387,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1407,8 +1420,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1425,7 +1440,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",
@@ -1484,8 +1498,10 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.ledger.v20190102#InvalidParameterException":
@@ -1502,7 +1518,6 @@ async function deserializeAws_restJson1_1UpdateLedgerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ledger.v20190102#${errorCode}`,
         $fault: "client",

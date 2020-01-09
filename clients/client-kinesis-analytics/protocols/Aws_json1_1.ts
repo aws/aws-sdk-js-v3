@@ -713,7 +713,7 @@ export async function deserializeAws_json1_1AddApplicationCloudWatchLoggingOptio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse(
-    data.AddApplicationCloudWatchLoggingOptionResponse,
+    data,
     context
   );
   const response: AddApplicationCloudWatchLoggingOptionCommandOutput = {
@@ -734,7 +734,7 @@ async function deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -775,7 +775,6 @@ async function deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -797,10 +796,7 @@ export async function deserializeAws_json1_1AddApplicationInputCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddApplicationInputResponse(
-    data.AddApplicationInputResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddApplicationInputResponse(data, context);
   const response: AddApplicationInputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddApplicationInputResponse",
@@ -819,7 +815,7 @@ async function deserializeAws_json1_1AddApplicationInputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -867,7 +863,6 @@ async function deserializeAws_json1_1AddApplicationInputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -890,7 +885,7 @@ export async function deserializeAws_json1_1AddApplicationInputProcessingConfigu
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddApplicationInputProcessingConfigurationResponse(
-    data.AddApplicationInputProcessingConfigurationResponse,
+    data,
     context
   );
   const response: AddApplicationInputProcessingConfigurationCommandOutput = {
@@ -911,7 +906,7 @@ async function deserializeAws_json1_1AddApplicationInputProcessingConfigurationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -952,7 +947,6 @@ async function deserializeAws_json1_1AddApplicationInputProcessingConfigurationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -974,10 +968,7 @@ export async function deserializeAws_json1_1AddApplicationOutputCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddApplicationOutputResponse(
-    data.AddApplicationOutputResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddApplicationOutputResponse(data, context);
   const response: AddApplicationOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddApplicationOutputResponse",
@@ -996,7 +987,7 @@ async function deserializeAws_json1_1AddApplicationOutputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1037,7 +1028,6 @@ async function deserializeAws_json1_1AddApplicationOutputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1060,7 +1050,7 @@ export async function deserializeAws_json1_1AddApplicationReferenceDataSourceCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddApplicationReferenceDataSourceResponse(
-    data.AddApplicationReferenceDataSourceResponse,
+    data,
     context
   );
   const response: AddApplicationReferenceDataSourceCommandOutput = {
@@ -1081,7 +1071,7 @@ async function deserializeAws_json1_1AddApplicationReferenceDataSourceCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1122,7 +1112,6 @@ async function deserializeAws_json1_1AddApplicationReferenceDataSourceCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1141,10 +1130,7 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResponse(
-    data.CreateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationResponse",
@@ -1163,7 +1149,7 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1211,7 +1197,6 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1230,10 +1215,7 @@ export async function deserializeAws_json1_1DeleteApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationResponse(
-    data.DeleteApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationResponse(data, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationResponse",
@@ -1252,7 +1234,7 @@ async function deserializeAws_json1_1DeleteApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1286,7 +1268,6 @@ async function deserializeAws_json1_1DeleteApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1309,7 +1290,7 @@ export async function deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOp
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse(
-    data.DeleteApplicationCloudWatchLoggingOptionResponse,
+    data,
     context
   );
   const response: DeleteApplicationCloudWatchLoggingOptionCommandOutput = {
@@ -1330,7 +1311,7 @@ async function deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1371,7 +1352,6 @@ async function deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1394,7 +1374,7 @@ export async function deserializeAws_json1_1DeleteApplicationInputProcessingConf
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationResponse(
-    data.DeleteApplicationInputProcessingConfigurationResponse,
+    data,
     context
   );
   const response: DeleteApplicationInputProcessingConfigurationCommandOutput = {
@@ -1415,7 +1395,7 @@ async function deserializeAws_json1_1DeleteApplicationInputProcessingConfigurati
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1456,7 +1436,6 @@ async function deserializeAws_json1_1DeleteApplicationInputProcessingConfigurati
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1479,7 +1458,7 @@ export async function deserializeAws_json1_1DeleteApplicationOutputCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApplicationOutputResponse(
-    data.DeleteApplicationOutputResponse,
+    data,
     context
   );
   const response: DeleteApplicationOutputCommandOutput = {
@@ -1500,7 +1479,7 @@ async function deserializeAws_json1_1DeleteApplicationOutputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1541,7 +1520,6 @@ async function deserializeAws_json1_1DeleteApplicationOutputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1564,7 +1542,7 @@ export async function deserializeAws_json1_1DeleteApplicationReferenceDataSource
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse(
-    data.DeleteApplicationReferenceDataSourceResponse,
+    data,
     context
   );
   const response: DeleteApplicationReferenceDataSourceCommandOutput = {
@@ -1585,7 +1563,7 @@ async function deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1626,7 +1604,6 @@ async function deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1648,10 +1625,7 @@ export async function deserializeAws_json1_1DescribeApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeApplicationResponse(
-    data.DescribeApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeApplicationResponse(data, context);
   const response: DescribeApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeApplicationResponse",
@@ -1670,7 +1644,7 @@ async function deserializeAws_json1_1DescribeApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1690,7 +1664,6 @@ async function deserializeAws_json1_1DescribeApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1712,10 +1685,7 @@ export async function deserializeAws_json1_1DiscoverInputSchemaCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DiscoverInputSchemaResponse(
-    data.DiscoverInputSchemaResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DiscoverInputSchemaResponse(data, context);
   const response: DiscoverInputSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DiscoverInputSchemaResponse",
@@ -1734,7 +1704,7 @@ async function deserializeAws_json1_1DiscoverInputSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1768,7 +1738,6 @@ async function deserializeAws_json1_1DiscoverInputSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1787,10 +1756,7 @@ export async function deserializeAws_json1_1ListApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListApplicationsResponse(
-    data.ListApplicationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListApplicationsResponse",
@@ -1805,13 +1771,12 @@ async function deserializeAws_json1_1ListApplicationsCommandError(
 ): Promise<ListApplicationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1833,10 +1798,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -1855,7 +1817,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1882,7 +1844,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1901,10 +1862,7 @@ export async function deserializeAws_json1_1StartApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartApplicationResponse(
-    data.StartApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartApplicationResponse(data, context);
   const response: StartApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartApplicationResponse",
@@ -1923,7 +1881,7 @@ async function deserializeAws_json1_1StartApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1964,7 +1922,6 @@ async function deserializeAws_json1_1StartApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -1983,10 +1940,7 @@ export async function deserializeAws_json1_1StopApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopApplicationResponse(
-    data.StopApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopApplicationResponse(data, context);
   const response: StopApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopApplicationResponse",
@@ -2005,7 +1959,7 @@ async function deserializeAws_json1_1StopApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2032,7 +1986,6 @@ async function deserializeAws_json1_1StopApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -2051,10 +2004,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2073,7 +2023,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2114,7 +2064,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -2133,10 +2082,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2155,7 +2101,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2196,7 +2142,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",
@@ -2215,10 +2160,7 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResponse(
-    data.UpdateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateApplicationResponse",
@@ -2237,7 +2179,7 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2285,7 +2227,6 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.kinesis.analytics.v20150814#${errorCode}`,
         $fault: "client",

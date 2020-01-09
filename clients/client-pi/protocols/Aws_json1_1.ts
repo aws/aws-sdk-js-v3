@@ -97,10 +97,7 @@ export async function deserializeAws_json1_1DescribeDimensionKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDimensionKeysResponse(
-    data.DescribeDimensionKeysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDimensionKeysResponse(data, context);
   const response: DescribeDimensionKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDimensionKeysResponse",
@@ -119,7 +116,7 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -146,7 +143,6 @@ async function deserializeAws_json1_1DescribeDimensionKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",
@@ -168,10 +164,7 @@ export async function deserializeAws_json1_1GetResourceMetricsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourceMetricsResponse(
-    data.GetResourceMetricsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetResourceMetricsResponse(data, context);
   const response: GetResourceMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResourceMetricsResponse",
@@ -190,7 +183,7 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -217,7 +210,6 @@ async function deserializeAws_json1_1GetResourceMetricsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `amazonaws.pi.v20180227#${errorCode}`,
         $fault: "client",

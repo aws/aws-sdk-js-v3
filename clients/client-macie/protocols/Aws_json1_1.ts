@@ -264,7 +264,7 @@ async function deserializeAws_json1_1AssociateMemberAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -291,7 +291,6 @@ async function deserializeAws_json1_1AssociateMemberAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -313,10 +312,7 @@ export async function deserializeAws_json1_1AssociateS3ResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateS3ResourcesResult(
-    data.AssociateS3ResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateS3ResourcesResult(data, context);
   const response: AssociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateS3ResourcesResult",
@@ -335,7 +331,7 @@ async function deserializeAws_json1_1AssociateS3ResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -369,7 +365,6 @@ async function deserializeAws_json1_1AssociateS3ResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -405,7 +400,7 @@ async function deserializeAws_json1_1DisassociateMemberAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -425,7 +420,6 @@ async function deserializeAws_json1_1DisassociateMemberAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -447,10 +441,7 @@ export async function deserializeAws_json1_1DisassociateS3ResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateS3ResourcesResult(
-    data.DisassociateS3ResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateS3ResourcesResult(data, context);
   const response: DisassociateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateS3ResourcesResult",
@@ -469,7 +460,7 @@ async function deserializeAws_json1_1DisassociateS3ResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -496,7 +487,6 @@ async function deserializeAws_json1_1DisassociateS3ResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -518,10 +508,7 @@ export async function deserializeAws_json1_1ListMemberAccountsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListMemberAccountsResult(
-    data.ListMemberAccountsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListMemberAccountsResult(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListMemberAccountsResult",
@@ -540,7 +527,7 @@ async function deserializeAws_json1_1ListMemberAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -560,7 +547,6 @@ async function deserializeAws_json1_1ListMemberAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -579,10 +565,7 @@ export async function deserializeAws_json1_1ListS3ResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListS3ResourcesResult(
-    data.ListS3ResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListS3ResourcesResult(data, context);
   const response: ListS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListS3ResourcesResult",
@@ -601,7 +584,7 @@ async function deserializeAws_json1_1ListS3ResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -628,7 +611,6 @@ async function deserializeAws_json1_1ListS3ResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",
@@ -647,10 +629,7 @@ export async function deserializeAws_json1_1UpdateS3ResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateS3ResourcesResult(
-    data.UpdateS3ResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateS3ResourcesResult(data, context);
   const response: UpdateS3ResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateS3ResourcesResult",
@@ -669,7 +648,7 @@ async function deserializeAws_json1_1UpdateS3ResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -696,7 +675,6 @@ async function deserializeAws_json1_1UpdateS3ResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.macie.service#${errorCode}`,
         $fault: "client",

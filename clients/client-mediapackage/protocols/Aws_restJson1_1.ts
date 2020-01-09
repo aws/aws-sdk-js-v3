@@ -776,8 +776,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -822,7 +824,6 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -899,8 +900,10 @@ async function deserializeAws_restJson1_1CreateHarvestJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -945,7 +948,6 @@ async function deserializeAws_restJson1_1CreateHarvestJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1058,8 +1060,10 @@ async function deserializeAws_restJson1_1CreateOriginEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1104,7 +1108,6 @@ async function deserializeAws_restJson1_1CreateOriginEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1138,8 +1141,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1184,7 +1189,6 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1221,8 +1225,10 @@ async function deserializeAws_restJson1_1DeleteOriginEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1267,7 +1273,6 @@ async function deserializeAws_restJson1_1DeleteOriginEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1328,8 +1333,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1374,7 +1381,6 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1451,8 +1457,10 @@ async function deserializeAws_restJson1_1DescribeHarvestJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1497,7 +1505,6 @@ async function deserializeAws_restJson1_1DescribeHarvestJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1610,8 +1617,10 @@ async function deserializeAws_restJson1_1DescribeOriginEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1656,7 +1665,6 @@ async function deserializeAws_restJson1_1DescribeOriginEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1702,8 +1710,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1748,7 +1758,6 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1797,8 +1806,10 @@ async function deserializeAws_restJson1_1ListHarvestJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1843,7 +1854,6 @@ async function deserializeAws_restJson1_1ListHarvestJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1892,8 +1902,10 @@ async function deserializeAws_restJson1_1ListOriginEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -1938,7 +1950,6 @@ async function deserializeAws_restJson1_1ListOriginEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -1979,11 +1990,12 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2044,8 +2056,10 @@ async function deserializeAws_restJson1_1RotateChannelCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -2090,7 +2104,6 @@ async function deserializeAws_restJson1_1RotateChannelCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2151,8 +2164,10 @@ async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -2197,7 +2212,6 @@ async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2226,11 +2240,12 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2259,11 +2274,12 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2321,8 +2337,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -2367,7 +2385,6 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
@@ -2480,8 +2497,10 @@ async function deserializeAws_restJson1_1UpdateOriginEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
@@ -2526,7 +2545,6 @@ async function deserializeAws_restJson1_1UpdateOriginEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",

@@ -246,8 +246,10 @@ async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
@@ -278,7 +280,6 @@ async function deserializeAws_restJson1_1CreateParticipantConnectionCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
@@ -315,8 +316,10 @@ async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
@@ -347,7 +350,6 @@ async function deserializeAws_restJson1_1DisconnectParticipantCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
@@ -397,8 +399,10 @@ async function deserializeAws_restJson1_1GetTranscriptCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
@@ -429,7 +433,6 @@ async function deserializeAws_restJson1_1GetTranscriptCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
@@ -472,8 +475,10 @@ async function deserializeAws_restJson1_1SendEventCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
@@ -504,7 +509,6 @@ async function deserializeAws_restJson1_1SendEventCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",
@@ -547,8 +551,10 @@ async function deserializeAws_restJson1_1SendMessageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazon.amazonconnectparticipantservice.v20180907#AccessDeniedException":
@@ -579,7 +585,6 @@ async function deserializeAws_restJson1_1SendMessageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.amazonconnectparticipantservice.v20180907#${errorCode}`,
         $fault: "client",

@@ -1148,8 +1148,10 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
@@ -1201,7 +1203,6 @@ async function deserializeAws_restJson1_1CreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1234,8 +1235,10 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1273,7 +1276,6 @@ async function deserializeAws_restJson1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1312,8 +1314,10 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1351,7 +1355,6 @@ async function deserializeAws_restJson1_1DescribeUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1396,8 +1399,10 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1435,7 +1440,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1480,8 +1484,10 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1519,7 +1525,6 @@ async function deserializeAws_restJson1_1DescribeUserHierarchyStructureCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1564,8 +1569,10 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1589,7 +1596,6 @@ async function deserializeAws_restJson1_1GetContactAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1646,8 +1652,10 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1685,7 +1693,6 @@ async function deserializeAws_restJson1_1GetCurrentMetricDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1730,8 +1737,10 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.amazonconnectservice.v20170808#DuplicateResourceException":
@@ -1776,7 +1785,6 @@ async function deserializeAws_restJson1_1GetFederationTokenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1822,8 +1830,10 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1861,7 +1871,6 @@ async function deserializeAws_restJson1_1GetMetricDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1910,8 +1919,10 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -1949,7 +1960,6 @@ async function deserializeAws_restJson1_1ListContactFlowsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -1998,8 +2008,10 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2037,7 +2049,6 @@ async function deserializeAws_restJson1_1ListHoursOfOperationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2086,8 +2097,10 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2125,7 +2138,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2171,8 +2183,10 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2210,7 +2224,6 @@ async function deserializeAws_restJson1_1ListQueuesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2259,8 +2272,10 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2298,7 +2313,6 @@ async function deserializeAws_restJson1_1ListRoutingProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2347,8 +2361,10 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2386,7 +2402,6 @@ async function deserializeAws_restJson1_1ListSecurityProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2435,8 +2450,10 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2474,7 +2491,6 @@ async function deserializeAws_restJson1_1ListUserHierarchyGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2520,8 +2536,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2559,7 +2577,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2601,8 +2618,10 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DestinationNotAllowedException":
     case "com.amazonaws.amazonconnectservice.v20170808#DestinationNotAllowedException":
@@ -2654,7 +2673,6 @@ async function deserializeAws_restJson1_1StartOutboundVoiceContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2688,8 +2706,10 @@ async function deserializeAws_restJson1_1StopContactCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ContactNotFoundException":
     case "com.amazonaws.amazonconnectservice.v20170808#ContactNotFoundException":
@@ -2727,7 +2747,6 @@ async function deserializeAws_restJson1_1StopContactCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2764,8 +2783,10 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2796,7 +2817,6 @@ async function deserializeAws_restJson1_1UpdateContactAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2832,8 +2852,10 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2871,7 +2893,6 @@ async function deserializeAws_restJson1_1UpdateUserHierarchyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2907,8 +2928,10 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -2946,7 +2969,6 @@ async function deserializeAws_restJson1_1UpdateUserIdentityInfoCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -2982,8 +3004,10 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -3021,7 +3045,6 @@ async function deserializeAws_restJson1_1UpdateUserPhoneConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -3057,8 +3080,10 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -3096,7 +3121,6 @@ async function deserializeAws_restJson1_1UpdateUserRoutingProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",
@@ -3132,8 +3156,10 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServiceException":
     case "com.amazonaws.amazonconnectservice.v20170808#InternalServiceException":
@@ -3171,7 +3197,6 @@ async function deserializeAws_restJson1_1UpdateUserSecurityProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amazonconnectservice.v20170808#${errorCode}`,
         $fault: "client",

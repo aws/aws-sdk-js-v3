@@ -1266,8 +1266,10 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1305,7 +1307,6 @@ async function deserializeAws_restJson1_1AcceptInvitationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1350,8 +1351,10 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1382,7 +1385,6 @@ async function deserializeAws_restJson1_1BatchDisableStandardsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1427,8 +1429,10 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1459,7 +1463,6 @@ async function deserializeAws_restJson1_1BatchEnableStandardsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1512,8 +1515,10 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1544,7 +1549,6 @@ async function deserializeAws_restJson1_1BatchImportFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1586,8 +1590,10 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1625,7 +1631,6 @@ async function deserializeAws_restJson1_1CreateActionTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1664,8 +1669,10 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1703,7 +1710,6 @@ async function deserializeAws_restJson1_1CreateInsightCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1745,8 +1751,10 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1784,7 +1792,6 @@ async function deserializeAws_restJson1_1CreateMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1829,8 +1836,10 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1861,7 +1870,6 @@ async function deserializeAws_restJson1_1DeclineInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1903,8 +1911,10 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -1935,7 +1945,6 @@ async function deserializeAws_restJson1_1DeleteActionTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -1974,8 +1983,10 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2013,7 +2024,6 @@ async function deserializeAws_restJson1_1DeleteInsightCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2058,8 +2068,10 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2097,7 +2109,6 @@ async function deserializeAws_restJson1_1DeleteInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2139,8 +2150,10 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2178,7 +2191,6 @@ async function deserializeAws_restJson1_1DeleteMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2227,8 +2239,10 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2259,7 +2273,6 @@ async function deserializeAws_restJson1_1DescribeActionTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2302,8 +2315,10 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2341,7 +2356,6 @@ async function deserializeAws_restJson1_1DescribeHubCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2390,8 +2404,10 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2422,7 +2438,6 @@ async function deserializeAws_restJson1_1DescribeProductsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2459,8 +2474,10 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2498,7 +2515,6 @@ async function deserializeAws_restJson1_1DisableImportFindingsForProductCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2535,8 +2551,10 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2567,7 +2585,6 @@ async function deserializeAws_restJson1_1DisableSecurityHubCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2604,8 +2621,10 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2643,7 +2662,6 @@ async function deserializeAws_restJson1_1DisassociateFromMasterAccountCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2680,8 +2698,10 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2719,7 +2739,6 @@ async function deserializeAws_restJson1_1DisassociateMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2761,8 +2780,10 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2800,7 +2821,6 @@ async function deserializeAws_restJson1_1EnableImportFindingsForProductCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2837,8 +2857,10 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securityhub#AccessDeniedException":
@@ -2876,7 +2898,6 @@ async function deserializeAws_restJson1_1EnableSecurityHubCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -2925,8 +2946,10 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -2957,7 +2980,6 @@ async function deserializeAws_restJson1_1GetEnabledStandardsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3003,8 +3025,10 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3035,7 +3059,6 @@ async function deserializeAws_restJson1_1GetFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3080,8 +3103,10 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3119,7 +3144,6 @@ async function deserializeAws_restJson1_1GetInsightResultsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3165,8 +3189,10 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3204,7 +3230,6 @@ async function deserializeAws_restJson1_1GetInsightsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3246,8 +3271,10 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3278,7 +3305,6 @@ async function deserializeAws_restJson1_1GetInvitationsCountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3323,8 +3349,10 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3362,7 +3390,6 @@ async function deserializeAws_restJson1_1GetMasterAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3411,8 +3438,10 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3450,7 +3479,6 @@ async function deserializeAws_restJson1_1GetMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3492,8 +3520,10 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3531,7 +3561,6 @@ async function deserializeAws_restJson1_1InviteMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3580,8 +3609,10 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3605,7 +3636,6 @@ async function deserializeAws_restJson1_1ListEnabledProductsForImportCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3654,8 +3684,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3686,7 +3718,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3732,8 +3763,10 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3764,7 +3797,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3806,8 +3838,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3831,7 +3865,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3865,8 +3898,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3890,7 +3925,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3924,8 +3958,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -3949,7 +3985,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -3986,8 +4021,10 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -4018,7 +4055,6 @@ async function deserializeAws_restJson1_1UpdateActionTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -4055,8 +4091,10 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -4094,7 +4132,6 @@ async function deserializeAws_restJson1_1UpdateFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",
@@ -4128,8 +4165,10 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
@@ -4167,7 +4206,6 @@ async function deserializeAws_restJson1_1UpdateInsightCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.securityhub#${errorCode}`,
         $fault: "client",

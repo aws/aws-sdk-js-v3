@@ -495,8 +495,10 @@ async function deserializeAws_restJson1_1CancelSigningProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -527,7 +529,6 @@ async function deserializeAws_restJson1_1CancelSigningProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -637,8 +638,10 @@ async function deserializeAws_restJson1_1DescribeSigningJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -662,7 +665,6 @@ async function deserializeAws_restJson1_1DescribeSigningJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -738,8 +740,10 @@ async function deserializeAws_restJson1_1GetSigningPlatformCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -763,7 +767,6 @@ async function deserializeAws_restJson1_1GetSigningPlatformCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -842,8 +845,10 @@ async function deserializeAws_restJson1_1GetSigningProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -874,7 +879,6 @@ async function deserializeAws_restJson1_1GetSigningProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -920,8 +924,10 @@ async function deserializeAws_restJson1_1ListSigningJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -952,7 +958,6 @@ async function deserializeAws_restJson1_1ListSigningJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1001,8 +1006,10 @@ async function deserializeAws_restJson1_1ListSigningPlatformsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -1033,7 +1040,6 @@ async function deserializeAws_restJson1_1ListSigningPlatformsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1082,8 +1088,10 @@ async function deserializeAws_restJson1_1ListSigningProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -1107,7 +1115,6 @@ async function deserializeAws_restJson1_1ListSigningProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1149,8 +1156,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
@@ -1174,7 +1183,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1216,8 +1224,10 @@ async function deserializeAws_restJson1_1PutSigningProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -1255,7 +1265,6 @@ async function deserializeAws_restJson1_1PutSigningProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1297,8 +1306,10 @@ async function deserializeAws_restJson1_1StartSigningJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.wallaby#AccessDeniedException":
@@ -1336,7 +1347,6 @@ async function deserializeAws_restJson1_1StartSigningJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1370,8 +1380,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
@@ -1395,7 +1407,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",
@@ -1429,8 +1440,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wallaby#BadRequestException":
@@ -1454,7 +1467,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wallaby#${errorCode}`,
         $fault: "client",

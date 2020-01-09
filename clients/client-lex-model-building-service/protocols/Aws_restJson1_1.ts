@@ -1584,8 +1584,10 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -1630,7 +1632,6 @@ async function deserializeAws_restJson1_1CreateBotVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -1757,8 +1758,10 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -1803,7 +1806,6 @@ async function deserializeAws_restJson1_1CreateIntentVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -1884,8 +1886,10 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -1930,7 +1934,6 @@ async function deserializeAws_restJson1_1CreateSlotTypeVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -1963,8 +1966,10 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2009,7 +2014,6 @@ async function deserializeAws_restJson1_1DeleteBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2045,8 +2049,10 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2091,7 +2097,6 @@ async function deserializeAws_restJson1_1DeleteBotAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2127,8 +2132,10 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2166,7 +2173,6 @@ async function deserializeAws_restJson1_1DeleteBotChannelAssociationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2202,8 +2208,10 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2248,7 +2256,6 @@ async function deserializeAws_restJson1_1DeleteBotVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2281,8 +2288,10 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2327,7 +2336,6 @@ async function deserializeAws_restJson1_1DeleteIntentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2363,8 +2371,10 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2409,7 +2419,6 @@ async function deserializeAws_restJson1_1DeleteIntentVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2445,8 +2454,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2491,7 +2502,6 @@ async function deserializeAws_restJson1_1DeleteSlotTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2527,8 +2537,10 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2573,7 +2585,6 @@ async function deserializeAws_restJson1_1DeleteSlotTypeVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2609,8 +2620,10 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2641,7 +2654,6 @@ async function deserializeAws_restJson1_1DeleteUtterancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2757,8 +2769,10 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2789,7 +2803,6 @@ async function deserializeAws_restJson1_1GetBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2860,8 +2873,10 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2892,7 +2907,6 @@ async function deserializeAws_restJson1_1GetBotAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -2938,8 +2952,10 @@ async function deserializeAws_restJson1_1GetBotAliasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -2963,7 +2979,6 @@ async function deserializeAws_restJson1_1GetBotAliasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3044,8 +3059,10 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3076,7 +3093,6 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3125,8 +3141,10 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3150,7 +3168,6 @@ async function deserializeAws_restJson1_1GetBotChannelAssociationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3199,8 +3216,10 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3231,7 +3250,6 @@ async function deserializeAws_restJson1_1GetBotVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3277,8 +3295,10 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3309,7 +3329,6 @@ async function deserializeAws_restJson1_1GetBotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3365,8 +3384,10 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3397,7 +3418,6 @@ async function deserializeAws_restJson1_1GetBuiltinIntentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3446,8 +3466,10 @@ async function deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3471,7 +3493,6 @@ async function deserializeAws_restJson1_1GetBuiltinIntentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3520,8 +3541,10 @@ async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3545,7 +3568,6 @@ async function deserializeAws_restJson1_1GetBuiltinSlotTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3608,8 +3630,10 @@ async function deserializeAws_restJson1_1GetExportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3640,7 +3664,6 @@ async function deserializeAws_restJson1_1GetExportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3710,8 +3733,10 @@ async function deserializeAws_restJson1_1GetImportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3742,7 +3767,6 @@ async function deserializeAws_restJson1_1GetImportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3866,8 +3890,10 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3898,7 +3924,6 @@ async function deserializeAws_restJson1_1GetIntentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -3947,8 +3972,10 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -3979,7 +4006,6 @@ async function deserializeAws_restJson1_1GetIntentVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4025,8 +4051,10 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4057,7 +4085,6 @@ async function deserializeAws_restJson1_1GetIntentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4135,8 +4162,10 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4167,7 +4196,6 @@ async function deserializeAws_restJson1_1GetSlotTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4216,8 +4244,10 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4248,7 +4278,6 @@ async function deserializeAws_restJson1_1GetSlotTypeVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4294,8 +4323,10 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4326,7 +4357,6 @@ async function deserializeAws_restJson1_1GetSlotTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4375,8 +4405,10 @@ async function deserializeAws_restJson1_1GetUtterancesViewCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4400,7 +4432,6 @@ async function deserializeAws_restJson1_1GetUtterancesViewCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4520,8 +4551,10 @@ async function deserializeAws_restJson1_1PutBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4559,7 +4592,6 @@ async function deserializeAws_restJson1_1PutBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4630,8 +4662,10 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4669,7 +4703,6 @@ async function deserializeAws_restJson1_1PutBotAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4797,8 +4830,10 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4836,7 +4871,6 @@ async function deserializeAws_restJson1_1PutIntentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -4918,8 +4952,10 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -4957,7 +4993,6 @@ async function deserializeAws_restJson1_1PutSlotTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",
@@ -5020,8 +5055,10 @@ async function deserializeAws_restJson1_1StartImportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -5045,7 +5082,6 @@ async function deserializeAws_restJson1_1StartImportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.modelbuilding#${errorCode}`,
         $fault: "client",

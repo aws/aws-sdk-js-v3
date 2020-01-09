@@ -1011,8 +1011,10 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1064,7 +1066,6 @@ async function deserializeAws_restJson1_1CreateClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1109,8 +1110,10 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1155,7 +1158,6 @@ async function deserializeAws_restJson1_1CreateFargateProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1200,8 +1202,10 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1253,7 +1257,6 @@ async function deserializeAws_restJson1_1CreateNodegroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1292,8 +1295,10 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1331,7 +1336,6 @@ async function deserializeAws_restJson1_1DeleteClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1376,8 +1380,10 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1408,7 +1414,6 @@ async function deserializeAws_restJson1_1DeleteFargateProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1453,8 +1458,10 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1499,7 +1506,6 @@ async function deserializeAws_restJson1_1DeleteNodegroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1541,8 +1547,10 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1573,7 +1581,6 @@ async function deserializeAws_restJson1_1DescribeClusterCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1618,8 +1625,10 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1650,7 +1659,6 @@ async function deserializeAws_restJson1_1DescribeFargateProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1695,8 +1703,10 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1734,7 +1744,6 @@ async function deserializeAws_restJson1_1DescribeNodegroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1776,8 +1785,10 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1808,7 +1819,6 @@ async function deserializeAws_restJson1_1DescribeUpdateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1854,8 +1864,10 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1886,7 +1898,6 @@ async function deserializeAws_restJson1_1ListClustersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -1935,8 +1946,10 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -1967,7 +1980,6 @@ async function deserializeAws_restJson1_1ListFargateProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2016,8 +2028,10 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2055,7 +2069,6 @@ async function deserializeAws_restJson1_1ListNodegroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2097,8 +2110,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
@@ -2115,7 +2130,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2161,8 +2175,10 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2193,7 +2209,6 @@ async function deserializeAws_restJson1_1ListUpdatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2227,8 +2242,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
@@ -2245,7 +2262,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2279,8 +2295,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.wesley.fe#BadRequestException":
@@ -2297,7 +2315,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2339,8 +2356,10 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2385,7 +2404,6 @@ async function deserializeAws_restJson1_1UpdateClusterConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2427,8 +2445,10 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2473,7 +2493,6 @@ async function deserializeAws_restJson1_1UpdateClusterVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2515,8 +2534,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2561,7 +2582,6 @@ async function deserializeAws_restJson1_1UpdateNodegroupConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",
@@ -2603,8 +2623,10 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientException":
     case "com.amazonaws.wesley.fe#ClientException":
@@ -2649,7 +2671,6 @@ async function deserializeAws_restJson1_1UpdateNodegroupVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.wesley.fe#${errorCode}`,
         $fault: "client",

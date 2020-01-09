@@ -689,7 +689,7 @@ export async function deserializeAws_json1_1CreateCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCostCategoryDefinitionResponse(
-    data.CreateCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: CreateCostCategoryDefinitionCommandOutput = {
@@ -710,7 +710,7 @@ async function deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -730,7 +730,6 @@ async function deserializeAws_json1_1CreateCostCategoryDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -753,7 +752,7 @@ export async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteCostCategoryDefinitionResponse(
-    data.DeleteCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: DeleteCostCategoryDefinitionCommandOutput = {
@@ -774,7 +773,7 @@ async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -794,7 +793,6 @@ async function deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -817,7 +815,7 @@ export async function deserializeAws_json1_1DescribeCostCategoryDefinitionComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCostCategoryDefinitionResponse(
-    data.DescribeCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: DescribeCostCategoryDefinitionCommandOutput = {
@@ -838,7 +836,7 @@ async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -858,7 +856,6 @@ async function deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -877,10 +874,7 @@ export async function deserializeAws_json1_1GetCostAndUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCostAndUsageResponse(
-    data.GetCostAndUsageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCostAndUsageResponse(data, context);
   const response: GetCostAndUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCostAndUsageResponse",
@@ -899,7 +893,7 @@ async function deserializeAws_json1_1GetCostAndUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -940,7 +934,6 @@ async function deserializeAws_json1_1GetCostAndUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -963,7 +956,7 @@ export async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCostAndUsageWithResourcesResponse(
-    data.GetCostAndUsageWithResourcesResponse,
+    data,
     context
   );
   const response: GetCostAndUsageWithResourcesCommandOutput = {
@@ -984,7 +977,7 @@ async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1025,7 +1018,6 @@ async function deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1044,10 +1036,7 @@ export async function deserializeAws_json1_1GetCostForecastCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCostForecastResponse(
-    data.GetCostForecastResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCostForecastResponse(data, context);
   const response: GetCostForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCostForecastResponse",
@@ -1066,7 +1055,7 @@ async function deserializeAws_json1_1GetCostForecastCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1086,7 +1075,6 @@ async function deserializeAws_json1_1GetCostForecastCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1108,10 +1096,7 @@ export async function deserializeAws_json1_1GetDimensionValuesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDimensionValuesResponse(
-    data.GetDimensionValuesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDimensionValuesResponse(data, context);
   const response: GetDimensionValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDimensionValuesResponse",
@@ -1130,7 +1115,7 @@ async function deserializeAws_json1_1GetDimensionValuesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1171,7 +1156,6 @@ async function deserializeAws_json1_1GetDimensionValuesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1194,7 +1178,7 @@ export async function deserializeAws_json1_1GetReservationCoverageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationCoverageResponse(
-    data.GetReservationCoverageResponse,
+    data,
     context
   );
   const response: GetReservationCoverageCommandOutput = {
@@ -1215,7 +1199,7 @@ async function deserializeAws_json1_1GetReservationCoverageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1242,7 +1226,6 @@ async function deserializeAws_json1_1GetReservationCoverageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1265,7 +1248,7 @@ export async function deserializeAws_json1_1GetReservationPurchaseRecommendation
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationPurchaseRecommendationResponse(
-    data.GetReservationPurchaseRecommendationResponse,
+    data,
     context
   );
   const response: GetReservationPurchaseRecommendationCommandOutput = {
@@ -1286,7 +1269,7 @@ async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1313,7 +1296,6 @@ async function deserializeAws_json1_1GetReservationPurchaseRecommendationCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1336,7 +1318,7 @@ export async function deserializeAws_json1_1GetReservationUtilizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetReservationUtilizationResponse(
-    data.GetReservationUtilizationResponse,
+    data,
     context
   );
   const response: GetReservationUtilizationCommandOutput = {
@@ -1357,7 +1339,7 @@ async function deserializeAws_json1_1GetReservationUtilizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1384,7 +1366,6 @@ async function deserializeAws_json1_1GetReservationUtilizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1407,7 +1388,7 @@ export async function deserializeAws_json1_1GetRightsizingRecommendationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRightsizingRecommendationResponse(
-    data.GetRightsizingRecommendationResponse,
+    data,
     context
   );
   const response: GetRightsizingRecommendationCommandOutput = {
@@ -1428,7 +1409,7 @@ async function deserializeAws_json1_1GetRightsizingRecommendationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1448,7 +1429,6 @@ async function deserializeAws_json1_1GetRightsizingRecommendationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1471,7 +1451,7 @@ export async function deserializeAws_json1_1GetSavingsPlansCoverageCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansCoverageResponse(
-    data.GetSavingsPlansCoverageResponse,
+    data,
     context
   );
   const response: GetSavingsPlansCoverageCommandOutput = {
@@ -1492,7 +1472,7 @@ async function deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1519,7 +1499,6 @@ async function deserializeAws_json1_1GetSavingsPlansCoverageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1542,7 +1521,7 @@ export async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendatio
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse(
-    data.GetSavingsPlansPurchaseRecommendationResponse,
+    data,
     context
   );
   const response: GetSavingsPlansPurchaseRecommendationCommandOutput = {
@@ -1563,7 +1542,7 @@ async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1583,7 +1562,6 @@ async function deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1606,7 +1584,7 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationResponse(
-    data.GetSavingsPlansUtilizationResponse,
+    data,
     context
   );
   const response: GetSavingsPlansUtilizationCommandOutput = {
@@ -1627,7 +1605,7 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1647,7 +1625,6 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1670,7 +1647,7 @@ export async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse(
-    data.GetSavingsPlansUtilizationDetailsResponse,
+    data,
     context
   );
   const response: GetSavingsPlansUtilizationDetailsCommandOutput = {
@@ -1691,7 +1668,7 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1718,7 +1695,6 @@ async function deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1737,10 +1713,7 @@ export async function deserializeAws_json1_1GetTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagsResponse(
-    data.GetTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTagsResponse(data, context);
   const response: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTagsResponse",
@@ -1759,7 +1732,7 @@ async function deserializeAws_json1_1GetTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1800,7 +1773,6 @@ async function deserializeAws_json1_1GetTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1819,10 +1791,7 @@ export async function deserializeAws_json1_1GetUsageForecastCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUsageForecastResponse(
-    data.GetUsageForecastResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetUsageForecastResponse(data, context);
   const response: GetUsageForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUsageForecastResponse",
@@ -1841,7 +1810,7 @@ async function deserializeAws_json1_1GetUsageForecastCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1868,7 +1837,6 @@ async function deserializeAws_json1_1GetUsageForecastCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1891,7 +1859,7 @@ export async function deserializeAws_json1_1ListCostCategoryDefinitionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListCostCategoryDefinitionsResponse(
-    data.ListCostCategoryDefinitionsResponse,
+    data,
     context
   );
   const response: ListCostCategoryDefinitionsCommandOutput = {
@@ -1912,7 +1880,7 @@ async function deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1925,7 +1893,6 @@ async function deserializeAws_json1_1ListCostCategoryDefinitionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",
@@ -1948,7 +1915,7 @@ export async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateCostCategoryDefinitionResponse(
-    data.UpdateCostCategoryDefinitionResponse,
+    data,
     context
   );
   const response: UpdateCostCategoryDefinitionCommandOutput = {
@@ -1969,7 +1936,7 @@ async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1996,7 +1963,6 @@ async function deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsinsightsindexservice.v0#${errorCode}`,
         $fault: "client",

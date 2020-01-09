@@ -981,8 +981,10 @@ async function deserializeAws_restJson1_1AssociateDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1027,7 +1029,6 @@ async function deserializeAws_restJson1_1AssociateDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1069,8 +1070,10 @@ async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1115,7 +1118,6 @@ async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1157,8 +1159,10 @@ async function deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1203,7 +1207,6 @@ async function deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1242,8 +1245,10 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1288,7 +1293,6 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1322,8 +1326,10 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1361,7 +1367,6 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1403,8 +1408,10 @@ async function deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1442,7 +1449,6 @@ async function deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1498,8 +1504,10 @@ async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1537,7 +1545,6 @@ async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1619,8 +1626,10 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1658,7 +1667,6 @@ async function deserializeAws_restJson1_1DescribeDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1700,8 +1708,10 @@ async function deserializeAws_restJson1_1DescribeDevicePolicyConfigurationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1739,7 +1749,6 @@ async function deserializeAws_restJson1_1DescribeDevicePolicyConfigurationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1801,8 +1810,10 @@ async function deserializeAws_restJson1_1DescribeDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1840,7 +1851,6 @@ async function deserializeAws_restJson1_1DescribeDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -1914,8 +1924,10 @@ async function deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -1953,7 +1965,6 @@ async function deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2003,8 +2014,10 @@ async function deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2042,7 +2055,6 @@ async function deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2096,8 +2108,10 @@ async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2135,7 +2149,6 @@ async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2172,8 +2185,10 @@ async function deserializeAws_restJson1_1DisassociateDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2211,7 +2226,6 @@ async function deserializeAws_restJson1_1DisassociateDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2248,8 +2262,10 @@ async function deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProvide
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2294,7 +2310,6 @@ async function deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProvide
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2331,8 +2346,10 @@ async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthority
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2370,7 +2387,6 @@ async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthority
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2416,8 +2432,10 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2455,7 +2473,6 @@ async function deserializeAws_restJson1_1ListDevicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2501,8 +2518,10 @@ async function deserializeAws_restJson1_1ListDomainsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2533,7 +2552,6 @@ async function deserializeAws_restJson1_1ListDomainsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2579,8 +2597,10 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2611,7 +2631,6 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2660,8 +2679,10 @@ async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2699,7 +2720,6 @@ async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2748,8 +2768,10 @@ async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2780,7 +2802,6 @@ async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2817,8 +2838,10 @@ async function deserializeAws_restJson1_1RestoreDomainAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2856,7 +2879,6 @@ async function deserializeAws_restJson1_1RestoreDomainAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2893,8 +2915,10 @@ async function deserializeAws_restJson1_1RevokeDomainAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -2932,7 +2956,6 @@ async function deserializeAws_restJson1_1RevokeDomainAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -2966,8 +2989,10 @@ async function deserializeAws_restJson1_1SignOutUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3005,7 +3030,6 @@ async function deserializeAws_restJson1_1SignOutUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3042,8 +3066,10 @@ async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3081,7 +3107,6 @@ async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3118,8 +3143,10 @@ async function deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3157,7 +3184,6 @@ async function deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3194,8 +3220,10 @@ async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3233,7 +3261,6 @@ async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3270,8 +3297,10 @@ async function deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3309,7 +3338,6 @@ async function deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3346,8 +3374,10 @@ async function deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3385,7 +3415,6 @@ async function deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
@@ -3422,8 +3451,10 @@ async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurationComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
@@ -3461,7 +3492,6 @@ async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurationComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",

@@ -228,7 +228,7 @@ export async function deserializeAws_json1_1DescribeAffectedEntitiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAffectedEntitiesResponse(
-    data.DescribeAffectedEntitiesResponse,
+    data,
     context
   );
   const response: DescribeAffectedEntitiesCommandOutput = {
@@ -249,7 +249,7 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -269,7 +269,6 @@ async function deserializeAws_json1_1DescribeAffectedEntitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -292,7 +291,7 @@ export async function deserializeAws_json1_1DescribeEntityAggregatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntityAggregatesResponse(
-    data.DescribeEntityAggregatesResponse,
+    data,
     context
   );
   const response: DescribeEntityAggregatesCommandOutput = {
@@ -309,13 +308,12 @@ async function deserializeAws_json1_1DescribeEntityAggregatesCommandError(
 ): Promise<DescribeEntityAggregatesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -338,7 +336,7 @@ export async function deserializeAws_json1_1DescribeEventAggregatesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEventAggregatesResponse(
-    data.DescribeEventAggregatesResponse,
+    data,
     context
   );
   const response: DescribeEventAggregatesCommandOutput = {
@@ -359,7 +357,7 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -372,7 +370,6 @@ async function deserializeAws_json1_1DescribeEventAggregatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -394,10 +391,7 @@ export async function deserializeAws_json1_1DescribeEventDetailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventDetailsResponse(
-    data.DescribeEventDetailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventDetailsResponse(data, context);
   const response: DescribeEventDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventDetailsResponse",
@@ -416,7 +410,7 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -429,7 +423,6 @@ async function deserializeAws_json1_1DescribeEventDetailsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -451,10 +444,7 @@ export async function deserializeAws_json1_1DescribeEventTypesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventTypesResponse(
-    data.DescribeEventTypesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventTypesResponse(data, context);
   const response: DescribeEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventTypesResponse",
@@ -473,7 +463,7 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -493,7 +483,6 @@ async function deserializeAws_json1_1DescribeEventTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",
@@ -512,10 +501,7 @@ export async function deserializeAws_json1_1DescribeEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventsResponse(
-    data.DescribeEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventsResponse",
@@ -534,7 +520,7 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -554,7 +540,6 @@ async function deserializeAws_json1_1DescribeEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.silvermineunifiedapi.v20160804.operation#${errorCode}`,
         $fault: "client",

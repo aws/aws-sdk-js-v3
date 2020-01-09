@@ -490,8 +490,10 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -529,7 +531,6 @@ async function deserializeAws_restJson1_1CreateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -568,8 +569,10 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -614,7 +617,6 @@ async function deserializeAws_restJson1_1DeleteGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -653,8 +655,10 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -699,7 +703,6 @@ async function deserializeAws_restJson1_1GetGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -741,8 +744,10 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -787,7 +792,6 @@ async function deserializeAws_restJson1_1GetGroupQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -830,8 +834,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -876,7 +882,6 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -932,8 +937,10 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -985,7 +992,6 @@ async function deserializeAws_restJson1_1ListGroupResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1035,8 +1041,10 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1074,7 +1082,6 @@ async function deserializeAws_restJson1_1ListGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1130,8 +1137,10 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1176,7 +1185,6 @@ async function deserializeAws_restJson1_1SearchResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1219,8 +1227,10 @@ async function deserializeAws_restJson1_1TagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1265,7 +1275,6 @@ async function deserializeAws_restJson1_1TagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1308,8 +1317,10 @@ async function deserializeAws_restJson1_1UntagCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1354,7 +1365,6 @@ async function deserializeAws_restJson1_1UntagCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1393,8 +1403,10 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1439,7 +1451,6 @@ async function deserializeAws_restJson1_1UpdateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",
@@ -1484,8 +1495,10 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ardi#BadRequestException":
@@ -1530,7 +1543,6 @@ async function deserializeAws_restJson1_1UpdateGroupQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ardi#${errorCode}`,
         $fault: "client",

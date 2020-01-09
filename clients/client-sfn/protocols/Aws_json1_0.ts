@@ -739,10 +739,7 @@ export async function deserializeAws_json1_0CreateActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateActivityOutput(
-    data.CreateActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateActivityOutput(data, context);
   const response: CreateActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateActivityOutput",
@@ -761,7 +758,7 @@ async function deserializeAws_json1_0CreateActivityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -788,7 +785,6 @@ async function deserializeAws_json1_0CreateActivityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -810,10 +806,7 @@ export async function deserializeAws_json1_0CreateStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateStateMachineOutput(
-    data.CreateStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateStateMachineOutput(data, context);
   const response: CreateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStateMachineOutput",
@@ -832,7 +825,7 @@ async function deserializeAws_json1_0CreateStateMachineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -901,7 +894,6 @@ async function deserializeAws_json1_0CreateStateMachineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -920,10 +912,7 @@ export async function deserializeAws_json1_0DeleteActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteActivityOutput(
-    data.DeleteActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteActivityOutput(data, context);
   const response: DeleteActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteActivityOutput",
@@ -942,7 +931,7 @@ async function deserializeAws_json1_0DeleteActivityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -955,7 +944,6 @@ async function deserializeAws_json1_0DeleteActivityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -977,10 +965,7 @@ export async function deserializeAws_json1_0DeleteStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteStateMachineOutput(
-    data.DeleteStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteStateMachineOutput(data, context);
   const response: DeleteStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStateMachineOutput",
@@ -999,7 +984,7 @@ async function deserializeAws_json1_0DeleteStateMachineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1012,7 +997,6 @@ async function deserializeAws_json1_0DeleteStateMachineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1031,10 +1015,7 @@ export async function deserializeAws_json1_0DescribeActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeActivityOutput(
-    data.DescribeActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeActivityOutput(data, context);
   const response: DescribeActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeActivityOutput",
@@ -1053,7 +1034,7 @@ async function deserializeAws_json1_0DescribeActivityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1073,7 +1054,6 @@ async function deserializeAws_json1_0DescribeActivityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1092,10 +1072,7 @@ export async function deserializeAws_json1_0DescribeExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeExecutionOutput(
-    data.DescribeExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeExecutionOutput(data, context);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExecutionOutput",
@@ -1114,7 +1091,7 @@ async function deserializeAws_json1_0DescribeExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1134,7 +1111,6 @@ async function deserializeAws_json1_0DescribeExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1156,10 +1132,7 @@ export async function deserializeAws_json1_0DescribeStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineOutput(
-    data.DescribeStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeStateMachineOutput(data, context);
   const response: DescribeStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStateMachineOutput",
@@ -1178,7 +1151,7 @@ async function deserializeAws_json1_0DescribeStateMachineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1198,7 +1171,6 @@ async function deserializeAws_json1_0DescribeStateMachineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1221,7 +1193,7 @@ export async function deserializeAws_json1_0DescribeStateMachineForExecutionComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(
-    data.DescribeStateMachineForExecutionOutput,
+    data,
     context
   );
   const response: DescribeStateMachineForExecutionCommandOutput = {
@@ -1242,7 +1214,7 @@ async function deserializeAws_json1_0DescribeStateMachineForExecutionCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1262,7 +1234,6 @@ async function deserializeAws_json1_0DescribeStateMachineForExecutionCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1281,10 +1252,7 @@ export async function deserializeAws_json1_0GetActivityTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetActivityTaskOutput(
-    data.GetActivityTaskOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetActivityTaskOutput(data, context);
   const response: GetActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetActivityTaskOutput",
@@ -1303,7 +1271,7 @@ async function deserializeAws_json1_0GetActivityTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1330,7 +1298,6 @@ async function deserializeAws_json1_0GetActivityTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1352,10 +1319,7 @@ export async function deserializeAws_json1_0GetExecutionHistoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetExecutionHistoryOutput(
-    data.GetExecutionHistoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetExecutionHistoryOutput(data, context);
   const response: GetExecutionHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetExecutionHistoryOutput",
@@ -1374,7 +1338,7 @@ async function deserializeAws_json1_0GetExecutionHistoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1401,7 +1365,6 @@ async function deserializeAws_json1_0GetExecutionHistoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1420,10 +1383,7 @@ export async function deserializeAws_json1_0ListActivitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListActivitiesOutput(
-    data.ListActivitiesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListActivitiesOutput(data, context);
   const response: ListActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActivitiesOutput",
@@ -1442,7 +1402,7 @@ async function deserializeAws_json1_0ListActivitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1455,7 +1415,6 @@ async function deserializeAws_json1_0ListActivitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1474,10 +1433,7 @@ export async function deserializeAws_json1_0ListExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListExecutionsOutput(
-    data.ListExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListExecutionsOutput(data, context);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListExecutionsOutput",
@@ -1496,7 +1452,7 @@ async function deserializeAws_json1_0ListExecutionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1530,7 +1486,6 @@ async function deserializeAws_json1_0ListExecutionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1549,10 +1504,7 @@ export async function deserializeAws_json1_0ListStateMachinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStateMachinesOutput(
-    data.ListStateMachinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListStateMachinesOutput(data, context);
   const response: ListStateMachinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStateMachinesOutput",
@@ -1571,7 +1523,7 @@ async function deserializeAws_json1_0ListStateMachinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1584,7 +1536,6 @@ async function deserializeAws_json1_0ListStateMachinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1606,10 +1557,7 @@ export async function deserializeAws_json1_0ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -1628,7 +1576,7 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1648,7 +1596,6 @@ async function deserializeAws_json1_0ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1667,10 +1614,7 @@ export async function deserializeAws_json1_0SendTaskFailureCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskFailureOutput(
-    data.SendTaskFailureOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskFailureOutput(data, context);
   const response: SendTaskFailureCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskFailureOutput",
@@ -1689,7 +1633,7 @@ async function deserializeAws_json1_0SendTaskFailureCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1716,7 +1660,6 @@ async function deserializeAws_json1_0SendTaskFailureCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1735,10 +1678,7 @@ export async function deserializeAws_json1_0SendTaskHeartbeatCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskHeartbeatOutput(
-    data.SendTaskHeartbeatOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskHeartbeatOutput(data, context);
   const response: SendTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskHeartbeatOutput",
@@ -1757,7 +1697,7 @@ async function deserializeAws_json1_0SendTaskHeartbeatCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1784,7 +1724,6 @@ async function deserializeAws_json1_0SendTaskHeartbeatCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1803,10 +1742,7 @@ export async function deserializeAws_json1_0SendTaskSuccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskSuccessOutput(
-    data.SendTaskSuccessOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskSuccessOutput(data, context);
   const response: SendTaskSuccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskSuccessOutput",
@@ -1825,7 +1761,7 @@ async function deserializeAws_json1_0SendTaskSuccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1859,7 +1795,6 @@ async function deserializeAws_json1_0SendTaskSuccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1878,10 +1813,7 @@ export async function deserializeAws_json1_0StartExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartExecutionOutput(
-    data.StartExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0StartExecutionOutput(data, context);
   const response: StartExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExecutionOutput",
@@ -1900,7 +1832,7 @@ async function deserializeAws_json1_0StartExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1955,7 +1887,6 @@ async function deserializeAws_json1_0StartExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -1974,10 +1905,7 @@ export async function deserializeAws_json1_0StopExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StopExecutionOutput(
-    data.StopExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0StopExecutionOutput(data, context);
   const response: StopExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopExecutionOutput",
@@ -1996,7 +1924,7 @@ async function deserializeAws_json1_0StopExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2016,7 +1944,6 @@ async function deserializeAws_json1_0StopExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -2035,10 +1962,7 @@ export async function deserializeAws_json1_0TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -2057,7 +1981,7 @@ async function deserializeAws_json1_0TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2084,7 +2008,6 @@ async function deserializeAws_json1_0TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -2103,10 +2026,7 @@ export async function deserializeAws_json1_0UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -2125,7 +2045,7 @@ async function deserializeAws_json1_0UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2145,7 +2065,6 @@ async function deserializeAws_json1_0UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
@@ -2167,10 +2086,7 @@ export async function deserializeAws_json1_0UpdateStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateStateMachineOutput(
-    data.UpdateStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateStateMachineOutput(data, context);
   const response: UpdateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStateMachineOutput",
@@ -2189,7 +2105,7 @@ async function deserializeAws_json1_0UpdateStateMachineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2237,7 +2153,6 @@ async function deserializeAws_json1_0UpdateStateMachineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",

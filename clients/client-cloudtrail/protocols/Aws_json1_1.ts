@@ -599,10 +599,7 @@ export async function deserializeAws_json1_1AddTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsResponse(
-    data.AddTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsResponse(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsResponse",
@@ -621,7 +618,7 @@ async function deserializeAws_json1_1AddTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -690,7 +687,6 @@ async function deserializeAws_json1_1AddTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -709,10 +705,7 @@ export async function deserializeAws_json1_1CreateTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTrailResponse(
-    data.CreateTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTrailResponse(data, context);
   const response: CreateTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTrailResponse",
@@ -731,7 +724,7 @@ async function deserializeAws_json1_1CreateTrailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -926,7 +919,6 @@ async function deserializeAws_json1_1CreateTrailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -945,10 +937,7 @@ export async function deserializeAws_json1_1DeleteTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTrailResponse(
-    data.DeleteTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTrailResponse(data, context);
   const response: DeleteTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTrailResponse",
@@ -967,7 +956,7 @@ async function deserializeAws_json1_1DeleteTrailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1022,7 +1011,6 @@ async function deserializeAws_json1_1DeleteTrailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1041,10 +1029,7 @@ export async function deserializeAws_json1_1DescribeTrailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrailsResponse(
-    data.DescribeTrailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrailsResponse(data, context);
   const response: DescribeTrailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrailsResponse",
@@ -1063,7 +1048,7 @@ async function deserializeAws_json1_1DescribeTrailsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1090,7 +1075,6 @@ async function deserializeAws_json1_1DescribeTrailsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1109,10 +1093,7 @@ export async function deserializeAws_json1_1GetEventSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEventSelectorsResponse(
-    data.GetEventSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetEventSelectorsResponse(data, context);
   const response: GetEventSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEventSelectorsResponse",
@@ -1131,7 +1112,7 @@ async function deserializeAws_json1_1GetEventSelectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1165,7 +1146,6 @@ async function deserializeAws_json1_1GetEventSelectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1187,10 +1167,7 @@ export async function deserializeAws_json1_1GetInsightSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInsightSelectorsResponse(
-    data.GetInsightSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetInsightSelectorsResponse(data, context);
   const response: GetInsightSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInsightSelectorsResponse",
@@ -1209,7 +1186,7 @@ async function deserializeAws_json1_1GetInsightSelectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1250,7 +1227,6 @@ async function deserializeAws_json1_1GetInsightSelectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1269,10 +1245,7 @@ export async function deserializeAws_json1_1GetTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTrailResponse(
-    data.GetTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTrailResponse(data, context);
   const response: GetTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTrailResponse",
@@ -1291,7 +1264,7 @@ async function deserializeAws_json1_1GetTrailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1325,7 +1298,6 @@ async function deserializeAws_json1_1GetTrailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1344,10 +1316,7 @@ export async function deserializeAws_json1_1GetTrailStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTrailStatusResponse(
-    data.GetTrailStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTrailStatusResponse(data, context);
   const response: GetTrailStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTrailStatusResponse",
@@ -1366,7 +1335,7 @@ async function deserializeAws_json1_1GetTrailStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1400,7 +1369,6 @@ async function deserializeAws_json1_1GetTrailStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1419,10 +1387,7 @@ export async function deserializeAws_json1_1ListPublicKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPublicKeysResponse(
-    data.ListPublicKeysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPublicKeysResponse(data, context);
   const response: ListPublicKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPublicKeysResponse",
@@ -1441,7 +1406,7 @@ async function deserializeAws_json1_1ListPublicKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1475,7 +1440,6 @@ async function deserializeAws_json1_1ListPublicKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1494,10 +1458,7 @@ export async function deserializeAws_json1_1ListTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsResponse(
-    data.ListTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsResponse",
@@ -1516,7 +1477,7 @@ async function deserializeAws_json1_1ListTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1571,7 +1532,6 @@ async function deserializeAws_json1_1ListTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1590,10 +1550,7 @@ export async function deserializeAws_json1_1ListTrailsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTrailsResponse(
-    data.ListTrailsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTrailsResponse(data, context);
   const response: ListTrailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTrailsResponse",
@@ -1612,7 +1569,7 @@ async function deserializeAws_json1_1ListTrailsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1632,7 +1589,6 @@ async function deserializeAws_json1_1ListTrailsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1651,10 +1607,7 @@ export async function deserializeAws_json1_1LookupEventsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1LookupEventsResponse(
-    data.LookupEventsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1LookupEventsResponse(data, context);
   const response: LookupEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "LookupEventsResponse",
@@ -1673,7 +1626,7 @@ async function deserializeAws_json1_1LookupEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1728,7 +1681,6 @@ async function deserializeAws_json1_1LookupEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1747,10 +1699,7 @@ export async function deserializeAws_json1_1PutEventSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEventSelectorsResponse(
-    data.PutEventSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutEventSelectorsResponse(data, context);
   const response: PutEventSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEventSelectorsResponse",
@@ -1769,7 +1718,7 @@ async function deserializeAws_json1_1PutEventSelectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1831,7 +1780,6 @@ async function deserializeAws_json1_1PutEventSelectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1853,10 +1801,7 @@ export async function deserializeAws_json1_1PutInsightSelectorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutInsightSelectorsResponse(
-    data.PutInsightSelectorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutInsightSelectorsResponse(data, context);
   const response: PutInsightSelectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutInsightSelectorsResponse",
@@ -1875,7 +1820,7 @@ async function deserializeAws_json1_1PutInsightSelectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1944,7 +1889,6 @@ async function deserializeAws_json1_1PutInsightSelectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -1963,10 +1907,7 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsResponse(
-    data.RemoveTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsResponse(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsResponse",
@@ -1985,7 +1926,7 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2047,7 +1988,6 @@ async function deserializeAws_json1_1RemoveTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -2066,10 +2006,7 @@ export async function deserializeAws_json1_1StartLoggingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartLoggingResponse(
-    data.StartLoggingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartLoggingResponse(data, context);
   const response: StartLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartLoggingResponse",
@@ -2088,7 +2025,7 @@ async function deserializeAws_json1_1StartLoggingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2143,7 +2080,6 @@ async function deserializeAws_json1_1StartLoggingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -2162,10 +2098,7 @@ export async function deserializeAws_json1_1StopLoggingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopLoggingResponse(
-    data.StopLoggingResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopLoggingResponse(data, context);
   const response: StopLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopLoggingResponse",
@@ -2184,7 +2117,7 @@ async function deserializeAws_json1_1StopLoggingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2239,7 +2172,6 @@ async function deserializeAws_json1_1StopLoggingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",
@@ -2258,10 +2190,7 @@ export async function deserializeAws_json1_1UpdateTrailCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTrailResponse(
-    data.UpdateTrailResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTrailResponse(data, context);
   const response: UpdateTrailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTrailResponse",
@@ -2280,7 +2209,7 @@ async function deserializeAws_json1_1UpdateTrailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2475,7 +2404,6 @@ async function deserializeAws_json1_1UpdateTrailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cloudtrail.v20131101#${errorCode}`,
         $fault: "client",

@@ -110,8 +110,10 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalFailure":
     case "com.amazonaws.sagemaker.runtime#InternalFailure":
@@ -142,7 +144,6 @@ async function deserializeAws_restJson1_1InvokeEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.sagemaker.runtime#${errorCode}`,
         $fault: "client",

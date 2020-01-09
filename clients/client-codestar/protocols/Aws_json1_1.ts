@@ -599,10 +599,7 @@ export async function deserializeAws_json1_1AssociateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateTeamMemberResult(
-    data.AssociateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateTeamMemberResult(data, context);
   const response: AssociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateTeamMemberResult",
@@ -621,7 +618,7 @@ async function deserializeAws_json1_1AssociateTeamMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -676,7 +673,6 @@ async function deserializeAws_json1_1AssociateTeamMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -695,10 +691,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectResult(
-    data.CreateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectResult(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResult",
@@ -717,7 +710,7 @@ async function deserializeAws_json1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -772,7 +765,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -791,10 +783,7 @@ export async function deserializeAws_json1_1CreateUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserProfileResult(
-    data.CreateUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserProfileResult(data, context);
   const response: CreateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserProfileResult",
@@ -813,7 +802,7 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -833,7 +822,6 @@ async function deserializeAws_json1_1CreateUserProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -852,10 +840,7 @@ export async function deserializeAws_json1_1DeleteProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectResult(
-    data.DeleteProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProjectResult(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectResult",
@@ -874,7 +859,7 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -901,7 +886,6 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -920,10 +904,7 @@ export async function deserializeAws_json1_1DeleteUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserProfileResult(
-    data.DeleteUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserProfileResult(data, context);
   const response: DeleteUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserProfileResult",
@@ -942,7 +923,7 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -955,7 +936,6 @@ async function deserializeAws_json1_1DeleteUserProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -974,10 +954,7 @@ export async function deserializeAws_json1_1DescribeProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProjectResult(
-    data.DescribeProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProjectResult(data, context);
   const response: DescribeProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProjectResult",
@@ -996,7 +973,7 @@ async function deserializeAws_json1_1DescribeProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1037,7 +1014,6 @@ async function deserializeAws_json1_1DescribeProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1059,10 +1035,7 @@ export async function deserializeAws_json1_1DescribeUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserProfileResult(
-    data.DescribeUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserProfileResult(data, context);
   const response: DescribeUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserProfileResult",
@@ -1081,7 +1054,7 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1101,7 +1074,6 @@ async function deserializeAws_json1_1DescribeUserProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1123,10 +1095,7 @@ export async function deserializeAws_json1_1DisassociateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateTeamMemberResult(
-    data.DisassociateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateTeamMemberResult(data, context);
   const response: DisassociateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateTeamMemberResult",
@@ -1145,7 +1114,7 @@ async function deserializeAws_json1_1DisassociateTeamMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1179,7 +1148,6 @@ async function deserializeAws_json1_1DisassociateTeamMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1198,10 +1166,7 @@ export async function deserializeAws_json1_1ListProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsResult(
-    data.ListProjectsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListProjectsResult(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsResult",
@@ -1220,7 +1185,7 @@ async function deserializeAws_json1_1ListProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1240,7 +1205,6 @@ async function deserializeAws_json1_1ListProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1259,10 +1223,7 @@ export async function deserializeAws_json1_1ListResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourcesResult(
-    data.ListResourcesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourcesResult(data, context);
   const response: ListResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourcesResult",
@@ -1281,7 +1242,7 @@ async function deserializeAws_json1_1ListResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1308,7 +1269,6 @@ async function deserializeAws_json1_1ListResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1330,10 +1290,7 @@ export async function deserializeAws_json1_1ListTagsForProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForProjectResult(
-    data.ListTagsForProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForProjectResult(data, context);
   const response: ListTagsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForProjectResult",
@@ -1352,7 +1309,7 @@ async function deserializeAws_json1_1ListTagsForProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1379,7 +1336,6 @@ async function deserializeAws_json1_1ListTagsForProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1398,10 +1354,7 @@ export async function deserializeAws_json1_1ListTeamMembersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTeamMembersResult(
-    data.ListTeamMembersResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTeamMembersResult(data, context);
   const response: ListTeamMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTeamMembersResult",
@@ -1420,7 +1373,7 @@ async function deserializeAws_json1_1ListTeamMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1447,7 +1400,6 @@ async function deserializeAws_json1_1ListTeamMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1466,10 +1418,7 @@ export async function deserializeAws_json1_1ListUserProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserProfilesResult(
-    data.ListUserProfilesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListUserProfilesResult(data, context);
   const response: ListUserProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserProfilesResult",
@@ -1488,7 +1437,7 @@ async function deserializeAws_json1_1ListUserProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1508,7 +1457,6 @@ async function deserializeAws_json1_1ListUserProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1527,10 +1475,7 @@ export async function deserializeAws_json1_1TagProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagProjectResult(
-    data.TagProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1TagProjectResult(data, context);
   const response: TagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagProjectResult",
@@ -1549,7 +1494,7 @@ async function deserializeAws_json1_1TagProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1583,7 +1528,6 @@ async function deserializeAws_json1_1TagProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1602,10 +1546,7 @@ export async function deserializeAws_json1_1UntagProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagProjectResult(
-    data.UntagProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1UntagProjectResult(data, context);
   const response: UntagProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagProjectResult",
@@ -1624,7 +1565,7 @@ async function deserializeAws_json1_1UntagProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1658,7 +1599,6 @@ async function deserializeAws_json1_1UntagProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1677,10 +1617,7 @@ export async function deserializeAws_json1_1UpdateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectResult(
-    data.UpdateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProjectResult(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectResult",
@@ -1699,7 +1636,7 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1719,7 +1656,6 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1738,10 +1674,7 @@ export async function deserializeAws_json1_1UpdateTeamMemberCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTeamMemberResult(
-    data.UpdateTeamMemberResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTeamMemberResult(data, context);
   const response: UpdateTeamMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTeamMemberResult",
@@ -1760,7 +1693,7 @@ async function deserializeAws_json1_1UpdateTeamMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1815,7 +1748,6 @@ async function deserializeAws_json1_1UpdateTeamMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",
@@ -1834,10 +1766,7 @@ export async function deserializeAws_json1_1UpdateUserProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserProfileResult(
-    data.UpdateUserProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserProfileResult(data, context);
   const response: UpdateUserProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserProfileResult",
@@ -1856,7 +1785,7 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1876,7 +1805,6 @@ async function deserializeAws_json1_1UpdateUserProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestar#${errorCode}`,
         $fault: "client",

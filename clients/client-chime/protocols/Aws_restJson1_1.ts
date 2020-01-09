@@ -3586,8 +3586,10 @@ async function deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -3646,7 +3648,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumberWithUserCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -3691,8 +3692,10 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -3751,7 +3754,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -3796,8 +3798,10 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -3856,7 +3860,6 @@ async function deserializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnector
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -3908,8 +3911,10 @@ async function deserializeAws_restJson1_1BatchCreateAttendeeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -3968,7 +3973,6 @@ async function deserializeAws_restJson1_1BatchCreateAttendeeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4013,8 +4017,10 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4059,7 +4065,6 @@ async function deserializeAws_restJson1_1BatchCreateRoomMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4104,8 +4109,10 @@ async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4157,7 +4164,6 @@ async function deserializeAws_restJson1_1BatchDeletePhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4202,8 +4208,10 @@ async function deserializeAws_restJson1_1BatchSuspendUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4255,7 +4263,6 @@ async function deserializeAws_restJson1_1BatchSuspendUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4300,8 +4307,10 @@ async function deserializeAws_restJson1_1BatchUnsuspendUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4353,7 +4362,6 @@ async function deserializeAws_restJson1_1BatchUnsuspendUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4398,8 +4406,10 @@ async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4451,7 +4461,6 @@ async function deserializeAws_restJson1_1BatchUpdatePhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4496,8 +4505,10 @@ async function deserializeAws_restJson1_1BatchUpdateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4549,7 +4560,6 @@ async function deserializeAws_restJson1_1BatchUpdateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4588,8 +4598,10 @@ async function deserializeAws_restJson1_1CreateAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4641,7 +4653,6 @@ async function deserializeAws_restJson1_1CreateAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4686,8 +4697,10 @@ async function deserializeAws_restJson1_1CreateAttendeeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4746,7 +4759,6 @@ async function deserializeAws_restJson1_1CreateAttendeeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4785,8 +4797,10 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4838,7 +4852,6 @@ async function deserializeAws_restJson1_1CreateBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4877,8 +4890,10 @@ async function deserializeAws_restJson1_1CreateMeetingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -4930,7 +4945,6 @@ async function deserializeAws_restJson1_1CreateMeetingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -4975,8 +4989,10 @@ async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -5035,7 +5051,6 @@ async function deserializeAws_restJson1_1CreatePhoneNumberOrderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5074,8 +5089,10 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5127,7 +5144,6 @@ async function deserializeAws_restJson1_1CreateRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5172,8 +5188,10 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5232,7 +5250,6 @@ async function deserializeAws_restJson1_1CreateRoomMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5277,8 +5294,10 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -5337,7 +5356,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5382,8 +5400,10 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -5442,7 +5462,6 @@ async function deserializeAws_restJson1_1CreateVoiceConnectorGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5476,8 +5495,10 @@ async function deserializeAws_restJson1_1DeleteAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5536,7 +5557,6 @@ async function deserializeAws_restJson1_1DeleteAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5572,8 +5592,10 @@ async function deserializeAws_restJson1_1DeleteAttendeeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5625,7 +5647,6 @@ async function deserializeAws_restJson1_1DeleteAttendeeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5661,8 +5682,10 @@ async function deserializeAws_restJson1_1DeleteEventsConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5707,7 +5730,6 @@ async function deserializeAws_restJson1_1DeleteEventsConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5740,8 +5762,10 @@ async function deserializeAws_restJson1_1DeleteMeetingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5793,7 +5817,6 @@ async function deserializeAws_restJson1_1DeleteMeetingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5829,8 +5852,10 @@ async function deserializeAws_restJson1_1DeletePhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5882,7 +5907,6 @@ async function deserializeAws_restJson1_1DeletePhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5915,8 +5939,10 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -5961,7 +5987,6 @@ async function deserializeAws_restJson1_1DeleteRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -5997,8 +6022,10 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6043,7 +6070,6 @@ async function deserializeAws_restJson1_1DeleteRoomMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6079,8 +6105,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6139,7 +6167,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6175,8 +6202,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6235,7 +6264,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6271,8 +6299,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6324,7 +6354,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorOriginationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6360,8 +6389,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurat
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6413,7 +6444,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorStreamingConfigurat
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6449,8 +6479,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6502,7 +6534,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6538,8 +6569,10 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredenti
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6591,7 +6624,6 @@ async function deserializeAws_restJson1_1DeleteVoiceConnectorTerminationCredenti
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6628,8 +6660,10 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6681,7 +6715,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumberFromUserCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6726,8 +6759,10 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6779,7 +6814,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6824,8 +6858,10 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6877,7 +6913,6 @@ async function deserializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnec
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -6916,8 +6951,10 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -6969,7 +7006,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7014,8 +7050,10 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7067,7 +7105,6 @@ async function deserializeAws_restJson1_1GetAccountSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7109,8 +7146,10 @@ async function deserializeAws_restJson1_1GetAttendeeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7162,7 +7201,6 @@ async function deserializeAws_restJson1_1GetAttendeeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7201,8 +7239,10 @@ async function deserializeAws_restJson1_1GetBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7247,7 +7287,6 @@ async function deserializeAws_restJson1_1GetBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7292,8 +7331,10 @@ async function deserializeAws_restJson1_1GetEventsConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7345,7 +7386,6 @@ async function deserializeAws_restJson1_1GetEventsConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7397,8 +7437,10 @@ async function deserializeAws_restJson1_1GetGlobalSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7443,7 +7485,6 @@ async function deserializeAws_restJson1_1GetGlobalSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7482,8 +7523,10 @@ async function deserializeAws_restJson1_1GetMeetingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7535,7 +7578,6 @@ async function deserializeAws_restJson1_1GetMeetingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7580,8 +7622,10 @@ async function deserializeAws_restJson1_1GetPhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7633,7 +7677,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7678,8 +7721,10 @@ async function deserializeAws_restJson1_1GetPhoneNumberOrderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7731,7 +7776,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberOrderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7779,8 +7823,10 @@ async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7825,7 +7871,6 @@ async function deserializeAws_restJson1_1GetPhoneNumberSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7864,8 +7909,10 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -7910,7 +7957,6 @@ async function deserializeAws_restJson1_1GetRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -7949,8 +7995,10 @@ async function deserializeAws_restJson1_1GetUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8002,7 +8050,6 @@ async function deserializeAws_restJson1_1GetUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8047,8 +8094,10 @@ async function deserializeAws_restJson1_1GetUserSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8100,7 +8149,6 @@ async function deserializeAws_restJson1_1GetUserSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8145,8 +8193,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8198,7 +8248,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8243,8 +8292,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8296,7 +8347,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8341,8 +8391,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8394,7 +8446,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorLoggingConfigurationCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8439,8 +8490,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorOriginationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8492,7 +8545,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorOriginationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8537,8 +8589,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfiguration
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8590,7 +8644,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorStreamingConfiguration
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8635,8 +8688,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8688,7 +8743,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8733,8 +8787,10 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8786,7 +8842,6 @@ async function deserializeAws_restJson1_1GetVoiceConnectorTerminationHealthComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8828,8 +8883,10 @@ async function deserializeAws_restJson1_1InviteUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8881,7 +8938,6 @@ async function deserializeAws_restJson1_1InviteUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -8927,8 +8983,10 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -8980,7 +9038,6 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9026,8 +9083,10 @@ async function deserializeAws_restJson1_1ListAttendeesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9079,7 +9138,6 @@ async function deserializeAws_restJson1_1ListAttendeesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9122,8 +9180,10 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9168,7 +9228,6 @@ async function deserializeAws_restJson1_1ListBotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9214,8 +9273,10 @@ async function deserializeAws_restJson1_1ListMeetingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9260,7 +9321,6 @@ async function deserializeAws_restJson1_1ListMeetingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9309,8 +9369,10 @@ async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9355,7 +9417,6 @@ async function deserializeAws_restJson1_1ListPhoneNumberOrdersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9404,8 +9465,10 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9450,7 +9513,6 @@ async function deserializeAws_restJson1_1ListPhoneNumbersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9499,8 +9561,10 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9545,7 +9609,6 @@ async function deserializeAws_restJson1_1ListRoomMembershipsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9588,8 +9651,10 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9634,7 +9699,6 @@ async function deserializeAws_restJson1_1ListRoomsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9677,8 +9741,10 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9730,7 +9796,6 @@ async function deserializeAws_restJson1_1ListUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9779,8 +9844,10 @@ async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9825,7 +9892,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9870,8 +9936,10 @@ async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCredential
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -9923,7 +9991,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorTerminationCredential
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -9972,8 +10039,10 @@ async function deserializeAws_restJson1_1ListVoiceConnectorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10018,7 +10087,6 @@ async function deserializeAws_restJson1_1ListVoiceConnectorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10052,8 +10120,10 @@ async function deserializeAws_restJson1_1LogoutUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10105,7 +10175,6 @@ async function deserializeAws_restJson1_1LogoutUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10150,8 +10219,10 @@ async function deserializeAws_restJson1_1PutEventsConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10203,7 +10274,6 @@ async function deserializeAws_restJson1_1PutEventsConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10248,8 +10318,10 @@ async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10301,7 +10373,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10346,8 +10417,10 @@ async function deserializeAws_restJson1_1PutVoiceConnectorOriginationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10399,7 +10472,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorOriginationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10444,8 +10516,10 @@ async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfiguration
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10497,7 +10571,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorStreamingConfiguration
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10542,8 +10615,10 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -10602,7 +10677,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10638,8 +10712,10 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCredentials
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10691,7 +10767,6 @@ async function deserializeAws_restJson1_1PutVoiceConnectorTerminationCredentials
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10733,8 +10808,10 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10779,7 +10856,6 @@ async function deserializeAws_restJson1_1RegenerateSecurityTokenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10821,8 +10897,10 @@ async function deserializeAws_restJson1_1ResetPersonalPINCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10874,7 +10952,6 @@ async function deserializeAws_restJson1_1ResetPersonalPINCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -10919,8 +10996,10 @@ async function deserializeAws_restJson1_1RestorePhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -10979,7 +11058,6 @@ async function deserializeAws_restJson1_1RestorePhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11024,8 +11102,10 @@ async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.ucbuzzconsoleservice#AccessDeniedException":
@@ -11077,7 +11157,6 @@ async function deserializeAws_restJson1_1SearchAvailablePhoneNumbersCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11116,8 +11195,10 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11169,7 +11250,6 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11206,8 +11286,10 @@ async function deserializeAws_restJson1_1UpdateAccountSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11266,7 +11348,6 @@ async function deserializeAws_restJson1_1UpdateAccountSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11305,8 +11386,10 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11351,7 +11434,6 @@ async function deserializeAws_restJson1_1UpdateBotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11387,8 +11469,10 @@ async function deserializeAws_restJson1_1UpdateGlobalSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11433,7 +11517,6 @@ async function deserializeAws_restJson1_1UpdateGlobalSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11478,8 +11561,10 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11531,7 +11616,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11567,8 +11651,10 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11613,7 +11699,6 @@ async function deserializeAws_restJson1_1UpdatePhoneNumberSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11652,8 +11737,10 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11698,7 +11785,6 @@ async function deserializeAws_restJson1_1UpdateRoomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11743,8 +11829,10 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11789,7 +11877,6 @@ async function deserializeAws_restJson1_1UpdateRoomMembershipCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11828,8 +11915,10 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11881,7 +11970,6 @@ async function deserializeAws_restJson1_1UpdateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -11917,8 +12005,10 @@ async function deserializeAws_restJson1_1UpdateUserSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -11970,7 +12060,6 @@ async function deserializeAws_restJson1_1UpdateUserSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -12015,8 +12104,10 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -12068,7 +12159,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",
@@ -12113,8 +12203,10 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.ucbuzzconsoleservice#BadRequestException":
@@ -12173,7 +12265,6 @@ async function deserializeAws_restJson1_1UpdateVoiceConnectorGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.ucbuzzconsoleservice#${errorCode}`,
         $fault: "client",

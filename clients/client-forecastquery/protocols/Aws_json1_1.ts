@@ -59,10 +59,7 @@ export async function deserializeAws_json1_1QueryForecastCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1QueryForecastResponse(
-    data.QueryForecastResponse,
-    context
-  );
+  contents = deserializeAws_json1_1QueryForecastResponse(data, context);
   const response: QueryForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryForecastResponse",
@@ -81,7 +78,7 @@ async function deserializeAws_json1_1QueryForecastCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -122,7 +119,6 @@ async function deserializeAws_json1_1QueryForecastCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.seer.queryservice#${errorCode}`,
         $fault: "client",

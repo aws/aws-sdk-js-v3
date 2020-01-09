@@ -2781,8 +2781,10 @@ async function deserializeAws_restJson1_1CreateApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -2813,7 +2815,6 @@ async function deserializeAws_restJson1_1CreateApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -2867,8 +2868,10 @@ async function deserializeAws_restJson1_1CreateApiMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -2899,7 +2902,6 @@ async function deserializeAws_restJson1_1CreateApiMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -2979,8 +2981,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3011,7 +3015,6 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3069,8 +3072,10 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3101,7 +3106,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3154,8 +3158,10 @@ async function deserializeAws_restJson1_1CreateDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3186,7 +3192,6 @@ async function deserializeAws_restJson1_1CreateDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3291,8 +3296,10 @@ async function deserializeAws_restJson1_1CreateIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3323,7 +3330,6 @@ async function deserializeAws_restJson1_1CreateIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3391,8 +3397,10 @@ async function deserializeAws_restJson1_1CreateIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3423,7 +3431,6 @@ async function deserializeAws_restJson1_1CreateIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3478,8 +3485,10 @@ async function deserializeAws_restJson1_1CreateModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3510,7 +3519,6 @@ async function deserializeAws_restJson1_1CreateModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3603,8 +3611,10 @@ async function deserializeAws_restJson1_1CreateRouteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3635,7 +3645,6 @@ async function deserializeAws_restJson1_1CreateRouteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3699,8 +3708,10 @@ async function deserializeAws_restJson1_1CreateRouteResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3731,7 +3742,6 @@ async function deserializeAws_restJson1_1CreateRouteResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3818,8 +3828,10 @@ async function deserializeAws_restJson1_1CreateStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3850,7 +3862,6 @@ async function deserializeAws_restJson1_1CreateStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3883,8 +3894,10 @@ async function deserializeAws_restJson1_1DeleteApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -3901,7 +3914,6 @@ async function deserializeAws_restJson1_1DeleteApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3937,8 +3949,10 @@ async function deserializeAws_restJson1_1DeleteApiMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -3962,7 +3976,6 @@ async function deserializeAws_restJson1_1DeleteApiMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -3998,8 +4011,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4016,7 +4031,6 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4052,8 +4066,10 @@ async function deserializeAws_restJson1_1DeleteDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4070,7 +4086,6 @@ async function deserializeAws_restJson1_1DeleteDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4106,8 +4121,10 @@ async function deserializeAws_restJson1_1DeleteDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4124,7 +4141,6 @@ async function deserializeAws_restJson1_1DeleteDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4160,8 +4176,10 @@ async function deserializeAws_restJson1_1DeleteIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4178,7 +4196,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4214,8 +4231,10 @@ async function deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4232,7 +4251,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4265,8 +4283,10 @@ async function deserializeAws_restJson1_1DeleteModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4283,7 +4303,6 @@ async function deserializeAws_restJson1_1DeleteModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4316,8 +4335,10 @@ async function deserializeAws_restJson1_1DeleteRouteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4334,7 +4355,6 @@ async function deserializeAws_restJson1_1DeleteRouteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4370,8 +4390,10 @@ async function deserializeAws_restJson1_1DeleteRouteResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4388,7 +4410,6 @@ async function deserializeAws_restJson1_1DeleteRouteResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4421,8 +4442,10 @@ async function deserializeAws_restJson1_1DeleteStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4439,7 +4462,6 @@ async function deserializeAws_restJson1_1DeleteStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4521,8 +4543,10 @@ async function deserializeAws_restJson1_1GetApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4539,7 +4563,6 @@ async function deserializeAws_restJson1_1GetApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4590,8 +4613,10 @@ async function deserializeAws_restJson1_1GetApiMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -4615,7 +4640,6 @@ async function deserializeAws_restJson1_1GetApiMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4664,8 +4688,10 @@ async function deserializeAws_restJson1_1GetApiMappingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -4689,7 +4715,6 @@ async function deserializeAws_restJson1_1GetApiMappingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4732,8 +4757,10 @@ async function deserializeAws_restJson1_1GetApisCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -4757,7 +4784,6 @@ async function deserializeAws_restJson1_1GetApisCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4834,8 +4860,10 @@ async function deserializeAws_restJson1_1GetAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4852,7 +4880,6 @@ async function deserializeAws_restJson1_1GetAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4901,8 +4928,10 @@ async function deserializeAws_restJson1_1GetAuthorizersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -4926,7 +4955,6 @@ async function deserializeAws_restJson1_1GetAuthorizersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -4981,8 +5009,10 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -4999,7 +5029,6 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5048,8 +5077,10 @@ async function deserializeAws_restJson1_1GetDeploymentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -5073,7 +5104,6 @@ async function deserializeAws_restJson1_1GetDeploymentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5123,8 +5153,10 @@ async function deserializeAws_restJson1_1GetDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5141,7 +5173,6 @@ async function deserializeAws_restJson1_1GetDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5190,8 +5221,10 @@ async function deserializeAws_restJson1_1GetDomainNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -5215,7 +5248,6 @@ async function deserializeAws_restJson1_1GetDomainNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5320,8 +5352,10 @@ async function deserializeAws_restJson1_1GetIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5338,7 +5372,6 @@ async function deserializeAws_restJson1_1GetIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5406,8 +5439,10 @@ async function deserializeAws_restJson1_1GetIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5424,7 +5459,6 @@ async function deserializeAws_restJson1_1GetIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5473,8 +5507,10 @@ async function deserializeAws_restJson1_1GetIntegrationResponsesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -5498,7 +5534,6 @@ async function deserializeAws_restJson1_1GetIntegrationResponsesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5547,8 +5582,10 @@ async function deserializeAws_restJson1_1GetIntegrationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -5572,7 +5609,6 @@ async function deserializeAws_restJson1_1GetIntegrationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5627,8 +5663,10 @@ async function deserializeAws_restJson1_1GetModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5645,7 +5683,6 @@ async function deserializeAws_restJson1_1GetModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5687,8 +5724,10 @@ async function deserializeAws_restJson1_1GetModelTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5705,7 +5744,6 @@ async function deserializeAws_restJson1_1GetModelTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5751,8 +5789,10 @@ async function deserializeAws_restJson1_1GetModelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -5776,7 +5816,6 @@ async function deserializeAws_restJson1_1GetModelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5869,8 +5908,10 @@ async function deserializeAws_restJson1_1GetRouteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5887,7 +5928,6 @@ async function deserializeAws_restJson1_1GetRouteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -5951,8 +5991,10 @@ async function deserializeAws_restJson1_1GetRouteResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -5969,7 +6011,6 @@ async function deserializeAws_restJson1_1GetRouteResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6018,8 +6059,10 @@ async function deserializeAws_restJson1_1GetRouteResponsesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6043,7 +6086,6 @@ async function deserializeAws_restJson1_1GetRouteResponsesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6089,8 +6131,10 @@ async function deserializeAws_restJson1_1GetRoutesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6114,7 +6158,6 @@ async function deserializeAws_restJson1_1GetRoutesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6201,8 +6244,10 @@ async function deserializeAws_restJson1_1GetStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
@@ -6219,7 +6264,6 @@ async function deserializeAws_restJson1_1GetStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6265,8 +6309,10 @@ async function deserializeAws_restJson1_1GetStagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6290,7 +6336,6 @@ async function deserializeAws_restJson1_1GetStagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6372,8 +6417,10 @@ async function deserializeAws_restJson1_1UpdateApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6404,7 +6451,6 @@ async function deserializeAws_restJson1_1UpdateApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6458,8 +6504,10 @@ async function deserializeAws_restJson1_1UpdateApiMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6490,7 +6538,6 @@ async function deserializeAws_restJson1_1UpdateApiMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6570,8 +6617,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6602,7 +6651,6 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6660,8 +6708,10 @@ async function deserializeAws_restJson1_1UpdateDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6692,7 +6742,6 @@ async function deserializeAws_restJson1_1UpdateDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6745,8 +6794,10 @@ async function deserializeAws_restJson1_1UpdateDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6777,7 +6828,6 @@ async function deserializeAws_restJson1_1UpdateDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6882,8 +6932,10 @@ async function deserializeAws_restJson1_1UpdateIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -6914,7 +6966,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -6982,8 +7033,10 @@ async function deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -7014,7 +7067,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -7069,8 +7121,10 @@ async function deserializeAws_restJson1_1UpdateModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -7101,7 +7155,6 @@ async function deserializeAws_restJson1_1UpdateModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -7194,8 +7247,10 @@ async function deserializeAws_restJson1_1UpdateRouteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -7226,7 +7281,6 @@ async function deserializeAws_restJson1_1UpdateRouteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -7290,8 +7344,10 @@ async function deserializeAws_restJson1_1UpdateRouteResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -7322,7 +7378,6 @@ async function deserializeAws_restJson1_1UpdateRouteResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",
@@ -7409,8 +7464,10 @@ async function deserializeAws_restJson1_1UpdateStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
@@ -7441,7 +7498,6 @@ async function deserializeAws_restJson1_1UpdateStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewayv2#${errorCode}`,
         $fault: "client",

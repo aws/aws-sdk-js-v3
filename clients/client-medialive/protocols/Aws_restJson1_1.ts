@@ -1952,8 +1952,10 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2012,7 +2014,6 @@ async function deserializeAws_restJson1_1BatchUpdateScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2051,8 +2052,10 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2111,7 +2114,6 @@ async function deserializeAws_restJson1_1CreateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2150,8 +2152,10 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2196,7 +2200,6 @@ async function deserializeAws_restJson1_1CreateInputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2241,8 +2244,10 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2287,7 +2292,6 @@ async function deserializeAws_restJson1_1CreateInputSecurityGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2332,8 +2336,10 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2392,7 +2398,6 @@ async function deserializeAws_restJson1_1CreateMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2437,8 +2442,10 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2497,7 +2504,6 @@ async function deserializeAws_restJson1_1CreateMultiplexProgramCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2530,8 +2536,10 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -2562,7 +2570,6 @@ async function deserializeAws_restJson1_1CreateTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2675,8 +2682,10 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2735,7 +2744,6 @@ async function deserializeAws_restJson1_1DeleteChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2769,8 +2777,10 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2829,7 +2839,6 @@ async function deserializeAws_restJson1_1DeleteInputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -2866,8 +2875,10 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -2919,7 +2930,6 @@ async function deserializeAws_restJson1_1DeleteInputSecurityGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3006,8 +3016,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3066,7 +3078,6 @@ async function deserializeAws_restJson1_1DeleteMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3126,8 +3137,10 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3186,7 +3199,6 @@ async function deserializeAws_restJson1_1DeleteMultiplexProgramCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3299,8 +3311,10 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3359,7 +3373,6 @@ async function deserializeAws_restJson1_1DeleteReservationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3396,8 +3409,10 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3449,7 +3464,6 @@ async function deserializeAws_restJson1_1DeleteScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3482,8 +3496,10 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -3514,7 +3530,6 @@ async function deserializeAws_restJson1_1DeleteTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3630,8 +3645,10 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3683,7 +3700,6 @@ async function deserializeAws_restJson1_1DescribeChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3789,8 +3805,10 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3842,7 +3860,6 @@ async function deserializeAws_restJson1_1DescribeInputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -3910,8 +3927,10 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -3963,7 +3982,6 @@ async function deserializeAws_restJson1_1DescribeInputSecurityGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4050,8 +4068,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4103,7 +4123,6 @@ async function deserializeAws_restJson1_1DescribeMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4163,8 +4182,10 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4216,7 +4237,6 @@ async function deserializeAws_restJson1_1DescribeMultiplexProgramCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4301,8 +4321,10 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4354,7 +4376,6 @@ async function deserializeAws_restJson1_1DescribeOfferingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4467,8 +4488,10 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4520,7 +4543,6 @@ async function deserializeAws_restJson1_1DescribeReservationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4569,8 +4591,10 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4622,7 +4646,6 @@ async function deserializeAws_restJson1_1DescribeScheduleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4668,8 +4691,10 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4714,7 +4739,6 @@ async function deserializeAws_restJson1_1ListChannelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4763,8 +4787,10 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4809,7 +4835,6 @@ async function deserializeAws_restJson1_1ListInputSecurityGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4855,8 +4880,10 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -4901,7 +4928,6 @@ async function deserializeAws_restJson1_1ListInputsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -4950,8 +4976,10 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5003,7 +5031,6 @@ async function deserializeAws_restJson1_1ListMultiplexProgramsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5052,8 +5079,10 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5098,7 +5127,6 @@ async function deserializeAws_restJson1_1ListMultiplexesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5144,8 +5172,10 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5190,7 +5220,6 @@ async function deserializeAws_restJson1_1ListOfferingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5239,8 +5268,10 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5285,7 +5316,6 @@ async function deserializeAws_restJson1_1ListReservationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5327,8 +5357,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.medialive#BadRequestException":
@@ -5359,7 +5391,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5404,8 +5435,10 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5464,7 +5497,6 @@ async function deserializeAws_restJson1_1PurchaseOfferingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5577,8 +5609,10 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5637,7 +5671,6 @@ async function deserializeAws_restJson1_1StartChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5724,8 +5757,10 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5784,7 +5819,6 @@ async function deserializeAws_restJson1_1StartMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -5897,8 +5931,10 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -5957,7 +5993,6 @@ async function deserializeAws_restJson1_1StopChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6041,8 +6076,10 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6101,7 +6138,6 @@ async function deserializeAws_restJson1_1StopMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6140,8 +6176,10 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6193,7 +6231,6 @@ async function deserializeAws_restJson1_1UpdateChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6235,8 +6272,10 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6302,7 +6341,6 @@ async function deserializeAws_restJson1_1UpdateChannelClassCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6341,8 +6379,10 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6394,7 +6434,6 @@ async function deserializeAws_restJson1_1UpdateInputCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6439,8 +6478,10 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6492,7 +6533,6 @@ async function deserializeAws_restJson1_1UpdateInputSecurityGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6537,8 +6577,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6597,7 +6639,6 @@ async function deserializeAws_restJson1_1UpdateMultiplexCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6642,8 +6683,10 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6702,7 +6745,6 @@ async function deserializeAws_restJson1_1UpdateMultiplexProgramCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",
@@ -6747,8 +6789,10 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadGatewayException":
     case "com.amazonaws.medialive#BadGatewayException":
@@ -6807,7 +6851,6 @@ async function deserializeAws_restJson1_1UpdateReservationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.medialive#${errorCode}`,
         $fault: "client",

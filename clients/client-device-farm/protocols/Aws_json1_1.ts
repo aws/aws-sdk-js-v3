@@ -2083,10 +2083,7 @@ export async function deserializeAws_json1_1CreateDevicePoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDevicePoolResult(
-    data.CreateDevicePoolResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDevicePoolResult(data, context);
   const response: CreateDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDevicePoolResult",
@@ -2105,7 +2102,7 @@ async function deserializeAws_json1_1CreateDevicePoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2139,7 +2136,6 @@ async function deserializeAws_json1_1CreateDevicePoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2161,10 +2157,7 @@ export async function deserializeAws_json1_1CreateInstanceProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateInstanceProfileResult(
-    data.CreateInstanceProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateInstanceProfileResult(data, context);
   const response: CreateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateInstanceProfileResult",
@@ -2183,7 +2176,7 @@ async function deserializeAws_json1_1CreateInstanceProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2217,7 +2210,6 @@ async function deserializeAws_json1_1CreateInstanceProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2239,10 +2231,7 @@ export async function deserializeAws_json1_1CreateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNetworkProfileResult(
-    data.CreateNetworkProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNetworkProfileResult(data, context);
   const response: CreateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNetworkProfileResult",
@@ -2261,7 +2250,7 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2295,7 +2284,6 @@ async function deserializeAws_json1_1CreateNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2314,10 +2302,7 @@ export async function deserializeAws_json1_1CreateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProjectResult(
-    data.CreateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProjectResult(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProjectResult",
@@ -2336,7 +2321,7 @@ async function deserializeAws_json1_1CreateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2377,7 +2362,6 @@ async function deserializeAws_json1_1CreateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2400,7 +2384,7 @@ export async function deserializeAws_json1_1CreateRemoteAccessSessionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRemoteAccessSessionResult(
-    data.CreateRemoteAccessSessionResult,
+    data,
     context
   );
   const response: CreateRemoteAccessSessionCommandOutput = {
@@ -2421,7 +2405,7 @@ async function deserializeAws_json1_1CreateRemoteAccessSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2455,7 +2439,6 @@ async function deserializeAws_json1_1CreateRemoteAccessSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2474,10 +2457,7 @@ export async function deserializeAws_json1_1CreateUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUploadResult(
-    data.CreateUploadResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUploadResult(data, context);
   const response: CreateUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUploadResult",
@@ -2496,7 +2476,7 @@ async function deserializeAws_json1_1CreateUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2530,7 +2510,6 @@ async function deserializeAws_json1_1CreateUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2552,10 +2531,7 @@ export async function deserializeAws_json1_1CreateVPCEConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVPCEConfigurationResult(
-    data.CreateVPCEConfigurationResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateVPCEConfigurationResult(data, context);
   const response: CreateVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateVPCEConfigurationResult",
@@ -2574,7 +2550,7 @@ async function deserializeAws_json1_1CreateVPCEConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2601,7 +2577,6 @@ async function deserializeAws_json1_1CreateVPCEConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2620,10 +2595,7 @@ export async function deserializeAws_json1_1DeleteDevicePoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDevicePoolResult(
-    data.DeleteDevicePoolResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDevicePoolResult(data, context);
   const response: DeleteDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDevicePoolResult",
@@ -2642,7 +2614,7 @@ async function deserializeAws_json1_1DeleteDevicePoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2676,7 +2648,6 @@ async function deserializeAws_json1_1DeleteDevicePoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2698,10 +2669,7 @@ export async function deserializeAws_json1_1DeleteInstanceProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteInstanceProfileResult(
-    data.DeleteInstanceProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteInstanceProfileResult(data, context);
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteInstanceProfileResult",
@@ -2720,7 +2688,7 @@ async function deserializeAws_json1_1DeleteInstanceProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2754,7 +2722,6 @@ async function deserializeAws_json1_1DeleteInstanceProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2776,10 +2743,7 @@ export async function deserializeAws_json1_1DeleteNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNetworkProfileResult(
-    data.DeleteNetworkProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNetworkProfileResult(data, context);
   const response: DeleteNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNetworkProfileResult",
@@ -2798,7 +2762,7 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2832,7 +2796,6 @@ async function deserializeAws_json1_1DeleteNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2851,10 +2814,7 @@ export async function deserializeAws_json1_1DeleteProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProjectResult(
-    data.DeleteProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProjectResult(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProjectResult",
@@ -2873,7 +2833,7 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2907,7 +2867,6 @@ async function deserializeAws_json1_1DeleteProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -2930,7 +2889,7 @@ export async function deserializeAws_json1_1DeleteRemoteAccessSessionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRemoteAccessSessionResult(
-    data.DeleteRemoteAccessSessionResult,
+    data,
     context
   );
   const response: DeleteRemoteAccessSessionCommandOutput = {
@@ -2951,7 +2910,7 @@ async function deserializeAws_json1_1DeleteRemoteAccessSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2985,7 +2944,6 @@ async function deserializeAws_json1_1DeleteRemoteAccessSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3004,10 +2962,7 @@ export async function deserializeAws_json1_1DeleteRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRunResult(
-    data.DeleteRunResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRunResult(data, context);
   const response: DeleteRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRunResult",
@@ -3026,7 +2981,7 @@ async function deserializeAws_json1_1DeleteRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3060,7 +3015,6 @@ async function deserializeAws_json1_1DeleteRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3079,10 +3033,7 @@ export async function deserializeAws_json1_1DeleteUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUploadResult(
-    data.DeleteUploadResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUploadResult(data, context);
   const response: DeleteUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUploadResult",
@@ -3101,7 +3052,7 @@ async function deserializeAws_json1_1DeleteUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3135,7 +3086,6 @@ async function deserializeAws_json1_1DeleteUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3157,10 +3107,7 @@ export async function deserializeAws_json1_1DeleteVPCEConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteVPCEConfigurationResult(
-    data.DeleteVPCEConfigurationResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteVPCEConfigurationResult(data, context);
   const response: DeleteVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteVPCEConfigurationResult",
@@ -3179,7 +3126,7 @@ async function deserializeAws_json1_1DeleteVPCEConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3213,7 +3160,6 @@ async function deserializeAws_json1_1DeleteVPCEConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3235,10 +3181,7 @@ export async function deserializeAws_json1_1GetAccountSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccountSettingsResult(
-    data.GetAccountSettingsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetAccountSettingsResult(data, context);
   const response: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAccountSettingsResult",
@@ -3257,7 +3200,7 @@ async function deserializeAws_json1_1GetAccountSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3291,7 +3234,6 @@ async function deserializeAws_json1_1GetAccountSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3310,10 +3252,7 @@ export async function deserializeAws_json1_1GetDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceResult(
-    data.GetDeviceResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeviceResult(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceResult",
@@ -3332,7 +3271,7 @@ async function deserializeAws_json1_1GetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3366,7 +3305,6 @@ async function deserializeAws_json1_1GetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3385,10 +3323,7 @@ export async function deserializeAws_json1_1GetDeviceInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceInstanceResult(
-    data.GetDeviceInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeviceInstanceResult(data, context);
   const response: GetDeviceInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceInstanceResult",
@@ -3407,7 +3342,7 @@ async function deserializeAws_json1_1GetDeviceInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3441,7 +3376,6 @@ async function deserializeAws_json1_1GetDeviceInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3460,10 +3394,7 @@ export async function deserializeAws_json1_1GetDevicePoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDevicePoolResult(
-    data.GetDevicePoolResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDevicePoolResult(data, context);
   const response: GetDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDevicePoolResult",
@@ -3482,7 +3413,7 @@ async function deserializeAws_json1_1GetDevicePoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3516,7 +3447,6 @@ async function deserializeAws_json1_1GetDevicePoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3539,7 +3469,7 @@ export async function deserializeAws_json1_1GetDevicePoolCompatibilityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDevicePoolCompatibilityResult(
-    data.GetDevicePoolCompatibilityResult,
+    data,
     context
   );
   const response: GetDevicePoolCompatibilityCommandOutput = {
@@ -3560,7 +3490,7 @@ async function deserializeAws_json1_1GetDevicePoolCompatibilityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3594,7 +3524,6 @@ async function deserializeAws_json1_1GetDevicePoolCompatibilityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3616,10 +3545,7 @@ export async function deserializeAws_json1_1GetInstanceProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceProfileResult(
-    data.GetInstanceProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceProfileResult(data, context);
   const response: GetInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceProfileResult",
@@ -3638,7 +3564,7 @@ async function deserializeAws_json1_1GetInstanceProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3672,7 +3598,6 @@ async function deserializeAws_json1_1GetInstanceProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3691,7 +3616,7 @@ export async function deserializeAws_json1_1GetJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetJobResult(data.GetJobResult, context);
+  contents = deserializeAws_json1_1GetJobResult(data, context);
   const response: GetJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobResult",
@@ -3710,7 +3635,7 @@ async function deserializeAws_json1_1GetJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3744,7 +3669,6 @@ async function deserializeAws_json1_1GetJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3763,10 +3687,7 @@ export async function deserializeAws_json1_1GetNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNetworkProfileResult(
-    data.GetNetworkProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetNetworkProfileResult(data, context);
   const response: GetNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNetworkProfileResult",
@@ -3785,7 +3706,7 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3819,7 +3740,6 @@ async function deserializeAws_json1_1GetNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3838,10 +3758,7 @@ export async function deserializeAws_json1_1GetOfferingStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOfferingStatusResult(
-    data.GetOfferingStatusResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetOfferingStatusResult(data, context);
   const response: GetOfferingStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOfferingStatusResult",
@@ -3860,7 +3777,7 @@ async function deserializeAws_json1_1GetOfferingStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3901,7 +3818,6 @@ async function deserializeAws_json1_1GetOfferingStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3920,10 +3836,7 @@ export async function deserializeAws_json1_1GetProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetProjectResult(
-    data.GetProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetProjectResult(data, context);
   const response: GetProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProjectResult",
@@ -3942,7 +3855,7 @@ async function deserializeAws_json1_1GetProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3976,7 +3889,6 @@ async function deserializeAws_json1_1GetProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -3998,10 +3910,7 @@ export async function deserializeAws_json1_1GetRemoteAccessSessionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRemoteAccessSessionResult(
-    data.GetRemoteAccessSessionResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetRemoteAccessSessionResult(data, context);
   const response: GetRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRemoteAccessSessionResult",
@@ -4020,7 +3929,7 @@ async function deserializeAws_json1_1GetRemoteAccessSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4054,7 +3963,6 @@ async function deserializeAws_json1_1GetRemoteAccessSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4073,7 +3981,7 @@ export async function deserializeAws_json1_1GetRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRunResult(data.GetRunResult, context);
+  contents = deserializeAws_json1_1GetRunResult(data, context);
   const response: GetRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRunResult",
@@ -4092,7 +4000,7 @@ async function deserializeAws_json1_1GetRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4126,7 +4034,6 @@ async function deserializeAws_json1_1GetRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4145,7 +4052,7 @@ export async function deserializeAws_json1_1GetSuiteCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSuiteResult(data.GetSuiteResult, context);
+  contents = deserializeAws_json1_1GetSuiteResult(data, context);
   const response: GetSuiteCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSuiteResult",
@@ -4164,7 +4071,7 @@ async function deserializeAws_json1_1GetSuiteCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4198,7 +4105,6 @@ async function deserializeAws_json1_1GetSuiteCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4217,7 +4123,7 @@ export async function deserializeAws_json1_1GetTestCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTestResult(data.GetTestResult, context);
+  contents = deserializeAws_json1_1GetTestResult(data, context);
   const response: GetTestCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTestResult",
@@ -4236,7 +4142,7 @@ async function deserializeAws_json1_1GetTestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4270,7 +4176,6 @@ async function deserializeAws_json1_1GetTestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4289,10 +4194,7 @@ export async function deserializeAws_json1_1GetUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUploadResult(
-    data.GetUploadResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetUploadResult(data, context);
   const response: GetUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUploadResult",
@@ -4311,7 +4213,7 @@ async function deserializeAws_json1_1GetUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4345,7 +4247,6 @@ async function deserializeAws_json1_1GetUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4367,10 +4268,7 @@ export async function deserializeAws_json1_1GetVPCEConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetVPCEConfigurationResult(
-    data.GetVPCEConfigurationResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetVPCEConfigurationResult(data, context);
   const response: GetVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetVPCEConfigurationResult",
@@ -4389,7 +4287,7 @@ async function deserializeAws_json1_1GetVPCEConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4416,7 +4314,6 @@ async function deserializeAws_json1_1GetVPCEConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4439,7 +4336,7 @@ export async function deserializeAws_json1_1InstallToRemoteAccessSessionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1InstallToRemoteAccessSessionResult(
-    data.InstallToRemoteAccessSessionResult,
+    data,
     context
   );
   const response: InstallToRemoteAccessSessionCommandOutput = {
@@ -4460,7 +4357,7 @@ async function deserializeAws_json1_1InstallToRemoteAccessSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4494,7 +4391,6 @@ async function deserializeAws_json1_1InstallToRemoteAccessSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4513,10 +4409,7 @@ export async function deserializeAws_json1_1ListArtifactsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListArtifactsResult(
-    data.ListArtifactsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListArtifactsResult(data, context);
   const response: ListArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListArtifactsResult",
@@ -4535,7 +4428,7 @@ async function deserializeAws_json1_1ListArtifactsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4569,7 +4462,6 @@ async function deserializeAws_json1_1ListArtifactsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4591,10 +4483,7 @@ export async function deserializeAws_json1_1ListDeviceInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDeviceInstancesResult(
-    data.ListDeviceInstancesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListDeviceInstancesResult(data, context);
   const response: ListDeviceInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDeviceInstancesResult",
@@ -4613,7 +4502,7 @@ async function deserializeAws_json1_1ListDeviceInstancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4647,7 +4536,6 @@ async function deserializeAws_json1_1ListDeviceInstancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4666,10 +4554,7 @@ export async function deserializeAws_json1_1ListDevicePoolsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDevicePoolsResult(
-    data.ListDevicePoolsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListDevicePoolsResult(data, context);
   const response: ListDevicePoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDevicePoolsResult",
@@ -4688,7 +4573,7 @@ async function deserializeAws_json1_1ListDevicePoolsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4722,7 +4607,6 @@ async function deserializeAws_json1_1ListDevicePoolsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4741,10 +4625,7 @@ export async function deserializeAws_json1_1ListDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDevicesResult(
-    data.ListDevicesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListDevicesResult(data, context);
   const response: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDevicesResult",
@@ -4763,7 +4644,7 @@ async function deserializeAws_json1_1ListDevicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4797,7 +4678,6 @@ async function deserializeAws_json1_1ListDevicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4819,10 +4699,7 @@ export async function deserializeAws_json1_1ListInstanceProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListInstanceProfilesResult(
-    data.ListInstanceProfilesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListInstanceProfilesResult(data, context);
   const response: ListInstanceProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstanceProfilesResult",
@@ -4841,7 +4718,7 @@ async function deserializeAws_json1_1ListInstanceProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4875,7 +4752,6 @@ async function deserializeAws_json1_1ListInstanceProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4894,7 +4770,7 @@ export async function deserializeAws_json1_1ListJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListJobsResult(data.ListJobsResult, context);
+  contents = deserializeAws_json1_1ListJobsResult(data, context);
   const response: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJobsResult",
@@ -4913,7 +4789,7 @@ async function deserializeAws_json1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4947,7 +4823,6 @@ async function deserializeAws_json1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -4969,10 +4844,7 @@ export async function deserializeAws_json1_1ListNetworkProfilesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNetworkProfilesResult(
-    data.ListNetworkProfilesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListNetworkProfilesResult(data, context);
   const response: ListNetworkProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNetworkProfilesResult",
@@ -4991,7 +4863,7 @@ async function deserializeAws_json1_1ListNetworkProfilesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5025,7 +4897,6 @@ async function deserializeAws_json1_1ListNetworkProfilesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5047,10 +4918,7 @@ export async function deserializeAws_json1_1ListOfferingPromotionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOfferingPromotionsResult(
-    data.ListOfferingPromotionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListOfferingPromotionsResult(data, context);
   const response: ListOfferingPromotionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOfferingPromotionsResult",
@@ -5069,7 +4937,7 @@ async function deserializeAws_json1_1ListOfferingPromotionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5110,7 +4978,6 @@ async function deserializeAws_json1_1ListOfferingPromotionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5133,7 +5000,7 @@ export async function deserializeAws_json1_1ListOfferingTransactionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListOfferingTransactionsResult(
-    data.ListOfferingTransactionsResult,
+    data,
     context
   );
   const response: ListOfferingTransactionsCommandOutput = {
@@ -5154,7 +5021,7 @@ async function deserializeAws_json1_1ListOfferingTransactionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5195,7 +5062,6 @@ async function deserializeAws_json1_1ListOfferingTransactionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5214,10 +5080,7 @@ export async function deserializeAws_json1_1ListOfferingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListOfferingsResult(
-    data.ListOfferingsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListOfferingsResult(data, context);
   const response: ListOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOfferingsResult",
@@ -5236,7 +5099,7 @@ async function deserializeAws_json1_1ListOfferingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5277,7 +5140,6 @@ async function deserializeAws_json1_1ListOfferingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5296,10 +5158,7 @@ export async function deserializeAws_json1_1ListProjectsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProjectsResult(
-    data.ListProjectsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListProjectsResult(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProjectsResult",
@@ -5318,7 +5177,7 @@ async function deserializeAws_json1_1ListProjectsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5352,7 +5211,6 @@ async function deserializeAws_json1_1ListProjectsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5375,7 +5233,7 @@ export async function deserializeAws_json1_1ListRemoteAccessSessionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRemoteAccessSessionsResult(
-    data.ListRemoteAccessSessionsResult,
+    data,
     context
   );
   const response: ListRemoteAccessSessionsCommandOutput = {
@@ -5396,7 +5254,7 @@ async function deserializeAws_json1_1ListRemoteAccessSessionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5430,7 +5288,6 @@ async function deserializeAws_json1_1ListRemoteAccessSessionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5449,7 +5306,7 @@ export async function deserializeAws_json1_1ListRunsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListRunsResult(data.ListRunsResult, context);
+  contents = deserializeAws_json1_1ListRunsResult(data, context);
   const response: ListRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRunsResult",
@@ -5468,7 +5325,7 @@ async function deserializeAws_json1_1ListRunsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5502,7 +5359,6 @@ async function deserializeAws_json1_1ListRunsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5521,10 +5377,7 @@ export async function deserializeAws_json1_1ListSamplesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSamplesResult(
-    data.ListSamplesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListSamplesResult(data, context);
   const response: ListSamplesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSamplesResult",
@@ -5543,7 +5396,7 @@ async function deserializeAws_json1_1ListSamplesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5577,7 +5430,6 @@ async function deserializeAws_json1_1ListSamplesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5596,10 +5448,7 @@ export async function deserializeAws_json1_1ListSuitesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSuitesResult(
-    data.ListSuitesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListSuitesResult(data, context);
   const response: ListSuitesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSuitesResult",
@@ -5618,7 +5467,7 @@ async function deserializeAws_json1_1ListSuitesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5652,7 +5501,6 @@ async function deserializeAws_json1_1ListSuitesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5674,10 +5522,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -5696,7 +5541,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5716,7 +5561,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5735,10 +5579,7 @@ export async function deserializeAws_json1_1ListTestsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTestsResult(
-    data.ListTestsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTestsResult(data, context);
   const response: ListTestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTestsResult",
@@ -5757,7 +5598,7 @@ async function deserializeAws_json1_1ListTestsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5791,7 +5632,6 @@ async function deserializeAws_json1_1ListTestsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5813,10 +5653,7 @@ export async function deserializeAws_json1_1ListUniqueProblemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUniqueProblemsResult(
-    data.ListUniqueProblemsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListUniqueProblemsResult(data, context);
   const response: ListUniqueProblemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUniqueProblemsResult",
@@ -5835,7 +5672,7 @@ async function deserializeAws_json1_1ListUniqueProblemsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5869,7 +5706,6 @@ async function deserializeAws_json1_1ListUniqueProblemsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5888,10 +5724,7 @@ export async function deserializeAws_json1_1ListUploadsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUploadsResult(
-    data.ListUploadsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListUploadsResult(data, context);
   const response: ListUploadsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUploadsResult",
@@ -5910,7 +5743,7 @@ async function deserializeAws_json1_1ListUploadsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5944,7 +5777,6 @@ async function deserializeAws_json1_1ListUploadsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -5966,10 +5798,7 @@ export async function deserializeAws_json1_1ListVPCEConfigurationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVPCEConfigurationsResult(
-    data.ListVPCEConfigurationsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListVPCEConfigurationsResult(data, context);
   const response: ListVPCEConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListVPCEConfigurationsResult",
@@ -5988,7 +5817,7 @@ async function deserializeAws_json1_1ListVPCEConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6008,7 +5837,6 @@ async function deserializeAws_json1_1ListVPCEConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6027,10 +5855,7 @@ export async function deserializeAws_json1_1PurchaseOfferingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PurchaseOfferingResult(
-    data.PurchaseOfferingResult,
-    context
-  );
+  contents = deserializeAws_json1_1PurchaseOfferingResult(data, context);
   const response: PurchaseOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PurchaseOfferingResult",
@@ -6049,7 +5874,7 @@ async function deserializeAws_json1_1PurchaseOfferingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6090,7 +5915,6 @@ async function deserializeAws_json1_1PurchaseOfferingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6109,10 +5933,7 @@ export async function deserializeAws_json1_1RenewOfferingCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RenewOfferingResult(
-    data.RenewOfferingResult,
-    context
-  );
+  contents = deserializeAws_json1_1RenewOfferingResult(data, context);
   const response: RenewOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RenewOfferingResult",
@@ -6131,7 +5952,7 @@ async function deserializeAws_json1_1RenewOfferingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6172,7 +5993,6 @@ async function deserializeAws_json1_1RenewOfferingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6191,10 +6011,7 @@ export async function deserializeAws_json1_1ScheduleRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ScheduleRunResult(
-    data.ScheduleRunResult,
-    context
-  );
+  contents = deserializeAws_json1_1ScheduleRunResult(data, context);
   const response: ScheduleRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScheduleRunResult",
@@ -6213,7 +6030,7 @@ async function deserializeAws_json1_1ScheduleRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6254,7 +6071,6 @@ async function deserializeAws_json1_1ScheduleRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6273,7 +6089,7 @@ export async function deserializeAws_json1_1StopJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopJobResult(data.StopJobResult, context);
+  contents = deserializeAws_json1_1StopJobResult(data, context);
   const response: StopJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopJobResult",
@@ -6292,7 +6108,7 @@ async function deserializeAws_json1_1StopJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6326,7 +6142,6 @@ async function deserializeAws_json1_1StopJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6348,10 +6163,7 @@ export async function deserializeAws_json1_1StopRemoteAccessSessionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopRemoteAccessSessionResult(
-    data.StopRemoteAccessSessionResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopRemoteAccessSessionResult(data, context);
   const response: StopRemoteAccessSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopRemoteAccessSessionResult",
@@ -6370,7 +6182,7 @@ async function deserializeAws_json1_1StopRemoteAccessSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6404,7 +6216,6 @@ async function deserializeAws_json1_1StopRemoteAccessSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6423,7 +6234,7 @@ export async function deserializeAws_json1_1StopRunCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopRunResult(data.StopRunResult, context);
+  contents = deserializeAws_json1_1StopRunResult(data, context);
   const response: StopRunCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopRunResult",
@@ -6442,7 +6253,7 @@ async function deserializeAws_json1_1StopRunCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6476,7 +6287,6 @@ async function deserializeAws_json1_1StopRunCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6495,10 +6305,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -6517,7 +6324,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6551,7 +6358,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6570,10 +6376,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -6592,7 +6395,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6612,7 +6415,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6634,10 +6436,7 @@ export async function deserializeAws_json1_1UpdateDeviceInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeviceInstanceResult(
-    data.UpdateDeviceInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDeviceInstanceResult(data, context);
   const response: UpdateDeviceInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceInstanceResult",
@@ -6656,7 +6455,7 @@ async function deserializeAws_json1_1UpdateDeviceInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6690,7 +6489,6 @@ async function deserializeAws_json1_1UpdateDeviceInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6709,10 +6507,7 @@ export async function deserializeAws_json1_1UpdateDevicePoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDevicePoolResult(
-    data.UpdateDevicePoolResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDevicePoolResult(data, context);
   const response: UpdateDevicePoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDevicePoolResult",
@@ -6731,7 +6526,7 @@ async function deserializeAws_json1_1UpdateDevicePoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6765,7 +6560,6 @@ async function deserializeAws_json1_1UpdateDevicePoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6787,10 +6581,7 @@ export async function deserializeAws_json1_1UpdateInstanceProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateInstanceProfileResult(
-    data.UpdateInstanceProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateInstanceProfileResult(data, context);
   const response: UpdateInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateInstanceProfileResult",
@@ -6809,7 +6600,7 @@ async function deserializeAws_json1_1UpdateInstanceProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6843,7 +6634,6 @@ async function deserializeAws_json1_1UpdateInstanceProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6865,10 +6655,7 @@ export async function deserializeAws_json1_1UpdateNetworkProfileCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateNetworkProfileResult(
-    data.UpdateNetworkProfileResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateNetworkProfileResult(data, context);
   const response: UpdateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateNetworkProfileResult",
@@ -6887,7 +6674,7 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6921,7 +6708,6 @@ async function deserializeAws_json1_1UpdateNetworkProfileCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -6940,10 +6726,7 @@ export async function deserializeAws_json1_1UpdateProjectCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateProjectResult(
-    data.UpdateProjectResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateProjectResult(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateProjectResult",
@@ -6962,7 +6745,7 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6996,7 +6779,6 @@ async function deserializeAws_json1_1UpdateProjectCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -7015,10 +6797,7 @@ export async function deserializeAws_json1_1UpdateUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUploadResult(
-    data.UpdateUploadResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUploadResult(data, context);
   const response: UpdateUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUploadResult",
@@ -7037,7 +6816,7 @@ async function deserializeAws_json1_1UpdateUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7071,7 +6850,6 @@ async function deserializeAws_json1_1UpdateUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",
@@ -7093,10 +6871,7 @@ export async function deserializeAws_json1_1UpdateVPCEConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVPCEConfigurationResult(
-    data.UpdateVPCEConfigurationResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateVPCEConfigurationResult(data, context);
   const response: UpdateVPCEConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateVPCEConfigurationResult",
@@ -7115,7 +6890,7 @@ async function deserializeAws_json1_1UpdateVPCEConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7149,7 +6924,6 @@ async function deserializeAws_json1_1UpdateVPCEConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.devicefarm.model#${errorCode}`,
         $fault: "client",

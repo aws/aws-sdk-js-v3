@@ -86,8 +86,10 @@ async function deserializeAws_restJson1_1GetMediaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ClientLimitExceededException":
     case "com.amazon.kinesis.video.v20170930#ClientLimitExceededException":
@@ -132,7 +134,6 @@ async function deserializeAws_restJson1_1GetMediaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.aws.acuity.ats.model#${errorCode}`,
         $fault: "client",

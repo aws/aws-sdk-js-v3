@@ -141,8 +141,10 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
@@ -166,7 +168,6 @@ async function deserializeAws_restJson1_1DeleteConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
@@ -216,8 +217,10 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
@@ -241,7 +244,6 @@ async function deserializeAws_restJson1_1GetConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",
@@ -277,8 +279,10 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
@@ -309,7 +313,6 @@ async function deserializeAws_restJson1_1PostToConnectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.apigatewaymanagementapi#${errorCode}`,
         $fault: "client",

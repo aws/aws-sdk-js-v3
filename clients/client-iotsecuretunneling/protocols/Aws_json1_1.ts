@@ -234,10 +234,7 @@ export async function deserializeAws_json1_1CloseTunnelCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CloseTunnelResponse(
-    data.CloseTunnelResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CloseTunnelResponse(data, context);
   const response: CloseTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CloseTunnelResponse",
@@ -256,7 +253,7 @@ async function deserializeAws_json1_1CloseTunnelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -269,7 +266,6 @@ async function deserializeAws_json1_1CloseTunnelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -288,10 +284,7 @@ export async function deserializeAws_json1_1DescribeTunnelCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTunnelResponse(
-    data.DescribeTunnelResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTunnelResponse(data, context);
   const response: DescribeTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTunnelResponse",
@@ -310,7 +303,7 @@ async function deserializeAws_json1_1DescribeTunnelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -323,7 +316,6 @@ async function deserializeAws_json1_1DescribeTunnelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -345,10 +337,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -367,7 +356,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -380,7 +369,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -399,10 +387,7 @@ export async function deserializeAws_json1_1ListTunnelsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTunnelsResponse(
-    data.ListTunnelsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTunnelsResponse(data, context);
   const response: ListTunnelsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTunnelsResponse",
@@ -417,13 +402,12 @@ async function deserializeAws_json1_1ListTunnelsCommandError(
 ): Promise<ListTunnelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -442,10 +426,7 @@ export async function deserializeAws_json1_1OpenTunnelCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1OpenTunnelResponse(
-    data.OpenTunnelResponse,
-    context
-  );
+  contents = deserializeAws_json1_1OpenTunnelResponse(data, context);
   const response: OpenTunnelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "OpenTunnelResponse",
@@ -464,7 +445,7 @@ async function deserializeAws_json1_1OpenTunnelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -477,7 +458,6 @@ async function deserializeAws_json1_1OpenTunnelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -496,10 +476,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -518,7 +495,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -531,7 +508,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",
@@ -550,10 +526,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -572,7 +545,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -585,7 +558,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.envoy.frontend#${errorCode}`,
         $fault: "client",

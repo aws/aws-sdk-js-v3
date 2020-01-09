@@ -192,8 +192,10 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
@@ -231,7 +233,6 @@ async function deserializeAws_restJson1_1AssociateRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guru#${errorCode}`,
         $fault: "client",
@@ -276,8 +277,10 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
@@ -315,7 +318,6 @@ async function deserializeAws_restJson1_1DescribeRepositoryAssociationCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guru#${errorCode}`,
         $fault: "client",
@@ -360,8 +362,10 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.guru#AccessDeniedException":
@@ -406,7 +410,6 @@ async function deserializeAws_restJson1_1DisassociateRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guru#${errorCode}`,
         $fault: "client",
@@ -455,8 +458,10 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.guru#InternalServerException":
@@ -480,7 +485,6 @@ async function deserializeAws_restJson1_1ListRepositoryAssociationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.guru#${errorCode}`,
         $fault: "client",

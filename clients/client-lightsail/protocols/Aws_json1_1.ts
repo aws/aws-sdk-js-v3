@@ -3276,10 +3276,7 @@ export async function deserializeAws_json1_1AllocateStaticIpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AllocateStaticIpResult(
-    data.AllocateStaticIpResult,
-    context
-  );
+  contents = deserializeAws_json1_1AllocateStaticIpResult(data, context);
   const response: AllocateStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AllocateStaticIpResult",
@@ -3298,7 +3295,7 @@ async function deserializeAws_json1_1AllocateStaticIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3353,7 +3350,6 @@ async function deserializeAws_json1_1AllocateStaticIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3372,10 +3368,7 @@ export async function deserializeAws_json1_1AttachDiskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AttachDiskResult(
-    data.AttachDiskResult,
-    context
-  );
+  contents = deserializeAws_json1_1AttachDiskResult(data, context);
   const response: AttachDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AttachDiskResult",
@@ -3394,7 +3387,7 @@ async function deserializeAws_json1_1AttachDiskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3449,7 +3442,6 @@ async function deserializeAws_json1_1AttachDiskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3472,7 +3464,7 @@ export async function deserializeAws_json1_1AttachInstancesToLoadBalancerCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AttachInstancesToLoadBalancerResult(
-    data.AttachInstancesToLoadBalancerResult,
+    data,
     context
   );
   const response: AttachInstancesToLoadBalancerCommandOutput = {
@@ -3493,7 +3485,7 @@ async function deserializeAws_json1_1AttachInstancesToLoadBalancerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3548,7 +3540,6 @@ async function deserializeAws_json1_1AttachInstancesToLoadBalancerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3571,7 +3562,7 @@ export async function deserializeAws_json1_1AttachLoadBalancerTlsCertificateComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AttachLoadBalancerTlsCertificateResult(
-    data.AttachLoadBalancerTlsCertificateResult,
+    data,
     context
   );
   const response: AttachLoadBalancerTlsCertificateCommandOutput = {
@@ -3592,7 +3583,7 @@ async function deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3647,7 +3638,6 @@ async function deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3666,10 +3656,7 @@ export async function deserializeAws_json1_1AttachStaticIpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AttachStaticIpResult(
-    data.AttachStaticIpResult,
-    context
-  );
+  contents = deserializeAws_json1_1AttachStaticIpResult(data, context);
   const response: AttachStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AttachStaticIpResult",
@@ -3688,7 +3675,7 @@ async function deserializeAws_json1_1AttachStaticIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3743,7 +3730,6 @@ async function deserializeAws_json1_1AttachStaticIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3766,7 +3752,7 @@ export async function deserializeAws_json1_1CloseInstancePublicPortsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CloseInstancePublicPortsResult(
-    data.CloseInstancePublicPortsResult,
+    data,
     context
   );
   const response: CloseInstancePublicPortsCommandOutput = {
@@ -3787,7 +3773,7 @@ async function deserializeAws_json1_1CloseInstancePublicPortsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3842,7 +3828,6 @@ async function deserializeAws_json1_1CloseInstancePublicPortsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3861,10 +3846,7 @@ export async function deserializeAws_json1_1CopySnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopySnapshotResult(
-    data.CopySnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1CopySnapshotResult(data, context);
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopySnapshotResult",
@@ -3883,7 +3865,7 @@ async function deserializeAws_json1_1CopySnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3938,7 +3920,6 @@ async function deserializeAws_json1_1CopySnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -3961,7 +3942,7 @@ export async function deserializeAws_json1_1CreateCloudFormationStackCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCloudFormationStackResult(
-    data.CreateCloudFormationStackResult,
+    data,
     context
   );
   const response: CreateCloudFormationStackCommandOutput = {
@@ -3982,7 +3963,7 @@ async function deserializeAws_json1_1CreateCloudFormationStackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4037,7 +4018,6 @@ async function deserializeAws_json1_1CreateCloudFormationStackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4056,10 +4036,7 @@ export async function deserializeAws_json1_1CreateDiskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDiskResult(
-    data.CreateDiskResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDiskResult(data, context);
   const response: CreateDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDiskResult",
@@ -4078,7 +4055,7 @@ async function deserializeAws_json1_1CreateDiskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4133,7 +4110,6 @@ async function deserializeAws_json1_1CreateDiskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4155,10 +4131,7 @@ export async function deserializeAws_json1_1CreateDiskFromSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDiskFromSnapshotResult(
-    data.CreateDiskFromSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDiskFromSnapshotResult(data, context);
   const response: CreateDiskFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDiskFromSnapshotResult",
@@ -4177,7 +4150,7 @@ async function deserializeAws_json1_1CreateDiskFromSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4232,7 +4205,6 @@ async function deserializeAws_json1_1CreateDiskFromSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4254,10 +4226,7 @@ export async function deserializeAws_json1_1CreateDiskSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDiskSnapshotResult(
-    data.CreateDiskSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDiskSnapshotResult(data, context);
   const response: CreateDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDiskSnapshotResult",
@@ -4276,7 +4245,7 @@ async function deserializeAws_json1_1CreateDiskSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4331,7 +4300,6 @@ async function deserializeAws_json1_1CreateDiskSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4350,10 +4318,7 @@ export async function deserializeAws_json1_1CreateDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDomainResult(
-    data.CreateDomainResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDomainResult(data, context);
   const response: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDomainResult",
@@ -4372,7 +4337,7 @@ async function deserializeAws_json1_1CreateDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4427,7 +4392,6 @@ async function deserializeAws_json1_1CreateDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4446,10 +4410,7 @@ export async function deserializeAws_json1_1CreateDomainEntryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDomainEntryResult(
-    data.CreateDomainEntryResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDomainEntryResult(data, context);
   const response: CreateDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDomainEntryResult",
@@ -4468,7 +4429,7 @@ async function deserializeAws_json1_1CreateDomainEntryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4523,7 +4484,6 @@ async function deserializeAws_json1_1CreateDomainEntryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4545,10 +4505,7 @@ export async function deserializeAws_json1_1CreateInstanceSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateInstanceSnapshotResult(
-    data.CreateInstanceSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateInstanceSnapshotResult(data, context);
   const response: CreateInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateInstanceSnapshotResult",
@@ -4567,7 +4524,7 @@ async function deserializeAws_json1_1CreateInstanceSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4622,7 +4579,6 @@ async function deserializeAws_json1_1CreateInstanceSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4641,10 +4597,7 @@ export async function deserializeAws_json1_1CreateInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateInstancesResult(
-    data.CreateInstancesResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateInstancesResult(data, context);
   const response: CreateInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateInstancesResult",
@@ -4663,7 +4616,7 @@ async function deserializeAws_json1_1CreateInstancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4718,7 +4671,6 @@ async function deserializeAws_json1_1CreateInstancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4741,7 +4693,7 @@ export async function deserializeAws_json1_1CreateInstancesFromSnapshotCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateInstancesFromSnapshotResult(
-    data.CreateInstancesFromSnapshotResult,
+    data,
     context
   );
   const response: CreateInstancesFromSnapshotCommandOutput = {
@@ -4762,7 +4714,7 @@ async function deserializeAws_json1_1CreateInstancesFromSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4817,7 +4769,6 @@ async function deserializeAws_json1_1CreateInstancesFromSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4836,10 +4787,7 @@ export async function deserializeAws_json1_1CreateKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateKeyPairResult(
-    data.CreateKeyPairResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateKeyPairResult(data, context);
   const response: CreateKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateKeyPairResult",
@@ -4858,7 +4806,7 @@ async function deserializeAws_json1_1CreateKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4913,7 +4861,6 @@ async function deserializeAws_json1_1CreateKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -4935,10 +4882,7 @@ export async function deserializeAws_json1_1CreateLoadBalancerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLoadBalancerResult(
-    data.CreateLoadBalancerResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLoadBalancerResult(data, context);
   const response: CreateLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLoadBalancerResult",
@@ -4957,7 +4901,7 @@ async function deserializeAws_json1_1CreateLoadBalancerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5012,7 +4956,6 @@ async function deserializeAws_json1_1CreateLoadBalancerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5035,7 +4978,7 @@ export async function deserializeAws_json1_1CreateLoadBalancerTlsCertificateComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLoadBalancerTlsCertificateResult(
-    data.CreateLoadBalancerTlsCertificateResult,
+    data,
     context
   );
   const response: CreateLoadBalancerTlsCertificateCommandOutput = {
@@ -5056,7 +4999,7 @@ async function deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5111,7 +5054,6 @@ async function deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5134,7 +5076,7 @@ export async function deserializeAws_json1_1CreateRelationalDatabaseCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRelationalDatabaseResult(
-    data.CreateRelationalDatabaseResult,
+    data,
     context
   );
   const response: CreateRelationalDatabaseCommandOutput = {
@@ -5155,7 +5097,7 @@ async function deserializeAws_json1_1CreateRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5210,7 +5152,6 @@ async function deserializeAws_json1_1CreateRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5233,7 +5174,7 @@ export async function deserializeAws_json1_1CreateRelationalDatabaseFromSnapshot
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotResult(
-    data.CreateRelationalDatabaseFromSnapshotResult,
+    data,
     context
   );
   const response: CreateRelationalDatabaseFromSnapshotCommandOutput = {
@@ -5254,7 +5195,7 @@ async function deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5309,7 +5250,6 @@ async function deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5332,7 +5272,7 @@ export async function deserializeAws_json1_1CreateRelationalDatabaseSnapshotComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRelationalDatabaseSnapshotResult(
-    data.CreateRelationalDatabaseSnapshotResult,
+    data,
     context
   );
   const response: CreateRelationalDatabaseSnapshotCommandOutput = {
@@ -5353,7 +5293,7 @@ async function deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5408,7 +5348,6 @@ async function deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5430,10 +5369,7 @@ export async function deserializeAws_json1_1DeleteAutoSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAutoSnapshotResult(
-    data.DeleteAutoSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAutoSnapshotResult(data, context);
   const response: DeleteAutoSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAutoSnapshotResult",
@@ -5452,7 +5388,7 @@ async function deserializeAws_json1_1DeleteAutoSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5500,7 +5436,6 @@ async function deserializeAws_json1_1DeleteAutoSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5519,10 +5454,7 @@ export async function deserializeAws_json1_1DeleteDiskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDiskResult(
-    data.DeleteDiskResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDiskResult(data, context);
   const response: DeleteDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDiskResult",
@@ -5541,7 +5473,7 @@ async function deserializeAws_json1_1DeleteDiskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5596,7 +5528,6 @@ async function deserializeAws_json1_1DeleteDiskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5618,10 +5549,7 @@ export async function deserializeAws_json1_1DeleteDiskSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDiskSnapshotResult(
-    data.DeleteDiskSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDiskSnapshotResult(data, context);
   const response: DeleteDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDiskSnapshotResult",
@@ -5640,7 +5568,7 @@ async function deserializeAws_json1_1DeleteDiskSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5695,7 +5623,6 @@ async function deserializeAws_json1_1DeleteDiskSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5714,10 +5641,7 @@ export async function deserializeAws_json1_1DeleteDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDomainResult(
-    data.DeleteDomainResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDomainResult(data, context);
   const response: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDomainResult",
@@ -5736,7 +5660,7 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5791,7 +5715,6 @@ async function deserializeAws_json1_1DeleteDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5810,10 +5733,7 @@ export async function deserializeAws_json1_1DeleteDomainEntryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDomainEntryResult(
-    data.DeleteDomainEntryResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDomainEntryResult(data, context);
   const response: DeleteDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDomainEntryResult",
@@ -5832,7 +5752,7 @@ async function deserializeAws_json1_1DeleteDomainEntryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5887,7 +5807,6 @@ async function deserializeAws_json1_1DeleteDomainEntryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -5906,10 +5825,7 @@ export async function deserializeAws_json1_1DeleteInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteInstanceResult(
-    data.DeleteInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteInstanceResult(data, context);
   const response: DeleteInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteInstanceResult",
@@ -5928,7 +5844,7 @@ async function deserializeAws_json1_1DeleteInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5983,7 +5899,6 @@ async function deserializeAws_json1_1DeleteInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6005,10 +5920,7 @@ export async function deserializeAws_json1_1DeleteInstanceSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteInstanceSnapshotResult(
-    data.DeleteInstanceSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteInstanceSnapshotResult(data, context);
   const response: DeleteInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteInstanceSnapshotResult",
@@ -6027,7 +5939,7 @@ async function deserializeAws_json1_1DeleteInstanceSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6082,7 +5994,6 @@ async function deserializeAws_json1_1DeleteInstanceSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6101,10 +6012,7 @@ export async function deserializeAws_json1_1DeleteKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteKeyPairResult(
-    data.DeleteKeyPairResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteKeyPairResult(data, context);
   const response: DeleteKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteKeyPairResult",
@@ -6123,7 +6031,7 @@ async function deserializeAws_json1_1DeleteKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6178,7 +6086,6 @@ async function deserializeAws_json1_1DeleteKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6200,10 +6107,7 @@ export async function deserializeAws_json1_1DeleteKnownHostKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteKnownHostKeysResult(
-    data.DeleteKnownHostKeysResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteKnownHostKeysResult(data, context);
   const response: DeleteKnownHostKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteKnownHostKeysResult",
@@ -6222,7 +6126,7 @@ async function deserializeAws_json1_1DeleteKnownHostKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6277,7 +6181,6 @@ async function deserializeAws_json1_1DeleteKnownHostKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6299,10 +6202,7 @@ export async function deserializeAws_json1_1DeleteLoadBalancerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLoadBalancerResult(
-    data.DeleteLoadBalancerResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLoadBalancerResult(data, context);
   const response: DeleteLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLoadBalancerResult",
@@ -6321,7 +6221,7 @@ async function deserializeAws_json1_1DeleteLoadBalancerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6376,7 +6276,6 @@ async function deserializeAws_json1_1DeleteLoadBalancerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6399,7 +6298,7 @@ export async function deserializeAws_json1_1DeleteLoadBalancerTlsCertificateComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteLoadBalancerTlsCertificateResult(
-    data.DeleteLoadBalancerTlsCertificateResult,
+    data,
     context
   );
   const response: DeleteLoadBalancerTlsCertificateCommandOutput = {
@@ -6420,7 +6319,7 @@ async function deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6475,7 +6374,6 @@ async function deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6498,7 +6396,7 @@ export async function deserializeAws_json1_1DeleteRelationalDatabaseCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRelationalDatabaseResult(
-    data.DeleteRelationalDatabaseResult,
+    data,
     context
   );
   const response: DeleteRelationalDatabaseCommandOutput = {
@@ -6519,7 +6417,7 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6574,7 +6472,6 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6597,7 +6494,7 @@ export async function deserializeAws_json1_1DeleteRelationalDatabaseSnapshotComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRelationalDatabaseSnapshotResult(
-    data.DeleteRelationalDatabaseSnapshotResult,
+    data,
     context
   );
   const response: DeleteRelationalDatabaseSnapshotCommandOutput = {
@@ -6618,7 +6515,7 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6673,7 +6570,6 @@ async function deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6692,10 +6588,7 @@ export async function deserializeAws_json1_1DetachDiskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetachDiskResult(
-    data.DetachDiskResult,
-    context
-  );
+  contents = deserializeAws_json1_1DetachDiskResult(data, context);
   const response: DetachDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetachDiskResult",
@@ -6714,7 +6607,7 @@ async function deserializeAws_json1_1DetachDiskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6769,7 +6662,6 @@ async function deserializeAws_json1_1DetachDiskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6792,7 +6684,7 @@ export async function deserializeAws_json1_1DetachInstancesFromLoadBalancerComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DetachInstancesFromLoadBalancerResult(
-    data.DetachInstancesFromLoadBalancerResult,
+    data,
     context
   );
   const response: DetachInstancesFromLoadBalancerCommandOutput = {
@@ -6813,7 +6705,7 @@ async function deserializeAws_json1_1DetachInstancesFromLoadBalancerCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6868,7 +6760,6 @@ async function deserializeAws_json1_1DetachInstancesFromLoadBalancerCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6887,10 +6778,7 @@ export async function deserializeAws_json1_1DetachStaticIpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetachStaticIpResult(
-    data.DetachStaticIpResult,
-    context
-  );
+  contents = deserializeAws_json1_1DetachStaticIpResult(data, context);
   const response: DetachStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetachStaticIpResult",
@@ -6909,7 +6797,7 @@ async function deserializeAws_json1_1DetachStaticIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6964,7 +6852,6 @@ async function deserializeAws_json1_1DetachStaticIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -6983,10 +6870,7 @@ export async function deserializeAws_json1_1DisableAddOnCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableAddOnResult(
-    data.DisableAddOnResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisableAddOnResult(data, context);
   const response: DisableAddOnCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableAddOnResult",
@@ -7005,7 +6889,7 @@ async function deserializeAws_json1_1DisableAddOnCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7053,7 +6937,6 @@ async function deserializeAws_json1_1DisableAddOnCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7075,10 +6958,7 @@ export async function deserializeAws_json1_1DownloadDefaultKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DownloadDefaultKeyPairResult(
-    data.DownloadDefaultKeyPairResult,
-    context
-  );
+  contents = deserializeAws_json1_1DownloadDefaultKeyPairResult(data, context);
   const response: DownloadDefaultKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DownloadDefaultKeyPairResult",
@@ -7097,7 +6977,7 @@ async function deserializeAws_json1_1DownloadDefaultKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7152,7 +7032,6 @@ async function deserializeAws_json1_1DownloadDefaultKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7171,10 +7050,7 @@ export async function deserializeAws_json1_1EnableAddOnCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableAddOnResult(
-    data.EnableAddOnResult,
-    context
-  );
+  contents = deserializeAws_json1_1EnableAddOnResult(data, context);
   const response: EnableAddOnCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableAddOnResult",
@@ -7193,7 +7069,7 @@ async function deserializeAws_json1_1EnableAddOnCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7241,7 +7117,6 @@ async function deserializeAws_json1_1EnableAddOnCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7260,10 +7135,7 @@ export async function deserializeAws_json1_1ExportSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportSnapshotResult(
-    data.ExportSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1ExportSnapshotResult(data, context);
   const response: ExportSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportSnapshotResult",
@@ -7282,7 +7154,7 @@ async function deserializeAws_json1_1ExportSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7337,7 +7209,6 @@ async function deserializeAws_json1_1ExportSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7356,10 +7227,7 @@ export async function deserializeAws_json1_1GetActiveNamesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetActiveNamesResult(
-    data.GetActiveNamesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetActiveNamesResult(data, context);
   const response: GetActiveNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetActiveNamesResult",
@@ -7378,7 +7246,7 @@ async function deserializeAws_json1_1GetActiveNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7433,7 +7301,6 @@ async function deserializeAws_json1_1GetActiveNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7452,10 +7319,7 @@ export async function deserializeAws_json1_1GetAutoSnapshotsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAutoSnapshotsResult(
-    data.GetAutoSnapshotsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetAutoSnapshotsResult(data, context);
   const response: GetAutoSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAutoSnapshotsResult",
@@ -7474,7 +7338,7 @@ async function deserializeAws_json1_1GetAutoSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7522,7 +7386,6 @@ async function deserializeAws_json1_1GetAutoSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7541,10 +7404,7 @@ export async function deserializeAws_json1_1GetBlueprintsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlueprintsResult(
-    data.GetBlueprintsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetBlueprintsResult(data, context);
   const response: GetBlueprintsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBlueprintsResult",
@@ -7563,7 +7423,7 @@ async function deserializeAws_json1_1GetBlueprintsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7618,7 +7478,6 @@ async function deserializeAws_json1_1GetBlueprintsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7637,10 +7496,7 @@ export async function deserializeAws_json1_1GetBundlesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBundlesResult(
-    data.GetBundlesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetBundlesResult(data, context);
   const response: GetBundlesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBundlesResult",
@@ -7659,7 +7515,7 @@ async function deserializeAws_json1_1GetBundlesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7714,7 +7570,6 @@ async function deserializeAws_json1_1GetBundlesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7737,7 +7592,7 @@ export async function deserializeAws_json1_1GetCloudFormationStackRecordsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetCloudFormationStackRecordsResult(
-    data.GetCloudFormationStackRecordsResult,
+    data,
     context
   );
   const response: GetCloudFormationStackRecordsCommandOutput = {
@@ -7758,7 +7613,7 @@ async function deserializeAws_json1_1GetCloudFormationStackRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7813,7 +7668,6 @@ async function deserializeAws_json1_1GetCloudFormationStackRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7832,7 +7686,7 @@ export async function deserializeAws_json1_1GetDiskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDiskResult(data.GetDiskResult, context);
+  contents = deserializeAws_json1_1GetDiskResult(data, context);
   const response: GetDiskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDiskResult",
@@ -7851,7 +7705,7 @@ async function deserializeAws_json1_1GetDiskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7906,7 +7760,6 @@ async function deserializeAws_json1_1GetDiskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -7925,10 +7778,7 @@ export async function deserializeAws_json1_1GetDiskSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDiskSnapshotResult(
-    data.GetDiskSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDiskSnapshotResult(data, context);
   const response: GetDiskSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDiskSnapshotResult",
@@ -7947,7 +7797,7 @@ async function deserializeAws_json1_1GetDiskSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8002,7 +7852,6 @@ async function deserializeAws_json1_1GetDiskSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8021,10 +7870,7 @@ export async function deserializeAws_json1_1GetDiskSnapshotsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDiskSnapshotsResult(
-    data.GetDiskSnapshotsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDiskSnapshotsResult(data, context);
   const response: GetDiskSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDiskSnapshotsResult",
@@ -8043,7 +7889,7 @@ async function deserializeAws_json1_1GetDiskSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8098,7 +7944,6 @@ async function deserializeAws_json1_1GetDiskSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8117,7 +7962,7 @@ export async function deserializeAws_json1_1GetDisksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDisksResult(data.GetDisksResult, context);
+  contents = deserializeAws_json1_1GetDisksResult(data, context);
   const response: GetDisksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDisksResult",
@@ -8136,7 +7981,7 @@ async function deserializeAws_json1_1GetDisksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8191,7 +8036,6 @@ async function deserializeAws_json1_1GetDisksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8210,10 +8054,7 @@ export async function deserializeAws_json1_1GetDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDomainResult(
-    data.GetDomainResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDomainResult(data, context);
   const response: GetDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDomainResult",
@@ -8232,7 +8073,7 @@ async function deserializeAws_json1_1GetDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8287,7 +8128,6 @@ async function deserializeAws_json1_1GetDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8306,10 +8146,7 @@ export async function deserializeAws_json1_1GetDomainsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDomainsResult(
-    data.GetDomainsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDomainsResult(data, context);
   const response: GetDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDomainsResult",
@@ -8328,7 +8165,7 @@ async function deserializeAws_json1_1GetDomainsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8383,7 +8220,6 @@ async function deserializeAws_json1_1GetDomainsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8406,7 +8242,7 @@ export async function deserializeAws_json1_1GetExportSnapshotRecordsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetExportSnapshotRecordsResult(
-    data.GetExportSnapshotRecordsResult,
+    data,
     context
   );
   const response: GetExportSnapshotRecordsCommandOutput = {
@@ -8427,7 +8263,7 @@ async function deserializeAws_json1_1GetExportSnapshotRecordsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8482,7 +8318,6 @@ async function deserializeAws_json1_1GetExportSnapshotRecordsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8501,10 +8336,7 @@ export async function deserializeAws_json1_1GetInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceResult(
-    data.GetInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceResult(data, context);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceResult",
@@ -8523,7 +8355,7 @@ async function deserializeAws_json1_1GetInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8578,7 +8410,6 @@ async function deserializeAws_json1_1GetInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8601,7 +8432,7 @@ export async function deserializeAws_json1_1GetInstanceAccessDetailsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetInstanceAccessDetailsResult(
-    data.GetInstanceAccessDetailsResult,
+    data,
     context
   );
   const response: GetInstanceAccessDetailsCommandOutput = {
@@ -8622,7 +8453,7 @@ async function deserializeAws_json1_1GetInstanceAccessDetailsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8677,7 +8508,6 @@ async function deserializeAws_json1_1GetInstanceAccessDetailsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8699,10 +8529,7 @@ export async function deserializeAws_json1_1GetInstanceMetricDataCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceMetricDataResult(
-    data.GetInstanceMetricDataResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceMetricDataResult(data, context);
   const response: GetInstanceMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceMetricDataResult",
@@ -8721,7 +8548,7 @@ async function deserializeAws_json1_1GetInstanceMetricDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8776,7 +8603,6 @@ async function deserializeAws_json1_1GetInstanceMetricDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8798,10 +8624,7 @@ export async function deserializeAws_json1_1GetInstancePortStatesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstancePortStatesResult(
-    data.GetInstancePortStatesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstancePortStatesResult(data, context);
   const response: GetInstancePortStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstancePortStatesResult",
@@ -8820,7 +8643,7 @@ async function deserializeAws_json1_1GetInstancePortStatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8875,7 +8698,6 @@ async function deserializeAws_json1_1GetInstancePortStatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8897,10 +8719,7 @@ export async function deserializeAws_json1_1GetInstanceSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceSnapshotResult(
-    data.GetInstanceSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceSnapshotResult(data, context);
   const response: GetInstanceSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceSnapshotResult",
@@ -8919,7 +8738,7 @@ async function deserializeAws_json1_1GetInstanceSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8974,7 +8793,6 @@ async function deserializeAws_json1_1GetInstanceSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -8996,10 +8814,7 @@ export async function deserializeAws_json1_1GetInstanceSnapshotsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceSnapshotsResult(
-    data.GetInstanceSnapshotsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceSnapshotsResult(data, context);
   const response: GetInstanceSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceSnapshotsResult",
@@ -9018,7 +8833,7 @@ async function deserializeAws_json1_1GetInstanceSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9073,7 +8888,6 @@ async function deserializeAws_json1_1GetInstanceSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9092,10 +8906,7 @@ export async function deserializeAws_json1_1GetInstanceStateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstanceStateResult(
-    data.GetInstanceStateResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstanceStateResult(data, context);
   const response: GetInstanceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceStateResult",
@@ -9114,7 +8925,7 @@ async function deserializeAws_json1_1GetInstanceStateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9169,7 +8980,6 @@ async function deserializeAws_json1_1GetInstanceStateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9188,10 +8998,7 @@ export async function deserializeAws_json1_1GetInstancesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstancesResult(
-    data.GetInstancesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetInstancesResult(data, context);
   const response: GetInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstancesResult",
@@ -9210,7 +9017,7 @@ async function deserializeAws_json1_1GetInstancesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9265,7 +9072,6 @@ async function deserializeAws_json1_1GetInstancesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9284,10 +9090,7 @@ export async function deserializeAws_json1_1GetKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyPairResult(
-    data.GetKeyPairResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetKeyPairResult(data, context);
   const response: GetKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetKeyPairResult",
@@ -9306,7 +9109,7 @@ async function deserializeAws_json1_1GetKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9361,7 +9164,6 @@ async function deserializeAws_json1_1GetKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9380,10 +9182,7 @@ export async function deserializeAws_json1_1GetKeyPairsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyPairsResult(
-    data.GetKeyPairsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetKeyPairsResult(data, context);
   const response: GetKeyPairsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetKeyPairsResult",
@@ -9402,7 +9201,7 @@ async function deserializeAws_json1_1GetKeyPairsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9457,7 +9256,6 @@ async function deserializeAws_json1_1GetKeyPairsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9476,10 +9274,7 @@ export async function deserializeAws_json1_1GetLoadBalancerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLoadBalancerResult(
-    data.GetLoadBalancerResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetLoadBalancerResult(data, context);
   const response: GetLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLoadBalancerResult",
@@ -9498,7 +9293,7 @@ async function deserializeAws_json1_1GetLoadBalancerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9553,7 +9348,6 @@ async function deserializeAws_json1_1GetLoadBalancerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9576,7 +9370,7 @@ export async function deserializeAws_json1_1GetLoadBalancerMetricDataCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetLoadBalancerMetricDataResult(
-    data.GetLoadBalancerMetricDataResult,
+    data,
     context
   );
   const response: GetLoadBalancerMetricDataCommandOutput = {
@@ -9597,7 +9391,7 @@ async function deserializeAws_json1_1GetLoadBalancerMetricDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9652,7 +9446,6 @@ async function deserializeAws_json1_1GetLoadBalancerMetricDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9675,7 +9468,7 @@ export async function deserializeAws_json1_1GetLoadBalancerTlsCertificatesComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetLoadBalancerTlsCertificatesResult(
-    data.GetLoadBalancerTlsCertificatesResult,
+    data,
     context
   );
   const response: GetLoadBalancerTlsCertificatesCommandOutput = {
@@ -9696,7 +9489,7 @@ async function deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9751,7 +9544,6 @@ async function deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9770,10 +9562,7 @@ export async function deserializeAws_json1_1GetLoadBalancersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLoadBalancersResult(
-    data.GetLoadBalancersResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetLoadBalancersResult(data, context);
   const response: GetLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLoadBalancersResult",
@@ -9792,7 +9581,7 @@ async function deserializeAws_json1_1GetLoadBalancersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9847,7 +9636,6 @@ async function deserializeAws_json1_1GetLoadBalancersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9866,10 +9654,7 @@ export async function deserializeAws_json1_1GetOperationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOperationResult(
-    data.GetOperationResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetOperationResult(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOperationResult",
@@ -9888,7 +9673,7 @@ async function deserializeAws_json1_1GetOperationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9943,7 +9728,6 @@ async function deserializeAws_json1_1GetOperationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -9962,10 +9746,7 @@ export async function deserializeAws_json1_1GetOperationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetOperationsResult(
-    data.GetOperationsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetOperationsResult(data, context);
   const response: GetOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOperationsResult",
@@ -9984,7 +9765,7 @@ async function deserializeAws_json1_1GetOperationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10039,7 +9820,6 @@ async function deserializeAws_json1_1GetOperationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10062,7 +9842,7 @@ export async function deserializeAws_json1_1GetOperationsForResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOperationsForResourceResult(
-    data.GetOperationsForResourceResult,
+    data,
     context
   );
   const response: GetOperationsForResourceCommandOutput = {
@@ -10083,7 +9863,7 @@ async function deserializeAws_json1_1GetOperationsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10138,7 +9918,6 @@ async function deserializeAws_json1_1GetOperationsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10157,10 +9936,7 @@ export async function deserializeAws_json1_1GetRegionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRegionsResult(
-    data.GetRegionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetRegionsResult(data, context);
   const response: GetRegionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRegionsResult",
@@ -10179,7 +9955,7 @@ async function deserializeAws_json1_1GetRegionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10234,7 +10010,6 @@ async function deserializeAws_json1_1GetRegionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10256,10 +10031,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRelationalDatabaseResult(
-    data.GetRelationalDatabaseResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetRelationalDatabaseResult(data, context);
   const response: GetRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRelationalDatabaseResult",
@@ -10278,7 +10050,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10333,7 +10105,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10356,7 +10127,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseBlueprintsComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseBlueprintsResult(
-    data.GetRelationalDatabaseBlueprintsResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseBlueprintsCommandOutput = {
@@ -10377,7 +10148,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10432,7 +10203,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10455,7 +10225,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseBundlesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseBundlesResult(
-    data.GetRelationalDatabaseBundlesResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseBundlesCommandOutput = {
@@ -10476,7 +10246,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseBundlesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10531,7 +10301,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseBundlesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10554,7 +10323,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseEventsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseEventsResult(
-    data.GetRelationalDatabaseEventsResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseEventsCommandOutput = {
@@ -10575,7 +10344,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10630,7 +10399,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10653,7 +10421,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseLogEventsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseLogEventsResult(
-    data.GetRelationalDatabaseLogEventsResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseLogEventsCommandOutput = {
@@ -10674,7 +10442,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10729,7 +10497,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10752,7 +10519,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseLogStreamsComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseLogStreamsResult(
-    data.GetRelationalDatabaseLogStreamsResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseLogStreamsCommandOutput = {
@@ -10773,7 +10540,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10828,7 +10595,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10851,7 +10617,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseMasterUserPassw
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordResult(
-    data.GetRelationalDatabaseMasterUserPasswordResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseMasterUserPasswordCommandOutput = {
@@ -10872,7 +10638,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10927,7 +10693,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -10950,7 +10715,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseMetricDataComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseMetricDataResult(
-    data.GetRelationalDatabaseMetricDataResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseMetricDataCommandOutput = {
@@ -10971,7 +10736,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseMetricDataCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11026,7 +10791,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseMetricDataCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11049,7 +10813,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseParametersComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseParametersResult(
-    data.GetRelationalDatabaseParametersResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseParametersCommandOutput = {
@@ -11070,7 +10834,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseParametersCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11125,7 +10889,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseParametersCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11148,7 +10911,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseSnapshotResult(
-    data.GetRelationalDatabaseSnapshotResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseSnapshotCommandOutput = {
@@ -11169,7 +10932,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11224,7 +10987,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11247,7 +11009,7 @@ export async function deserializeAws_json1_1GetRelationalDatabaseSnapshotsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRelationalDatabaseSnapshotsResult(
-    data.GetRelationalDatabaseSnapshotsResult,
+    data,
     context
   );
   const response: GetRelationalDatabaseSnapshotsCommandOutput = {
@@ -11268,7 +11030,7 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11323,7 +11085,6 @@ async function deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11345,10 +11106,7 @@ export async function deserializeAws_json1_1GetRelationalDatabasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRelationalDatabasesResult(
-    data.GetRelationalDatabasesResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetRelationalDatabasesResult(data, context);
   const response: GetRelationalDatabasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRelationalDatabasesResult",
@@ -11367,7 +11125,7 @@ async function deserializeAws_json1_1GetRelationalDatabasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11422,7 +11180,6 @@ async function deserializeAws_json1_1GetRelationalDatabasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11441,10 +11198,7 @@ export async function deserializeAws_json1_1GetStaticIpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetStaticIpResult(
-    data.GetStaticIpResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetStaticIpResult(data, context);
   const response: GetStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetStaticIpResult",
@@ -11463,7 +11217,7 @@ async function deserializeAws_json1_1GetStaticIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11518,7 +11272,6 @@ async function deserializeAws_json1_1GetStaticIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11537,10 +11290,7 @@ export async function deserializeAws_json1_1GetStaticIpsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetStaticIpsResult(
-    data.GetStaticIpsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetStaticIpsResult(data, context);
   const response: GetStaticIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetStaticIpsResult",
@@ -11559,7 +11309,7 @@ async function deserializeAws_json1_1GetStaticIpsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11614,7 +11364,6 @@ async function deserializeAws_json1_1GetStaticIpsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11633,10 +11382,7 @@ export async function deserializeAws_json1_1ImportKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportKeyPairResult(
-    data.ImportKeyPairResult,
-    context
-  );
+  contents = deserializeAws_json1_1ImportKeyPairResult(data, context);
   const response: ImportKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportKeyPairResult",
@@ -11655,7 +11401,7 @@ async function deserializeAws_json1_1ImportKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11710,7 +11456,6 @@ async function deserializeAws_json1_1ImportKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11729,10 +11474,7 @@ export async function deserializeAws_json1_1IsVpcPeeredCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1IsVpcPeeredResult(
-    data.IsVpcPeeredResult,
-    context
-  );
+  contents = deserializeAws_json1_1IsVpcPeeredResult(data, context);
   const response: IsVpcPeeredCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "IsVpcPeeredResult",
@@ -11751,7 +11493,7 @@ async function deserializeAws_json1_1IsVpcPeeredCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11806,7 +11548,6 @@ async function deserializeAws_json1_1IsVpcPeeredCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11828,10 +11569,7 @@ export async function deserializeAws_json1_1OpenInstancePublicPortsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1OpenInstancePublicPortsResult(
-    data.OpenInstancePublicPortsResult,
-    context
-  );
+  contents = deserializeAws_json1_1OpenInstancePublicPortsResult(data, context);
   const response: OpenInstancePublicPortsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "OpenInstancePublicPortsResult",
@@ -11850,7 +11588,7 @@ async function deserializeAws_json1_1OpenInstancePublicPortsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11905,7 +11643,6 @@ async function deserializeAws_json1_1OpenInstancePublicPortsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -11924,7 +11661,7 @@ export async function deserializeAws_json1_1PeerVpcCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PeerVpcResult(data.PeerVpcResult, context);
+  contents = deserializeAws_json1_1PeerVpcResult(data, context);
   const response: PeerVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PeerVpcResult",
@@ -11943,7 +11680,7 @@ async function deserializeAws_json1_1PeerVpcCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11998,7 +11735,6 @@ async function deserializeAws_json1_1PeerVpcCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12020,10 +11756,7 @@ export async function deserializeAws_json1_1PutInstancePublicPortsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutInstancePublicPortsResult(
-    data.PutInstancePublicPortsResult,
-    context
-  );
+  contents = deserializeAws_json1_1PutInstancePublicPortsResult(data, context);
   const response: PutInstancePublicPortsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutInstancePublicPortsResult",
@@ -12042,7 +11775,7 @@ async function deserializeAws_json1_1PutInstancePublicPortsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12097,7 +11830,6 @@ async function deserializeAws_json1_1PutInstancePublicPortsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12116,10 +11848,7 @@ export async function deserializeAws_json1_1RebootInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RebootInstanceResult(
-    data.RebootInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1RebootInstanceResult(data, context);
   const response: RebootInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RebootInstanceResult",
@@ -12138,7 +11867,7 @@ async function deserializeAws_json1_1RebootInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12193,7 +11922,6 @@ async function deserializeAws_json1_1RebootInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12216,7 +11944,7 @@ export async function deserializeAws_json1_1RebootRelationalDatabaseCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RebootRelationalDatabaseResult(
-    data.RebootRelationalDatabaseResult,
+    data,
     context
   );
   const response: RebootRelationalDatabaseCommandOutput = {
@@ -12237,7 +11965,7 @@ async function deserializeAws_json1_1RebootRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12292,7 +12020,6 @@ async function deserializeAws_json1_1RebootRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12311,10 +12038,7 @@ export async function deserializeAws_json1_1ReleaseStaticIpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReleaseStaticIpResult(
-    data.ReleaseStaticIpResult,
-    context
-  );
+  contents = deserializeAws_json1_1ReleaseStaticIpResult(data, context);
   const response: ReleaseStaticIpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReleaseStaticIpResult",
@@ -12333,7 +12057,7 @@ async function deserializeAws_json1_1ReleaseStaticIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12388,7 +12112,6 @@ async function deserializeAws_json1_1ReleaseStaticIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12407,10 +12130,7 @@ export async function deserializeAws_json1_1StartInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartInstanceResult(
-    data.StartInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartInstanceResult(data, context);
   const response: StartInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartInstanceResult",
@@ -12429,7 +12149,7 @@ async function deserializeAws_json1_1StartInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12484,7 +12204,6 @@ async function deserializeAws_json1_1StartInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12506,10 +12225,7 @@ export async function deserializeAws_json1_1StartRelationalDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartRelationalDatabaseResult(
-    data.StartRelationalDatabaseResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartRelationalDatabaseResult(data, context);
   const response: StartRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartRelationalDatabaseResult",
@@ -12528,7 +12244,7 @@ async function deserializeAws_json1_1StartRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12583,7 +12299,6 @@ async function deserializeAws_json1_1StartRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12602,10 +12317,7 @@ export async function deserializeAws_json1_1StopInstanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopInstanceResult(
-    data.StopInstanceResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopInstanceResult(data, context);
   const response: StopInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopInstanceResult",
@@ -12624,7 +12336,7 @@ async function deserializeAws_json1_1StopInstanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12679,7 +12391,6 @@ async function deserializeAws_json1_1StopInstanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12701,10 +12412,7 @@ export async function deserializeAws_json1_1StopRelationalDatabaseCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopRelationalDatabaseResult(
-    data.StopRelationalDatabaseResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopRelationalDatabaseResult(data, context);
   const response: StopRelationalDatabaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopRelationalDatabaseResult",
@@ -12723,7 +12431,7 @@ async function deserializeAws_json1_1StopRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12778,7 +12486,6 @@ async function deserializeAws_json1_1StopRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12797,10 +12504,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResult(
-    data.TagResourceResult,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResult(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResult",
@@ -12819,7 +12523,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12874,7 +12578,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12893,10 +12596,7 @@ export async function deserializeAws_json1_1UnpeerVpcCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UnpeerVpcResult(
-    data.UnpeerVpcResult,
-    context
-  );
+  contents = deserializeAws_json1_1UnpeerVpcResult(data, context);
   const response: UnpeerVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UnpeerVpcResult",
@@ -12915,7 +12615,7 @@ async function deserializeAws_json1_1UnpeerVpcCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12970,7 +12670,6 @@ async function deserializeAws_json1_1UnpeerVpcCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -12989,10 +12688,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResult(
-    data.UntagResourceResult,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResult(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResult",
@@ -13011,7 +12707,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13066,7 +12762,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -13085,10 +12780,7 @@ export async function deserializeAws_json1_1UpdateDomainEntryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDomainEntryResult(
-    data.UpdateDomainEntryResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDomainEntryResult(data, context);
   const response: UpdateDomainEntryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDomainEntryResult",
@@ -13107,7 +12799,7 @@ async function deserializeAws_json1_1UpdateDomainEntryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13162,7 +12854,6 @@ async function deserializeAws_json1_1UpdateDomainEntryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -13185,7 +12876,7 @@ export async function deserializeAws_json1_1UpdateLoadBalancerAttributeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateLoadBalancerAttributeResult(
-    data.UpdateLoadBalancerAttributeResult,
+    data,
     context
   );
   const response: UpdateLoadBalancerAttributeCommandOutput = {
@@ -13206,7 +12897,7 @@ async function deserializeAws_json1_1UpdateLoadBalancerAttributeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13261,7 +12952,6 @@ async function deserializeAws_json1_1UpdateLoadBalancerAttributeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -13284,7 +12974,7 @@ export async function deserializeAws_json1_1UpdateRelationalDatabaseCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRelationalDatabaseResult(
-    data.UpdateRelationalDatabaseResult,
+    data,
     context
   );
   const response: UpdateRelationalDatabaseCommandOutput = {
@@ -13305,7 +12995,7 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13360,7 +13050,6 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",
@@ -13383,7 +13072,7 @@ export async function deserializeAws_json1_1UpdateRelationalDatabaseParametersCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRelationalDatabaseParametersResult(
-    data.UpdateRelationalDatabaseParametersResult,
+    data,
     context
   );
   const response: UpdateRelationalDatabaseParametersCommandOutput = {
@@ -13404,7 +13093,7 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseParametersCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13459,7 +13148,6 @@ async function deserializeAws_json1_1UpdateRelationalDatabaseParametersCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.lightsail#${errorCode}`,
         $fault: "client",

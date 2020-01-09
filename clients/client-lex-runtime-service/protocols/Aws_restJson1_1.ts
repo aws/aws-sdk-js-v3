@@ -378,8 +378,10 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -417,7 +419,6 @@ async function deserializeAws_restJson1_1DeleteSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.runtimeservice#${errorCode}`,
         $fault: "client",
@@ -477,8 +478,10 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -509,7 +512,6 @@ async function deserializeAws_restJson1_1GetSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.runtimeservice#${errorCode}`,
         $fault: "client",
@@ -590,8 +592,10 @@ async function deserializeAws_restJson1_1PostContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -671,7 +675,6 @@ async function deserializeAws_restJson1_1PostContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.runtimeservice#${errorCode}`,
         $fault: "client",
@@ -755,8 +758,10 @@ async function deserializeAws_restJson1_1PostTextCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -815,7 +820,6 @@ async function deserializeAws_restJson1_1PostTextCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.runtimeservice#${errorCode}`,
         $fault: "client",
@@ -888,8 +892,10 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -948,7 +954,6 @@ async function deserializeAws_restJson1_1PutSessionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepsense.runtimeservice#${errorCode}`,
         $fault: "client",

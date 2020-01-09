@@ -733,8 +733,10 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -779,7 +781,6 @@ async function deserializeAws_restJson1_1CancelJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -818,8 +819,10 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -864,7 +867,6 @@ async function deserializeAws_restJson1_1CreateJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -916,8 +918,10 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -962,7 +966,6 @@ async function deserializeAws_restJson1_1CreatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1005,8 +1008,10 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1044,7 +1049,6 @@ async function deserializeAws_restJson1_1CreatePresetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1081,8 +1085,10 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1127,7 +1133,6 @@ async function deserializeAws_restJson1_1DeletePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1161,8 +1166,10 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1200,7 +1207,6 @@ async function deserializeAws_restJson1_1DeletePresetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1246,8 +1252,10 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1285,7 +1293,6 @@ async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1331,8 +1338,10 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1370,7 +1379,6 @@ async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1416,8 +1424,10 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1448,7 +1458,6 @@ async function deserializeAws_restJson1_1ListPipelinesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1491,8 +1500,10 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1523,7 +1534,6 @@ async function deserializeAws_restJson1_1ListPresetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1562,8 +1572,10 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1601,7 +1613,6 @@ async function deserializeAws_restJson1_1ReadJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1650,8 +1661,10 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1689,7 +1702,6 @@ async function deserializeAws_restJson1_1ReadPipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1728,8 +1740,10 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1767,7 +1781,6 @@ async function deserializeAws_restJson1_1ReadPresetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1813,8 +1826,10 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1852,7 +1867,6 @@ async function deserializeAws_restJson1_1TestRoleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1904,8 +1918,10 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -1950,7 +1966,6 @@ async function deserializeAws_restJson1_1UpdatePipelineCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -1995,8 +2010,10 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -2041,7 +2058,6 @@ async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
@@ -2086,8 +2102,10 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
@@ -2132,7 +2150,6 @@ async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",

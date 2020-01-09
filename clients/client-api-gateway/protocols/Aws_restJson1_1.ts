@@ -7541,8 +7541,10 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -7587,7 +7589,6 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -7668,8 +7669,10 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -7707,7 +7710,6 @@ async function deserializeAws_restJson1_1CreateAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -7757,8 +7759,10 @@ async function deserializeAws_restJson1_1CreateBasePathMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -7796,7 +7800,6 @@ async function deserializeAws_restJson1_1CreateBasePathMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -7857,8 +7860,10 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -7910,7 +7915,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -7963,8 +7967,10 @@ async function deserializeAws_restJson1_1CreateDocumentationPartCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8009,7 +8015,6 @@ async function deserializeAws_restJson1_1CreateDocumentationPartCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8063,8 +8068,10 @@ async function deserializeAws_restJson1_1CreateDocumentationVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8109,7 +8116,6 @@ async function deserializeAws_restJson1_1CreateDocumentationVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8217,8 +8223,10 @@ async function deserializeAws_restJson1_1CreateDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8249,7 +8257,6 @@ async function deserializeAws_restJson1_1CreateDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8304,8 +8311,10 @@ async function deserializeAws_restJson1_1CreateModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8350,7 +8359,6 @@ async function deserializeAws_restJson1_1CreateModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8404,8 +8412,10 @@ async function deserializeAws_restJson1_1CreateRequestValidatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8443,7 +8453,6 @@ async function deserializeAws_restJson1_1CreateRequestValidatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8504,8 +8513,10 @@ async function deserializeAws_restJson1_1CreateResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8550,7 +8561,6 @@ async function deserializeAws_restJson1_1CreateResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8649,8 +8659,10 @@ async function deserializeAws_restJson1_1CreateRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8681,7 +8693,6 @@ async function deserializeAws_restJson1_1CreateRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8807,8 +8818,10 @@ async function deserializeAws_restJson1_1CreateStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8853,7 +8866,6 @@ async function deserializeAws_restJson1_1CreateStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -8935,8 +8947,10 @@ async function deserializeAws_restJson1_1CreateUsagePlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -8981,7 +8995,6 @@ async function deserializeAws_restJson1_1CreateUsagePlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9035,8 +9048,10 @@ async function deserializeAws_restJson1_1CreateUsagePlanKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9074,7 +9089,6 @@ async function deserializeAws_restJson1_1CreateUsagePlanKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9143,8 +9157,10 @@ async function deserializeAws_restJson1_1CreateVpcLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9168,7 +9184,6 @@ async function deserializeAws_restJson1_1CreateVpcLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9201,8 +9216,10 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -9226,7 +9243,6 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9262,8 +9278,10 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9301,7 +9319,6 @@ async function deserializeAws_restJson1_1DeleteAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9337,8 +9354,10 @@ async function deserializeAws_restJson1_1DeleteBasePathMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9376,7 +9395,6 @@ async function deserializeAws_restJson1_1DeleteBasePathMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9412,8 +9430,10 @@ async function deserializeAws_restJson1_1DeleteClientCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9444,7 +9464,6 @@ async function deserializeAws_restJson1_1DeleteClientCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9480,8 +9499,10 @@ async function deserializeAws_restJson1_1DeleteDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9512,7 +9533,6 @@ async function deserializeAws_restJson1_1DeleteDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9548,8 +9568,10 @@ async function deserializeAws_restJson1_1DeleteDocumentationPartCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9587,7 +9609,6 @@ async function deserializeAws_restJson1_1DeleteDocumentationPartCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9623,8 +9644,10 @@ async function deserializeAws_restJson1_1DeleteDocumentationVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9662,7 +9685,6 @@ async function deserializeAws_restJson1_1DeleteDocumentationVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9698,8 +9720,10 @@ async function deserializeAws_restJson1_1DeleteDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9730,7 +9754,6 @@ async function deserializeAws_restJson1_1DeleteDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9766,8 +9789,10 @@ async function deserializeAws_restJson1_1DeleteGatewayResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9805,7 +9830,6 @@ async function deserializeAws_restJson1_1DeleteGatewayResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9841,8 +9865,10 @@ async function deserializeAws_restJson1_1DeleteIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
@@ -9873,7 +9899,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9909,8 +9934,10 @@ async function deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -9948,7 +9975,6 @@ async function deserializeAws_restJson1_1DeleteIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -9981,8 +10007,10 @@ async function deserializeAws_restJson1_1DeleteMethodCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConflictException":
     case "com.amazonaws.commonapi.exceptions#ConflictException":
@@ -10013,7 +10041,6 @@ async function deserializeAws_restJson1_1DeleteMethodCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10049,8 +10076,10 @@ async function deserializeAws_restJson1_1DeleteMethodResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10088,7 +10117,6 @@ async function deserializeAws_restJson1_1DeleteMethodResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10121,8 +10149,10 @@ async function deserializeAws_restJson1_1DeleteModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10160,7 +10190,6 @@ async function deserializeAws_restJson1_1DeleteModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10196,8 +10225,10 @@ async function deserializeAws_restJson1_1DeleteRequestValidatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10235,7 +10266,6 @@ async function deserializeAws_restJson1_1DeleteRequestValidatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10271,8 +10301,10 @@ async function deserializeAws_restJson1_1DeleteResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10310,7 +10342,6 @@ async function deserializeAws_restJson1_1DeleteResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10343,8 +10374,10 @@ async function deserializeAws_restJson1_1DeleteRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10375,7 +10408,6 @@ async function deserializeAws_restJson1_1DeleteRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10408,8 +10440,10 @@ async function deserializeAws_restJson1_1DeleteStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10440,7 +10474,6 @@ async function deserializeAws_restJson1_1DeleteStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10476,8 +10509,10 @@ async function deserializeAws_restJson1_1DeleteUsagePlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10508,7 +10543,6 @@ async function deserializeAws_restJson1_1DeleteUsagePlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10544,8 +10578,10 @@ async function deserializeAws_restJson1_1DeleteUsagePlanKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10583,7 +10619,6 @@ async function deserializeAws_restJson1_1DeleteUsagePlanKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10616,8 +10651,10 @@ async function deserializeAws_restJson1_1DeleteVpcLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10648,7 +10685,6 @@ async function deserializeAws_restJson1_1DeleteVpcLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10684,8 +10720,10 @@ async function deserializeAws_restJson1_1FlushStageAuthorizersCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10716,7 +10754,6 @@ async function deserializeAws_restJson1_1FlushStageAuthorizersCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10752,8 +10789,10 @@ async function deserializeAws_restJson1_1FlushStageCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -10784,7 +10823,6 @@ async function deserializeAws_restJson1_1FlushStageCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10857,8 +10895,10 @@ async function deserializeAws_restJson1_1GenerateClientCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.commonapi.exceptions#LimitExceededException":
@@ -10882,7 +10922,6 @@ async function deserializeAws_restJson1_1GenerateClientCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -10939,8 +10978,10 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -10964,7 +11005,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11053,8 +11093,10 @@ async function deserializeAws_restJson1_1GetApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11078,7 +11120,6 @@ async function deserializeAws_restJson1_1GetApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11128,8 +11169,10 @@ async function deserializeAws_restJson1_1GetApiKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -11153,7 +11196,6 @@ async function deserializeAws_restJson1_1GetApiKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11231,8 +11273,10 @@ async function deserializeAws_restJson1_1GetAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11256,7 +11300,6 @@ async function deserializeAws_restJson1_1GetAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11305,8 +11348,10 @@ async function deserializeAws_restJson1_1GetAuthorizersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -11337,7 +11382,6 @@ async function deserializeAws_restJson1_1GetAuthorizersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11387,8 +11431,10 @@ async function deserializeAws_restJson1_1GetBasePathMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11412,7 +11458,6 @@ async function deserializeAws_restJson1_1GetBasePathMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11461,8 +11506,10 @@ async function deserializeAws_restJson1_1GetBasePathMappingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11486,7 +11533,6 @@ async function deserializeAws_restJson1_1GetBasePathMappingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11559,8 +11605,10 @@ async function deserializeAws_restJson1_1GetClientCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11584,7 +11632,6 @@ async function deserializeAws_restJson1_1GetClientCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11633,8 +11680,10 @@ async function deserializeAws_restJson1_1GetClientCertificatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -11658,7 +11707,6 @@ async function deserializeAws_restJson1_1GetClientCertificatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11716,8 +11764,10 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11748,7 +11798,6 @@ async function deserializeAws_restJson1_1GetDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11797,8 +11846,10 @@ async function deserializeAws_restJson1_1GetDeploymentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -11829,7 +11880,6 @@ async function deserializeAws_restJson1_1GetDeploymentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11882,8 +11932,10 @@ async function deserializeAws_restJson1_1GetDocumentationPartCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -11907,7 +11959,6 @@ async function deserializeAws_restJson1_1GetDocumentationPartCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -11956,8 +12007,10 @@ async function deserializeAws_restJson1_1GetDocumentationPartsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -11988,7 +12041,6 @@ async function deserializeAws_restJson1_1GetDocumentationPartsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12042,8 +12094,10 @@ async function deserializeAws_restJson1_1GetDocumentationVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12067,7 +12121,6 @@ async function deserializeAws_restJson1_1GetDocumentationVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12116,8 +12169,10 @@ async function deserializeAws_restJson1_1GetDocumentationVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -12148,7 +12203,6 @@ async function deserializeAws_restJson1_1GetDocumentationVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12253,8 +12307,10 @@ async function deserializeAws_restJson1_1GetDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12285,7 +12341,6 @@ async function deserializeAws_restJson1_1GetDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12334,8 +12389,10 @@ async function deserializeAws_restJson1_1GetDomainNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -12359,7 +12416,6 @@ async function deserializeAws_restJson1_1GetDomainNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12404,8 +12460,10 @@ async function deserializeAws_restJson1_1GetExportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -12443,7 +12501,6 @@ async function deserializeAws_restJson1_1GetExportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12507,8 +12564,10 @@ async function deserializeAws_restJson1_1GetGatewayResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12532,7 +12591,6 @@ async function deserializeAws_restJson1_1GetGatewayResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12581,8 +12639,10 @@ async function deserializeAws_restJson1_1GetGatewayResponsesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -12613,7 +12673,6 @@ async function deserializeAws_restJson1_1GetGatewayResponsesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12719,8 +12778,10 @@ async function deserializeAws_restJson1_1GetIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12744,7 +12805,6 @@ async function deserializeAws_restJson1_1GetIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12808,8 +12868,10 @@ async function deserializeAws_restJson1_1GetIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12833,7 +12895,6 @@ async function deserializeAws_restJson1_1GetIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -12927,8 +12988,10 @@ async function deserializeAws_restJson1_1GetMethodCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -12952,7 +13015,6 @@ async function deserializeAws_restJson1_1GetMethodCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13008,8 +13070,10 @@ async function deserializeAws_restJson1_1GetMethodResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13033,7 +13097,6 @@ async function deserializeAws_restJson1_1GetMethodResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13088,8 +13151,10 @@ async function deserializeAws_restJson1_1GetModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13113,7 +13178,6 @@ async function deserializeAws_restJson1_1GetModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13155,8 +13219,10 @@ async function deserializeAws_restJson1_1GetModelTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13187,7 +13253,6 @@ async function deserializeAws_restJson1_1GetModelTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13230,8 +13295,10 @@ async function deserializeAws_restJson1_1GetModelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13262,7 +13329,6 @@ async function deserializeAws_restJson1_1GetModelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13316,8 +13382,10 @@ async function deserializeAws_restJson1_1GetRequestValidatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13341,7 +13409,6 @@ async function deserializeAws_restJson1_1GetRequestValidatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13390,8 +13457,10 @@ async function deserializeAws_restJson1_1GetRequestValidatorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13422,7 +13491,6 @@ async function deserializeAws_restJson1_1GetRequestValidatorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13480,8 +13548,10 @@ async function deserializeAws_restJson1_1GetResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13505,7 +13575,6 @@ async function deserializeAws_restJson1_1GetResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13551,8 +13620,10 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13583,7 +13654,6 @@ async function deserializeAws_restJson1_1GetResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13682,8 +13752,10 @@ async function deserializeAws_restJson1_1GetRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13707,7 +13779,6 @@ async function deserializeAws_restJson1_1GetRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13753,8 +13824,10 @@ async function deserializeAws_restJson1_1GetRestApisCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13778,7 +13851,6 @@ async function deserializeAws_restJson1_1GetRestApisCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13823,8 +13895,10 @@ async function deserializeAws_restJson1_1GetSdkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -13862,7 +13936,6 @@ async function deserializeAws_restJson1_1GetSdkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13916,8 +13989,10 @@ async function deserializeAws_restJson1_1GetSdkTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -13941,7 +14016,6 @@ async function deserializeAws_restJson1_1GetSdkTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -13983,8 +14057,10 @@ async function deserializeAws_restJson1_1GetSdkTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "TooManyRequestsException":
     case "com.amazonaws.commonapi.exceptions#TooManyRequestsException":
@@ -14001,7 +14077,6 @@ async function deserializeAws_restJson1_1GetSdkTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14127,8 +14202,10 @@ async function deserializeAws_restJson1_1GetStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -14152,7 +14229,6 @@ async function deserializeAws_restJson1_1GetStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14191,8 +14267,10 @@ async function deserializeAws_restJson1_1GetStagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -14216,7 +14294,6 @@ async function deserializeAws_restJson1_1GetStagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14258,8 +14335,10 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14297,7 +14376,6 @@ async function deserializeAws_restJson1_1GetTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14355,8 +14433,10 @@ async function deserializeAws_restJson1_1GetUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14387,7 +14467,6 @@ async function deserializeAws_restJson1_1GetUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14466,8 +14545,10 @@ async function deserializeAws_restJson1_1GetUsagePlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14498,7 +14579,6 @@ async function deserializeAws_restJson1_1GetUsagePlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14552,8 +14632,10 @@ async function deserializeAws_restJson1_1GetUsagePlanKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14584,7 +14666,6 @@ async function deserializeAws_restJson1_1GetUsagePlanKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14633,8 +14714,10 @@ async function deserializeAws_restJson1_1GetUsagePlanKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14665,7 +14748,6 @@ async function deserializeAws_restJson1_1GetUsagePlanKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14711,8 +14793,10 @@ async function deserializeAws_restJson1_1GetUsagePlansCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14750,7 +14834,6 @@ async function deserializeAws_restJson1_1GetUsagePlansCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14819,8 +14902,10 @@ async function deserializeAws_restJson1_1GetVpcLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "NotFoundException":
     case "com.amazonaws.commonapi.exceptions#NotFoundException":
@@ -14844,7 +14929,6 @@ async function deserializeAws_restJson1_1GetVpcLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14890,8 +14974,10 @@ async function deserializeAws_restJson1_1GetVpcLinksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -14915,7 +15001,6 @@ async function deserializeAws_restJson1_1GetVpcLinksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -14961,8 +15046,10 @@ async function deserializeAws_restJson1_1ImportApiKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15007,7 +15094,6 @@ async function deserializeAws_restJson1_1ImportApiKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15056,8 +15142,10 @@ async function deserializeAws_restJson1_1ImportDocumentationPartsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15095,7 +15183,6 @@ async function deserializeAws_restJson1_1ImportDocumentationPartsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15194,8 +15281,10 @@ async function deserializeAws_restJson1_1ImportRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15233,7 +15322,6 @@ async function deserializeAws_restJson1_1ImportRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15297,8 +15385,10 @@ async function deserializeAws_restJson1_1PutGatewayResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15336,7 +15426,6 @@ async function deserializeAws_restJson1_1PutGatewayResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15442,8 +15531,10 @@ async function deserializeAws_restJson1_1PutIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15481,7 +15572,6 @@ async function deserializeAws_restJson1_1PutIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15545,8 +15635,10 @@ async function deserializeAws_restJson1_1PutIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15591,7 +15683,6 @@ async function deserializeAws_restJson1_1PutIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15685,8 +15776,10 @@ async function deserializeAws_restJson1_1PutMethodCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15731,7 +15824,6 @@ async function deserializeAws_restJson1_1PutMethodCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15787,8 +15879,10 @@ async function deserializeAws_restJson1_1PutMethodResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15833,7 +15927,6 @@ async function deserializeAws_restJson1_1PutMethodResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -15932,8 +16025,10 @@ async function deserializeAws_restJson1_1PutRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -15978,7 +16073,6 @@ async function deserializeAws_restJson1_1PutRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16011,8 +16105,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16057,7 +16153,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16129,8 +16224,10 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16161,7 +16258,6 @@ async function deserializeAws_restJson1_1TestInvokeAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16229,8 +16325,10 @@ async function deserializeAws_restJson1_1TestInvokeMethodCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16261,7 +16359,6 @@ async function deserializeAws_restJson1_1TestInvokeMethodCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16294,8 +16391,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16333,7 +16432,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16390,8 +16488,10 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16422,7 +16522,6 @@ async function deserializeAws_restJson1_1UpdateAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16511,8 +16610,10 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16550,7 +16651,6 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16631,8 +16731,10 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16663,7 +16765,6 @@ async function deserializeAws_restJson1_1UpdateAuthorizerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16713,8 +16814,10 @@ async function deserializeAws_restJson1_1UpdateBasePathMappingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16752,7 +16855,6 @@ async function deserializeAws_restJson1_1UpdateBasePathMappingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16825,8 +16927,10 @@ async function deserializeAws_restJson1_1UpdateClientCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16857,7 +16961,6 @@ async function deserializeAws_restJson1_1UpdateClientCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -16918,8 +17021,10 @@ async function deserializeAws_restJson1_1UpdateDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -16957,7 +17062,6 @@ async function deserializeAws_restJson1_1UpdateDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17010,8 +17114,10 @@ async function deserializeAws_restJson1_1UpdateDocumentationPartCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17056,7 +17162,6 @@ async function deserializeAws_restJson1_1UpdateDocumentationPartCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17110,8 +17215,10 @@ async function deserializeAws_restJson1_1UpdateDocumentationVersionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17149,7 +17256,6 @@ async function deserializeAws_restJson1_1UpdateDocumentationVersionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17257,8 +17363,10 @@ async function deserializeAws_restJson1_1UpdateDomainNameCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17296,7 +17404,6 @@ async function deserializeAws_restJson1_1UpdateDomainNameCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17360,8 +17467,10 @@ async function deserializeAws_restJson1_1UpdateGatewayResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17392,7 +17501,6 @@ async function deserializeAws_restJson1_1UpdateGatewayResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17498,8 +17606,10 @@ async function deserializeAws_restJson1_1UpdateIntegrationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17537,7 +17647,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17601,8 +17710,10 @@ async function deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17640,7 +17751,6 @@ async function deserializeAws_restJson1_1UpdateIntegrationResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17734,8 +17844,10 @@ async function deserializeAws_restJson1_1UpdateMethodCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17773,7 +17885,6 @@ async function deserializeAws_restJson1_1UpdateMethodCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17829,8 +17940,10 @@ async function deserializeAws_restJson1_1UpdateMethodResponseCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17875,7 +17988,6 @@ async function deserializeAws_restJson1_1UpdateMethodResponseCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -17930,8 +18042,10 @@ async function deserializeAws_restJson1_1UpdateModelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -17969,7 +18083,6 @@ async function deserializeAws_restJson1_1UpdateModelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18023,8 +18136,10 @@ async function deserializeAws_restJson1_1UpdateRequestValidatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18055,7 +18170,6 @@ async function deserializeAws_restJson1_1UpdateRequestValidatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18116,8 +18230,10 @@ async function deserializeAws_restJson1_1UpdateResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18155,7 +18271,6 @@ async function deserializeAws_restJson1_1UpdateResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18254,8 +18369,10 @@ async function deserializeAws_restJson1_1UpdateRestApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18293,7 +18410,6 @@ async function deserializeAws_restJson1_1UpdateRestApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18419,8 +18535,10 @@ async function deserializeAws_restJson1_1UpdateStageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18458,7 +18576,6 @@ async function deserializeAws_restJson1_1UpdateStageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18516,8 +18633,10 @@ async function deserializeAws_restJson1_1UpdateUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18548,7 +18667,6 @@ async function deserializeAws_restJson1_1UpdateUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18630,8 +18748,10 @@ async function deserializeAws_restJson1_1UpdateUsagePlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18669,7 +18789,6 @@ async function deserializeAws_restJson1_1UpdateUsagePlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",
@@ -18738,8 +18857,10 @@ async function deserializeAws_restJson1_1UpdateVpcLinkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.commonapi.exceptions#BadRequestException":
@@ -18777,7 +18898,6 @@ async function deserializeAws_restJson1_1UpdateVpcLinkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.backplane.controlplane#${errorCode}`,
         $fault: "client",

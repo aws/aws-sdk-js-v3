@@ -607,10 +607,7 @@ export async function deserializeAws_json1_1AssociateDRTLogBucketCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateDRTLogBucketResponse(
-    data.AssociateDRTLogBucketResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateDRTLogBucketResponse(data, context);
   const response: AssociateDRTLogBucketCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateDRTLogBucketResponse",
@@ -629,7 +626,7 @@ async function deserializeAws_json1_1AssociateDRTLogBucketCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -691,7 +688,6 @@ async function deserializeAws_json1_1AssociateDRTLogBucketCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -710,10 +706,7 @@ export async function deserializeAws_json1_1AssociateDRTRoleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateDRTRoleResponse(
-    data.AssociateDRTRoleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateDRTRoleResponse(data, context);
   const response: AssociateDRTRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateDRTRoleResponse",
@@ -732,7 +725,7 @@ async function deserializeAws_json1_1AssociateDRTRoleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -780,7 +773,6 @@ async function deserializeAws_json1_1AssociateDRTRoleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -799,10 +791,7 @@ export async function deserializeAws_json1_1CreateProtectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateProtectionResponse(
-    data.CreateProtectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateProtectionResponse(data, context);
   const response: CreateProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProtectionResponse",
@@ -821,7 +810,7 @@ async function deserializeAws_json1_1CreateProtectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -876,7 +865,6 @@ async function deserializeAws_json1_1CreateProtectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -898,10 +886,7 @@ export async function deserializeAws_json1_1CreateSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSubscriptionResponse(
-    data.CreateSubscriptionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSubscriptionResponse(data, context);
   const response: CreateSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSubscriptionResponse",
@@ -920,7 +905,7 @@ async function deserializeAws_json1_1CreateSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -940,7 +925,6 @@ async function deserializeAws_json1_1CreateSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -959,10 +943,7 @@ export async function deserializeAws_json1_1DeleteProtectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteProtectionResponse(
-    data.DeleteProtectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteProtectionResponse(data, context);
   const response: DeleteProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteProtectionResponse",
@@ -981,7 +962,7 @@ async function deserializeAws_json1_1DeleteProtectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1008,7 +989,6 @@ async function deserializeAws_json1_1DeleteProtectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1030,10 +1010,7 @@ export async function deserializeAws_json1_1DeleteSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSubscriptionResponse(
-    data.DeleteSubscriptionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSubscriptionResponse(data, context);
   const response: DeleteSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSubscriptionResponse",
@@ -1052,7 +1029,7 @@ async function deserializeAws_json1_1DeleteSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1079,7 +1056,6 @@ async function deserializeAws_json1_1DeleteSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1098,10 +1074,7 @@ export async function deserializeAws_json1_1DescribeAttackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAttackResponse(
-    data.DescribeAttackResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAttackResponse(data, context);
   const response: DescribeAttackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAttackResponse",
@@ -1120,7 +1093,7 @@ async function deserializeAws_json1_1DescribeAttackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1140,7 +1113,6 @@ async function deserializeAws_json1_1DescribeAttackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1159,10 +1131,7 @@ export async function deserializeAws_json1_1DescribeDRTAccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDRTAccessResponse(
-    data.DescribeDRTAccessResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDRTAccessResponse(data, context);
   const response: DescribeDRTAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDRTAccessResponse",
@@ -1181,7 +1150,7 @@ async function deserializeAws_json1_1DescribeDRTAccessCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1201,7 +1170,6 @@ async function deserializeAws_json1_1DescribeDRTAccessCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1224,7 +1192,7 @@ export async function deserializeAws_json1_1DescribeEmergencyContactSettingsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEmergencyContactSettingsResponse(
-    data.DescribeEmergencyContactSettingsResponse,
+    data,
     context
   );
   const response: DescribeEmergencyContactSettingsCommandOutput = {
@@ -1245,7 +1213,7 @@ async function deserializeAws_json1_1DescribeEmergencyContactSettingsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1265,7 +1233,6 @@ async function deserializeAws_json1_1DescribeEmergencyContactSettingsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1287,10 +1254,7 @@ export async function deserializeAws_json1_1DescribeProtectionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeProtectionResponse(
-    data.DescribeProtectionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeProtectionResponse(data, context);
   const response: DescribeProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeProtectionResponse",
@@ -1309,7 +1273,7 @@ async function deserializeAws_json1_1DescribeProtectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1336,7 +1300,6 @@ async function deserializeAws_json1_1DescribeProtectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1358,10 +1321,7 @@ export async function deserializeAws_json1_1DescribeSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSubscriptionResponse(
-    data.DescribeSubscriptionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSubscriptionResponse(data, context);
   const response: DescribeSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSubscriptionResponse",
@@ -1380,7 +1340,7 @@ async function deserializeAws_json1_1DescribeSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1400,7 +1360,6 @@ async function deserializeAws_json1_1DescribeSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1423,7 +1382,7 @@ export async function deserializeAws_json1_1DisassociateDRTLogBucketCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateDRTLogBucketResponse(
-    data.DisassociateDRTLogBucketResponse,
+    data,
     context
   );
   const response: DisassociateDRTLogBucketCommandOutput = {
@@ -1444,7 +1403,7 @@ async function deserializeAws_json1_1DisassociateDRTLogBucketCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1492,7 +1451,6 @@ async function deserializeAws_json1_1DisassociateDRTLogBucketCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1514,10 +1472,7 @@ export async function deserializeAws_json1_1DisassociateDRTRoleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateDRTRoleResponse(
-    data.DisassociateDRTRoleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateDRTRoleResponse(data, context);
   const response: DisassociateDRTRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateDRTRoleResponse",
@@ -1536,7 +1491,7 @@ async function deserializeAws_json1_1DisassociateDRTRoleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1570,7 +1525,6 @@ async function deserializeAws_json1_1DisassociateDRTRoleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1592,10 +1546,7 @@ export async function deserializeAws_json1_1GetSubscriptionStateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSubscriptionStateResponse(
-    data.GetSubscriptionStateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetSubscriptionStateResponse(data, context);
   const response: GetSubscriptionStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSubscriptionStateResponse",
@@ -1614,7 +1565,7 @@ async function deserializeAws_json1_1GetSubscriptionStateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1627,7 +1578,6 @@ async function deserializeAws_json1_1GetSubscriptionStateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1646,10 +1596,7 @@ export async function deserializeAws_json1_1ListAttacksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAttacksResponse(
-    data.ListAttacksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAttacksResponse(data, context);
   const response: ListAttacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAttacksResponse",
@@ -1668,7 +1615,7 @@ async function deserializeAws_json1_1ListAttacksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1695,7 +1642,6 @@ async function deserializeAws_json1_1ListAttacksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1714,10 +1660,7 @@ export async function deserializeAws_json1_1ListProtectionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListProtectionsResponse(
-    data.ListProtectionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListProtectionsResponse(data, context);
   const response: ListProtectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProtectionsResponse",
@@ -1736,7 +1679,7 @@ async function deserializeAws_json1_1ListProtectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1763,7 +1706,6 @@ async function deserializeAws_json1_1ListProtectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1786,7 +1728,7 @@ export async function deserializeAws_json1_1UpdateEmergencyContactSettingsComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateEmergencyContactSettingsResponse(
-    data.UpdateEmergencyContactSettingsResponse,
+    data,
     context
   );
   const response: UpdateEmergencyContactSettingsCommandOutput = {
@@ -1807,7 +1749,7 @@ async function deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1841,7 +1783,6 @@ async function deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",
@@ -1863,10 +1804,7 @@ export async function deserializeAws_json1_1UpdateSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSubscriptionResponse(
-    data.UpdateSubscriptionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateSubscriptionResponse(data, context);
   const response: UpdateSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSubscriptionResponse",
@@ -1885,7 +1823,7 @@ async function deserializeAws_json1_1UpdateSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1926,7 +1864,6 @@ async function deserializeAws_json1_1UpdateSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.bardockcustomerapiservice.v20160616#${errorCode}`,
         $fault: "client",

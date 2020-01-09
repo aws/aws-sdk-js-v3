@@ -57,10 +57,7 @@ export async function deserializeAws_json1_1GetEntitlementsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetEntitlementsResult(
-    data.GetEntitlementsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetEntitlementsResult(data, context);
   const response: GetEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEntitlementsResult",
@@ -79,7 +76,7 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -106,7 +103,6 @@ async function deserializeAws_json1_1GetEntitlementsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.entitlement#${errorCode}`,
         $fault: "client",

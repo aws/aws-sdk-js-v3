@@ -823,7 +823,7 @@ export async function deserializeAws_json1_1AssociateConfigurationItemsToApplica
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateConfigurationItemsToApplicationResponse(
-    data.AssociateConfigurationItemsToApplicationResponse,
+    data,
     context
   );
   const response: AssociateConfigurationItemsToApplicationCommandOutput = {
@@ -844,7 +844,7 @@ async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -885,7 +885,6 @@ async function deserializeAws_json1_1AssociateConfigurationItemsToApplicationCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -907,10 +906,7 @@ export async function deserializeAws_json1_1BatchDeleteImportDataCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteImportDataResponse(
-    data.BatchDeleteImportDataResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteImportDataResponse(data, context);
   const response: BatchDeleteImportDataCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteImportDataResponse",
@@ -929,7 +925,7 @@ async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -970,7 +966,6 @@ async function deserializeAws_json1_1BatchDeleteImportDataCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -989,10 +984,7 @@ export async function deserializeAws_json1_1CreateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateApplicationResponse(
-    data.CreateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateApplicationResponse",
@@ -1011,7 +1003,7 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1052,7 +1044,6 @@ async function deserializeAws_json1_1CreateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1071,10 +1062,7 @@ export async function deserializeAws_json1_1CreateTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTagsResponse(
-    data.CreateTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTagsResponse(data, context);
   const response: CreateTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTagsResponse",
@@ -1093,7 +1081,7 @@ async function deserializeAws_json1_1CreateTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1141,7 +1129,6 @@ async function deserializeAws_json1_1CreateTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1163,10 +1150,7 @@ export async function deserializeAws_json1_1DeleteApplicationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteApplicationsResponse(
-    data.DeleteApplicationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteApplicationsResponse(data, context);
   const response: DeleteApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteApplicationsResponse",
@@ -1185,7 +1169,7 @@ async function deserializeAws_json1_1DeleteApplicationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1226,7 +1210,6 @@ async function deserializeAws_json1_1DeleteApplicationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1245,10 +1228,7 @@ export async function deserializeAws_json1_1DeleteTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTagsResponse(
-    data.DeleteTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTagsResponse(data, context);
   const response: DeleteTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTagsResponse",
@@ -1267,7 +1247,7 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1315,7 +1295,6 @@ async function deserializeAws_json1_1DeleteTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1334,10 +1313,7 @@ export async function deserializeAws_json1_1DescribeAgentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAgentsResponse(
-    data.DescribeAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAgentsResponse(data, context);
   const response: DescribeAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAgentsResponse",
@@ -1356,7 +1332,7 @@ async function deserializeAws_json1_1DescribeAgentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1397,7 +1373,6 @@ async function deserializeAws_json1_1DescribeAgentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1420,7 +1395,7 @@ export async function deserializeAws_json1_1DescribeConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationsResponse(
-    data.DescribeConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeConfigurationsCommandOutput = {
@@ -1441,7 +1416,7 @@ async function deserializeAws_json1_1DescribeConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1482,7 +1457,6 @@ async function deserializeAws_json1_1DescribeConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1505,7 +1479,7 @@ export async function deserializeAws_json1_1DescribeContinuousExportsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeContinuousExportsResponse(
-    data.DescribeContinuousExportsResponse,
+    data,
     context
   );
   const response: DescribeContinuousExportsCommandOutput = {
@@ -1526,7 +1500,7 @@ async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1581,7 +1555,6 @@ async function deserializeAws_json1_1DescribeContinuousExportsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1604,7 +1577,7 @@ export async function deserializeAws_json1_1DescribeExportConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeExportConfigurationsResponse(
-    data.DescribeExportConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeExportConfigurationsCommandOutput = {
@@ -1625,7 +1598,7 @@ async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1673,7 +1646,6 @@ async function deserializeAws_json1_1DescribeExportConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1695,10 +1667,7 @@ export async function deserializeAws_json1_1DescribeExportTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeExportTasksResponse(
-    data.DescribeExportTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeExportTasksResponse(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExportTasksResponse",
@@ -1717,7 +1686,7 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1758,7 +1727,6 @@ async function deserializeAws_json1_1DescribeExportTasksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1780,10 +1748,7 @@ export async function deserializeAws_json1_1DescribeImportTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImportTasksResponse(
-    data.DescribeImportTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImportTasksResponse(data, context);
   const response: DescribeImportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImportTasksResponse",
@@ -1802,7 +1767,7 @@ async function deserializeAws_json1_1DescribeImportTasksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1843,7 +1808,6 @@ async function deserializeAws_json1_1DescribeImportTasksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1862,10 +1826,7 @@ export async function deserializeAws_json1_1DescribeTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTagsResponse(
-    data.DescribeTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTagsResponse(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTagsResponse",
@@ -1884,7 +1845,7 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1932,7 +1893,6 @@ async function deserializeAws_json1_1DescribeTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -1955,7 +1915,7 @@ export async function deserializeAws_json1_1DisassociateConfigurationItemsFromAp
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationResponse(
-    data.DisassociateConfigurationItemsFromApplicationResponse,
+    data,
     context
   );
   const response: DisassociateConfigurationItemsFromApplicationCommandOutput = {
@@ -1976,7 +1936,7 @@ async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicati
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2017,7 +1977,6 @@ async function deserializeAws_json1_1DisassociateConfigurationItemsFromApplicati
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2039,10 +1998,7 @@ export async function deserializeAws_json1_1ExportConfigurationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportConfigurationsResponse(
-    data.ExportConfigurationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ExportConfigurationsResponse(data, context);
   const response: ExportConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportConfigurationsResponse",
@@ -2061,7 +2017,7 @@ async function deserializeAws_json1_1ExportConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2109,7 +2065,6 @@ async function deserializeAws_json1_1ExportConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2131,10 +2086,7 @@ export async function deserializeAws_json1_1GetDiscoverySummaryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDiscoverySummaryResponse(
-    data.GetDiscoverySummaryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDiscoverySummaryResponse(data, context);
   const response: GetDiscoverySummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDiscoverySummaryResponse",
@@ -2153,7 +2105,7 @@ async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2194,7 +2146,6 @@ async function deserializeAws_json1_1GetDiscoverySummaryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2216,10 +2167,7 @@ export async function deserializeAws_json1_1ListConfigurationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListConfigurationsResponse(
-    data.ListConfigurationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListConfigurationsResponse(data, context);
   const response: ListConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListConfigurationsResponse",
@@ -2238,7 +2186,7 @@ async function deserializeAws_json1_1ListConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2286,7 +2234,6 @@ async function deserializeAws_json1_1ListConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2308,10 +2255,7 @@ export async function deserializeAws_json1_1ListServerNeighborsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListServerNeighborsResponse(
-    data.ListServerNeighborsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListServerNeighborsResponse(data, context);
   const response: ListServerNeighborsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServerNeighborsResponse",
@@ -2330,7 +2274,7 @@ async function deserializeAws_json1_1ListServerNeighborsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2371,7 +2315,6 @@ async function deserializeAws_json1_1ListServerNeighborsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2393,10 +2336,7 @@ export async function deserializeAws_json1_1StartContinuousExportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartContinuousExportResponse(
-    data.StartContinuousExportResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartContinuousExportResponse(data, context);
   const response: StartContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartContinuousExportResponse",
@@ -2415,7 +2355,7 @@ async function deserializeAws_json1_1StartContinuousExportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2477,7 +2417,6 @@ async function deserializeAws_json1_1StartContinuousExportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2500,7 +2439,7 @@ export async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartDataCollectionByAgentIdsResponse(
-    data.StartDataCollectionByAgentIdsResponse,
+    data,
     context
   );
   const response: StartDataCollectionByAgentIdsCommandOutput = {
@@ -2521,7 +2460,7 @@ async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2562,7 +2501,6 @@ async function deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2581,10 +2519,7 @@ export async function deserializeAws_json1_1StartExportTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartExportTaskResponse(
-    data.StartExportTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartExportTaskResponse(data, context);
   const response: StartExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExportTaskResponse",
@@ -2603,7 +2538,7 @@ async function deserializeAws_json1_1StartExportTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2651,7 +2586,6 @@ async function deserializeAws_json1_1StartExportTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2670,10 +2604,7 @@ export async function deserializeAws_json1_1StartImportTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImportTaskResponse(
-    data.StartImportTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartImportTaskResponse(data, context);
   const response: StartImportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImportTaskResponse",
@@ -2692,7 +2623,7 @@ async function deserializeAws_json1_1StartImportTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2740,7 +2671,6 @@ async function deserializeAws_json1_1StartImportTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2762,10 +2692,7 @@ export async function deserializeAws_json1_1StopContinuousExportCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopContinuousExportResponse(
-    data.StopContinuousExportResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopContinuousExportResponse(data, context);
   const response: StopContinuousExportCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopContinuousExportResponse",
@@ -2784,7 +2711,7 @@ async function deserializeAws_json1_1StopContinuousExportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2846,7 +2773,6 @@ async function deserializeAws_json1_1StopContinuousExportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2869,7 +2795,7 @@ export async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopDataCollectionByAgentIdsResponse(
-    data.StopDataCollectionByAgentIdsResponse,
+    data,
     context
   );
   const response: StopDataCollectionByAgentIdsCommandOutput = {
@@ -2890,7 +2816,7 @@ async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2931,7 +2857,6 @@ async function deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",
@@ -2950,10 +2875,7 @@ export async function deserializeAws_json1_1UpdateApplicationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateApplicationResponse(
-    data.UpdateApplicationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateApplicationResponse",
@@ -2972,7 +2894,7 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3013,7 +2935,6 @@ async function deserializeAws_json1_1UpdateApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsposeidon.V2015_11_01#${errorCode}`,
         $fault: "client",

@@ -159,10 +159,7 @@ export async function deserializeAws_json1_1BatchMeterUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchMeterUsageResult(
-    data.BatchMeterUsageResult,
-    context
-  );
+  contents = deserializeAws_json1_1BatchMeterUsageResult(data, context);
   const response: BatchMeterUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchMeterUsageResult",
@@ -181,7 +178,7 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -236,7 +233,6 @@ async function deserializeAws_json1_1BatchMeterUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -255,10 +251,7 @@ export async function deserializeAws_json1_1MeterUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1MeterUsageResult(
-    data.MeterUsageResult,
-    context
-  );
+  contents = deserializeAws_json1_1MeterUsageResult(data, context);
   const response: MeterUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "MeterUsageResult",
@@ -277,7 +270,7 @@ async function deserializeAws_json1_1MeterUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -339,7 +332,6 @@ async function deserializeAws_json1_1MeterUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -358,10 +350,7 @@ export async function deserializeAws_json1_1RegisterUsageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterUsageResult(
-    data.RegisterUsageResult,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterUsageResult(data, context);
   const response: RegisterUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterUsageResult",
@@ -380,7 +369,7 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -442,7 +431,6 @@ async function deserializeAws_json1_1RegisterUsageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",
@@ -461,10 +449,7 @@ export async function deserializeAws_json1_1ResolveCustomerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResolveCustomerResult(
-    data.ResolveCustomerResult,
-    context
-  );
+  contents = deserializeAws_json1_1ResolveCustomerResult(data, context);
   const response: ResolveCustomerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResolveCustomerResult",
@@ -483,7 +468,7 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -524,7 +509,6 @@ async function deserializeAws_json1_1ResolveCustomerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.marketplace.metering#${errorCode}`,
         $fault: "client",

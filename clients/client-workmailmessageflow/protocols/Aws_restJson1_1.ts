@@ -70,8 +70,10 @@ async function deserializeAws_restJson1_1GetRawMessageContentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.workmailmessageflow.service#ResourceNotFoundException":
@@ -81,7 +83,6 @@ async function deserializeAws_restJson1_1GetRawMessageContentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.workmailmessageflow.service#${errorCode}`,
         $fault: "client",

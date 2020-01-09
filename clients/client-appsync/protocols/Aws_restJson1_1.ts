@@ -1898,8 +1898,10 @@ async function deserializeAws_restJson1_1CreateApiCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -1937,7 +1939,6 @@ async function deserializeAws_restJson1_1CreateApiCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -1976,8 +1977,10 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ApiKeyLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyLimitExceededException":
@@ -2029,7 +2032,6 @@ async function deserializeAws_restJson1_1CreateApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2074,8 +2076,10 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2113,7 +2117,6 @@ async function deserializeAws_restJson1_1CreateDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2158,8 +2161,10 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -2190,7 +2195,6 @@ async function deserializeAws_restJson1_1CreateFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2235,8 +2239,10 @@ async function deserializeAws_restJson1_1CreateGraphqlApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ApiLimitExceededException":
     case "com.amazonaws.deepdish.controlplane#ApiLimitExceededException":
@@ -2281,7 +2287,6 @@ async function deserializeAws_restJson1_1CreateGraphqlApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2326,8 +2331,10 @@ async function deserializeAws_restJson1_1CreateResolverCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -2358,7 +2365,6 @@ async function deserializeAws_restJson1_1CreateResolverCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2397,8 +2403,10 @@ async function deserializeAws_restJson1_1CreateTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2436,7 +2444,6 @@ async function deserializeAws_restJson1_1CreateTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2473,8 +2480,10 @@ async function deserializeAws_restJson1_1DeleteApiCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2512,7 +2521,6 @@ async function deserializeAws_restJson1_1DeleteApiCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2546,8 +2554,10 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2578,7 +2588,6 @@ async function deserializeAws_restJson1_1DeleteApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2615,8 +2624,10 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2654,7 +2665,6 @@ async function deserializeAws_restJson1_1DeleteDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2691,8 +2701,10 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -2723,7 +2735,6 @@ async function deserializeAws_restJson1_1DeleteFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2760,8 +2771,10 @@ async function deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -2806,7 +2819,6 @@ async function deserializeAws_restJson1_1DeleteGraphqlApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2843,8 +2855,10 @@ async function deserializeAws_restJson1_1DeleteResolverCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -2875,7 +2889,6 @@ async function deserializeAws_restJson1_1DeleteResolverCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2909,8 +2922,10 @@ async function deserializeAws_restJson1_1DeleteTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -2948,7 +2963,6 @@ async function deserializeAws_restJson1_1DeleteTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -2982,8 +2996,10 @@ async function deserializeAws_restJson1_1FlushApiCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3021,7 +3037,6 @@ async function deserializeAws_restJson1_1FlushApiCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3063,8 +3078,10 @@ async function deserializeAws_restJson1_1GetApiCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3102,7 +3119,6 @@ async function deserializeAws_restJson1_1GetApiCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3144,8 +3160,10 @@ async function deserializeAws_restJson1_1GetDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3183,7 +3201,6 @@ async function deserializeAws_restJson1_1GetDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3225,8 +3242,10 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -3250,7 +3269,6 @@ async function deserializeAws_restJson1_1GetFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3292,8 +3310,10 @@ async function deserializeAws_restJson1_1GetGraphqlApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -3331,7 +3351,6 @@ async function deserializeAws_restJson1_1GetGraphqlApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3371,8 +3390,10 @@ async function deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "GraphQLSchemaException":
     case "com.amazonaws.deepdish.controlplane#GraphQLSchemaException":
@@ -3403,7 +3424,6 @@ async function deserializeAws_restJson1_1GetIntrospectionSchemaCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3445,8 +3465,10 @@ async function deserializeAws_restJson1_1GetResolverCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -3470,7 +3492,6 @@ async function deserializeAws_restJson1_1GetResolverCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3516,8 +3537,10 @@ async function deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3548,7 +3571,6 @@ async function deserializeAws_restJson1_1GetSchemaCreationStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3587,8 +3609,10 @@ async function deserializeAws_restJson1_1GetTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3626,7 +3650,6 @@ async function deserializeAws_restJson1_1GetTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3669,8 +3692,10 @@ async function deserializeAws_restJson1_1ListApiKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3701,7 +3726,6 @@ async function deserializeAws_restJson1_1ListApiKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3750,8 +3774,10 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3782,7 +3808,6 @@ async function deserializeAws_restJson1_1ListDataSourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3828,8 +3853,10 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3860,7 +3887,6 @@ async function deserializeAws_restJson1_1ListFunctionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3909,8 +3935,10 @@ async function deserializeAws_restJson1_1ListGraphqlApisCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -3934,7 +3962,6 @@ async function deserializeAws_restJson1_1ListGraphqlApisCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -3980,8 +4007,10 @@ async function deserializeAws_restJson1_1ListResolversCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4012,7 +4041,6 @@ async function deserializeAws_restJson1_1ListResolversCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4061,8 +4089,10 @@ async function deserializeAws_restJson1_1ListResolversByFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4093,7 +4123,6 @@ async function deserializeAws_restJson1_1ListResolversByFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4135,8 +4164,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -4181,7 +4212,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4224,8 +4254,10 @@ async function deserializeAws_restJson1_1ListTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4263,7 +4295,6 @@ async function deserializeAws_restJson1_1ListTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4305,8 +4336,10 @@ async function deserializeAws_restJson1_1StartSchemaCreationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4344,7 +4377,6 @@ async function deserializeAws_restJson1_1StartSchemaCreationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4378,8 +4410,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -4424,7 +4458,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4458,8 +4491,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -4504,7 +4539,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4549,8 +4583,10 @@ async function deserializeAws_restJson1_1UpdateApiCacheCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4588,7 +4624,6 @@ async function deserializeAws_restJson1_1UpdateApiCacheCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4627,8 +4662,10 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ApiKeyValidityOutOfBoundsException":
     case "com.amazonaws.deepdish.controlplane#ApiKeyValidityOutOfBoundsException":
@@ -4673,7 +4710,6 @@ async function deserializeAws_restJson1_1UpdateApiKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4718,8 +4754,10 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -4757,7 +4795,6 @@ async function deserializeAws_restJson1_1UpdateDataSourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4802,8 +4839,10 @@ async function deserializeAws_restJson1_1UpdateFunctionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -4834,7 +4873,6 @@ async function deserializeAws_restJson1_1UpdateFunctionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4879,8 +4917,10 @@ async function deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.deepdish.controlplane#AccessDeniedException":
@@ -4925,7 +4965,6 @@ async function deserializeAws_restJson1_1UpdateGraphqlApiCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -4970,8 +5009,10 @@ async function deserializeAws_restJson1_1UpdateResolverCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.deepdish.controlplane#ConcurrentModificationException":
@@ -5002,7 +5043,6 @@ async function deserializeAws_restJson1_1UpdateResolverCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",
@@ -5041,8 +5081,10 @@ async function deserializeAws_restJson1_1UpdateTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.deepdish.controlplane#BadRequestException":
@@ -5080,7 +5122,6 @@ async function deserializeAws_restJson1_1UpdateTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepdish.controlplane#${errorCode}`,
         $fault: "client",

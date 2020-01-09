@@ -309,10 +309,7 @@ export async function deserializeAws_json1_1CreateVocabularyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateVocabularyResponse(
-    data.CreateVocabularyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateVocabularyResponse(data, context);
   const response: CreateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateVocabularyResponse",
@@ -331,7 +328,7 @@ async function deserializeAws_json1_1CreateVocabularyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -365,7 +362,6 @@ async function deserializeAws_json1_1CreateVocabularyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -401,7 +397,7 @@ async function deserializeAws_json1_1DeleteTranscriptionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -428,7 +424,6 @@ async function deserializeAws_json1_1DeleteTranscriptionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -461,7 +456,7 @@ async function deserializeAws_json1_1DeleteVocabularyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -495,7 +490,6 @@ async function deserializeAws_json1_1DeleteVocabularyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -517,10 +511,7 @@ export async function deserializeAws_json1_1GetTranscriptionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTranscriptionJobResponse(
-    data.GetTranscriptionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTranscriptionJobResponse(data, context);
   const response: GetTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTranscriptionJobResponse",
@@ -539,7 +530,7 @@ async function deserializeAws_json1_1GetTranscriptionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -573,7 +564,6 @@ async function deserializeAws_json1_1GetTranscriptionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -592,10 +582,7 @@ export async function deserializeAws_json1_1GetVocabularyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetVocabularyResponse(
-    data.GetVocabularyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetVocabularyResponse(data, context);
   const response: GetVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetVocabularyResponse",
@@ -614,7 +601,7 @@ async function deserializeAws_json1_1GetVocabularyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -648,7 +635,6 @@ async function deserializeAws_json1_1GetVocabularyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -670,10 +656,7 @@ export async function deserializeAws_json1_1ListTranscriptionJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTranscriptionJobsResponse(
-    data.ListTranscriptionJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTranscriptionJobsResponse(data, context);
   const response: ListTranscriptionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTranscriptionJobsResponse",
@@ -692,7 +675,7 @@ async function deserializeAws_json1_1ListTranscriptionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -719,7 +702,6 @@ async function deserializeAws_json1_1ListTranscriptionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -738,10 +720,7 @@ export async function deserializeAws_json1_1ListVocabulariesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListVocabulariesResponse(
-    data.ListVocabulariesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListVocabulariesResponse(data, context);
   const response: ListVocabulariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListVocabulariesResponse",
@@ -760,7 +739,7 @@ async function deserializeAws_json1_1ListVocabulariesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -787,7 +766,6 @@ async function deserializeAws_json1_1ListVocabulariesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -809,10 +787,7 @@ export async function deserializeAws_json1_1StartTranscriptionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTranscriptionJobResponse(
-    data.StartTranscriptionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartTranscriptionJobResponse(data, context);
   const response: StartTranscriptionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTranscriptionJobResponse",
@@ -831,7 +806,7 @@ async function deserializeAws_json1_1StartTranscriptionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -865,7 +840,6 @@ async function deserializeAws_json1_1StartTranscriptionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",
@@ -884,10 +858,7 @@ export async function deserializeAws_json1_1UpdateVocabularyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateVocabularyResponse(
-    data.UpdateVocabularyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateVocabularyResponse(data, context);
   const response: UpdateVocabularyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateVocabularyResponse",
@@ -906,7 +877,7 @@ async function deserializeAws_json1_1UpdateVocabularyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -947,7 +918,6 @@ async function deserializeAws_json1_1UpdateVocabularyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.transcribe#${errorCode}`,
         $fault: "client",

@@ -403,8 +403,10 @@ async function deserializeAws_restJson1_1DeleteLexiconCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
@@ -421,7 +423,6 @@ async function deserializeAws_restJson1_1DeleteLexiconCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -467,8 +468,10 @@ async function deserializeAws_restJson1_1DescribeVoicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
@@ -485,7 +488,6 @@ async function deserializeAws_restJson1_1DescribeVoicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -531,8 +533,10 @@ async function deserializeAws_restJson1_1GetLexiconCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "LexiconNotFoundException":
     case "com.amazonaws.parrot.v1#LexiconNotFoundException":
@@ -549,7 +553,6 @@ async function deserializeAws_restJson1_1GetLexiconCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -594,8 +597,10 @@ async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidTaskIdException":
     case "com.amazonaws.parrot.v1#InvalidTaskIdException":
@@ -619,7 +624,6 @@ async function deserializeAws_restJson1_1GetSpeechSynthesisTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -665,8 +669,10 @@ async function deserializeAws_restJson1_1ListLexiconsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
@@ -683,7 +689,6 @@ async function deserializeAws_restJson1_1ListLexiconsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -732,8 +737,10 @@ async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.parrot.v1#InvalidNextTokenException":
@@ -750,7 +757,6 @@ async function deserializeAws_restJson1_1ListSpeechSynthesisTasksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -784,8 +790,10 @@ async function deserializeAws_restJson1_1PutLexiconCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidLexiconException":
     case "com.amazonaws.parrot.v1#InvalidLexiconException":
@@ -837,7 +845,6 @@ async function deserializeAws_restJson1_1PutLexiconCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -882,8 +889,10 @@ async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.parrot.v1#EngineNotSupportedException":
@@ -970,7 +979,6 @@ async function deserializeAws_restJson1_1StartSpeechSynthesisTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",
@@ -1021,8 +1029,10 @@ async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "EngineNotSupportedException":
     case "com.amazonaws.parrot.v1#EngineNotSupportedException":
@@ -1088,7 +1098,6 @@ async function deserializeAws_restJson1_1SynthesizeSpeechCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.parrot.v1#${errorCode}`,
         $fault: "client",

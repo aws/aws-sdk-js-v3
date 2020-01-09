@@ -479,8 +479,10 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -525,7 +527,6 @@ async function deserializeAws_restJson1_1CreateAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -603,8 +604,10 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -649,7 +652,6 @@ async function deserializeAws_restJson1_1CreatePackagingConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -699,8 +701,10 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -745,7 +749,6 @@ async function deserializeAws_restJson1_1CreatePackagingGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -779,8 +782,10 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -825,7 +830,6 @@ async function deserializeAws_restJson1_1DeleteAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -862,8 +866,10 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -908,7 +914,6 @@ async function deserializeAws_restJson1_1DeletePackagingConfigurationCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -945,8 +950,10 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -991,7 +998,6 @@ async function deserializeAws_restJson1_1DeletePackagingGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1061,8 +1067,10 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1107,7 +1115,6 @@ async function deserializeAws_restJson1_1DescribeAssetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1185,8 +1192,10 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1231,7 +1240,6 @@ async function deserializeAws_restJson1_1DescribePackagingConfigurationCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1281,8 +1289,10 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1327,7 +1337,6 @@ async function deserializeAws_restJson1_1DescribePackagingGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1373,8 +1382,10 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1419,7 +1430,6 @@ async function deserializeAws_restJson1_1ListAssetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1468,8 +1478,10 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1514,7 +1526,6 @@ async function deserializeAws_restJson1_1ListPackagingConfigurationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",
@@ -1563,8 +1574,10 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage_vod#ForbiddenException":
@@ -1609,7 +1622,6 @@ async function deserializeAws_restJson1_1ListPackagingGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.mediapackage_vod#${errorCode}`,
         $fault: "client",

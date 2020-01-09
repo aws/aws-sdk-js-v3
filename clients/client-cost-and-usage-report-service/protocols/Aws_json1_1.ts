@@ -160,7 +160,7 @@ export async function deserializeAws_json1_1DeleteReportDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteReportDefinitionResponse(
-    data.DeleteReportDefinitionResponse,
+    data,
     context
   );
   const response: DeleteReportDefinitionCommandOutput = {
@@ -181,7 +181,7 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -201,7 +201,6 @@ async function deserializeAws_json1_1DeleteReportDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
@@ -224,7 +223,7 @@ export async function deserializeAws_json1_1DescribeReportDefinitionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeReportDefinitionsResponse(
-    data.DescribeReportDefinitionsResponse,
+    data,
     context
   );
   const response: DescribeReportDefinitionsCommandOutput = {
@@ -245,7 +244,7 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -258,7 +257,6 @@ async function deserializeAws_json1_1DescribeReportDefinitionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
@@ -281,7 +279,7 @@ export async function deserializeAws_json1_1ModifyReportDefinitionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyReportDefinitionResponse(
-    data.ModifyReportDefinitionResponse,
+    data,
     context
   );
   const response: ModifyReportDefinitionCommandOutput = {
@@ -302,7 +300,7 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -322,7 +320,6 @@ async function deserializeAws_json1_1ModifyReportDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",
@@ -344,10 +341,7 @@ export async function deserializeAws_json1_1PutReportDefinitionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutReportDefinitionResponse(
-    data.PutReportDefinitionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutReportDefinitionResponse(data, context);
   const response: PutReportDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutReportDefinitionResponse",
@@ -366,7 +360,7 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -400,7 +394,6 @@ async function deserializeAws_json1_1PutReportDefinitionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.awsorigamiservicegateway#${errorCode}`,
         $fault: "client",

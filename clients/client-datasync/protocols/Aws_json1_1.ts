@@ -848,10 +848,7 @@ export async function deserializeAws_json1_1CancelTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelTaskExecutionResponse(
-    data.CancelTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CancelTaskExecutionResponse(data, context);
   const response: CancelTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelTaskExecutionResponse",
@@ -870,7 +867,7 @@ async function deserializeAws_json1_1CancelTaskExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -890,7 +887,6 @@ async function deserializeAws_json1_1CancelTaskExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -909,10 +905,7 @@ export async function deserializeAws_json1_1CreateAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAgentResponse(
-    data.CreateAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAgentResponse(data, context);
   const response: CreateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAgentResponse",
@@ -931,7 +924,7 @@ async function deserializeAws_json1_1CreateAgentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -951,7 +944,6 @@ async function deserializeAws_json1_1CreateAgentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -970,10 +962,7 @@ export async function deserializeAws_json1_1CreateLocationEfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationEfsResponse(
-    data.CreateLocationEfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationEfsResponse(data, context);
   const response: CreateLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationEfsResponse",
@@ -992,7 +981,7 @@ async function deserializeAws_json1_1CreateLocationEfsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1012,7 +1001,6 @@ async function deserializeAws_json1_1CreateLocationEfsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1031,10 +1019,7 @@ export async function deserializeAws_json1_1CreateLocationNfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationNfsResponse(
-    data.CreateLocationNfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationNfsResponse(data, context);
   const response: CreateLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationNfsResponse",
@@ -1053,7 +1038,7 @@ async function deserializeAws_json1_1CreateLocationNfsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1073,7 +1058,6 @@ async function deserializeAws_json1_1CreateLocationNfsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1092,10 +1076,7 @@ export async function deserializeAws_json1_1CreateLocationS3Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationS3Response(
-    data.CreateLocationS3Response,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationS3Response(data, context);
   const response: CreateLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationS3Response",
@@ -1114,7 +1095,7 @@ async function deserializeAws_json1_1CreateLocationS3CommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1134,7 +1115,6 @@ async function deserializeAws_json1_1CreateLocationS3CommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1153,10 +1133,7 @@ export async function deserializeAws_json1_1CreateLocationSmbCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLocationSmbResponse(
-    data.CreateLocationSmbResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLocationSmbResponse(data, context);
   const response: CreateLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationSmbResponse",
@@ -1175,7 +1152,7 @@ async function deserializeAws_json1_1CreateLocationSmbCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1195,7 +1172,6 @@ async function deserializeAws_json1_1CreateLocationSmbCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1214,10 +1190,7 @@ export async function deserializeAws_json1_1CreateTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTaskResponse(
-    data.CreateTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTaskResponse(data, context);
   const response: CreateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTaskResponse",
@@ -1236,7 +1209,7 @@ async function deserializeAws_json1_1CreateTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1256,7 +1229,6 @@ async function deserializeAws_json1_1CreateTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1275,10 +1247,7 @@ export async function deserializeAws_json1_1DeleteAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteAgentResponse(
-    data.DeleteAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteAgentResponse(data, context);
   const response: DeleteAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAgentResponse",
@@ -1297,7 +1266,7 @@ async function deserializeAws_json1_1DeleteAgentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1317,7 +1286,6 @@ async function deserializeAws_json1_1DeleteAgentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1336,10 +1304,7 @@ export async function deserializeAws_json1_1DeleteLocationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLocationResponse(
-    data.DeleteLocationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLocationResponse(data, context);
   const response: DeleteLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLocationResponse",
@@ -1358,7 +1323,7 @@ async function deserializeAws_json1_1DeleteLocationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1378,7 +1343,6 @@ async function deserializeAws_json1_1DeleteLocationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1397,10 +1361,7 @@ export async function deserializeAws_json1_1DeleteTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTaskResponse(
-    data.DeleteTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTaskResponse(data, context);
   const response: DeleteTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTaskResponse",
@@ -1419,7 +1380,7 @@ async function deserializeAws_json1_1DeleteTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1439,7 +1400,6 @@ async function deserializeAws_json1_1DeleteTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1458,10 +1418,7 @@ export async function deserializeAws_json1_1DescribeAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAgentResponse(
-    data.DescribeAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAgentResponse(data, context);
   const response: DescribeAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAgentResponse",
@@ -1480,7 +1437,7 @@ async function deserializeAws_json1_1DescribeAgentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1500,7 +1457,6 @@ async function deserializeAws_json1_1DescribeAgentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1522,10 +1478,7 @@ export async function deserializeAws_json1_1DescribeLocationEfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationEfsResponse(
-    data.DescribeLocationEfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationEfsResponse(data, context);
   const response: DescribeLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationEfsResponse",
@@ -1544,7 +1497,7 @@ async function deserializeAws_json1_1DescribeLocationEfsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1564,7 +1517,6 @@ async function deserializeAws_json1_1DescribeLocationEfsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1586,10 +1538,7 @@ export async function deserializeAws_json1_1DescribeLocationNfsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationNfsResponse(
-    data.DescribeLocationNfsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationNfsResponse(data, context);
   const response: DescribeLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationNfsResponse",
@@ -1608,7 +1557,7 @@ async function deserializeAws_json1_1DescribeLocationNfsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1628,7 +1577,6 @@ async function deserializeAws_json1_1DescribeLocationNfsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1650,10 +1598,7 @@ export async function deserializeAws_json1_1DescribeLocationS3Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationS3Response(
-    data.DescribeLocationS3Response,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationS3Response(data, context);
   const response: DescribeLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationS3Response",
@@ -1672,7 +1617,7 @@ async function deserializeAws_json1_1DescribeLocationS3CommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1692,7 +1637,6 @@ async function deserializeAws_json1_1DescribeLocationS3CommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1714,10 +1658,7 @@ export async function deserializeAws_json1_1DescribeLocationSmbCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLocationSmbResponse(
-    data.DescribeLocationSmbResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLocationSmbResponse(data, context);
   const response: DescribeLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationSmbResponse",
@@ -1736,7 +1677,7 @@ async function deserializeAws_json1_1DescribeLocationSmbCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1756,7 +1697,6 @@ async function deserializeAws_json1_1DescribeLocationSmbCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1775,10 +1715,7 @@ export async function deserializeAws_json1_1DescribeTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTaskResponse(
-    data.DescribeTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTaskResponse(data, context);
   const response: DescribeTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskResponse",
@@ -1797,7 +1734,7 @@ async function deserializeAws_json1_1DescribeTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1817,7 +1754,6 @@ async function deserializeAws_json1_1DescribeTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1839,10 +1775,7 @@ export async function deserializeAws_json1_1DescribeTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTaskExecutionResponse(
-    data.DescribeTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTaskExecutionResponse(data, context);
   const response: DescribeTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskExecutionResponse",
@@ -1861,7 +1794,7 @@ async function deserializeAws_json1_1DescribeTaskExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1881,7 +1814,6 @@ async function deserializeAws_json1_1DescribeTaskExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1900,10 +1832,7 @@ export async function deserializeAws_json1_1ListAgentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAgentsResponse(
-    data.ListAgentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAgentsResponse(data, context);
   const response: ListAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAgentsResponse",
@@ -1922,7 +1851,7 @@ async function deserializeAws_json1_1ListAgentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1942,7 +1871,6 @@ async function deserializeAws_json1_1ListAgentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -1961,10 +1889,7 @@ export async function deserializeAws_json1_1ListLocationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLocationsResponse(
-    data.ListLocationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListLocationsResponse(data, context);
   const response: ListLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLocationsResponse",
@@ -1983,7 +1908,7 @@ async function deserializeAws_json1_1ListLocationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2003,7 +1928,6 @@ async function deserializeAws_json1_1ListLocationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2025,10 +1949,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2047,7 +1968,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2067,7 +1988,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2089,10 +2009,7 @@ export async function deserializeAws_json1_1ListTaskExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTaskExecutionsResponse(
-    data.ListTaskExecutionsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTaskExecutionsResponse(data, context);
   const response: ListTaskExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTaskExecutionsResponse",
@@ -2111,7 +2028,7 @@ async function deserializeAws_json1_1ListTaskExecutionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2131,7 +2048,6 @@ async function deserializeAws_json1_1ListTaskExecutionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2150,10 +2066,7 @@ export async function deserializeAws_json1_1ListTasksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTasksResponse(
-    data.ListTasksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTasksResponse(data, context);
   const response: ListTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTasksResponse",
@@ -2172,7 +2085,7 @@ async function deserializeAws_json1_1ListTasksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2192,7 +2105,6 @@ async function deserializeAws_json1_1ListTasksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2214,10 +2126,7 @@ export async function deserializeAws_json1_1StartTaskExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartTaskExecutionResponse(
-    data.StartTaskExecutionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartTaskExecutionResponse(data, context);
   const response: StartTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTaskExecutionResponse",
@@ -2236,7 +2145,7 @@ async function deserializeAws_json1_1StartTaskExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2256,7 +2165,6 @@ async function deserializeAws_json1_1StartTaskExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2275,10 +2183,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2297,7 +2202,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2317,7 +2222,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2336,10 +2240,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2358,7 +2259,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2378,7 +2279,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2397,10 +2297,7 @@ export async function deserializeAws_json1_1UpdateAgentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAgentResponse(
-    data.UpdateAgentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAgentResponse(data, context);
   const response: UpdateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAgentResponse",
@@ -2419,7 +2316,7 @@ async function deserializeAws_json1_1UpdateAgentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2439,7 +2336,6 @@ async function deserializeAws_json1_1UpdateAgentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
@@ -2458,10 +2354,7 @@ export async function deserializeAws_json1_1UpdateTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTaskResponse(
-    data.UpdateTaskResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTaskResponse(data, context);
   const response: UpdateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTaskResponse",
@@ -2480,7 +2373,7 @@ async function deserializeAws_json1_1UpdateTaskCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2500,7 +2393,6 @@ async function deserializeAws_json1_1UpdateTaskCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",

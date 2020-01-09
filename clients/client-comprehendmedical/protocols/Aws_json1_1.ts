@@ -384,7 +384,7 @@ export async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse(
-    data.DescribeEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: DescribeEntitiesDetectionV2JobCommandOutput = {
@@ -405,7 +405,7 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -439,7 +439,6 @@ async function deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -462,7 +461,7 @@ export async function deserializeAws_json1_1DescribePHIDetectionJobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePHIDetectionJobResponse(
-    data.DescribePHIDetectionJobResponse,
+    data,
     context
   );
   const response: DescribePHIDetectionJobCommandOutput = {
@@ -483,7 +482,7 @@ async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -517,7 +516,6 @@ async function deserializeAws_json1_1DescribePHIDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -536,10 +534,7 @@ export async function deserializeAws_json1_1DetectEntitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesResponse(
-    data.DetectEntitiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesResponse",
@@ -558,7 +553,7 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -606,7 +601,6 @@ async function deserializeAws_json1_1DetectEntitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -625,10 +619,7 @@ export async function deserializeAws_json1_1DetectEntitiesV2Command(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectEntitiesV2Response(
-    data.DetectEntitiesV2Response,
-    context
-  );
+  contents = deserializeAws_json1_1DetectEntitiesV2Response(data, context);
   const response: DetectEntitiesV2CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectEntitiesV2Response",
@@ -647,7 +638,7 @@ async function deserializeAws_json1_1DetectEntitiesV2CommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -695,7 +686,6 @@ async function deserializeAws_json1_1DetectEntitiesV2CommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -714,10 +704,7 @@ export async function deserializeAws_json1_1DetectPHICommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DetectPHIResponse(
-    data.DetectPHIResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DetectPHIResponse(data, context);
   const response: DetectPHICommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DetectPHIResponse",
@@ -736,7 +723,7 @@ async function deserializeAws_json1_1DetectPHICommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -784,7 +771,6 @@ async function deserializeAws_json1_1DetectPHICommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -807,7 +793,7 @@ export async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse(
-    data.ListEntitiesDetectionV2JobsResponse,
+    data,
     context
   );
   const response: ListEntitiesDetectionV2JobsCommandOutput = {
@@ -828,7 +814,7 @@ async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -862,7 +848,6 @@ async function deserializeAws_json1_1ListEntitiesDetectionV2JobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -884,10 +869,7 @@ export async function deserializeAws_json1_1ListPHIDetectionJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListPHIDetectionJobsResponse(
-    data.ListPHIDetectionJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListPHIDetectionJobsResponse(data, context);
   const response: ListPHIDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPHIDetectionJobsResponse",
@@ -906,7 +888,7 @@ async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -940,7 +922,6 @@ async function deserializeAws_json1_1ListPHIDetectionJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -963,7 +944,7 @@ export async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartEntitiesDetectionV2JobResponse(
-    data.StartEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: StartEntitiesDetectionV2JobCommandOutput = {
@@ -984,7 +965,7 @@ async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1018,7 +999,6 @@ async function deserializeAws_json1_1StartEntitiesDetectionV2JobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -1040,10 +1020,7 @@ export async function deserializeAws_json1_1StartPHIDetectionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartPHIDetectionJobResponse(
-    data.StartPHIDetectionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartPHIDetectionJobResponse(data, context);
   const response: StartPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPHIDetectionJobResponse",
@@ -1062,7 +1039,7 @@ async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1096,7 +1073,6 @@ async function deserializeAws_json1_1StartPHIDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -1119,7 +1095,7 @@ export async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StopEntitiesDetectionV2JobResponse(
-    data.StopEntitiesDetectionV2JobResponse,
+    data,
     context
   );
   const response: StopEntitiesDetectionV2JobCommandOutput = {
@@ -1140,7 +1116,7 @@ async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1167,7 +1143,6 @@ async function deserializeAws_json1_1StopEntitiesDetectionV2JobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",
@@ -1189,10 +1164,7 @@ export async function deserializeAws_json1_1StopPHIDetectionJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopPHIDetectionJobResponse(
-    data.StopPHIDetectionJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopPHIDetectionJobResponse(data, context);
   const response: StopPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopPHIDetectionJobResponse",
@@ -1211,7 +1183,7 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1238,7 +1210,6 @@ async function deserializeAws_json1_1StopPHIDetectionJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.deepinsight.medical#${errorCode}`,
         $fault: "client",

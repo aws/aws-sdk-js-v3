@@ -307,8 +307,10 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -346,7 +348,6 @@ async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
@@ -388,8 +389,10 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -427,7 +430,6 @@ async function deserializeAws_restJson1_1BeginTransactionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
@@ -469,8 +471,10 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -508,7 +512,6 @@ async function deserializeAws_restJson1_1CommitTransactionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
@@ -550,8 +553,10 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -582,7 +587,6 @@ async function deserializeAws_restJson1_1ExecuteSqlCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
@@ -645,8 +649,10 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -684,7 +690,6 @@ async function deserializeAws_restJson1_1ExecuteStatementCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
@@ -726,8 +731,10 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
@@ -765,7 +772,6 @@ async function deserializeAws_restJson1_1RollbackTransactionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",

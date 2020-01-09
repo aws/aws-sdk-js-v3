@@ -1554,8 +1554,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
@@ -1600,7 +1602,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -1637,8 +1638,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
@@ -1676,7 +1679,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -1713,8 +1715,10 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
@@ -1752,7 +1756,6 @@ async function deserializeAws_restJson1_1CreateDedicatedIpPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -1798,8 +1801,10 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AccountSuspendedException":
@@ -1865,7 +1870,6 @@ async function deserializeAws_restJson1_1CreateDeliverabilityTestReportCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -1918,8 +1922,10 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -1950,7 +1956,6 @@ async function deserializeAws_restJson1_1CreateEmailIdentityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -1987,8 +1992,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2019,7 +2026,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2056,8 +2062,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2081,7 +2089,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2118,8 +2125,10 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2150,7 +2159,6 @@ async function deserializeAws_restJson1_1DeleteDedicatedIpPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2187,8 +2195,10 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2219,7 +2229,6 @@ async function deserializeAws_restJson1_1DeleteEmailIdentityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2277,8 +2286,10 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2295,7 +2306,6 @@ async function deserializeAws_restJson1_1GetAccountCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2340,8 +2350,10 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2365,7 +2377,6 @@ async function deserializeAws_restJson1_1GetBlacklistReportsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2439,8 +2450,10 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2464,7 +2477,6 @@ async function deserializeAws_restJson1_1GetConfigurationSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2509,8 +2521,10 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2534,7 +2548,6 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2579,8 +2592,10 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2604,7 +2619,6 @@ async function deserializeAws_restJson1_1GetDedicatedIpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2653,8 +2667,10 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2678,7 +2694,6 @@ async function deserializeAws_restJson1_1GetDedicatedIpsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2746,8 +2761,10 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2771,7 +2788,6 @@ async function deserializeAws_restJson1_1GetDeliverabilityDashboardOptionsComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2838,8 +2854,10 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2863,7 +2881,6 @@ async function deserializeAws_restJson1_1GetDeliverabilityTestReportCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2908,8 +2925,10 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -2933,7 +2952,6 @@ async function deserializeAws_restJson1_1GetDomainDeliverabilityCampaignCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -2985,8 +3003,10 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3010,7 +3030,6 @@ async function deserializeAws_restJson1_1GetDomainStatisticsReportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3078,8 +3097,10 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3103,7 +3124,6 @@ async function deserializeAws_restJson1_1GetEmailIdentityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3152,8 +3172,10 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3170,7 +3192,6 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3219,8 +3240,10 @@ async function deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3237,7 +3260,6 @@ async function deserializeAws_restJson1_1ListDedicatedIpPoolsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3286,8 +3308,10 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3311,7 +3335,6 @@ async function deserializeAws_restJson1_1ListDeliverabilityTestReportsCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3360,8 +3383,10 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3385,7 +3410,6 @@ async function deserializeAws_restJson1_1ListDomainDeliverabilityCampaignsComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3434,8 +3458,10 @@ async function deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3452,7 +3478,6 @@ async function deserializeAws_restJson1_1ListEmailIdentitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3494,8 +3519,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3519,7 +3546,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3556,8 +3582,10 @@ async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3574,7 +3602,6 @@ async function deserializeAws_restJson1_1PutAccountDedicatedIpWarmupAttributesCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3611,8 +3638,10 @@ async function deserializeAws_restJson1_1PutAccountSendingAttributesCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3629,7 +3658,6 @@ async function deserializeAws_restJson1_1PutAccountSendingAttributesCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3666,8 +3694,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3691,7 +3721,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetDeliveryOptionsComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3728,8 +3757,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3753,7 +3784,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetReputationOptionsCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3790,8 +3820,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3815,7 +3847,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetSendingOptionsComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3852,8 +3883,10 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3877,7 +3910,6 @@ async function deserializeAws_restJson1_1PutConfigurationSetTrackingOptionsComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3914,8 +3946,10 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -3939,7 +3973,6 @@ async function deserializeAws_restJson1_1PutDedicatedIpInPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -3976,8 +4009,10 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4001,7 +4036,6 @@ async function deserializeAws_restJson1_1PutDedicatedIpWarmupAttributesCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4038,8 +4072,10 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AlreadyExistsException":
@@ -4077,7 +4113,6 @@ async function deserializeAws_restJson1_1PutDeliverabilityDashboardOptionCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4114,8 +4149,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4139,7 +4176,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityDkimAttributesCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4176,8 +4212,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4201,7 +4239,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityFeedbackAttributesComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4238,8 +4275,10 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4263,7 +4302,6 @@ async function deserializeAws_restJson1_1PutEmailIdentityMailFromAttributesComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4302,8 +4340,10 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccountSuspendedException":
     case "com.amazon.bacon.pinpoint.frontend.svc#AccountSuspendedException":
@@ -4362,7 +4402,6 @@ async function deserializeAws_restJson1_1SendEmailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4396,8 +4435,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4428,7 +4469,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4462,8 +4502,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4494,7 +4536,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",
@@ -4531,8 +4572,10 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.bacon.pinpoint.frontend.svc#BadRequestException":
@@ -4556,7 +4599,6 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.bacon.pinpoint.frontend.svc#${errorCode}`,
         $fault: "client",

@@ -2580,7 +2580,7 @@ export async function deserializeAws_json1_1BatchGetAggregateResourceConfigComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetAggregateResourceConfigResponse(
-    data.BatchGetAggregateResourceConfigResponse,
+    data,
     context
   );
   const response: BatchGetAggregateResourceConfigCommandOutput = {
@@ -2601,7 +2601,7 @@ async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2621,7 +2621,6 @@ async function deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2644,7 +2643,7 @@ export async function deserializeAws_json1_1BatchGetResourceConfigCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchGetResourceConfigResponse(
-    data.BatchGetResourceConfigResponse,
+    data,
     context
   );
   const response: BatchGetResourceConfigCommandOutput = {
@@ -2665,7 +2664,7 @@ async function deserializeAws_json1_1BatchGetResourceConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2685,7 +2684,6 @@ async function deserializeAws_json1_1BatchGetResourceConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2721,7 +2719,7 @@ async function deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2734,7 +2732,6 @@ async function deserializeAws_json1_1DeleteAggregationAuthorizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2767,7 +2764,7 @@ async function deserializeAws_json1_1DeleteConfigRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2787,7 +2784,6 @@ async function deserializeAws_json1_1DeleteConfigRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2823,7 +2819,7 @@ async function deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2836,7 +2832,6 @@ async function deserializeAws_json1_1DeleteConfigurationAggregatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2872,7 +2867,7 @@ async function deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2885,7 +2880,6 @@ async function deserializeAws_json1_1DeleteConfigurationRecorderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2921,7 +2915,7 @@ async function deserializeAws_json1_1DeleteConformancePackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2941,7 +2935,6 @@ async function deserializeAws_json1_1DeleteConformancePackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -2977,7 +2970,7 @@ async function deserializeAws_json1_1DeleteDeliveryChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2997,7 +2990,6 @@ async function deserializeAws_json1_1DeleteDeliveryChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3020,7 +3012,7 @@ export async function deserializeAws_json1_1DeleteEvaluationResultsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteEvaluationResultsResponse(
-    data.DeleteEvaluationResultsResponse,
+    data,
     context
   );
   const response: DeleteEvaluationResultsCommandOutput = {
@@ -3041,7 +3033,7 @@ async function deserializeAws_json1_1DeleteEvaluationResultsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3061,7 +3053,6 @@ async function deserializeAws_json1_1DeleteEvaluationResultsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3097,7 +3088,7 @@ async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3124,7 +3115,6 @@ async function deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3160,7 +3150,7 @@ async function deserializeAws_json1_1DeleteOrganizationConformancePackCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3187,7 +3177,6 @@ async function deserializeAws_json1_1DeleteOrganizationConformancePackCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3223,7 +3212,7 @@ async function deserializeAws_json1_1DeletePendingAggregationRequestCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3236,7 +3225,6 @@ async function deserializeAws_json1_1DeletePendingAggregationRequestCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3259,7 +3247,7 @@ export async function deserializeAws_json1_1DeleteRemediationConfigurationComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRemediationConfigurationResponse(
-    data.DeleteRemediationConfigurationResponse,
+    data,
     context
   );
   const response: DeleteRemediationConfigurationCommandOutput = {
@@ -3280,7 +3268,7 @@ async function deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3300,7 +3288,6 @@ async function deserializeAws_json1_1DeleteRemediationConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3323,7 +3310,7 @@ export async function deserializeAws_json1_1DeleteRemediationExceptionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRemediationExceptionsResponse(
-    data.DeleteRemediationExceptionsResponse,
+    data,
     context
   );
   const response: DeleteRemediationExceptionsCommandOutput = {
@@ -3344,7 +3331,7 @@ async function deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3357,7 +3344,6 @@ async function deserializeAws_json1_1DeleteRemediationExceptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3393,7 +3379,7 @@ async function deserializeAws_json1_1DeleteResourceConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3413,7 +3399,6 @@ async function deserializeAws_json1_1DeleteResourceConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3449,7 +3434,7 @@ async function deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3469,7 +3454,6 @@ async function deserializeAws_json1_1DeleteRetentionConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3491,10 +3475,7 @@ export async function deserializeAws_json1_1DeliverConfigSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(
-    data.DeliverConfigSnapshotResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeliverConfigSnapshotResponse(data, context);
   const response: DeliverConfigSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeliverConfigSnapshotResponse",
@@ -3513,7 +3494,7 @@ async function deserializeAws_json1_1DeliverConfigSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3540,7 +3521,6 @@ async function deserializeAws_json1_1DeliverConfigSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3563,7 +3543,7 @@ export async function deserializeAws_json1_1DescribeAggregateComplianceByConfigR
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesResponse(
-    data.DescribeAggregateComplianceByConfigRulesResponse,
+    data,
     context
   );
   const response: DescribeAggregateComplianceByConfigRulesCommandOutput = {
@@ -3584,7 +3564,7 @@ async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3618,7 +3598,6 @@ async function deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3641,7 +3620,7 @@ export async function deserializeAws_json1_1DescribeAggregationAuthorizationsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAggregationAuthorizationsResponse(
-    data.DescribeAggregationAuthorizationsResponse,
+    data,
     context
   );
   const response: DescribeAggregationAuthorizationsCommandOutput = {
@@ -3662,7 +3641,7 @@ async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3689,7 +3668,6 @@ async function deserializeAws_json1_1DescribeAggregationAuthorizationsCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3712,7 +3690,7 @@ export async function deserializeAws_json1_1DescribeComplianceByConfigRuleComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComplianceByConfigRuleResponse(
-    data.DescribeComplianceByConfigRuleResponse,
+    data,
     context
   );
   const response: DescribeComplianceByConfigRuleCommandOutput = {
@@ -3733,7 +3711,7 @@ async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3760,7 +3738,6 @@ async function deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3783,7 +3760,7 @@ export async function deserializeAws_json1_1DescribeComplianceByResourceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeComplianceByResourceResponse(
-    data.DescribeComplianceByResourceResponse,
+    data,
     context
   );
   const response: DescribeComplianceByResourceCommandOutput = {
@@ -3804,7 +3781,7 @@ async function deserializeAws_json1_1DescribeComplianceByResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3824,7 +3801,6 @@ async function deserializeAws_json1_1DescribeComplianceByResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3847,7 +3823,7 @@ export async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigRuleEvaluationStatusResponse(
-    data.DescribeConfigRuleEvaluationStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigRuleEvaluationStatusCommandOutput = {
@@ -3868,7 +3844,7 @@ async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3895,7 +3871,6 @@ async function deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3917,10 +3892,7 @@ export async function deserializeAws_json1_1DescribeConfigRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeConfigRulesResponse(
-    data.DescribeConfigRulesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeConfigRulesResponse(data, context);
   const response: DescribeConfigRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeConfigRulesResponse",
@@ -3939,7 +3911,7 @@ async function deserializeAws_json1_1DescribeConfigRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3959,7 +3931,6 @@ async function deserializeAws_json1_1DescribeConfigRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -3982,7 +3953,7 @@ export async function deserializeAws_json1_1DescribeConfigurationAggregatorSourc
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusResponse(
-    data.DescribeConfigurationAggregatorSourcesStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigurationAggregatorSourcesStatusCommandOutput = {
@@ -4003,7 +3974,7 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatu
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4037,7 +4008,6 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatu
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4060,7 +4030,7 @@ export async function deserializeAws_json1_1DescribeConfigurationAggregatorsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationAggregatorsResponse(
-    data.DescribeConfigurationAggregatorsResponse,
+    data,
     context
   );
   const response: DescribeConfigurationAggregatorsCommandOutput = {
@@ -4081,7 +4051,7 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4115,7 +4085,6 @@ async function deserializeAws_json1_1DescribeConfigurationAggregatorsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4138,7 +4107,7 @@ export async function deserializeAws_json1_1DescribeConfigurationRecorderStatusC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationRecorderStatusResponse(
-    data.DescribeConfigurationRecorderStatusResponse,
+    data,
     context
   );
   const response: DescribeConfigurationRecorderStatusCommandOutput = {
@@ -4159,7 +4128,7 @@ async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4172,7 +4141,6 @@ async function deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4195,7 +4163,7 @@ export async function deserializeAws_json1_1DescribeConfigurationRecordersComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConfigurationRecordersResponse(
-    data.DescribeConfigurationRecordersResponse,
+    data,
     context
   );
   const response: DescribeConfigurationRecordersCommandOutput = {
@@ -4216,7 +4184,7 @@ async function deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4229,7 +4197,6 @@ async function deserializeAws_json1_1DescribeConfigurationRecordersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4252,7 +4219,7 @@ export async function deserializeAws_json1_1DescribeConformancePackComplianceCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePackComplianceResponse(
-    data.DescribeConformancePackComplianceResponse,
+    data,
     context
   );
   const response: DescribeConformancePackComplianceCommandOutput = {
@@ -4273,7 +4240,7 @@ async function deserializeAws_json1_1DescribeConformancePackComplianceCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4314,7 +4281,6 @@ async function deserializeAws_json1_1DescribeConformancePackComplianceCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4337,7 +4303,7 @@ export async function deserializeAws_json1_1DescribeConformancePackStatusCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePackStatusResponse(
-    data.DescribeConformancePackStatusResponse,
+    data,
     context
   );
   const response: DescribeConformancePackStatusCommandOutput = {
@@ -4358,7 +4324,7 @@ async function deserializeAws_json1_1DescribeConformancePackStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4378,7 +4344,6 @@ async function deserializeAws_json1_1DescribeConformancePackStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4401,7 +4366,7 @@ export async function deserializeAws_json1_1DescribeConformancePacksCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConformancePacksResponse(
-    data.DescribeConformancePacksResponse,
+    data,
     context
   );
   const response: DescribeConformancePacksCommandOutput = {
@@ -4422,7 +4387,7 @@ async function deserializeAws_json1_1DescribeConformancePacksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4449,7 +4414,6 @@ async function deserializeAws_json1_1DescribeConformancePacksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4472,7 +4436,7 @@ export async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDeliveryChannelStatusResponse(
-    data.DescribeDeliveryChannelStatusResponse,
+    data,
     context
   );
   const response: DescribeDeliveryChannelStatusCommandOutput = {
@@ -4493,7 +4457,7 @@ async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4506,7 +4470,6 @@ async function deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4529,7 +4492,7 @@ export async function deserializeAws_json1_1DescribeDeliveryChannelsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDeliveryChannelsResponse(
-    data.DescribeDeliveryChannelsResponse,
+    data,
     context
   );
   const response: DescribeDeliveryChannelsCommandOutput = {
@@ -4550,7 +4513,7 @@ async function deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4563,7 +4526,6 @@ async function deserializeAws_json1_1DescribeDeliveryChannelsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4586,7 +4548,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatus
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesResponse(
-    data.DescribeOrganizationConfigRuleStatusesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConfigRuleStatusesCommandOutput = {
@@ -4607,7 +4569,7 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4641,7 +4603,6 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4664,7 +4625,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConfigRulesComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConfigRulesResponse(
-    data.DescribeOrganizationConfigRulesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConfigRulesCommandOutput = {
@@ -4685,7 +4646,7 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4719,7 +4680,6 @@ async function deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4742,7 +4702,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConformancePackS
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConformancePackStatusesResponse(
-    data.DescribeOrganizationConformancePackStatusesResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConformancePackStatusesCommandOutput = {
@@ -4763,7 +4723,7 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePackStatuses
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4797,7 +4757,6 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePackStatuses
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4820,7 +4779,7 @@ export async function deserializeAws_json1_1DescribeOrganizationConformancePacks
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeOrganizationConformancePacksResponse(
-    data.DescribeOrganizationConformancePacksResponse,
+    data,
     context
   );
   const response: DescribeOrganizationConformancePacksCommandOutput = {
@@ -4841,7 +4800,7 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4875,7 +4834,6 @@ async function deserializeAws_json1_1DescribeOrganizationConformancePacksCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4898,7 +4856,7 @@ export async function deserializeAws_json1_1DescribePendingAggregationRequestsCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePendingAggregationRequestsResponse(
-    data.DescribePendingAggregationRequestsResponse,
+    data,
     context
   );
   const response: DescribePendingAggregationRequestsCommandOutput = {
@@ -4919,7 +4877,7 @@ async function deserializeAws_json1_1DescribePendingAggregationRequestsCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4946,7 +4904,6 @@ async function deserializeAws_json1_1DescribePendingAggregationRequestsCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -4969,7 +4926,7 @@ export async function deserializeAws_json1_1DescribeRemediationConfigurationsCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationConfigurationsResponse(
-    data.DescribeRemediationConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeRemediationConfigurationsCommandOutput = {
@@ -4986,13 +4943,12 @@ async function deserializeAws_json1_1DescribeRemediationConfigurationsCommandErr
 ): Promise<DescribeRemediationConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5015,7 +4971,7 @@ export async function deserializeAws_json1_1DescribeRemediationExceptionsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationExceptionsResponse(
-    data.DescribeRemediationExceptionsResponse,
+    data,
     context
   );
   const response: DescribeRemediationExceptionsCommandOutput = {
@@ -5036,7 +4992,7 @@ async function deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5056,7 +5012,6 @@ async function deserializeAws_json1_1DescribeRemediationExceptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5079,7 +5034,7 @@ export async function deserializeAws_json1_1DescribeRemediationExecutionStatusCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRemediationExecutionStatusResponse(
-    data.DescribeRemediationExecutionStatusResponse,
+    data,
     context
   );
   const response: DescribeRemediationExecutionStatusCommandOutput = {
@@ -5100,7 +5055,7 @@ async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5120,7 +5075,6 @@ async function deserializeAws_json1_1DescribeRemediationExecutionStatusCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5143,7 +5097,7 @@ export async function deserializeAws_json1_1DescribeRetentionConfigurationsComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRetentionConfigurationsResponse(
-    data.DescribeRetentionConfigurationsResponse,
+    data,
     context
   );
   const response: DescribeRetentionConfigurationsCommandOutput = {
@@ -5164,7 +5118,7 @@ async function deserializeAws_json1_1DescribeRetentionConfigurationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5191,7 +5145,6 @@ async function deserializeAws_json1_1DescribeRetentionConfigurationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5214,7 +5167,7 @@ export async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfi
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleResponse(
-    data.GetAggregateComplianceDetailsByConfigRuleResponse,
+    data,
     context
   );
   const response: GetAggregateComplianceDetailsByConfigRuleCommandOutput = {
@@ -5235,7 +5188,7 @@ async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCo
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5269,7 +5222,6 @@ async function deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCo
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5292,7 +5244,7 @@ export async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSumm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryResponse(
-    data.GetAggregateConfigRuleComplianceSummaryResponse,
+    data,
     context
   );
   const response: GetAggregateConfigRuleComplianceSummaryCommandOutput = {
@@ -5313,7 +5265,7 @@ async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5347,7 +5299,6 @@ async function deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5370,7 +5321,7 @@ export async function deserializeAws_json1_1GetAggregateDiscoveredResourceCounts
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateDiscoveredResourceCountsResponse(
-    data.GetAggregateDiscoveredResourceCountsResponse,
+    data,
     context
   );
   const response: GetAggregateDiscoveredResourceCountsCommandOutput = {
@@ -5391,7 +5342,7 @@ async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5425,7 +5376,6 @@ async function deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5448,7 +5398,7 @@ export async function deserializeAws_json1_1GetAggregateResourceConfigCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAggregateResourceConfigResponse(
-    data.GetAggregateResourceConfigResponse,
+    data,
     context
   );
   const response: GetAggregateResourceConfigCommandOutput = {
@@ -5469,7 +5419,7 @@ async function deserializeAws_json1_1GetAggregateResourceConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5503,7 +5453,6 @@ async function deserializeAws_json1_1GetAggregateResourceConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5526,7 +5475,7 @@ export async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceDetailsByConfigRuleResponse(
-    data.GetComplianceDetailsByConfigRuleResponse,
+    data,
     context
   );
   const response: GetComplianceDetailsByConfigRuleCommandOutput = {
@@ -5547,7 +5496,7 @@ async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5574,7 +5523,6 @@ async function deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5597,7 +5545,7 @@ export async function deserializeAws_json1_1GetComplianceDetailsByResourceComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceDetailsByResourceResponse(
-    data.GetComplianceDetailsByResourceResponse,
+    data,
     context
   );
   const response: GetComplianceDetailsByResourceCommandOutput = {
@@ -5618,7 +5566,7 @@ async function deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5631,7 +5579,6 @@ async function deserializeAws_json1_1GetComplianceDetailsByResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5654,7 +5601,7 @@ export async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceSummaryByConfigRuleResponse(
-    data.GetComplianceSummaryByConfigRuleResponse,
+    data,
     context
   );
   const response: GetComplianceSummaryByConfigRuleCommandOutput = {
@@ -5671,13 +5618,12 @@ async function deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandErro
 ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5700,7 +5646,7 @@ export async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceSummaryByResourceTypeResponse(
-    data.GetComplianceSummaryByResourceTypeResponse,
+    data,
     context
   );
   const response: GetComplianceSummaryByResourceTypeCommandOutput = {
@@ -5721,7 +5667,7 @@ async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5734,7 +5680,6 @@ async function deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5757,7 +5702,7 @@ export async function deserializeAws_json1_1GetConformancePackComplianceDetailsC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConformancePackComplianceDetailsResponse(
-    data.GetConformancePackComplianceDetailsResponse,
+    data,
     context
   );
   const response: GetConformancePackComplianceDetailsCommandOutput = {
@@ -5778,7 +5723,7 @@ async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5819,7 +5764,6 @@ async function deserializeAws_json1_1GetConformancePackComplianceDetailsCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5842,7 +5786,7 @@ export async function deserializeAws_json1_1GetConformancePackComplianceSummaryC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetConformancePackComplianceSummaryResponse(
-    data.GetConformancePackComplianceSummaryResponse,
+    data,
     context
   );
   const response: GetConformancePackComplianceSummaryCommandOutput = {
@@ -5863,7 +5807,7 @@ async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5890,7 +5834,6 @@ async function deserializeAws_json1_1GetConformancePackComplianceSummaryCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5913,7 +5856,7 @@ export async function deserializeAws_json1_1GetDiscoveredResourceCountsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDiscoveredResourceCountsResponse(
-    data.GetDiscoveredResourceCountsResponse,
+    data,
     context
   );
   const response: GetDiscoveredResourceCountsCommandOutput = {
@@ -5934,7 +5877,7 @@ async function deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5961,7 +5904,6 @@ async function deserializeAws_json1_1GetDiscoveredResourceCountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -5984,7 +5926,7 @@ export async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedSta
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusResponse(
-    data.GetOrganizationConfigRuleDetailedStatusResponse,
+    data,
     context
   );
   const response: GetOrganizationConfigRuleDetailedStatusCommandOutput = {
@@ -6005,7 +5947,7 @@ async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusComm
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6039,7 +5981,6 @@ async function deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusComm
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6062,7 +6003,7 @@ export async function deserializeAws_json1_1GetOrganizationConformancePackDetail
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusResponse(
-    data.GetOrganizationConformancePackDetailedStatusResponse,
+    data,
     context
   );
   const response: GetOrganizationConformancePackDetailedStatusCommandOutput = {
@@ -6083,7 +6024,7 @@ async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatu
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6117,7 +6058,6 @@ async function deserializeAws_json1_1GetOrganizationConformancePackDetailedStatu
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6140,7 +6080,7 @@ export async function deserializeAws_json1_1GetResourceConfigHistoryCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetResourceConfigHistoryResponse(
-    data.GetResourceConfigHistoryResponse,
+    data,
     context
   );
   const response: GetResourceConfigHistoryCommandOutput = {
@@ -6161,7 +6101,7 @@ async function deserializeAws_json1_1GetResourceConfigHistoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6209,7 +6149,6 @@ async function deserializeAws_json1_1GetResourceConfigHistoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6232,7 +6171,7 @@ export async function deserializeAws_json1_1ListAggregateDiscoveredResourcesComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAggregateDiscoveredResourcesResponse(
-    data.ListAggregateDiscoveredResourcesResponse,
+    data,
     context
   );
   const response: ListAggregateDiscoveredResourcesCommandOutput = {
@@ -6253,7 +6192,7 @@ async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6287,7 +6226,6 @@ async function deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6310,7 +6248,7 @@ export async function deserializeAws_json1_1ListDiscoveredResourcesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(
-    data.ListDiscoveredResourcesResponse,
+    data,
     context
   );
   const response: ListDiscoveredResourcesCommandOutput = {
@@ -6331,7 +6269,7 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6365,7 +6303,6 @@ async function deserializeAws_json1_1ListDiscoveredResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6387,10 +6324,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -6409,7 +6343,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6443,7 +6377,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6466,7 +6399,7 @@ export async function deserializeAws_json1_1PutAggregationAuthorizationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutAggregationAuthorizationResponse(
-    data.PutAggregationAuthorizationResponse,
+    data,
     context
   );
   const response: PutAggregationAuthorizationCommandOutput = {
@@ -6487,7 +6420,7 @@ async function deserializeAws_json1_1PutAggregationAuthorizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6500,7 +6433,6 @@ async function deserializeAws_json1_1PutAggregationAuthorizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6533,7 +6465,7 @@ async function deserializeAws_json1_1PutConfigRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6574,7 +6506,6 @@ async function deserializeAws_json1_1PutConfigRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6597,7 +6528,7 @@ export async function deserializeAws_json1_1PutConfigurationAggregatorCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutConfigurationAggregatorResponse(
-    data.PutConfigurationAggregatorResponse,
+    data,
     context
   );
   const response: PutConfigurationAggregatorCommandOutput = {
@@ -6618,7 +6549,7 @@ async function deserializeAws_json1_1PutConfigurationAggregatorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6666,7 +6597,6 @@ async function deserializeAws_json1_1PutConfigurationAggregatorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6702,7 +6632,7 @@ async function deserializeAws_json1_1PutConfigurationRecorderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6736,7 +6666,6 @@ async function deserializeAws_json1_1PutConfigurationRecorderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6758,10 +6687,7 @@ export async function deserializeAws_json1_1PutConformancePackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutConformancePackResponse(
-    data.PutConformancePackResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutConformancePackResponse(data, context);
   const response: PutConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutConformancePackResponse",
@@ -6780,7 +6706,7 @@ async function deserializeAws_json1_1PutConformancePackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6821,7 +6747,6 @@ async function deserializeAws_json1_1PutConformancePackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6857,7 +6782,7 @@ async function deserializeAws_json1_1PutDeliveryChannelCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6912,7 +6837,6 @@ async function deserializeAws_json1_1PutDeliveryChannelCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -6931,10 +6855,7 @@ export async function deserializeAws_json1_1PutEvaluationsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutEvaluationsResponse(
-    data.PutEvaluationsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutEvaluationsResponse(data, context);
   const response: PutEvaluationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEvaluationsResponse",
@@ -6953,7 +6874,7 @@ async function deserializeAws_json1_1PutEvaluationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6980,7 +6901,6 @@ async function deserializeAws_json1_1PutEvaluationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7003,7 +6923,7 @@ export async function deserializeAws_json1_1PutOrganizationConfigRuleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutOrganizationConfigRuleResponse(
-    data.PutOrganizationConfigRuleResponse,
+    data,
     context
   );
   const response: PutOrganizationConfigRuleCommandOutput = {
@@ -7024,7 +6944,7 @@ async function deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7086,7 +7006,6 @@ async function deserializeAws_json1_1PutOrganizationConfigRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7109,7 +7028,7 @@ export async function deserializeAws_json1_1PutOrganizationConformancePackComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutOrganizationConformancePackResponse(
-    data.PutOrganizationConformancePackResponse,
+    data,
     context
   );
   const response: PutOrganizationConformancePackCommandOutput = {
@@ -7130,7 +7049,7 @@ async function deserializeAws_json1_1PutOrganizationConformancePackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7192,7 +7111,6 @@ async function deserializeAws_json1_1PutOrganizationConformancePackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7215,7 +7133,7 @@ export async function deserializeAws_json1_1PutRemediationConfigurationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRemediationConfigurationsResponse(
-    data.PutRemediationConfigurationsResponse,
+    data,
     context
   );
   const response: PutRemediationConfigurationsCommandOutput = {
@@ -7236,7 +7154,7 @@ async function deserializeAws_json1_1PutRemediationConfigurationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7256,7 +7174,6 @@ async function deserializeAws_json1_1PutRemediationConfigurationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7279,7 +7196,7 @@ export async function deserializeAws_json1_1PutRemediationExceptionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRemediationExceptionsResponse(
-    data.PutRemediationExceptionsResponse,
+    data,
     context
   );
   const response: PutRemediationExceptionsCommandOutput = {
@@ -7300,7 +7217,7 @@ async function deserializeAws_json1_1PutRemediationExceptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7313,7 +7230,6 @@ async function deserializeAws_json1_1PutRemediationExceptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7346,7 +7262,7 @@ async function deserializeAws_json1_1PutResourceConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7380,7 +7296,6 @@ async function deserializeAws_json1_1PutResourceConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7403,7 +7318,7 @@ export async function deserializeAws_json1_1PutRetentionConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRetentionConfigurationResponse(
-    data.PutRetentionConfigurationResponse,
+    data,
     context
   );
   const response: PutRetentionConfigurationCommandOutput = {
@@ -7424,7 +7339,7 @@ async function deserializeAws_json1_1PutRetentionConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7444,7 +7359,6 @@ async function deserializeAws_json1_1PutRetentionConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7466,10 +7380,7 @@ export async function deserializeAws_json1_1SelectResourceConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SelectResourceConfigResponse(
-    data.SelectResourceConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SelectResourceConfigResponse(data, context);
   const response: SelectResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SelectResourceConfigResponse",
@@ -7488,7 +7399,7 @@ async function deserializeAws_json1_1SelectResourceConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7515,7 +7426,6 @@ async function deserializeAws_json1_1SelectResourceConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7538,7 +7448,7 @@ export async function deserializeAws_json1_1StartConfigRulesEvaluationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartConfigRulesEvaluationResponse(
-    data.StartConfigRulesEvaluationResponse,
+    data,
     context
   );
   const response: StartConfigRulesEvaluationCommandOutput = {
@@ -7559,7 +7469,7 @@ async function deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7593,7 +7503,6 @@ async function deserializeAws_json1_1StartConfigRulesEvaluationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7629,7 +7538,7 @@ async function deserializeAws_json1_1StartConfigurationRecorderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7649,7 +7558,6 @@ async function deserializeAws_json1_1StartConfigurationRecorderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7672,7 +7580,7 @@ export async function deserializeAws_json1_1StartRemediationExecutionCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartRemediationExecutionResponse(
-    data.StartRemediationExecutionResponse,
+    data,
     context
   );
   const response: StartRemediationExecutionCommandOutput = {
@@ -7693,7 +7601,7 @@ async function deserializeAws_json1_1StartRemediationExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7720,7 +7628,6 @@ async function deserializeAws_json1_1StartRemediationExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7756,7 +7663,7 @@ async function deserializeAws_json1_1StopConfigurationRecorderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7769,7 +7676,6 @@ async function deserializeAws_json1_1StopConfigurationRecorderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7802,7 +7708,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7829,7 +7735,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",
@@ -7862,7 +7767,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7882,7 +7787,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starling.dove#${errorCode}`,
         $fault: "client",

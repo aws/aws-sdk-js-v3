@@ -924,8 +924,10 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -956,7 +958,6 @@ async function deserializeAws_restJson1_1AddTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1001,8 +1002,10 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1033,7 +1036,6 @@ async function deserializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdat
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1078,8 +1080,10 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1131,7 +1135,6 @@ async function deserializeAws_restJson1_1CreateElasticsearchDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1176,8 +1179,10 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1208,7 +1213,6 @@ async function deserializeAws_restJson1_1DeleteElasticsearchDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1244,8 +1248,10 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1269,7 +1275,6 @@ async function deserializeAws_restJson1_1DeleteElasticsearchServiceRoleCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1314,8 +1319,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1346,7 +1353,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1391,8 +1397,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1423,7 +1431,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainConfigComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1468,8 +1475,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1493,7 +1502,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchDomainsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1538,8 +1546,10 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1584,7 +1594,6 @@ async function deserializeAws_restJson1_1DescribeElasticsearchInstanceTypeLimits
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1633,8 +1642,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -1665,7 +1676,6 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstanceOf
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1714,8 +1724,10 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -1746,7 +1758,6 @@ async function deserializeAws_restJson1_1DescribeReservedElasticsearchInstancesC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1791,8 +1802,10 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1830,7 +1843,6 @@ async function deserializeAws_restJson1_1GetCompatibleElasticsearchVersionsComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1879,8 +1891,10 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -1918,7 +1932,6 @@ async function deserializeAws_restJson1_1GetUpgradeHistoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -1968,8 +1981,10 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2007,7 +2022,6 @@ async function deserializeAws_restJson1_1GetUpgradeStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2052,8 +2066,10 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2070,7 +2086,6 @@ async function deserializeAws_restJson1_1ListDomainNamesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2119,8 +2134,10 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2151,7 +2168,6 @@ async function deserializeAws_restJson1_1ListElasticsearchInstanceTypesCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2200,8 +2216,10 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2232,7 +2250,6 @@ async function deserializeAws_restJson1_1ListElasticsearchVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2271,8 +2288,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2303,7 +2322,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2350,8 +2368,10 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DisabledOperationException":
     case "com.a9.es.exceptions#DisabledOperationException":
@@ -2396,7 +2416,6 @@ async function deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOf
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2429,8 +2448,10 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2454,7 +2475,6 @@ async function deserializeAws_restJson1_1RemoveTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2499,8 +2519,10 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2531,7 +2553,6 @@ async function deserializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdate
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2576,8 +2597,10 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2622,7 +2645,6 @@ async function deserializeAws_restJson1_1UpdateElasticsearchDomainConfigCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",
@@ -2672,8 +2694,10 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BaseException":
     case "com.a9.es.exceptions#BaseException":
@@ -2718,7 +2742,6 @@ async function deserializeAws_restJson1_1UpgradeElasticsearchDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.a9.es.config2015#${errorCode}`,
         $fault: "client",

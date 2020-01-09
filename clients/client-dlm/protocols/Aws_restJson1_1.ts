@@ -348,8 +348,10 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -373,7 +375,6 @@ async function deserializeAws_restJson1_1CreateLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -410,8 +411,10 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -435,7 +438,6 @@ async function deserializeAws_restJson1_1DeleteLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -480,8 +482,10 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -512,7 +516,6 @@ async function deserializeAws_restJson1_1GetLifecyclePoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -557,8 +560,10 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -582,7 +587,6 @@ async function deserializeAws_restJson1_1GetLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -624,8 +628,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -649,7 +655,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -683,8 +688,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -708,7 +715,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -742,8 +748,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -767,7 +775,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",
@@ -804,8 +811,10 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazon.abslifecyclefrontendlambda#InternalServerException":
@@ -836,7 +845,6 @@ async function deserializeAws_restJson1_1UpdateLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.abslifecyclefrontendlambda#${errorCode}`,
         $fault: "client",

@@ -1263,7 +1263,7 @@ export async function deserializeAws_json1_1AcceptQualificationRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AcceptQualificationRequestResponse(
-    data.AcceptQualificationRequestResponse,
+    data,
     context
   );
   const response: AcceptQualificationRequestCommandOutput = {
@@ -1284,7 +1284,7 @@ async function deserializeAws_json1_1AcceptQualificationRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1304,7 +1304,6 @@ async function deserializeAws_json1_1AcceptQualificationRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1323,10 +1322,7 @@ export async function deserializeAws_json1_1ApproveAssignmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ApproveAssignmentResponse(
-    data.ApproveAssignmentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ApproveAssignmentResponse(data, context);
   const response: ApproveAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ApproveAssignmentResponse",
@@ -1345,7 +1341,7 @@ async function deserializeAws_json1_1ApproveAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1365,7 +1361,6 @@ async function deserializeAws_json1_1ApproveAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1388,7 +1383,7 @@ export async function deserializeAws_json1_1AssociateQualificationWithWorkerComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateQualificationWithWorkerResponse(
-    data.AssociateQualificationWithWorkerResponse,
+    data,
     context
   );
   const response: AssociateQualificationWithWorkerCommandOutput = {
@@ -1409,7 +1404,7 @@ async function deserializeAws_json1_1AssociateQualificationWithWorkerCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1429,7 +1424,6 @@ async function deserializeAws_json1_1AssociateQualificationWithWorkerCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1452,7 +1446,7 @@ export async function deserializeAws_json1_1CreateAdditionalAssignmentsForHITCom
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse(
-    data.CreateAdditionalAssignmentsForHITResponse,
+    data,
     context
   );
   const response: CreateAdditionalAssignmentsForHITCommandOutput = {
@@ -1473,7 +1467,7 @@ async function deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1493,7 +1487,6 @@ async function deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1512,10 +1505,7 @@ export async function deserializeAws_json1_1CreateHITCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITResponse(
-    data.CreateHITResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHITResponse(data, context);
   const response: CreateHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHITResponse",
@@ -1534,7 +1524,7 @@ async function deserializeAws_json1_1CreateHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1554,7 +1544,6 @@ async function deserializeAws_json1_1CreateHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1573,10 +1562,7 @@ export async function deserializeAws_json1_1CreateHITTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITTypeResponse(
-    data.CreateHITTypeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHITTypeResponse(data, context);
   const response: CreateHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHITTypeResponse",
@@ -1595,7 +1581,7 @@ async function deserializeAws_json1_1CreateHITTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1615,7 +1601,6 @@ async function deserializeAws_json1_1CreateHITTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1637,10 +1622,7 @@ export async function deserializeAws_json1_1CreateHITWithHITTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateHITWithHITTypeResponse(
-    data.CreateHITWithHITTypeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateHITWithHITTypeResponse(data, context);
   const response: CreateHITWithHITTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHITWithHITTypeResponse",
@@ -1659,7 +1641,7 @@ async function deserializeAws_json1_1CreateHITWithHITTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1679,7 +1661,6 @@ async function deserializeAws_json1_1CreateHITWithHITTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1702,7 +1683,7 @@ export async function deserializeAws_json1_1CreateQualificationTypeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateQualificationTypeResponse(
-    data.CreateQualificationTypeResponse,
+    data,
     context
   );
   const response: CreateQualificationTypeCommandOutput = {
@@ -1723,7 +1704,7 @@ async function deserializeAws_json1_1CreateQualificationTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1743,7 +1724,6 @@ async function deserializeAws_json1_1CreateQualificationTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1762,10 +1742,7 @@ export async function deserializeAws_json1_1CreateWorkerBlockCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkerBlockResponse(
-    data.CreateWorkerBlockResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWorkerBlockResponse(data, context);
   const response: CreateWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWorkerBlockResponse",
@@ -1784,7 +1761,7 @@ async function deserializeAws_json1_1CreateWorkerBlockCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1804,7 +1781,6 @@ async function deserializeAws_json1_1CreateWorkerBlockCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1823,10 +1799,7 @@ export async function deserializeAws_json1_1DeleteHITCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteHITResponse(
-    data.DeleteHITResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteHITResponse(data, context);
   const response: DeleteHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteHITResponse",
@@ -1845,7 +1818,7 @@ async function deserializeAws_json1_1DeleteHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1865,7 +1838,6 @@ async function deserializeAws_json1_1DeleteHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1888,7 +1860,7 @@ export async function deserializeAws_json1_1DeleteQualificationTypeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteQualificationTypeResponse(
-    data.DeleteQualificationTypeResponse,
+    data,
     context
   );
   const response: DeleteQualificationTypeCommandOutput = {
@@ -1909,7 +1881,7 @@ async function deserializeAws_json1_1DeleteQualificationTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1929,7 +1901,6 @@ async function deserializeAws_json1_1DeleteQualificationTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -1948,10 +1919,7 @@ export async function deserializeAws_json1_1DeleteWorkerBlockCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkerBlockResponse(
-    data.DeleteWorkerBlockResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWorkerBlockResponse(data, context);
   const response: DeleteWorkerBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWorkerBlockResponse",
@@ -1970,7 +1938,7 @@ async function deserializeAws_json1_1DeleteWorkerBlockCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1990,7 +1958,6 @@ async function deserializeAws_json1_1DeleteWorkerBlockCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2013,7 +1980,7 @@ export async function deserializeAws_json1_1DisassociateQualificationFromWorkerC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateQualificationFromWorkerResponse(
-    data.DisassociateQualificationFromWorkerResponse,
+    data,
     context
   );
   const response: DisassociateQualificationFromWorkerCommandOutput = {
@@ -2034,7 +2001,7 @@ async function deserializeAws_json1_1DisassociateQualificationFromWorkerCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2054,7 +2021,6 @@ async function deserializeAws_json1_1DisassociateQualificationFromWorkerCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2073,10 +2039,7 @@ export async function deserializeAws_json1_1GetAccountBalanceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAccountBalanceResponse(
-    data.GetAccountBalanceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAccountBalanceResponse(data, context);
   const response: GetAccountBalanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAccountBalanceResponse",
@@ -2095,7 +2058,7 @@ async function deserializeAws_json1_1GetAccountBalanceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2115,7 +2078,6 @@ async function deserializeAws_json1_1GetAccountBalanceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2134,10 +2096,7 @@ export async function deserializeAws_json1_1GetAssignmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAssignmentResponse(
-    data.GetAssignmentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAssignmentResponse(data, context);
   const response: GetAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAssignmentResponse",
@@ -2156,7 +2115,7 @@ async function deserializeAws_json1_1GetAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2176,7 +2135,6 @@ async function deserializeAws_json1_1GetAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2195,10 +2153,7 @@ export async function deserializeAws_json1_1GetFileUploadURLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetFileUploadURLResponse(
-    data.GetFileUploadURLResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetFileUploadURLResponse(data, context);
   const response: GetFileUploadURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFileUploadURLResponse",
@@ -2217,7 +2172,7 @@ async function deserializeAws_json1_1GetFileUploadURLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2237,7 +2192,6 @@ async function deserializeAws_json1_1GetFileUploadURLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2256,7 +2210,7 @@ export async function deserializeAws_json1_1GetHITCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetHITResponse(data.GetHITResponse, context);
+  contents = deserializeAws_json1_1GetHITResponse(data, context);
   const response: GetHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetHITResponse",
@@ -2275,7 +2229,7 @@ async function deserializeAws_json1_1GetHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2295,7 +2249,6 @@ async function deserializeAws_json1_1GetHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2317,10 +2270,7 @@ export async function deserializeAws_json1_1GetQualificationScoreCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQualificationScoreResponse(
-    data.GetQualificationScoreResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetQualificationScoreResponse(data, context);
   const response: GetQualificationScoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQualificationScoreResponse",
@@ -2339,7 +2289,7 @@ async function deserializeAws_json1_1GetQualificationScoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2359,7 +2309,6 @@ async function deserializeAws_json1_1GetQualificationScoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2381,10 +2330,7 @@ export async function deserializeAws_json1_1GetQualificationTypeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQualificationTypeResponse(
-    data.GetQualificationTypeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetQualificationTypeResponse(data, context);
   const response: GetQualificationTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQualificationTypeResponse",
@@ -2403,7 +2349,7 @@ async function deserializeAws_json1_1GetQualificationTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2423,7 +2369,6 @@ async function deserializeAws_json1_1GetQualificationTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2445,10 +2390,7 @@ export async function deserializeAws_json1_1ListAssignmentsForHITCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssignmentsForHITResponse(
-    data.ListAssignmentsForHITResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssignmentsForHITResponse(data, context);
   const response: ListAssignmentsForHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssignmentsForHITResponse",
@@ -2467,7 +2409,7 @@ async function deserializeAws_json1_1ListAssignmentsForHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2487,7 +2429,6 @@ async function deserializeAws_json1_1ListAssignmentsForHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2506,10 +2447,7 @@ export async function deserializeAws_json1_1ListBonusPaymentsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListBonusPaymentsResponse(
-    data.ListBonusPaymentsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListBonusPaymentsResponse(data, context);
   const response: ListBonusPaymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBonusPaymentsResponse",
@@ -2528,7 +2466,7 @@ async function deserializeAws_json1_1ListBonusPaymentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2548,7 +2486,6 @@ async function deserializeAws_json1_1ListBonusPaymentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2567,10 +2504,7 @@ export async function deserializeAws_json1_1ListHITsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListHITsResponse(
-    data.ListHITsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListHITsResponse(data, context);
   const response: ListHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHITsResponse",
@@ -2589,7 +2523,7 @@ async function deserializeAws_json1_1ListHITsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2609,7 +2543,6 @@ async function deserializeAws_json1_1ListHITsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2632,7 +2565,7 @@ export async function deserializeAws_json1_1ListHITsForQualificationTypeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListHITsForQualificationTypeResponse(
-    data.ListHITsForQualificationTypeResponse,
+    data,
     context
   );
   const response: ListHITsForQualificationTypeCommandOutput = {
@@ -2653,7 +2586,7 @@ async function deserializeAws_json1_1ListHITsForQualificationTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2673,7 +2606,6 @@ async function deserializeAws_json1_1ListHITsForQualificationTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2696,7 +2628,7 @@ export async function deserializeAws_json1_1ListQualificationRequestsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListQualificationRequestsResponse(
-    data.ListQualificationRequestsResponse,
+    data,
     context
   );
   const response: ListQualificationRequestsCommandOutput = {
@@ -2717,7 +2649,7 @@ async function deserializeAws_json1_1ListQualificationRequestsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2737,7 +2669,6 @@ async function deserializeAws_json1_1ListQualificationRequestsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2760,7 +2691,7 @@ export async function deserializeAws_json1_1ListQualificationTypesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListQualificationTypesResponse(
-    data.ListQualificationTypesResponse,
+    data,
     context
   );
   const response: ListQualificationTypesCommandOutput = {
@@ -2781,7 +2712,7 @@ async function deserializeAws_json1_1ListQualificationTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2801,7 +2732,6 @@ async function deserializeAws_json1_1ListQualificationTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2824,7 +2754,7 @@ export async function deserializeAws_json1_1ListReviewPolicyResultsForHITCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListReviewPolicyResultsForHITResponse(
-    data.ListReviewPolicyResultsForHITResponse,
+    data,
     context
   );
   const response: ListReviewPolicyResultsForHITCommandOutput = {
@@ -2845,7 +2775,7 @@ async function deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2865,7 +2795,6 @@ async function deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2887,10 +2816,7 @@ export async function deserializeAws_json1_1ListReviewableHITsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListReviewableHITsResponse(
-    data.ListReviewableHITsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListReviewableHITsResponse(data, context);
   const response: ListReviewableHITsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListReviewableHITsResponse",
@@ -2909,7 +2835,7 @@ async function deserializeAws_json1_1ListReviewableHITsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2929,7 +2855,6 @@ async function deserializeAws_json1_1ListReviewableHITsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -2948,10 +2873,7 @@ export async function deserializeAws_json1_1ListWorkerBlocksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkerBlocksResponse(
-    data.ListWorkerBlocksResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListWorkerBlocksResponse(data, context);
   const response: ListWorkerBlocksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWorkerBlocksResponse",
@@ -2970,7 +2892,7 @@ async function deserializeAws_json1_1ListWorkerBlocksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2990,7 +2912,6 @@ async function deserializeAws_json1_1ListWorkerBlocksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3013,7 +2934,7 @@ export async function deserializeAws_json1_1ListWorkersWithQualificationTypeComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListWorkersWithQualificationTypeResponse(
-    data.ListWorkersWithQualificationTypeResponse,
+    data,
     context
   );
   const response: ListWorkersWithQualificationTypeCommandOutput = {
@@ -3034,7 +2955,7 @@ async function deserializeAws_json1_1ListWorkersWithQualificationTypeCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3054,7 +2975,6 @@ async function deserializeAws_json1_1ListWorkersWithQualificationTypeCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3073,10 +2993,7 @@ export async function deserializeAws_json1_1NotifyWorkersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1NotifyWorkersResponse(
-    data.NotifyWorkersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1NotifyWorkersResponse(data, context);
   const response: NotifyWorkersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "NotifyWorkersResponse",
@@ -3095,7 +3012,7 @@ async function deserializeAws_json1_1NotifyWorkersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3115,7 +3032,6 @@ async function deserializeAws_json1_1NotifyWorkersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3134,10 +3050,7 @@ export async function deserializeAws_json1_1RejectAssignmentCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectAssignmentResponse(
-    data.RejectAssignmentResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RejectAssignmentResponse(data, context);
   const response: RejectAssignmentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RejectAssignmentResponse",
@@ -3156,7 +3069,7 @@ async function deserializeAws_json1_1RejectAssignmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3176,7 +3089,6 @@ async function deserializeAws_json1_1RejectAssignmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3199,7 +3111,7 @@ export async function deserializeAws_json1_1RejectQualificationRequestCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RejectQualificationRequestResponse(
-    data.RejectQualificationRequestResponse,
+    data,
     context
   );
   const response: RejectQualificationRequestCommandOutput = {
@@ -3220,7 +3132,7 @@ async function deserializeAws_json1_1RejectQualificationRequestCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3240,7 +3152,6 @@ async function deserializeAws_json1_1RejectQualificationRequestCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3259,10 +3170,7 @@ export async function deserializeAws_json1_1SendBonusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SendBonusResponse(
-    data.SendBonusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SendBonusResponse(data, context);
   const response: SendBonusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendBonusResponse",
@@ -3281,7 +3189,7 @@ async function deserializeAws_json1_1SendBonusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3301,7 +3209,6 @@ async function deserializeAws_json1_1SendBonusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3324,7 +3231,7 @@ export async function deserializeAws_json1_1SendTestEventNotificationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SendTestEventNotificationResponse(
-    data.SendTestEventNotificationResponse,
+    data,
     context
   );
   const response: SendTestEventNotificationCommandOutput = {
@@ -3345,7 +3252,7 @@ async function deserializeAws_json1_1SendTestEventNotificationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3365,7 +3272,6 @@ async function deserializeAws_json1_1SendTestEventNotificationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3388,7 +3294,7 @@ export async function deserializeAws_json1_1UpdateExpirationForHITCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateExpirationForHITResponse(
-    data.UpdateExpirationForHITResponse,
+    data,
     context
   );
   const response: UpdateExpirationForHITCommandOutput = {
@@ -3409,7 +3315,7 @@ async function deserializeAws_json1_1UpdateExpirationForHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3429,7 +3335,6 @@ async function deserializeAws_json1_1UpdateExpirationForHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3451,10 +3356,7 @@ export async function deserializeAws_json1_1UpdateHITReviewStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHITReviewStatusResponse(
-    data.UpdateHITReviewStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateHITReviewStatusResponse(data, context);
   const response: UpdateHITReviewStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateHITReviewStatusResponse",
@@ -3473,7 +3375,7 @@ async function deserializeAws_json1_1UpdateHITReviewStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3493,7 +3395,6 @@ async function deserializeAws_json1_1UpdateHITReviewStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3515,10 +3416,7 @@ export async function deserializeAws_json1_1UpdateHITTypeOfHITCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateHITTypeOfHITResponse(
-    data.UpdateHITTypeOfHITResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateHITTypeOfHITResponse(data, context);
   const response: UpdateHITTypeOfHITCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateHITTypeOfHITResponse",
@@ -3537,7 +3435,7 @@ async function deserializeAws_json1_1UpdateHITTypeOfHITCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3557,7 +3455,6 @@ async function deserializeAws_json1_1UpdateHITTypeOfHITCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3580,7 +3477,7 @@ export async function deserializeAws_json1_1UpdateNotificationSettingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateNotificationSettingsResponse(
-    data.UpdateNotificationSettingsResponse,
+    data,
     context
   );
   const response: UpdateNotificationSettingsCommandOutput = {
@@ -3601,7 +3498,7 @@ async function deserializeAws_json1_1UpdateNotificationSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3621,7 +3518,6 @@ async function deserializeAws_json1_1UpdateNotificationSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",
@@ -3644,7 +3540,7 @@ export async function deserializeAws_json1_1UpdateQualificationTypeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateQualificationTypeResponse(
-    data.UpdateQualificationTypeResponse,
+    data,
     context
   );
   const response: UpdateQualificationTypeCommandOutput = {
@@ -3665,7 +3561,7 @@ async function deserializeAws_json1_1UpdateQualificationTypeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3685,7 +3581,6 @@ async function deserializeAws_json1_1UpdateQualificationTypeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.mturk.requester.V20170117#${errorCode}`,
         $fault: "client",

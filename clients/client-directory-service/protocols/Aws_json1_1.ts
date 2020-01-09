@@ -1817,10 +1817,7 @@ export async function deserializeAws_json1_1AcceptSharedDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcceptSharedDirectoryResult(
-    data.AcceptSharedDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1AcceptSharedDirectoryResult(data, context);
   const response: AcceptSharedDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcceptSharedDirectoryResult",
@@ -1839,7 +1836,7 @@ async function deserializeAws_json1_1AcceptSharedDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1880,7 +1877,6 @@ async function deserializeAws_json1_1AcceptSharedDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -1899,10 +1895,7 @@ export async function deserializeAws_json1_1AddIpRoutesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddIpRoutesResult(
-    data.AddIpRoutesResult,
-    context
-  );
+  contents = deserializeAws_json1_1AddIpRoutesResult(data, context);
   const response: AddIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddIpRoutesResult",
@@ -1921,7 +1914,7 @@ async function deserializeAws_json1_1AddIpRoutesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1976,7 +1969,6 @@ async function deserializeAws_json1_1AddIpRoutesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -1995,10 +1987,7 @@ export async function deserializeAws_json1_1AddTagsToResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddTagsToResourceResult(
-    data.AddTagsToResourceResult,
-    context
-  );
+  contents = deserializeAws_json1_1AddTagsToResourceResult(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsToResourceResult",
@@ -2017,7 +2006,7 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2058,7 +2047,6 @@ async function deserializeAws_json1_1AddTagsToResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2080,10 +2068,7 @@ export async function deserializeAws_json1_1CancelSchemaExtensionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelSchemaExtensionResult(
-    data.CancelSchemaExtensionResult,
-    context
-  );
+  contents = deserializeAws_json1_1CancelSchemaExtensionResult(data, context);
   const response: CancelSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelSchemaExtensionResult",
@@ -2102,7 +2087,7 @@ async function deserializeAws_json1_1CancelSchemaExtensionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2129,7 +2114,6 @@ async function deserializeAws_json1_1CancelSchemaExtensionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2148,10 +2132,7 @@ export async function deserializeAws_json1_1ConnectDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConnectDirectoryResult(
-    data.ConnectDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1ConnectDirectoryResult(data, context);
   const response: ConnectDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConnectDirectoryResult",
@@ -2170,7 +2151,7 @@ async function deserializeAws_json1_1ConnectDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2204,7 +2185,6 @@ async function deserializeAws_json1_1ConnectDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2223,10 +2203,7 @@ export async function deserializeAws_json1_1CreateAliasCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAliasResult(
-    data.CreateAliasResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAliasResult(data, context);
   const response: CreateAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAliasResult",
@@ -2245,7 +2222,7 @@ async function deserializeAws_json1_1CreateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2286,7 +2263,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2305,10 +2281,7 @@ export async function deserializeAws_json1_1CreateComputerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateComputerResult(
-    data.CreateComputerResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateComputerResult(data, context);
   const response: CreateComputerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateComputerResult",
@@ -2327,7 +2300,7 @@ async function deserializeAws_json1_1CreateComputerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2389,7 +2362,6 @@ async function deserializeAws_json1_1CreateComputerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2412,7 +2384,7 @@ export async function deserializeAws_json1_1CreateConditionalForwarderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateConditionalForwarderResult(
-    data.CreateConditionalForwarderResult,
+    data,
     context
   );
   const response: CreateConditionalForwarderCommandOutput = {
@@ -2433,7 +2405,7 @@ async function deserializeAws_json1_1CreateConditionalForwarderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2488,7 +2460,6 @@ async function deserializeAws_json1_1CreateConditionalForwarderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2507,10 +2478,7 @@ export async function deserializeAws_json1_1CreateDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDirectoryResult(
-    data.CreateDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDirectoryResult(data, context);
   const response: CreateDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDirectoryResult",
@@ -2529,7 +2497,7 @@ async function deserializeAws_json1_1CreateDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2563,7 +2531,6 @@ async function deserializeAws_json1_1CreateDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2585,10 +2552,7 @@ export async function deserializeAws_json1_1CreateLogSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateLogSubscriptionResult(
-    data.CreateLogSubscriptionResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateLogSubscriptionResult(data, context);
   const response: CreateLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLogSubscriptionResult",
@@ -2607,7 +2571,7 @@ async function deserializeAws_json1_1CreateLogSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2655,7 +2619,6 @@ async function deserializeAws_json1_1CreateLogSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2674,10 +2637,7 @@ export async function deserializeAws_json1_1CreateMicrosoftADCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateMicrosoftADResult(
-    data.CreateMicrosoftADResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateMicrosoftADResult(data, context);
   const response: CreateMicrosoftADCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMicrosoftADResult",
@@ -2696,7 +2656,7 @@ async function deserializeAws_json1_1CreateMicrosoftADCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2737,7 +2697,6 @@ async function deserializeAws_json1_1CreateMicrosoftADCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2756,10 +2715,7 @@ export async function deserializeAws_json1_1CreateSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSnapshotResult(
-    data.CreateSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateSnapshotResult(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSnapshotResult",
@@ -2778,7 +2734,7 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2819,7 +2775,6 @@ async function deserializeAws_json1_1CreateSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2838,10 +2793,7 @@ export async function deserializeAws_json1_1CreateTrustCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateTrustResult(
-    data.CreateTrustResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateTrustResult(data, context);
   const response: CreateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTrustResult",
@@ -2860,7 +2812,7 @@ async function deserializeAws_json1_1CreateTrustCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2908,7 +2860,6 @@ async function deserializeAws_json1_1CreateTrustCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -2931,7 +2882,7 @@ export async function deserializeAws_json1_1DeleteConditionalForwarderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteConditionalForwarderResult(
-    data.DeleteConditionalForwarderResult,
+    data,
     context
   );
   const response: DeleteConditionalForwarderCommandOutput = {
@@ -2952,7 +2903,7 @@ async function deserializeAws_json1_1DeleteConditionalForwarderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3000,7 +2951,6 @@ async function deserializeAws_json1_1DeleteConditionalForwarderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3019,10 +2969,7 @@ export async function deserializeAws_json1_1DeleteDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDirectoryResult(
-    data.DeleteDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDirectoryResult(data, context);
   const response: DeleteDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDirectoryResult",
@@ -3041,7 +2988,7 @@ async function deserializeAws_json1_1DeleteDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3068,7 +3015,6 @@ async function deserializeAws_json1_1DeleteDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3090,10 +3036,7 @@ export async function deserializeAws_json1_1DeleteLogSubscriptionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLogSubscriptionResult(
-    data.DeleteLogSubscriptionResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLogSubscriptionResult(data, context);
   const response: DeleteLogSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLogSubscriptionResult",
@@ -3112,7 +3055,7 @@ async function deserializeAws_json1_1DeleteLogSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3146,7 +3089,6 @@ async function deserializeAws_json1_1DeleteLogSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3165,10 +3107,7 @@ export async function deserializeAws_json1_1DeleteSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSnapshotResult(
-    data.DeleteSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteSnapshotResult(data, context);
   const response: DeleteSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSnapshotResult",
@@ -3187,7 +3126,7 @@ async function deserializeAws_json1_1DeleteSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3221,7 +3160,6 @@ async function deserializeAws_json1_1DeleteSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3240,10 +3178,7 @@ export async function deserializeAws_json1_1DeleteTrustCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteTrustResult(
-    data.DeleteTrustResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteTrustResult(data, context);
   const response: DeleteTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTrustResult",
@@ -3262,7 +3197,7 @@ async function deserializeAws_json1_1DeleteTrustCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3303,7 +3238,6 @@ async function deserializeAws_json1_1DeleteTrustCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3325,10 +3259,7 @@ export async function deserializeAws_json1_1DeregisterCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterCertificateResult(
-    data.DeregisterCertificateResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeregisterCertificateResult(data, context);
   const response: DeregisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterCertificateResult",
@@ -3347,7 +3278,7 @@ async function deserializeAws_json1_1DeregisterCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3409,7 +3340,6 @@ async function deserializeAws_json1_1DeregisterCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3431,10 +3361,7 @@ export async function deserializeAws_json1_1DeregisterEventTopicCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterEventTopicResult(
-    data.DeregisterEventTopicResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeregisterEventTopicResult(data, context);
   const response: DeregisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterEventTopicResult",
@@ -3453,7 +3380,7 @@ async function deserializeAws_json1_1DeregisterEventTopicCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3487,7 +3414,6 @@ async function deserializeAws_json1_1DeregisterEventTopicCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3509,10 +3435,7 @@ export async function deserializeAws_json1_1DescribeCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateResult(
-    data.DescribeCertificateResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCertificateResult(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCertificateResult",
@@ -3531,7 +3454,7 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3579,7 +3502,6 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3602,7 +3524,7 @@ export async function deserializeAws_json1_1DescribeConditionalForwardersCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeConditionalForwardersResult(
-    data.DescribeConditionalForwardersResult,
+    data,
     context
   );
   const response: DescribeConditionalForwardersCommandOutput = {
@@ -3623,7 +3545,7 @@ async function deserializeAws_json1_1DescribeConditionalForwardersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3671,7 +3593,6 @@ async function deserializeAws_json1_1DescribeConditionalForwardersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3693,10 +3614,7 @@ export async function deserializeAws_json1_1DescribeDirectoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeDirectoriesResult(
-    data.DescribeDirectoriesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeDirectoriesResult(data, context);
   const response: DescribeDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDirectoriesResult",
@@ -3715,7 +3633,7 @@ async function deserializeAws_json1_1DescribeDirectoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3756,7 +3674,6 @@ async function deserializeAws_json1_1DescribeDirectoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3779,7 +3696,7 @@ export async function deserializeAws_json1_1DescribeDomainControllersCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDomainControllersResult(
-    data.DescribeDomainControllersResult,
+    data,
     context
   );
   const response: DescribeDomainControllersCommandOutput = {
@@ -3800,7 +3717,7 @@ async function deserializeAws_json1_1DescribeDomainControllersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3848,7 +3765,6 @@ async function deserializeAws_json1_1DescribeDomainControllersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3870,10 +3786,7 @@ export async function deserializeAws_json1_1DescribeEventTopicsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEventTopicsResult(
-    data.DescribeEventTopicsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEventTopicsResult(data, context);
   const response: DescribeEventTopicsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEventTopicsResult",
@@ -3892,7 +3805,7 @@ async function deserializeAws_json1_1DescribeEventTopicsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3926,7 +3839,6 @@ async function deserializeAws_json1_1DescribeEventTopicsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -3948,10 +3860,7 @@ export async function deserializeAws_json1_1DescribeLDAPSSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeLDAPSSettingsResult(
-    data.DescribeLDAPSSettingsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeLDAPSSettingsResult(data, context);
   const response: DescribeLDAPSSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLDAPSSettingsResult",
@@ -3970,7 +3879,7 @@ async function deserializeAws_json1_1DescribeLDAPSSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4018,7 +3927,6 @@ async function deserializeAws_json1_1DescribeLDAPSSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4041,7 +3949,7 @@ export async function deserializeAws_json1_1DescribeSharedDirectoriesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeSharedDirectoriesResult(
-    data.DescribeSharedDirectoriesResult,
+    data,
     context
   );
   const response: DescribeSharedDirectoriesCommandOutput = {
@@ -4062,7 +3970,7 @@ async function deserializeAws_json1_1DescribeSharedDirectoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4110,7 +4018,6 @@ async function deserializeAws_json1_1DescribeSharedDirectoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4129,10 +4036,7 @@ export async function deserializeAws_json1_1DescribeSnapshotsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSnapshotsResult(
-    data.DescribeSnapshotsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSnapshotsResult(data, context);
   const response: DescribeSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSnapshotsResult",
@@ -4151,7 +4055,7 @@ async function deserializeAws_json1_1DescribeSnapshotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4192,7 +4096,6 @@ async function deserializeAws_json1_1DescribeSnapshotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4211,10 +4114,7 @@ export async function deserializeAws_json1_1DescribeTrustsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeTrustsResult(
-    data.DescribeTrustsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeTrustsResult(data, context);
   const response: DescribeTrustsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTrustsResult",
@@ -4233,7 +4133,7 @@ async function deserializeAws_json1_1DescribeTrustsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4281,7 +4181,6 @@ async function deserializeAws_json1_1DescribeTrustsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4300,10 +4199,7 @@ export async function deserializeAws_json1_1DisableLDAPSCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableLDAPSResult(
-    data.DisableLDAPSResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisableLDAPSResult(data, context);
   const response: DisableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableLDAPSResult",
@@ -4322,7 +4218,7 @@ async function deserializeAws_json1_1DisableLDAPSCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4377,7 +4273,6 @@ async function deserializeAws_json1_1DisableLDAPSCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4396,10 +4291,7 @@ export async function deserializeAws_json1_1DisableRadiusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableRadiusResult(
-    data.DisableRadiusResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisableRadiusResult(data, context);
   const response: DisableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableRadiusResult",
@@ -4418,7 +4310,7 @@ async function deserializeAws_json1_1DisableRadiusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4445,7 +4337,6 @@ async function deserializeAws_json1_1DisableRadiusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4464,10 +4355,7 @@ export async function deserializeAws_json1_1DisableSsoCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableSsoResult(
-    data.DisableSsoResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisableSsoResult(data, context);
   const response: DisableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableSsoResult",
@@ -4486,7 +4374,7 @@ async function deserializeAws_json1_1DisableSsoCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4527,7 +4415,6 @@ async function deserializeAws_json1_1DisableSsoCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4546,10 +4433,7 @@ export async function deserializeAws_json1_1EnableLDAPSCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableLDAPSResult(
-    data.EnableLDAPSResult,
-    context
-  );
+  contents = deserializeAws_json1_1EnableLDAPSResult(data, context);
   const response: EnableLDAPSCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableLDAPSResult",
@@ -4568,7 +4452,7 @@ async function deserializeAws_json1_1EnableLDAPSCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4630,7 +4514,6 @@ async function deserializeAws_json1_1EnableLDAPSCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4649,10 +4532,7 @@ export async function deserializeAws_json1_1EnableRadiusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableRadiusResult(
-    data.EnableRadiusResult,
-    context
-  );
+  contents = deserializeAws_json1_1EnableRadiusResult(data, context);
   const response: EnableRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableRadiusResult",
@@ -4671,7 +4551,7 @@ async function deserializeAws_json1_1EnableRadiusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4712,7 +4592,6 @@ async function deserializeAws_json1_1EnableRadiusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4731,10 +4610,7 @@ export async function deserializeAws_json1_1EnableSsoCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableSsoResult(
-    data.EnableSsoResult,
-    context
-  );
+  contents = deserializeAws_json1_1EnableSsoResult(data, context);
   const response: EnableSsoCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableSsoResult",
@@ -4753,7 +4629,7 @@ async function deserializeAws_json1_1EnableSsoCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4794,7 +4670,6 @@ async function deserializeAws_json1_1EnableSsoCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4816,10 +4691,7 @@ export async function deserializeAws_json1_1GetDirectoryLimitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDirectoryLimitsResult(
-    data.GetDirectoryLimitsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetDirectoryLimitsResult(data, context);
   const response: GetDirectoryLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDirectoryLimitsResult",
@@ -4838,7 +4710,7 @@ async function deserializeAws_json1_1GetDirectoryLimitsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4865,7 +4737,6 @@ async function deserializeAws_json1_1GetDirectoryLimitsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4884,10 +4755,7 @@ export async function deserializeAws_json1_1GetSnapshotLimitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSnapshotLimitsResult(
-    data.GetSnapshotLimitsResult,
-    context
-  );
+  contents = deserializeAws_json1_1GetSnapshotLimitsResult(data, context);
   const response: GetSnapshotLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSnapshotLimitsResult",
@@ -4906,7 +4774,7 @@ async function deserializeAws_json1_1GetSnapshotLimitsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4933,7 +4801,6 @@ async function deserializeAws_json1_1GetSnapshotLimitsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -4952,10 +4819,7 @@ export async function deserializeAws_json1_1ListCertificatesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificatesResult(
-    data.ListCertificatesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListCertificatesResult(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCertificatesResult",
@@ -4974,7 +4838,7 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5022,7 +4886,6 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5041,10 +4904,7 @@ export async function deserializeAws_json1_1ListIpRoutesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIpRoutesResult(
-    data.ListIpRoutesResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListIpRoutesResult(data, context);
   const response: ListIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIpRoutesResult",
@@ -5063,7 +4923,7 @@ async function deserializeAws_json1_1ListIpRoutesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5104,7 +4964,6 @@ async function deserializeAws_json1_1ListIpRoutesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5126,10 +4985,7 @@ export async function deserializeAws_json1_1ListLogSubscriptionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLogSubscriptionsResult(
-    data.ListLogSubscriptionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListLogSubscriptionsResult(data, context);
   const response: ListLogSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLogSubscriptionsResult",
@@ -5148,7 +5004,7 @@ async function deserializeAws_json1_1ListLogSubscriptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5182,7 +5038,6 @@ async function deserializeAws_json1_1ListLogSubscriptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5204,10 +5059,7 @@ export async function deserializeAws_json1_1ListSchemaExtensionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSchemaExtensionsResult(
-    data.ListSchemaExtensionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListSchemaExtensionsResult(data, context);
   const response: ListSchemaExtensionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSchemaExtensionsResult",
@@ -5226,7 +5078,7 @@ async function deserializeAws_json1_1ListSchemaExtensionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5260,7 +5112,6 @@ async function deserializeAws_json1_1ListSchemaExtensionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5282,10 +5133,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResult(
-    data.ListTagsForResourceResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResult(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResult",
@@ -5304,7 +5152,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5345,7 +5193,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5367,10 +5214,7 @@ export async function deserializeAws_json1_1RegisterCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterCertificateResult(
-    data.RegisterCertificateResult,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterCertificateResult(data, context);
   const response: RegisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterCertificateResult",
@@ -5389,7 +5233,7 @@ async function deserializeAws_json1_1RegisterCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5458,7 +5302,6 @@ async function deserializeAws_json1_1RegisterCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5480,10 +5323,7 @@ export async function deserializeAws_json1_1RegisterEventTopicCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterEventTopicResult(
-    data.RegisterEventTopicResult,
-    context
-  );
+  contents = deserializeAws_json1_1RegisterEventTopicResult(data, context);
   const response: RegisterEventTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterEventTopicResult",
@@ -5502,7 +5342,7 @@ async function deserializeAws_json1_1RegisterEventTopicCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5536,7 +5376,6 @@ async function deserializeAws_json1_1RegisterEventTopicCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5558,10 +5397,7 @@ export async function deserializeAws_json1_1RejectSharedDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RejectSharedDirectoryResult(
-    data.RejectSharedDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1RejectSharedDirectoryResult(data, context);
   const response: RejectSharedDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RejectSharedDirectoryResult",
@@ -5580,7 +5416,7 @@ async function deserializeAws_json1_1RejectSharedDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5621,7 +5457,6 @@ async function deserializeAws_json1_1RejectSharedDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5640,10 +5475,7 @@ export async function deserializeAws_json1_1RemoveIpRoutesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveIpRoutesResult(
-    data.RemoveIpRoutesResult,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveIpRoutesResult(data, context);
   const response: RemoveIpRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveIpRoutesResult",
@@ -5662,7 +5494,7 @@ async function deserializeAws_json1_1RemoveIpRoutesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5703,7 +5535,6 @@ async function deserializeAws_json1_1RemoveIpRoutesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5725,10 +5556,7 @@ export async function deserializeAws_json1_1RemoveTagsFromResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RemoveTagsFromResourceResult(
-    data.RemoveTagsFromResourceResult,
-    context
-  );
+  contents = deserializeAws_json1_1RemoveTagsFromResourceResult(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsFromResourceResult",
@@ -5747,7 +5575,7 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5781,7 +5609,6 @@ async function deserializeAws_json1_1RemoveTagsFromResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5800,10 +5627,7 @@ export async function deserializeAws_json1_1ResetUserPasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ResetUserPasswordResult(
-    data.ResetUserPasswordResult,
-    context
-  );
+  contents = deserializeAws_json1_1ResetUserPasswordResult(data, context);
   const response: ResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ResetUserPasswordResult",
@@ -5822,7 +5646,7 @@ async function deserializeAws_json1_1ResetUserPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5877,7 +5701,6 @@ async function deserializeAws_json1_1ResetUserPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5899,10 +5722,7 @@ export async function deserializeAws_json1_1RestoreFromSnapshotCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RestoreFromSnapshotResult(
-    data.RestoreFromSnapshotResult,
-    context
-  );
+  contents = deserializeAws_json1_1RestoreFromSnapshotResult(data, context);
   const response: RestoreFromSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreFromSnapshotResult",
@@ -5921,7 +5741,7 @@ async function deserializeAws_json1_1RestoreFromSnapshotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5955,7 +5775,6 @@ async function deserializeAws_json1_1RestoreFromSnapshotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -5974,10 +5793,7 @@ export async function deserializeAws_json1_1ShareDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ShareDirectoryResult(
-    data.ShareDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1ShareDirectoryResult(data, context);
   const response: ShareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ShareDirectoryResult",
@@ -5996,7 +5812,7 @@ async function deserializeAws_json1_1ShareDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6072,7 +5888,6 @@ async function deserializeAws_json1_1ShareDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6094,10 +5909,7 @@ export async function deserializeAws_json1_1StartSchemaExtensionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartSchemaExtensionResult(
-    data.StartSchemaExtensionResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartSchemaExtensionResult(data, context);
   const response: StartSchemaExtensionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartSchemaExtensionResult",
@@ -6116,7 +5928,7 @@ async function deserializeAws_json1_1StartSchemaExtensionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6164,7 +5976,6 @@ async function deserializeAws_json1_1StartSchemaExtensionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6183,10 +5994,7 @@ export async function deserializeAws_json1_1UnshareDirectoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UnshareDirectoryResult(
-    data.UnshareDirectoryResult,
-    context
-  );
+  contents = deserializeAws_json1_1UnshareDirectoryResult(data, context);
   const response: UnshareDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UnshareDirectoryResult",
@@ -6205,7 +6013,7 @@ async function deserializeAws_json1_1UnshareDirectoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6246,7 +6054,6 @@ async function deserializeAws_json1_1UnshareDirectoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6269,7 +6076,7 @@ export async function deserializeAws_json1_1UpdateConditionalForwarderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateConditionalForwarderResult(
-    data.UpdateConditionalForwarderResult,
+    data,
     context
   );
   const response: UpdateConditionalForwarderCommandOutput = {
@@ -6290,7 +6097,7 @@ async function deserializeAws_json1_1UpdateConditionalForwarderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6338,7 +6145,6 @@ async function deserializeAws_json1_1UpdateConditionalForwarderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6361,7 +6167,7 @@ export async function deserializeAws_json1_1UpdateNumberOfDomainControllersComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateNumberOfDomainControllersResult(
-    data.UpdateNumberOfDomainControllersResult,
+    data,
     context
   );
   const response: UpdateNumberOfDomainControllersCommandOutput = {
@@ -6382,7 +6188,7 @@ async function deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6437,7 +6243,6 @@ async function deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6456,10 +6261,7 @@ export async function deserializeAws_json1_1UpdateRadiusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateRadiusResult(
-    data.UpdateRadiusResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateRadiusResult(data, context);
   const response: UpdateRadiusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRadiusResult",
@@ -6478,7 +6280,7 @@ async function deserializeAws_json1_1UpdateRadiusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6512,7 +6314,6 @@ async function deserializeAws_json1_1UpdateRadiusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6531,10 +6332,7 @@ export async function deserializeAws_json1_1UpdateTrustCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateTrustResult(
-    data.UpdateTrustResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateTrustResult(data, context);
   const response: UpdateTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTrustResult",
@@ -6553,7 +6351,7 @@ async function deserializeAws_json1_1UpdateTrustCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6587,7 +6385,6 @@ async function deserializeAws_json1_1UpdateTrustCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",
@@ -6606,10 +6403,7 @@ export async function deserializeAws_json1_1VerifyTrustCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyTrustResult(
-    data.VerifyTrustResult,
-    context
-  );
+  contents = deserializeAws_json1_1VerifyTrustResult(data, context);
   const response: VerifyTrustCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifyTrustResult",
@@ -6628,7 +6422,7 @@ async function deserializeAws_json1_1VerifyTrustCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6669,7 +6463,6 @@ async function deserializeAws_json1_1VerifyTrustCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.directoryservice.v20150416#${errorCode}`,
         $fault: "client",

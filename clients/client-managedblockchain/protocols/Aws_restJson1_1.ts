@@ -843,8 +843,10 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -903,7 +905,6 @@ async function deserializeAws_restJson1_1CreateMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -946,8 +947,10 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -992,7 +995,6 @@ async function deserializeAws_restJson1_1CreateNetworkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1031,8 +1033,10 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1091,7 +1095,6 @@ async function deserializeAws_restJson1_1CreateNodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1133,8 +1136,10 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1179,7 +1184,6 @@ async function deserializeAws_restJson1_1CreateProposalCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1213,8 +1217,10 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1259,7 +1265,6 @@ async function deserializeAws_restJson1_1DeleteMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1293,8 +1298,10 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1339,7 +1346,6 @@ async function deserializeAws_restJson1_1DeleteNodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1378,8 +1384,10 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1417,7 +1425,6 @@ async function deserializeAws_restJson1_1GetMemberCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1456,8 +1463,10 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1495,7 +1504,6 @@ async function deserializeAws_restJson1_1GetNetworkCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1534,8 +1542,10 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1573,7 +1583,6 @@ async function deserializeAws_restJson1_1GetNodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1615,8 +1624,10 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1654,7 +1665,6 @@ async function deserializeAws_restJson1_1GetProposalCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1703,8 +1713,10 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1749,7 +1761,6 @@ async function deserializeAws_restJson1_1ListInvitationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1795,8 +1806,10 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1827,7 +1840,6 @@ async function deserializeAws_restJson1_1ListMembersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1873,8 +1885,10 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1905,7 +1919,6 @@ async function deserializeAws_restJson1_1ListNetworksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -1951,8 +1964,10 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -1983,7 +1998,6 @@ async function deserializeAws_restJson1_1ListNodesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -2032,8 +2046,10 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -2064,7 +2080,6 @@ async function deserializeAws_restJson1_1ListProposalVotesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -2110,8 +2125,10 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -2149,7 +2166,6 @@ async function deserializeAws_restJson1_1ListProposalsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -2186,8 +2202,10 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -2232,7 +2250,6 @@ async function deserializeAws_restJson1_1RejectInvitationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
@@ -2269,8 +2286,10 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
@@ -2315,7 +2334,6 @@ async function deserializeAws_restJson1_1VoteOnProposalCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",

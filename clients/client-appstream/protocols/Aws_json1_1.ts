@@ -1482,10 +1482,7 @@ export async function deserializeAws_json1_1AssociateFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateFleetResult(
-    data.AssociateFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateFleetResult(data, context);
   const response: AssociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateFleetResult",
@@ -1504,7 +1501,7 @@ async function deserializeAws_json1_1AssociateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1552,7 +1549,6 @@ async function deserializeAws_json1_1AssociateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1574,10 +1570,7 @@ export async function deserializeAws_json1_1BatchAssociateUserStackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchAssociateUserStackResult(
-    data.BatchAssociateUserStackResult,
-    context
-  );
+  contents = deserializeAws_json1_1BatchAssociateUserStackResult(data, context);
   const response: BatchAssociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchAssociateUserStackResult",
@@ -1596,7 +1589,7 @@ async function deserializeAws_json1_1BatchAssociateUserStackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1609,7 +1602,6 @@ async function deserializeAws_json1_1BatchAssociateUserStackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1632,7 +1624,7 @@ export async function deserializeAws_json1_1BatchDisassociateUserStackCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchDisassociateUserStackResult(
-    data.BatchDisassociateUserStackResult,
+    data,
     context
   );
   const response: BatchDisassociateUserStackCommandOutput = {
@@ -1649,13 +1641,12 @@ async function deserializeAws_json1_1BatchDisassociateUserStackCommandError(
 ): Promise<BatchDisassociateUserStackCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1674,10 +1665,7 @@ export async function deserializeAws_json1_1CopyImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CopyImageResponse(
-    data.CopyImageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CopyImageResponse(data, context);
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CopyImageResponse",
@@ -1696,7 +1684,7 @@ async function deserializeAws_json1_1CopyImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1744,7 +1732,6 @@ async function deserializeAws_json1_1CopyImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1766,10 +1753,7 @@ export async function deserializeAws_json1_1CreateDirectoryConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateDirectoryConfigResult(
-    data.CreateDirectoryConfigResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateDirectoryConfigResult(data, context);
   const response: CreateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDirectoryConfigResult",
@@ -1788,7 +1772,7 @@ async function deserializeAws_json1_1CreateDirectoryConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1815,7 +1799,6 @@ async function deserializeAws_json1_1CreateDirectoryConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1834,10 +1817,7 @@ export async function deserializeAws_json1_1CreateFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateFleetResult(
-    data.CreateFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateFleetResult(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFleetResult",
@@ -1856,7 +1836,7 @@ async function deserializeAws_json1_1CreateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1932,7 +1912,6 @@ async function deserializeAws_json1_1CreateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -1954,10 +1933,7 @@ export async function deserializeAws_json1_1CreateImageBuilderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateImageBuilderResult(
-    data.CreateImageBuilderResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateImageBuilderResult(data, context);
   const response: CreateImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageBuilderResult",
@@ -1976,7 +1952,7 @@ async function deserializeAws_json1_1CreateImageBuilderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2052,7 +2028,6 @@ async function deserializeAws_json1_1CreateImageBuilderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2075,7 +2050,7 @@ export async function deserializeAws_json1_1CreateImageBuilderStreamingURLComman
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(
-    data.CreateImageBuilderStreamingURLResult,
+    data,
     context
   );
   const response: CreateImageBuilderStreamingURLCommandOutput = {
@@ -2096,7 +2071,7 @@ async function deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2116,7 +2091,6 @@ async function deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2135,10 +2109,7 @@ export async function deserializeAws_json1_1CreateStackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStackResult(
-    data.CreateStackResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateStackResult(data, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStackResult",
@@ -2157,7 +2128,7 @@ async function deserializeAws_json1_1CreateStackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2212,7 +2183,6 @@ async function deserializeAws_json1_1CreateStackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2234,10 +2204,7 @@ export async function deserializeAws_json1_1CreateStreamingURLCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateStreamingURLResult(
-    data.CreateStreamingURLResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateStreamingURLResult(data, context);
   const response: CreateStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStreamingURLResult",
@@ -2256,7 +2223,7 @@ async function deserializeAws_json1_1CreateStreamingURLCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2290,7 +2257,6 @@ async function deserializeAws_json1_1CreateStreamingURLCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2313,7 +2279,7 @@ export async function deserializeAws_json1_1CreateUsageReportSubscriptionCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(
-    data.CreateUsageReportSubscriptionResult,
+    data,
     context
   );
   const response: CreateUsageReportSubscriptionCommandOutput = {
@@ -2334,7 +2300,7 @@ async function deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2361,7 +2327,6 @@ async function deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2380,10 +2345,7 @@ export async function deserializeAws_json1_1CreateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserResult(
-    data.CreateUserResult,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserResult(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResult",
@@ -2402,7 +2364,7 @@ async function deserializeAws_json1_1CreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2443,7 +2405,6 @@ async function deserializeAws_json1_1CreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2465,10 +2426,7 @@ export async function deserializeAws_json1_1DeleteDirectoryConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteDirectoryConfigResult(
-    data.DeleteDirectoryConfigResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteDirectoryConfigResult(data, context);
   const response: DeleteDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDirectoryConfigResult",
@@ -2487,7 +2445,7 @@ async function deserializeAws_json1_1DeleteDirectoryConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2507,7 +2465,6 @@ async function deserializeAws_json1_1DeleteDirectoryConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2526,10 +2483,7 @@ export async function deserializeAws_json1_1DeleteFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteFleetResult(
-    data.DeleteFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteFleetResult(data, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteFleetResult",
@@ -2548,7 +2502,7 @@ async function deserializeAws_json1_1DeleteFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2575,7 +2529,6 @@ async function deserializeAws_json1_1DeleteFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2594,10 +2547,7 @@ export async function deserializeAws_json1_1DeleteImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImageResult(
-    data.DeleteImageResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteImageResult(data, context);
   const response: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageResult",
@@ -2616,7 +2566,7 @@ async function deserializeAws_json1_1DeleteImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2650,7 +2600,6 @@ async function deserializeAws_json1_1DeleteImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2672,10 +2621,7 @@ export async function deserializeAws_json1_1DeleteImageBuilderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImageBuilderResult(
-    data.DeleteImageBuilderResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteImageBuilderResult(data, context);
   const response: DeleteImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageBuilderResult",
@@ -2694,7 +2640,7 @@ async function deserializeAws_json1_1DeleteImageBuilderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2721,7 +2667,6 @@ async function deserializeAws_json1_1DeleteImageBuilderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2743,10 +2688,7 @@ export async function deserializeAws_json1_1DeleteImagePermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteImagePermissionsResult(
-    data.DeleteImagePermissionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteImagePermissionsResult(data, context);
   const response: DeleteImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImagePermissionsResult",
@@ -2765,7 +2707,7 @@ async function deserializeAws_json1_1DeleteImagePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2785,7 +2727,6 @@ async function deserializeAws_json1_1DeleteImagePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2804,10 +2745,7 @@ export async function deserializeAws_json1_1DeleteStackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteStackResult(
-    data.DeleteStackResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteStackResult(data, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStackResult",
@@ -2826,7 +2764,7 @@ async function deserializeAws_json1_1DeleteStackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2853,7 +2791,6 @@ async function deserializeAws_json1_1DeleteStackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2876,7 +2813,7 @@ export async function deserializeAws_json1_1DeleteUsageReportSubscriptionCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(
-    data.DeleteUsageReportSubscriptionResult,
+    data,
     context
   );
   const response: DeleteUsageReportSubscriptionCommandOutput = {
@@ -2897,7 +2834,7 @@ async function deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2917,7 +2854,6 @@ async function deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2936,10 +2872,7 @@ export async function deserializeAws_json1_1DeleteUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserResult(
-    data.DeleteUserResult,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserResult(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserResult",
@@ -2958,7 +2891,7 @@ async function deserializeAws_json1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2971,7 +2904,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -2994,7 +2926,7 @@ export async function deserializeAws_json1_1DescribeDirectoryConfigsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(
-    data.DescribeDirectoryConfigsResult,
+    data,
     context
   );
   const response: DescribeDirectoryConfigsCommandOutput = {
@@ -3015,7 +2947,7 @@ async function deserializeAws_json1_1DescribeDirectoryConfigsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3028,7 +2960,6 @@ async function deserializeAws_json1_1DescribeDirectoryConfigsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3047,10 +2978,7 @@ export async function deserializeAws_json1_1DescribeFleetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeFleetsResult(
-    data.DescribeFleetsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeFleetsResult(data, context);
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFleetsResult",
@@ -3069,7 +2997,7 @@ async function deserializeAws_json1_1DescribeFleetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3082,7 +3010,6 @@ async function deserializeAws_json1_1DescribeFleetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3104,10 +3031,7 @@ export async function deserializeAws_json1_1DescribeImageBuildersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImageBuildersResult(
-    data.DescribeImageBuildersResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImageBuildersResult(data, context);
   const response: DescribeImageBuildersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImageBuildersResult",
@@ -3126,7 +3050,7 @@ async function deserializeAws_json1_1DescribeImageBuildersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3139,7 +3063,6 @@ async function deserializeAws_json1_1DescribeImageBuildersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3162,7 +3085,7 @@ export async function deserializeAws_json1_1DescribeImagePermissionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeImagePermissionsResult(
-    data.DescribeImagePermissionsResult,
+    data,
     context
   );
   const response: DescribeImagePermissionsCommandOutput = {
@@ -3183,7 +3106,7 @@ async function deserializeAws_json1_1DescribeImagePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3196,7 +3119,6 @@ async function deserializeAws_json1_1DescribeImagePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3215,10 +3137,7 @@ export async function deserializeAws_json1_1DescribeImagesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagesResult(
-    data.DescribeImagesResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagesResult",
@@ -3237,7 +3156,7 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3257,7 +3176,6 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3276,10 +3194,7 @@ export async function deserializeAws_json1_1DescribeSessionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSessionsResult(
-    data.DescribeSessionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeSessionsResult(data, context);
   const response: DescribeSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSessionsResult",
@@ -3298,7 +3213,7 @@ async function deserializeAws_json1_1DescribeSessionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3311,7 +3226,6 @@ async function deserializeAws_json1_1DescribeSessionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3330,10 +3244,7 @@ export async function deserializeAws_json1_1DescribeStacksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeStacksResult(
-    data.DescribeStacksResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStacksResult",
@@ -3352,7 +3263,7 @@ async function deserializeAws_json1_1DescribeStacksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3365,7 +3276,6 @@ async function deserializeAws_json1_1DescribeStacksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3388,7 +3298,7 @@ export async function deserializeAws_json1_1DescribeUsageReportSubscriptionsComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(
-    data.DescribeUsageReportSubscriptionsResult,
+    data,
     context
   );
   const response: DescribeUsageReportSubscriptionsCommandOutput = {
@@ -3409,7 +3319,7 @@ async function deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3429,7 +3339,6 @@ async function deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3452,7 +3361,7 @@ export async function deserializeAws_json1_1DescribeUserStackAssociationsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(
-    data.DescribeUserStackAssociationsResult,
+    data,
     context
   );
   const response: DescribeUserStackAssociationsCommandOutput = {
@@ -3473,7 +3382,7 @@ async function deserializeAws_json1_1DescribeUserStackAssociationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3486,7 +3395,6 @@ async function deserializeAws_json1_1DescribeUserStackAssociationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3505,10 +3413,7 @@ export async function deserializeAws_json1_1DescribeUsersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUsersResult(
-    data.DescribeUsersResult,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUsersResult(data, context);
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUsersResult",
@@ -3527,7 +3432,7 @@ async function deserializeAws_json1_1DescribeUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3547,7 +3452,6 @@ async function deserializeAws_json1_1DescribeUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3566,10 +3470,7 @@ export async function deserializeAws_json1_1DisableUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisableUserResult(
-    data.DisableUserResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisableUserResult(data, context);
   const response: DisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisableUserResult",
@@ -3588,7 +3489,7 @@ async function deserializeAws_json1_1DisableUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3601,7 +3502,6 @@ async function deserializeAws_json1_1DisableUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3620,10 +3520,7 @@ export async function deserializeAws_json1_1DisassociateFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DisassociateFleetResult(
-    data.DisassociateFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1DisassociateFleetResult(data, context);
   const response: DisassociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DisassociateFleetResult",
@@ -3642,7 +3539,7 @@ async function deserializeAws_json1_1DisassociateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3669,7 +3566,6 @@ async function deserializeAws_json1_1DisassociateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3688,10 +3584,7 @@ export async function deserializeAws_json1_1EnableUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EnableUserResult(
-    data.EnableUserResult,
-    context
-  );
+  contents = deserializeAws_json1_1EnableUserResult(data, context);
   const response: EnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnableUserResult",
@@ -3710,7 +3603,7 @@ async function deserializeAws_json1_1EnableUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3730,7 +3623,6 @@ async function deserializeAws_json1_1EnableUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3749,10 +3641,7 @@ export async function deserializeAws_json1_1ExpireSessionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExpireSessionResult(
-    data.ExpireSessionResult,
-    context
-  );
+  contents = deserializeAws_json1_1ExpireSessionResult(data, context);
   const response: ExpireSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExpireSessionResult",
@@ -3767,13 +3656,12 @@ async function deserializeAws_json1_1ExpireSessionCommandError(
 ): Promise<ExpireSessionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3795,10 +3683,7 @@ export async function deserializeAws_json1_1ListAssociatedFleetsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociatedFleetsResult(
-    data.ListAssociatedFleetsResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssociatedFleetsResult(data, context);
   const response: ListAssociatedFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedFleetsResult",
@@ -3813,13 +3698,12 @@ async function deserializeAws_json1_1ListAssociatedFleetsCommandError(
 ): Promise<ListAssociatedFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3841,10 +3725,7 @@ export async function deserializeAws_json1_1ListAssociatedStacksCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAssociatedStacksResult(
-    data.ListAssociatedStacksResult,
-    context
-  );
+  contents = deserializeAws_json1_1ListAssociatedStacksResult(data, context);
   const response: ListAssociatedStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAssociatedStacksResult",
@@ -3859,13 +3740,12 @@ async function deserializeAws_json1_1ListAssociatedStacksCommandError(
 ): Promise<ListAssociatedStacksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3887,10 +3767,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -3909,7 +3786,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3922,7 +3799,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -3941,10 +3817,7 @@ export async function deserializeAws_json1_1StartFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartFleetResult(
-    data.StartFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartFleetResult(data, context);
   const response: StartFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartFleetResult",
@@ -3963,7 +3836,7 @@ async function deserializeAws_json1_1StartFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4018,7 +3891,6 @@ async function deserializeAws_json1_1StartFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4037,10 +3909,7 @@ export async function deserializeAws_json1_1StartImageBuilderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImageBuilderResult(
-    data.StartImageBuilderResult,
-    context
-  );
+  contents = deserializeAws_json1_1StartImageBuilderResult(data, context);
   const response: StartImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImageBuilderResult",
@@ -4059,7 +3928,7 @@ async function deserializeAws_json1_1StartImageBuilderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4100,7 +3969,6 @@ async function deserializeAws_json1_1StartImageBuilderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4119,10 +3987,7 @@ export async function deserializeAws_json1_1StopFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopFleetResult(
-    data.StopFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopFleetResult(data, context);
   const response: StopFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopFleetResult",
@@ -4141,7 +4006,7 @@ async function deserializeAws_json1_1StopFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4161,7 +4026,6 @@ async function deserializeAws_json1_1StopFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4180,10 +4044,7 @@ export async function deserializeAws_json1_1StopImageBuilderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopImageBuilderResult(
-    data.StopImageBuilderResult,
-    context
-  );
+  contents = deserializeAws_json1_1StopImageBuilderResult(data, context);
   const response: StopImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopImageBuilderResult",
@@ -4202,7 +4063,7 @@ async function deserializeAws_json1_1StopImageBuilderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4229,7 +4090,6 @@ async function deserializeAws_json1_1StopImageBuilderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4248,10 +4108,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -4270,7 +4127,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4297,7 +4154,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4316,10 +4172,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -4338,7 +4191,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4351,7 +4204,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4373,10 +4225,7 @@ export async function deserializeAws_json1_1UpdateDirectoryConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDirectoryConfigResult(
-    data.UpdateDirectoryConfigResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDirectoryConfigResult(data, context);
   const response: UpdateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDirectoryConfigResult",
@@ -4395,7 +4244,7 @@ async function deserializeAws_json1_1UpdateDirectoryConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4422,7 +4271,6 @@ async function deserializeAws_json1_1UpdateDirectoryConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4441,10 +4289,7 @@ export async function deserializeAws_json1_1UpdateFleetCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateFleetResult(
-    data.UpdateFleetResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateFleetResult(data, context);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateFleetResult",
@@ -4463,7 +4308,7 @@ async function deserializeAws_json1_1UpdateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4539,7 +4384,6 @@ async function deserializeAws_json1_1UpdateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4561,10 +4405,7 @@ export async function deserializeAws_json1_1UpdateImagePermissionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateImagePermissionsResult(
-    data.UpdateImagePermissionsResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateImagePermissionsResult(data, context);
   const response: UpdateImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateImagePermissionsResult",
@@ -4583,7 +4424,7 @@ async function deserializeAws_json1_1UpdateImagePermissionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4610,7 +4451,6 @@ async function deserializeAws_json1_1UpdateImagePermissionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",
@@ -4629,10 +4469,7 @@ export async function deserializeAws_json1_1UpdateStackCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateStackResult(
-    data.UpdateStackResult,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateStackResult(data, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStackResult",
@@ -4651,7 +4488,7 @@ async function deserializeAws_json1_1UpdateStackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4720,7 +4557,6 @@ async function deserializeAws_json1_1UpdateStackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.photon#${errorCode}`,
         $fault: "client",

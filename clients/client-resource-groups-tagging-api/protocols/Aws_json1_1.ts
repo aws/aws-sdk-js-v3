@@ -170,10 +170,7 @@ export async function deserializeAws_json1_1GetResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResourcesOutput(
-    data.GetResourcesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetResourcesOutput(data, context);
   const response: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResourcesOutput",
@@ -192,7 +189,7 @@ async function deserializeAws_json1_1GetResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -226,7 +223,6 @@ async function deserializeAws_json1_1GetResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -245,10 +241,7 @@ export async function deserializeAws_json1_1GetTagKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagKeysOutput(
-    data.GetTagKeysOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetTagKeysOutput(data, context);
   const response: GetTagKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTagKeysOutput",
@@ -267,7 +260,7 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -301,7 +294,6 @@ async function deserializeAws_json1_1GetTagKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -320,10 +312,7 @@ export async function deserializeAws_json1_1GetTagValuesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTagValuesOutput(
-    data.GetTagValuesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetTagValuesOutput(data, context);
   const response: GetTagValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTagValuesOutput",
@@ -342,7 +331,7 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -376,7 +365,6 @@ async function deserializeAws_json1_1GetTagValuesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -395,10 +383,7 @@ export async function deserializeAws_json1_1TagResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourcesOutput(
-    data.TagResourcesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourcesOutput(data, context);
   const response: TagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourcesOutput",
@@ -417,7 +402,7 @@ async function deserializeAws_json1_1TagResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -444,7 +429,6 @@ async function deserializeAws_json1_1TagResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",
@@ -463,10 +447,7 @@ export async function deserializeAws_json1_1UntagResourcesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourcesOutput(
-    data.UntagResourcesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourcesOutput(data, context);
   const response: UntagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourcesOutput",
@@ -485,7 +466,7 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -512,7 +493,6 @@ async function deserializeAws_json1_1UntagResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.tagging.router.service.model.v20170126#${errorCode}`,
         $fault: "client",

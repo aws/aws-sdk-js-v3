@@ -208,7 +208,7 @@ async function deserializeAws_json1_1DeleteTerminologyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -235,7 +235,6 @@ async function deserializeAws_json1_1DeleteTerminologyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.shine#${errorCode}`,
         $fault: "client",
@@ -254,10 +253,7 @@ export async function deserializeAws_json1_1GetTerminologyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetTerminologyResponse(
-    data.GetTerminologyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetTerminologyResponse(data, context);
   const response: GetTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTerminologyResponse",
@@ -276,7 +272,7 @@ async function deserializeAws_json1_1GetTerminologyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -310,7 +306,6 @@ async function deserializeAws_json1_1GetTerminologyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.shine#${errorCode}`,
         $fault: "client",
@@ -329,10 +324,7 @@ export async function deserializeAws_json1_1ImportTerminologyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportTerminologyResponse(
-    data.ImportTerminologyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportTerminologyResponse(data, context);
   const response: ImportTerminologyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportTerminologyResponse",
@@ -351,7 +343,7 @@ async function deserializeAws_json1_1ImportTerminologyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -385,7 +377,6 @@ async function deserializeAws_json1_1ImportTerminologyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.shine#${errorCode}`,
         $fault: "client",
@@ -404,10 +395,7 @@ export async function deserializeAws_json1_1ListTerminologiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTerminologiesResponse(
-    data.ListTerminologiesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTerminologiesResponse(data, context);
   const response: ListTerminologiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTerminologiesResponse",
@@ -426,7 +414,7 @@ async function deserializeAws_json1_1ListTerminologiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -453,7 +441,6 @@ async function deserializeAws_json1_1ListTerminologiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.shine#${errorCode}`,
         $fault: "client",
@@ -472,10 +459,7 @@ export async function deserializeAws_json1_1TranslateTextCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TranslateTextResponse(
-    data.TranslateTextResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TranslateTextResponse(data, context);
   const response: TranslateTextCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TranslateTextResponse",
@@ -494,7 +478,7 @@ async function deserializeAws_json1_1TranslateTextCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -556,7 +540,6 @@ async function deserializeAws_json1_1TranslateTextCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.shine#${errorCode}`,
         $fault: "client",

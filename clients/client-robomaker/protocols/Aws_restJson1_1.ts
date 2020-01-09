@@ -1358,8 +1358,10 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1390,7 +1392,6 @@ async function deserializeAws_restJson1_1BatchDescribeSimulationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1427,8 +1428,10 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1459,7 +1462,6 @@ async function deserializeAws_restJson1_1CancelDeploymentJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1496,8 +1498,10 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1528,7 +1532,6 @@ async function deserializeAws_restJson1_1CancelSimulationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1612,8 +1615,10 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
@@ -1665,7 +1670,6 @@ async function deserializeAws_restJson1_1CreateDeploymentJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1720,8 +1724,10 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1752,7 +1758,6 @@ async function deserializeAws_restJson1_1CreateFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1815,8 +1820,10 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -1854,7 +1861,6 @@ async function deserializeAws_restJson1_1CreateRobotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -1931,8 +1937,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -1977,7 +1985,6 @@ async function deserializeAws_restJson1_1CreateRobotApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2050,8 +2057,10 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2089,7 +2098,6 @@ async function deserializeAws_restJson1_1CreateRobotApplicationVersionCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2180,8 +2188,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2226,7 +2236,6 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2313,8 +2322,10 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2352,7 +2363,6 @@ async function deserializeAws_restJson1_1CreateSimulationApplicationVersionComma
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2484,8 +2494,10 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.robomaker#IdempotentParameterMismatchException":
@@ -2537,7 +2549,6 @@ async function deserializeAws_restJson1_1CreateSimulationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2571,8 +2582,10 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2596,7 +2609,6 @@ async function deserializeAws_restJson1_1DeleteFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2630,8 +2642,10 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2655,7 +2669,6 @@ async function deserializeAws_restJson1_1DeleteRobotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2692,8 +2705,10 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2717,7 +2732,6 @@ async function deserializeAws_restJson1_1DeleteRobotApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2754,8 +2768,10 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2779,7 +2795,6 @@ async function deserializeAws_restJson1_1DeleteSimulationApplicationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2825,8 +2840,10 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2857,7 +2874,6 @@ async function deserializeAws_restJson1_1DeregisterRobotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -2948,8 +2964,10 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -2980,7 +2998,6 @@ async function deserializeAws_restJson1_1DescribeDeploymentJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3055,8 +3072,10 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3087,7 +3106,6 @@ async function deserializeAws_restJson1_1DescribeFleetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3170,8 +3188,10 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3202,7 +3222,6 @@ async function deserializeAws_restJson1_1DescribeRobotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3279,8 +3298,10 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3311,7 +3332,6 @@ async function deserializeAws_restJson1_1DescribeRobotApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3402,8 +3422,10 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3434,7 +3456,6 @@ async function deserializeAws_restJson1_1DescribeSimulationApplicationCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3581,8 +3602,10 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3613,7 +3636,6 @@ async function deserializeAws_restJson1_1DescribeSimulationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3662,8 +3684,10 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3694,7 +3718,6 @@ async function deserializeAws_restJson1_1ListDeploymentJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3740,8 +3763,10 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3772,7 +3797,6 @@ async function deserializeAws_restJson1_1ListFleetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3821,8 +3845,10 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3846,7 +3872,6 @@ async function deserializeAws_restJson1_1ListRobotApplicationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3889,8 +3914,10 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3921,7 +3948,6 @@ async function deserializeAws_restJson1_1ListRobotsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -3970,8 +3996,10 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -3995,7 +4023,6 @@ async function deserializeAws_restJson1_1ListSimulationApplicationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4044,8 +4071,10 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4069,7 +4098,6 @@ async function deserializeAws_restJson1_1ListSimulationJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4111,8 +4139,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4143,7 +4173,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4186,8 +4215,10 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4225,7 +4256,6 @@ async function deserializeAws_restJson1_1RegisterRobotCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4262,8 +4292,10 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4301,7 +4333,6 @@ async function deserializeAws_restJson1_1RestartSimulationJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4381,8 +4412,10 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentDeploymentException":
     case "com.amazonaws.robomaker#ConcurrentDeploymentException":
@@ -4434,7 +4467,6 @@ async function deserializeAws_restJson1_1SyncDeploymentJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4468,8 +4500,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4500,7 +4534,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4534,8 +4567,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4566,7 +4601,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4639,8 +4673,10 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4678,7 +4714,6 @@ async function deserializeAws_restJson1_1UpdateRobotApplicationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",
@@ -4765,8 +4800,10 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InternalServerException":
     case "com.amazonaws.robomaker#InternalServerException":
@@ -4804,7 +4841,6 @@ async function deserializeAws_restJson1_1UpdateSimulationApplicationCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.robomaker#${errorCode}`,
         $fault: "client",

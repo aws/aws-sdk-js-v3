@@ -462,7 +462,7 @@ async function deserializeAws_json1_1AddTagsToCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -510,7 +510,6 @@ async function deserializeAws_json1_1AddTagsToCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -543,7 +542,7 @@ async function deserializeAws_json1_1DeleteCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -570,7 +569,6 @@ async function deserializeAws_json1_1DeleteCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -592,10 +590,7 @@ export async function deserializeAws_json1_1DescribeCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeCertificateResponse(
-    data.DescribeCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeCertificateResponse(data, context);
   const response: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCertificateResponse",
@@ -614,7 +609,7 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -634,7 +629,6 @@ async function deserializeAws_json1_1DescribeCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -653,10 +647,7 @@ export async function deserializeAws_json1_1ExportCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ExportCertificateResponse(
-    data.ExportCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ExportCertificateResponse(data, context);
   const response: ExportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExportCertificateResponse",
@@ -675,7 +666,7 @@ async function deserializeAws_json1_1ExportCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -702,7 +693,6 @@ async function deserializeAws_json1_1ExportCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -721,10 +711,7 @@ export async function deserializeAws_json1_1GetCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCertificateResponse(
-    data.GetCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCertificateResponse(data, context);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCertificateResponse",
@@ -743,7 +730,7 @@ async function deserializeAws_json1_1GetCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -770,7 +757,6 @@ async function deserializeAws_json1_1GetCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -789,10 +775,7 @@ export async function deserializeAws_json1_1ImportCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportCertificateResponse(
-    data.ImportCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportCertificateResponse(data, context);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportCertificateResponse",
@@ -811,7 +794,7 @@ async function deserializeAws_json1_1ImportCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -859,7 +842,6 @@ async function deserializeAws_json1_1ImportCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -878,10 +860,7 @@ export async function deserializeAws_json1_1ListCertificatesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListCertificatesResponse(
-    data.ListCertificatesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListCertificatesResponse(data, context);
   const response: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListCertificatesResponse",
@@ -900,7 +879,7 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -913,7 +892,6 @@ async function deserializeAws_json1_1ListCertificatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -936,7 +914,7 @@ export async function deserializeAws_json1_1ListTagsForCertificateCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForCertificateResponse(
-    data.ListTagsForCertificateResponse,
+    data,
     context
   );
   const response: ListTagsForCertificateCommandOutput = {
@@ -957,7 +935,7 @@ async function deserializeAws_json1_1ListTagsForCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -977,7 +955,6 @@ async function deserializeAws_json1_1ListTagsForCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -1013,7 +990,7 @@ async function deserializeAws_json1_1RemoveTagsFromCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1054,7 +1031,6 @@ async function deserializeAws_json1_1RemoveTagsFromCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -1087,7 +1063,7 @@ async function deserializeAws_json1_1RenewCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1107,7 +1083,6 @@ async function deserializeAws_json1_1RenewCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -1129,10 +1104,7 @@ export async function deserializeAws_json1_1RequestCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RequestCertificateResponse(
-    data.RequestCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1RequestCertificateResponse(data, context);
   const response: RequestCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RequestCertificateResponse",
@@ -1151,7 +1123,7 @@ async function deserializeAws_json1_1RequestCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1206,7 +1178,6 @@ async function deserializeAws_json1_1RequestCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -1242,7 +1213,7 @@ async function deserializeAws_json1_1ResendValidationEmailCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1276,7 +1247,6 @@ async function deserializeAws_json1_1ResendValidationEmailCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",
@@ -1312,7 +1282,7 @@ async function deserializeAws_json1_1UpdateCertificateOptionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1346,7 +1316,6 @@ async function deserializeAws_json1_1UpdateCertificateOptionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.certificatemanager#${errorCode}`,
         $fault: "client",

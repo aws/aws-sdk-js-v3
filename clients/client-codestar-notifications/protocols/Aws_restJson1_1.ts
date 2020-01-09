@@ -511,8 +511,10 @@ async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.codestarnotifications#AccessDeniedException":
@@ -557,7 +559,6 @@ async function deserializeAws_restJson1_1CreateNotificationRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -599,8 +600,10 @@ async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
@@ -624,7 +627,6 @@ async function deserializeAws_restJson1_1DeleteNotificationRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -658,8 +660,10 @@ async function deserializeAws_restJson1_1DeleteTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
@@ -669,7 +673,6 @@ async function deserializeAws_restJson1_1DeleteTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -765,8 +768,10 @@ async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
@@ -783,7 +788,6 @@ async function deserializeAws_restJson1_1DescribeNotificationRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -832,8 +836,10 @@ async function deserializeAws_restJson1_1ListEventTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
@@ -850,7 +856,6 @@ async function deserializeAws_restJson1_1ListEventTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -899,8 +904,10 @@ async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
@@ -917,7 +924,6 @@ async function deserializeAws_restJson1_1ListNotificationRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -959,8 +965,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
@@ -977,7 +985,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1023,8 +1030,10 @@ async function deserializeAws_restJson1_1ListTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestarnotifications#InvalidNextTokenException":
@@ -1041,7 +1050,6 @@ async function deserializeAws_restJson1_1ListTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1080,8 +1088,10 @@ async function deserializeAws_restJson1_1SubscribeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
@@ -1098,7 +1108,6 @@ async function deserializeAws_restJson1_1SubscribeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1137,8 +1146,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
@@ -1162,7 +1173,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1201,8 +1211,10 @@ async function deserializeAws_restJson1_1UnsubscribeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ValidationException":
     case "com.amazonaws.codestarnotifications#ValidationException":
@@ -1212,7 +1224,6 @@ async function deserializeAws_restJson1_1UnsubscribeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1246,8 +1257,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codestarnotifications#ConcurrentModificationException":
@@ -1271,7 +1284,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",
@@ -1308,8 +1320,10 @@ async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.codestarnotifications#ResourceNotFoundException":
@@ -1326,7 +1340,6 @@ async function deserializeAws_restJson1_1UpdateNotificationRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.codestarnotifications#${errorCode}`,
         $fault: "client",

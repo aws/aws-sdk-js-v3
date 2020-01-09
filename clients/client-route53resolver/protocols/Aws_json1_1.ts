@@ -729,7 +729,7 @@ export async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse(
-    data.AssociateResolverEndpointIpAddressResponse,
+    data,
     context
   );
   const response: AssociateResolverEndpointIpAddressCommandOutput = {
@@ -750,7 +750,7 @@ async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -805,7 +805,6 @@ async function deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -827,10 +826,7 @@ export async function deserializeAws_json1_1AssociateResolverRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AssociateResolverRuleResponse(
-    data.AssociateResolverRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AssociateResolverRuleResponse(data, context);
   const response: AssociateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateResolverRuleResponse",
@@ -849,7 +845,7 @@ async function deserializeAws_json1_1AssociateResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -904,7 +900,6 @@ async function deserializeAws_json1_1AssociateResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -927,7 +922,7 @@ export async function deserializeAws_json1_1CreateResolverEndpointCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateResolverEndpointResponse(
-    data.CreateResolverEndpointResponse,
+    data,
     context
   );
   const response: CreateResolverEndpointCommandOutput = {
@@ -948,7 +943,7 @@ async function deserializeAws_json1_1CreateResolverEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1003,7 +998,6 @@ async function deserializeAws_json1_1CreateResolverEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1025,10 +1019,7 @@ export async function deserializeAws_json1_1CreateResolverRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResolverRuleResponse(
-    data.CreateResolverRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateResolverRuleResponse(data, context);
   const response: CreateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateResolverRuleResponse",
@@ -1047,7 +1038,7 @@ async function deserializeAws_json1_1CreateResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1109,7 +1100,6 @@ async function deserializeAws_json1_1CreateResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1132,7 +1122,7 @@ export async function deserializeAws_json1_1DeleteResolverEndpointCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteResolverEndpointResponse(
-    data.DeleteResolverEndpointResponse,
+    data,
     context
   );
   const response: DeleteResolverEndpointCommandOutput = {
@@ -1153,7 +1143,7 @@ async function deserializeAws_json1_1DeleteResolverEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1194,7 +1184,6 @@ async function deserializeAws_json1_1DeleteResolverEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1216,10 +1205,7 @@ export async function deserializeAws_json1_1DeleteResolverRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteResolverRuleResponse(
-    data.DeleteResolverRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteResolverRuleResponse(data, context);
   const response: DeleteResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteResolverRuleResponse",
@@ -1238,7 +1224,7 @@ async function deserializeAws_json1_1DeleteResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1279,7 +1265,6 @@ async function deserializeAws_json1_1DeleteResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1302,7 +1287,7 @@ export async function deserializeAws_json1_1DisassociateResolverEndpointIpAddres
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse(
-    data.DisassociateResolverEndpointIpAddressResponse,
+    data,
     context
   );
   const response: DisassociateResolverEndpointIpAddressCommandOutput = {
@@ -1323,7 +1308,7 @@ async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressComman
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1371,7 +1356,6 @@ async function deserializeAws_json1_1DisassociateResolverEndpointIpAddressComman
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1394,7 +1378,7 @@ export async function deserializeAws_json1_1DisassociateResolverRuleCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisassociateResolverRuleResponse(
-    data.DisassociateResolverRuleResponse,
+    data,
     context
   );
   const response: DisassociateResolverRuleCommandOutput = {
@@ -1415,7 +1399,7 @@ async function deserializeAws_json1_1DisassociateResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1449,7 +1433,6 @@ async function deserializeAws_json1_1DisassociateResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1471,10 +1454,7 @@ export async function deserializeAws_json1_1GetResolverEndpointCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverEndpointResponse(
-    data.GetResolverEndpointResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetResolverEndpointResponse(data, context);
   const response: GetResolverEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResolverEndpointResponse",
@@ -1493,7 +1473,7 @@ async function deserializeAws_json1_1GetResolverEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1527,7 +1507,6 @@ async function deserializeAws_json1_1GetResolverEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1546,10 +1525,7 @@ export async function deserializeAws_json1_1GetResolverRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverRuleResponse(
-    data.GetResolverRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetResolverRuleResponse(data, context);
   const response: GetResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResolverRuleResponse",
@@ -1568,7 +1544,7 @@ async function deserializeAws_json1_1GetResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1602,7 +1578,6 @@ async function deserializeAws_json1_1GetResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1625,7 +1600,7 @@ export async function deserializeAws_json1_1GetResolverRuleAssociationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetResolverRuleAssociationResponse(
-    data.GetResolverRuleAssociationResponse,
+    data,
     context
   );
   const response: GetResolverRuleAssociationCommandOutput = {
@@ -1646,7 +1621,7 @@ async function deserializeAws_json1_1GetResolverRuleAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1680,7 +1655,6 @@ async function deserializeAws_json1_1GetResolverRuleAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1702,10 +1676,7 @@ export async function deserializeAws_json1_1GetResolverRulePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetResolverRulePolicyResponse(
-    data.GetResolverRulePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetResolverRulePolicyResponse(data, context);
   const response: GetResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetResolverRulePolicyResponse",
@@ -1724,7 +1695,7 @@ async function deserializeAws_json1_1GetResolverRulePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1751,7 +1722,6 @@ async function deserializeAws_json1_1GetResolverRulePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1774,7 +1744,7 @@ export async function deserializeAws_json1_1ListResolverEndpointIpAddressesComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListResolverEndpointIpAddressesResponse(
-    data.ListResolverEndpointIpAddressesResponse,
+    data,
     context
   );
   const response: ListResolverEndpointIpAddressesCommandOutput = {
@@ -1795,7 +1765,7 @@ async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1836,7 +1806,6 @@ async function deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1858,10 +1827,7 @@ export async function deserializeAws_json1_1ListResolverEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverEndpointsResponse(
-    data.ListResolverEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResolverEndpointsResponse(data, context);
   const response: ListResolverEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResolverEndpointsResponse",
@@ -1880,7 +1846,7 @@ async function deserializeAws_json1_1ListResolverEndpointsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1921,7 +1887,6 @@ async function deserializeAws_json1_1ListResolverEndpointsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -1944,7 +1909,7 @@ export async function deserializeAws_json1_1ListResolverRuleAssociationsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListResolverRuleAssociationsResponse(
-    data.ListResolverRuleAssociationsResponse,
+    data,
     context
   );
   const response: ListResolverRuleAssociationsCommandOutput = {
@@ -1965,7 +1930,7 @@ async function deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2006,7 +1971,6 @@ async function deserializeAws_json1_1ListResolverRuleAssociationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2025,10 +1989,7 @@ export async function deserializeAws_json1_1ListResolverRulesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResolverRulesResponse(
-    data.ListResolverRulesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResolverRulesResponse(data, context);
   const response: ListResolverRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResolverRulesResponse",
@@ -2047,7 +2008,7 @@ async function deserializeAws_json1_1ListResolverRulesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2088,7 +2049,6 @@ async function deserializeAws_json1_1ListResolverRulesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2110,10 +2070,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2132,7 +2089,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2180,7 +2137,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2202,10 +2158,7 @@ export async function deserializeAws_json1_1PutResolverRulePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutResolverRulePolicyResponse(
-    data.PutResolverRulePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutResolverRulePolicyResponse(data, context);
   const response: PutResolverRulePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutResolverRulePolicyResponse",
@@ -2224,7 +2177,7 @@ async function deserializeAws_json1_1PutResolverRulePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2258,7 +2211,6 @@ async function deserializeAws_json1_1PutResolverRulePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2277,10 +2229,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -2299,7 +2248,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2347,7 +2296,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2366,10 +2314,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -2388,7 +2333,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2422,7 +2367,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2445,7 +2389,7 @@ export async function deserializeAws_json1_1UpdateResolverEndpointCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateResolverEndpointResponse(
-    data.UpdateResolverEndpointResponse,
+    data,
     context
   );
   const response: UpdateResolverEndpointCommandOutput = {
@@ -2466,7 +2410,7 @@ async function deserializeAws_json1_1UpdateResolverEndpointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2507,7 +2451,6 @@ async function deserializeAws_json1_1UpdateResolverEndpointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",
@@ -2529,10 +2472,7 @@ export async function deserializeAws_json1_1UpdateResolverRuleCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResolverRuleResponse(
-    data.UpdateResolverRuleResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateResolverRuleResponse(data, context);
   const response: UpdateResolverRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateResolverRuleResponse",
@@ -2551,7 +2491,7 @@ async function deserializeAws_json1_1UpdateResolverRuleCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2606,7 +2546,6 @@ async function deserializeAws_json1_1UpdateResolverRuleCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.route53resolver#${errorCode}`,
         $fault: "client",

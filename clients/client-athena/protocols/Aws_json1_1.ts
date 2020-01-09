@@ -622,10 +622,7 @@ export async function deserializeAws_json1_1BatchGetNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetNamedQueryOutput(
-    data.BatchGetNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetNamedQueryOutput(data, context);
   const response: BatchGetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetNamedQueryOutput",
@@ -644,7 +641,7 @@ async function deserializeAws_json1_1BatchGetNamedQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -664,7 +661,6 @@ async function deserializeAws_json1_1BatchGetNamedQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -686,10 +682,7 @@ export async function deserializeAws_json1_1BatchGetQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetQueryExecutionOutput(
-    data.BatchGetQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetQueryExecutionOutput(data, context);
   const response: BatchGetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetQueryExecutionOutput",
@@ -708,7 +701,7 @@ async function deserializeAws_json1_1BatchGetQueryExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -728,7 +721,6 @@ async function deserializeAws_json1_1BatchGetQueryExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -747,10 +739,7 @@ export async function deserializeAws_json1_1CreateNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateNamedQueryOutput(
-    data.CreateNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateNamedQueryOutput(data, context);
   const response: CreateNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNamedQueryOutput",
@@ -769,7 +758,7 @@ async function deserializeAws_json1_1CreateNamedQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -789,7 +778,6 @@ async function deserializeAws_json1_1CreateNamedQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -808,10 +796,7 @@ export async function deserializeAws_json1_1CreateWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateWorkGroupOutput(
-    data.CreateWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1CreateWorkGroupOutput(data, context);
   const response: CreateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWorkGroupOutput",
@@ -830,7 +815,7 @@ async function deserializeAws_json1_1CreateWorkGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -850,7 +835,6 @@ async function deserializeAws_json1_1CreateWorkGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -869,10 +853,7 @@ export async function deserializeAws_json1_1DeleteNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteNamedQueryOutput(
-    data.DeleteNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteNamedQueryOutput(data, context);
   const response: DeleteNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNamedQueryOutput",
@@ -891,7 +872,7 @@ async function deserializeAws_json1_1DeleteNamedQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -911,7 +892,6 @@ async function deserializeAws_json1_1DeleteNamedQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -930,10 +910,7 @@ export async function deserializeAws_json1_1DeleteWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteWorkGroupOutput(
-    data.DeleteWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteWorkGroupOutput(data, context);
   const response: DeleteWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWorkGroupOutput",
@@ -952,7 +929,7 @@ async function deserializeAws_json1_1DeleteWorkGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -972,7 +949,6 @@ async function deserializeAws_json1_1DeleteWorkGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -991,10 +967,7 @@ export async function deserializeAws_json1_1GetNamedQueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNamedQueryOutput(
-    data.GetNamedQueryOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetNamedQueryOutput(data, context);
   const response: GetNamedQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNamedQueryOutput",
@@ -1013,7 +986,7 @@ async function deserializeAws_json1_1GetNamedQueryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1033,7 +1006,6 @@ async function deserializeAws_json1_1GetNamedQueryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1052,10 +1024,7 @@ export async function deserializeAws_json1_1GetQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQueryExecutionOutput(
-    data.GetQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetQueryExecutionOutput(data, context);
   const response: GetQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueryExecutionOutput",
@@ -1074,7 +1043,7 @@ async function deserializeAws_json1_1GetQueryExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1094,7 +1063,6 @@ async function deserializeAws_json1_1GetQueryExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1113,10 +1081,7 @@ export async function deserializeAws_json1_1GetQueryResultsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetQueryResultsOutput(
-    data.GetQueryResultsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetQueryResultsOutput(data, context);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetQueryResultsOutput",
@@ -1135,7 +1100,7 @@ async function deserializeAws_json1_1GetQueryResultsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1155,7 +1120,6 @@ async function deserializeAws_json1_1GetQueryResultsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1174,10 +1138,7 @@ export async function deserializeAws_json1_1GetWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetWorkGroupOutput(
-    data.GetWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1GetWorkGroupOutput(data, context);
   const response: GetWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWorkGroupOutput",
@@ -1196,7 +1157,7 @@ async function deserializeAws_json1_1GetWorkGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1216,7 +1177,6 @@ async function deserializeAws_json1_1GetWorkGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1235,10 +1195,7 @@ export async function deserializeAws_json1_1ListNamedQueriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListNamedQueriesOutput(
-    data.ListNamedQueriesOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListNamedQueriesOutput(data, context);
   const response: ListNamedQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNamedQueriesOutput",
@@ -1257,7 +1214,7 @@ async function deserializeAws_json1_1ListNamedQueriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1277,7 +1234,6 @@ async function deserializeAws_json1_1ListNamedQueriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1299,10 +1255,7 @@ export async function deserializeAws_json1_1ListQueryExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListQueryExecutionsOutput(
-    data.ListQueryExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListQueryExecutionsOutput(data, context);
   const response: ListQueryExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListQueryExecutionsOutput",
@@ -1321,7 +1274,7 @@ async function deserializeAws_json1_1ListQueryExecutionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1341,7 +1294,6 @@ async function deserializeAws_json1_1ListQueryExecutionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1363,10 +1315,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -1385,7 +1334,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1412,7 +1361,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1431,10 +1379,7 @@ export async function deserializeAws_json1_1ListWorkGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListWorkGroupsOutput(
-    data.ListWorkGroupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_1ListWorkGroupsOutput(data, context);
   const response: ListWorkGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWorkGroupsOutput",
@@ -1453,7 +1398,7 @@ async function deserializeAws_json1_1ListWorkGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1473,7 +1418,6 @@ async function deserializeAws_json1_1ListWorkGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1495,10 +1439,7 @@ export async function deserializeAws_json1_1StartQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartQueryExecutionOutput(
-    data.StartQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StartQueryExecutionOutput(data, context);
   const response: StartQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartQueryExecutionOutput",
@@ -1517,7 +1458,7 @@ async function deserializeAws_json1_1StartQueryExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1544,7 +1485,6 @@ async function deserializeAws_json1_1StartQueryExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1566,10 +1506,7 @@ export async function deserializeAws_json1_1StopQueryExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopQueryExecutionOutput(
-    data.StopQueryExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_1StopQueryExecutionOutput(data, context);
   const response: StopQueryExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopQueryExecutionOutput",
@@ -1588,7 +1525,7 @@ async function deserializeAws_json1_1StopQueryExecutionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1608,7 +1545,6 @@ async function deserializeAws_json1_1StopQueryExecutionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1627,10 +1563,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -1649,7 +1582,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1676,7 +1609,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1695,10 +1627,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -1717,7 +1646,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1744,7 +1673,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",
@@ -1763,10 +1691,7 @@ export async function deserializeAws_json1_1UpdateWorkGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateWorkGroupOutput(
-    data.UpdateWorkGroupOutput,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateWorkGroupOutput(data, context);
   const response: UpdateWorkGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWorkGroupOutput",
@@ -1785,7 +1710,7 @@ async function deserializeAws_json1_1UpdateWorkGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1805,7 +1730,6 @@ async function deserializeAws_json1_1UpdateWorkGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.athena.webservice#${errorCode}`,
         $fault: "client",

@@ -568,10 +568,7 @@ export async function deserializeAws_json1_1CreateAcceleratorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateAcceleratorResponse(
-    data.CreateAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateAcceleratorResponse(data, context);
   const response: CreateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAcceleratorResponse",
@@ -590,7 +587,7 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -617,7 +614,6 @@ async function deserializeAws_json1_1CreateAcceleratorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -639,10 +635,7 @@ export async function deserializeAws_json1_1CreateEndpointGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateEndpointGroupResponse(
-    data.CreateEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateEndpointGroupResponse(data, context);
   const response: CreateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateEndpointGroupResponse",
@@ -661,7 +654,7 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -716,7 +709,6 @@ async function deserializeAws_json1_1CreateEndpointGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -735,10 +727,7 @@ export async function deserializeAws_json1_1CreateListenerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateListenerResponse(
-    data.CreateListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateListenerResponse(data, context);
   const response: CreateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateListenerResponse",
@@ -757,7 +746,7 @@ async function deserializeAws_json1_1CreateListenerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -798,7 +787,6 @@ async function deserializeAws_json1_1CreateListenerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -831,7 +819,7 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -872,7 +860,6 @@ async function deserializeAws_json1_1DeleteAcceleratorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -908,7 +895,7 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -935,7 +922,6 @@ async function deserializeAws_json1_1DeleteEndpointGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -968,7 +954,7 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1002,7 +988,6 @@ async function deserializeAws_json1_1DeleteListenerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1024,10 +1009,7 @@ export async function deserializeAws_json1_1DescribeAcceleratorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeAcceleratorResponse(
-    data.DescribeAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeAcceleratorResponse(data, context);
   const response: DescribeAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAcceleratorResponse",
@@ -1046,7 +1028,7 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1073,7 +1055,6 @@ async function deserializeAws_json1_1DescribeAcceleratorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1096,7 +1077,7 @@ export async function deserializeAws_json1_1DescribeAcceleratorAttributesCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAcceleratorAttributesResponse(
-    data.DescribeAcceleratorAttributesResponse,
+    data,
     context
   );
   const response: DescribeAcceleratorAttributesCommandOutput = {
@@ -1117,7 +1098,7 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1144,7 +1125,6 @@ async function deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1166,10 +1146,7 @@ export async function deserializeAws_json1_1DescribeEndpointGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeEndpointGroupResponse(
-    data.DescribeEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeEndpointGroupResponse(data, context);
   const response: DescribeEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointGroupResponse",
@@ -1188,7 +1165,7 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1215,7 +1192,6 @@ async function deserializeAws_json1_1DescribeEndpointGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1234,10 +1210,7 @@ export async function deserializeAws_json1_1DescribeListenerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeListenerResponse(
-    data.DescribeListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeListenerResponse(data, context);
   const response: DescribeListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeListenerResponse",
@@ -1256,7 +1229,7 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1283,7 +1256,6 @@ async function deserializeAws_json1_1DescribeListenerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1302,10 +1274,7 @@ export async function deserializeAws_json1_1ListAcceleratorsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAcceleratorsResponse(
-    data.ListAcceleratorsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAcceleratorsResponse(data, context);
   const response: ListAcceleratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAcceleratorsResponse",
@@ -1324,7 +1293,7 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1351,7 +1320,6 @@ async function deserializeAws_json1_1ListAcceleratorsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1373,10 +1341,7 @@ export async function deserializeAws_json1_1ListEndpointGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListEndpointGroupsResponse(
-    data.ListEndpointGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListEndpointGroupsResponse(data, context);
   const response: ListEndpointGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListEndpointGroupsResponse",
@@ -1395,7 +1360,7 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1429,7 +1394,6 @@ async function deserializeAws_json1_1ListEndpointGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1448,10 +1412,7 @@ export async function deserializeAws_json1_1ListListenersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListListenersResponse(
-    data.ListListenersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListListenersResponse(data, context);
   const response: ListListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListListenersResponse",
@@ -1470,7 +1431,7 @@ async function deserializeAws_json1_1ListListenersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1504,7 +1465,6 @@ async function deserializeAws_json1_1ListListenersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1523,10 +1483,7 @@ export async function deserializeAws_json1_1UpdateAcceleratorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateAcceleratorResponse(
-    data.UpdateAcceleratorResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateAcceleratorResponse(data, context);
   const response: UpdateAcceleratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAcceleratorResponse",
@@ -1545,7 +1502,7 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1572,7 +1529,6 @@ async function deserializeAws_json1_1UpdateAcceleratorCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1595,7 +1551,7 @@ export async function deserializeAws_json1_1UpdateAcceleratorAttributesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateAcceleratorAttributesResponse(
-    data.UpdateAcceleratorAttributesResponse,
+    data,
     context
   );
   const response: UpdateAcceleratorAttributesCommandOutput = {
@@ -1616,7 +1572,7 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1650,7 +1606,6 @@ async function deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1672,10 +1627,7 @@ export async function deserializeAws_json1_1UpdateEndpointGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateEndpointGroupResponse(
-    data.UpdateEndpointGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateEndpointGroupResponse(data, context);
   const response: UpdateEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateEndpointGroupResponse",
@@ -1694,7 +1646,7 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1735,7 +1687,6 @@ async function deserializeAws_json1_1UpdateEndpointGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",
@@ -1754,10 +1705,7 @@ export async function deserializeAws_json1_1UpdateListenerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateListenerResponse(
-    data.UpdateListenerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateListenerResponse(data, context);
   const response: UpdateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateListenerResponse",
@@ -1776,7 +1724,7 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1817,7 +1765,6 @@ async function deserializeAws_json1_1UpdateListenerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.globalaccelerator.v20180706#${errorCode}`,
         $fault: "client",

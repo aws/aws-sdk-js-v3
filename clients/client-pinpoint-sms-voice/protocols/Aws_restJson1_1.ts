@@ -374,8 +374,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException":
@@ -413,7 +415,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -450,8 +451,10 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.pinpoint_sms_voice#AlreadyExistsException":
@@ -496,7 +499,6 @@ async function deserializeAws_restJson1_1CreateConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -533,8 +535,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -565,7 +569,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -602,8 +605,10 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -634,7 +639,6 @@ async function deserializeAws_restJson1_1DeleteConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -679,8 +683,10 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -711,7 +717,6 @@ async function deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCom
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -760,8 +765,10 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -785,7 +792,6 @@ async function deserializeAws_restJson1_1ListConfigurationSetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -827,8 +833,10 @@ async function deserializeAws_restJson1_1SendVoiceMessageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -852,7 +860,6 @@ async function deserializeAws_restJson1_1SendVoiceMessageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",
@@ -889,8 +896,10 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.pinpoint_sms_voice#BadRequestException":
@@ -921,7 +930,6 @@ async function deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationC
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.pinpoint_sms_voice#${errorCode}`,
         $fault: "client",

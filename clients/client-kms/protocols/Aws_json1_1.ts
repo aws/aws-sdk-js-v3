@@ -1405,10 +1405,7 @@ export async function deserializeAws_json1_1CancelKeyDeletionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CancelKeyDeletionResponse(
-    data.CancelKeyDeletionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CancelKeyDeletionResponse(data, context);
   const response: CancelKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelKeyDeletionResponse",
@@ -1427,7 +1424,7 @@ async function deserializeAws_json1_1CancelKeyDeletionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1468,7 +1465,6 @@ async function deserializeAws_json1_1CancelKeyDeletionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1490,10 +1486,7 @@ export async function deserializeAws_json1_1ConnectCustomKeyStoreCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConnectCustomKeyStoreResponse(
-    data.ConnectCustomKeyStoreResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ConnectCustomKeyStoreResponse(data, context);
   const response: ConnectCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConnectCustomKeyStoreResponse",
@@ -1512,7 +1505,7 @@ async function deserializeAws_json1_1ConnectCustomKeyStoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1553,7 +1546,6 @@ async function deserializeAws_json1_1ConnectCustomKeyStoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1586,7 +1578,7 @@ async function deserializeAws_json1_1CreateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1641,7 +1633,6 @@ async function deserializeAws_json1_1CreateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1663,10 +1654,7 @@ export async function deserializeAws_json1_1CreateCustomKeyStoreCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateCustomKeyStoreResponse(
-    data.CreateCustomKeyStoreResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateCustomKeyStoreResponse(data, context);
   const response: CreateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCustomKeyStoreResponse",
@@ -1685,7 +1673,7 @@ async function deserializeAws_json1_1CreateCustomKeyStoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1740,7 +1728,6 @@ async function deserializeAws_json1_1CreateCustomKeyStoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1759,10 +1746,7 @@ export async function deserializeAws_json1_1CreateGrantCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGrantResponse(
-    data.CreateGrantResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGrantResponse(data, context);
   const response: CreateGrantCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGrantResponse",
@@ -1781,7 +1765,7 @@ async function deserializeAws_json1_1CreateGrantCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1843,7 +1827,6 @@ async function deserializeAws_json1_1CreateGrantCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1862,10 +1845,7 @@ export async function deserializeAws_json1_1CreateKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateKeyResponse(
-    data.CreateKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateKeyResponse(data, context);
   const response: CreateKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateKeyResponse",
@@ -1884,7 +1864,7 @@ async function deserializeAws_json1_1CreateKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1960,7 +1940,6 @@ async function deserializeAws_json1_1CreateKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -1979,10 +1958,7 @@ export async function deserializeAws_json1_1DecryptCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DecryptResponse(
-    data.DecryptResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DecryptResponse(data, context);
   const response: DecryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DecryptResponse",
@@ -2001,7 +1977,7 @@ async function deserializeAws_json1_1DecryptCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2077,7 +2053,6 @@ async function deserializeAws_json1_1DecryptCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2110,7 +2085,7 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2144,7 +2119,6 @@ async function deserializeAws_json1_1DeleteAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2166,10 +2140,7 @@ export async function deserializeAws_json1_1DeleteCustomKeyStoreCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteCustomKeyStoreResponse(
-    data.DeleteCustomKeyStoreResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteCustomKeyStoreResponse(data, context);
   const response: DeleteCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteCustomKeyStoreResponse",
@@ -2188,7 +2159,7 @@ async function deserializeAws_json1_1DeleteCustomKeyStoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2222,7 +2193,6 @@ async function deserializeAws_json1_1DeleteCustomKeyStoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2258,7 +2228,7 @@ async function deserializeAws_json1_1DeleteImportedKeyMaterialCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2306,7 +2276,6 @@ async function deserializeAws_json1_1DeleteImportedKeyMaterialCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2329,7 +2298,7 @@ export async function deserializeAws_json1_1DescribeCustomKeyStoresCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeCustomKeyStoresResponse(
-    data.DescribeCustomKeyStoresResponse,
+    data,
     context
   );
   const response: DescribeCustomKeyStoresCommandOutput = {
@@ -2350,7 +2319,7 @@ async function deserializeAws_json1_1DescribeCustomKeyStoresCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2370,7 +2339,6 @@ async function deserializeAws_json1_1DescribeCustomKeyStoresCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2389,10 +2357,7 @@ export async function deserializeAws_json1_1DescribeKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeKeyResponse(
-    data.DescribeKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeKeyResponse(data, context);
   const response: DescribeKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeKeyResponse",
@@ -2411,7 +2376,7 @@ async function deserializeAws_json1_1DescribeKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2445,7 +2410,6 @@ async function deserializeAws_json1_1DescribeKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2478,7 +2442,7 @@ async function deserializeAws_json1_1DisableKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2519,7 +2483,6 @@ async function deserializeAws_json1_1DisableKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2555,7 +2518,7 @@ async function deserializeAws_json1_1DisableKeyRotationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2610,7 +2573,6 @@ async function deserializeAws_json1_1DisableKeyRotationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2633,7 +2595,7 @@ export async function deserializeAws_json1_1DisconnectCustomKeyStoreCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DisconnectCustomKeyStoreResponse(
-    data.DisconnectCustomKeyStoreResponse,
+    data,
     context
   );
   const response: DisconnectCustomKeyStoreCommandOutput = {
@@ -2654,7 +2616,7 @@ async function deserializeAws_json1_1DisconnectCustomKeyStoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2681,7 +2643,6 @@ async function deserializeAws_json1_1DisconnectCustomKeyStoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2714,7 +2675,7 @@ async function deserializeAws_json1_1EnableKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2762,7 +2723,6 @@ async function deserializeAws_json1_1EnableKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2795,7 +2755,7 @@ async function deserializeAws_json1_1EnableKeyRotationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2850,7 +2810,6 @@ async function deserializeAws_json1_1EnableKeyRotationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2869,10 +2828,7 @@ export async function deserializeAws_json1_1EncryptCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1EncryptResponse(
-    data.EncryptResponse,
-    context
-  );
+  contents = deserializeAws_json1_1EncryptResponse(data, context);
   const response: EncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EncryptResponse",
@@ -2891,7 +2847,7 @@ async function deserializeAws_json1_1EncryptCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2953,7 +2909,6 @@ async function deserializeAws_json1_1EncryptCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -2972,10 +2927,7 @@ export async function deserializeAws_json1_1GenerateDataKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyResponse(
-    data.GenerateDataKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GenerateDataKeyResponse(data, context);
   const response: GenerateDataKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GenerateDataKeyResponse",
@@ -2994,7 +2946,7 @@ async function deserializeAws_json1_1GenerateDataKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3056,7 +3008,6 @@ async function deserializeAws_json1_1GenerateDataKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3078,10 +3029,7 @@ export async function deserializeAws_json1_1GenerateDataKeyPairCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateDataKeyPairResponse(
-    data.GenerateDataKeyPairResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GenerateDataKeyPairResponse(data, context);
   const response: GenerateDataKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GenerateDataKeyPairResponse",
@@ -3100,7 +3048,7 @@ async function deserializeAws_json1_1GenerateDataKeyPairCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3162,7 +3110,6 @@ async function deserializeAws_json1_1GenerateDataKeyPairCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3185,7 +3132,7 @@ export async function deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextC
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse(
-    data.GenerateDataKeyPairWithoutPlaintextResponse,
+    data,
     context
   );
   const response: GenerateDataKeyPairWithoutPlaintextCommandOutput = {
@@ -3206,7 +3153,7 @@ async function deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3268,7 +3215,6 @@ async function deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3291,7 +3237,7 @@ export async function deserializeAws_json1_1GenerateDataKeyWithoutPlaintextComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse(
-    data.GenerateDataKeyWithoutPlaintextResponse,
+    data,
     context
   );
   const response: GenerateDataKeyWithoutPlaintextCommandOutput = {
@@ -3312,7 +3258,7 @@ async function deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3374,7 +3320,6 @@ async function deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3393,10 +3338,7 @@ export async function deserializeAws_json1_1GenerateRandomCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GenerateRandomResponse(
-    data.GenerateRandomResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GenerateRandomResponse(data, context);
   const response: GenerateRandomCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GenerateRandomResponse",
@@ -3415,7 +3357,7 @@ async function deserializeAws_json1_1GenerateRandomCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3449,7 +3391,6 @@ async function deserializeAws_json1_1GenerateRandomCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3468,10 +3409,7 @@ export async function deserializeAws_json1_1GetKeyPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyPolicyResponse(
-    data.GetKeyPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetKeyPolicyResponse(data, context);
   const response: GetKeyPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetKeyPolicyResponse",
@@ -3490,7 +3428,7 @@ async function deserializeAws_json1_1GetKeyPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3531,7 +3469,6 @@ async function deserializeAws_json1_1GetKeyPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3553,10 +3490,7 @@ export async function deserializeAws_json1_1GetKeyRotationStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetKeyRotationStatusResponse(
-    data.GetKeyRotationStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetKeyRotationStatusResponse(data, context);
   const response: GetKeyRotationStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetKeyRotationStatusResponse",
@@ -3575,7 +3509,7 @@ async function deserializeAws_json1_1GetKeyRotationStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3623,7 +3557,6 @@ async function deserializeAws_json1_1GetKeyRotationStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3646,7 +3579,7 @@ export async function deserializeAws_json1_1GetParametersForImportCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetParametersForImportResponse(
-    data.GetParametersForImportResponse,
+    data,
     context
   );
   const response: GetParametersForImportCommandOutput = {
@@ -3667,7 +3600,7 @@ async function deserializeAws_json1_1GetParametersForImportCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3715,7 +3648,6 @@ async function deserializeAws_json1_1GetParametersForImportCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3734,10 +3666,7 @@ export async function deserializeAws_json1_1GetPublicKeyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetPublicKeyResponse(
-    data.GetPublicKeyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetPublicKeyResponse(data, context);
   const response: GetPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPublicKeyResponse",
@@ -3756,7 +3685,7 @@ async function deserializeAws_json1_1GetPublicKeyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3832,7 +3761,6 @@ async function deserializeAws_json1_1GetPublicKeyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3851,10 +3779,7 @@ export async function deserializeAws_json1_1ImportKeyMaterialCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ImportKeyMaterialResponse(
-    data.ImportKeyMaterialResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ImportKeyMaterialResponse(data, context);
   const response: ImportKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportKeyMaterialResponse",
@@ -3873,7 +3798,7 @@ async function deserializeAws_json1_1ImportKeyMaterialCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3949,7 +3874,6 @@ async function deserializeAws_json1_1ImportKeyMaterialCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -3968,10 +3892,7 @@ export async function deserializeAws_json1_1ListAliasesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListAliasesResponse(
-    data.ListAliasesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
   const response: ListAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAliasesResponse",
@@ -3990,7 +3911,7 @@ async function deserializeAws_json1_1ListAliasesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4031,7 +3952,6 @@ async function deserializeAws_json1_1ListAliasesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4050,10 +3970,7 @@ export async function deserializeAws_json1_1ListGrantsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGrantsResponse(
-    data.ListGrantsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGrantsResponse(data, context);
   const response: ListGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGrantsResponse",
@@ -4072,7 +3989,7 @@ async function deserializeAws_json1_1ListGrantsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4120,7 +4037,6 @@ async function deserializeAws_json1_1ListGrantsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4139,10 +4055,7 @@ export async function deserializeAws_json1_1ListKeyPoliciesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListKeyPoliciesResponse(
-    data.ListKeyPoliciesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListKeyPoliciesResponse(data, context);
   const response: ListKeyPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListKeyPoliciesResponse",
@@ -4161,7 +4074,7 @@ async function deserializeAws_json1_1ListKeyPoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4202,7 +4115,6 @@ async function deserializeAws_json1_1ListKeyPoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4221,10 +4133,7 @@ export async function deserializeAws_json1_1ListKeysCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListKeysResponse(
-    data.ListKeysResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListKeysResponse(data, context);
   const response: ListKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListKeysResponse",
@@ -4243,7 +4152,7 @@ async function deserializeAws_json1_1ListKeysCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4270,7 +4179,6 @@ async function deserializeAws_json1_1ListKeysCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4289,10 +4197,7 @@ export async function deserializeAws_json1_1ListResourceTagsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceTagsResponse(
-    data.ListResourceTagsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourceTagsResponse(data, context);
   const response: ListResourceTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceTagsResponse",
@@ -4311,7 +4216,7 @@ async function deserializeAws_json1_1ListResourceTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4345,7 +4250,6 @@ async function deserializeAws_json1_1ListResourceTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4367,10 +4271,7 @@ export async function deserializeAws_json1_1ListRetirableGrantsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGrantsResponse(
-    data.ListGrantsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGrantsResponse(data, context);
   const response: ListRetirableGrantsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGrantsResponse",
@@ -4389,7 +4290,7 @@ async function deserializeAws_json1_1ListRetirableGrantsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4430,7 +4331,6 @@ async function deserializeAws_json1_1ListRetirableGrantsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4463,7 +4363,7 @@ async function deserializeAws_json1_1PutKeyPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4525,7 +4425,6 @@ async function deserializeAws_json1_1PutKeyPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4544,10 +4443,7 @@ export async function deserializeAws_json1_1ReEncryptCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReEncryptResponse(
-    data.ReEncryptResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ReEncryptResponse(data, context);
   const response: ReEncryptCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReEncryptResponse",
@@ -4566,7 +4462,7 @@ async function deserializeAws_json1_1ReEncryptCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4642,7 +4538,6 @@ async function deserializeAws_json1_1ReEncryptCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4675,7 +4570,7 @@ async function deserializeAws_json1_1RetireGrantCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4730,7 +4625,6 @@ async function deserializeAws_json1_1RetireGrantCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4763,7 +4657,7 @@ async function deserializeAws_json1_1RevokeGrantCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4811,7 +4705,6 @@ async function deserializeAws_json1_1RevokeGrantCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4833,10 +4726,7 @@ export async function deserializeAws_json1_1ScheduleKeyDeletionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ScheduleKeyDeletionResponse(
-    data.ScheduleKeyDeletionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ScheduleKeyDeletionResponse(data, context);
   const response: ScheduleKeyDeletionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScheduleKeyDeletionResponse",
@@ -4855,7 +4745,7 @@ async function deserializeAws_json1_1ScheduleKeyDeletionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4896,7 +4786,6 @@ async function deserializeAws_json1_1ScheduleKeyDeletionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -4915,7 +4804,7 @@ export async function deserializeAws_json1_1SignCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SignResponse(data.SignResponse, context);
+  contents = deserializeAws_json1_1SignResponse(data, context);
   const response: SignCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SignResponse",
@@ -4934,7 +4823,7 @@ async function deserializeAws_json1_1SignCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4989,7 +4878,6 @@ async function deserializeAws_json1_1SignCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5022,7 +4910,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5070,7 +4958,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5103,7 +4990,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5144,7 +5031,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5177,7 +5063,7 @@ async function deserializeAws_json1_1UpdateAliasCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5211,7 +5097,6 @@ async function deserializeAws_json1_1UpdateAliasCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5233,10 +5118,7 @@ export async function deserializeAws_json1_1UpdateCustomKeyStoreCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateCustomKeyStoreResponse(
-    data.UpdateCustomKeyStoreResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateCustomKeyStoreResponse(data, context);
   const response: UpdateCustomKeyStoreCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateCustomKeyStoreResponse",
@@ -5255,7 +5137,7 @@ async function deserializeAws_json1_1UpdateCustomKeyStoreCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5317,7 +5199,6 @@ async function deserializeAws_json1_1UpdateCustomKeyStoreCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5353,7 +5234,7 @@ async function deserializeAws_json1_1UpdateKeyDescriptionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5394,7 +5275,6 @@ async function deserializeAws_json1_1UpdateKeyDescriptionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",
@@ -5413,7 +5293,7 @@ export async function deserializeAws_json1_1VerifyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyResponse(data.VerifyResponse, context);
+  contents = deserializeAws_json1_1VerifyResponse(data, context);
   const response: VerifyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifyResponse",
@@ -5432,7 +5312,7 @@ async function deserializeAws_json1_1VerifyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5487,7 +5367,6 @@ async function deserializeAws_json1_1VerifyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazon.trent#${errorCode}`,
         $fault: "client",

@@ -1751,8 +1751,10 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -1790,7 +1792,6 @@ async function deserializeAws_restJson1_1CreateAppCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -1835,8 +1836,10 @@ async function deserializeAws_restJson1_1CreateBackendEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -1874,7 +1877,6 @@ async function deserializeAws_restJson1_1CreateBackendEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -1913,8 +1915,10 @@ async function deserializeAws_restJson1_1CreateBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -1959,7 +1963,6 @@ async function deserializeAws_restJson1_1CreateBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2012,8 +2015,10 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2044,7 +2049,6 @@ async function deserializeAws_restJson1_1CreateDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2089,8 +2093,10 @@ async function deserializeAws_restJson1_1CreateDomainAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2135,7 +2141,6 @@ async function deserializeAws_restJson1_1CreateDomainAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2174,8 +2179,10 @@ async function deserializeAws_restJson1_1CreateWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2220,7 +2227,6 @@ async function deserializeAws_restJson1_1CreateWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2259,8 +2265,10 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2298,7 +2306,6 @@ async function deserializeAws_restJson1_1DeleteAppCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2343,8 +2350,10 @@ async function deserializeAws_restJson1_1DeleteBackendEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2382,7 +2391,6 @@ async function deserializeAws_restJson1_1DeleteBackendEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2421,8 +2429,10 @@ async function deserializeAws_restJson1_1DeleteBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2460,7 +2470,6 @@ async function deserializeAws_restJson1_1DeleteBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2505,8 +2514,10 @@ async function deserializeAws_restJson1_1DeleteDomainAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2544,7 +2555,6 @@ async function deserializeAws_restJson1_1DeleteDomainAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2586,8 +2596,10 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2625,7 +2637,6 @@ async function deserializeAws_restJson1_1DeleteJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2664,8 +2675,10 @@ async function deserializeAws_restJson1_1DeleteWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2703,7 +2716,6 @@ async function deserializeAws_restJson1_1DeleteWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2745,8 +2757,10 @@ async function deserializeAws_restJson1_1GenerateAccessLogsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2777,7 +2791,6 @@ async function deserializeAws_restJson1_1GenerateAccessLogsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2816,8 +2829,10 @@ async function deserializeAws_restJson1_1GetAppCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2848,7 +2863,6 @@ async function deserializeAws_restJson1_1GetAppCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2894,8 +2908,10 @@ async function deserializeAws_restJson1_1GetArtifactUrlCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -2933,7 +2949,6 @@ async function deserializeAws_restJson1_1GetArtifactUrlCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -2978,8 +2993,10 @@ async function deserializeAws_restJson1_1GetBackendEnvironmentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3010,7 +3027,6 @@ async function deserializeAws_restJson1_1GetBackendEnvironmentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3049,8 +3065,10 @@ async function deserializeAws_restJson1_1GetBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3081,7 +3099,6 @@ async function deserializeAws_restJson1_1GetBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3126,8 +3143,10 @@ async function deserializeAws_restJson1_1GetDomainAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3158,7 +3177,6 @@ async function deserializeAws_restJson1_1GetDomainAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3197,8 +3215,10 @@ async function deserializeAws_restJson1_1GetJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3236,7 +3256,6 @@ async function deserializeAws_restJson1_1GetJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3275,8 +3294,10 @@ async function deserializeAws_restJson1_1GetWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3314,7 +3335,6 @@ async function deserializeAws_restJson1_1GetWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3357,8 +3377,10 @@ async function deserializeAws_restJson1_1ListAppsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3382,7 +3404,6 @@ async function deserializeAws_restJson1_1ListAppsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3428,8 +3449,10 @@ async function deserializeAws_restJson1_1ListArtifactsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3460,7 +3483,6 @@ async function deserializeAws_restJson1_1ListArtifactsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3509,8 +3531,10 @@ async function deserializeAws_restJson1_1ListBackendEnvironmentsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3534,7 +3558,6 @@ async function deserializeAws_restJson1_1ListBackendEnvironmentsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3580,8 +3603,10 @@ async function deserializeAws_restJson1_1ListBranchesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3605,7 +3630,6 @@ async function deserializeAws_restJson1_1ListBranchesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3654,8 +3678,10 @@ async function deserializeAws_restJson1_1ListDomainAssociationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3679,7 +3705,6 @@ async function deserializeAws_restJson1_1ListDomainAssociationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3725,8 +3750,10 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3757,7 +3784,6 @@ async function deserializeAws_restJson1_1ListJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3799,8 +3825,10 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3824,7 +3852,6 @@ async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3870,8 +3897,10 @@ async function deserializeAws_restJson1_1ListWebhooksCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3902,7 +3931,6 @@ async function deserializeAws_restJson1_1ListWebhooksCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -3947,8 +3975,10 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -3986,7 +4016,6 @@ async function deserializeAws_restJson1_1StartDeploymentCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4028,8 +4057,10 @@ async function deserializeAws_restJson1_1StartJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4067,7 +4098,6 @@ async function deserializeAws_restJson1_1StartJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4109,8 +4139,10 @@ async function deserializeAws_restJson1_1StopJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4148,7 +4180,6 @@ async function deserializeAws_restJson1_1StopJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4182,8 +4213,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4207,7 +4240,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4241,8 +4273,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4266,7 +4300,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4305,8 +4338,10 @@ async function deserializeAws_restJson1_1UpdateAppCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4337,7 +4372,6 @@ async function deserializeAws_restJson1_1UpdateAppCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4376,8 +4410,10 @@ async function deserializeAws_restJson1_1UpdateBranchCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4415,7 +4451,6 @@ async function deserializeAws_restJson1_1UpdateBranchCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4460,8 +4495,10 @@ async function deserializeAws_restJson1_1UpdateDomainAssociationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4499,7 +4536,6 @@ async function deserializeAws_restJson1_1UpdateDomainAssociationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",
@@ -4538,8 +4574,10 @@ async function deserializeAws_restJson1_1UpdateWebhookCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.amplify#BadRequestException":
@@ -4577,7 +4615,6 @@ async function deserializeAws_restJson1_1UpdateWebhookCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.amplify#${errorCode}`,
         $fault: "client",

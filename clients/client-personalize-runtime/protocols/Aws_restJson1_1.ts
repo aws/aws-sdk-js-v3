@@ -122,8 +122,10 @@ async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
@@ -140,7 +142,6 @@ async function deserializeAws_restJson1_1GetPersonalizedRankingCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize.runtime#${errorCode}`,
         $fault: "client",
@@ -185,8 +186,10 @@ async function deserializeAws_restJson1_1GetRecommendationsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidInputException":
     case "com.amazonaws.services.personalize.runtime.exceptions#InvalidInputException":
@@ -203,7 +206,6 @@ async function deserializeAws_restJson1_1GetRecommendationsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.personalize.runtime#${errorCode}`,
         $fault: "client",

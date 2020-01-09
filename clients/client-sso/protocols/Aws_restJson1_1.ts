@@ -173,8 +173,10 @@ async function deserializeAws_restJson1_1GetRoleCredentialsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
@@ -205,7 +207,6 @@ async function deserializeAws_restJson1_1GetRoleCredentialsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
@@ -254,8 +255,10 @@ async function deserializeAws_restJson1_1ListAccountRolesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
@@ -286,7 +289,6 @@ async function deserializeAws_restJson1_1ListAccountRolesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
@@ -332,8 +334,10 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
@@ -364,7 +368,6 @@ async function deserializeAws_restJson1_1ListAccountsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",
@@ -397,8 +400,10 @@ async function deserializeAws_restJson1_1LogoutCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.switchboard.portal#InvalidRequestException":
@@ -422,7 +427,6 @@ async function deserializeAws_restJson1_1LogoutCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.switchboard.portal#${errorCode}`,
         $fault: "client",

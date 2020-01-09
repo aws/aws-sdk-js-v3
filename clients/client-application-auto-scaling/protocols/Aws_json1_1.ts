@@ -354,10 +354,7 @@ export async function deserializeAws_json1_1DeleteScalingPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScalingPolicyResponse(
-    data.DeleteScalingPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteScalingPolicyResponse(data, context);
   const response: DeleteScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteScalingPolicyResponse",
@@ -376,7 +373,7 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -410,7 +407,6 @@ async function deserializeAws_json1_1DeleteScalingPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -432,10 +428,7 @@ export async function deserializeAws_json1_1DeleteScheduledActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteScheduledActionResponse(
-    data.DeleteScheduledActionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteScheduledActionResponse(data, context);
   const response: DeleteScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteScheduledActionResponse",
@@ -454,7 +447,7 @@ async function deserializeAws_json1_1DeleteScheduledActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -488,7 +481,6 @@ async function deserializeAws_json1_1DeleteScheduledActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -511,7 +503,7 @@ export async function deserializeAws_json1_1DeregisterScalableTargetCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterScalableTargetResponse(
-    data.DeregisterScalableTargetResponse,
+    data,
     context
   );
   const response: DeregisterScalableTargetCommandOutput = {
@@ -532,7 +524,7 @@ async function deserializeAws_json1_1DeregisterScalableTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -566,7 +558,6 @@ async function deserializeAws_json1_1DeregisterScalableTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -589,7 +580,7 @@ export async function deserializeAws_json1_1DescribeScalableTargetsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalableTargetsResponse(
-    data.DescribeScalableTargetsResponse,
+    data,
     context
   );
   const response: DescribeScalableTargetsCommandOutput = {
@@ -610,7 +601,7 @@ async function deserializeAws_json1_1DescribeScalableTargetsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -644,7 +635,6 @@ async function deserializeAws_json1_1DescribeScalableTargetsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -667,7 +657,7 @@ export async function deserializeAws_json1_1DescribeScalingActivitiesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalingActivitiesResponse(
-    data.DescribeScalingActivitiesResponse,
+    data,
     context
   );
   const response: DescribeScalingActivitiesCommandOutput = {
@@ -688,7 +678,7 @@ async function deserializeAws_json1_1DescribeScalingActivitiesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -722,7 +712,6 @@ async function deserializeAws_json1_1DescribeScalingActivitiesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -745,7 +734,7 @@ export async function deserializeAws_json1_1DescribeScalingPoliciesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScalingPoliciesResponse(
-    data.DescribeScalingPoliciesResponse,
+    data,
     context
   );
   const response: DescribeScalingPoliciesCommandOutput = {
@@ -766,7 +755,7 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -807,7 +796,6 @@ async function deserializeAws_json1_1DescribeScalingPoliciesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -830,7 +818,7 @@ export async function deserializeAws_json1_1DescribeScheduledActionsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeScheduledActionsResponse(
-    data.DescribeScheduledActionsResponse,
+    data,
     context
   );
   const response: DescribeScheduledActionsCommandOutput = {
@@ -851,7 +839,7 @@ async function deserializeAws_json1_1DescribeScheduledActionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -885,7 +873,6 @@ async function deserializeAws_json1_1DescribeScheduledActionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -904,10 +891,7 @@ export async function deserializeAws_json1_1PutScalingPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScalingPolicyResponse(
-    data.PutScalingPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutScalingPolicyResponse(data, context);
   const response: PutScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutScalingPolicyResponse",
@@ -926,7 +910,7 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -974,7 +958,6 @@ async function deserializeAws_json1_1PutScalingPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -996,10 +979,7 @@ export async function deserializeAws_json1_1PutScheduledActionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutScheduledActionResponse(
-    data.PutScheduledActionResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutScheduledActionResponse(data, context);
   const response: PutScheduledActionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutScheduledActionResponse",
@@ -1018,7 +998,7 @@ async function deserializeAws_json1_1PutScheduledActionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1059,7 +1039,6 @@ async function deserializeAws_json1_1PutScheduledActionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",
@@ -1082,7 +1061,7 @@ export async function deserializeAws_json1_1RegisterScalableTargetCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterScalableTargetResponse(
-    data.RegisterScalableTargetResponse,
+    data,
     context
   );
   const response: RegisterScalableTargetCommandOutput = {
@@ -1103,7 +1082,7 @@ async function deserializeAws_json1_1RegisterScalableTargetCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1137,7 +1116,6 @@ async function deserializeAws_json1_1RegisterScalableTargetCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.autoscaling.anyscale.frontend#${errorCode}`,
         $fault: "client",

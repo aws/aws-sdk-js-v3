@@ -986,7 +986,7 @@ export async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1BatchCheckLayerAvailabilityResponse(
-    data.BatchCheckLayerAvailabilityResponse,
+    data,
     context
   );
   const response: BatchCheckLayerAvailabilityCommandOutput = {
@@ -1007,7 +1007,7 @@ async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1034,7 +1034,6 @@ async function deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1053,10 +1052,7 @@ export async function deserializeAws_json1_1BatchDeleteImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchDeleteImageResponse(
-    data.BatchDeleteImageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchDeleteImageResponse(data, context);
   const response: BatchDeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchDeleteImageResponse",
@@ -1075,7 +1071,7 @@ async function deserializeAws_json1_1BatchDeleteImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1102,7 +1098,6 @@ async function deserializeAws_json1_1BatchDeleteImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1121,10 +1116,7 @@ export async function deserializeAws_json1_1BatchGetImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1BatchGetImageResponse(
-    data.BatchGetImageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1BatchGetImageResponse(data, context);
   const response: BatchGetImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetImageResponse",
@@ -1143,7 +1135,7 @@ async function deserializeAws_json1_1BatchGetImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1170,7 +1162,6 @@ async function deserializeAws_json1_1BatchGetImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1192,10 +1183,7 @@ export async function deserializeAws_json1_1CompleteLayerUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CompleteLayerUploadResponse(
-    data.CompleteLayerUploadResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CompleteLayerUploadResponse(data, context);
   const response: CompleteLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CompleteLayerUploadResponse",
@@ -1214,7 +1202,7 @@ async function deserializeAws_json1_1CompleteLayerUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1276,7 +1264,6 @@ async function deserializeAws_json1_1CompleteLayerUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1295,10 +1282,7 @@ export async function deserializeAws_json1_1CreateRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateRepositoryResponse(
-    data.CreateRepositoryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateRepositoryResponse(data, context);
   const response: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRepositoryResponse",
@@ -1317,7 +1301,7 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1365,7 +1349,6 @@ async function deserializeAws_json1_1CreateRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1387,10 +1370,7 @@ export async function deserializeAws_json1_1DeleteLifecyclePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLifecyclePolicyResponse(
-    data.DeleteLifecyclePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteLifecyclePolicyResponse(data, context);
   const response: DeleteLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLifecyclePolicyResponse",
@@ -1409,7 +1389,7 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1443,7 +1423,6 @@ async function deserializeAws_json1_1DeleteLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1462,10 +1441,7 @@ export async function deserializeAws_json1_1DeleteRepositoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteRepositoryResponse(
-    data.DeleteRepositoryResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteRepositoryResponse(data, context);
   const response: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRepositoryResponse",
@@ -1484,7 +1460,7 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1518,7 +1494,6 @@ async function deserializeAws_json1_1DeleteRepositoryCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1541,7 +1516,7 @@ export async function deserializeAws_json1_1DeleteRepositoryPolicyCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRepositoryPolicyResponse(
-    data.DeleteRepositoryPolicyResponse,
+    data,
     context
   );
   const response: DeleteRepositoryPolicyCommandOutput = {
@@ -1562,7 +1537,7 @@ async function deserializeAws_json1_1DeleteRepositoryPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1596,7 +1571,6 @@ async function deserializeAws_json1_1DeleteRepositoryPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1619,7 +1593,7 @@ export async function deserializeAws_json1_1DescribeImageScanFindingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeImageScanFindingsResponse(
-    data.DescribeImageScanFindingsResponse,
+    data,
     context
   );
   const response: DescribeImageScanFindingsCommandOutput = {
@@ -1640,7 +1614,7 @@ async function deserializeAws_json1_1DescribeImageScanFindingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1681,7 +1655,6 @@ async function deserializeAws_json1_1DescribeImageScanFindingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1700,10 +1673,7 @@ export async function deserializeAws_json1_1DescribeImagesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeImagesResponse(
-    data.DescribeImagesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeImagesResponse(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeImagesResponse",
@@ -1722,7 +1692,7 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1756,7 +1726,6 @@ async function deserializeAws_json1_1DescribeImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1778,10 +1747,7 @@ export async function deserializeAws_json1_1DescribeRepositoriesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeRepositoriesResponse(
-    data.DescribeRepositoriesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeRepositoriesResponse(data, context);
   const response: DescribeRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRepositoriesResponse",
@@ -1800,7 +1766,7 @@ async function deserializeAws_json1_1DescribeRepositoriesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1827,7 +1793,6 @@ async function deserializeAws_json1_1DescribeRepositoriesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1849,10 +1814,7 @@ export async function deserializeAws_json1_1GetAuthorizationTokenCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetAuthorizationTokenResponse(
-    data.GetAuthorizationTokenResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetAuthorizationTokenResponse(data, context);
   const response: GetAuthorizationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAuthorizationTokenResponse",
@@ -1871,7 +1833,7 @@ async function deserializeAws_json1_1GetAuthorizationTokenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1891,7 +1853,6 @@ async function deserializeAws_json1_1GetAuthorizationTokenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1914,7 +1875,7 @@ export async function deserializeAws_json1_1GetDownloadUrlForLayerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetDownloadUrlForLayerResponse(
-    data.GetDownloadUrlForLayerResponse,
+    data,
     context
   );
   const response: GetDownloadUrlForLayerCommandOutput = {
@@ -1935,7 +1896,7 @@ async function deserializeAws_json1_1GetDownloadUrlForLayerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -1976,7 +1937,6 @@ async function deserializeAws_json1_1GetDownloadUrlForLayerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -1998,10 +1958,7 @@ export async function deserializeAws_json1_1GetLifecyclePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLifecyclePolicyResponse(
-    data.GetLifecyclePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetLifecyclePolicyResponse(data, context);
   const response: GetLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLifecyclePolicyResponse",
@@ -2020,7 +1977,7 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2054,7 +2011,6 @@ async function deserializeAws_json1_1GetLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2077,7 +2033,7 @@ export async function deserializeAws_json1_1GetLifecyclePolicyPreviewCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetLifecyclePolicyPreviewResponse(
-    data.GetLifecyclePolicyPreviewResponse,
+    data,
     context
   );
   const response: GetLifecyclePolicyPreviewCommandOutput = {
@@ -2098,7 +2054,7 @@ async function deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2132,7 +2088,6 @@ async function deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2154,10 +2109,7 @@ export async function deserializeAws_json1_1GetRepositoryPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRepositoryPolicyResponse(
-    data.GetRepositoryPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetRepositoryPolicyResponse(data, context);
   const response: GetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRepositoryPolicyResponse",
@@ -2176,7 +2128,7 @@ async function deserializeAws_json1_1GetRepositoryPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2210,7 +2162,6 @@ async function deserializeAws_json1_1GetRepositoryPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2232,10 +2183,7 @@ export async function deserializeAws_json1_1InitiateLayerUploadCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitiateLayerUploadResponse(
-    data.InitiateLayerUploadResponse,
-    context
-  );
+  contents = deserializeAws_json1_1InitiateLayerUploadResponse(data, context);
   const response: InitiateLayerUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitiateLayerUploadResponse",
@@ -2254,7 +2202,7 @@ async function deserializeAws_json1_1InitiateLayerUploadCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2281,7 +2229,6 @@ async function deserializeAws_json1_1InitiateLayerUploadCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2300,10 +2247,7 @@ export async function deserializeAws_json1_1ListImagesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListImagesResponse(
-    data.ListImagesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListImagesResponse(data, context);
   const response: ListImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImagesResponse",
@@ -2322,7 +2266,7 @@ async function deserializeAws_json1_1ListImagesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2349,7 +2293,6 @@ async function deserializeAws_json1_1ListImagesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2371,10 +2314,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -2393,7 +2333,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2420,7 +2360,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2439,10 +2378,7 @@ export async function deserializeAws_json1_1PutImageCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutImageResponse(
-    data.PutImageResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutImageResponse(data, context);
   const response: PutImageCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutImageResponse",
@@ -2461,7 +2397,7 @@ async function deserializeAws_json1_1PutImageCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2516,7 +2452,6 @@ async function deserializeAws_json1_1PutImageCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2539,7 +2474,7 @@ export async function deserializeAws_json1_1PutImageScanningConfigurationCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutImageScanningConfigurationResponse(
-    data.PutImageScanningConfigurationResponse,
+    data,
     context
   );
   const response: PutImageScanningConfigurationCommandOutput = {
@@ -2560,7 +2495,7 @@ async function deserializeAws_json1_1PutImageScanningConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2587,7 +2522,6 @@ async function deserializeAws_json1_1PutImageScanningConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2609,10 +2543,7 @@ export async function deserializeAws_json1_1PutImageTagMutabilityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutImageTagMutabilityResponse(
-    data.PutImageTagMutabilityResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutImageTagMutabilityResponse(data, context);
   const response: PutImageTagMutabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutImageTagMutabilityResponse",
@@ -2631,7 +2562,7 @@ async function deserializeAws_json1_1PutImageTagMutabilityCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2658,7 +2589,6 @@ async function deserializeAws_json1_1PutImageTagMutabilityCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2680,10 +2610,7 @@ export async function deserializeAws_json1_1PutLifecyclePolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutLifecyclePolicyResponse(
-    data.PutLifecyclePolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1PutLifecyclePolicyResponse(data, context);
   const response: PutLifecyclePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutLifecyclePolicyResponse",
@@ -2702,7 +2629,7 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2729,7 +2656,6 @@ async function deserializeAws_json1_1PutLifecyclePolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2751,10 +2677,7 @@ export async function deserializeAws_json1_1SetRepositoryPolicyCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetRepositoryPolicyResponse(
-    data.SetRepositoryPolicyResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetRepositoryPolicyResponse(data, context);
   const response: SetRepositoryPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetRepositoryPolicyResponse",
@@ -2773,7 +2696,7 @@ async function deserializeAws_json1_1SetRepositoryPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2800,7 +2723,6 @@ async function deserializeAws_json1_1SetRepositoryPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2819,10 +2741,7 @@ export async function deserializeAws_json1_1StartImageScanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartImageScanResponse(
-    data.StartImageScanResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartImageScanResponse(data, context);
   const response: StartImageScanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImageScanResponse",
@@ -2841,7 +2760,7 @@ async function deserializeAws_json1_1StartImageScanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2875,7 +2794,6 @@ async function deserializeAws_json1_1StartImageScanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2898,7 +2816,7 @@ export async function deserializeAws_json1_1StartLifecyclePolicyPreviewCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartLifecyclePolicyPreviewResponse(
-    data.StartLifecyclePolicyPreviewResponse,
+    data,
     context
   );
   const response: StartLifecyclePolicyPreviewCommandOutput = {
@@ -2919,7 +2837,7 @@ async function deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -2960,7 +2878,6 @@ async function deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -2979,10 +2896,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -3001,7 +2915,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3042,7 +2956,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -3061,10 +2974,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -3083,7 +2993,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3124,7 +3034,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",
@@ -3143,10 +3052,7 @@ export async function deserializeAws_json1_1UploadLayerPartCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UploadLayerPartResponse(
-    data.UploadLayerPartResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UploadLayerPartResponse(data, context);
   const response: UploadLayerPartCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UploadLayerPartResponse",
@@ -3165,7 +3071,7 @@ async function deserializeAws_json1_1UploadLayerPartCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3213,7 +3119,6 @@ async function deserializeAws_json1_1UploadLayerPartCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.starport.frontend#${errorCode}`,
         $fault: "client",

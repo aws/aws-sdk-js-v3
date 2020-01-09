@@ -1679,8 +1679,10 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1718,7 +1720,6 @@ async function deserializeAws_restJson1_1CreateBackupPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -1772,8 +1773,10 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1811,7 +1814,6 @@ async function deserializeAws_restJson1_1CreateBackupSelectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -1865,8 +1867,10 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.services.cryo#AlreadyExistsException":
@@ -1904,7 +1908,6 @@ async function deserializeAws_restJson1_1CreateBackupVaultCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -1962,8 +1965,10 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2001,7 +2006,6 @@ async function deserializeAws_restJson1_1DeleteBackupPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2037,8 +2041,10 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2069,7 +2075,6 @@ async function deserializeAws_restJson1_1DeleteBackupSelectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2105,8 +2110,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2144,7 +2151,6 @@ async function deserializeAws_restJson1_1DeleteBackupVaultCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2180,8 +2186,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2212,7 +2220,6 @@ async function deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommandErr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2248,8 +2255,10 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2280,7 +2289,6 @@ async function deserializeAws_restJson1_1DeleteBackupVaultNotificationsCommandEr
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2316,8 +2324,10 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2355,7 +2365,6 @@ async function deserializeAws_restJson1_1DeleteRecoveryPointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2478,8 +2487,10 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
@@ -2517,7 +2528,6 @@ async function deserializeAws_restJson1_1DescribeBackupJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2583,8 +2593,10 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2615,7 +2627,6 @@ async function deserializeAws_restJson1_1DescribeBackupVaultCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2669,8 +2680,10 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2701,7 +2714,6 @@ async function deserializeAws_restJson1_1DescribeProtectedResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2828,8 +2840,10 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -2860,7 +2874,6 @@ async function deserializeAws_restJson1_1DescribeRecoveryPointCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -2950,8 +2963,10 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "DependencyFailureException":
     case "com.amazonaws.services.cryo#DependencyFailureException":
@@ -2989,7 +3004,6 @@ async function deserializeAws_restJson1_1DescribeRestoreJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3031,8 +3045,10 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3063,7 +3079,6 @@ async function deserializeAws_restJson1_1ExportBackupPlanTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3145,8 +3160,10 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3177,7 +3194,6 @@ async function deserializeAws_restJson1_1GetBackupPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3222,8 +3238,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3261,7 +3279,6 @@ async function deserializeAws_restJson1_1GetBackupPlanFromJSONCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3306,8 +3323,10 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3338,7 +3357,6 @@ async function deserializeAws_restJson1_1GetBackupPlanFromTemplateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3403,8 +3421,10 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3435,7 +3455,6 @@ async function deserializeAws_restJson1_1GetBackupSelectionCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3485,8 +3504,10 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3517,7 +3538,6 @@ async function deserializeAws_restJson1_1GetBackupVaultAccessPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3574,8 +3594,10 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3606,7 +3628,6 @@ async function deserializeAws_restJson1_1GetBackupVaultNotificationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3659,8 +3680,10 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3691,7 +3714,6 @@ async function deserializeAws_restJson1_1GetRecoveryPointRestoreMetadataCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3736,8 +3758,10 @@ async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazonaws.services.cryo#ServiceUnavailableException":
@@ -3747,7 +3771,6 @@ async function deserializeAws_restJson1_1GetSupportedResourceTypesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3796,8 +3819,10 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3814,7 +3839,6 @@ async function deserializeAws_restJson1_1ListBackupJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3863,8 +3887,10 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3895,7 +3921,6 @@ async function deserializeAws_restJson1_1ListBackupPlanTemplatesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -3944,8 +3969,10 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -3976,7 +4003,6 @@ async function deserializeAws_restJson1_1ListBackupPlanVersionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4025,8 +4051,10 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4057,7 +4085,6 @@ async function deserializeAws_restJson1_1ListBackupPlansCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4106,8 +4133,10 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4138,7 +4167,6 @@ async function deserializeAws_restJson1_1ListBackupSelectionsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4187,8 +4215,10 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4219,7 +4249,6 @@ async function deserializeAws_restJson1_1ListBackupVaultsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4268,8 +4297,10 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4286,7 +4317,6 @@ async function deserializeAws_restJson1_1ListProtectedResourcesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4335,8 +4365,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4367,7 +4399,6 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByBackupVaultCommandE
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4416,8 +4447,10 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4448,7 +4481,6 @@ async function deserializeAws_restJson1_1ListRecoveryPointsByResourceCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4497,8 +4529,10 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4529,7 +4563,6 @@ async function deserializeAws_restJson1_1ListRestoreJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4572,8 +4605,10 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4604,7 +4639,6 @@ async function deserializeAws_restJson1_1ListTagsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4640,8 +4674,10 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4672,7 +4708,6 @@ async function deserializeAws_restJson1_1PutBackupVaultAccessPolicyCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4708,8 +4743,10 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4740,7 +4777,6 @@ async function deserializeAws_restJson1_1PutBackupVaultNotificationsCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4794,8 +4830,10 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4833,7 +4871,6 @@ async function deserializeAws_restJson1_1StartBackupJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4875,8 +4912,10 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4907,7 +4946,6 @@ async function deserializeAws_restJson1_1StartRestoreJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -4940,8 +4978,10 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -4979,7 +5019,6 @@ async function deserializeAws_restJson1_1StopBackupJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -5012,8 +5051,10 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5051,7 +5092,6 @@ async function deserializeAws_restJson1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -5084,8 +5124,10 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5116,7 +5158,6 @@ async function deserializeAws_restJson1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -5174,8 +5215,10 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5206,7 +5249,6 @@ async function deserializeAws_restJson1_1UpdateBackupPlanCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",
@@ -5266,8 +5308,10 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
-  errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  let errorCode: String = "UnknownError";
+  if (output.headers["x-amzn-errortype"]) {
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
+  }
   switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.services.cryo#InvalidParameterValueException":
@@ -5298,7 +5342,6 @@ async function deserializeAws_restJson1_1UpdateRecoveryPointLifecycleCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.services.cryo#${errorCode}`,
         $fault: "client",

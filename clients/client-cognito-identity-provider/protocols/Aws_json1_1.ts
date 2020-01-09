@@ -3238,10 +3238,7 @@ export async function deserializeAws_json1_1AddCustomAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AddCustomAttributesResponse(
-    data.AddCustomAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AddCustomAttributesResponse(data, context);
   const response: AddCustomAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddCustomAttributesResponse",
@@ -3260,7 +3257,7 @@ async function deserializeAws_json1_1AddCustomAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3308,7 +3305,6 @@ async function deserializeAws_json1_1AddCustomAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3344,7 +3340,7 @@ async function deserializeAws_json1_1AdminAddUserToGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3392,7 +3388,6 @@ async function deserializeAws_json1_1AdminAddUserToGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3414,10 +3409,7 @@ export async function deserializeAws_json1_1AdminConfirmSignUpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminConfirmSignUpResponse(
-    data.AdminConfirmSignUpResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminConfirmSignUpResponse(data, context);
   const response: AdminConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminConfirmSignUpResponse",
@@ -3436,7 +3428,7 @@ async function deserializeAws_json1_1AdminConfirmSignUpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3519,7 +3511,6 @@ async function deserializeAws_json1_1AdminConfirmSignUpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3538,10 +3529,7 @@ export async function deserializeAws_json1_1AdminCreateUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminCreateUserResponse(
-    data.AdminCreateUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminCreateUserResponse(data, context);
   const response: AdminCreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminCreateUserResponse",
@@ -3560,7 +3548,7 @@ async function deserializeAws_json1_1AdminCreateUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3678,7 +3666,6 @@ async function deserializeAws_json1_1AdminCreateUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3711,7 +3698,7 @@ async function deserializeAws_json1_1AdminDeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3759,7 +3746,6 @@ async function deserializeAws_json1_1AdminDeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3782,7 +3768,7 @@ export async function deserializeAws_json1_1AdminDeleteUserAttributesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminDeleteUserAttributesResponse(
-    data.AdminDeleteUserAttributesResponse,
+    data,
     context
   );
   const response: AdminDeleteUserAttributesCommandOutput = {
@@ -3803,7 +3789,7 @@ async function deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3851,7 +3837,6 @@ async function deserializeAws_json1_1AdminDeleteUserAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3874,7 +3859,7 @@ export async function deserializeAws_json1_1AdminDisableProviderForUserCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminDisableProviderForUserResponse(
-    data.AdminDisableProviderForUserResponse,
+    data,
     context
   );
   const response: AdminDisableProviderForUserCommandOutput = {
@@ -3895,7 +3880,7 @@ async function deserializeAws_json1_1AdminDisableProviderForUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -3950,7 +3935,6 @@ async function deserializeAws_json1_1AdminDisableProviderForUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -3969,10 +3953,7 @@ export async function deserializeAws_json1_1AdminDisableUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminDisableUserResponse(
-    data.AdminDisableUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminDisableUserResponse(data, context);
   const response: AdminDisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminDisableUserResponse",
@@ -3991,7 +3972,7 @@ async function deserializeAws_json1_1AdminDisableUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4039,7 +4020,6 @@ async function deserializeAws_json1_1AdminDisableUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4058,10 +4038,7 @@ export async function deserializeAws_json1_1AdminEnableUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminEnableUserResponse(
-    data.AdminEnableUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminEnableUserResponse(data, context);
   const response: AdminEnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminEnableUserResponse",
@@ -4080,7 +4057,7 @@ async function deserializeAws_json1_1AdminEnableUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4128,7 +4105,6 @@ async function deserializeAws_json1_1AdminEnableUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4161,7 +4137,7 @@ async function deserializeAws_json1_1AdminForgetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4216,7 +4192,6 @@ async function deserializeAws_json1_1AdminForgetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4235,10 +4210,7 @@ export async function deserializeAws_json1_1AdminGetDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminGetDeviceResponse(
-    data.AdminGetDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminGetDeviceResponse(data, context);
   const response: AdminGetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminGetDeviceResponse",
@@ -4257,7 +4229,7 @@ async function deserializeAws_json1_1AdminGetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4305,7 +4277,6 @@ async function deserializeAws_json1_1AdminGetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4324,10 +4295,7 @@ export async function deserializeAws_json1_1AdminGetUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminGetUserResponse(
-    data.AdminGetUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminGetUserResponse(data, context);
   const response: AdminGetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminGetUserResponse",
@@ -4346,7 +4314,7 @@ async function deserializeAws_json1_1AdminGetUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4394,7 +4362,6 @@ async function deserializeAws_json1_1AdminGetUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4413,10 +4380,7 @@ export async function deserializeAws_json1_1AdminInitiateAuthCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminInitiateAuthResponse(
-    data.AdminInitiateAuthResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminInitiateAuthResponse(data, context);
   const response: AdminInitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminInitiateAuthResponse",
@@ -4435,7 +4399,7 @@ async function deserializeAws_json1_1AdminInitiateAuthCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4546,7 +4510,6 @@ async function deserializeAws_json1_1AdminInitiateAuthCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4569,7 +4532,7 @@ export async function deserializeAws_json1_1AdminLinkProviderForUserCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminLinkProviderForUserResponse(
-    data.AdminLinkProviderForUserResponse,
+    data,
     context
   );
   const response: AdminLinkProviderForUserCommandOutput = {
@@ -4590,7 +4553,7 @@ async function deserializeAws_json1_1AdminLinkProviderForUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4645,7 +4608,6 @@ async function deserializeAws_json1_1AdminLinkProviderForUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4664,10 +4626,7 @@ export async function deserializeAws_json1_1AdminListDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminListDevicesResponse(
-    data.AdminListDevicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminListDevicesResponse(data, context);
   const response: AdminListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminListDevicesResponse",
@@ -4686,7 +4645,7 @@ async function deserializeAws_json1_1AdminListDevicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4734,7 +4693,6 @@ async function deserializeAws_json1_1AdminListDevicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4757,7 +4715,7 @@ export async function deserializeAws_json1_1AdminListGroupsForUserCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminListGroupsForUserResponse(
-    data.AdminListGroupsForUserResponse,
+    data,
     context
   );
   const response: AdminListGroupsForUserCommandOutput = {
@@ -4778,7 +4736,7 @@ async function deserializeAws_json1_1AdminListGroupsForUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4826,7 +4784,6 @@ async function deserializeAws_json1_1AdminListGroupsForUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4849,7 +4806,7 @@ export async function deserializeAws_json1_1AdminListUserAuthEventsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminListUserAuthEventsResponse(
-    data.AdminListUserAuthEventsResponse,
+    data,
     context
   );
   const response: AdminListUserAuthEventsCommandOutput = {
@@ -4870,7 +4827,7 @@ async function deserializeAws_json1_1AdminListUserAuthEventsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -4925,7 +4882,6 @@ async function deserializeAws_json1_1AdminListUserAuthEventsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -4961,7 +4917,7 @@ async function deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5009,7 +4965,6 @@ async function deserializeAws_json1_1AdminRemoveUserFromGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5032,7 +4987,7 @@ export async function deserializeAws_json1_1AdminResetUserPasswordCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminResetUserPasswordResponse(
-    data.AdminResetUserPasswordResponse,
+    data,
     context
   );
   const response: AdminResetUserPasswordCommandOutput = {
@@ -5053,7 +5008,7 @@ async function deserializeAws_json1_1AdminResetUserPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5150,7 +5105,6 @@ async function deserializeAws_json1_1AdminResetUserPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5173,7 +5127,7 @@ export async function deserializeAws_json1_1AdminRespondToAuthChallengeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminRespondToAuthChallengeResponse(
-    data.AdminRespondToAuthChallengeResponse,
+    data,
     context
   );
   const response: AdminRespondToAuthChallengeCommandOutput = {
@@ -5194,7 +5148,7 @@ async function deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5340,7 +5294,6 @@ async function deserializeAws_json1_1AdminRespondToAuthChallengeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5363,7 +5316,7 @@ export async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminSetUserMFAPreferenceResponse(
-    data.AdminSetUserMFAPreferenceResponse,
+    data,
     context
   );
   const response: AdminSetUserMFAPreferenceCommandOutput = {
@@ -5384,7 +5337,7 @@ async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5439,7 +5392,6 @@ async function deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5461,10 +5413,7 @@ export async function deserializeAws_json1_1AdminSetUserPasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserPasswordResponse(
-    data.AdminSetUserPasswordResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminSetUserPasswordResponse(data, context);
   const response: AdminSetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminSetUserPasswordResponse",
@@ -5483,7 +5432,7 @@ async function deserializeAws_json1_1AdminSetUserPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5538,7 +5487,6 @@ async function deserializeAws_json1_1AdminSetUserPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5560,10 +5508,7 @@ export async function deserializeAws_json1_1AdminSetUserSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AdminSetUserSettingsResponse(
-    data.AdminSetUserSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1AdminSetUserSettingsResponse(data, context);
   const response: AdminSetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AdminSetUserSettingsResponse",
@@ -5582,7 +5527,7 @@ async function deserializeAws_json1_1AdminSetUserSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5623,7 +5568,6 @@ async function deserializeAws_json1_1AdminSetUserSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5646,7 +5590,7 @@ export async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse(
-    data.AdminUpdateAuthEventFeedbackResponse,
+    data,
     context
   );
   const response: AdminUpdateAuthEventFeedbackCommandOutput = {
@@ -5667,7 +5611,7 @@ async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5722,7 +5666,6 @@ async function deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5745,7 +5688,7 @@ export async function deserializeAws_json1_1AdminUpdateDeviceStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminUpdateDeviceStatusResponse(
-    data.AdminUpdateDeviceStatusResponse,
+    data,
     context
   );
   const response: AdminUpdateDeviceStatusCommandOutput = {
@@ -5766,7 +5709,7 @@ async function deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5821,7 +5764,6 @@ async function deserializeAws_json1_1AdminUpdateDeviceStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5844,7 +5786,7 @@ export async function deserializeAws_json1_1AdminUpdateUserAttributesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminUpdateUserAttributesResponse(
-    data.AdminUpdateUserAttributesResponse,
+    data,
     context
   );
   const response: AdminUpdateUserAttributesCommandOutput = {
@@ -5865,7 +5807,7 @@ async function deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -5962,7 +5904,6 @@ async function deserializeAws_json1_1AdminUpdateUserAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -5985,7 +5926,7 @@ export async function deserializeAws_json1_1AdminUserGlobalSignOutCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AdminUserGlobalSignOutResponse(
-    data.AdminUserGlobalSignOutResponse,
+    data,
     context
   );
   const response: AdminUserGlobalSignOutCommandOutput = {
@@ -6006,7 +5947,7 @@ async function deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6054,7 +5995,6 @@ async function deserializeAws_json1_1AdminUserGlobalSignOutCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6077,7 +6017,7 @@ export async function deserializeAws_json1_1AssociateSoftwareTokenCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AssociateSoftwareTokenResponse(
-    data.AssociateSoftwareTokenResponse,
+    data,
     context
   );
   const response: AssociateSoftwareTokenCommandOutput = {
@@ -6098,7 +6038,7 @@ async function deserializeAws_json1_1AssociateSoftwareTokenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6139,7 +6079,6 @@ async function deserializeAws_json1_1AssociateSoftwareTokenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6158,10 +6097,7 @@ export async function deserializeAws_json1_1ChangePasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ChangePasswordResponse(
-    data.ChangePasswordResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ChangePasswordResponse(data, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ChangePasswordResponse",
@@ -6180,7 +6116,7 @@ async function deserializeAws_json1_1ChangePasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6256,7 +6192,6 @@ async function deserializeAws_json1_1ChangePasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6275,10 +6210,7 @@ export async function deserializeAws_json1_1ConfirmDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmDeviceResponse(
-    data.ConfirmDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ConfirmDeviceResponse(data, context);
   const response: ConfirmDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmDeviceResponse",
@@ -6297,7 +6229,7 @@ async function deserializeAws_json1_1ConfirmDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6387,7 +6319,6 @@ async function deserializeAws_json1_1ConfirmDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6409,10 +6340,7 @@ export async function deserializeAws_json1_1ConfirmForgotPasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmForgotPasswordResponse(
-    data.ConfirmForgotPasswordResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ConfirmForgotPasswordResponse(data, context);
   const response: ConfirmForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmForgotPasswordResponse",
@@ -6431,7 +6359,7 @@ async function deserializeAws_json1_1ConfirmForgotPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6542,7 +6470,6 @@ async function deserializeAws_json1_1ConfirmForgotPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6561,10 +6488,7 @@ export async function deserializeAws_json1_1ConfirmSignUpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ConfirmSignUpResponse(
-    data.ConfirmSignUpResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ConfirmSignUpResponse(data, context);
   const response: ConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ConfirmSignUpResponse",
@@ -6583,7 +6507,7 @@ async function deserializeAws_json1_1ConfirmSignUpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6687,7 +6611,6 @@ async function deserializeAws_json1_1ConfirmSignUpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6706,10 +6629,7 @@ export async function deserializeAws_json1_1CreateGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateGroupResponse(
-    data.CreateGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGroupResponse",
@@ -6728,7 +6648,7 @@ async function deserializeAws_json1_1CreateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6783,7 +6703,6 @@ async function deserializeAws_json1_1CreateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6806,7 +6725,7 @@ export async function deserializeAws_json1_1CreateIdentityProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateIdentityProviderResponse(
-    data.CreateIdentityProviderResponse,
+    data,
     context
   );
   const response: CreateIdentityProviderCommandOutput = {
@@ -6827,7 +6746,7 @@ async function deserializeAws_json1_1CreateIdentityProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6882,7 +6801,6 @@ async function deserializeAws_json1_1CreateIdentityProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6904,10 +6822,7 @@ export async function deserializeAws_json1_1CreateResourceServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateResourceServerResponse(
-    data.CreateResourceServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateResourceServerResponse(data, context);
   const response: CreateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateResourceServerResponse",
@@ -6926,7 +6841,7 @@ async function deserializeAws_json1_1CreateResourceServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -6974,7 +6889,6 @@ async function deserializeAws_json1_1CreateResourceServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -6996,10 +6910,7 @@ export async function deserializeAws_json1_1CreateUserImportJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserImportJobResponse(
-    data.CreateUserImportJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserImportJobResponse(data, context);
   const response: CreateUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserImportJobResponse",
@@ -7018,7 +6929,7 @@ async function deserializeAws_json1_1CreateUserImportJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7073,7 +6984,6 @@ async function deserializeAws_json1_1CreateUserImportJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7092,10 +7002,7 @@ export async function deserializeAws_json1_1CreateUserPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolResponse(
-    data.CreateUserPoolResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserPoolResponse(data, context);
   const response: CreateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolResponse",
@@ -7114,7 +7021,7 @@ async function deserializeAws_json1_1CreateUserPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7183,7 +7090,6 @@ async function deserializeAws_json1_1CreateUserPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7205,10 +7111,7 @@ export async function deserializeAws_json1_1CreateUserPoolClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolClientResponse(
-    data.CreateUserPoolClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserPoolClientResponse(data, context);
   const response: CreateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolClientResponse",
@@ -7227,7 +7130,7 @@ async function deserializeAws_json1_1CreateUserPoolClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7289,7 +7192,6 @@ async function deserializeAws_json1_1CreateUserPoolClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7311,10 +7213,7 @@ export async function deserializeAws_json1_1CreateUserPoolDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateUserPoolDomainResponse(
-    data.CreateUserPoolDomainResponse,
-    context
-  );
+  contents = deserializeAws_json1_1CreateUserPoolDomainResponse(data, context);
   const response: CreateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserPoolDomainResponse",
@@ -7333,7 +7232,7 @@ async function deserializeAws_json1_1CreateUserPoolDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7374,7 +7273,6 @@ async function deserializeAws_json1_1CreateUserPoolDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7407,7 +7305,7 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7448,7 +7346,6 @@ async function deserializeAws_json1_1DeleteGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7484,7 +7381,7 @@ async function deserializeAws_json1_1DeleteIdentityProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7532,7 +7429,6 @@ async function deserializeAws_json1_1DeleteIdentityProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7568,7 +7464,7 @@ async function deserializeAws_json1_1DeleteResourceServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7609,7 +7505,6 @@ async function deserializeAws_json1_1DeleteResourceServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7642,7 +7537,7 @@ async function deserializeAws_json1_1DeleteUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7704,7 +7599,6 @@ async function deserializeAws_json1_1DeleteUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7726,10 +7620,7 @@ export async function deserializeAws_json1_1DeleteUserAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserAttributesResponse(
-    data.DeleteUserAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserAttributesResponse(data, context);
   const response: DeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserAttributesResponse",
@@ -7748,7 +7639,7 @@ async function deserializeAws_json1_1DeleteUserAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7810,7 +7701,6 @@ async function deserializeAws_json1_1DeleteUserAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7843,7 +7733,7 @@ async function deserializeAws_json1_1DeleteUserPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7891,7 +7781,6 @@ async function deserializeAws_json1_1DeleteUserPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7927,7 +7816,7 @@ async function deserializeAws_json1_1DeleteUserPoolClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -7968,7 +7857,6 @@ async function deserializeAws_json1_1DeleteUserPoolClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -7990,10 +7878,7 @@ export async function deserializeAws_json1_1DeleteUserPoolDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteUserPoolDomainResponse(
-    data.DeleteUserPoolDomainResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DeleteUserPoolDomainResponse(data, context);
   const response: DeleteUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteUserPoolDomainResponse",
@@ -8012,7 +7897,7 @@ async function deserializeAws_json1_1DeleteUserPoolDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8046,7 +7931,6 @@ async function deserializeAws_json1_1DeleteUserPoolDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8069,7 +7953,7 @@ export async function deserializeAws_json1_1DescribeIdentityProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeIdentityProviderResponse(
-    data.DescribeIdentityProviderResponse,
+    data,
     context
   );
   const response: DescribeIdentityProviderCommandOutput = {
@@ -8090,7 +7974,7 @@ async function deserializeAws_json1_1DescribeIdentityProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8131,7 +8015,6 @@ async function deserializeAws_json1_1DescribeIdentityProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8154,7 +8037,7 @@ export async function deserializeAws_json1_1DescribeResourceServerCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeResourceServerResponse(
-    data.DescribeResourceServerResponse,
+    data,
     context
   );
   const response: DescribeResourceServerCommandOutput = {
@@ -8175,7 +8058,7 @@ async function deserializeAws_json1_1DescribeResourceServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8216,7 +8099,6 @@ async function deserializeAws_json1_1DescribeResourceServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8239,7 +8121,7 @@ export async function deserializeAws_json1_1DescribeRiskConfigurationCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeRiskConfigurationResponse(
-    data.DescribeRiskConfigurationResponse,
+    data,
     context
   );
   const response: DescribeRiskConfigurationCommandOutput = {
@@ -8260,7 +8142,7 @@ async function deserializeAws_json1_1DescribeRiskConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8308,7 +8190,6 @@ async function deserializeAws_json1_1DescribeRiskConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8330,10 +8211,7 @@ export async function deserializeAws_json1_1DescribeUserImportJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserImportJobResponse(
-    data.DescribeUserImportJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserImportJobResponse(data, context);
   const response: DescribeUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserImportJobResponse",
@@ -8352,7 +8230,7 @@ async function deserializeAws_json1_1DescribeUserImportJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8393,7 +8271,6 @@ async function deserializeAws_json1_1DescribeUserImportJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8412,10 +8289,7 @@ export async function deserializeAws_json1_1DescribeUserPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeUserPoolResponse(
-    data.DescribeUserPoolResponse,
-    context
-  );
+  contents = deserializeAws_json1_1DescribeUserPoolResponse(data, context);
   const response: DescribeUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserPoolResponse",
@@ -8434,7 +8308,7 @@ async function deserializeAws_json1_1DescribeUserPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8482,7 +8356,6 @@ async function deserializeAws_json1_1DescribeUserPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8505,7 +8378,7 @@ export async function deserializeAws_json1_1DescribeUserPoolClientCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserPoolClientResponse(
-    data.DescribeUserPoolClientResponse,
+    data,
     context
   );
   const response: DescribeUserPoolClientCommandOutput = {
@@ -8526,7 +8399,7 @@ async function deserializeAws_json1_1DescribeUserPoolClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8567,7 +8440,6 @@ async function deserializeAws_json1_1DescribeUserPoolClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8590,7 +8462,7 @@ export async function deserializeAws_json1_1DescribeUserPoolDomainCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserPoolDomainResponse(
-    data.DescribeUserPoolDomainResponse,
+    data,
     context
   );
   const response: DescribeUserPoolDomainCommandOutput = {
@@ -8611,7 +8483,7 @@ async function deserializeAws_json1_1DescribeUserPoolDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8645,7 +8517,6 @@ async function deserializeAws_json1_1DescribeUserPoolDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8678,7 +8549,7 @@ async function deserializeAws_json1_1ForgetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8747,7 +8618,6 @@ async function deserializeAws_json1_1ForgetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8766,10 +8636,7 @@ export async function deserializeAws_json1_1ForgotPasswordCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ForgotPasswordResponse(
-    data.ForgotPasswordResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ForgotPasswordResponse(data, context);
   const response: ForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ForgotPasswordResponse",
@@ -8788,7 +8655,7 @@ async function deserializeAws_json1_1ForgotPasswordCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8899,7 +8766,6 @@ async function deserializeAws_json1_1ForgotPasswordCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -8918,10 +8784,7 @@ export async function deserializeAws_json1_1GetCSVHeaderCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetCSVHeaderResponse(
-    data.GetCSVHeaderResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetCSVHeaderResponse(data, context);
   const response: GetCSVHeaderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCSVHeaderResponse",
@@ -8940,7 +8803,7 @@ async function deserializeAws_json1_1GetCSVHeaderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -8981,7 +8844,6 @@ async function deserializeAws_json1_1GetCSVHeaderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9000,10 +8862,7 @@ export async function deserializeAws_json1_1GetDeviceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetDeviceResponse(
-    data.GetDeviceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDeviceResponse",
@@ -9022,7 +8881,7 @@ async function deserializeAws_json1_1GetDeviceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9091,7 +8950,6 @@ async function deserializeAws_json1_1GetDeviceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9110,10 +8968,7 @@ export async function deserializeAws_json1_1GetGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetGroupResponse(
-    data.GetGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetGroupResponse(data, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGroupResponse",
@@ -9132,7 +8987,7 @@ async function deserializeAws_json1_1GetGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9173,7 +9028,6 @@ async function deserializeAws_json1_1GetGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9196,7 +9050,7 @@ export async function deserializeAws_json1_1GetIdentityProviderByIdentifierComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetIdentityProviderByIdentifierResponse(
-    data.GetIdentityProviderByIdentifierResponse,
+    data,
     context
   );
   const response: GetIdentityProviderByIdentifierCommandOutput = {
@@ -9217,7 +9071,7 @@ async function deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9258,7 +9112,6 @@ async function deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9280,10 +9133,7 @@ export async function deserializeAws_json1_1GetSigningCertificateCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSigningCertificateResponse(
-    data.GetSigningCertificateResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetSigningCertificateResponse(data, context);
   const response: GetSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSigningCertificateResponse",
@@ -9302,7 +9152,7 @@ async function deserializeAws_json1_1GetSigningCertificateCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9329,7 +9179,6 @@ async function deserializeAws_json1_1GetSigningCertificateCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9351,10 +9200,7 @@ export async function deserializeAws_json1_1GetUICustomizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUICustomizationResponse(
-    data.GetUICustomizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetUICustomizationResponse(data, context);
   const response: GetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUICustomizationResponse",
@@ -9373,7 +9219,7 @@ async function deserializeAws_json1_1GetUICustomizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9414,7 +9260,6 @@ async function deserializeAws_json1_1GetUICustomizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9433,10 +9278,7 @@ export async function deserializeAws_json1_1GetUserCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserResponse(
-    data.GetUserResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetUserResponse(data, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserResponse",
@@ -9455,7 +9297,7 @@ async function deserializeAws_json1_1GetUserCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9517,7 +9359,6 @@ async function deserializeAws_json1_1GetUserCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9540,7 +9381,7 @@ export async function deserializeAws_json1_1GetUserAttributeVerificationCodeComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetUserAttributeVerificationCodeResponse(
-    data.GetUserAttributeVerificationCodeResponse,
+    data,
     context
   );
   const response: GetUserAttributeVerificationCodeCommandOutput = {
@@ -9561,7 +9402,7 @@ async function deserializeAws_json1_1GetUserAttributeVerificationCodeCommandErro
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9679,7 +9520,6 @@ async function deserializeAws_json1_1GetUserAttributeVerificationCodeCommandErro
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9701,10 +9541,7 @@ export async function deserializeAws_json1_1GetUserPoolMfaConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetUserPoolMfaConfigResponse(
-    data.GetUserPoolMfaConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GetUserPoolMfaConfigResponse(data, context);
   const response: GetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetUserPoolMfaConfigResponse",
@@ -9723,7 +9560,7 @@ async function deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9764,7 +9601,6 @@ async function deserializeAws_json1_1GetUserPoolMfaConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9783,10 +9619,7 @@ export async function deserializeAws_json1_1GlobalSignOutCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GlobalSignOutResponse(
-    data.GlobalSignOutResponse,
-    context
-  );
+  contents = deserializeAws_json1_1GlobalSignOutResponse(data, context);
   const response: GlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GlobalSignOutResponse",
@@ -9805,7 +9638,7 @@ async function deserializeAws_json1_1GlobalSignOutCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -9860,7 +9693,6 @@ async function deserializeAws_json1_1GlobalSignOutCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -9879,10 +9711,7 @@ export async function deserializeAws_json1_1InitiateAuthCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1InitiateAuthResponse(
-    data.InitiateAuthResponse,
-    context
-  );
+  contents = deserializeAws_json1_1InitiateAuthResponse(data, context);
   const response: InitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitiateAuthResponse",
@@ -9901,7 +9730,7 @@ async function deserializeAws_json1_1InitiateAuthCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10005,7 +9834,6 @@ async function deserializeAws_json1_1InitiateAuthCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10024,10 +9852,7 @@ export async function deserializeAws_json1_1ListDevicesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListDevicesResponse(
-    data.ListDevicesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListDevicesResponse(data, context);
   const response: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDevicesResponse",
@@ -10046,7 +9871,7 @@ async function deserializeAws_json1_1ListDevicesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10115,7 +9940,6 @@ async function deserializeAws_json1_1ListDevicesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10134,10 +9958,7 @@ export async function deserializeAws_json1_1ListGroupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListGroupsResponse(
-    data.ListGroupsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGroupsResponse",
@@ -10156,7 +9977,7 @@ async function deserializeAws_json1_1ListGroupsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10197,7 +10018,6 @@ async function deserializeAws_json1_1ListGroupsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10219,10 +10039,7 @@ export async function deserializeAws_json1_1ListIdentityProvidersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListIdentityProvidersResponse(
-    data.ListIdentityProvidersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListIdentityProvidersResponse(data, context);
   const response: ListIdentityProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIdentityProvidersResponse",
@@ -10241,7 +10058,7 @@ async function deserializeAws_json1_1ListIdentityProvidersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10282,7 +10099,6 @@ async function deserializeAws_json1_1ListIdentityProvidersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10304,10 +10120,7 @@ export async function deserializeAws_json1_1ListResourceServersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListResourceServersResponse(
-    data.ListResourceServersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListResourceServersResponse(data, context);
   const response: ListResourceServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListResourceServersResponse",
@@ -10326,7 +10139,7 @@ async function deserializeAws_json1_1ListResourceServersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10367,7 +10180,6 @@ async function deserializeAws_json1_1ListResourceServersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10389,10 +10201,7 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListTagsForResourceResponse(
-    data.ListTagsForResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
@@ -10411,7 +10220,7 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10452,7 +10261,6 @@ async function deserializeAws_json1_1ListTagsForResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10474,10 +10282,7 @@ export async function deserializeAws_json1_1ListUserImportJobsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserImportJobsResponse(
-    data.ListUserImportJobsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUserImportJobsResponse(data, context);
   const response: ListUserImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserImportJobsResponse",
@@ -10496,7 +10301,7 @@ async function deserializeAws_json1_1ListUserImportJobsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10537,7 +10342,6 @@ async function deserializeAws_json1_1ListUserImportJobsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10559,10 +10363,7 @@ export async function deserializeAws_json1_1ListUserPoolClientsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserPoolClientsResponse(
-    data.ListUserPoolClientsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUserPoolClientsResponse(data, context);
   const response: ListUserPoolClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserPoolClientsResponse",
@@ -10581,7 +10382,7 @@ async function deserializeAws_json1_1ListUserPoolClientsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10622,7 +10423,6 @@ async function deserializeAws_json1_1ListUserPoolClientsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10641,10 +10441,7 @@ export async function deserializeAws_json1_1ListUserPoolsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUserPoolsResponse(
-    data.ListUserPoolsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUserPoolsResponse(data, context);
   const response: ListUserPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUserPoolsResponse",
@@ -10663,7 +10460,7 @@ async function deserializeAws_json1_1ListUserPoolsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10697,7 +10494,6 @@ async function deserializeAws_json1_1ListUserPoolsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10716,10 +10512,7 @@ export async function deserializeAws_json1_1ListUsersCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersResponse(
-    data.ListUsersResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersResponse",
@@ -10738,7 +10531,7 @@ async function deserializeAws_json1_1ListUsersCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10779,7 +10572,6 @@ async function deserializeAws_json1_1ListUsersCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10798,10 +10590,7 @@ export async function deserializeAws_json1_1ListUsersInGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListUsersInGroupResponse(
-    data.ListUsersInGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1ListUsersInGroupResponse(data, context);
   const response: ListUsersInGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersInGroupResponse",
@@ -10820,7 +10609,7 @@ async function deserializeAws_json1_1ListUsersInGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -10861,7 +10650,6 @@ async function deserializeAws_json1_1ListUsersInGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -10884,7 +10672,7 @@ export async function deserializeAws_json1_1ResendConfirmationCodeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ResendConfirmationCodeResponse(
-    data.ResendConfirmationCodeResponse,
+    data,
     context
   );
   const response: ResendConfirmationCodeCommandOutput = {
@@ -10905,7 +10693,7 @@ async function deserializeAws_json1_1ResendConfirmationCodeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11009,7 +10797,6 @@ async function deserializeAws_json1_1ResendConfirmationCodeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11032,7 +10819,7 @@ export async function deserializeAws_json1_1RespondToAuthChallengeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RespondToAuthChallengeResponse(
-    data.RespondToAuthChallengeResponse,
+    data,
     context
   );
   const response: RespondToAuthChallengeCommandOutput = {
@@ -11053,7 +10840,7 @@ async function deserializeAws_json1_1RespondToAuthChallengeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11199,7 +10986,6 @@ async function deserializeAws_json1_1RespondToAuthChallengeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11221,10 +11007,7 @@ export async function deserializeAws_json1_1SetRiskConfigurationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetRiskConfigurationResponse(
-    data.SetRiskConfigurationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetRiskConfigurationResponse(data, context);
   const response: SetRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetRiskConfigurationResponse",
@@ -11243,7 +11026,7 @@ async function deserializeAws_json1_1SetRiskConfigurationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11305,7 +11088,6 @@ async function deserializeAws_json1_1SetRiskConfigurationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11327,10 +11109,7 @@ export async function deserializeAws_json1_1SetUICustomizationCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUICustomizationResponse(
-    data.SetUICustomizationResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetUICustomizationResponse(data, context);
   const response: SetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUICustomizationResponse",
@@ -11349,7 +11128,7 @@ async function deserializeAws_json1_1SetUICustomizationCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11390,7 +11169,6 @@ async function deserializeAws_json1_1SetUICustomizationCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11412,10 +11190,7 @@ export async function deserializeAws_json1_1SetUserMFAPreferenceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserMFAPreferenceResponse(
-    data.SetUserMFAPreferenceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetUserMFAPreferenceResponse(data, context);
   const response: SetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserMFAPreferenceResponse",
@@ -11434,7 +11209,7 @@ async function deserializeAws_json1_1SetUserMFAPreferenceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11489,7 +11264,6 @@ async function deserializeAws_json1_1SetUserMFAPreferenceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11511,10 +11285,7 @@ export async function deserializeAws_json1_1SetUserPoolMfaConfigCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserPoolMfaConfigResponse(
-    data.SetUserPoolMfaConfigResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetUserPoolMfaConfigResponse(data, context);
   const response: SetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserPoolMfaConfigResponse",
@@ -11533,7 +11304,7 @@ async function deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11588,7 +11359,6 @@ async function deserializeAws_json1_1SetUserPoolMfaConfigCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11607,10 +11377,7 @@ export async function deserializeAws_json1_1SetUserSettingsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SetUserSettingsResponse(
-    data.SetUserSettingsResponse,
-    context
-  );
+  contents = deserializeAws_json1_1SetUserSettingsResponse(data, context);
   const response: SetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetUserSettingsResponse",
@@ -11629,7 +11396,7 @@ async function deserializeAws_json1_1SetUserSettingsCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11684,7 +11451,6 @@ async function deserializeAws_json1_1SetUserSettingsCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11703,7 +11469,7 @@ export async function deserializeAws_json1_1SignUpCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1SignUpResponse(data.SignUpResponse, context);
+  contents = deserializeAws_json1_1SignUpResponse(data, context);
   const response: SignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SignUpResponse",
@@ -11722,7 +11488,7 @@ async function deserializeAws_json1_1SignUpCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11826,7 +11592,6 @@ async function deserializeAws_json1_1SignUpCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11848,10 +11613,7 @@ export async function deserializeAws_json1_1StartUserImportJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StartUserImportJobResponse(
-    data.StartUserImportJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StartUserImportJobResponse(data, context);
   const response: StartUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartUserImportJobResponse",
@@ -11870,7 +11632,7 @@ async function deserializeAws_json1_1StartUserImportJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -11918,7 +11680,6 @@ async function deserializeAws_json1_1StartUserImportJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -11937,10 +11698,7 @@ export async function deserializeAws_json1_1StopUserImportJobCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1StopUserImportJobResponse(
-    data.StopUserImportJobResponse,
-    context
-  );
+  contents = deserializeAws_json1_1StopUserImportJobResponse(data, context);
   const response: StopUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopUserImportJobResponse",
@@ -11959,7 +11717,7 @@ async function deserializeAws_json1_1StopUserImportJobCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12007,7 +11765,6 @@ async function deserializeAws_json1_1StopUserImportJobCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12026,10 +11783,7 @@ export async function deserializeAws_json1_1TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1TagResourceResponse(
-    data.TagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
@@ -12048,7 +11802,7 @@ async function deserializeAws_json1_1TagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12089,7 +11843,6 @@ async function deserializeAws_json1_1TagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12108,10 +11861,7 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UntagResourceResponse(
-    data.UntagResourceResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
@@ -12130,7 +11880,7 @@ async function deserializeAws_json1_1UntagResourceCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12171,7 +11921,6 @@ async function deserializeAws_json1_1UntagResourceCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12194,7 +11943,7 @@ export async function deserializeAws_json1_1UpdateAuthEventFeedbackCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateAuthEventFeedbackResponse(
-    data.UpdateAuthEventFeedbackResponse,
+    data,
     context
   );
   const response: UpdateAuthEventFeedbackCommandOutput = {
@@ -12215,7 +11964,7 @@ async function deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12270,7 +12019,6 @@ async function deserializeAws_json1_1UpdateAuthEventFeedbackCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12292,10 +12040,7 @@ export async function deserializeAws_json1_1UpdateDeviceStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateDeviceStatusResponse(
-    data.UpdateDeviceStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateDeviceStatusResponse(data, context);
   const response: UpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDeviceStatusResponse",
@@ -12314,7 +12059,7 @@ async function deserializeAws_json1_1UpdateDeviceStatusCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12383,7 +12128,6 @@ async function deserializeAws_json1_1UpdateDeviceStatusCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12402,10 +12146,7 @@ export async function deserializeAws_json1_1UpdateGroupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateGroupResponse(
-    data.UpdateGroupResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateGroupResponse(data, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGroupResponse",
@@ -12424,7 +12165,7 @@ async function deserializeAws_json1_1UpdateGroupCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12465,7 +12206,6 @@ async function deserializeAws_json1_1UpdateGroupCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12488,7 +12228,7 @@ export async function deserializeAws_json1_1UpdateIdentityProviderCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateIdentityProviderResponse(
-    data.UpdateIdentityProviderResponse,
+    data,
     context
   );
   const response: UpdateIdentityProviderCommandOutput = {
@@ -12509,7 +12249,7 @@ async function deserializeAws_json1_1UpdateIdentityProviderCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12557,7 +12297,6 @@ async function deserializeAws_json1_1UpdateIdentityProviderCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12579,10 +12318,7 @@ export async function deserializeAws_json1_1UpdateResourceServerCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateResourceServerResponse(
-    data.UpdateResourceServerResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateResourceServerResponse(data, context);
   const response: UpdateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateResourceServerResponse",
@@ -12601,7 +12337,7 @@ async function deserializeAws_json1_1UpdateResourceServerCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12642,7 +12378,6 @@ async function deserializeAws_json1_1UpdateResourceServerCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12664,10 +12399,7 @@ export async function deserializeAws_json1_1UpdateUserAttributesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserAttributesResponse(
-    data.UpdateUserAttributesResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserAttributesResponse(data, context);
   const response: UpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserAttributesResponse",
@@ -12686,7 +12418,7 @@ async function deserializeAws_json1_1UpdateUserAttributesCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12818,7 +12550,6 @@ async function deserializeAws_json1_1UpdateUserAttributesCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12837,10 +12568,7 @@ export async function deserializeAws_json1_1UpdateUserPoolCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolResponse(
-    data.UpdateUserPoolResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserPoolResponse(data, context);
   const response: UpdateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolResponse",
@@ -12859,7 +12587,7 @@ async function deserializeAws_json1_1UpdateUserPoolCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -12942,7 +12670,6 @@ async function deserializeAws_json1_1UpdateUserPoolCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -12964,10 +12691,7 @@ export async function deserializeAws_json1_1UpdateUserPoolClientCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolClientResponse(
-    data.UpdateUserPoolClientResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserPoolClientResponse(data, context);
   const response: UpdateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolClientResponse",
@@ -12986,7 +12710,7 @@ async function deserializeAws_json1_1UpdateUserPoolClientCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13048,7 +12772,6 @@ async function deserializeAws_json1_1UpdateUserPoolClientCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -13070,10 +12793,7 @@ export async function deserializeAws_json1_1UpdateUserPoolDomainCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateUserPoolDomainResponse(
-    data.UpdateUserPoolDomainResponse,
-    context
-  );
+  contents = deserializeAws_json1_1UpdateUserPoolDomainResponse(data, context);
   const response: UpdateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserPoolDomainResponse",
@@ -13092,7 +12812,7 @@ async function deserializeAws_json1_1UpdateUserPoolDomainCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13133,7 +12853,6 @@ async function deserializeAws_json1_1UpdateUserPoolDomainCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -13155,10 +12874,7 @@ export async function deserializeAws_json1_1VerifySoftwareTokenCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifySoftwareTokenResponse(
-    data.VerifySoftwareTokenResponse,
-    context
-  );
+  contents = deserializeAws_json1_1VerifySoftwareTokenResponse(data, context);
   const response: VerifySoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifySoftwareTokenResponse",
@@ -13177,7 +12893,7 @@ async function deserializeAws_json1_1VerifySoftwareTokenCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13267,7 +12983,6 @@ async function deserializeAws_json1_1VerifySoftwareTokenCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
@@ -13289,10 +13004,7 @@ export async function deserializeAws_json1_1VerifyUserAttributeCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1VerifyUserAttributeResponse(
-    data.VerifyUserAttributeResponse,
-    context
-  );
+  contents = deserializeAws_json1_1VerifyUserAttributeResponse(data, context);
   const response: VerifyUserAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "VerifyUserAttributeResponse",
@@ -13311,7 +13023,7 @@ async function deserializeAws_json1_1VerifyUserAttributeCommandError(
     body: data
   };
   let response: __SmithyException & __MetadataBearer;
-  let errorCode: String;
+  let errorCode: String = "UnknownError";
   const errorTypeParts: String = data["__type"].split("#");
   errorCode =
     errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
@@ -13394,7 +13106,6 @@ async function deserializeAws_json1_1VerifyUserAttributeCommandError(
       );
       break;
     default:
-      errorCode = errorCode || "UnknownError";
       response = {
         __type: `com.amazonaws.cognito.identity.idp.model#${errorCode}`,
         $fault: "client",
