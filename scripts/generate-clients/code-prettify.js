@@ -1,7 +1,7 @@
 const path = require("path");
-const { CODE_GEN_OUTPUT_DIR } = require("./copy-to-clients");
 const { readdirSync } = require("fs");
 const { spawnProcess } = require("./code-gen");
+const { CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 
 const prettifyCode = async () => {
   for (const modelName of readdirSync(CODE_GEN_OUTPUT_DIR)) {

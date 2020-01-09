@@ -1,8 +1,9 @@
 const yargs = require("yargs");
 const path = require("path");
 const { emptyDirSync } = require("fs-extra");
-const { generateClients, CODE_GEN_INPUT_DIR } = require("./code-gen");
-const { copyToClients, CODE_GEN_OUTPUT_DIR } = require("./copy-to-clients");
+const { generateClients } = require("./code-gen");
+const { copyToClients } = require("./copy-to-clients");
+const { CODE_GEN_INPUT_DIR, CODE_GEN_OUTPUT_DIR } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 
 const CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
