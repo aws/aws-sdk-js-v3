@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  TextractClientResolvedConfig,
+  TextractClientResolvedConfig
 } from "../TextractClient";
 import {
   StartDocumentTextDetectionRequest,
-  StartDocumentTextDetectionResponse,
+  StartDocumentTextDetectionResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1StartDocumentTextDetectionCommand,
-  serializeAws_json1_1StartDocumentTextDetectionCommand,
+  serializeAws_json1_1StartDocumentTextDetectionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type StartDocumentTextDetectionCommandInput = StartDocumentTextDetectionRequest;
 export type StartDocumentTextDetectionCommandOutput = StartDocumentTextDetectionResponse;
 
-export class StartDocumentTextDetectionCommand extends $Command<StartDocumentTextDetectionCommandInput, StartDocumentTextDetectionCommandOutput, TextractClientResolvedConfig> {
+export class StartDocumentTextDetectionCommand extends $Command<
+  StartDocumentTextDetectionCommandInput,
+  StartDocumentTextDetectionCommandOutput,
+  TextractClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class StartDocumentTextDetectionCommand extends $Command<StartDocumentTex
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TextractClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartDocumentTextDetectionCommandInput, StartDocumentTextDetectionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    StartDocumentTextDetectionCommandInput,
+    StartDocumentTextDetectionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class StartDocumentTextDetectionCommand extends $Command<StartDocumentTex
     input: StartDocumentTextDetectionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1StartDocumentTextDetectionCommand(input, context);
+    return serializeAws_json1_1StartDocumentTextDetectionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<StartDocumentTextDetectionCommandOutput> {
-    return deserializeAws_json1_1StartDocumentTextDetectionCommand(output, context);
+    return deserializeAws_json1_1StartDocumentTextDetectionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

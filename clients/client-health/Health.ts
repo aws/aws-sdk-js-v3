@@ -2,32 +2,32 @@ import { HealthClient } from "./HealthClient";
 import {
   DescribeAffectedEntitiesCommand,
   DescribeAffectedEntitiesCommandInput,
-  DescribeAffectedEntitiesCommandOutput,
+  DescribeAffectedEntitiesCommandOutput
 } from "./commands/DescribeAffectedEntitiesCommand";
 import {
   DescribeEntityAggregatesCommand,
   DescribeEntityAggregatesCommandInput,
-  DescribeEntityAggregatesCommandOutput,
+  DescribeEntityAggregatesCommandOutput
 } from "./commands/DescribeEntityAggregatesCommand";
 import {
   DescribeEventAggregatesCommand,
   DescribeEventAggregatesCommandInput,
-  DescribeEventAggregatesCommandOutput,
+  DescribeEventAggregatesCommandOutput
 } from "./commands/DescribeEventAggregatesCommand";
 import {
   DescribeEventDetailsCommand,
   DescribeEventDetailsCommandInput,
-  DescribeEventDetailsCommandOutput,
+  DescribeEventDetailsCommandOutput
 } from "./commands/DescribeEventDetailsCommand";
 import {
   DescribeEventTypesCommand,
   DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput,
+  DescribeEventTypesCommandOutput
 } from "./commands/DescribeEventTypesCommand";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
+  DescribeEventsCommandOutput
 } from "./commands/DescribeEventsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -94,7 +94,7 @@ export class Health extends HealthClient {
    */
   public describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAffectedEntitiesCommandOutput>;
   public describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
@@ -107,16 +107,18 @@ export class Health extends HealthClient {
   ): void;
   public describeAffectedEntities(
     args: DescribeAffectedEntitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAffectedEntitiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAffectedEntitiesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAffectedEntitiesCommandOutput) => void
   ): Promise<DescribeAffectedEntitiesCommandOutput> | void {
     const command = new DescribeAffectedEntitiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -129,7 +131,7 @@ export class Health extends HealthClient {
    */
   public describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEntityAggregatesCommandOutput>;
   public describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
@@ -142,16 +144,18 @@ export class Health extends HealthClient {
   ): void;
   public describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEntityAggregatesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEntityAggregatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEntityAggregatesCommandOutput) => void
   ): Promise<DescribeEntityAggregatesCommandOutput> | void {
     const command = new DescribeEntityAggregatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -164,7 +168,7 @@ export class Health extends HealthClient {
    */
   public describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventAggregatesCommandOutput>;
   public describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
@@ -177,16 +181,18 @@ export class Health extends HealthClient {
   ): void;
   public describeEventAggregates(
     args: DescribeEventAggregatesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventAggregatesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventAggregatesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventAggregatesCommandOutput) => void
   ): Promise<DescribeEventAggregatesCommandOutput> | void {
     const command = new DescribeEventAggregatesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -200,7 +206,7 @@ export class Health extends HealthClient {
    */
   public describeEventDetails(
     args: DescribeEventDetailsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventDetailsCommandOutput>;
   public describeEventDetails(
     args: DescribeEventDetailsCommandInput,
@@ -213,16 +219,18 @@ export class Health extends HealthClient {
   ): void;
   public describeEventDetails(
     args: DescribeEventDetailsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventDetailsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventDetailsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventDetailsCommandOutput) => void
   ): Promise<DescribeEventDetailsCommandOutput> | void {
     const command = new DescribeEventDetailsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -235,7 +243,7 @@ export class Health extends HealthClient {
    */
   public describeEventTypes(
     args: DescribeEventTypesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventTypesCommandOutput>;
   public describeEventTypes(
     args: DescribeEventTypesCommandInput,
@@ -248,16 +256,18 @@ export class Health extends HealthClient {
   ): void;
   public describeEventTypes(
     args: DescribeEventTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventTypesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventTypesCommandOutput) => void
   ): Promise<DescribeEventTypesCommandOutput> | void {
     const command = new DescribeEventTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -271,7 +281,7 @@ export class Health extends HealthClient {
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -284,19 +294,20 @@ export class Health extends HealthClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

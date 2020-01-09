@@ -10,7 +10,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             information.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -31,7 +33,9 @@ export namespace BadRequestException {
  *             running at the same time. Resend the second request later.</p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -281,7 +285,9 @@ export namespace GetVocabularyResponse {
  *             again.</p>
  *
  */
-export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   Message?: string;
@@ -324,7 +330,7 @@ export enum LanguageCode {
   TA_IN = "ta-IN",
   TE_IN = "te-IN",
   TR_TR = "tr-TR",
-  ZH_CN = "zh-CN",
+  ZH_CN = "zh-CN"
 }
 
 /**
@@ -333,7 +339,9 @@ export enum LanguageCode {
  *             resend your request, or use a smaller file and resend the request.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -538,7 +546,7 @@ export enum MediaFormat {
   FLAC = "flac",
   MP3 = "mp3",
   MP4 = "mp4",
-  WAV = "wav",
+  WAV = "wav"
 }
 
 /**
@@ -547,7 +555,9 @@ export enum MediaFormat {
  *             again.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -561,7 +571,7 @@ export namespace NotFoundException {
 
 export enum OutputLocationType {
   CUSTOMER_BUCKET = "CUSTOMER_BUCKET",
-  SERVICE_BUCKET = "SERVICE_BUCKET",
+  SERVICE_BUCKET = "SERVICE_BUCKET"
 }
 
 /**
@@ -937,7 +947,7 @@ export namespace TranscriptionJob {
 export enum TranscriptionJobStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -1147,5 +1157,5 @@ export namespace VocabularyInfo {
 export enum VocabularyState {
   FAILED = "FAILED",
   PENDING = "PENDING",
-  READY = "READY",
+  READY = "READY"
 }

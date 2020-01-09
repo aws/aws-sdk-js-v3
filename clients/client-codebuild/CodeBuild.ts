@@ -2,147 +2,147 @@ import { CodeBuildClient } from "./CodeBuildClient";
 import {
   BatchDeleteBuildsCommand,
   BatchDeleteBuildsCommandInput,
-  BatchDeleteBuildsCommandOutput,
+  BatchDeleteBuildsCommandOutput
 } from "./commands/BatchDeleteBuildsCommand";
 import {
   BatchGetBuildsCommand,
   BatchGetBuildsCommandInput,
-  BatchGetBuildsCommandOutput,
+  BatchGetBuildsCommandOutput
 } from "./commands/BatchGetBuildsCommand";
 import {
   BatchGetProjectsCommand,
   BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput,
+  BatchGetProjectsCommandOutput
 } from "./commands/BatchGetProjectsCommand";
 import {
   BatchGetReportGroupsCommand,
   BatchGetReportGroupsCommandInput,
-  BatchGetReportGroupsCommandOutput,
+  BatchGetReportGroupsCommandOutput
 } from "./commands/BatchGetReportGroupsCommand";
 import {
   BatchGetReportsCommand,
   BatchGetReportsCommandInput,
-  BatchGetReportsCommandOutput,
+  BatchGetReportsCommandOutput
 } from "./commands/BatchGetReportsCommand";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput,
+  CreateProjectCommandOutput
 } from "./commands/CreateProjectCommand";
 import {
   CreateReportGroupCommand,
   CreateReportGroupCommandInput,
-  CreateReportGroupCommandOutput,
+  CreateReportGroupCommandOutput
 } from "./commands/CreateReportGroupCommand";
 import {
   CreateWebhookCommand,
   CreateWebhookCommandInput,
-  CreateWebhookCommandOutput,
+  CreateWebhookCommandOutput
 } from "./commands/CreateWebhookCommand";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
+  DeleteProjectCommandOutput
 } from "./commands/DeleteProjectCommand";
 import {
   DeleteReportCommand,
   DeleteReportCommandInput,
-  DeleteReportCommandOutput,
+  DeleteReportCommandOutput
 } from "./commands/DeleteReportCommand";
 import {
   DeleteReportGroupCommand,
   DeleteReportGroupCommandInput,
-  DeleteReportGroupCommandOutput,
+  DeleteReportGroupCommandOutput
 } from "./commands/DeleteReportGroupCommand";
 import {
   DeleteSourceCredentialsCommand,
   DeleteSourceCredentialsCommandInput,
-  DeleteSourceCredentialsCommandOutput,
+  DeleteSourceCredentialsCommandOutput
 } from "./commands/DeleteSourceCredentialsCommand";
 import {
   DeleteWebhookCommand,
   DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput,
+  DeleteWebhookCommandOutput
 } from "./commands/DeleteWebhookCommand";
 import {
   DescribeTestCasesCommand,
   DescribeTestCasesCommandInput,
-  DescribeTestCasesCommandOutput,
+  DescribeTestCasesCommandOutput
 } from "./commands/DescribeTestCasesCommand";
 import {
   ImportSourceCredentialsCommand,
   ImportSourceCredentialsCommandInput,
-  ImportSourceCredentialsCommandOutput,
+  ImportSourceCredentialsCommandOutput
 } from "./commands/ImportSourceCredentialsCommand";
 import {
   InvalidateProjectCacheCommand,
   InvalidateProjectCacheCommandInput,
-  InvalidateProjectCacheCommandOutput,
+  InvalidateProjectCacheCommandOutput
 } from "./commands/InvalidateProjectCacheCommand";
 import {
   ListBuildsCommand,
   ListBuildsCommandInput,
-  ListBuildsCommandOutput,
+  ListBuildsCommandOutput
 } from "./commands/ListBuildsCommand";
 import {
   ListBuildsForProjectCommand,
   ListBuildsForProjectCommandInput,
-  ListBuildsForProjectCommandOutput,
+  ListBuildsForProjectCommandOutput
 } from "./commands/ListBuildsForProjectCommand";
 import {
   ListCuratedEnvironmentImagesCommand,
   ListCuratedEnvironmentImagesCommandInput,
-  ListCuratedEnvironmentImagesCommandOutput,
+  ListCuratedEnvironmentImagesCommandOutput
 } from "./commands/ListCuratedEnvironmentImagesCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
-  ListProjectsCommandOutput,
+  ListProjectsCommandOutput
 } from "./commands/ListProjectsCommand";
 import {
   ListReportGroupsCommand,
   ListReportGroupsCommandInput,
-  ListReportGroupsCommandOutput,
+  ListReportGroupsCommandOutput
 } from "./commands/ListReportGroupsCommand";
 import {
   ListReportsCommand,
   ListReportsCommandInput,
-  ListReportsCommandOutput,
+  ListReportsCommandOutput
 } from "./commands/ListReportsCommand";
 import {
   ListReportsForReportGroupCommand,
   ListReportsForReportGroupCommandInput,
-  ListReportsForReportGroupCommandOutput,
+  ListReportsForReportGroupCommandOutput
 } from "./commands/ListReportsForReportGroupCommand";
 import {
   ListSourceCredentialsCommand,
   ListSourceCredentialsCommandInput,
-  ListSourceCredentialsCommandOutput,
+  ListSourceCredentialsCommandOutput
 } from "./commands/ListSourceCredentialsCommand";
 import {
   StartBuildCommand,
   StartBuildCommandInput,
-  StartBuildCommandOutput,
+  StartBuildCommandOutput
 } from "./commands/StartBuildCommand";
 import {
   StopBuildCommand,
   StopBuildCommandInput,
-  StopBuildCommandOutput,
+  StopBuildCommandOutput
 } from "./commands/StopBuildCommand";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
-  UpdateProjectCommandOutput,
+  UpdateProjectCommandOutput
 } from "./commands/UpdateProjectCommand";
 import {
   UpdateReportGroupCommand,
   UpdateReportGroupCommandInput,
-  UpdateReportGroupCommandOutput,
+  UpdateReportGroupCommandOutput
 } from "./commands/UpdateReportGroupCommand";
 import {
   UpdateWebhookCommand,
   UpdateWebhookCommandInput,
-  UpdateWebhookCommandOutput,
+  UpdateWebhookCommandOutput
 } from "./commands/UpdateWebhookCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -315,7 +315,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public batchDeleteBuilds(
     args: BatchDeleteBuildsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchDeleteBuildsCommandOutput>;
   public batchDeleteBuilds(
     args: BatchDeleteBuildsCommandInput,
@@ -328,16 +328,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchDeleteBuilds(
     args: BatchDeleteBuildsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteBuildsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchDeleteBuildsCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteBuildsCommandOutput) => void
   ): Promise<BatchDeleteBuildsCommandOutput> | void {
     const command = new BatchDeleteBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -350,7 +352,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetBuildsCommandOutput>;
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
@@ -363,16 +365,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetBuilds(
     args: BatchGetBuildsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetBuildsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetBuildsCommandOutput) => void
   ): Promise<BatchGetBuildsCommandOutput> | void {
     const command = new BatchGetBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -385,7 +389,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetProjectsCommandOutput>;
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
@@ -398,16 +402,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetProjects(
     args: BatchGetProjectsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetProjectsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetProjectsCommandOutput) => void
   ): Promise<BatchGetProjectsCommandOutput> | void {
     const command = new BatchGetProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -422,7 +428,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetReportGroupsCommandOutput>;
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
@@ -435,16 +441,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetReportGroups(
     args: BatchGetReportGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetReportGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetReportGroupsCommandOutput) => void
   ): Promise<BatchGetReportGroupsCommandOutput> | void {
     const command = new BatchGetReportGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -459,7 +467,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public batchGetReports(
     args: BatchGetReportsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetReportsCommandOutput>;
   public batchGetReports(
     args: BatchGetReportsCommandInput,
@@ -472,16 +480,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public batchGetReports(
     args: BatchGetReportsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetReportsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetReportsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetReportsCommandOutput) => void
   ): Promise<BatchGetReportsCommandOutput> | void {
     const command = new BatchGetReportsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -494,7 +504,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateProjectCommandOutput>;
   public createProject(
     args: CreateProjectCommandInput,
@@ -507,16 +517,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -531,7 +543,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public createReportGroup(
     args: CreateReportGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateReportGroupCommandOutput>;
   public createReportGroup(
     args: CreateReportGroupCommandInput,
@@ -544,16 +556,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createReportGroup(
     args: CreateReportGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateReportGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateReportGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateReportGroupCommandOutput) => void
   ): Promise<CreateReportGroupCommandOutput> | void {
     const command = new CreateReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -577,7 +591,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public createWebhook(
     args: CreateWebhookCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateWebhookCommandOutput>;
   public createWebhook(
     args: CreateWebhookCommandInput,
@@ -590,16 +604,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public createWebhook(
     args: CreateWebhookCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebhookCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateWebhookCommandOutput) => void),
     cb?: (err: any, data?: CreateWebhookCommandOutput) => void
   ): Promise<CreateWebhookCommandOutput> | void {
     const command = new CreateWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -615,7 +631,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public deleteProject(
     args: DeleteProjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteProjectCommandOutput>;
   public deleteProject(
     args: DeleteProjectCommandInput,
@@ -628,16 +644,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteProject(
     args: DeleteProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteProjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteProjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteProjectCommandOutput) => void
   ): Promise<DeleteProjectCommandOutput> | void {
     const command = new DeleteProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -652,7 +670,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public deleteReport(
     args: DeleteReportCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteReportCommandOutput>;
   public deleteReport(
     args: DeleteReportCommandInput,
@@ -665,16 +683,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteReport(
     args: DeleteReportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteReportCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportCommandOutput) => void
   ): Promise<DeleteReportCommandOutput> | void {
     const command = new DeleteReportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -692,7 +712,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteReportGroupCommandOutput>;
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
@@ -705,16 +725,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteReportGroup(
     args: DeleteReportGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteReportGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteReportGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteReportGroupCommandOutput) => void
   ): Promise<DeleteReportGroupCommandOutput> | void {
     const command = new DeleteReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -729,7 +751,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSourceCredentialsCommandOutput>;
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
@@ -742,16 +764,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteSourceCredentials(
     args: DeleteSourceCredentialsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSourceCredentialsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: DeleteSourceCredentialsCommandOutput) => void
   ): Promise<DeleteSourceCredentialsCommandOutput> | void {
     const command = new DeleteSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -766,7 +790,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteWebhookCommandOutput>;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
@@ -779,16 +803,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public deleteWebhook(
     args: DeleteWebhookCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebhookCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteWebhookCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebhookCommandOutput) => void
   ): Promise<DeleteWebhookCommandOutput> | void {
     const command = new DeleteWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -803,7 +829,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTestCasesCommandOutput>;
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
@@ -816,16 +842,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public describeTestCases(
     args: DescribeTestCasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTestCasesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTestCasesCommandOutput) => void),
     cb?: (err: any, data?: DescribeTestCasesCommandOutput) => void
   ): Promise<DescribeTestCasesCommandOutput> | void {
     const command = new DescribeTestCasesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -841,7 +869,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ImportSourceCredentialsCommandOutput>;
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
@@ -854,16 +882,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public importSourceCredentials(
     args: ImportSourceCredentialsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportSourceCredentialsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ImportSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ImportSourceCredentialsCommandOutput) => void
   ): Promise<ImportSourceCredentialsCommandOutput> | void {
     const command = new ImportSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -876,7 +906,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public invalidateProjectCache(
     args: InvalidateProjectCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InvalidateProjectCacheCommandOutput>;
   public invalidateProjectCache(
     args: InvalidateProjectCacheCommandInput,
@@ -889,16 +919,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public invalidateProjectCache(
     args: InvalidateProjectCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvalidateProjectCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InvalidateProjectCacheCommandOutput) => void),
     cb?: (err: any, data?: InvalidateProjectCacheCommandOutput) => void
   ): Promise<InvalidateProjectCacheCommandOutput> | void {
     const command = new InvalidateProjectCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -911,7 +943,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listBuilds(
     args: ListBuildsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListBuildsCommandOutput>;
   public listBuilds(
     args: ListBuildsCommandInput,
@@ -924,16 +956,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listBuilds(
     args: ListBuildsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBuildsCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsCommandOutput) => void
   ): Promise<ListBuildsCommandOutput> | void {
     const command = new ListBuildsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -947,7 +981,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListBuildsForProjectCommandOutput>;
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
@@ -960,16 +994,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listBuildsForProject(
     args: ListBuildsForProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBuildsForProjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBuildsForProjectCommandOutput) => void),
     cb?: (err: any, data?: ListBuildsForProjectCommandOutput) => void
   ): Promise<ListBuildsForProjectCommandOutput> | void {
     const command = new ListBuildsForProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -982,7 +1018,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCuratedEnvironmentImagesCommandOutput>;
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
@@ -995,16 +1031,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void),
     cb?: (err: any, data?: ListCuratedEnvironmentImagesCommandOutput) => void
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> | void {
     const command = new ListCuratedEnvironmentImagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1018,7 +1056,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listProjects(
     args: ListProjectsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListProjectsCommandOutput>;
   public listProjects(
     args: ListProjectsCommandInput,
@@ -1031,16 +1069,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listProjects(
     args: ListProjectsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProjectsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProjectsCommandOutput) => void),
     cb?: (err: any, data?: ListProjectsCommandOutput) => void
   ): Promise<ListProjectsCommandOutput> | void {
     const command = new ListProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1055,7 +1095,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listReportGroups(
     args: ListReportGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListReportGroupsCommandOutput>;
   public listReportGroups(
     args: ListReportGroupsCommandInput,
@@ -1068,16 +1108,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReportGroups(
     args: ListReportGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListReportGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListReportGroupsCommandOutput) => void
   ): Promise<ListReportGroupsCommandOutput> | void {
     const command = new ListReportGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1092,7 +1134,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listReports(
     args: ListReportsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListReportsCommandOutput>;
   public listReports(
     args: ListReportsCommandInput,
@@ -1105,16 +1147,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReports(
     args: ListReportsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListReportsCommandOutput) => void),
     cb?: (err: any, data?: ListReportsCommandOutput) => void
   ): Promise<ListReportsCommandOutput> | void {
     const command = new ListReportsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1129,7 +1173,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListReportsForReportGroupCommandOutput>;
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
@@ -1142,16 +1186,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listReportsForReportGroup(
     args: ListReportsForReportGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReportsForReportGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListReportsForReportGroupCommandOutput) => void),
     cb?: (err: any, data?: ListReportsForReportGroupCommandOutput) => void
   ): Promise<ListReportsForReportGroupCommandOutput> | void {
     const command = new ListReportsForReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1166,7 +1212,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSourceCredentialsCommandOutput>;
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
@@ -1179,16 +1225,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSourceCredentialsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSourceCredentialsCommandOutput) => void),
     cb?: (err: any, data?: ListSourceCredentialsCommandOutput) => void
   ): Promise<ListSourceCredentialsCommandOutput> | void {
     const command = new ListSourceCredentialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1201,7 +1249,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public startBuild(
     args: StartBuildCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartBuildCommandOutput>;
   public startBuild(
     args: StartBuildCommandInput,
@@ -1214,16 +1262,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public startBuild(
     args: StartBuildCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartBuildCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartBuildCommandOutput) => void),
     cb?: (err: any, data?: StartBuildCommandOutput) => void
   ): Promise<StartBuildCommandOutput> | void {
     const command = new StartBuildCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1236,7 +1286,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public stopBuild(
     args: StopBuildCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopBuildCommandOutput>;
   public stopBuild(
     args: StopBuildCommandInput,
@@ -1249,16 +1299,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public stopBuild(
     args: StopBuildCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopBuildCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopBuildCommandOutput) => void),
     cb?: (err: any, data?: StopBuildCommandOutput) => void
   ): Promise<StopBuildCommandOutput> | void {
     const command = new StopBuildCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1271,7 +1323,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public updateProject(
     args: UpdateProjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateProjectCommandOutput>;
   public updateProject(
     args: UpdateProjectCommandInput,
@@ -1284,16 +1336,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateProject(
     args: UpdateProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateProjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateProjectCommandOutput) => void),
     cb?: (err: any, data?: UpdateProjectCommandOutput) => void
   ): Promise<UpdateProjectCommandOutput> | void {
     const command = new UpdateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1308,7 +1362,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateReportGroupCommandOutput>;
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
@@ -1321,16 +1375,18 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateReportGroup(
     args: UpdateReportGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateReportGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateReportGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateReportGroupCommandOutput) => void
   ): Promise<UpdateReportGroupCommandOutput> | void {
     const command = new UpdateReportGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1347,7 +1403,7 @@ export class CodeBuild extends CodeBuildClient {
    */
   public updateWebhook(
     args: UpdateWebhookCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateWebhookCommandOutput>;
   public updateWebhook(
     args: UpdateWebhookCommandInput,
@@ -1360,19 +1416,20 @@ export class CodeBuild extends CodeBuildClient {
   ): void;
   public updateWebhook(
     args: UpdateWebhookCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebhookCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateWebhookCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebhookCommandOutput) => void
   ): Promise<UpdateWebhookCommandOutput> | void {
     const command = new UpdateWebhookCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -1,20 +1,20 @@
 import {
   SecretsManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SecretsManagerClient";
 import {
   DeleteResourcePolicyRequest,
-  DeleteResourcePolicyResponse,
+  DeleteResourcePolicyResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteResourcePolicyCommand,
-  serializeAws_json1_1DeleteResourcePolicyCommand,
+  serializeAws_json1_1DeleteResourcePolicyCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteResourcePolicyCommandInput = DeleteResourcePolicyRequest;
 export type DeleteResourcePolicyCommandOutput = DeleteResourcePolicyResponse;
 
-export class DeleteResourcePolicyCommand extends $Command<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput, SecretsManagerClientResolvedConfig> {
+export class DeleteResourcePolicyCommand extends $Command<
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+  SecretsManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteResourcePolicyCommand extends $Command<DeleteResourcePolicyCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecretsManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteResourcePolicyCommandInput,
+    DeleteResourcePolicyCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

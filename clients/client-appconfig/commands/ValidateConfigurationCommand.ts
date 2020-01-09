@@ -1,17 +1,17 @@
 import {
   AppConfigClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppConfigClient";
 import { ValidateConfigurationRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1ValidateConfigurationCommand,
-  serializeAws_restJson1_1ValidateConfigurationCommand,
+  serializeAws_restJson1_1ValidateConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type ValidateConfigurationCommandInput = ValidateConfigurationRequest;
-export type ValidateConfigurationCommandOutput = __MetadataBearer
+export type ValidateConfigurationCommandOutput = __MetadataBearer;
 
-export class ValidateConfigurationCommand extends $Command<ValidateConfigurationCommandInput, ValidateConfigurationCommandOutput, AppConfigClientResolvedConfig> {
+export class ValidateConfigurationCommand extends $Command<
+  ValidateConfigurationCommandInput,
+  ValidateConfigurationCommandOutput,
+  AppConfigClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class ValidateConfigurationCommand extends $Command<ValidateConfiguration
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ValidateConfigurationCommandInput, ValidateConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ValidateConfigurationCommandInput,
+    ValidateConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class ValidateConfigurationCommand extends $Command<ValidateConfiguration
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ValidateConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1ValidateConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1ValidateConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

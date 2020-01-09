@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The target request is invalid.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   className?: string;
@@ -25,7 +27,9 @@ export namespace BadRequestException {
  *          <p>A conflict occurred.</p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   className?: string;
@@ -548,7 +552,7 @@ export enum EnvironmentLifecycleStatus {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
   DELETE_FAILED = "DELETE_FAILED",
-  DELETING = "DELETING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -621,12 +625,12 @@ export enum EnvironmentStatus {
   ERROR = "error",
   READY = "ready",
   STOPPED = "stopped",
-  STOPPING = "stopping",
+  STOPPING = "stopping"
 }
 
 export enum EnvironmentType {
   EC2 = "ec2",
-  SSH = "ssh",
+  SSH = "ssh"
 }
 
 /**
@@ -634,7 +638,9 @@ export enum EnvironmentType {
  *          <p>An access permissions issue occurred.</p>
  *
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   className?: string;
@@ -653,7 +659,9 @@ export namespace ForbiddenException {
  *          <p>An internal server error occurred.</p>
  *
  */
-export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   className?: string;
@@ -672,7 +680,9 @@ export namespace InternalServerErrorException {
  *          <p>A service limit was exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   className?: string;
@@ -734,7 +744,7 @@ export namespace ListEnvironmentsResult {
 
 export enum MemberPermissions {
   READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
+  READ_WRITE = "read-write"
 }
 
 /**
@@ -742,7 +752,9 @@ export enum MemberPermissions {
  *          <p>The target resource cannot be found.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   className?: string;
@@ -759,7 +771,7 @@ export namespace NotFoundException {
 export enum Permissions {
   OWNER = "owner",
   READ_ONLY = "read-only",
-  READ_WRITE = "read-write",
+  READ_WRITE = "read-write"
 }
 
 /**
@@ -767,7 +779,9 @@ export enum Permissions {
  *          <p>Too many service requests were made over the given time period.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   className?: string;

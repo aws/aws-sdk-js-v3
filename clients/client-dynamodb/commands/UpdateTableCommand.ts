@@ -1,20 +1,17 @@
 import {
   DynamoDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DynamoDBClient";
-import {
-  UpdateTableInput,
-  UpdateTableOutput,
-} from "../models/index";
+import { UpdateTableInput, UpdateTableOutput } from "../models/index";
 import {
   deserializeAws_json1_0UpdateTableCommand,
-  serializeAws_json1_0UpdateTableCommand,
+  serializeAws_json1_0UpdateTableCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateTableCommandInput = UpdateTableInput;
 export type UpdateTableCommandOutput = UpdateTableOutput;
 
-export class UpdateTableCommand extends $Command<UpdateTableCommandInput, UpdateTableCommandOutput, DynamoDBClientResolvedConfig> {
+export class UpdateTableCommand extends $Command<
+  UpdateTableCommandInput,
+  UpdateTableCommandOutput,
+  DynamoDBClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateTableCommand extends $Command<UpdateTableCommandInput, Update
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateTableCommandInput, UpdateTableCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

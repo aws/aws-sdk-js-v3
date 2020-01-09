@@ -38,7 +38,9 @@ export namespace GetRawMessageContentResponse {
  *          <p>The requested email message is not found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

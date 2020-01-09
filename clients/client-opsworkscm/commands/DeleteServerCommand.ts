@@ -1,20 +1,17 @@
 import {
   OpsWorksCMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksCMClient";
-import {
-  DeleteServerRequest,
-  DeleteServerResponse,
-} from "../models/index";
+import { DeleteServerRequest, DeleteServerResponse } from "../models/index";
 import {
   deserializeAws_json1_1DeleteServerCommand,
-  serializeAws_json1_1DeleteServerCommand,
+  serializeAws_json1_1DeleteServerCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteServerCommandInput = DeleteServerRequest;
 export type DeleteServerCommandOutput = DeleteServerResponse;
 
-export class DeleteServerCommand extends $Command<DeleteServerCommandInput, DeleteServerCommandOutput, OpsWorksCMClientResolvedConfig> {
+export class DeleteServerCommand extends $Command<
+  DeleteServerCommandInput,
+  DeleteServerCommandOutput,
+  OpsWorksCMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class DeleteServerCommand extends $Command<DeleteServerCommandInput, Dele
     configuration: OpsWorksCMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteServerCommandInput, DeleteServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

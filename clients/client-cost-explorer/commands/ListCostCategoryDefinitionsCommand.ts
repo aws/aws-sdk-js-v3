@@ -1,20 +1,20 @@
 import {
   CostExplorerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CostExplorerClient";
 import {
   ListCostCategoryDefinitionsRequest,
-  ListCostCategoryDefinitionsResponse,
+  ListCostCategoryDefinitionsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListCostCategoryDefinitionsCommand,
-  serializeAws_json1_1ListCostCategoryDefinitionsCommand,
+  serializeAws_json1_1ListCostCategoryDefinitionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListCostCategoryDefinitionsCommandInput = ListCostCategoryDefinitionsRequest;
 export type ListCostCategoryDefinitionsCommandOutput = ListCostCategoryDefinitionsResponse;
 
-export class ListCostCategoryDefinitionsCommand extends $Command<ListCostCategoryDefinitionsCommandInput, ListCostCategoryDefinitionsCommandOutput, CostExplorerClientResolvedConfig> {
+export class ListCostCategoryDefinitionsCommand extends $Command<
+  ListCostCategoryDefinitionsCommandInput,
+  ListCostCategoryDefinitionsCommandOutput,
+  CostExplorerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListCostCategoryDefinitionsCommand extends $Command<ListCostCategor
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListCostCategoryDefinitionsCommandInput, ListCostCategoryDefinitionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListCostCategoryDefinitionsCommandInput,
+    ListCostCategoryDefinitionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListCostCategoryDefinitionsCommand extends $Command<ListCostCategor
     input: ListCostCategoryDefinitionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCostCategoryDefinitionsCommand(input, context);
+    return serializeAws_json1_1ListCostCategoryDefinitionsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListCostCategoryDefinitionsCommandOutput> {
-    return deserializeAws_json1_1ListCostCategoryDefinitionsCommand(output, context);
+    return deserializeAws_json1_1ListCostCategoryDefinitionsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

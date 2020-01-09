@@ -1,20 +1,17 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  SearchRoomsRequest,
-  SearchRoomsResponse,
-} from "../models/index";
+import { SearchRoomsRequest, SearchRoomsResponse } from "../models/index";
 import {
   deserializeAws_json1_1SearchRoomsCommand,
-  serializeAws_json1_1SearchRoomsCommand,
+  serializeAws_json1_1SearchRoomsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type SearchRoomsCommandInput = SearchRoomsRequest;
 export type SearchRoomsCommandOutput = SearchRoomsResponse;
 
-export class SearchRoomsCommand extends $Command<SearchRoomsCommandInput, SearchRoomsCommandOutput, AlexaForBusinessClientResolvedConfig> {
+export class SearchRoomsCommand extends $Command<
+  SearchRoomsCommandInput,
+  SearchRoomsCommandOutput,
+  AlexaForBusinessClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class SearchRoomsCommand extends $Command<SearchRoomsCommandInput, Search
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SearchRoomsCommandInput, SearchRoomsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   DescribePatchGroupsRequest,
-  DescribePatchGroupsResult,
+  DescribePatchGroupsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribePatchGroupsCommand,
-  serializeAws_json1_1DescribePatchGroupsCommand,
+  serializeAws_json1_1DescribePatchGroupsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribePatchGroupsCommandInput = DescribePatchGroupsRequest;
 export type DescribePatchGroupsCommandOutput = DescribePatchGroupsResult;
 
-export class DescribePatchGroupsCommand extends $Command<DescribePatchGroupsCommandInput, DescribePatchGroupsCommandOutput, SSMClientResolvedConfig> {
+export class DescribePatchGroupsCommand extends $Command<
+  DescribePatchGroupsCommandInput,
+  DescribePatchGroupsCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribePatchGroupsCommand extends $Command<DescribePatchGroupsComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePatchGroupsCommandInput, DescribePatchGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribePatchGroupsCommandInput,
+    DescribePatchGroupsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

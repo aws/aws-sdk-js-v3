@@ -1,82 +1,82 @@
 import {
   BatchGetTracesCommandInput,
-  BatchGetTracesCommandOutput,
+  BatchGetTracesCommandOutput
 } from "../commands/BatchGetTracesCommand";
 import {
   CreateGroupCommandInput,
-  CreateGroupCommandOutput,
+  CreateGroupCommandOutput
 } from "../commands/CreateGroupCommand";
 import {
   CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput,
+  CreateSamplingRuleCommandOutput
 } from "../commands/CreateSamplingRuleCommand";
 import {
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
+  DeleteGroupCommandOutput
 } from "../commands/DeleteGroupCommand";
 import {
   DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput,
+  DeleteSamplingRuleCommandOutput
 } from "../commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
-  GetEncryptionConfigCommandOutput,
+  GetEncryptionConfigCommandOutput
 } from "../commands/GetEncryptionConfigCommand";
 import {
   GetGroupCommandInput,
-  GetGroupCommandOutput,
+  GetGroupCommandOutput
 } from "../commands/GetGroupCommand";
 import {
   GetGroupsCommandInput,
-  GetGroupsCommandOutput,
+  GetGroupsCommandOutput
 } from "../commands/GetGroupsCommand";
 import {
   GetSamplingRulesCommandInput,
-  GetSamplingRulesCommandOutput,
+  GetSamplingRulesCommandOutput
 } from "../commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
-  GetSamplingStatisticSummariesCommandOutput,
+  GetSamplingStatisticSummariesCommandOutput
 } from "../commands/GetSamplingStatisticSummariesCommand";
 import {
   GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput,
+  GetSamplingTargetsCommandOutput
 } from "../commands/GetSamplingTargetsCommand";
 import {
   GetServiceGraphCommandInput,
-  GetServiceGraphCommandOutput,
+  GetServiceGraphCommandOutput
 } from "../commands/GetServiceGraphCommand";
 import {
   GetTimeSeriesServiceStatisticsCommandInput,
-  GetTimeSeriesServiceStatisticsCommandOutput,
+  GetTimeSeriesServiceStatisticsCommandOutput
 } from "../commands/GetTimeSeriesServiceStatisticsCommand";
 import {
   GetTraceGraphCommandInput,
-  GetTraceGraphCommandOutput,
+  GetTraceGraphCommandOutput
 } from "../commands/GetTraceGraphCommand";
 import {
   GetTraceSummariesCommandInput,
-  GetTraceSummariesCommandOutput,
+  GetTraceSummariesCommandOutput
 } from "../commands/GetTraceSummariesCommand";
 import {
   PutEncryptionConfigCommandInput,
-  PutEncryptionConfigCommandOutput,
+  PutEncryptionConfigCommandOutput
 } from "../commands/PutEncryptionConfigCommand";
 import {
   PutTelemetryRecordsCommandInput,
-  PutTelemetryRecordsCommandOutput,
+  PutTelemetryRecordsCommandOutput
 } from "../commands/PutTelemetryRecordsCommand";
 import {
   PutTraceSegmentsCommandInput,
-  PutTraceSegmentsCommandOutput,
+  PutTraceSegmentsCommandOutput
 } from "../commands/PutTraceSegmentsCommand";
 import {
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
+  UpdateGroupCommandOutput
 } from "../commands/UpdateGroupCommand";
 import {
   UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput,
+  UpdateSamplingRuleCommandOutput
 } from "../commands/UpdateSamplingRuleCommand";
 import {
   Alias,
@@ -125,18 +125,18 @@ import {
   TraceUser,
   UnprocessedStatistics,
   UnprocessedTraceSegment,
-  ValueWithServiceIds,
+  ValueWithServiceIds
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1BatchGetTracesCommand(
@@ -144,15 +144,18 @@ export async function serializeAws_restJson1_1BatchGetTracesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/Traces";
   let body: any = {};
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.TraceIds !== undefined) {
-    bodyParams['TraceIds'] = serializeAws_restJson1_1TraceIdList(input.TraceIds, context);
+    bodyParams["TraceIds"] = serializeAws_restJson1_1TraceIdList(
+      input.TraceIds,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -161,7 +164,7 @@ export async function serializeAws_restJson1_1BatchGetTracesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -170,15 +173,15 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateGroup";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FilterExpression !== undefined) {
-    bodyParams['FilterExpression'] = input.FilterExpression;
+    bodyParams["FilterExpression"] = input.FilterExpression;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -187,7 +190,7 @@ export async function serializeAws_restJson1_1CreateGroupCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -196,12 +199,15 @@ export async function serializeAws_restJson1_1CreateSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateSamplingRule";
   let body: any = {};
   const bodyParams: any = {};
   if (input.SamplingRule !== undefined) {
-    bodyParams['SamplingRule'] = serializeAws_restJson1_1SamplingRule(input.SamplingRule, context);
+    bodyParams["SamplingRule"] = serializeAws_restJson1_1SamplingRule(
+      input.SamplingRule,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -210,7 +216,7 @@ export async function serializeAws_restJson1_1CreateSamplingRuleCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -219,15 +225,15 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/DeleteGroup";
   let body: any = {};
   const bodyParams: any = {};
   if (input.GroupARN !== undefined) {
-    bodyParams['GroupARN'] = input.GroupARN;
+    bodyParams["GroupARN"] = input.GroupARN;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -236,7 +242,7 @@ export async function serializeAws_restJson1_1DeleteGroupCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -245,15 +251,15 @@ export async function serializeAws_restJson1_1DeleteSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/DeleteSamplingRule";
   let body: any = {};
   const bodyParams: any = {};
   if (input.RuleARN !== undefined) {
-    bodyParams['RuleARN'] = input.RuleARN;
+    bodyParams["RuleARN"] = input.RuleARN;
   }
   if (input.RuleName !== undefined) {
-    bodyParams['RuleName'] = input.RuleName;
+    bodyParams["RuleName"] = input.RuleName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -262,7 +268,7 @@ export async function serializeAws_restJson1_1DeleteSamplingRuleCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -271,14 +277,14 @@ export async function serializeAws_restJson1_1GetEncryptionConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/EncryptionConfig";
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -287,15 +293,15 @@ export async function serializeAws_restJson1_1GetGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/GetGroup";
   let body: any = {};
   const bodyParams: any = {};
   if (input.GroupARN !== undefined) {
-    bodyParams['GroupARN'] = input.GroupARN;
+    bodyParams["GroupARN"] = input.GroupARN;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -304,7 +310,7 @@ export async function serializeAws_restJson1_1GetGroupCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -313,12 +319,12 @@ export async function serializeAws_restJson1_1GetGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/Groups";
   let body: any = {};
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -327,7 +333,7 @@ export async function serializeAws_restJson1_1GetGroupsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -336,12 +342,12 @@ export async function serializeAws_restJson1_1GetSamplingRulesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/GetSamplingRules";
   let body: any = {};
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -350,7 +356,7 @@ export async function serializeAws_restJson1_1GetSamplingRulesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -359,12 +365,12 @@ export async function serializeAws_restJson1_1GetSamplingStatisticSummariesComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/SamplingStatisticSummaries";
   let body: any = {};
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -373,7 +379,7 @@ export async function serializeAws_restJson1_1GetSamplingStatisticSummariesComma
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -382,12 +388,17 @@ export async function serializeAws_restJson1_1GetSamplingTargetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/SamplingTargets";
   let body: any = {};
   const bodyParams: any = {};
   if (input.SamplingStatisticsDocuments !== undefined) {
-    bodyParams['SamplingStatisticsDocuments'] = serializeAws_restJson1_1SamplingStatisticsDocumentList(input.SamplingStatisticsDocuments, context);
+    bodyParams[
+      "SamplingStatisticsDocuments"
+    ] = serializeAws_restJson1_1SamplingStatisticsDocumentList(
+      input.SamplingStatisticsDocuments,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -396,7 +407,7 @@ export async function serializeAws_restJson1_1GetSamplingTargetsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -405,24 +416,24 @@ export async function serializeAws_restJson1_1GetServiceGraphCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ServiceGraph";
   let body: any = {};
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.GroupARN !== undefined) {
-    bodyParams['GroupARN'] = input.GroupARN;
+    bodyParams["GroupARN"] = input.GroupARN;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -431,7 +442,7 @@ export async function serializeAws_restJson1_1GetServiceGraphCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -440,30 +451,30 @@ export async function serializeAws_restJson1_1GetTimeSeriesServiceStatisticsComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/TimeSeriesServiceStatistics";
   let body: any = {};
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.EntitySelectorExpression !== undefined) {
-    bodyParams['EntitySelectorExpression'] = input.EntitySelectorExpression;
+    bodyParams["EntitySelectorExpression"] = input.EntitySelectorExpression;
   }
   if (input.GroupARN !== undefined) {
-    bodyParams['GroupARN'] = input.GroupARN;
+    bodyParams["GroupARN"] = input.GroupARN;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.Period !== undefined) {
-    bodyParams['Period'] = input.Period;
+    bodyParams["Period"] = input.Period;
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -472,7 +483,7 @@ export async function serializeAws_restJson1_1GetTimeSeriesServiceStatisticsComm
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -481,15 +492,18 @@ export async function serializeAws_restJson1_1GetTraceGraphCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceGraph";
   let body: any = {};
   const bodyParams: any = {};
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.TraceIds !== undefined) {
-    bodyParams['TraceIds'] = serializeAws_restJson1_1TraceIdList(input.TraceIds, context);
+    bodyParams["TraceIds"] = serializeAws_restJson1_1TraceIdList(
+      input.TraceIds,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -498,7 +512,7 @@ export async function serializeAws_restJson1_1GetTraceGraphCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -507,30 +521,33 @@ export async function serializeAws_restJson1_1GetTraceSummariesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceSummaries";
   let body: any = {};
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.FilterExpression !== undefined) {
-    bodyParams['FilterExpression'] = input.FilterExpression;
+    bodyParams["FilterExpression"] = input.FilterExpression;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.Sampling !== undefined) {
-    bodyParams['Sampling'] = input.Sampling;
+    bodyParams["Sampling"] = input.Sampling;
   }
   if (input.SamplingStrategy !== undefined) {
-    bodyParams['SamplingStrategy'] = serializeAws_restJson1_1SamplingStrategy(input.SamplingStrategy, context);
+    bodyParams["SamplingStrategy"] = serializeAws_restJson1_1SamplingStrategy(
+      input.SamplingStrategy,
+      context
+    );
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
   if (input.TimeRangeType !== undefined) {
-    bodyParams['TimeRangeType'] = input.TimeRangeType;
+    bodyParams["TimeRangeType"] = input.TimeRangeType;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -539,7 +556,7 @@ export async function serializeAws_restJson1_1GetTraceSummariesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -548,15 +565,15 @@ export async function serializeAws_restJson1_1PutEncryptionConfigCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutEncryptionConfig";
   let body: any = {};
   const bodyParams: any = {};
   if (input.KeyId !== undefined) {
-    bodyParams['KeyId'] = input.KeyId;
+    bodyParams["KeyId"] = input.KeyId;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -565,7 +582,7 @@ export async function serializeAws_restJson1_1PutEncryptionConfigCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -574,21 +591,26 @@ export async function serializeAws_restJson1_1PutTelemetryRecordsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/TelemetryRecords";
   let body: any = {};
   const bodyParams: any = {};
   if (input.EC2InstanceId !== undefined) {
-    bodyParams['EC2InstanceId'] = input.EC2InstanceId;
+    bodyParams["EC2InstanceId"] = input.EC2InstanceId;
   }
   if (input.Hostname !== undefined) {
-    bodyParams['Hostname'] = input.Hostname;
+    bodyParams["Hostname"] = input.Hostname;
   }
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.TelemetryRecords !== undefined) {
-    bodyParams['TelemetryRecords'] = serializeAws_restJson1_1TelemetryRecordList(input.TelemetryRecords, context);
+    bodyParams[
+      "TelemetryRecords"
+    ] = serializeAws_restJson1_1TelemetryRecordList(
+      input.TelemetryRecords,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -597,7 +619,7 @@ export async function serializeAws_restJson1_1PutTelemetryRecordsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -606,12 +628,17 @@ export async function serializeAws_restJson1_1PutTraceSegmentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/TraceSegments";
   let body: any = {};
   const bodyParams: any = {};
   if (input.TraceSegmentDocuments !== undefined) {
-    bodyParams['TraceSegmentDocuments'] = serializeAws_restJson1_1TraceSegmentDocumentList(input.TraceSegmentDocuments, context);
+    bodyParams[
+      "TraceSegmentDocuments"
+    ] = serializeAws_restJson1_1TraceSegmentDocumentList(
+      input.TraceSegmentDocuments,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -620,7 +647,7 @@ export async function serializeAws_restJson1_1PutTraceSegmentsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -629,18 +656,18 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateGroup";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FilterExpression !== undefined) {
-    bodyParams['FilterExpression'] = input.FilterExpression;
+    bodyParams["FilterExpression"] = input.FilterExpression;
   }
   if (input.GroupARN !== undefined) {
-    bodyParams['GroupARN'] = input.GroupARN;
+    bodyParams["GroupARN"] = input.GroupARN;
   }
   if (input.GroupName !== undefined) {
-    bodyParams['GroupName'] = input.GroupName;
+    bodyParams["GroupName"] = input.GroupName;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -649,7 +676,7 @@ export async function serializeAws_restJson1_1UpdateGroupCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -658,12 +685,17 @@ export async function serializeAws_restJson1_1UpdateSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateSamplingRule";
   let body: any = {};
   const bodyParams: any = {};
   if (input.SamplingRuleUpdate !== undefined) {
-    bodyParams['SamplingRuleUpdate'] = serializeAws_restJson1_1SamplingRuleUpdate(input.SamplingRuleUpdate, context);
+    bodyParams[
+      "SamplingRuleUpdate"
+    ] = serializeAws_restJson1_1SamplingRuleUpdate(
+      input.SamplingRuleUpdate,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -672,7 +704,7 @@ export async function serializeAws_restJson1_1UpdateSamplingRuleCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -681,14 +713,17 @@ export async function deserializeAws_restJson1_1BatchGetTracesCommand(
   context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1BatchGetTracesCommandError(output, context);
+    return deserializeAws_restJson1_1BatchGetTracesCommandError(
+      output,
+      context
+    );
   }
   const contents: BatchGetTracesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetTracesResult",
     NextToken: undefined,
     Traces: undefined,
-    UnprocessedTraceIds: undefined,
+    UnprocessedTraceIds: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
@@ -698,39 +733,48 @@ export async function deserializeAws_restJson1_1BatchGetTracesCommand(
     contents.Traces = deserializeAws_restJson1_1TraceList(data.Traces, context);
   }
   if (data.UnprocessedTraceIds !== undefined) {
-    contents.UnprocessedTraceIds = deserializeAws_restJson1_1UnprocessedTraceIdList(data.UnprocessedTraceIds, context);
+    contents.UnprocessedTraceIds = deserializeAws_restJson1_1UnprocessedTraceIdList(
+      data.UnprocessedTraceIds,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1BatchGetTracesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<BatchGetTracesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -746,7 +790,7 @@ export async function deserializeAws_restJson1_1CreateGroupCommand(
   const contents: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGroupResult",
-    Group: undefined,
+    Group: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined) {
@@ -757,32 +801,38 @@ export async function deserializeAws_restJson1_1CreateGroupCommand(
 
 async function deserializeAws_restJson1_1CreateGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -793,52 +843,67 @@ export async function deserializeAws_restJson1_1CreateSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateSamplingRuleCommandError(output, context);
+    return deserializeAws_restJson1_1CreateSamplingRuleCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSamplingRuleResult",
-    SamplingRuleRecord: undefined,
+    SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.SamplingRuleRecord !== undefined) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
+      data.SamplingRuleRecord,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateSamplingRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateSamplingRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "RuleLimitExceededException":
     case "com.amazonaws.tracing#RuleLimitExceededException":
-      response = await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1RuleLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -853,39 +918,45 @@ export async function deserializeAws_restJson1_1DeleteGroupCommand(
   }
   const contents: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGroupResult",
+    __type: "DeleteGroupResult"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -896,48 +967,60 @@ export async function deserializeAws_restJson1_1DeleteSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteSamplingRuleCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSamplingRuleResult",
-    SamplingRuleRecord: undefined,
+    SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.SamplingRuleRecord !== undefined) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
+      data.SamplingRuleRecord,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteSamplingRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteSamplingRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -948,48 +1031,60 @@ export async function deserializeAws_restJson1_1GetEncryptionConfigCommand(
   context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetEncryptionConfigCommandError(output, context);
+    return deserializeAws_restJson1_1GetEncryptionConfigCommandError(
+      output,
+      context
+    );
   }
   const contents: GetEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEncryptionConfigResult",
-    EncryptionConfig: undefined,
+    EncryptionConfig: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.EncryptionConfig !== undefined) {
-    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(data.EncryptionConfig, context);
+    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(
+      data.EncryptionConfig,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetEncryptionConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetEncryptionConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1005,7 +1100,7 @@ export async function deserializeAws_restJson1_1GetGroupCommand(
   const contents: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGroupResult",
-    Group: undefined,
+    Group: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined) {
@@ -1016,32 +1111,38 @@ export async function deserializeAws_restJson1_1GetGroupCommand(
 
 async function deserializeAws_restJson1_1GetGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1058,11 +1159,14 @@ export async function deserializeAws_restJson1_1GetGroupsCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetGroupsResult",
     Groups: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Groups !== undefined) {
-    contents.Groups = deserializeAws_restJson1_1GroupSummaryList(data.Groups, context);
+    contents.Groups = deserializeAws_restJson1_1GroupSummaryList(
+      data.Groups,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1072,32 +1176,38 @@ export async function deserializeAws_restJson1_1GetGroupsCommand(
 
 async function deserializeAws_restJson1_1GetGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1108,52 +1218,64 @@ export async function deserializeAws_restJson1_1GetSamplingRulesCommand(
   context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetSamplingRulesCommandError(output, context);
+    return deserializeAws_restJson1_1GetSamplingRulesCommandError(
+      output,
+      context
+    );
   }
   const contents: GetSamplingRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSamplingRulesResult",
     NextToken: undefined,
-    SamplingRuleRecords: undefined,
+    SamplingRuleRecords: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.SamplingRuleRecords !== undefined) {
-    contents.SamplingRuleRecords = deserializeAws_restJson1_1SamplingRuleRecordList(data.SamplingRuleRecords, context);
+    contents.SamplingRuleRecords = deserializeAws_restJson1_1SamplingRuleRecordList(
+      data.SamplingRuleRecords,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetSamplingRulesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSamplingRulesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1164,52 +1286,64 @@ export async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCom
   context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(output, context);
+    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(
+      output,
+      context
+    );
   }
   const contents: GetSamplingStatisticSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSamplingStatisticSummariesResult",
     NextToken: undefined,
-    SamplingStatisticSummaries: undefined,
+    SamplingStatisticSummaries: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.SamplingStatisticSummaries !== undefined) {
-    contents.SamplingStatisticSummaries = deserializeAws_restJson1_1SamplingStatisticSummaryList(data.SamplingStatisticSummaries, context);
+    contents.SamplingStatisticSummaries = deserializeAws_restJson1_1SamplingStatisticSummaryList(
+      data.SamplingStatisticSummaries,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetSamplingStatisticSummariesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSamplingStatisticSummariesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1220,56 +1354,75 @@ export async function deserializeAws_restJson1_1GetSamplingTargetsCommand(
   context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetSamplingTargetsCommandError(output, context);
+    return deserializeAws_restJson1_1GetSamplingTargetsCommandError(
+      output,
+      context
+    );
   }
   const contents: GetSamplingTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSamplingTargetsResult",
     LastRuleModification: undefined,
     SamplingTargetDocuments: undefined,
-    UnprocessedStatistics: undefined,
+    UnprocessedStatistics: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.LastRuleModification !== undefined) {
-    contents.LastRuleModification = new Date(data.LastRuleModification % 1 != 0 ? Math.round(data.LastRuleModification * 1000) : data.LastRuleModification);
+    contents.LastRuleModification = new Date(
+      data.LastRuleModification % 1 != 0
+        ? Math.round(data.LastRuleModification * 1000)
+        : data.LastRuleModification
+    );
   }
   if (data.SamplingTargetDocuments !== undefined) {
-    contents.SamplingTargetDocuments = deserializeAws_restJson1_1SamplingTargetDocumentList(data.SamplingTargetDocuments, context);
+    contents.SamplingTargetDocuments = deserializeAws_restJson1_1SamplingTargetDocumentList(
+      data.SamplingTargetDocuments,
+      context
+    );
   }
   if (data.UnprocessedStatistics !== undefined) {
-    contents.UnprocessedStatistics = deserializeAws_restJson1_1UnprocessedStatisticsList(data.UnprocessedStatistics, context);
+    contents.UnprocessedStatistics = deserializeAws_restJson1_1UnprocessedStatisticsList(
+      data.UnprocessedStatistics,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetSamplingTargetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSamplingTargetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1280,7 +1433,10 @@ export async function deserializeAws_restJson1_1GetServiceGraphCommand(
   context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetServiceGraphCommandError(output, context);
+    return deserializeAws_restJson1_1GetServiceGraphCommandError(
+      output,
+      context
+    );
   }
   const contents: GetServiceGraphCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1289,55 +1445,70 @@ export async function deserializeAws_restJson1_1GetServiceGraphCommand(
     EndTime: undefined,
     NextToken: undefined,
     Services: undefined,
-    StartTime: undefined,
+    StartTime: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContainsOldGroupVersions !== undefined) {
     contents.ContainsOldGroupVersions = data.ContainsOldGroupVersions;
   }
   if (data.EndTime !== undefined) {
-    contents.EndTime = new Date(data.EndTime % 1 != 0 ? Math.round(data.EndTime * 1000) : data.EndTime);
+    contents.EndTime = new Date(
+      data.EndTime % 1 != 0 ? Math.round(data.EndTime * 1000) : data.EndTime
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.Services !== undefined) {
-    contents.Services = deserializeAws_restJson1_1ServiceList(data.Services, context);
+    contents.Services = deserializeAws_restJson1_1ServiceList(
+      data.Services,
+      context
+    );
   }
   if (data.StartTime !== undefined) {
-    contents.StartTime = new Date(data.StartTime % 1 != 0 ? Math.round(data.StartTime * 1000) : data.StartTime);
+    contents.StartTime = new Date(
+      data.StartTime % 1 != 0
+        ? Math.round(data.StartTime * 1000)
+        : data.StartTime
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetServiceGraphCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetServiceGraphCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1348,14 +1519,17 @@ export async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCo
   context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(output, context);
+    return deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(
+      output,
+      context
+    );
   }
   const contents: GetTimeSeriesServiceStatisticsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetTimeSeriesServiceStatisticsResult",
     ContainsOldGroupVersions: undefined,
     NextToken: undefined,
-    TimeSeriesServiceStatistics: undefined,
+    TimeSeriesServiceStatistics: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.ContainsOldGroupVersions !== undefined) {
@@ -1365,39 +1539,48 @@ export async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCo
     contents.NextToken = data.NextToken;
   }
   if (data.TimeSeriesServiceStatistics !== undefined) {
-    contents.TimeSeriesServiceStatistics = deserializeAws_restJson1_1TimeSeriesServiceStatisticsList(data.TimeSeriesServiceStatistics, context);
+    contents.TimeSeriesServiceStatistics = deserializeAws_restJson1_1TimeSeriesServiceStatisticsList(
+      data.TimeSeriesServiceStatistics,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1414,46 +1597,55 @@ export async function deserializeAws_restJson1_1GetTraceGraphCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetTraceGraphResult",
     NextToken: undefined,
-    Services: undefined,
+    Services: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.Services !== undefined) {
-    contents.Services = deserializeAws_restJson1_1ServiceList(data.Services, context);
+    contents.Services = deserializeAws_restJson1_1ServiceList(
+      data.Services,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetTraceGraphCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetTraceGraphCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1464,7 +1656,10 @@ export async function deserializeAws_restJson1_1GetTraceSummariesCommand(
   context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetTraceSummariesCommandError(output, context);
+    return deserializeAws_restJson1_1GetTraceSummariesCommandError(
+      output,
+      context
+    );
   }
   const contents: GetTraceSummariesCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1472,17 +1667,24 @@ export async function deserializeAws_restJson1_1GetTraceSummariesCommand(
     ApproximateTime: undefined,
     NextToken: undefined,
     TraceSummaries: undefined,
-    TracesProcessedCount: undefined,
+    TracesProcessedCount: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.ApproximateTime !== undefined) {
-    contents.ApproximateTime = new Date(data.ApproximateTime % 1 != 0 ? Math.round(data.ApproximateTime * 1000) : data.ApproximateTime);
+    contents.ApproximateTime = new Date(
+      data.ApproximateTime % 1 != 0
+        ? Math.round(data.ApproximateTime * 1000)
+        : data.ApproximateTime
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.TraceSummaries !== undefined) {
-    contents.TraceSummaries = deserializeAws_restJson1_1TraceSummaryList(data.TraceSummaries, context);
+    contents.TraceSummaries = deserializeAws_restJson1_1TraceSummaryList(
+      data.TraceSummaries,
+      context
+    );
   }
   if (data.TracesProcessedCount !== undefined) {
     contents.TracesProcessedCount = data.TracesProcessedCount;
@@ -1492,32 +1694,38 @@ export async function deserializeAws_restJson1_1GetTraceSummariesCommand(
 
 async function deserializeAws_restJson1_1GetTraceSummariesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetTraceSummariesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1528,48 +1736,60 @@ export async function deserializeAws_restJson1_1PutEncryptionConfigCommand(
   context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutEncryptionConfigCommandError(output, context);
+    return deserializeAws_restJson1_1PutEncryptionConfigCommandError(
+      output,
+      context
+    );
   }
   const contents: PutEncryptionConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutEncryptionConfigResult",
-    EncryptionConfig: undefined,
+    EncryptionConfig: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.EncryptionConfig !== undefined) {
-    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(data.EncryptionConfig, context);
+    contents.EncryptionConfig = deserializeAws_restJson1_1EncryptionConfig(
+      data.EncryptionConfig,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1PutEncryptionConfigCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutEncryptionConfigCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1580,43 +1800,52 @@ export async function deserializeAws_restJson1_1PutTelemetryRecordsCommand(
   context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutTelemetryRecordsCommandError(output, context);
+    return deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
+      output,
+      context
+    );
   }
   const contents: PutTelemetryRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutTelemetryRecordsResult",
+    __type: "PutTelemetryRecordsResult"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1PutTelemetryRecordsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutTelemetryRecordsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1627,48 +1856,60 @@ export async function deserializeAws_restJson1_1PutTraceSegmentsCommand(
   context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutTraceSegmentsCommandError(output, context);
+    return deserializeAws_restJson1_1PutTraceSegmentsCommandError(
+      output,
+      context
+    );
   }
   const contents: PutTraceSegmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutTraceSegmentsResult",
-    UnprocessedTraceSegments: undefined,
+    UnprocessedTraceSegments: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.UnprocessedTraceSegments !== undefined) {
-    contents.UnprocessedTraceSegments = deserializeAws_restJson1_1UnprocessedTraceSegmentList(data.UnprocessedTraceSegments, context);
+    contents.UnprocessedTraceSegments = deserializeAws_restJson1_1UnprocessedTraceSegmentList(
+      data.UnprocessedTraceSegments,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1PutTraceSegmentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutTraceSegmentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1684,7 +1925,7 @@ export async function deserializeAws_restJson1_1UpdateGroupCommand(
   const contents: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGroupResult",
-    Group: undefined,
+    Group: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Group !== undefined) {
@@ -1695,32 +1936,38 @@ export async function deserializeAws_restJson1_1UpdateGroupCommand(
 
 async function deserializeAws_restJson1_1UpdateGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1731,48 +1978,60 @@ export async function deserializeAws_restJson1_1UpdateSamplingRuleCommand(
   context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateSamplingRuleCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateSamplingRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSamplingRuleResult",
-    SamplingRuleRecord: undefined,
+    SamplingRuleRecord: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.SamplingRuleRecord !== undefined) {
-    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(data.SamplingRuleRecord, context);
+    contents.SamplingRuleRecord = deserializeAws_restJson1_1SamplingRuleRecord(
+      data.SamplingRuleRecord,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateSamplingRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateSamplingRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidRequestException":
     case "com.amazonaws.tracing#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottledException":
     case "com.amazonaws.tracing#ThrottledException":
-      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.tracing#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1786,7 +2045,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1803,7 +2062,7 @@ const deserializeAws_restJson1_1RuleLimitExceededExceptionResponse = async (
     __type: "RuleLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1820,7 +2079,7 @@ const deserializeAws_restJson1_1ThrottledExceptionResponse = async (
     __type: "ThrottledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -1838,7 +2097,7 @@ const serializeAws_restJson1_1AttributeMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1BackendConnectionErrors = (
   input: BackendConnectionErrors,
@@ -1846,25 +2105,25 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConnectionRefusedCount !== undefined) {
-    bodyParams['ConnectionRefusedCount'] = input.ConnectionRefusedCount;
+    bodyParams["ConnectionRefusedCount"] = input.ConnectionRefusedCount;
   }
   if (input.HTTPCode4XXCount !== undefined) {
-    bodyParams['HTTPCode4XXCount'] = input.HTTPCode4XXCount;
+    bodyParams["HTTPCode4XXCount"] = input.HTTPCode4XXCount;
   }
   if (input.HTTPCode5XXCount !== undefined) {
-    bodyParams['HTTPCode5XXCount'] = input.HTTPCode5XXCount;
+    bodyParams["HTTPCode5XXCount"] = input.HTTPCode5XXCount;
   }
   if (input.OtherCount !== undefined) {
-    bodyParams['OtherCount'] = input.OtherCount;
+    bodyParams["OtherCount"] = input.OtherCount;
   }
   if (input.TimeoutCount !== undefined) {
-    bodyParams['TimeoutCount'] = input.TimeoutCount;
+    bodyParams["TimeoutCount"] = input.TimeoutCount;
   }
   if (input.UnknownHostCount !== undefined) {
-    bodyParams['UnknownHostCount'] = input.UnknownHostCount;
+    bodyParams["UnknownHostCount"] = input.UnknownHostCount;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SamplingRule = (
   input: SamplingRule,
@@ -1872,46 +2131,49 @@ const serializeAws_restJson1_1SamplingRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.Attributes !== undefined) {
-    bodyParams['Attributes'] = serializeAws_restJson1_1AttributeMap(input.Attributes, context);
+    bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
+      input.Attributes,
+      context
+    );
   }
   if (input.FixedRate !== undefined) {
-    bodyParams['FixedRate'] = input.FixedRate;
+    bodyParams["FixedRate"] = input.FixedRate;
   }
   if (input.HTTPMethod !== undefined) {
-    bodyParams['HTTPMethod'] = input.HTTPMethod;
+    bodyParams["HTTPMethod"] = input.HTTPMethod;
   }
   if (input.Host !== undefined) {
-    bodyParams['Host'] = input.Host;
+    bodyParams["Host"] = input.Host;
   }
   if (input.Priority !== undefined) {
-    bodyParams['Priority'] = input.Priority;
+    bodyParams["Priority"] = input.Priority;
   }
   if (input.ReservoirSize !== undefined) {
-    bodyParams['ReservoirSize'] = input.ReservoirSize;
+    bodyParams["ReservoirSize"] = input.ReservoirSize;
   }
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RuleARN !== undefined) {
-    bodyParams['RuleARN'] = input.RuleARN;
+    bodyParams["RuleARN"] = input.RuleARN;
   }
   if (input.RuleName !== undefined) {
-    bodyParams['RuleName'] = input.RuleName;
+    bodyParams["RuleName"] = input.RuleName;
   }
   if (input.ServiceName !== undefined) {
-    bodyParams['ServiceName'] = input.ServiceName;
+    bodyParams["ServiceName"] = input.ServiceName;
   }
   if (input.ServiceType !== undefined) {
-    bodyParams['ServiceType'] = input.ServiceType;
+    bodyParams["ServiceType"] = input.ServiceType;
   }
   if (input.URLPath !== undefined) {
-    bodyParams['URLPath'] = input.URLPath;
+    bodyParams["URLPath"] = input.URLPath;
   }
   if (input.Version !== undefined) {
-    bodyParams['Version'] = input.Version;
+    bodyParams["Version"] = input.Version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SamplingRuleUpdate = (
   input: SamplingRuleUpdate,
@@ -1919,43 +2181,46 @@ const serializeAws_restJson1_1SamplingRuleUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Attributes !== undefined) {
-    bodyParams['Attributes'] = serializeAws_restJson1_1AttributeMap(input.Attributes, context);
+    bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
+      input.Attributes,
+      context
+    );
   }
   if (input.FixedRate !== undefined) {
-    bodyParams['FixedRate'] = input.FixedRate;
+    bodyParams["FixedRate"] = input.FixedRate;
   }
   if (input.HTTPMethod !== undefined) {
-    bodyParams['HTTPMethod'] = input.HTTPMethod;
+    bodyParams["HTTPMethod"] = input.HTTPMethod;
   }
   if (input.Host !== undefined) {
-    bodyParams['Host'] = input.Host;
+    bodyParams["Host"] = input.Host;
   }
   if (input.Priority !== undefined) {
-    bodyParams['Priority'] = input.Priority;
+    bodyParams["Priority"] = input.Priority;
   }
   if (input.ReservoirSize !== undefined) {
-    bodyParams['ReservoirSize'] = input.ReservoirSize;
+    bodyParams["ReservoirSize"] = input.ReservoirSize;
   }
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.RuleARN !== undefined) {
-    bodyParams['RuleARN'] = input.RuleARN;
+    bodyParams["RuleARN"] = input.RuleARN;
   }
   if (input.RuleName !== undefined) {
-    bodyParams['RuleName'] = input.RuleName;
+    bodyParams["RuleName"] = input.RuleName;
   }
   if (input.ServiceName !== undefined) {
-    bodyParams['ServiceName'] = input.ServiceName;
+    bodyParams["ServiceName"] = input.ServiceName;
   }
   if (input.ServiceType !== undefined) {
-    bodyParams['ServiceType'] = input.ServiceType;
+    bodyParams["ServiceType"] = input.ServiceType;
   }
   if (input.URLPath !== undefined) {
-    bodyParams['URLPath'] = input.URLPath;
+    bodyParams["URLPath"] = input.URLPath;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SamplingStatisticsDocument = (
   input: SamplingStatisticsDocument,
@@ -1963,25 +2228,25 @@ const serializeAws_restJson1_1SamplingStatisticsDocument = (
 ): any => {
   let bodyParams: any = {};
   if (input.BorrowCount !== undefined) {
-    bodyParams['BorrowCount'] = input.BorrowCount;
+    bodyParams["BorrowCount"] = input.BorrowCount;
   }
   if (input.ClientID !== undefined) {
-    bodyParams['ClientID'] = input.ClientID;
+    bodyParams["ClientID"] = input.ClientID;
   }
   if (input.RequestCount !== undefined) {
-    bodyParams['RequestCount'] = input.RequestCount;
+    bodyParams["RequestCount"] = input.RequestCount;
   }
   if (input.RuleName !== undefined) {
-    bodyParams['RuleName'] = input.RuleName;
+    bodyParams["RuleName"] = input.RuleName;
   }
   if (input.SampledCount !== undefined) {
-    bodyParams['SampledCount'] = input.SampledCount;
+    bodyParams["SampledCount"] = input.SampledCount;
   }
   if (input.Timestamp !== undefined) {
-    bodyParams['Timestamp'] = Math.round(input.Timestamp.getTime() / 1000);
+    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
   input: Array<SamplingStatisticsDocument>,
@@ -1990,7 +2255,7 @@ const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1SamplingStatisticsDocument(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1SamplingStrategy = (
   input: SamplingStrategy,
@@ -1998,13 +2263,13 @@ const serializeAws_restJson1_1SamplingStrategy = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1TelemetryRecord = (
   input: TelemetryRecord,
@@ -2012,25 +2277,30 @@ const serializeAws_restJson1_1TelemetryRecord = (
 ): any => {
   let bodyParams: any = {};
   if (input.BackendConnectionErrors !== undefined) {
-    bodyParams['BackendConnectionErrors'] = serializeAws_restJson1_1BackendConnectionErrors(input.BackendConnectionErrors, context);
+    bodyParams[
+      "BackendConnectionErrors"
+    ] = serializeAws_restJson1_1BackendConnectionErrors(
+      input.BackendConnectionErrors,
+      context
+    );
   }
   if (input.SegmentsReceivedCount !== undefined) {
-    bodyParams['SegmentsReceivedCount'] = input.SegmentsReceivedCount;
+    bodyParams["SegmentsReceivedCount"] = input.SegmentsReceivedCount;
   }
   if (input.SegmentsRejectedCount !== undefined) {
-    bodyParams['SegmentsRejectedCount'] = input.SegmentsRejectedCount;
+    bodyParams["SegmentsRejectedCount"] = input.SegmentsRejectedCount;
   }
   if (input.SegmentsSentCount !== undefined) {
-    bodyParams['SegmentsSentCount'] = input.SegmentsSentCount;
+    bodyParams["SegmentsSentCount"] = input.SegmentsSentCount;
   }
   if (input.SegmentsSpilloverCount !== undefined) {
-    bodyParams['SegmentsSpilloverCount'] = input.SegmentsSpilloverCount;
+    bodyParams["SegmentsSpilloverCount"] = input.SegmentsSpilloverCount;
   }
   if (input.Timestamp !== undefined) {
-    bodyParams['Timestamp'] = Math.round(input.Timestamp.getTime() / 1000);
+    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1TelemetryRecordList = (
   input: Array<TelemetryRecord>,
@@ -2039,25 +2309,21 @@ const serializeAws_restJson1_1TelemetryRecordList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1TelemetryRecord(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1TraceIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1TraceSegmentDocumentList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const deserializeAws_restJson1_1Alias = (
   output: any,
@@ -2067,19 +2333,22 @@ const deserializeAws_restJson1_1Alias = (
     __type: "Alias",
     Name: undefined,
     Names: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1AliasNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1AliasNames(
+      output.Names,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1AliasList = (
   output: any,
@@ -2088,16 +2357,14 @@ const deserializeAws_restJson1_1AliasList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Alias(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1AliasNames = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1AnnotationValue = (
   output: any,
@@ -2107,7 +2374,7 @@ const deserializeAws_restJson1_1AnnotationValue = (
     __type: "AnnotationValue",
     BooleanValue: undefined,
     NumberValue: undefined,
-    StringValue: undefined,
+    StringValue: undefined
   };
   if (output.BooleanValue !== undefined) {
     contents.BooleanValue = output.BooleanValue;
@@ -2119,7 +2386,7 @@ const deserializeAws_restJson1_1AnnotationValue = (
     contents.StringValue = output.StringValue;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Annotations = (
   output: any,
@@ -2127,10 +2394,13 @@ const deserializeAws_restJson1_1Annotations = (
 ): { [key: string]: Array<ValueWithServiceIds> } => {
   let mapParams: any = {};
   Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_restJson1_1ValuesWithServiceIds(output[key], context);
+    mapParams[key] = deserializeAws_restJson1_1ValuesWithServiceIds(
+      output[key],
+      context
+    );
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1AttributeMap = (
   output: any,
@@ -2141,7 +2411,7 @@ const deserializeAws_restJson1_1AttributeMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1AvailabilityZoneDetail = (
   output: any,
@@ -2149,13 +2419,13 @@ const deserializeAws_restJson1_1AvailabilityZoneDetail = (
 ): AvailabilityZoneDetail => {
   let contents: any = {
     __type: "AvailabilityZoneDetail",
-    Name: undefined,
+    Name: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Edge = (
   output: any,
@@ -2168,28 +2438,45 @@ const deserializeAws_restJson1_1Edge = (
     ReferenceId: undefined,
     ResponseTimeHistogram: undefined,
     StartTime: undefined,
-    SummaryStatistics: undefined,
+    SummaryStatistics: undefined
   };
   if (output.Aliases !== undefined) {
-    contents.Aliases = deserializeAws_restJson1_1AliasList(output.Aliases, context);
+    contents.Aliases = deserializeAws_restJson1_1AliasList(
+      output.Aliases,
+      context
+    );
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
+    contents.EndTime = new Date(
+      output.EndTime % 1 != 0
+        ? Math.round(output.EndTime * 1000)
+        : output.EndTime
+    );
   }
   if (output.ReferenceId !== undefined) {
     contents.ReferenceId = output.ReferenceId;
   }
   if (output.ResponseTimeHistogram !== undefined) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context);
+    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
+      output.ResponseTimeHistogram,
+      context
+    );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
   }
   if (output.SummaryStatistics !== undefined) {
-    contents.SummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(output.SummaryStatistics, context);
+    contents.SummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(
+      output.SummaryStatistics,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1EdgeList = (
   output: any,
@@ -2198,7 +2485,7 @@ const deserializeAws_restJson1_1EdgeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Edge(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1EdgeStatistics = (
   output: any,
@@ -2210,13 +2497,19 @@ const deserializeAws_restJson1_1EdgeStatistics = (
     FaultStatistics: undefined,
     OkCount: undefined,
     TotalCount: undefined,
-    TotalResponseTime: undefined,
+    TotalResponseTime: undefined
   };
   if (output.ErrorStatistics !== undefined) {
-    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(output.ErrorStatistics, context);
+    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(
+      output.ErrorStatistics,
+      context
+    );
   }
   if (output.FaultStatistics !== undefined) {
-    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(output.FaultStatistics, context);
+    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(
+      output.FaultStatistics,
+      context
+    );
   }
   if (output.OkCount !== undefined) {
     contents.OkCount = output.OkCount;
@@ -2228,7 +2521,7 @@ const deserializeAws_restJson1_1EdgeStatistics = (
     contents.TotalResponseTime = output.TotalResponseTime;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1EncryptionConfig = (
   output: any,
@@ -2238,7 +2531,7 @@ const deserializeAws_restJson1_1EncryptionConfig = (
     __type: "EncryptionConfig",
     KeyId: undefined,
     Status: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.KeyId !== undefined) {
     contents.KeyId = output.KeyId;
@@ -2250,7 +2543,7 @@ const deserializeAws_restJson1_1EncryptionConfig = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCause = (
   output: any,
@@ -2258,13 +2551,16 @@ const deserializeAws_restJson1_1ErrorRootCause = (
 ): ErrorRootCause => {
   let contents: any = {
     __type: "ErrorRootCause",
-    Services: undefined,
+    Services: undefined
   };
   if (output.Services !== undefined) {
-    contents.Services = deserializeAws_restJson1_1ErrorRootCauseServices(output.Services, context);
+    contents.Services = deserializeAws_restJson1_1ErrorRootCauseServices(
+      output.Services,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCauseEntity = (
   output: any,
@@ -2274,10 +2570,13 @@ const deserializeAws_restJson1_1ErrorRootCauseEntity = (
     __type: "ErrorRootCauseEntity",
     Exceptions: undefined,
     Name: undefined,
-    Remote: undefined,
+    Remote: undefined
   };
   if (output.Exceptions !== undefined) {
-    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(output.Exceptions, context);
+    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(
+      output.Exceptions,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -2286,7 +2585,7 @@ const deserializeAws_restJson1_1ErrorRootCauseEntity = (
     contents.Remote = output.Remote;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCauseEntityPath = (
   output: any,
@@ -2295,7 +2594,7 @@ const deserializeAws_restJson1_1ErrorRootCauseEntityPath = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorRootCauseEntity(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCauseService = (
   output: any,
@@ -2308,13 +2607,16 @@ const deserializeAws_restJson1_1ErrorRootCauseService = (
     Inferred: undefined,
     Name: undefined,
     Names: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
   }
   if (output.EntityPath !== undefined) {
-    contents.EntityPath = deserializeAws_restJson1_1ErrorRootCauseEntityPath(output.EntityPath, context);
+    contents.EntityPath = deserializeAws_restJson1_1ErrorRootCauseEntityPath(
+      output.EntityPath,
+      context
+    );
   }
   if (output.Inferred !== undefined) {
     contents.Inferred = output.Inferred;
@@ -2323,13 +2625,16 @@ const deserializeAws_restJson1_1ErrorRootCauseService = (
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1ServiceNames(
+      output.Names,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCauseServices = (
   output: any,
@@ -2338,7 +2643,7 @@ const deserializeAws_restJson1_1ErrorRootCauseServices = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorRootCauseService(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ErrorRootCauses = (
   output: any,
@@ -2347,7 +2652,7 @@ const deserializeAws_restJson1_1ErrorRootCauses = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ErrorRootCause(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ErrorStatistics = (
   output: any,
@@ -2357,7 +2662,7 @@ const deserializeAws_restJson1_1ErrorStatistics = (
     __type: "ErrorStatistics",
     OtherCount: undefined,
     ThrottleCount: undefined,
-    TotalCount: undefined,
+    TotalCount: undefined
   };
   if (output.OtherCount !== undefined) {
     contents.OtherCount = output.OtherCount;
@@ -2369,7 +2674,7 @@ const deserializeAws_restJson1_1ErrorStatistics = (
     contents.TotalCount = output.TotalCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCause = (
   output: any,
@@ -2377,13 +2682,16 @@ const deserializeAws_restJson1_1FaultRootCause = (
 ): FaultRootCause => {
   let contents: any = {
     __type: "FaultRootCause",
-    Services: undefined,
+    Services: undefined
   };
   if (output.Services !== undefined) {
-    contents.Services = deserializeAws_restJson1_1FaultRootCauseServices(output.Services, context);
+    contents.Services = deserializeAws_restJson1_1FaultRootCauseServices(
+      output.Services,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCauseEntity = (
   output: any,
@@ -2393,10 +2701,13 @@ const deserializeAws_restJson1_1FaultRootCauseEntity = (
     __type: "FaultRootCauseEntity",
     Exceptions: undefined,
     Name: undefined,
-    Remote: undefined,
+    Remote: undefined
   };
   if (output.Exceptions !== undefined) {
-    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(output.Exceptions, context);
+    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(
+      output.Exceptions,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -2405,7 +2716,7 @@ const deserializeAws_restJson1_1FaultRootCauseEntity = (
     contents.Remote = output.Remote;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCauseEntityPath = (
   output: any,
@@ -2414,7 +2725,7 @@ const deserializeAws_restJson1_1FaultRootCauseEntityPath = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FaultRootCauseEntity(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCauseService = (
   output: any,
@@ -2427,13 +2738,16 @@ const deserializeAws_restJson1_1FaultRootCauseService = (
     Inferred: undefined,
     Name: undefined,
     Names: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
   }
   if (output.EntityPath !== undefined) {
-    contents.EntityPath = deserializeAws_restJson1_1FaultRootCauseEntityPath(output.EntityPath, context);
+    contents.EntityPath = deserializeAws_restJson1_1FaultRootCauseEntityPath(
+      output.EntityPath,
+      context
+    );
   }
   if (output.Inferred !== undefined) {
     contents.Inferred = output.Inferred;
@@ -2442,13 +2756,16 @@ const deserializeAws_restJson1_1FaultRootCauseService = (
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1ServiceNames(
+      output.Names,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCauseServices = (
   output: any,
@@ -2457,7 +2774,7 @@ const deserializeAws_restJson1_1FaultRootCauseServices = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FaultRootCauseService(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1FaultRootCauses = (
   output: any,
@@ -2466,7 +2783,7 @@ const deserializeAws_restJson1_1FaultRootCauses = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FaultRootCause(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1FaultStatistics = (
   output: any,
@@ -2475,7 +2792,7 @@ const deserializeAws_restJson1_1FaultStatistics = (
   let contents: any = {
     __type: "FaultStatistics",
     OtherCount: undefined,
-    TotalCount: undefined,
+    TotalCount: undefined
   };
   if (output.OtherCount !== undefined) {
     contents.OtherCount = output.OtherCount;
@@ -2484,7 +2801,7 @@ const deserializeAws_restJson1_1FaultStatistics = (
     contents.TotalCount = output.TotalCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Group = (
   output: any,
@@ -2494,7 +2811,7 @@ const deserializeAws_restJson1_1Group = (
     __type: "Group",
     FilterExpression: undefined,
     GroupARN: undefined,
-    GroupName: undefined,
+    GroupName: undefined
   };
   if (output.FilterExpression !== undefined) {
     contents.FilterExpression = output.FilterExpression;
@@ -2506,7 +2823,7 @@ const deserializeAws_restJson1_1Group = (
     contents.GroupName = output.GroupName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1GroupSummary = (
   output: any,
@@ -2516,7 +2833,7 @@ const deserializeAws_restJson1_1GroupSummary = (
     __type: "GroupSummary",
     FilterExpression: undefined,
     GroupARN: undefined,
-    GroupName: undefined,
+    GroupName: undefined
   };
   if (output.FilterExpression !== undefined) {
     contents.FilterExpression = output.FilterExpression;
@@ -2528,7 +2845,7 @@ const deserializeAws_restJson1_1GroupSummary = (
     contents.GroupName = output.GroupName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1GroupSummaryList = (
   output: any,
@@ -2537,7 +2854,7 @@ const deserializeAws_restJson1_1GroupSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GroupSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Histogram = (
   output: any,
@@ -2546,7 +2863,7 @@ const deserializeAws_restJson1_1Histogram = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HistogramEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1HistogramEntry = (
   output: any,
@@ -2555,7 +2872,7 @@ const deserializeAws_restJson1_1HistogramEntry = (
   let contents: any = {
     __type: "HistogramEntry",
     Count: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Count !== undefined) {
     contents.Count = output.Count;
@@ -2564,7 +2881,7 @@ const deserializeAws_restJson1_1HistogramEntry = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Http = (
   output: any,
@@ -2576,7 +2893,7 @@ const deserializeAws_restJson1_1Http = (
     HttpMethod: undefined,
     HttpStatus: undefined,
     HttpURL: undefined,
-    UserAgent: undefined,
+    UserAgent: undefined
   };
   if (output.ClientIp !== undefined) {
     contents.ClientIp = output.ClientIp;
@@ -2594,7 +2911,7 @@ const deserializeAws_restJson1_1Http = (
     contents.UserAgent = output.UserAgent;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InstanceIdDetail = (
   output: any,
@@ -2602,13 +2919,13 @@ const deserializeAws_restJson1_1InstanceIdDetail = (
 ): InstanceIdDetail => {
   let contents: any = {
     __type: "InstanceIdDetail",
-    Id: undefined,
+    Id: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResourceARNDetail = (
   output: any,
@@ -2616,13 +2933,13 @@ const deserializeAws_restJson1_1ResourceARNDetail = (
 ): ResourceARNDetail => {
   let contents: any = {
     __type: "ResourceARNDetail",
-    ARN: undefined,
+    ARN: undefined
   };
   if (output.ARN !== undefined) {
     contents.ARN = output.ARN;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCause = (
   output: any,
@@ -2630,13 +2947,16 @@ const deserializeAws_restJson1_1ResponseTimeRootCause = (
 ): ResponseTimeRootCause => {
   let contents: any = {
     __type: "ResponseTimeRootCause",
-    Services: undefined,
+    Services: undefined
   };
   if (output.Services !== undefined) {
-    contents.Services = deserializeAws_restJson1_1ResponseTimeRootCauseServices(output.Services, context);
+    contents.Services = deserializeAws_restJson1_1ResponseTimeRootCauseServices(
+      output.Services,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseEntity = (
   output: any,
@@ -2646,7 +2966,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseEntity = (
     __type: "ResponseTimeRootCauseEntity",
     Coverage: undefined,
     Name: undefined,
-    Remote: undefined,
+    Remote: undefined
   };
   if (output.Coverage !== undefined) {
     contents.Coverage = output.Coverage;
@@ -2658,7 +2978,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseEntity = (
     contents.Remote = output.Remote;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath = (
   output: any,
@@ -2667,7 +2987,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResponseTimeRootCauseEntity(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
   output: any,
@@ -2680,13 +3000,16 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
     Inferred: undefined,
     Name: undefined,
     Names: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
   }
   if (output.EntityPath !== undefined) {
-    contents.EntityPath = deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(output.EntityPath, context);
+    contents.EntityPath = deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(
+      output.EntityPath,
+      context
+    );
   }
   if (output.Inferred !== undefined) {
     contents.Inferred = output.Inferred;
@@ -2695,13 +3018,16 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1ServiceNames(
+      output.Names,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseServices = (
   output: any,
@@ -2710,7 +3036,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseServices = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResponseTimeRootCauseService(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ResponseTimeRootCauses = (
   output: any,
@@ -2719,7 +3045,7 @@ const deserializeAws_restJson1_1ResponseTimeRootCauses = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResponseTimeRootCause(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1RootCauseException = (
   output: any,
@@ -2728,7 +3054,7 @@ const deserializeAws_restJson1_1RootCauseException = (
   let contents: any = {
     __type: "RootCauseException",
     Message: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -2737,7 +3063,7 @@ const deserializeAws_restJson1_1RootCauseException = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1RootCauseExceptions = (
   output: any,
@@ -2746,7 +3072,7 @@ const deserializeAws_restJson1_1RootCauseExceptions = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RootCauseException(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SamplingRule = (
   output: any,
@@ -2766,10 +3092,13 @@ const deserializeAws_restJson1_1SamplingRule = (
     ServiceName: undefined,
     ServiceType: undefined,
     URLPath: undefined,
-    Version: undefined,
+    Version: undefined
   };
   if (output.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_restJson1_1AttributeMap(output.Attributes, context);
+    contents.Attributes = deserializeAws_restJson1_1AttributeMap(
+      output.Attributes,
+      context
+    );
   }
   if (output.FixedRate !== undefined) {
     contents.FixedRate = output.FixedRate;
@@ -2808,7 +3137,7 @@ const deserializeAws_restJson1_1SamplingRule = (
     contents.Version = output.Version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SamplingRuleRecord = (
   output: any,
@@ -2818,19 +3147,30 @@ const deserializeAws_restJson1_1SamplingRuleRecord = (
     __type: "SamplingRuleRecord",
     CreatedAt: undefined,
     ModifiedAt: undefined,
-    SamplingRule: undefined,
+    SamplingRule: undefined
   };
   if (output.CreatedAt !== undefined) {
-    contents.CreatedAt = new Date(output.CreatedAt % 1 != 0 ? Math.round(output.CreatedAt * 1000) : output.CreatedAt);
+    contents.CreatedAt = new Date(
+      output.CreatedAt % 1 != 0
+        ? Math.round(output.CreatedAt * 1000)
+        : output.CreatedAt
+    );
   }
   if (output.ModifiedAt !== undefined) {
-    contents.ModifiedAt = new Date(output.ModifiedAt % 1 != 0 ? Math.round(output.ModifiedAt * 1000) : output.ModifiedAt);
+    contents.ModifiedAt = new Date(
+      output.ModifiedAt % 1 != 0
+        ? Math.round(output.ModifiedAt * 1000)
+        : output.ModifiedAt
+    );
   }
   if (output.SamplingRule !== undefined) {
-    contents.SamplingRule = deserializeAws_restJson1_1SamplingRule(output.SamplingRule, context);
+    contents.SamplingRule = deserializeAws_restJson1_1SamplingRule(
+      output.SamplingRule,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SamplingRuleRecordList = (
   output: any,
@@ -2839,7 +3179,7 @@ const deserializeAws_restJson1_1SamplingRuleRecordList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SamplingRuleRecord(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SamplingStatisticSummary = (
   output: any,
@@ -2851,7 +3191,7 @@ const deserializeAws_restJson1_1SamplingStatisticSummary = (
     RequestCount: undefined,
     RuleName: undefined,
     SampledCount: undefined,
-    Timestamp: undefined,
+    Timestamp: undefined
   };
   if (output.BorrowCount !== undefined) {
     contents.BorrowCount = output.BorrowCount;
@@ -2866,10 +3206,14 @@ const deserializeAws_restJson1_1SamplingStatisticSummary = (
     contents.SampledCount = output.SampledCount;
   }
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(output.Timestamp % 1 != 0 ? Math.round(output.Timestamp * 1000) : output.Timestamp);
+    contents.Timestamp = new Date(
+      output.Timestamp % 1 != 0
+        ? Math.round(output.Timestamp * 1000)
+        : output.Timestamp
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SamplingStatisticSummaryList = (
   output: any,
@@ -2878,7 +3222,7 @@ const deserializeAws_restJson1_1SamplingStatisticSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SamplingStatisticSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SamplingTargetDocument = (
   output: any,
@@ -2890,7 +3234,7 @@ const deserializeAws_restJson1_1SamplingTargetDocument = (
     Interval: undefined,
     ReservoirQuota: undefined,
     ReservoirQuotaTTL: undefined,
-    RuleName: undefined,
+    RuleName: undefined
   };
   if (output.FixedRate !== undefined) {
     contents.FixedRate = output.FixedRate;
@@ -2902,13 +3246,17 @@ const deserializeAws_restJson1_1SamplingTargetDocument = (
     contents.ReservoirQuota = output.ReservoirQuota;
   }
   if (output.ReservoirQuotaTTL !== undefined) {
-    contents.ReservoirQuotaTTL = new Date(output.ReservoirQuotaTTL % 1 != 0 ? Math.round(output.ReservoirQuotaTTL * 1000) : output.ReservoirQuotaTTL);
+    contents.ReservoirQuotaTTL = new Date(
+      output.ReservoirQuotaTTL % 1 != 0
+        ? Math.round(output.ReservoirQuotaTTL * 1000)
+        : output.ReservoirQuotaTTL
+    );
   }
   if (output.RuleName !== undefined) {
     contents.RuleName = output.RuleName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SamplingTargetDocumentList = (
   output: any,
@@ -2917,7 +3265,7 @@ const deserializeAws_restJson1_1SamplingTargetDocumentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SamplingTargetDocument(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Segment = (
   output: any,
@@ -2926,7 +3274,7 @@ const deserializeAws_restJson1_1Segment = (
   let contents: any = {
     __type: "Segment",
     Document: undefined,
-    Id: undefined,
+    Id: undefined
   };
   if (output.Document !== undefined) {
     contents.Document = output.Document;
@@ -2935,7 +3283,7 @@ const deserializeAws_restJson1_1Segment = (
     contents.Id = output.Id;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SegmentList = (
   output: any,
@@ -2944,7 +3292,7 @@ const deserializeAws_restJson1_1SegmentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Segment(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Service = (
   output: any,
@@ -2964,49 +3312,69 @@ const deserializeAws_restJson1_1Service = (
     StartTime: undefined,
     State: undefined,
     SummaryStatistics: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
   }
   if (output.DurationHistogram !== undefined) {
-    contents.DurationHistogram = deserializeAws_restJson1_1Histogram(output.DurationHistogram, context);
+    contents.DurationHistogram = deserializeAws_restJson1_1Histogram(
+      output.DurationHistogram,
+      context
+    );
   }
   if (output.Edges !== undefined) {
     contents.Edges = deserializeAws_restJson1_1EdgeList(output.Edges, context);
   }
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
+    contents.EndTime = new Date(
+      output.EndTime % 1 != 0
+        ? Math.round(output.EndTime * 1000)
+        : output.EndTime
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1ServiceNames(
+      output.Names,
+      context
+    );
   }
   if (output.ReferenceId !== undefined) {
     contents.ReferenceId = output.ReferenceId;
   }
   if (output.ResponseTimeHistogram !== undefined) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context);
+    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
+      output.ResponseTimeHistogram,
+      context
+    );
   }
   if (output.Root !== undefined) {
     contents.Root = output.Root;
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.SummaryStatistics !== undefined) {
-    contents.SummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(output.SummaryStatistics, context);
+    contents.SummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(
+      output.SummaryStatistics,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ServiceId = (
   output: any,
@@ -3017,7 +3385,7 @@ const deserializeAws_restJson1_1ServiceId = (
     AccountId: undefined,
     Name: undefined,
     Names: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.AccountId !== undefined) {
     contents.AccountId = output.AccountId;
@@ -3026,13 +3394,16 @@ const deserializeAws_restJson1_1ServiceId = (
     contents.Name = output.Name;
   }
   if (output.Names !== undefined) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(output.Names, context);
+    contents.Names = deserializeAws_restJson1_1ServiceNames(
+      output.Names,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ServiceIds = (
   output: any,
@@ -3041,7 +3412,7 @@ const deserializeAws_restJson1_1ServiceIds = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ServiceId(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ServiceList = (
   output: any,
@@ -3050,16 +3421,14 @@ const deserializeAws_restJson1_1ServiceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Service(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ServiceNames = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1ServiceStatistics = (
   output: any,
@@ -3071,13 +3440,19 @@ const deserializeAws_restJson1_1ServiceStatistics = (
     FaultStatistics: undefined,
     OkCount: undefined,
     TotalCount: undefined,
-    TotalResponseTime: undefined,
+    TotalResponseTime: undefined
   };
   if (output.ErrorStatistics !== undefined) {
-    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(output.ErrorStatistics, context);
+    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(
+      output.ErrorStatistics,
+      context
+    );
   }
   if (output.FaultStatistics !== undefined) {
-    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(output.FaultStatistics, context);
+    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(
+      output.FaultStatistics,
+      context
+    );
   }
   if (output.OkCount !== undefined) {
     contents.OkCount = output.OkCount;
@@ -3089,7 +3464,7 @@ const deserializeAws_restJson1_1ServiceStatistics = (
     contents.TotalResponseTime = output.TotalResponseTime;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TimeSeriesServiceStatistics = (
   output: any,
@@ -3100,22 +3475,35 @@ const deserializeAws_restJson1_1TimeSeriesServiceStatistics = (
     EdgeSummaryStatistics: undefined,
     ResponseTimeHistogram: undefined,
     ServiceSummaryStatistics: undefined,
-    Timestamp: undefined,
+    Timestamp: undefined
   };
   if (output.EdgeSummaryStatistics !== undefined) {
-    contents.EdgeSummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(output.EdgeSummaryStatistics, context);
+    contents.EdgeSummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(
+      output.EdgeSummaryStatistics,
+      context
+    );
   }
   if (output.ResponseTimeHistogram !== undefined) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(output.ResponseTimeHistogram, context);
+    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
+      output.ResponseTimeHistogram,
+      context
+    );
   }
   if (output.ServiceSummaryStatistics !== undefined) {
-    contents.ServiceSummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(output.ServiceSummaryStatistics, context);
+    contents.ServiceSummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(
+      output.ServiceSummaryStatistics,
+      context
+    );
   }
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(output.Timestamp % 1 != 0 ? Math.round(output.Timestamp * 1000) : output.Timestamp);
+    contents.Timestamp = new Date(
+      output.Timestamp % 1 != 0
+        ? Math.round(output.Timestamp * 1000)
+        : output.Timestamp
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TimeSeriesServiceStatisticsList = (
   output: any,
@@ -3124,7 +3512,7 @@ const deserializeAws_restJson1_1TimeSeriesServiceStatisticsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TimeSeriesServiceStatistics(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Trace = (
   output: any,
@@ -3134,7 +3522,7 @@ const deserializeAws_restJson1_1Trace = (
     __type: "Trace",
     Duration: undefined,
     Id: undefined,
-    Segments: undefined,
+    Segments: undefined
   };
   if (output.Duration !== undefined) {
     contents.Duration = output.Duration;
@@ -3143,10 +3531,13 @@ const deserializeAws_restJson1_1Trace = (
     contents.Id = output.Id;
   }
   if (output.Segments !== undefined) {
-    contents.Segments = deserializeAws_restJson1_1SegmentList(output.Segments, context);
+    contents.Segments = deserializeAws_restJson1_1SegmentList(
+      output.Segments,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TraceAvailabilityZones = (
   output: any,
@@ -3155,7 +3546,7 @@ const deserializeAws_restJson1_1TraceAvailabilityZones = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1AvailabilityZoneDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1TraceInstanceIds = (
   output: any,
@@ -3164,7 +3555,7 @@ const deserializeAws_restJson1_1TraceInstanceIds = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InstanceIdDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1TraceList = (
   output: any,
@@ -3173,7 +3564,7 @@ const deserializeAws_restJson1_1TraceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Trace(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1TraceResourceARNs = (
   output: any,
@@ -3182,7 +3573,7 @@ const deserializeAws_restJson1_1TraceResourceARNs = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourceARNDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1TraceSummary = (
   output: any,
@@ -3209,25 +3600,40 @@ const deserializeAws_restJson1_1TraceSummary = (
     ResponseTimeRootCauses: undefined,
     Revision: undefined,
     ServiceIds: undefined,
-    Users: undefined,
+    Users: undefined
   };
   if (output.Annotations !== undefined) {
-    contents.Annotations = deserializeAws_restJson1_1Annotations(output.Annotations, context);
+    contents.Annotations = deserializeAws_restJson1_1Annotations(
+      output.Annotations,
+      context
+    );
   }
   if (output.AvailabilityZones !== undefined) {
-    contents.AvailabilityZones = deserializeAws_restJson1_1TraceAvailabilityZones(output.AvailabilityZones, context);
+    contents.AvailabilityZones = deserializeAws_restJson1_1TraceAvailabilityZones(
+      output.AvailabilityZones,
+      context
+    );
   }
   if (output.Duration !== undefined) {
     contents.Duration = output.Duration;
   }
   if (output.EntryPoint !== undefined) {
-    contents.EntryPoint = deserializeAws_restJson1_1ServiceId(output.EntryPoint, context);
+    contents.EntryPoint = deserializeAws_restJson1_1ServiceId(
+      output.EntryPoint,
+      context
+    );
   }
   if (output.ErrorRootCauses !== undefined) {
-    contents.ErrorRootCauses = deserializeAws_restJson1_1ErrorRootCauses(output.ErrorRootCauses, context);
+    contents.ErrorRootCauses = deserializeAws_restJson1_1ErrorRootCauses(
+      output.ErrorRootCauses,
+      context
+    );
   }
   if (output.FaultRootCauses !== undefined) {
-    contents.FaultRootCauses = deserializeAws_restJson1_1FaultRootCauses(output.FaultRootCauses, context);
+    contents.FaultRootCauses = deserializeAws_restJson1_1FaultRootCauses(
+      output.FaultRootCauses,
+      context
+    );
   }
   if (output.HasError !== undefined) {
     contents.HasError = output.HasError;
@@ -3245,34 +3651,53 @@ const deserializeAws_restJson1_1TraceSummary = (
     contents.Id = output.Id;
   }
   if (output.InstanceIds !== undefined) {
-    contents.InstanceIds = deserializeAws_restJson1_1TraceInstanceIds(output.InstanceIds, context);
+    contents.InstanceIds = deserializeAws_restJson1_1TraceInstanceIds(
+      output.InstanceIds,
+      context
+    );
   }
   if (output.IsPartial !== undefined) {
     contents.IsPartial = output.IsPartial;
   }
   if (output.MatchedEventTime !== undefined) {
-    contents.MatchedEventTime = new Date(output.MatchedEventTime % 1 != 0 ? Math.round(output.MatchedEventTime * 1000) : output.MatchedEventTime);
+    contents.MatchedEventTime = new Date(
+      output.MatchedEventTime % 1 != 0
+        ? Math.round(output.MatchedEventTime * 1000)
+        : output.MatchedEventTime
+    );
   }
   if (output.ResourceARNs !== undefined) {
-    contents.ResourceARNs = deserializeAws_restJson1_1TraceResourceARNs(output.ResourceARNs, context);
+    contents.ResourceARNs = deserializeAws_restJson1_1TraceResourceARNs(
+      output.ResourceARNs,
+      context
+    );
   }
   if (output.ResponseTime !== undefined) {
     contents.ResponseTime = output.ResponseTime;
   }
   if (output.ResponseTimeRootCauses !== undefined) {
-    contents.ResponseTimeRootCauses = deserializeAws_restJson1_1ResponseTimeRootCauses(output.ResponseTimeRootCauses, context);
+    contents.ResponseTimeRootCauses = deserializeAws_restJson1_1ResponseTimeRootCauses(
+      output.ResponseTimeRootCauses,
+      context
+    );
   }
   if (output.Revision !== undefined) {
     contents.Revision = output.Revision;
   }
   if (output.ServiceIds !== undefined) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context);
+    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
+      output.ServiceIds,
+      context
+    );
   }
   if (output.Users !== undefined) {
-    contents.Users = deserializeAws_restJson1_1TraceUsers(output.Users, context);
+    contents.Users = deserializeAws_restJson1_1TraceUsers(
+      output.Users,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TraceSummaryList = (
   output: any,
@@ -3281,7 +3706,7 @@ const deserializeAws_restJson1_1TraceSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TraceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1TraceUser = (
   output: any,
@@ -3290,16 +3715,19 @@ const deserializeAws_restJson1_1TraceUser = (
   let contents: any = {
     __type: "TraceUser",
     ServiceIds: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.ServiceIds !== undefined) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context);
+    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
+      output.ServiceIds,
+      context
+    );
   }
   if (output.UserName !== undefined) {
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TraceUsers = (
   output: any,
@@ -3308,7 +3736,7 @@ const deserializeAws_restJson1_1TraceUsers = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1TraceUser(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1UnprocessedStatistics = (
   output: any,
@@ -3318,7 +3746,7 @@ const deserializeAws_restJson1_1UnprocessedStatistics = (
     __type: "UnprocessedStatistics",
     ErrorCode: undefined,
     Message: undefined,
-    RuleName: undefined,
+    RuleName: undefined
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3330,7 +3758,7 @@ const deserializeAws_restJson1_1UnprocessedStatistics = (
     contents.RuleName = output.RuleName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UnprocessedStatisticsList = (
   output: any,
@@ -3339,16 +3767,14 @@ const deserializeAws_restJson1_1UnprocessedStatisticsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UnprocessedStatistics(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1UnprocessedTraceIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1UnprocessedTraceSegment = (
   output: any,
@@ -3358,7 +3784,7 @@ const deserializeAws_restJson1_1UnprocessedTraceSegment = (
     __type: "UnprocessedTraceSegment",
     ErrorCode: undefined,
     Id: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3370,7 +3796,7 @@ const deserializeAws_restJson1_1UnprocessedTraceSegment = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UnprocessedTraceSegmentList = (
   output: any,
@@ -3379,7 +3805,7 @@ const deserializeAws_restJson1_1UnprocessedTraceSegmentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UnprocessedTraceSegment(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ValueWithServiceIds = (
   output: any,
@@ -3388,16 +3814,22 @@ const deserializeAws_restJson1_1ValueWithServiceIds = (
   let contents: any = {
     __type: "ValueWithServiceIds",
     AnnotationValue: undefined,
-    ServiceIds: undefined,
+    ServiceIds: undefined
   };
   if (output.AnnotationValue !== undefined) {
-    contents.AnnotationValue = deserializeAws_restJson1_1AnnotationValue(output.AnnotationValue, context);
+    contents.AnnotationValue = deserializeAws_restJson1_1AnnotationValue(
+      output.AnnotationValue,
+      context
+    );
   }
   if (output.ServiceIds !== undefined) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context);
+    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
+      output.ServiceIds,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ValuesWithServiceIds = (
   output: any,
@@ -3406,7 +3838,7 @@ const deserializeAws_restJson1_1ValuesWithServiceIds = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ValueWithServiceIds(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,74 +1,74 @@
 import {
   CreateMemberCommandInput,
-  CreateMemberCommandOutput,
+  CreateMemberCommandOutput
 } from "../commands/CreateMemberCommand";
 import {
   CreateNetworkCommandInput,
-  CreateNetworkCommandOutput,
+  CreateNetworkCommandOutput
 } from "../commands/CreateNetworkCommand";
 import {
   CreateNodeCommandInput,
-  CreateNodeCommandOutput,
+  CreateNodeCommandOutput
 } from "../commands/CreateNodeCommand";
 import {
   CreateProposalCommandInput,
-  CreateProposalCommandOutput,
+  CreateProposalCommandOutput
 } from "../commands/CreateProposalCommand";
 import {
   DeleteMemberCommandInput,
-  DeleteMemberCommandOutput,
+  DeleteMemberCommandOutput
 } from "../commands/DeleteMemberCommand";
 import {
   DeleteNodeCommandInput,
-  DeleteNodeCommandOutput,
+  DeleteNodeCommandOutput
 } from "../commands/DeleteNodeCommand";
 import {
   GetMemberCommandInput,
-  GetMemberCommandOutput,
+  GetMemberCommandOutput
 } from "../commands/GetMemberCommand";
 import {
   GetNetworkCommandInput,
-  GetNetworkCommandOutput,
+  GetNetworkCommandOutput
 } from "../commands/GetNetworkCommand";
 import {
   GetNodeCommandInput,
-  GetNodeCommandOutput,
+  GetNodeCommandOutput
 } from "../commands/GetNodeCommand";
 import {
   GetProposalCommandInput,
-  GetProposalCommandOutput,
+  GetProposalCommandOutput
 } from "../commands/GetProposalCommand";
 import {
   ListInvitationsCommandInput,
-  ListInvitationsCommandOutput,
+  ListInvitationsCommandOutput
 } from "../commands/ListInvitationsCommand";
 import {
   ListMembersCommandInput,
-  ListMembersCommandOutput,
+  ListMembersCommandOutput
 } from "../commands/ListMembersCommand";
 import {
   ListNetworksCommandInput,
-  ListNetworksCommandOutput,
+  ListNetworksCommandOutput
 } from "../commands/ListNetworksCommand";
 import {
   ListNodesCommandInput,
-  ListNodesCommandOutput,
+  ListNodesCommandOutput
 } from "../commands/ListNodesCommand";
 import {
   ListProposalVotesCommandInput,
-  ListProposalVotesCommandOutput,
+  ListProposalVotesCommandOutput
 } from "../commands/ListProposalVotesCommand";
 import {
   ListProposalsCommandInput,
-  ListProposalsCommandOutput,
+  ListProposalsCommandOutput
 } from "../commands/ListProposalsCommand";
 import {
   RejectInvitationCommandInput,
-  RejectInvitationCommandOutput,
+  RejectInvitationCommandOutput
 } from "../commands/RejectInvitationCommand";
 import {
   VoteOnProposalCommandInput,
-  VoteOnProposalCommandOutput,
+  VoteOnProposalCommandOutput
 } from "../commands/VoteOnProposalCommand";
 import {
   AccessDeniedException,
@@ -106,18 +106,18 @@ import {
   ResourceNotReadyException,
   ThrottlingException,
   VoteSummary,
-  VotingPolicy,
+  VotingPolicy
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CreateMemberCommand(
@@ -125,27 +125,32 @@ export async function serializeAws_restJson1_1CreateMemberCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks/{NetworkId}/members";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
-    bodyParams['ClientRequestToken'] = input.ClientRequestToken;
+    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.InvitationId !== undefined) {
-    bodyParams['InvitationId'] = input.InvitationId;
+    bodyParams["InvitationId"] = input.InvitationId;
   }
   if (input.MemberConfiguration !== undefined) {
-    bodyParams['MemberConfiguration'] = serializeAws_restJson1_1MemberConfiguration(input.MemberConfiguration, context);
+    bodyParams[
+      "MemberConfiguration"
+    ] = serializeAws_restJson1_1MemberConfiguration(
+      input.MemberConfiguration,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -154,7 +159,7 @@ export async function serializeAws_restJson1_1CreateMemberCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -163,33 +168,46 @@ export async function serializeAws_restJson1_1CreateNetworkCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks";
   let body: any = {};
   const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
-    bodyParams['ClientRequestToken'] = input.ClientRequestToken;
+    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Framework !== undefined) {
-    bodyParams['Framework'] = input.Framework;
+    bodyParams["Framework"] = input.Framework;
   }
   if (input.FrameworkConfiguration !== undefined) {
-    bodyParams['FrameworkConfiguration'] = serializeAws_restJson1_1NetworkFrameworkConfiguration(input.FrameworkConfiguration, context);
+    bodyParams[
+      "FrameworkConfiguration"
+    ] = serializeAws_restJson1_1NetworkFrameworkConfiguration(
+      input.FrameworkConfiguration,
+      context
+    );
   }
   if (input.FrameworkVersion !== undefined) {
-    bodyParams['FrameworkVersion'] = input.FrameworkVersion;
+    bodyParams["FrameworkVersion"] = input.FrameworkVersion;
   }
   if (input.MemberConfiguration !== undefined) {
-    bodyParams['MemberConfiguration'] = serializeAws_restJson1_1MemberConfiguration(input.MemberConfiguration, context);
+    bodyParams[
+      "MemberConfiguration"
+    ] = serializeAws_restJson1_1MemberConfiguration(
+      input.MemberConfiguration,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.VotingPolicy !== undefined) {
-    bodyParams['VotingPolicy'] = serializeAws_restJson1_1VotingPolicy(input.VotingPolicy, context);
+    bodyParams["VotingPolicy"] = serializeAws_restJson1_1VotingPolicy(
+      input.VotingPolicy,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -198,7 +216,7 @@ export async function serializeAws_restJson1_1CreateNetworkCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -207,33 +225,36 @@ export async function serializeAws_restJson1_1CreateNodeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.ClientRequestToken !== undefined) {
-    bodyParams['ClientRequestToken'] = input.ClientRequestToken;
+    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.NodeConfiguration !== undefined) {
-    bodyParams['NodeConfiguration'] = serializeAws_restJson1_1NodeConfiguration(input.NodeConfiguration, context);
+    bodyParams["NodeConfiguration"] = serializeAws_restJson1_1NodeConfiguration(
+      input.NodeConfiguration,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -242,7 +263,7 @@ export async function serializeAws_restJson1_1CreateNodeCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -251,30 +272,33 @@ export async function serializeAws_restJson1_1CreateProposalCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks/{NetworkId}/proposals";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Actions !== undefined) {
-    bodyParams['Actions'] = serializeAws_restJson1_1ProposalActions(input.Actions, context);
+    bodyParams["Actions"] = serializeAws_restJson1_1ProposalActions(
+      input.Actions,
+      context
+    );
   }
   if (input.ClientRequestToken !== undefined) {
-    bodyParams['ClientRequestToken'] = input.ClientRequestToken;
+    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.MemberId !== undefined) {
-    bodyParams['MemberId'] = input.MemberId;
+    bodyParams["MemberId"] = input.MemberId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -283,7 +307,7 @@ export async function serializeAws_restJson1_1CreateProposalCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -292,32 +316,32 @@ export async function serializeAws_restJson1_1DeleteMemberCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -326,41 +350,41 @@ export async function serializeAws_restJson1_1DeleteNodeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   if (input.NodeId !== undefined) {
     const labelValue: any = input.NodeId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NodeId.');
+      throw new Error("Empty value provided for input HTTP label: NodeId.");
     }
-    resolvedPath = resolvedPath.replace('{NodeId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NodeId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NodeId.');
+    throw new Error("No value provided for input HTTP label: NodeId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -369,32 +393,32 @@ export async function serializeAws_restJson1_1GetMemberCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -403,23 +427,23 @@ export async function serializeAws_restJson1_1GetNetworkCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -428,41 +452,41 @@ export async function serializeAws_restJson1_1GetNodeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   if (input.NodeId !== undefined) {
     const labelValue: any = input.NodeId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NodeId.');
+      throw new Error("Empty value provided for input HTTP label: NodeId.");
     }
-    resolvedPath = resolvedPath.replace('{NodeId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NodeId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NodeId.');
+    throw new Error("No value provided for input HTTP label: NodeId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -471,32 +495,32 @@ export async function serializeAws_restJson1_1GetProposalCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   if (input.ProposalId !== undefined) {
     const labelValue: any = input.ProposalId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ProposalId.');
+      throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace('{ProposalId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ProposalId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ProposalId.');
+    throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -505,14 +529,14 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/invitations";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -520,7 +544,7 @@ export async function serializeAws_restJson1_1ListInvitationsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -529,32 +553,32 @@ export async function serializeAws_restJson1_1ListMembersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {};
   if (input.IsOwned !== undefined) {
-    query['isOwned'] = input.IsOwned.toString();
+    query["isOwned"] = input.IsOwned.toString();
   }
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.Name !== undefined) {
-    query['name'] = input.Name.toString();
+    query["name"] = input.Name.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   if (input.Status !== undefined) {
-    query['status'] = input.Status.toString();
+    query["status"] = input.Status.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -562,7 +586,7 @@ export async function serializeAws_restJson1_1ListMembersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -571,23 +595,23 @@ export async function serializeAws_restJson1_1ListNetworksCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks";
   const query: any = {};
   if (input.Framework !== undefined) {
-    query['framework'] = input.Framework.toString();
+    query["framework"] = input.Framework.toString();
   }
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.Name !== undefined) {
-    query['name'] = input.Name.toString();
+    query["name"] = input.Name.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   if (input.Status !== undefined) {
-    query['status'] = input.Status.toString();
+    query["status"] = input.Status.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -595,7 +619,7 @@ export async function serializeAws_restJson1_1ListNetworksCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -604,35 +628,35 @@ export async function serializeAws_restJson1_1ListNodesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes";
   if (input.MemberId !== undefined) {
     const labelValue: any = input.MemberId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: MemberId.');
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
     }
-    resolvedPath = resolvedPath.replace('{MemberId}', labelValue);
+    resolvedPath = resolvedPath.replace("{MemberId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: MemberId.');
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   if (input.Status !== undefined) {
-    query['status'] = input.Status.toString();
+    query["status"] = input.Status.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -640,7 +664,7 @@ export async function serializeAws_restJson1_1ListNodesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -649,32 +673,32 @@ export async function serializeAws_restJson1_1ListProposalVotesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}/votes";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   if (input.ProposalId !== undefined) {
     const labelValue: any = input.ProposalId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ProposalId.');
+      throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace('{ProposalId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ProposalId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ProposalId.');
+    throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -682,7 +706,7 @@ export async function serializeAws_restJson1_1ListProposalVotesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -691,23 +715,23 @@ export async function serializeAws_restJson1_1ListProposalsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/networks/{NetworkId}/proposals";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -715,7 +739,7 @@ export async function serializeAws_restJson1_1ListProposalsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -724,23 +748,25 @@ export async function serializeAws_restJson1_1RejectInvitationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/invitations/{InvitationId}";
   if (input.InvitationId !== undefined) {
     const labelValue: any = input.InvitationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: InvitationId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: InvitationId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{InvitationId}', labelValue);
+    resolvedPath = resolvedPath.replace("{InvitationId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: InvitationId.');
+    throw new Error("No value provided for input HTTP label: InvitationId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -749,33 +775,33 @@ export async function serializeAws_restJson1_1VoteOnProposalCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}/votes";
   if (input.NetworkId !== undefined) {
     const labelValue: any = input.NetworkId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: NetworkId.');
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
     }
-    resolvedPath = resolvedPath.replace('{NetworkId}', labelValue);
+    resolvedPath = resolvedPath.replace("{NetworkId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: NetworkId.');
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   if (input.ProposalId !== undefined) {
     const labelValue: any = input.ProposalId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ProposalId.');
+      throw new Error("Empty value provided for input HTTP label: ProposalId.");
     }
-    resolvedPath = resolvedPath.replace('{ProposalId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ProposalId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ProposalId.');
+    throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Vote !== undefined) {
-    bodyParams['Vote'] = input.Vote;
+    bodyParams["Vote"] = input.Vote;
   }
   if (input.VoterMemberId !== undefined) {
-    bodyParams['VoterMemberId'] = input.VoterMemberId;
+    bodyParams["VoterMemberId"] = input.VoterMemberId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -784,7 +810,7 @@ export async function serializeAws_restJson1_1VoteOnProposalCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -798,7 +824,7 @@ export async function deserializeAws_restJson1_1CreateMemberCommand(
   const contents: CreateMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateMemberOutput",
-    MemberId: undefined,
+    MemberId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.MemberId !== undefined) {
@@ -809,56 +835,80 @@ export async function deserializeAws_restJson1_1CreateMemberCommand(
 
 async function deserializeAws_restJson1_1CreateMemberCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -875,7 +925,7 @@ export async function deserializeAws_restJson1_1CreateNetworkCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreateNetworkOutput",
     MemberId: undefined,
-    NetworkId: undefined,
+    NetworkId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.MemberId !== undefined) {
@@ -889,48 +939,66 @@ export async function deserializeAws_restJson1_1CreateNetworkCommand(
 
 async function deserializeAws_restJson1_1CreateNetworkCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -946,7 +1014,7 @@ export async function deserializeAws_restJson1_1CreateNodeCommand(
   const contents: CreateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNodeOutput",
-    NodeId: undefined,
+    NodeId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NodeId !== undefined) {
@@ -957,56 +1025,80 @@ export async function deserializeAws_restJson1_1CreateNodeCommand(
 
 async function deserializeAws_restJson1_1CreateNodeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.taiga.webservice.api#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1017,12 +1109,15 @@ export async function deserializeAws_restJson1_1CreateProposalCommand(
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateProposalCommandError(output, context);
+    return deserializeAws_restJson1_1CreateProposalCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateProposalOutput",
-    ProposalId: undefined,
+    ProposalId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.ProposalId !== undefined) {
@@ -1033,48 +1128,66 @@ export async function deserializeAws_restJson1_1CreateProposalCommand(
 
 async function deserializeAws_restJson1_1CreateProposalCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1089,55 +1202,73 @@ export async function deserializeAws_restJson1_1DeleteMemberCommand(
   }
   const contents: DeleteMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMemberOutput",
+    __type: "DeleteMemberOutput"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteMemberCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1152,55 +1283,73 @@ export async function deserializeAws_restJson1_1DeleteNodeCommand(
   }
   const contents: DeleteNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNodeOutput",
+    __type: "DeleteNodeOutput"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteNodeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotReadyException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotReadyException":
-      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotReadyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1216,7 +1365,7 @@ export async function deserializeAws_restJson1_1GetMemberCommand(
   const contents: GetMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetMemberOutput",
-    Member: undefined,
+    Member: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Member !== undefined) {
@@ -1227,44 +1376,59 @@ export async function deserializeAws_restJson1_1GetMemberCommand(
 
 async function deserializeAws_restJson1_1GetMemberCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetMemberCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1280,7 +1444,7 @@ export async function deserializeAws_restJson1_1GetNetworkCommand(
   const contents: GetNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNetworkOutput",
-    Network: undefined,
+    Network: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Network !== undefined) {
@@ -1291,44 +1455,59 @@ export async function deserializeAws_restJson1_1GetNetworkCommand(
 
 async function deserializeAws_restJson1_1GetNetworkCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1344,7 +1523,7 @@ export async function deserializeAws_restJson1_1GetNodeCommand(
   const contents: GetNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNodeOutput",
-    Node: undefined,
+    Node: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Node !== undefined) {
@@ -1355,44 +1534,59 @@ export async function deserializeAws_restJson1_1GetNodeCommand(
 
 async function deserializeAws_restJson1_1GetNodeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetNodeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1408,55 +1602,73 @@ export async function deserializeAws_restJson1_1GetProposalCommand(
   const contents: GetProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProposalOutput",
-    Proposal: undefined,
+    Proposal: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Proposal !== undefined) {
-    contents.Proposal = deserializeAws_restJson1_1Proposal(data.Proposal, context);
+    contents.Proposal = deserializeAws_restJson1_1Proposal(
+      data.Proposal,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetProposalCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetProposalCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1467,17 +1679,23 @@ export async function deserializeAws_restJson1_1ListInvitationsCommand(
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListInvitationsCommandError(output, context);
+    return deserializeAws_restJson1_1ListInvitationsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInvitationsOutput",
     Invitations: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Invitations !== undefined) {
-    contents.Invitations = deserializeAws_restJson1_1InvitationList(data.Invitations, context);
+    contents.Invitations = deserializeAws_restJson1_1InvitationList(
+      data.Invitations,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1487,48 +1705,66 @@ export async function deserializeAws_restJson1_1ListInvitationsCommand(
 
 async function deserializeAws_restJson1_1ListInvitationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceededException":
     case "com.amazonaws.taiga.webservice.api#ResourceLimitExceededException":
-      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1545,11 +1781,14 @@ export async function deserializeAws_restJson1_1ListMembersCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListMembersOutput",
     Members: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Members !== undefined) {
-    contents.Members = deserializeAws_restJson1_1MemberSummaryList(data.Members, context);
+    contents.Members = deserializeAws_restJson1_1MemberSummaryList(
+      data.Members,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1559,40 +1798,52 @@ export async function deserializeAws_restJson1_1ListMembersCommand(
 
 async function deserializeAws_restJson1_1ListMembersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListMembersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1609,11 +1860,14 @@ export async function deserializeAws_restJson1_1ListNetworksCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListNetworksOutput",
     Networks: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Networks !== undefined) {
-    contents.Networks = deserializeAws_restJson1_1NetworkSummaryList(data.Networks, context);
+    contents.Networks = deserializeAws_restJson1_1NetworkSummaryList(
+      data.Networks,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -1623,40 +1877,52 @@ export async function deserializeAws_restJson1_1ListNetworksCommand(
 
 async function deserializeAws_restJson1_1ListNetworksCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1673,54 +1939,69 @@ export async function deserializeAws_restJson1_1ListNodesCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListNodesOutput",
     NextToken: undefined,
-    Nodes: undefined,
+    Nodes: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.Nodes !== undefined) {
-    contents.Nodes = deserializeAws_restJson1_1NodeSummaryList(data.Nodes, context);
+    contents.Nodes = deserializeAws_restJson1_1NodeSummaryList(
+      data.Nodes,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListNodesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListNodesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1731,60 +2012,78 @@ export async function deserializeAws_restJson1_1ListProposalVotesCommand(
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListProposalVotesCommandError(output, context);
+    return deserializeAws_restJson1_1ListProposalVotesCommandError(
+      output,
+      context
+    );
   }
   const contents: ListProposalVotesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListProposalVotesOutput",
     NextToken: undefined,
-    ProposalVotes: undefined,
+    ProposalVotes: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.ProposalVotes !== undefined) {
-    contents.ProposalVotes = deserializeAws_restJson1_1ProposalVoteList(data.ProposalVotes, context);
+    contents.ProposalVotes = deserializeAws_restJson1_1ProposalVoteList(
+      data.ProposalVotes,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListProposalVotesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1801,58 +2100,76 @@ export async function deserializeAws_restJson1_1ListProposalsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListProposalsOutput",
     NextToken: undefined,
-    Proposals: undefined,
+    Proposals: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.Proposals !== undefined) {
-    contents.Proposals = deserializeAws_restJson1_1ProposalSummaryList(data.Proposals, context);
+    contents.Proposals = deserializeAws_restJson1_1ProposalSummaryList(
+      data.Proposals,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListProposalsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1863,59 +2180,80 @@ export async function deserializeAws_restJson1_1RejectInvitationCommand(
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RejectInvitationCommandError(output, context);
+    return deserializeAws_restJson1_1RejectInvitationCommandError(
+      output,
+      context
+    );
   }
   const contents: RejectInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectInvitationOutput",
+    __type: "RejectInvitationOutput"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RejectInvitationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
-      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1926,59 +2264,80 @@ export async function deserializeAws_restJson1_1VoteOnProposalCommand(
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1VoteOnProposalCommandError(output, context);
+    return deserializeAws_restJson1_1VoteOnProposalCommandError(
+      output,
+      context
+    );
   }
   const contents: VoteOnProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VoteOnProposalOutput",
+    __type: "VoteOnProposalOutput"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1VoteOnProposalCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.taiga.webservice.api#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IllegalActionException":
     case "com.amazonaws.taiga.webservice.api#IllegalActionException":
-      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IllegalActionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceErrorException":
     case "com.amazonaws.taiga.webservice.api#InternalServiceErrorException":
-      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.taiga.webservice.api#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.taiga.webservice.api#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.taiga.webservice.api#ThrottlingException":
-      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.taiga.webservice.api#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1991,7 +2350,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
   const contents: AccessDeniedException = {
     __type: "AccessDeniedException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return contents;
 };
@@ -2004,7 +2363,7 @@ const deserializeAws_restJson1_1IllegalActionExceptionResponse = async (
     __type: "IllegalActionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2020,7 +2379,7 @@ const deserializeAws_restJson1_1InternalServiceErrorExceptionResponse = async (
   const contents: InternalServiceErrorException = {
     __type: "InternalServiceErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return contents;
 };
@@ -2033,7 +2392,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2050,7 +2409,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2067,7 +2426,7 @@ const deserializeAws_restJson1_1ResourceLimitExceededExceptionResponse = async (
     __type: "ResourceLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2084,7 +2443,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2101,7 +2460,7 @@ const deserializeAws_restJson1_1ResourceNotReadyExceptionResponse = async (
     __type: "ResourceNotReadyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2117,7 +2476,7 @@ const deserializeAws_restJson1_1ThrottlingExceptionResponse = async (
   const contents: ThrottlingException = {
     __type: "ThrottlingException",
     $fault: "client",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return contents;
 };
@@ -2128,16 +2487,16 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.ProposalDurationInHours !== undefined) {
-    bodyParams['ProposalDurationInHours'] = input.ProposalDurationInHours;
+    bodyParams["ProposalDurationInHours"] = input.ProposalDurationInHours;
   }
   if (input.ThresholdComparator !== undefined) {
-    bodyParams['ThresholdComparator'] = input.ThresholdComparator;
+    bodyParams["ThresholdComparator"] = input.ThresholdComparator;
   }
   if (input.ThresholdPercentage !== undefined) {
-    bodyParams['ThresholdPercentage'] = input.ThresholdPercentage;
+    bodyParams["ThresholdPercentage"] = input.ThresholdPercentage;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1InviteAction = (
   input: InviteAction,
@@ -2145,10 +2504,10 @@ const serializeAws_restJson1_1InviteAction = (
 ): any => {
   let bodyParams: any = {};
   if (input.Principal !== undefined) {
-    bodyParams['Principal'] = input.Principal;
+    bodyParams["Principal"] = input.Principal;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1InviteActionList = (
   input: Array<InviteAction>,
@@ -2157,7 +2516,7 @@ const serializeAws_restJson1_1InviteActionList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1InviteAction(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1MemberConfiguration = (
   input: MemberConfiguration,
@@ -2165,16 +2524,21 @@ const serializeAws_restJson1_1MemberConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.FrameworkConfiguration !== undefined) {
-    bodyParams['FrameworkConfiguration'] = serializeAws_restJson1_1MemberFrameworkConfiguration(input.FrameworkConfiguration, context);
+    bodyParams[
+      "FrameworkConfiguration"
+    ] = serializeAws_restJson1_1MemberFrameworkConfiguration(
+      input.FrameworkConfiguration,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1MemberFabricConfiguration = (
   input: MemberFabricConfiguration,
@@ -2182,13 +2546,13 @@ const serializeAws_restJson1_1MemberFabricConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdminPassword !== undefined) {
-    bodyParams['AdminPassword'] = input.AdminPassword;
+    bodyParams["AdminPassword"] = input.AdminPassword;
   }
   if (input.AdminUsername !== undefined) {
-    bodyParams['AdminUsername'] = input.AdminUsername;
+    bodyParams["AdminUsername"] = input.AdminUsername;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1MemberFrameworkConfiguration = (
   input: MemberFrameworkConfiguration,
@@ -2196,10 +2560,13 @@ const serializeAws_restJson1_1MemberFrameworkConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Fabric !== undefined) {
-    bodyParams['Fabric'] = serializeAws_restJson1_1MemberFabricConfiguration(input.Fabric, context);
+    bodyParams["Fabric"] = serializeAws_restJson1_1MemberFabricConfiguration(
+      input.Fabric,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1NetworkFabricConfiguration = (
   input: NetworkFabricConfiguration,
@@ -2207,10 +2574,10 @@ const serializeAws_restJson1_1NetworkFabricConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Edition !== undefined) {
-    bodyParams['Edition'] = input.Edition;
+    bodyParams["Edition"] = input.Edition;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
   input: NetworkFrameworkConfiguration,
@@ -2218,10 +2585,13 @@ const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Fabric !== undefined) {
-    bodyParams['Fabric'] = serializeAws_restJson1_1NetworkFabricConfiguration(input.Fabric, context);
+    bodyParams["Fabric"] = serializeAws_restJson1_1NetworkFabricConfiguration(
+      input.Fabric,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1NodeConfiguration = (
   input: NodeConfiguration,
@@ -2229,13 +2599,13 @@ const serializeAws_restJson1_1NodeConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AvailabilityZone !== undefined) {
-    bodyParams['AvailabilityZone'] = input.AvailabilityZone;
+    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
   }
   if (input.InstanceType !== undefined) {
-    bodyParams['InstanceType'] = input.InstanceType;
+    bodyParams["InstanceType"] = input.InstanceType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1ProposalActions = (
   input: ProposalActions,
@@ -2243,13 +2613,19 @@ const serializeAws_restJson1_1ProposalActions = (
 ): any => {
   let bodyParams: any = {};
   if (input.Invitations !== undefined) {
-    bodyParams['Invitations'] = serializeAws_restJson1_1InviteActionList(input.Invitations, context);
+    bodyParams["Invitations"] = serializeAws_restJson1_1InviteActionList(
+      input.Invitations,
+      context
+    );
   }
   if (input.Removals !== undefined) {
-    bodyParams['Removals'] = serializeAws_restJson1_1RemoveActionList(input.Removals, context);
+    bodyParams["Removals"] = serializeAws_restJson1_1RemoveActionList(
+      input.Removals,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1RemoveAction = (
   input: RemoveAction,
@@ -2257,10 +2633,10 @@ const serializeAws_restJson1_1RemoveAction = (
 ): any => {
   let bodyParams: any = {};
   if (input.MemberId !== undefined) {
-    bodyParams['MemberId'] = input.MemberId;
+    bodyParams["MemberId"] = input.MemberId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1RemoveActionList = (
   input: Array<RemoveAction>,
@@ -2269,7 +2645,7 @@ const serializeAws_restJson1_1RemoveActionList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1RemoveAction(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1VotingPolicy = (
   input: VotingPolicy,
@@ -2277,10 +2653,15 @@ const serializeAws_restJson1_1VotingPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.ApprovalThresholdPolicy !== undefined) {
-    bodyParams['ApprovalThresholdPolicy'] = serializeAws_restJson1_1ApprovalThresholdPolicy(input.ApprovalThresholdPolicy, context);
+    bodyParams[
+      "ApprovalThresholdPolicy"
+    ] = serializeAws_restJson1_1ApprovalThresholdPolicy(
+      input.ApprovalThresholdPolicy,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
   output: any,
@@ -2290,7 +2671,7 @@ const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
     __type: "ApprovalThresholdPolicy",
     ProposalDurationInHours: undefined,
     ThresholdComparator: undefined,
-    ThresholdPercentage: undefined,
+    ThresholdPercentage: undefined
   };
   if (output.ProposalDurationInHours !== undefined) {
     contents.ProposalDurationInHours = output.ProposalDurationInHours;
@@ -2302,7 +2683,7 @@ const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
     contents.ThresholdPercentage = output.ThresholdPercentage;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Invitation = (
   output: any,
@@ -2314,7 +2695,7 @@ const deserializeAws_restJson1_1Invitation = (
     ExpirationDate: undefined,
     InvitationId: undefined,
     NetworkSummary: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2326,13 +2707,16 @@ const deserializeAws_restJson1_1Invitation = (
     contents.InvitationId = output.InvitationId;
   }
   if (output.NetworkSummary !== undefined) {
-    contents.NetworkSummary = deserializeAws_restJson1_1NetworkSummary(output.NetworkSummary, context);
+    contents.NetworkSummary = deserializeAws_restJson1_1NetworkSummary(
+      output.NetworkSummary,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InvitationList = (
   output: any,
@@ -2341,7 +2725,7 @@ const deserializeAws_restJson1_1InvitationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Invitation(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1InviteAction = (
   output: any,
@@ -2349,13 +2733,13 @@ const deserializeAws_restJson1_1InviteAction = (
 ): InviteAction => {
   let contents: any = {
     __type: "InviteAction",
-    Principal: undefined,
+    Principal: undefined
   };
   if (output.Principal !== undefined) {
     contents.Principal = output.Principal;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InviteActionList = (
   output: any,
@@ -2364,7 +2748,7 @@ const deserializeAws_restJson1_1InviteActionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InviteAction(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Member = (
   output: any,
@@ -2378,7 +2762,7 @@ const deserializeAws_restJson1_1Member = (
     Id: undefined,
     Name: undefined,
     NetworkId: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2387,7 +2771,10 @@ const deserializeAws_restJson1_1Member = (
     contents.Description = output.Description;
   }
   if (output.FrameworkAttributes !== undefined) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1MemberFrameworkAttributes(output.FrameworkAttributes, context);
+    contents.FrameworkAttributes = deserializeAws_restJson1_1MemberFrameworkAttributes(
+      output.FrameworkAttributes,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -2402,7 +2789,7 @@ const deserializeAws_restJson1_1Member = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MemberFabricAttributes = (
   output: any,
@@ -2411,7 +2798,7 @@ const deserializeAws_restJson1_1MemberFabricAttributes = (
   let contents: any = {
     __type: "MemberFabricAttributes",
     AdminUsername: undefined,
-    CaEndpoint: undefined,
+    CaEndpoint: undefined
   };
   if (output.AdminUsername !== undefined) {
     contents.AdminUsername = output.AdminUsername;
@@ -2420,7 +2807,7 @@ const deserializeAws_restJson1_1MemberFabricAttributes = (
     contents.CaEndpoint = output.CaEndpoint;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MemberFrameworkAttributes = (
   output: any,
@@ -2428,13 +2815,16 @@ const deserializeAws_restJson1_1MemberFrameworkAttributes = (
 ): MemberFrameworkAttributes => {
   let contents: any = {
     __type: "MemberFrameworkAttributes",
-    Fabric: undefined,
+    Fabric: undefined
   };
   if (output.Fabric !== undefined) {
-    contents.Fabric = deserializeAws_restJson1_1MemberFabricAttributes(output.Fabric, context);
+    contents.Fabric = deserializeAws_restJson1_1MemberFabricAttributes(
+      output.Fabric,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MemberSummary = (
   output: any,
@@ -2447,7 +2837,7 @@ const deserializeAws_restJson1_1MemberSummary = (
     Id: undefined,
     IsOwned: undefined,
     Name: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2468,7 +2858,7 @@ const deserializeAws_restJson1_1MemberSummary = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MemberSummaryList = (
   output: any,
@@ -2477,7 +2867,7 @@ const deserializeAws_restJson1_1MemberSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1MemberSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Network = (
   output: any,
@@ -2494,7 +2884,7 @@ const deserializeAws_restJson1_1Network = (
     Name: undefined,
     Status: undefined,
     VotingPolicy: undefined,
-    VpcEndpointServiceName: undefined,
+    VpcEndpointServiceName: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2506,7 +2896,10 @@ const deserializeAws_restJson1_1Network = (
     contents.Framework = output.Framework;
   }
   if (output.FrameworkAttributes !== undefined) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1NetworkFrameworkAttributes(output.FrameworkAttributes, context);
+    contents.FrameworkAttributes = deserializeAws_restJson1_1NetworkFrameworkAttributes(
+      output.FrameworkAttributes,
+      context
+    );
   }
   if (output.FrameworkVersion !== undefined) {
     contents.FrameworkVersion = output.FrameworkVersion;
@@ -2521,13 +2914,16 @@ const deserializeAws_restJson1_1Network = (
     contents.Status = output.Status;
   }
   if (output.VotingPolicy !== undefined) {
-    contents.VotingPolicy = deserializeAws_restJson1_1VotingPolicy(output.VotingPolicy, context);
+    contents.VotingPolicy = deserializeAws_restJson1_1VotingPolicy(
+      output.VotingPolicy,
+      context
+    );
   }
   if (output.VpcEndpointServiceName !== undefined) {
     contents.VpcEndpointServiceName = output.VpcEndpointServiceName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NetworkFabricAttributes = (
   output: any,
@@ -2536,7 +2932,7 @@ const deserializeAws_restJson1_1NetworkFabricAttributes = (
   let contents: any = {
     __type: "NetworkFabricAttributes",
     Edition: undefined,
-    OrderingServiceEndpoint: undefined,
+    OrderingServiceEndpoint: undefined
   };
   if (output.Edition !== undefined) {
     contents.Edition = output.Edition;
@@ -2545,7 +2941,7 @@ const deserializeAws_restJson1_1NetworkFabricAttributes = (
     contents.OrderingServiceEndpoint = output.OrderingServiceEndpoint;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NetworkFrameworkAttributes = (
   output: any,
@@ -2553,13 +2949,16 @@ const deserializeAws_restJson1_1NetworkFrameworkAttributes = (
 ): NetworkFrameworkAttributes => {
   let contents: any = {
     __type: "NetworkFrameworkAttributes",
-    Fabric: undefined,
+    Fabric: undefined
   };
   if (output.Fabric !== undefined) {
-    contents.Fabric = deserializeAws_restJson1_1NetworkFabricAttributes(output.Fabric, context);
+    contents.Fabric = deserializeAws_restJson1_1NetworkFabricAttributes(
+      output.Fabric,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NetworkSummary = (
   output: any,
@@ -2573,7 +2972,7 @@ const deserializeAws_restJson1_1NetworkSummary = (
     FrameworkVersion: undefined,
     Id: undefined,
     Name: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2597,7 +2996,7 @@ const deserializeAws_restJson1_1NetworkSummary = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NetworkSummaryList = (
   output: any,
@@ -2606,7 +3005,7 @@ const deserializeAws_restJson1_1NetworkSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NetworkSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Node = (
   output: any,
@@ -2621,7 +3020,7 @@ const deserializeAws_restJson1_1Node = (
     InstanceType: undefined,
     MemberId: undefined,
     NetworkId: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.AvailabilityZone !== undefined) {
     contents.AvailabilityZone = output.AvailabilityZone;
@@ -2630,7 +3029,10 @@ const deserializeAws_restJson1_1Node = (
     contents.CreationDate = new Date(output.CreationDate);
   }
   if (output.FrameworkAttributes !== undefined) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1NodeFrameworkAttributes(output.FrameworkAttributes, context);
+    contents.FrameworkAttributes = deserializeAws_restJson1_1NodeFrameworkAttributes(
+      output.FrameworkAttributes,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -2648,7 +3050,7 @@ const deserializeAws_restJson1_1Node = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NodeFabricAttributes = (
   output: any,
@@ -2657,7 +3059,7 @@ const deserializeAws_restJson1_1NodeFabricAttributes = (
   let contents: any = {
     __type: "NodeFabricAttributes",
     PeerEndpoint: undefined,
-    PeerEventEndpoint: undefined,
+    PeerEventEndpoint: undefined
   };
   if (output.PeerEndpoint !== undefined) {
     contents.PeerEndpoint = output.PeerEndpoint;
@@ -2666,7 +3068,7 @@ const deserializeAws_restJson1_1NodeFabricAttributes = (
     contents.PeerEventEndpoint = output.PeerEventEndpoint;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NodeFrameworkAttributes = (
   output: any,
@@ -2674,13 +3076,16 @@ const deserializeAws_restJson1_1NodeFrameworkAttributes = (
 ): NodeFrameworkAttributes => {
   let contents: any = {
     __type: "NodeFrameworkAttributes",
-    Fabric: undefined,
+    Fabric: undefined
   };
   if (output.Fabric !== undefined) {
-    contents.Fabric = deserializeAws_restJson1_1NodeFabricAttributes(output.Fabric, context);
+    contents.Fabric = deserializeAws_restJson1_1NodeFabricAttributes(
+      output.Fabric,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NodeSummary = (
   output: any,
@@ -2692,7 +3097,7 @@ const deserializeAws_restJson1_1NodeSummary = (
     CreationDate: undefined,
     Id: undefined,
     InstanceType: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.AvailabilityZone !== undefined) {
     contents.AvailabilityZone = output.AvailabilityZone;
@@ -2710,7 +3115,7 @@ const deserializeAws_restJson1_1NodeSummary = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1NodeSummaryList = (
   output: any,
@@ -2719,7 +3124,7 @@ const deserializeAws_restJson1_1NodeSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1NodeSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Proposal = (
   output: any,
@@ -2738,10 +3143,13 @@ const deserializeAws_restJson1_1Proposal = (
     ProposedByMemberId: undefined,
     ProposedByMemberName: undefined,
     Status: undefined,
-    YesVoteCount: undefined,
+    YesVoteCount: undefined
   };
   if (output.Actions !== undefined) {
-    contents.Actions = deserializeAws_restJson1_1ProposalActions(output.Actions, context);
+    contents.Actions = deserializeAws_restJson1_1ProposalActions(
+      output.Actions,
+      context
+    );
   }
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2777,7 +3185,7 @@ const deserializeAws_restJson1_1Proposal = (
     contents.YesVoteCount = output.YesVoteCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ProposalActions = (
   output: any,
@@ -2786,16 +3194,22 @@ const deserializeAws_restJson1_1ProposalActions = (
   let contents: any = {
     __type: "ProposalActions",
     Invitations: undefined,
-    Removals: undefined,
+    Removals: undefined
   };
   if (output.Invitations !== undefined) {
-    contents.Invitations = deserializeAws_restJson1_1InviteActionList(output.Invitations, context);
+    contents.Invitations = deserializeAws_restJson1_1InviteActionList(
+      output.Invitations,
+      context
+    );
   }
   if (output.Removals !== undefined) {
-    contents.Removals = deserializeAws_restJson1_1RemoveActionList(output.Removals, context);
+    contents.Removals = deserializeAws_restJson1_1RemoveActionList(
+      output.Removals,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ProposalSummary = (
   output: any,
@@ -2809,7 +3223,7 @@ const deserializeAws_restJson1_1ProposalSummary = (
     ProposalId: undefined,
     ProposedByMemberId: undefined,
     ProposedByMemberName: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.CreationDate !== undefined) {
     contents.CreationDate = new Date(output.CreationDate);
@@ -2833,7 +3247,7 @@ const deserializeAws_restJson1_1ProposalSummary = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ProposalSummaryList = (
   output: any,
@@ -2842,7 +3256,7 @@ const deserializeAws_restJson1_1ProposalSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ProposalSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ProposalVoteList = (
   output: any,
@@ -2851,7 +3265,7 @@ const deserializeAws_restJson1_1ProposalVoteList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1VoteSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1RemoveAction = (
   output: any,
@@ -2859,13 +3273,13 @@ const deserializeAws_restJson1_1RemoveAction = (
 ): RemoveAction => {
   let contents: any = {
     __type: "RemoveAction",
-    MemberId: undefined,
+    MemberId: undefined
   };
   if (output.MemberId !== undefined) {
     contents.MemberId = output.MemberId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1RemoveActionList = (
   output: any,
@@ -2874,7 +3288,7 @@ const deserializeAws_restJson1_1RemoveActionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1RemoveAction(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1VoteSummary = (
   output: any,
@@ -2884,7 +3298,7 @@ const deserializeAws_restJson1_1VoteSummary = (
     __type: "VoteSummary",
     MemberId: undefined,
     MemberName: undefined,
-    Vote: undefined,
+    Vote: undefined
   };
   if (output.MemberId !== undefined) {
     contents.MemberId = output.MemberId;
@@ -2896,7 +3310,7 @@ const deserializeAws_restJson1_1VoteSummary = (
     contents.Vote = output.Vote;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1VotingPolicy = (
   output: any,
@@ -2904,13 +3318,16 @@ const deserializeAws_restJson1_1VotingPolicy = (
 ): VotingPolicy => {
   let contents: any = {
     __type: "VotingPolicy",
-    ApprovalThresholdPolicy: undefined,
+    ApprovalThresholdPolicy: undefined
   };
   if (output.ApprovalThresholdPolicy !== undefined) {
-    contents.ApprovalThresholdPolicy = deserializeAws_restJson1_1ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context);
+    contents.ApprovalThresholdPolicy = deserializeAws_restJson1_1ApprovalThresholdPolicy(
+      output.ApprovalThresholdPolicy,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

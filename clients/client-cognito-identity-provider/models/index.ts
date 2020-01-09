@@ -109,7 +109,7 @@ export enum AccountTakeoverEventActionType {
   BLOCK = "BLOCK",
   MFA_IF_CONFIGURED = "MFA_IF_CONFIGURED",
   MFA_REQUIRED = "MFA_REQUIRED",
-  NO_ACTION = "NO_ACTION",
+  NO_ACTION = "NO_ACTION"
 }
 
 /**
@@ -2259,13 +2259,13 @@ export namespace AdminUserGlobalSignOutResponse {
 export enum AdvancedSecurityModeType {
   AUDIT = "AUDIT",
   ENFORCED = "ENFORCED",
-  OFF = "OFF",
+  OFF = "OFF"
 }
 
 export enum AliasAttributeType {
   EMAIL = "email",
   PHONE_NUMBER = "phone_number",
-  PREFERRED_USERNAME = "preferred_username",
+  PREFERRED_USERNAME = "preferred_username"
 }
 
 /**
@@ -2275,7 +2275,9 @@ export enum AliasAttributeType {
  *             exception tells user that an account with this email or phone already exists.</p>
  *
  */
-export interface AliasExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface AliasExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AliasExistsException";
   $fault: "client";
   /**
@@ -2413,7 +2415,7 @@ export enum AttributeDataType {
   BOOLEAN = "Boolean",
   DATETIME = "DateTime",
   NUMBER = "Number",
-  STRING = "String",
+  STRING = "String"
 }
 
 /**
@@ -2523,7 +2525,7 @@ export enum AuthFlowType {
   REFRESH_TOKEN = "REFRESH_TOKEN",
   REFRESH_TOKEN_AUTH = "REFRESH_TOKEN_AUTH",
   USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
-  USER_SRP_AUTH = "USER_SRP_AUTH",
+  USER_SRP_AUTH = "USER_SRP_AUTH"
 }
 
 /**
@@ -2584,7 +2586,7 @@ export namespace AuthenticationResultType {
 
 export enum ChallengeName {
   Mfa = "Mfa",
-  Password = "Password",
+  Password = "Password"
 }
 
 export enum ChallengeNameType {
@@ -2597,12 +2599,12 @@ export enum ChallengeNameType {
   PASSWORD_VERIFIER = "PASSWORD_VERIFIER",
   SELECT_MFA_TYPE = "SELECT_MFA_TYPE",
   SMS_MFA = "SMS_MFA",
-  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA",
+  SOFTWARE_TOKEN_MFA = "SOFTWARE_TOKEN_MFA"
 }
 
 export enum ChallengeResponse {
   Failure = "Failure",
-  Success = "Success",
+  Success = "Success"
 }
 
 /**
@@ -2724,7 +2726,9 @@ export namespace CodeDeliveryDetailsType {
  *             successfully.</p>
  *
  */
-export interface CodeDeliveryFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface CodeDeliveryFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CodeDeliveryFailureException";
   $fault: "client";
   /**
@@ -2747,7 +2751,9 @@ export namespace CodeDeliveryFailureException {
  *             expecting.</p>
  *
  */
-export interface CodeMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface CodeMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CodeMismatchException";
   $fault: "client";
   /**
@@ -2787,7 +2793,7 @@ export namespace CompromisedCredentialsActionsType {
 
 export enum CompromisedCredentialsEventActionType {
   BLOCK = "BLOCK",
-  NO_ACTION = "NO_ACTION",
+  NO_ACTION = "NO_ACTION"
 }
 
 /**
@@ -2814,7 +2820,9 @@ export interface CompromisedCredentialsRiskConfigurationType {
 }
 
 export namespace CompromisedCredentialsRiskConfigurationType {
-  export function isa(o: any): o is CompromisedCredentialsRiskConfigurationType {
+  export function isa(
+    o: any
+  ): o is CompromisedCredentialsRiskConfigurationType {
     return _smithy.isa(o, "CompromisedCredentialsRiskConfigurationType");
   }
 }
@@ -2825,7 +2833,9 @@ export namespace CompromisedCredentialsRiskConfigurationType {
  *             concurrently.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -4012,7 +4022,7 @@ export namespace CustomDomainConfigType {
 
 export enum DefaultEmailOptionType {
   CONFIRM_WITH_CODE = "CONFIRM_WITH_CODE",
-  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK",
+  CONFIRM_WITH_LINK = "CONFIRM_WITH_LINK"
 }
 
 export interface DeleteGroupRequest {
@@ -4234,7 +4244,7 @@ export namespace DeleteUserRequest {
 
 export enum DeliveryMediumType {
   EMAIL = "EMAIL",
-  SMS = "SMS",
+  SMS = "SMS"
 }
 
 export interface DescribeIdentityProviderRequest {
@@ -4559,7 +4569,7 @@ export namespace DeviceConfigurationType {
 
 export enum DeviceRememberedStatusType {
   NOT_REMEMBERED = "not_remembered",
-  REMEMBERED = "remembered",
+  REMEMBERED = "remembered"
 }
 
 /**
@@ -4715,7 +4725,7 @@ export enum DomainStatusType {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -4724,7 +4734,9 @@ export enum DomainStatusType {
  *             pool.</p>
  *
  */
-export interface DuplicateProviderException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateProviderException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateProviderException";
   $fault: "client";
   message?: string;
@@ -4845,7 +4857,7 @@ export namespace EmailConfigurationType {
 
 export enum EmailSendingAccountType {
   COGNITO_DEFAULT = "COGNITO_DEFAULT",
-  DEVELOPER = "DEVELOPER",
+  DEVELOPER = "DEVELOPER"
 }
 
 /**
@@ -4854,7 +4866,9 @@ export enum EmailSendingAccountType {
  *             configure the software token TOTP multi-factor authentication (MFA).</p>
  *
  */
-export interface EnableSoftwareTokenMFAException extends _smithy.SmithyException, $MetadataBearer {
+export interface EnableSoftwareTokenMFAException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EnableSoftwareTokenMFAException";
   $fault: "client";
   message?: string;
@@ -4953,12 +4967,12 @@ export namespace EventFeedbackType {
 export enum EventFilterType {
   PASSWORD_CHANGE = "PASSWORD_CHANGE",
   SIGN_IN = "SIGN_IN",
-  SIGN_UP = "SIGN_UP",
+  SIGN_UP = "SIGN_UP"
 }
 
 export enum EventResponseType {
   Failure = "Failure",
-  Success = "Success",
+  Success = "Success"
 }
 
 /**
@@ -4992,7 +5006,7 @@ export namespace EventRiskType {
 export enum EventType {
   ForgotPassword = "ForgotPassword",
   SignIn = "SignIn",
-  SignUp = "SignUp",
+  SignUp = "SignUp"
 }
 
 /**
@@ -5000,7 +5014,9 @@ export enum EventType {
  *         <p>This exception is thrown if a code has expired.</p>
  *
  */
-export interface ExpiredCodeException extends _smithy.SmithyException, $MetadataBearer {
+export interface ExpiredCodeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExpiredCodeException";
   $fault: "client";
   /**
@@ -5025,12 +5041,12 @@ export enum ExplicitAuthFlowsType {
   ALLOW_USER_PASSWORD_AUTH = "ALLOW_USER_PASSWORD_AUTH",
   ALLOW_USER_SRP_AUTH = "ALLOW_USER_SRP_AUTH",
   CUSTOM_AUTH_FLOW_ONLY = "CUSTOM_AUTH_FLOW_ONLY",
-  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH",
+  USER_PASSWORD_AUTH = "USER_PASSWORD_AUTH"
 }
 
 export enum FeedbackValueType {
   INVALID = "Invalid",
-  VALID = "Valid",
+  VALID = "Valid"
 }
 
 /**
@@ -5339,7 +5355,8 @@ export namespace GetIdentityProviderByIdentifierRequest {
   }
 }
 
-export interface GetIdentityProviderByIdentifierResponse extends $MetadataBearer {
+export interface GetIdentityProviderByIdentifierResponse
+  extends $MetadataBearer {
   __type?: "GetIdentityProviderByIdentifierResponse";
   /**
    *
@@ -5510,7 +5527,8 @@ export namespace GetUserAttributeVerificationCodeRequest {
  *             attribute verification code.</p>
  *
  */
-export interface GetUserAttributeVerificationCodeResponse extends $MetadataBearer {
+export interface GetUserAttributeVerificationCodeResponse
+  extends $MetadataBearer {
   __type?: "GetUserAttributeVerificationCodeResponse";
   /**
    *
@@ -5709,7 +5727,9 @@ export namespace GlobalSignOutResponse {
  *             the user pool.</p>
  *
  */
-export interface GroupExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface GroupExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "GroupExistsException";
   $fault: "client";
   message?: string;
@@ -5903,7 +5923,7 @@ export enum IdentityProviderTypeType {
   LoginWithAmazon = "LoginWithAmazon",
   OIDC = "OIDC",
   SAML = "SAML",
-  SignInWithApple = "SignInWithApple",
+  SignInWithApple = "SignInWithApple"
 }
 
 /**
@@ -6206,7 +6226,9 @@ export namespace InitiateAuthResponse {
  *         <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  *
  */
-export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   /**
@@ -6229,7 +6251,9 @@ export namespace InternalErrorException {
  *             identity. HTTP status code: 400.</p>
  *
  */
-export interface InvalidEmailRoleAccessPolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidEmailRoleAccessPolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidEmailRoleAccessPolicyException";
   $fault: "client";
   /**
@@ -6253,7 +6277,9 @@ export namespace InvalidEmailRoleAccessPolicyException {
  *             Lambda response.</p>
  *
  */
-export interface InvalidLambdaResponseException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidLambdaResponseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidLambdaResponseException";
   $fault: "client";
   /**
@@ -6276,7 +6302,9 @@ export namespace InvalidLambdaResponseException {
  *         <p>This exception is thrown when the specified OAuth flow is invalid.</p>
  *
  */
-export interface InvalidOAuthFlowException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOAuthFlowException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOAuthFlowException";
   $fault: "client";
   message?: string;
@@ -6294,7 +6322,9 @@ export namespace InvalidOAuthFlowException {
  *             parameter.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -6318,7 +6348,9 @@ export namespace InvalidParameterException {
  *             password.</p>
  *
  */
-export interface InvalidPasswordException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPasswordException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPasswordException";
   $fault: "client";
   /**
@@ -6342,7 +6374,9 @@ export namespace InvalidPasswordException {
  *             permission to publish using Amazon SNS.</p>
  *
  */
-export interface InvalidSmsRoleAccessPolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSmsRoleAccessPolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSmsRoleAccessPolicyException";
   $fault: "client";
   /**
@@ -6367,7 +6401,9 @@ export namespace InvalidSmsRoleAccessPolicyException {
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  */
-export interface InvalidSmsRoleTrustRelationshipException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSmsRoleTrustRelationshipException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSmsRoleTrustRelationshipException";
   $fault: "client";
   /**
@@ -6390,7 +6426,9 @@ export namespace InvalidSmsRoleTrustRelationshipException {
  *         <p>This exception is thrown when the user pool configuration is invalid.</p>
  *
  */
-export interface InvalidUserPoolConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidUserPoolConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidUserPoolConfigurationException";
   $fault: "client";
   /**
@@ -6497,7 +6535,9 @@ export namespace LambdaConfigType {
  *             resource.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -7189,7 +7229,9 @@ export namespace ListUsersResponse {
  *             (MFA) method.</p>
  *
  */
-export interface MFAMethodNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface MFAMethodNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MFAMethodNotFoundException";
   $fault: "client";
   /**
@@ -7244,7 +7286,7 @@ export namespace MFAOptionType {
 
 export enum MessageActionType {
   RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
+  SUPPRESS = "SUPPRESS"
 }
 
 /**
@@ -7315,7 +7357,9 @@ export namespace NewDeviceMetadataType {
  *         <p>This exception is thrown when a user is not authorized.</p>
  *
  */
-export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -7458,7 +7502,7 @@ export namespace NumberAttributeConstraintsType {
 export enum OAuthFlowType {
   client_credentials = "client_credentials",
   code = "code",
-  implicit = "implicit",
+  implicit = "implicit"
 }
 
 /**
@@ -7534,7 +7578,9 @@ export namespace PasswordPolicyType {
  *         <p>This exception is thrown when a password reset is required.</p>
  *
  */
-export interface PasswordResetRequiredException extends _smithy.SmithyException, $MetadataBearer {
+export interface PasswordResetRequiredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PasswordResetRequiredException";
   $fault: "client";
   /**
@@ -7556,7 +7602,9 @@ export namespace PasswordResetRequiredException {
  *         <p>This exception is thrown when a precondition is not met.</p>
  *
  */
-export interface PreconditionNotMetException extends _smithy.SmithyException, $MetadataBearer {
+export interface PreconditionNotMetException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PreconditionNotMetException";
   $fault: "client";
   /**
@@ -7575,7 +7623,7 @@ export namespace PreconditionNotMetException {
 
 export enum PreventUserExistenceErrorTypes {
   ENABLED = "ENABLED",
-  LEGACY = "LEGACY",
+  LEGACY = "LEGACY"
 }
 
 /**
@@ -7660,7 +7708,7 @@ export namespace ProviderUserIdentifierType {
 export enum RecoveryOptionNameType {
   ADMIN_ONLY = "admin_only",
   VERIFIED_EMAIL = "verified_email",
-  VERIFIED_PHONE_NUMBER = "verified_phone_number",
+  VERIFIED_PHONE_NUMBER = "verified_phone_number"
 }
 
 /**
@@ -7811,7 +7859,9 @@ export namespace ResendConfirmationCodeResponse {
  *             resource.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -8153,7 +8203,7 @@ export namespace RiskConfigurationType {
 export enum RiskDecisionType {
   AccountTakeover = "AccountTakeover",
   Block = "Block",
-  NoRisk = "NoRisk",
+  NoRisk = "NoRisk"
 }
 
 /**
@@ -8190,7 +8240,7 @@ export namespace RiskExceptionConfigurationType {
 export enum RiskLevelType {
   High = "High",
   Low = "Low",
-  Medium = "Medium",
+  Medium = "Medium"
 }
 
 /**
@@ -8296,7 +8346,9 @@ export namespace SchemaAttributeType {
  *         <p>This exception is thrown when the specified scope does not exist.</p>
  *
  */
-export interface ScopeDoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
+export interface ScopeDoesNotExistException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ScopeDoesNotExistException";
   $fault: "client";
   message?: string;
@@ -8822,7 +8874,9 @@ export namespace SmsMfaConfigType {
  *             (MFA) is not enabled for the user pool.</p>
  *
  */
-export interface SoftwareTokenMFANotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface SoftwareTokenMFANotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SoftwareTokenMFANotFoundException";
   $fault: "client";
   message?: string;
@@ -8935,7 +8989,7 @@ export namespace StartUserImportJobResponse {
 
 export enum StatusType {
   Disabled = "Disabled",
-  Enabled = "Enabled",
+  Enabled = "Enabled"
 }
 
 /**
@@ -9055,7 +9109,9 @@ export namespace TagResourceResponse {
  *             action (e.g., sign in).</p>
  *
  */
-export interface TooManyFailedAttemptsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyFailedAttemptsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyFailedAttemptsException";
   $fault: "client";
   /**
@@ -9079,7 +9135,9 @@ export namespace TooManyFailedAttemptsException {
  *             operation.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -9167,7 +9225,9 @@ export namespace UICustomizationType {
  *             exception with the AWS Lambda service.</p>
  *
  */
-export interface UnexpectedLambdaException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnexpectedLambdaException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnexpectedLambdaException";
   $fault: "client";
   /**
@@ -9190,7 +9250,9 @@ export namespace UnexpectedLambdaException {
  *         <p>This exception is thrown when the specified identifier is not supported.</p>
  *
  */
-export interface UnsupportedIdentityProviderException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedIdentityProviderException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedIdentityProviderException";
   $fault: "client";
   message?: string;
@@ -9207,7 +9269,9 @@ export namespace UnsupportedIdentityProviderException {
  *         <p>The request failed because the user is in an unsupported state.</p>
  *
  */
-export interface UnsupportedUserStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedUserStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedUserStateException";
   $fault: "client";
   /**
@@ -10167,7 +10231,9 @@ export namespace UserContextDataType {
  *             job is in progress for that pool.</p>
  *
  */
-export interface UserImportInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserImportInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserImportInProgressException";
   $fault: "client";
   /**
@@ -10192,7 +10258,7 @@ export enum UserImportJobStatusType {
   Pending = "Pending",
   Stopped = "Stopped",
   Stopping = "Stopping",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 /**
@@ -10348,7 +10414,9 @@ export namespace UserImportJobType {
  *             exception with the AWS Lambda service.</p>
  *
  */
-export interface UserLambdaValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserLambdaValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserLambdaValidationException";
   $fault: "client";
   /**
@@ -10371,7 +10439,9 @@ export namespace UserLambdaValidationException {
  *         <p>This exception is thrown when a user is not confirmed successfully.</p>
  *
  */
-export interface UserNotConfirmedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserNotConfirmedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserNotConfirmedException";
   $fault: "client";
   /**
@@ -10393,7 +10463,9 @@ export namespace UserNotConfirmedException {
  *         <p>This exception is thrown when a user is not found.</p>
  *
  */
-export interface UserNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserNotFoundException";
   $fault: "client";
   /**
@@ -10415,7 +10487,9 @@ export namespace UserNotFoundException {
  *         <p>This exception is thrown when user pool add-ons are not enabled.</p>
  *
  */
-export interface UserPoolAddOnNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserPoolAddOnNotEnabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserPoolAddOnNotEnabledException";
   $fault: "client";
   message?: string;
@@ -10814,7 +10888,7 @@ export namespace UserPoolDescriptionType {
 export enum UserPoolMfaType {
   OFF = "OFF",
   ON = "ON",
-  OPTIONAL = "OPTIONAL",
+  OPTIONAL = "OPTIONAL"
 }
 
 /**
@@ -10843,7 +10917,9 @@ export namespace UserPoolPolicyType {
  *         <p>This exception is thrown when a user pool tag cannot be set or updated.</p>
  *
  */
-export interface UserPoolTaggingException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserPoolTaggingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserPoolTaggingException";
   $fault: "client";
   message?: string;
@@ -11109,7 +11185,7 @@ export enum UserStatusType {
   FORCE_CHANGE_PASSWORD = "FORCE_CHANGE_PASSWORD",
   RESET_REQUIRED = "RESET_REQUIRED",
   UNCONFIRMED = "UNCONFIRMED",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 /**
@@ -11203,7 +11279,7 @@ export namespace UserType {
 
 export enum UsernameAttributeType {
   EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
+  PHONE_NUMBER = "phone_number"
 }
 
 /**
@@ -11212,7 +11288,9 @@ export enum UsernameAttributeType {
  *             exists in the user pool.</p>
  *
  */
-export interface UsernameExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface UsernameExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UsernameExistsException";
   $fault: "client";
   /**
@@ -11288,7 +11366,7 @@ export namespace VerificationMessageTemplateType {
 
 export enum VerifiedAttributeType {
   EMAIL = "email",
-  PHONE_NUMBER = "phone_number",
+  PHONE_NUMBER = "phone_number"
 }
 
 export interface VerifySoftwareTokenRequest {
@@ -11355,7 +11433,7 @@ export namespace VerifySoftwareTokenResponse {
 
 export enum VerifySoftwareTokenResponseType {
   ERROR = "ERROR",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**

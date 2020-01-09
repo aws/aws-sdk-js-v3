@@ -1,20 +1,20 @@
 import {
   RoboMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RoboMakerClient";
 import {
   CreateRobotApplicationRequest,
-  CreateRobotApplicationResponse,
+  CreateRobotApplicationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRobotApplicationCommand,
-  serializeAws_restJson1_1CreateRobotApplicationCommand,
+  serializeAws_restJson1_1CreateRobotApplicationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateRobotApplicationCommandInput = CreateRobotApplicationRequest;
 export type CreateRobotApplicationCommandOutput = CreateRobotApplicationResponse;
 
-export class CreateRobotApplicationCommand extends $Command<CreateRobotApplicationCommandInput, CreateRobotApplicationCommandOutput, RoboMakerClientResolvedConfig> {
+export class CreateRobotApplicationCommand extends $Command<
+  CreateRobotApplicationCommandInput,
+  CreateRobotApplicationCommandOutput,
+  RoboMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateRobotApplicationCommand extends $Command<CreateRobotApplicati
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateRobotApplicationCommandInput, CreateRobotApplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateRobotApplicationCommandInput,
+    CreateRobotApplicationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class CreateRobotApplicationCommand extends $Command<CreateRobotApplicati
     input: CreateRobotApplicationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateRobotApplicationCommand(input, context);
+    return serializeAws_restJson1_1CreateRobotApplicationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateRobotApplicationCommandOutput> {
-    return deserializeAws_restJson1_1CreateRobotApplicationCommand(output, context);
+    return deserializeAws_restJson1_1CreateRobotApplicationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

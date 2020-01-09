@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConfigServiceClient";
 import {
   ListAggregateDiscoveredResourcesRequest,
-  ListAggregateDiscoveredResourcesResponse,
+  ListAggregateDiscoveredResourcesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand,
-  serializeAws_json1_1ListAggregateDiscoveredResourcesCommand,
+  serializeAws_json1_1ListAggregateDiscoveredResourcesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListAggregateDiscoveredResourcesCommandInput = ListAggregateDiscoveredResourcesRequest;
 export type ListAggregateDiscoveredResourcesCommandOutput = ListAggregateDiscoveredResourcesResponse;
 
-export class ListAggregateDiscoveredResourcesCommand extends $Command<ListAggregateDiscoveredResourcesCommandInput, ListAggregateDiscoveredResourcesCommandOutput, ConfigServiceClientResolvedConfig> {
+export class ListAggregateDiscoveredResourcesCommand extends $Command<
+  ListAggregateDiscoveredResourcesCommandInput,
+  ListAggregateDiscoveredResourcesCommandOutput,
+  ConfigServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<ListAggreg
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAggregateDiscoveredResourcesCommandInput, ListAggregateDiscoveredResourcesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListAggregateDiscoveredResourcesCommandInput,
+    ListAggregateDiscoveredResourcesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListAggregateDiscoveredResourcesCommand extends $Command<ListAggreg
     input: ListAggregateDiscoveredResourcesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(input, context);
+    return serializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListAggregateDiscoveredResourcesCommandOutput> {
-    return deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand(output, context);
+    return deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

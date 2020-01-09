@@ -1,17 +1,17 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
 import { DetachPolicyRequest } from "../models/index";
 import {
   deserializeAws_json1_1DetachPolicyCommand,
-  serializeAws_json1_1DetachPolicyCommand,
+  serializeAws_json1_1DetachPolicyCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DetachPolicyCommandInput = DetachPolicyRequest;
-export type DetachPolicyCommandOutput = __MetadataBearer
+export type DetachPolicyCommandOutput = __MetadataBearer;
 
-export class DetachPolicyCommand extends $Command<DetachPolicyCommandInput, DetachPolicyCommandOutput, OrganizationsClientResolvedConfig> {
+export class DetachPolicyCommand extends $Command<
+  DetachPolicyCommandInput,
+  DetachPolicyCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class DetachPolicyCommand extends $Command<DetachPolicyCommandInput, Deta
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DetachPolicyCommandInput, DetachPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

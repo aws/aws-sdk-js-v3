@@ -1,20 +1,20 @@
 import {
   DAXClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DAXClient";
 import {
   IncreaseReplicationFactorRequest,
-  IncreaseReplicationFactorResponse,
+  IncreaseReplicationFactorResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1IncreaseReplicationFactorCommand,
-  serializeAws_json1_1IncreaseReplicationFactorCommand,
+  serializeAws_json1_1IncreaseReplicationFactorCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type IncreaseReplicationFactorCommandInput = IncreaseReplicationFactorRequest;
 export type IncreaseReplicationFactorCommandOutput = IncreaseReplicationFactorResponse;
 
-export class IncreaseReplicationFactorCommand extends $Command<IncreaseReplicationFactorCommandInput, IncreaseReplicationFactorCommandOutput, DAXClientResolvedConfig> {
+export class IncreaseReplicationFactorCommand extends $Command<
+  IncreaseReplicationFactorCommandInput,
+  IncreaseReplicationFactorCommandOutput,
+  DAXClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class IncreaseReplicationFactorCommand extends $Command<IncreaseReplicati
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DAXClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<IncreaseReplicationFactorCommandInput, IncreaseReplicationFactorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    IncreaseReplicationFactorCommandInput,
+    IncreaseReplicationFactorCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class IncreaseReplicationFactorCommand extends $Command<IncreaseReplicati
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<IncreaseReplicationFactorCommandOutput> {
-    return deserializeAws_json1_1IncreaseReplicationFactorCommand(output, context);
+    return deserializeAws_json1_1IncreaseReplicationFactorCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

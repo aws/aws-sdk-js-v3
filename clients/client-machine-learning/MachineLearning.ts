@@ -2,142 +2,142 @@ import { MachineLearningClient } from "./MachineLearningClient";
 import {
   AddTagsCommand,
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "./commands/AddTagsCommand";
 import {
   CreateBatchPredictionCommand,
   CreateBatchPredictionCommandInput,
-  CreateBatchPredictionCommandOutput,
+  CreateBatchPredictionCommandOutput
 } from "./commands/CreateBatchPredictionCommand";
 import {
   CreateDataSourceFromRDSCommand,
   CreateDataSourceFromRDSCommandInput,
-  CreateDataSourceFromRDSCommandOutput,
+  CreateDataSourceFromRDSCommandOutput
 } from "./commands/CreateDataSourceFromRDSCommand";
 import {
   CreateDataSourceFromRedshiftCommand,
   CreateDataSourceFromRedshiftCommandInput,
-  CreateDataSourceFromRedshiftCommandOutput,
+  CreateDataSourceFromRedshiftCommandOutput
 } from "./commands/CreateDataSourceFromRedshiftCommand";
 import {
   CreateDataSourceFromS3Command,
   CreateDataSourceFromS3CommandInput,
-  CreateDataSourceFromS3CommandOutput,
+  CreateDataSourceFromS3CommandOutput
 } from "./commands/CreateDataSourceFromS3Command";
 import {
   CreateEvaluationCommand,
   CreateEvaluationCommandInput,
-  CreateEvaluationCommandOutput,
+  CreateEvaluationCommandOutput
 } from "./commands/CreateEvaluationCommand";
 import {
   CreateMLModelCommand,
   CreateMLModelCommandInput,
-  CreateMLModelCommandOutput,
+  CreateMLModelCommandOutput
 } from "./commands/CreateMLModelCommand";
 import {
   CreateRealtimeEndpointCommand,
   CreateRealtimeEndpointCommandInput,
-  CreateRealtimeEndpointCommandOutput,
+  CreateRealtimeEndpointCommandOutput
 } from "./commands/CreateRealtimeEndpointCommand";
 import {
   DeleteBatchPredictionCommand,
   DeleteBatchPredictionCommandInput,
-  DeleteBatchPredictionCommandOutput,
+  DeleteBatchPredictionCommandOutput
 } from "./commands/DeleteBatchPredictionCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
+  DeleteDataSourceCommandOutput
 } from "./commands/DeleteDataSourceCommand";
 import {
   DeleteEvaluationCommand,
   DeleteEvaluationCommandInput,
-  DeleteEvaluationCommandOutput,
+  DeleteEvaluationCommandOutput
 } from "./commands/DeleteEvaluationCommand";
 import {
   DeleteMLModelCommand,
   DeleteMLModelCommandInput,
-  DeleteMLModelCommandOutput,
+  DeleteMLModelCommandOutput
 } from "./commands/DeleteMLModelCommand";
 import {
   DeleteRealtimeEndpointCommand,
   DeleteRealtimeEndpointCommandInput,
-  DeleteRealtimeEndpointCommandOutput,
+  DeleteRealtimeEndpointCommandOutput
 } from "./commands/DeleteRealtimeEndpointCommand";
 import {
   DeleteTagsCommand,
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput,
+  DeleteTagsCommandOutput
 } from "./commands/DeleteTagsCommand";
 import {
   DescribeBatchPredictionsCommand,
   DescribeBatchPredictionsCommandInput,
-  DescribeBatchPredictionsCommandOutput,
+  DescribeBatchPredictionsCommandOutput
 } from "./commands/DescribeBatchPredictionsCommand";
 import {
   DescribeDataSourcesCommand,
   DescribeDataSourcesCommandInput,
-  DescribeDataSourcesCommandOutput,
+  DescribeDataSourcesCommandOutput
 } from "./commands/DescribeDataSourcesCommand";
 import {
   DescribeEvaluationsCommand,
   DescribeEvaluationsCommandInput,
-  DescribeEvaluationsCommandOutput,
+  DescribeEvaluationsCommandOutput
 } from "./commands/DescribeEvaluationsCommand";
 import {
   DescribeMLModelsCommand,
   DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput,
+  DescribeMLModelsCommandOutput
 } from "./commands/DescribeMLModelsCommand";
 import {
   DescribeTagsCommand,
   DescribeTagsCommandInput,
-  DescribeTagsCommandOutput,
+  DescribeTagsCommandOutput
 } from "./commands/DescribeTagsCommand";
 import {
   GetBatchPredictionCommand,
   GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput,
+  GetBatchPredictionCommandOutput
 } from "./commands/GetBatchPredictionCommand";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
+  GetDataSourceCommandOutput
 } from "./commands/GetDataSourceCommand";
 import {
   GetEvaluationCommand,
   GetEvaluationCommandInput,
-  GetEvaluationCommandOutput,
+  GetEvaluationCommandOutput
 } from "./commands/GetEvaluationCommand";
 import {
   GetMLModelCommand,
   GetMLModelCommandInput,
-  GetMLModelCommandOutput,
+  GetMLModelCommandOutput
 } from "./commands/GetMLModelCommand";
 import {
   PredictCommand,
   PredictCommandInput,
-  PredictCommandOutput,
+  PredictCommandOutput
 } from "./commands/PredictCommand";
 import {
   UpdateBatchPredictionCommand,
   UpdateBatchPredictionCommandInput,
-  UpdateBatchPredictionCommandOutput,
+  UpdateBatchPredictionCommandOutput
 } from "./commands/UpdateBatchPredictionCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
+  UpdateDataSourceCommandOutput
 } from "./commands/UpdateDataSourceCommand";
 import {
   UpdateEvaluationCommand,
   UpdateEvaluationCommandInput,
-  UpdateEvaluationCommandOutput,
+  UpdateEvaluationCommandOutput
 } from "./commands/UpdateEvaluationCommand";
 import {
   UpdateMLModelCommand,
   UpdateMLModelCommandInput,
-  UpdateMLModelCommandOutput,
+  UpdateMLModelCommandOutput
 } from "./commands/UpdateMLModelCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -153,16 +153,16 @@ export class MachineLearning extends MachineLearningClient {
    *         <p>Adds one or more tags to an object, up to a limit of 10. Each tag consists of a key
    * 		    and an optional value. If you add a tag using a key that is already associated with the ML object,
    * 			<code>AddTags</code> updates the tag's value.</p>
-   * 		
-   * 		
-   * 		
+   *
+   *
+   *
    *
    *
    *
    */
   public addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsCommandOutput>;
   public addTags(
     args: AddTagsCommandInput,
@@ -175,16 +175,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -210,7 +212,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createBatchPrediction(
     args: CreateBatchPredictionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateBatchPredictionCommandOutput>;
   public createBatchPrediction(
     args: CreateBatchPredictionCommandInput,
@@ -223,16 +225,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createBatchPrediction(
     args: CreateBatchPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchPredictionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBatchPredictionCommandOutput) => void),
     cb?: (err: any, data?: CreateBatchPredictionCommandOutput) => void
   ): Promise<CreateBatchPredictionCommandOutput> | void {
     const command = new CreateBatchPredictionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -258,7 +262,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createDataSourceFromRDS(
     args: CreateDataSourceFromRDSCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSourceFromRDSCommandOutput>;
   public createDataSourceFromRDS(
     args: CreateDataSourceFromRDSCommandInput,
@@ -271,16 +275,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createDataSourceFromRDS(
     args: CreateDataSourceFromRDSCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceFromRDSCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSourceFromRDSCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceFromRDSCommandOutput) => void
   ): Promise<CreateDataSourceFromRDSCommandOutput> | void {
     const command = new CreateDataSourceFromRDSCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -327,7 +333,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createDataSourceFromRedshift(
     args: CreateDataSourceFromRedshiftCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSourceFromRedshiftCommandOutput>;
   public createDataSourceFromRedshift(
     args: CreateDataSourceFromRedshiftCommandInput,
@@ -340,16 +346,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createDataSourceFromRedshift(
     args: CreateDataSourceFromRedshiftCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceFromRedshiftCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSourceFromRedshiftCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceFromRedshiftCommandOutput) => void
   ): Promise<CreateDataSourceFromRedshiftCommandOutput> | void {
     const command = new CreateDataSourceFromRedshiftCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -394,7 +402,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createDataSourceFromS3(
     args: CreateDataSourceFromS3CommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSourceFromS3CommandOutput>;
   public createDataSourceFromS3(
     args: CreateDataSourceFromS3CommandInput,
@@ -407,16 +415,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createDataSourceFromS3(
     args: CreateDataSourceFromS3CommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceFromS3CommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSourceFromS3CommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceFromS3CommandOutput) => void
   ): Promise<CreateDataSourceFromS3CommandOutput> | void {
     const command = new CreateDataSourceFromS3Command(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -442,7 +452,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createEvaluation(
     args: CreateEvaluationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateEvaluationCommandOutput>;
   public createEvaluation(
     args: CreateEvaluationCommandInput,
@@ -455,16 +465,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createEvaluation(
     args: CreateEvaluationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEvaluationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateEvaluationCommandOutput) => void),
     cb?: (err: any, data?: CreateEvaluationCommandOutput) => void
   ): Promise<CreateEvaluationCommandOutput> | void {
     const command = new CreateEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -498,7 +510,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createMLModel(
     args: CreateMLModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateMLModelCommandOutput>;
   public createMLModel(
     args: CreateMLModelCommandInput,
@@ -511,16 +523,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createMLModel(
     args: CreateMLModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMLModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateMLModelCommandOutput) => void),
     cb?: (err: any, data?: CreateMLModelCommandOutput) => void
   ): Promise<CreateMLModelCommandOutput> | void {
     const command = new CreateMLModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -536,7 +550,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public createRealtimeEndpoint(
     args: CreateRealtimeEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRealtimeEndpointCommandOutput>;
   public createRealtimeEndpoint(
     args: CreateRealtimeEndpointCommandInput,
@@ -549,16 +563,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public createRealtimeEndpoint(
     args: CreateRealtimeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRealtimeEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRealtimeEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateRealtimeEndpointCommandOutput) => void
   ): Promise<CreateRealtimeEndpointCommandOutput> | void {
     const command = new CreateRealtimeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -579,7 +595,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteBatchPrediction(
     args: DeleteBatchPredictionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteBatchPredictionCommandOutput>;
   public deleteBatchPrediction(
     args: DeleteBatchPredictionCommandInput,
@@ -592,16 +608,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteBatchPrediction(
     args: DeleteBatchPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBatchPredictionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteBatchPredictionCommandOutput) => void),
     cb?: (err: any, data?: DeleteBatchPredictionCommandOutput) => void
   ): Promise<DeleteBatchPredictionCommandOutput> | void {
     const command = new DeleteBatchPredictionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -619,7 +637,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -632,16 +650,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -662,7 +682,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteEvaluation(
     args: DeleteEvaluationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEvaluationCommandOutput>;
   public deleteEvaluation(
     args: DeleteEvaluationCommandInput,
@@ -675,16 +695,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteEvaluation(
     args: DeleteEvaluationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEvaluationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEvaluationCommandOutput) => void),
     cb?: (err: any, data?: DeleteEvaluationCommandOutput) => void
   ): Promise<DeleteEvaluationCommandOutput> | void {
     const command = new DeleteEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -704,7 +726,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteMLModel(
     args: DeleteMLModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteMLModelCommandOutput>;
   public deleteMLModel(
     args: DeleteMLModelCommandInput,
@@ -717,16 +739,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteMLModel(
     args: DeleteMLModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMLModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMLModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteMLModelCommandOutput) => void
   ): Promise<DeleteMLModelCommandOutput> | void {
     const command = new DeleteMLModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -741,7 +765,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteRealtimeEndpoint(
     args: DeleteRealtimeEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRealtimeEndpointCommandOutput>;
   public deleteRealtimeEndpoint(
     args: DeleteRealtimeEndpointCommandInput,
@@ -754,16 +778,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteRealtimeEndpoint(
     args: DeleteRealtimeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRealtimeEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRealtimeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteRealtimeEndpointCommandOutput) => void
   ): Promise<DeleteRealtimeEndpointCommandOutput> | void {
     const command = new DeleteRealtimeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -778,7 +804,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTagsCommandOutput>;
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -791,16 +817,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -814,7 +842,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public describeBatchPredictions(
     args: DescribeBatchPredictionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBatchPredictionsCommandOutput>;
   public describeBatchPredictions(
     args: DescribeBatchPredictionsCommandInput,
@@ -827,16 +855,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeBatchPredictions(
     args: DescribeBatchPredictionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBatchPredictionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBatchPredictionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBatchPredictionsCommandOutput) => void
   ): Promise<DescribeBatchPredictionsCommandOutput> | void {
     const command = new DescribeBatchPredictionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -851,7 +881,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public describeDataSources(
     args: DescribeDataSourcesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDataSourcesCommandOutput>;
   public describeDataSources(
     args: DescribeDataSourcesCommandInput,
@@ -864,16 +894,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeDataSources(
     args: DescribeDataSourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSourcesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSourcesCommandOutput) => void
   ): Promise<DescribeDataSourcesCommandOutput> | void {
     const command = new DescribeDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -888,7 +920,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public describeEvaluations(
     args: DescribeEvaluationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEvaluationsCommandOutput>;
   public describeEvaluations(
     args: DescribeEvaluationsCommandInput,
@@ -901,16 +933,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeEvaluations(
     args: DescribeEvaluationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEvaluationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEvaluationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEvaluationsCommandOutput) => void
   ): Promise<DescribeEvaluationsCommandOutput> | void {
     const command = new DescribeEvaluationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -926,7 +960,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public describeMLModels(
     args: DescribeMLModelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeMLModelsCommandOutput>;
   public describeMLModels(
     args: DescribeMLModelsCommandInput,
@@ -939,16 +973,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeMLModels(
     args: DescribeMLModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMLModelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeMLModelsCommandOutput) => void),
     cb?: (err: any, data?: DescribeMLModelsCommandOutput) => void
   ): Promise<DescribeMLModelsCommandOutput> | void {
     const command = new DescribeMLModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -957,14 +993,14 @@ export class MachineLearning extends MachineLearningClient {
   /**
    *
    *         <p>Describes one or more of the tags for your Amazon ML object.</p>
-   * 	
+   *
    *
    *
    *
    */
   public describeTags(
     args: DescribeTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTagsCommandOutput>;
   public describeTags(
     args: DescribeTagsCommandInput,
@@ -977,16 +1013,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public describeTags(
     args: DescribeTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTagsCommandOutput) => void),
     cb?: (err: any, data?: DescribeTagsCommandOutput) => void
   ): Promise<DescribeTagsCommandOutput> | void {
     const command = new DescribeTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1002,7 +1040,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public getBatchPrediction(
     args: GetBatchPredictionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetBatchPredictionCommandOutput>;
   public getBatchPrediction(
     args: GetBatchPredictionCommandInput,
@@ -1015,16 +1053,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getBatchPrediction(
     args: GetBatchPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBatchPredictionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetBatchPredictionCommandOutput) => void),
     cb?: (err: any, data?: GetBatchPredictionCommandOutput) => void
   ): Promise<GetBatchPredictionCommandOutput> | void {
     const command = new GetBatchPredictionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1043,7 +1083,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDataSourceCommandOutput>;
   public getDataSource(
     args: GetDataSourceCommandInput,
@@ -1056,16 +1096,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getDataSource(
     args: GetDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDataSourceCommandOutput) => void),
     cb?: (err: any, data?: GetDataSourceCommandOutput) => void
   ): Promise<GetDataSourceCommandOutput> | void {
     const command = new GetDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1080,7 +1122,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public getEvaluation(
     args: GetEvaluationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetEvaluationCommandOutput>;
   public getEvaluation(
     args: GetEvaluationCommandInput,
@@ -1093,16 +1135,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getEvaluation(
     args: GetEvaluationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEvaluationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEvaluationCommandOutput) => void),
     cb?: (err: any, data?: GetEvaluationCommandOutput) => void
   ): Promise<GetEvaluationCommandOutput> | void {
     const command = new GetEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1119,7 +1163,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public getMLModel(
     args: GetMLModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetMLModelCommandOutput>;
   public getMLModel(
     args: GetMLModelCommandInput,
@@ -1132,16 +1176,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public getMLModel(
     args: GetMLModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMLModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetMLModelCommandOutput) => void),
     cb?: (err: any, data?: GetMLModelCommandOutput) => void
   ): Promise<GetMLModelCommandOutput> | void {
     const command = new GetMLModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1158,7 +1204,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public predict(
     args: PredictCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PredictCommandOutput>;
   public predict(
     args: PredictCommandInput,
@@ -1171,16 +1217,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public predict(
     args: PredictCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PredictCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PredictCommandOutput) => void),
     cb?: (err: any, data?: PredictCommandOutput) => void
   ): Promise<PredictCommandOutput> | void {
     const command = new PredictCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1197,7 +1245,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public updateBatchPrediction(
     args: UpdateBatchPredictionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateBatchPredictionCommandOutput>;
   public updateBatchPrediction(
     args: UpdateBatchPredictionCommandInput,
@@ -1210,16 +1258,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateBatchPrediction(
     args: UpdateBatchPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBatchPredictionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateBatchPredictionCommandOutput) => void),
     cb?: (err: any, data?: UpdateBatchPredictionCommandOutput) => void
   ): Promise<UpdateBatchPredictionCommandOutput> | void {
     const command = new UpdateBatchPredictionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1235,7 +1285,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1248,16 +1298,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1274,7 +1326,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public updateEvaluation(
     args: UpdateEvaluationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateEvaluationCommandOutput>;
   public updateEvaluation(
     args: UpdateEvaluationCommandInput,
@@ -1287,16 +1339,18 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateEvaluation(
     args: UpdateEvaluationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEvaluationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateEvaluationCommandOutput) => void),
     cb?: (err: any, data?: UpdateEvaluationCommandOutput) => void
   ): Promise<UpdateEvaluationCommandOutput> | void {
     const command = new UpdateEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1313,7 +1367,7 @@ export class MachineLearning extends MachineLearningClient {
    */
   public updateMLModel(
     args: UpdateMLModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateMLModelCommandOutput>;
   public updateMLModel(
     args: UpdateMLModelCommandInput,
@@ -1326,19 +1380,20 @@ export class MachineLearning extends MachineLearningClient {
   ): void;
   public updateMLModel(
     args: UpdateMLModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMLModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateMLModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateMLModelCommandOutput) => void
   ): Promise<UpdateMLModelCommandOutput> | void {
     const command = new UpdateMLModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -1,17 +1,17 @@
 import {
   CognitoIdentityClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoIdentityClient";
 import { UnlinkDeveloperIdentityInput } from "../models/index";
 import {
   deserializeAws_json1_1UnlinkDeveloperIdentityCommand,
-  serializeAws_json1_1UnlinkDeveloperIdentityCommand,
+  serializeAws_json1_1UnlinkDeveloperIdentityCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type UnlinkDeveloperIdentityCommandInput = UnlinkDeveloperIdentityInput;
-export type UnlinkDeveloperIdentityCommandOutput = __MetadataBearer
+export type UnlinkDeveloperIdentityCommandOutput = __MetadataBearer;
 
-export class UnlinkDeveloperIdentityCommand extends $Command<UnlinkDeveloperIdentityCommandInput, UnlinkDeveloperIdentityCommandOutput, CognitoIdentityClientResolvedConfig> {
+export class UnlinkDeveloperIdentityCommand extends $Command<
+  UnlinkDeveloperIdentityCommandInput,
+  UnlinkDeveloperIdentityCommandOutput,
+  CognitoIdentityClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class UnlinkDeveloperIdentityCommand extends $Command<UnlinkDeveloperIden
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UnlinkDeveloperIdentityCommandInput, UnlinkDeveloperIdentityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UnlinkDeveloperIdentityCommandInput,
+    UnlinkDeveloperIdentityCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class UnlinkDeveloperIdentityCommand extends $Command<UnlinkDeveloperIden
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UnlinkDeveloperIdentityCommandOutput> {
-    return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(output, context);
+    return deserializeAws_json1_1UnlinkDeveloperIdentityCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

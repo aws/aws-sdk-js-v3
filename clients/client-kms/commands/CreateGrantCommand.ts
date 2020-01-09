@@ -1,20 +1,17 @@
 import {
   KMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KMSClient";
-import {
-  CreateGrantRequest,
-  CreateGrantResponse,
-} from "../models/index";
+import { CreateGrantRequest, CreateGrantResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateGrantCommand,
-  serializeAws_json1_1CreateGrantCommand,
+  serializeAws_json1_1CreateGrantCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateGrantCommandInput = CreateGrantRequest;
 export type CreateGrantCommandOutput = CreateGrantResponse;
 
-export class CreateGrantCommand extends $Command<CreateGrantCommandInput, CreateGrantCommandOutput, KMSClientResolvedConfig> {
+export class CreateGrantCommand extends $Command<
+  CreateGrantCommandInput,
+  CreateGrantCommandOutput,
+  KMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateGrantCommand extends $Command<CreateGrantCommandInput, Create
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateGrantCommandInput, CreateGrantCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

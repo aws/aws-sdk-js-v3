@@ -596,7 +596,62 @@ export namespace HistoryEvent {
   }
 }
 
-export type HistoryEventType = "ActivityFailed" | "ActivityScheduleFailed" | "ActivityScheduled" | "ActivityStarted" | "ActivitySucceeded" | "ActivityTimedOut" | "ChoiceStateEntered" | "ChoiceStateExited" | "ExecutionAborted" | "ExecutionFailed" | "ExecutionStarted" | "ExecutionSucceeded" | "ExecutionTimedOut" | "FailStateEntered" | "LambdaFunctionFailed" | "LambdaFunctionScheduleFailed" | "LambdaFunctionScheduled" | "LambdaFunctionStartFailed" | "LambdaFunctionStarted" | "LambdaFunctionSucceeded" | "LambdaFunctionTimedOut" | "MapIterationAborted" | "MapIterationFailed" | "MapIterationStarted" | "MapIterationSucceeded" | "MapStateAborted" | "MapStateEntered" | "MapStateExited" | "MapStateFailed" | "MapStateStarted" | "MapStateSucceeded" | "ParallelStateAborted" | "ParallelStateEntered" | "ParallelStateExited" | "ParallelStateFailed" | "ParallelStateStarted" | "ParallelStateSucceeded" | "PassStateEntered" | "PassStateExited" | "SucceedStateEntered" | "SucceedStateExited" | "TaskFailed" | "TaskScheduled" | "TaskStartFailed" | "TaskStarted" | "TaskStateAborted" | "TaskStateEntered" | "TaskStateExited" | "TaskSubmitFailed" | "TaskSubmitted" | "TaskSucceeded" | "TaskTimedOut" | "WaitStateAborted" | "WaitStateEntered" | "WaitStateExited"
+export type HistoryEventType =
+  | "ActivityFailed"
+  | "ActivityScheduleFailed"
+  | "ActivityScheduled"
+  | "ActivityStarted"
+  | "ActivitySucceeded"
+  | "ActivityTimedOut"
+  | "ChoiceStateEntered"
+  | "ChoiceStateExited"
+  | "ExecutionAborted"
+  | "ExecutionFailed"
+  | "ExecutionStarted"
+  | "ExecutionSucceeded"
+  | "ExecutionTimedOut"
+  | "FailStateEntered"
+  | "LambdaFunctionFailed"
+  | "LambdaFunctionScheduleFailed"
+  | "LambdaFunctionScheduled"
+  | "LambdaFunctionStartFailed"
+  | "LambdaFunctionStarted"
+  | "LambdaFunctionSucceeded"
+  | "LambdaFunctionTimedOut"
+  | "MapIterationAborted"
+  | "MapIterationFailed"
+  | "MapIterationStarted"
+  | "MapIterationSucceeded"
+  | "MapStateAborted"
+  | "MapStateEntered"
+  | "MapStateExited"
+  | "MapStateFailed"
+  | "MapStateStarted"
+  | "MapStateSucceeded"
+  | "ParallelStateAborted"
+  | "ParallelStateEntered"
+  | "ParallelStateExited"
+  | "ParallelStateFailed"
+  | "ParallelStateStarted"
+  | "ParallelStateSucceeded"
+  | "PassStateEntered"
+  | "PassStateExited"
+  | "SucceedStateEntered"
+  | "SucceedStateExited"
+  | "TaskFailed"
+  | "TaskScheduled"
+  | "TaskStartFailed"
+  | "TaskStarted"
+  | "TaskStateAborted"
+  | "TaskStateEntered"
+  | "TaskStateExited"
+  | "TaskSubmitFailed"
+  | "TaskSubmitted"
+  | "TaskSucceeded"
+  | "TaskTimedOut"
+  | "WaitStateAborted"
+  | "WaitStateEntered"
+  | "WaitStateExited";
 
 /**
  *
@@ -789,7 +844,7 @@ export namespace LogDestination {
   }
 }
 
-export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF"
+export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
 
 /**
  *
@@ -954,7 +1009,7 @@ export namespace StateExitedEventDetails {
   }
 }
 
-export type StateMachineType = "EXPRESS" | "STANDARD"
+export type StateMachineType = "EXPRESS" | "STANDARD";
 
 /**
  *
@@ -1277,7 +1332,9 @@ export namespace TaskTimedOutEventDetails {
  *          <p>The specified activity does not exist.</p>
  *
  */
-export interface ActivityDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface ActivityDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ActivityDoesNotExist";
   $fault: "client";
   message?: string;
@@ -1295,7 +1352,9 @@ export namespace ActivityDoesNotExist {
  *       before a new activity can be created.</p>
  *
  */
-export interface ActivityLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ActivityLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ActivityLimitExceeded";
   $fault: "client";
   message?: string;
@@ -1369,7 +1428,9 @@ export namespace ActivityListItem {
  *       reached.</p>
  *
  */
-export interface ActivityWorkerLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ActivityWorkerLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ActivityWorkerLimitExceeded";
   $fault: "client";
   message?: string;
@@ -1796,7 +1857,8 @@ export namespace DescribeStateMachineForExecutionInput {
   }
 }
 
-export interface DescribeStateMachineForExecutionOutput extends $MetadataBearer {
+export interface DescribeStateMachineForExecutionOutput
+  extends $MetadataBearer {
   __type?: "DescribeStateMachineForExecutionOutput";
   /**
    *
@@ -1954,7 +2016,9 @@ export namespace DescribeStateMachineOutput {
  *          </note>
  *
  */
-export interface ExecutionAlreadyExists extends _smithy.SmithyException, $MetadataBearer {
+export interface ExecutionAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExecutionAlreadyExists";
   $fault: "client";
   message?: string;
@@ -1971,7 +2035,9 @@ export namespace ExecutionAlreadyExists {
  *          <p>The specified execution does not exist.</p>
  *
  */
-export interface ExecutionDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface ExecutionDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExecutionDoesNotExist";
   $fault: "client";
   message?: string;
@@ -1989,7 +2055,9 @@ export namespace ExecutionDoesNotExist {
  *       be stopped before a new execution can be started.</p>
  *
  */
-export interface ExecutionLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ExecutionLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExecutionLimitExceeded";
   $fault: "client";
   message?: string;
@@ -2078,7 +2146,12 @@ export namespace ExecutionListItem {
   }
 }
 
-export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "TIMED_OUT"
+export type ExecutionStatus =
+  | "ABORTED"
+  | "FAILED"
+  | "RUNNING"
+  | "SUCCEEDED"
+  | "TIMED_OUT";
 
 export interface GetActivityTaskInput {
   __type?: "GetActivityTaskInput";
@@ -2217,7 +2290,9 @@ export namespace InvalidArn {
  *          <p>The provided Amazon States Language definition is invalid.</p>
  *
  */
-export interface InvalidDefinition extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDefinition
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDefinition";
   $fault: "client";
   message?: string;
@@ -2234,7 +2309,9 @@ export namespace InvalidDefinition {
  *          <p>The provided JSON input data is invalid.</p>
  *
  */
-export interface InvalidExecutionInput extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidExecutionInput
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidExecutionInput";
   $fault: "client";
   message?: string;
@@ -2251,7 +2328,9 @@ export namespace InvalidExecutionInput {
  *          <p></p>
  *
  */
-export interface InvalidLoggingConfiguration extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidLoggingConfiguration
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidLoggingConfiguration";
   $fault: "client";
   message?: string;
@@ -2285,7 +2364,9 @@ export namespace InvalidName {
  *          <p>The provided JSON output data is invalid.</p>
  *
  */
-export interface InvalidOutput extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOutput
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOutput";
   $fault: "client";
   message?: string;
@@ -2512,7 +2593,9 @@ export namespace ListTagsForResourceOutput {
  *       and <code>roleArn</code> are not specified.</p>
  *
  */
-export interface MissingRequiredParameter extends _smithy.SmithyException, $MetadataBearer {
+export interface MissingRequiredParameter
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MissingRequiredParameter";
   $fault: "client";
   message?: string;
@@ -2530,7 +2613,9 @@ export namespace MissingRequiredParameter {
  *       supported.</p>
  *
  */
-export interface ResourceNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFound";
   $fault: "client";
   message?: string;
@@ -2738,7 +2823,9 @@ export namespace StartExecutionOutput {
  *       exists.</p>
  *
  */
-export interface StateMachineAlreadyExists extends _smithy.SmithyException, $MetadataBearer {
+export interface StateMachineAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StateMachineAlreadyExists";
   $fault: "client";
   message?: string;
@@ -2755,7 +2842,9 @@ export namespace StateMachineAlreadyExists {
  *          <p>The specified state machine is being deleted.</p>
  *
  */
-export interface StateMachineDeleting extends _smithy.SmithyException, $MetadataBearer {
+export interface StateMachineDeleting
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StateMachineDeleting";
   $fault: "client";
   message?: string;
@@ -2772,7 +2861,9 @@ export namespace StateMachineDeleting {
  *          <p>The specified state machine does not exist.</p>
  *
  */
-export interface StateMachineDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface StateMachineDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StateMachineDoesNotExist";
   $fault: "client";
   message?: string;
@@ -2790,7 +2881,9 @@ export namespace StateMachineDoesNotExist {
  *       deleted before a new state machine can be created.</p>
  *
  */
-export interface StateMachineLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface StateMachineLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StateMachineLimitExceeded";
   $fault: "client";
   message?: string;
@@ -2865,14 +2958,16 @@ export namespace StateMachineListItem {
   }
 }
 
-export type StateMachineStatus = "ACTIVE" | "DELETING"
+export type StateMachineStatus = "ACTIVE" | "DELETING";
 
 /**
  *
  *          <p></p>
  *
  */
-export interface StateMachineTypeNotSupported extends _smithy.SmithyException, $MetadataBearer {
+export interface StateMachineTypeNotSupported
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StateMachineTypeNotSupported";
   $fault: "client";
   message?: string;
@@ -2998,7 +3093,9 @@ export namespace TagResourceOutput {
   }
 }
 
-export interface TaskDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface TaskDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TaskDoesNotExist";
   $fault: "client";
   message?: string;

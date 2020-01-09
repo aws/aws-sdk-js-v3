@@ -39,7 +39,7 @@ export namespace ComplianceDetails {
 
 export enum ErrorCode {
   INTERNAL_SERVICE_EXCEPTION = "InternalServiceException",
-  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException",
+  INVALID_PARAMETER_EXCEPTION = "InvalidParameterException"
 }
 
 /**
@@ -360,7 +360,9 @@ export namespace GetTagValuesOutput {
  *             can retry the request.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -397,7 +399,9 @@ export namespace InternalServiceException {
  *          </ul>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -415,7 +419,9 @@ export namespace InvalidParameterException {
  *             denied because the specified <code>PaginationToken</code> has expired.</p>
  *
  */
-export interface PaginationTokenExpiredException extends _smithy.SmithyException, $MetadataBearer {
+export interface PaginationTokenExpiredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PaginationTokenExpiredException";
   $fault: "client";
   Message?: string;
@@ -574,7 +580,9 @@ export namespace TagResourcesOutput {
  *         <p>The request was denied to limit the frequency of submitted requests.</p>
  *
  */
-export interface ThrottledException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottledException";
   $fault: "client";
   Message?: string;

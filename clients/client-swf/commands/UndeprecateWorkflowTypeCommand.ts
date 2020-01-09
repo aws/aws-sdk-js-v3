@@ -1,17 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import { UndeprecateWorkflowTypeInput } from "../models/index";
 import {
   deserializeAws_json1_0UndeprecateWorkflowTypeCommand,
-  serializeAws_json1_0UndeprecateWorkflowTypeCommand,
+  serializeAws_json1_0UndeprecateWorkflowTypeCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type UndeprecateWorkflowTypeCommandInput = UndeprecateWorkflowTypeInput;
-export type UndeprecateWorkflowTypeCommandOutput = __MetadataBearer
+export type UndeprecateWorkflowTypeCommandOutput = __MetadataBearer;
 
-export class UndeprecateWorkflowTypeCommand extends $Command<UndeprecateWorkflowTypeCommandInput, UndeprecateWorkflowTypeCommandOutput, SWFClientResolvedConfig> {
+export class UndeprecateWorkflowTypeCommand extends $Command<
+  UndeprecateWorkflowTypeCommandInput,
+  UndeprecateWorkflowTypeCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class UndeprecateWorkflowTypeCommand extends $Command<UndeprecateWorkflow
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UndeprecateWorkflowTypeCommandInput, UndeprecateWorkflowTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UndeprecateWorkflowTypeCommandInput,
+    UndeprecateWorkflowTypeCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class UndeprecateWorkflowTypeCommand extends $Command<UndeprecateWorkflow
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UndeprecateWorkflowTypeCommandOutput> {
-    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(output, context);
+    return deserializeAws_json1_0UndeprecateWorkflowTypeCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

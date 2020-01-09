@@ -2,132 +2,132 @@ import { ApplicationInsightsClient } from "./ApplicationInsightsClient";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+  CreateApplicationCommandOutput
 } from "./commands/CreateApplicationCommand";
 import {
   CreateComponentCommand,
   CreateComponentCommandInput,
-  CreateComponentCommandOutput,
+  CreateComponentCommandOutput
 } from "./commands/CreateComponentCommand";
 import {
   CreateLogPatternCommand,
   CreateLogPatternCommandInput,
-  CreateLogPatternCommandOutput,
+  CreateLogPatternCommandOutput
 } from "./commands/CreateLogPatternCommand";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
+  DeleteApplicationCommandOutput
 } from "./commands/DeleteApplicationCommand";
 import {
   DeleteComponentCommand,
   DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
+  DeleteComponentCommandOutput
 } from "./commands/DeleteComponentCommand";
 import {
   DeleteLogPatternCommand,
   DeleteLogPatternCommandInput,
-  DeleteLogPatternCommandOutput,
+  DeleteLogPatternCommandOutput
 } from "./commands/DeleteLogPatternCommand";
 import {
   DescribeApplicationCommand,
   DescribeApplicationCommandInput,
-  DescribeApplicationCommandOutput,
+  DescribeApplicationCommandOutput
 } from "./commands/DescribeApplicationCommand";
 import {
   DescribeComponentCommand,
   DescribeComponentCommandInput,
-  DescribeComponentCommandOutput,
+  DescribeComponentCommandOutput
 } from "./commands/DescribeComponentCommand";
 import {
   DescribeComponentConfigurationCommand,
   DescribeComponentConfigurationCommandInput,
-  DescribeComponentConfigurationCommandOutput,
+  DescribeComponentConfigurationCommandOutput
 } from "./commands/DescribeComponentConfigurationCommand";
 import {
   DescribeComponentConfigurationRecommendationCommand,
   DescribeComponentConfigurationRecommendationCommandInput,
-  DescribeComponentConfigurationRecommendationCommandOutput,
+  DescribeComponentConfigurationRecommendationCommandOutput
 } from "./commands/DescribeComponentConfigurationRecommendationCommand";
 import {
   DescribeLogPatternCommand,
   DescribeLogPatternCommandInput,
-  DescribeLogPatternCommandOutput,
+  DescribeLogPatternCommandOutput
 } from "./commands/DescribeLogPatternCommand";
 import {
   DescribeObservationCommand,
   DescribeObservationCommandInput,
-  DescribeObservationCommandOutput,
+  DescribeObservationCommandOutput
 } from "./commands/DescribeObservationCommand";
 import {
   DescribeProblemCommand,
   DescribeProblemCommandInput,
-  DescribeProblemCommandOutput,
+  DescribeProblemCommandOutput
 } from "./commands/DescribeProblemCommand";
 import {
   DescribeProblemObservationsCommand,
   DescribeProblemObservationsCommandInput,
-  DescribeProblemObservationsCommandOutput,
+  DescribeProblemObservationsCommandOutput
 } from "./commands/DescribeProblemObservationsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
+  ListApplicationsCommandOutput
 } from "./commands/ListApplicationsCommand";
 import {
   ListComponentsCommand,
   ListComponentsCommandInput,
-  ListComponentsCommandOutput,
+  ListComponentsCommandOutput
 } from "./commands/ListComponentsCommand";
 import {
   ListLogPatternSetsCommand,
   ListLogPatternSetsCommandInput,
-  ListLogPatternSetsCommandOutput,
+  ListLogPatternSetsCommandOutput
 } from "./commands/ListLogPatternSetsCommand";
 import {
   ListLogPatternsCommand,
   ListLogPatternsCommandInput,
-  ListLogPatternsCommandOutput,
+  ListLogPatternsCommandOutput
 } from "./commands/ListLogPatternsCommand";
 import {
   ListProblemsCommand,
   ListProblemsCommandInput,
-  ListProblemsCommandOutput,
+  ListProblemsCommandOutput
 } from "./commands/ListProblemsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+  UpdateApplicationCommandOutput
 } from "./commands/UpdateApplicationCommand";
 import {
   UpdateComponentCommand,
   UpdateComponentCommandInput,
-  UpdateComponentCommandOutput,
+  UpdateComponentCommandOutput
 } from "./commands/UpdateComponentCommand";
 import {
   UpdateComponentConfigurationCommand,
   UpdateComponentConfigurationCommandInput,
-  UpdateComponentConfigurationCommandOutput,
+  UpdateComponentConfigurationCommandOutput
 } from "./commands/UpdateComponentConfigurationCommand";
 import {
   UpdateLogPatternCommand,
   UpdateLogPatternCommandInput,
-  UpdateLogPatternCommandOutput,
+  UpdateLogPatternCommandOutput
 } from "./commands/UpdateLogPatternCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -156,7 +156,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApplicationCommandOutput>;
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -169,16 +169,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -191,7 +193,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public createComponent(
     args: CreateComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateComponentCommandOutput>;
   public createComponent(
     args: CreateComponentCommandInput,
@@ -204,16 +206,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public createComponent(
     args: CreateComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateComponentCommandOutput) => void),
     cb?: (err: any, data?: CreateComponentCommandOutput) => void
   ): Promise<CreateComponentCommandOutput> | void {
     const command = new CreateComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -226,7 +230,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public createLogPattern(
     args: CreateLogPatternCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateLogPatternCommandOutput>;
   public createLogPattern(
     args: CreateLogPatternCommandInput,
@@ -239,16 +243,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public createLogPattern(
     args: CreateLogPatternCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLogPatternCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLogPatternCommandOutput) => void),
     cb?: (err: any, data?: CreateLogPatternCommandOutput) => void
   ): Promise<CreateLogPatternCommandOutput> | void {
     const command = new CreateLogPatternCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -261,7 +267,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApplicationCommandOutput>;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -274,16 +280,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -297,7 +305,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public deleteComponent(
     args: DeleteComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteComponentCommandOutput>;
   public deleteComponent(
     args: DeleteComponentCommandInput,
@@ -310,16 +318,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public deleteComponent(
     args: DeleteComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteComponentCommandOutput) => void),
     cb?: (err: any, data?: DeleteComponentCommandOutput) => void
   ): Promise<DeleteComponentCommandOutput> | void {
     const command = new DeleteComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -332,7 +342,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public deleteLogPattern(
     args: DeleteLogPatternCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteLogPatternCommandOutput>;
   public deleteLogPattern(
     args: DeleteLogPatternCommandInput,
@@ -345,16 +355,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public deleteLogPattern(
     args: DeleteLogPatternCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLogPatternCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLogPatternCommandOutput) => void),
     cb?: (err: any, data?: DeleteLogPatternCommandOutput) => void
   ): Promise<DeleteLogPatternCommandOutput> | void {
     const command = new DeleteLogPatternCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -367,7 +379,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeApplication(
     args: DescribeApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeApplicationCommandOutput>;
   public describeApplication(
     args: DescribeApplicationCommandInput,
@@ -380,16 +392,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeApplication(
     args: DescribeApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeApplicationCommandOutput) => void),
     cb?: (err: any, data?: DescribeApplicationCommandOutput) => void
   ): Promise<DescribeApplicationCommandOutput> | void {
     const command = new DescribeApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -402,7 +416,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeComponent(
     args: DescribeComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeComponentCommandOutput>;
   public describeComponent(
     args: DescribeComponentCommandInput,
@@ -415,16 +429,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeComponent(
     args: DescribeComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeComponentCommandOutput) => void),
     cb?: (err: any, data?: DescribeComponentCommandOutput) => void
   ): Promise<DescribeComponentCommandOutput> | void {
     const command = new DescribeComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -437,7 +453,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeComponentConfiguration(
     args: DescribeComponentConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeComponentConfigurationCommandOutput>;
   public describeComponentConfiguration(
     args: DescribeComponentConfigurationCommandInput,
@@ -450,16 +466,21 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeComponentConfiguration(
     args: DescribeComponentConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComponentConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeComponentConfigurationCommandOutput
+        ) => void),
     cb?: (err: any, data?: DescribeComponentConfigurationCommandOutput) => void
   ): Promise<DescribeComponentConfigurationCommandOutput> | void {
     const command = new DescribeComponentConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -472,29 +493,45 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput>;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
-    cb: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeComponentConfigurationRecommendationCommandOutput
+    ) => void
   ): void;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeComponentConfigurationRecommendationCommandOutput
+    ) => void
   ): void;
   public describeComponentConfigurationRecommendation(
     args: DescribeComponentConfigurationRecommendationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void),
-    cb?: (err: any, data?: DescribeComponentConfigurationRecommendationCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeComponentConfigurationRecommendationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeComponentConfigurationRecommendationCommandOutput
+    ) => void
   ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> | void {
-    const command = new DescribeComponentConfigurationRecommendationCommand(args);
+    const command = new DescribeComponentConfigurationRecommendationCommand(
+      args
+    );
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -507,7 +544,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeLogPattern(
     args: DescribeLogPatternCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeLogPatternCommandOutput>;
   public describeLogPattern(
     args: DescribeLogPatternCommandInput,
@@ -520,16 +557,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeLogPattern(
     args: DescribeLogPatternCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLogPatternCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeLogPatternCommandOutput) => void),
     cb?: (err: any, data?: DescribeLogPatternCommandOutput) => void
   ): Promise<DescribeLogPatternCommandOutput> | void {
     const command = new DescribeLogPatternCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -542,7 +581,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeObservation(
     args: DescribeObservationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeObservationCommandOutput>;
   public describeObservation(
     args: DescribeObservationCommandInput,
@@ -555,16 +594,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeObservation(
     args: DescribeObservationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeObservationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeObservationCommandOutput) => void),
     cb?: (err: any, data?: DescribeObservationCommandOutput) => void
   ): Promise<DescribeObservationCommandOutput> | void {
     const command = new DescribeObservationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -577,7 +618,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeProblem(
     args: DescribeProblemCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProblemCommandOutput>;
   public describeProblem(
     args: DescribeProblemCommandInput,
@@ -590,16 +631,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeProblem(
     args: DescribeProblemCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProblemCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProblemCommandOutput) => void),
     cb?: (err: any, data?: DescribeProblemCommandOutput) => void
   ): Promise<DescribeProblemCommandOutput> | void {
     const command = new DescribeProblemCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -612,7 +655,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public describeProblemObservations(
     args: DescribeProblemObservationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProblemObservationsCommandOutput>;
   public describeProblemObservations(
     args: DescribeProblemObservationsCommandInput,
@@ -625,16 +668,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public describeProblemObservations(
     args: DescribeProblemObservationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProblemObservationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProblemObservationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProblemObservationsCommandOutput) => void
   ): Promise<DescribeProblemObservationsCommandOutput> | void {
     const command = new DescribeProblemObservationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -647,7 +692,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationsCommandOutput>;
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -660,16 +705,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -682,7 +729,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listComponents(
     args: ListComponentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListComponentsCommandOutput>;
   public listComponents(
     args: ListComponentsCommandInput,
@@ -695,16 +742,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listComponents(
     args: ListComponentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListComponentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListComponentsCommandOutput) => void),
     cb?: (err: any, data?: ListComponentsCommandOutput) => void
   ): Promise<ListComponentsCommandOutput> | void {
     const command = new ListComponentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -717,7 +766,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listLogPatternSets(
     args: ListLogPatternSetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLogPatternSetsCommandOutput>;
   public listLogPatternSets(
     args: ListLogPatternSetsCommandInput,
@@ -730,16 +779,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listLogPatternSets(
     args: ListLogPatternSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLogPatternSetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLogPatternSetsCommandOutput) => void),
     cb?: (err: any, data?: ListLogPatternSetsCommandOutput) => void
   ): Promise<ListLogPatternSetsCommandOutput> | void {
     const command = new ListLogPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -752,7 +803,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listLogPatterns(
     args: ListLogPatternsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLogPatternsCommandOutput>;
   public listLogPatterns(
     args: ListLogPatternsCommandInput,
@@ -765,16 +816,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listLogPatterns(
     args: ListLogPatternsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLogPatternsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLogPatternsCommandOutput) => void),
     cb?: (err: any, data?: ListLogPatternsCommandOutput) => void
   ): Promise<ListLogPatternsCommandOutput> | void {
     const command = new ListLogPatternsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -787,7 +840,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listProblems(
     args: ListProblemsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListProblemsCommandOutput>;
   public listProblems(
     args: ListProblemsCommandInput,
@@ -800,16 +853,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listProblems(
     args: ListProblemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProblemsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProblemsCommandOutput) => void),
     cb?: (err: any, data?: ListProblemsCommandOutput) => void
   ): Promise<ListProblemsCommandOutput> | void {
     const command = new ListProblemsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -827,7 +882,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -840,16 +895,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -869,7 +926,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -882,16 +939,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -904,7 +963,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -917,16 +976,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -939,7 +1000,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApplicationCommandOutput>;
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -952,16 +1013,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -976,7 +1039,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public updateComponent(
     args: UpdateComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateComponentCommandOutput>;
   public updateComponent(
     args: UpdateComponentCommandInput,
@@ -989,16 +1052,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateComponent(
     args: UpdateComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateComponentCommandOutput) => void),
     cb?: (err: any, data?: UpdateComponentCommandOutput) => void
   ): Promise<UpdateComponentCommandOutput> | void {
     const command = new UpdateComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1013,7 +1078,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public updateComponentConfiguration(
     args: UpdateComponentConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateComponentConfigurationCommandOutput>;
   public updateComponentConfiguration(
     args: UpdateComponentConfigurationCommandInput,
@@ -1026,16 +1091,18 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateComponentConfiguration(
     args: UpdateComponentConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateComponentConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateComponentConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateComponentConfigurationCommandOutput) => void
   ): Promise<UpdateComponentConfigurationCommandOutput> | void {
     const command = new UpdateComponentConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1048,7 +1115,7 @@ export class ApplicationInsights extends ApplicationInsightsClient {
    */
   public updateLogPattern(
     args: UpdateLogPatternCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateLogPatternCommandOutput>;
   public updateLogPattern(
     args: UpdateLogPatternCommandInput,
@@ -1061,19 +1128,20 @@ export class ApplicationInsights extends ApplicationInsightsClient {
   ): void;
   public updateLogPattern(
     args: UpdateLogPatternCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLogPatternCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateLogPatternCommandOutput) => void),
     cb?: (err: any, data?: UpdateLogPatternCommandOutput) => void
   ): Promise<UpdateLogPatternCommandOutput> | void {
     const command = new UpdateLogPatternCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -1,20 +1,17 @@
 import {
   ApiGatewayV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  UpdateApiRequest,
-  UpdateApiResponse,
-} from "../models/index";
+import { UpdateApiRequest, UpdateApiResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateApiCommand,
-  serializeAws_restJson1_1UpdateApiCommand,
+  serializeAws_restJson1_1UpdateApiCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateApiCommandInput = UpdateApiRequest;
 export type UpdateApiCommandOutput = UpdateApiResponse;
 
-export class UpdateApiCommand extends $Command<UpdateApiCommandInput, UpdateApiCommandOutput, ApiGatewayV2ClientResolvedConfig> {
+export class UpdateApiCommand extends $Command<
+  UpdateApiCommandInput,
+  UpdateApiCommandOutput,
+  ApiGatewayV2ClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateApiCommand extends $Command<UpdateApiCommandInput, UpdateApiC
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateApiCommandInput, UpdateApiCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

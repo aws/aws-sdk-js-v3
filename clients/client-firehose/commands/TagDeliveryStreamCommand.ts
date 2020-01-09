@@ -1,20 +1,20 @@
 import {
   FirehoseClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../FirehoseClient";
 import {
   TagDeliveryStreamInput,
-  TagDeliveryStreamOutput,
+  TagDeliveryStreamOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1TagDeliveryStreamCommand,
-  serializeAws_json1_1TagDeliveryStreamCommand,
+  serializeAws_json1_1TagDeliveryStreamCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type TagDeliveryStreamCommandInput = TagDeliveryStreamInput;
 export type TagDeliveryStreamCommandOutput = TagDeliveryStreamOutput;
 
-export class TagDeliveryStreamCommand extends $Command<TagDeliveryStreamCommandInput, TagDeliveryStreamCommandOutput, FirehoseClientResolvedConfig> {
+export class TagDeliveryStreamCommand extends $Command<
+  TagDeliveryStreamCommandInput,
+  TagDeliveryStreamCommandOutput,
+  FirehoseClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class TagDeliveryStreamCommand extends $Command<TagDeliveryStreamCommandI
     configuration: FirehoseClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagDeliveryStreamCommandInput, TagDeliveryStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

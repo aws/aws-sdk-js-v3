@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have access to perform this operation on this resource.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -172,7 +174,7 @@ export enum ApiCacheStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  MODIFYING = "MODIFYING",
+  MODIFYING = "MODIFYING"
 }
 
 export enum ApiCacheType {
@@ -182,12 +184,12 @@ export enum ApiCacheType {
   R4_LARGE = "R4_LARGE",
   R4_XLARGE = "R4_XLARGE",
   T2_MEDIUM = "T2_MEDIUM",
-  T2_SMALL = "T2_SMALL",
+  T2_SMALL = "T2_SMALL"
 }
 
 export enum ApiCachingBehavior {
   FULL_REQUEST_CACHING = "FULL_REQUEST_CACHING",
-  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING",
+  PER_RESOLVER_CACHING = "PER_RESOLVER_CACHING"
 }
 
 /**
@@ -290,7 +292,9 @@ export namespace ApiKey {
  *          <p>The API key exceeded a limit. Try your request again.</p>
  *
  */
-export interface ApiKeyLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ApiKeyLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ApiKeyLimitExceededException";
   $fault: "client";
   message?: string;
@@ -308,7 +312,9 @@ export namespace ApiKeyLimitExceededException {
  *             <code>CreateApiKey</code>) or from update (for <code>UpdateApiKey</code>).</p>
  *
  */
-export interface ApiKeyValidityOutOfBoundsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ApiKeyValidityOutOfBoundsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ApiKeyValidityOutOfBoundsException";
   $fault: "client";
   message?: string;
@@ -325,7 +331,9 @@ export namespace ApiKeyValidityOutOfBoundsException {
  *          <p>The GraphQL API exceeded a limit. Try your request again.</p>
  *
  */
-export interface ApiLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ApiLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ApiLimitExceededException";
   $fault: "client";
   message?: string;
@@ -341,7 +349,7 @@ export enum AuthenticationType {
   AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS",
   API_KEY = "API_KEY",
   AWS_IAM = "AWS_IAM",
-  OPENID_CONNECT = "OPENID_CONNECT",
+  OPENID_CONNECT = "OPENID_CONNECT"
 }
 
 /**
@@ -380,7 +388,7 @@ export namespace AuthorizationConfig {
 }
 
 export enum AuthorizationType {
-  AWS_IAM = "AWS_IAM",
+  AWS_IAM = "AWS_IAM"
 }
 
 /**
@@ -417,7 +425,9 @@ export namespace AwsIamConfig {
  *          missing. Check the field values, and then try again. </p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -501,7 +511,9 @@ export namespace CognitoUserPoolConfig {
  *          your change. </p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -515,14 +527,14 @@ export namespace ConcurrentModificationException {
 
 export enum ConflictDetectionType {
   NONE = "NONE",
-  VERSION = "VERSION",
+  VERSION = "VERSION"
 }
 
 export enum ConflictHandlerType {
   AUTOMERGE = "AUTOMERGE",
   LAMBDA = "LAMBDA",
   NONE = "NONE",
-  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY",
+  OPTIMISTIC_CONCURRENCY = "OPTIMISTIC_CONCURRENCY"
 }
 
 /**
@@ -1220,12 +1232,12 @@ export enum DataSourceType {
   AWS_LAMBDA = "AWS_LAMBDA",
   HTTP = "HTTP",
   NONE = "NONE",
-  RELATIONAL_DATABASE = "RELATIONAL_DATABASE",
+  RELATIONAL_DATABASE = "RELATIONAL_DATABASE"
 }
 
 export enum DefaultAction {
   ALLOW = "ALLOW",
-  DENY = "DENY",
+  DENY = "DENY"
 }
 
 /**
@@ -1577,7 +1589,7 @@ export namespace ElasticsearchDataSourceConfig {
 export enum FieldLogLevel {
   ALL = "ALL",
   ERROR = "ERROR",
-  NONE = "NONE",
+  NONE = "NONE"
 }
 
 /**
@@ -2018,7 +2030,9 @@ export namespace GetTypeResponse {
  *          <p>The GraphQL schema is not valid.</p>
  *
  */
-export interface GraphQLSchemaException extends _smithy.SmithyException, $MetadataBearer {
+export interface GraphQLSchemaException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "GraphQLSchemaException";
   $fault: "client";
   message?: string;
@@ -2147,7 +2161,9 @@ export namespace HttpDataSourceConfig {
  *          <p>An internal AWS AppSync error occurred. Try your request again.</p>
  *
  */
-export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -2201,7 +2217,9 @@ export namespace LambdaDataSourceConfig {
  *          <p>The request exceeded a limit. Try your request again.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2716,7 +2734,9 @@ export namespace LogConfig {
  *          again.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -2775,7 +2795,7 @@ export namespace OpenIDConnectConfig {
 
 export enum OutputType {
   JSON = "JSON",
-  SDL = "SDL",
+  SDL = "SDL"
 }
 
 /**
@@ -2884,7 +2904,7 @@ export namespace RelationalDatabaseDataSourceConfig {
 }
 
 export enum RelationalDatabaseSourceType {
-  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT",
+  RDS_HTTP_ENDPOINT = "RDS_HTTP_ENDPOINT"
 }
 
 /**
@@ -2987,7 +3007,7 @@ export namespace Resolver {
 
 export enum ResolverKind {
   PIPELINE = "PIPELINE",
-  UNIT = "UNIT",
+  UNIT = "UNIT"
 }
 
 export enum SchemaStatus {
@@ -2996,7 +3016,7 @@ export enum SchemaStatus {
   Failed = "FAILED",
   NotApplicable = "NOT_APPLICABLE",
   Processing = "PROCESSING",
-  Success = "SUCCESS",
+  Success = "SUCCESS"
 }
 
 export interface StartSchemaCreationRequest {
@@ -3183,7 +3203,7 @@ export namespace Type {
 
 export enum TypeDefinitionFormat {
   JSON = "JSON",
-  SDL = "SDL",
+  SDL = "SDL"
 }
 
 /**
@@ -3191,7 +3211,9 @@ export enum TypeDefinitionFormat {
  *          <p>You are not authorized to perform this operation.</p>
  *
  */
-export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   message?: string;

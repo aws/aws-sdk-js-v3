@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum Architecture {
   ARM64 = "ARM64",
   ARMHF = "ARMHF",
-  X86_64 = "X86_64",
+  X86_64 = "X86_64"
 }
 
 export interface BatchDescribeSimulationJobRequest {
@@ -103,7 +103,9 @@ export namespace CancelSimulationJobResponse {
  *          <p>The failure percentage threshold percentage was met.</p>
  *
  */
-export interface ConcurrentDeploymentException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentDeploymentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentDeploymentException";
   $fault: "client";
   message?: string;
@@ -778,7 +780,8 @@ export namespace CreateSimulationApplicationVersionRequest {
   }
 }
 
-export interface CreateSimulationApplicationVersionResponse extends $MetadataBearer {
+export interface CreateSimulationApplicationVersionResponse
+  extends $MetadataBearer {
   __type?: "CreateSimulationApplicationVersionResponse";
   /**
    *
@@ -1499,7 +1502,7 @@ export enum DeploymentJobErrorCode {
   ResourceNotFound = "ResourceNotFound",
   RobotAgentConnectionTimeout = "RobotAgentConnectionTimeout",
   RobotDeploymentAborted = "RobotDeploymentAborted",
-  RobotDeploymentNoResponse = "RobotDeploymentNoResponse",
+  RobotDeploymentNoResponse = "RobotDeploymentNoResponse"
 }
 
 /**
@@ -1557,7 +1560,7 @@ export enum DeploymentStatus {
   InProgress = "InProgress",
   Pending = "Pending",
   Preparing = "Preparing",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 export interface DeregisterRobotRequest {
@@ -2294,7 +2297,7 @@ export namespace DescribeSimulationJobResponse {
 
 export enum FailureBehavior {
   Continue = "Continue",
-  Fail = "Fail",
+  Fail = "Fail"
 }
 
 /**
@@ -2387,7 +2390,9 @@ export namespace Fleet {
  *          Do not reuse a client token with different requests, unless the requests are identical. </p>
  *
  */
-export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface IdempotentParameterMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   message?: string;
@@ -2404,7 +2409,9 @@ export namespace IdempotentParameterMismatchException {
  *          <p>AWS RoboMaker experienced a service issue. Try your call again.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   message?: string;
@@ -2422,7 +2429,9 @@ export namespace InternalServerException {
  *          The returned message provides an explanation of the error value.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -2482,7 +2491,9 @@ export namespace LaunchConfig {
  *          stream requests exceeds the maximum number allowed. </p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -3273,7 +3284,7 @@ export namespace RenderingEngine {
 }
 
 export enum RenderingEngineType {
-  OGRE = "OGRE",
+  OGRE = "OGRE"
 }
 
 /**
@@ -3281,7 +3292,9 @@ export enum RenderingEngineType {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -3298,7 +3311,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -3567,7 +3582,7 @@ export enum RobotDeploymentStep {
   LaunchingStep = "Launching",
   PostLaunchStep = "ExecutingPostLaunch",
   PreLaunchStep = "ExecutingPreLaunch",
-  ValidatingStep = "Validating",
+  ValidatingStep = "Validating"
 }
 
 /**
@@ -3600,13 +3615,13 @@ export namespace RobotSoftwareSuite {
 
 export enum RobotSoftwareSuiteType {
   ROS = "ROS",
-  ROS2 = "ROS2",
+  ROS2 = "ROS2"
 }
 
 export enum RobotSoftwareSuiteVersionType {
   Dashing = "Dashing",
   Kinetic = "Kinetic",
-  Melodic = "Melodic",
+  Melodic = "Melodic"
 }
 
 export enum RobotStatus {
@@ -3616,7 +3631,7 @@ export enum RobotStatus {
   InSync = "InSync",
   NoResponse = "NoResponse",
   PendingNewDeployment = "PendingNewDeployment",
-  Registered = "Registered",
+  Registered = "Registered"
 }
 
 /**
@@ -3687,7 +3702,9 @@ export namespace S3Object {
  *          <p>The request has failed due to a temporary failure of the server.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -3980,7 +3997,7 @@ export enum SimulationJobErrorCode {
   WrongRegionRobotApplication = "WrongRegionRobotApplication",
   WrongRegionS3Bucket = "WrongRegionS3Bucket",
   WrongRegionS3Output = "WrongRegionS3Output",
-  WrongRegionSimulationApplication = "WrongRegionSimulationApplication",
+  WrongRegionSimulationApplication = "WrongRegionSimulationApplication"
 }
 
 export enum SimulationJobStatus {
@@ -3993,7 +4010,7 @@ export enum SimulationJobStatus {
   Running = "Running",
   RunningFailed = "RunningFailed",
   Terminated = "Terminated",
-  Terminating = "Terminating",
+  Terminating = "Terminating"
 }
 
 /**
@@ -4089,7 +4106,7 @@ export namespace SimulationSoftwareSuite {
 
 export enum SimulationSoftwareSuiteType {
   Gazebo = "Gazebo",
-  RosbagPlay = "RosbagPlay",
+  RosbagPlay = "RosbagPlay"
 }
 
 /**
@@ -4353,7 +4370,9 @@ export namespace TagResourceResponse {
  *          <p>AWS RoboMaker is temporarily unable to process the request. Try your call again.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message?: string;

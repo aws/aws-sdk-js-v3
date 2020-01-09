@@ -1,20 +1,17 @@
 import {
   BatchClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../BatchClient";
-import {
-  SubmitJobRequest,
-  SubmitJobResponse,
-} from "../models/index";
+import { SubmitJobRequest, SubmitJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SubmitJobCommand,
-  serializeAws_restJson1_1SubmitJobCommand,
+  serializeAws_restJson1_1SubmitJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type SubmitJobCommandInput = SubmitJobRequest;
 export type SubmitJobCommandOutput = SubmitJobResponse;
 
-export class SubmitJobCommand extends $Command<SubmitJobCommandInput, SubmitJobCommandOutput, BatchClientResolvedConfig> {
+export class SubmitJobCommand extends $Command<
+  SubmitJobCommandInput,
+  SubmitJobCommandOutput,
+  BatchClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class SubmitJobCommand extends $Command<SubmitJobCommandInput, SubmitJobC
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SubmitJobCommandInput, SubmitJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

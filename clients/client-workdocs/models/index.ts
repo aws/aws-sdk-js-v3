@@ -189,7 +189,7 @@ export enum ActivityType {
   FOLDER_SHAREABLE_LINK_REMOVED = "FOLDER_SHAREABLE_LINK_REMOVED",
   FOLDER_SHARED = "FOLDER_SHARED",
   FOLDER_SHARE_PERMISSION_CHANGED = "FOLDER_SHARE_PERMISSION_CHANGED",
-  FOLDER_UNSHARED = "FOLDER_UNSHARED",
+  FOLDER_UNSHARED = "FOLDER_UNSHARED"
 }
 
 export interface AddResourcePermissionsRequest {
@@ -248,7 +248,7 @@ export namespace AddResourcePermissionsResponse {
 
 export enum BooleanEnumType {
   FALSE = "FALSE",
-  TRUE = "TRUE",
+  TRUE = "TRUE"
 }
 
 /**
@@ -383,12 +383,12 @@ export namespace CommentMetadata {
 export enum CommentStatusType {
   DELETED = "DELETED",
   DRAFT = "DRAFT",
-  PUBLISHED = "PUBLISHED",
+  PUBLISHED = "PUBLISHED"
 }
 
 export enum CommentVisibilityType {
   PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
+  PUBLIC = "PUBLIC"
 }
 
 /**
@@ -396,7 +396,9 @@ export enum CommentVisibilityType {
  *         <p>The resource hierarchy is changing.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -413,7 +415,9 @@ export namespace ConcurrentModificationException {
  *         <p>Another operation is in progress on the resource that conflicts with the current operation.</p>
  *
  */
-export interface ConflictingOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictingOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictingOperationException";
   $fault: "client";
   Message?: string;
@@ -686,7 +690,8 @@ export namespace CreateNotificationSubscriptionRequest {
   }
 }
 
-export interface CreateNotificationSubscriptionResponse extends $MetadataBearer {
+export interface CreateNotificationSubscriptionResponse
+  extends $MetadataBearer {
   __type?: "CreateNotificationSubscriptionResponse";
   /**
    *
@@ -797,7 +802,9 @@ export namespace CreateUserResponse {
  *             resource.</p>
  *
  */
-export interface CustomMetadataLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface CustomMetadataLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CustomMetadataLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -838,7 +845,9 @@ export namespace DeactivateUserRequest {
  *         <p>The last user in the organization is being deactivated.</p>
  *
  */
-export interface DeactivatingLastSystemUserException extends _smithy.SmithyException, $MetadataBearer {
+export interface DeactivatingLastSystemUserException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DeactivatingLastSystemUserException";
   $fault: "client";
   Code?: string;
@@ -1574,7 +1583,8 @@ export namespace DescribeNotificationSubscriptionsRequest {
   }
 }
 
-export interface DescribeNotificationSubscriptionsResponse extends $MetadataBearer {
+export interface DescribeNotificationSubscriptionsResponse
+  extends $MetadataBearer {
   __type?: "DescribeNotificationSubscriptionsResponse";
   /**
    *
@@ -1842,7 +1852,9 @@ export namespace DescribeUsersResponse {
  *             create or delete a comment on that document.</p>
  *
  */
-export interface DocumentLockedForCommentsException extends _smithy.SmithyException, $MetadataBearer {
+export interface DocumentLockedForCommentsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DocumentLockedForCommentsException";
   $fault: "client";
   Message?: string;
@@ -1926,18 +1938,18 @@ export namespace DocumentMetadata {
 
 export enum DocumentSourceType {
   ORIGINAL = "ORIGINAL",
-  WITH_COMMENTS = "WITH_COMMENTS",
+  WITH_COMMENTS = "WITH_COMMENTS"
 }
 
 export enum DocumentStatusType {
   ACTIVE = "ACTIVE",
-  INITIALIZED = "INITIALIZED",
+  INITIALIZED = "INITIALIZED"
 }
 
 export enum DocumentThumbnailType {
   LARGE = "LARGE",
   SMALL = "SMALL",
-  SMALL_HQ = "SMALL_HQ",
+  SMALL_HQ = "SMALL_HQ"
 }
 
 /**
@@ -2046,7 +2058,7 @@ export namespace DocumentVersionMetadata {
 }
 
 export enum DocumentVersionStatus {
-  ACTIVE = "ACTIVE",
+  ACTIVE = "ACTIVE"
 }
 
 /**
@@ -2055,7 +2067,9 @@ export enum DocumentVersionStatus {
  *             version upload calls for a document that has been checked out from Web client.</p>
  *
  */
-export interface DraftUploadOutOfSyncException extends _smithy.SmithyException, $MetadataBearer {
+export interface DraftUploadOutOfSyncException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DraftUploadOutOfSyncException";
   $fault: "client";
   Message?: string;
@@ -2072,7 +2086,9 @@ export namespace DraftUploadOutOfSyncException {
  *         <p>The resource already exists.</p>
  *
  */
-export interface EntityAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface EntityAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EntityAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -2089,7 +2105,9 @@ export namespace EntityAlreadyExistsException {
  *         <p>The resource does not exist.</p>
  *
  */
-export interface EntityNotExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface EntityNotExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EntityNotExistsException";
   $fault: "client";
   EntityIds?: Array<string>;
@@ -2109,7 +2127,9 @@ export namespace EntityNotExistsException {
  *             Directory.</p>
  *
  */
-export interface FailedDependencyException extends _smithy.SmithyException, $MetadataBearer {
+export interface FailedDependencyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FailedDependencyException";
   $fault: "client";
   Message?: string;
@@ -2124,7 +2144,7 @@ export namespace FailedDependencyException {
 export enum FolderContentType {
   ALL = "ALL",
   DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
+  FOLDER = "FOLDER"
 }
 
 /**
@@ -2663,7 +2683,9 @@ export namespace GroupMetadata {
  *         <p>The user is undergoing transfer of ownership.</p>
  *
  */
-export interface IllegalUserStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface IllegalUserStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IllegalUserStateException";
   $fault: "client";
   Message?: string;
@@ -2769,7 +2791,9 @@ export namespace InitiateDocumentVersionUploadResponse {
  *         <p>The pagination marker or limit fields are not valid.</p>
  *
  */
-export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -2786,7 +2810,9 @@ export namespace InvalidArgumentException {
  *         <p>The requested operation is not allowed on the specified comment object.</p>
  *
  */
-export interface InvalidCommentOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCommentOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCommentOperationException";
   $fault: "client";
   Message?: string;
@@ -2803,7 +2829,9 @@ export namespace InvalidCommentOperationException {
  *         <p>The operation is invalid.</p>
  *
  */
-export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   Message?: string;
@@ -2820,7 +2848,9 @@ export namespace InvalidOperationException {
  *         <p>The password is invalid.</p>
  *
  */
-export interface InvalidPasswordException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPasswordException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPasswordException";
   $fault: "client";
   Message?: string;
@@ -2837,7 +2867,9 @@ export namespace InvalidPasswordException {
  *         <p>The maximum of 100,000 folders under the parent folder has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2860,7 +2892,7 @@ export enum LocaleType {
   PT_BR = "pt_BR",
   RU = "ru",
   ZH_CN = "zh_CN",
-  ZH_TW = "zh_TW",
+  ZH_TW = "zh_TW"
 }
 
 /**
@@ -2894,7 +2926,7 @@ export namespace NotificationOptions {
 
 export enum OrderType {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
+  DESCENDING = "DESCENDING"
 }
 
 /**
@@ -2993,7 +3025,7 @@ export enum PrincipalType {
   GROUP = "GROUP",
   INVITE = "INVITE",
   ORGANIZATION = "ORGANIZATION",
-  USER = "USER",
+  USER = "USER"
 }
 
 /**
@@ -3001,7 +3033,9 @@ export enum PrincipalType {
  *         <p>The specified document version is not in the INITIALIZED state.</p>
  *
  */
-export interface ProhibitedStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface ProhibitedStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ProhibitedStateException";
   $fault: "client";
   Message?: string;
@@ -3080,7 +3114,9 @@ export namespace RemoveResourcePermissionRequest {
  *         <p>The response is too large to return. The request must include a filter to reduce the size of the response.</p>
  *
  */
-export interface RequestedEntityTooLargeException extends _smithy.SmithyException, $MetadataBearer {
+export interface RequestedEntityTooLargeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RequestedEntityTooLargeException";
   $fault: "client";
   Message?: string;
@@ -3097,7 +3133,9 @@ export namespace RequestedEntityTooLargeException {
  *         <p>The resource is already checked out.</p>
  *
  */
-export interface ResourceAlreadyCheckedOutException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyCheckedOutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyCheckedOutException";
   $fault: "client";
   Message?: string;
@@ -3110,7 +3148,7 @@ export namespace ResourceAlreadyCheckedOutException {
 }
 
 export enum ResourceCollectionType {
-  SHARED_WITH_ME = "SHARED_WITH_ME",
+  SHARED_WITH_ME = "SHARED_WITH_ME"
 }
 
 /**
@@ -3228,31 +3266,31 @@ export namespace ResourcePathComponent {
 
 export enum ResourceSortType {
   DATE = "DATE",
-  NAME = "NAME",
+  NAME = "NAME"
 }
 
 export enum ResourceStateType {
   ACTIVE = "ACTIVE",
   RECYCLED = "RECYCLED",
   RECYCLING = "RECYCLING",
-  RESTORING = "RESTORING",
+  RESTORING = "RESTORING"
 }
 
 export enum ResourceType {
   DOCUMENT = "DOCUMENT",
-  FOLDER = "FOLDER",
+  FOLDER = "FOLDER"
 }
 
 export enum RolePermissionType {
   DIRECT = "DIRECT",
-  INHERITED = "INHERITED",
+  INHERITED = "INHERITED"
 }
 
 export enum RoleType {
   CONTRIBUTOR = "CONTRIBUTOR",
   COOWNER = "COOWNER",
   OWNER = "OWNER",
-  VIEWER = "VIEWER",
+  VIEWER = "VIEWER"
 }
 
 /**
@@ -3260,7 +3298,9 @@ export enum RoleType {
  *         <p>One or more of the dependencies is unavailable.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -3365,7 +3405,7 @@ export namespace ShareResult {
 
 export enum ShareStatusType {
   FAILURE = "FAILURE",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -3373,7 +3413,9 @@ export enum ShareStatusType {
  *         <p>The storage limit has been exceeded.</p>
  *
  */
-export interface StorageLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface StorageLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StorageLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3390,7 +3432,9 @@ export namespace StorageLimitExceededException {
  *         <p>The storage limit will be exceeded.</p>
  *
  */
-export interface StorageLimitWillExceedException extends _smithy.SmithyException, $MetadataBearer {
+export interface StorageLimitWillExceedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StorageLimitWillExceedException";
   $fault: "client";
   Message?: string;
@@ -3432,7 +3476,7 @@ export namespace StorageRuleType {
 
 export enum StorageType {
   QUOTA = "QUOTA",
-  UNLIMITED = "UNLIMITED",
+  UNLIMITED = "UNLIMITED"
 }
 
 /**
@@ -3471,11 +3515,11 @@ export namespace Subscription {
 }
 
 export enum SubscriptionProtocolType {
-  HTTPS = "HTTPS",
+  HTTPS = "HTTPS"
 }
 
 export enum SubscriptionType {
-  ALL = "ALL",
+  ALL = "ALL"
 }
 
 /**
@@ -3484,7 +3528,9 @@ export enum SubscriptionType {
  *             resource.</p>
  *
  */
-export interface TooManyLabelsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyLabelsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyLabelsException";
   $fault: "client";
   Message?: string;
@@ -3502,7 +3548,9 @@ export namespace TooManyLabelsException {
  *             instance.</p>
  *
  */
-export interface TooManySubscriptionsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManySubscriptionsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManySubscriptionsException";
   $fault: "client";
   Message?: string;
@@ -3519,7 +3567,9 @@ export namespace TooManySubscriptionsException {
  *         <p>The operation is not permitted.</p>
  *
  */
-export interface UnauthorizedOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedOperationException";
   $fault: "client";
   Code?: string;
@@ -3537,7 +3587,9 @@ export namespace UnauthorizedOperationException {
  *         <p>The caller does not have access to perform the action on the resource.</p>
  *
  */
-export interface UnauthorizedResourceAccessException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedResourceAccessException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedResourceAccessException";
   $fault: "client";
   Message?: string;
@@ -3917,7 +3969,7 @@ export namespace User {
 
 export enum UserFilterType {
   ACTIVE_PENDING = "ACTIVE_PENDING",
-  ALL = "ALL",
+  ALL = "ALL"
 }
 
 /**
@@ -3974,13 +4026,13 @@ export enum UserSortType {
   STORAGE_LIMIT = "STORAGE_LIMIT",
   STORAGE_USED = "STORAGE_USED",
   USER_NAME = "USER_NAME",
-  USER_STATUS = "USER_STATUS",
+  USER_STATUS = "USER_STATUS"
 }
 
 export enum UserStatusType {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -4016,5 +4068,5 @@ export enum UserType {
   MINIMALUSER = "MINIMALUSER",
   POWERUSER = "POWERUSER",
   USER = "USER",
-  WORKSPACESUSER = "WORKSPACESUSER",
+  WORKSPACESUSER = "WORKSPACESUSER"
 }

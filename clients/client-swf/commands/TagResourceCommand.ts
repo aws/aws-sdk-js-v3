@@ -1,17 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import { TagResourceInput } from "../models/index";
 import {
   deserializeAws_json1_0TagResourceCommand,
-  serializeAws_json1_0TagResourceCommand,
+  serializeAws_json1_0TagResourceCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type TagResourceCommandInput = TagResourceInput;
-export type TagResourceCommandOutput = __MetadataBearer
+export type TagResourceCommandOutput = __MetadataBearer;
 
-export class TagResourceCommand extends $Command<TagResourceCommandInput, TagResourceCommandOutput, SWFClientResolvedConfig> {
+export class TagResourceCommand extends $Command<
+  TagResourceCommandInput,
+  TagResourceCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class TagResourceCommand extends $Command<TagResourceCommandInput, TagRes
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

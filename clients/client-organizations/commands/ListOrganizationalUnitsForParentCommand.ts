@@ -1,20 +1,20 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
 import {
   ListOrganizationalUnitsForParentRequest,
-  ListOrganizationalUnitsForParentResponse,
+  ListOrganizationalUnitsForParentResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListOrganizationalUnitsForParentCommand,
-  serializeAws_json1_1ListOrganizationalUnitsForParentCommand,
+  serializeAws_json1_1ListOrganizationalUnitsForParentCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListOrganizationalUnitsForParentCommandInput = ListOrganizationalUnitsForParentRequest;
 export type ListOrganizationalUnitsForParentCommandOutput = ListOrganizationalUnitsForParentResponse;
 
-export class ListOrganizationalUnitsForParentCommand extends $Command<ListOrganizationalUnitsForParentCommandInput, ListOrganizationalUnitsForParentCommandOutput, OrganizationsClientResolvedConfig> {
+export class ListOrganizationalUnitsForParentCommand extends $Command<
+  ListOrganizationalUnitsForParentCommandInput,
+  ListOrganizationalUnitsForParentCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<ListOrgani
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListOrganizationalUnitsForParentCommandInput, ListOrganizationalUnitsForParentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListOrganizationalUnitsForParentCommandInput,
+    ListOrganizationalUnitsForParentCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListOrganizationalUnitsForParentCommand extends $Command<ListOrgani
     input: ListOrganizationalUnitsForParentCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListOrganizationalUnitsForParentCommand(input, context);
+    return serializeAws_json1_1ListOrganizationalUnitsForParentCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> {
-    return deserializeAws_json1_1ListOrganizationalUnitsForParentCommand(output, context);
+    return deserializeAws_json1_1ListOrganizationalUnitsForParentCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

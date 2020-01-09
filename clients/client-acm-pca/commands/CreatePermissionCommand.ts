@@ -1,17 +1,17 @@
 import {
   ACMPCAClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ACMPCAClient";
 import { CreatePermissionRequest } from "../models/index";
 import {
   deserializeAws_json1_1CreatePermissionCommand,
-  serializeAws_json1_1CreatePermissionCommand,
+  serializeAws_json1_1CreatePermissionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type CreatePermissionCommandInput = CreatePermissionRequest;
-export type CreatePermissionCommandOutput = __MetadataBearer
+export type CreatePermissionCommandOutput = __MetadataBearer;
 
-export class CreatePermissionCommand extends $Command<CreatePermissionCommandInput, CreatePermissionCommandOutput, ACMPCAClientResolvedConfig> {
+export class CreatePermissionCommand extends $Command<
+  CreatePermissionCommandInput,
+  CreatePermissionCommandOutput,
+  ACMPCAClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class CreatePermissionCommand extends $Command<CreatePermissionCommandInp
     configuration: ACMPCAClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreatePermissionCommandInput, CreatePermissionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -7,7 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       failed, is still in progress, or contains unbuilt changes. </p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -24,7 +26,9 @@ export namespace BadRequestException {
  *          <p> Two clients are using the same AWS account, Amazon Lex bot, and user ID. </p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   message?: string;
@@ -41,7 +45,9 @@ export namespace ConflictException {
  *          <p>Internal service error. Retry the call.</p>
  *
  */
-export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   message?: string;
@@ -58,7 +64,9 @@ export namespace InternalFailureException {
  *          <p>Exceeded a limit.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -76,7 +84,9 @@ export namespace LimitExceededException {
  *          <p>The accept header in the request does not have a valid value.</p>
  *
  */
-export interface NotAcceptableException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotAcceptableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotAcceptableException";
   $fault: "client";
   message?: string;
@@ -94,7 +104,9 @@ export namespace NotAcceptableException {
  *       found.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -111,7 +123,9 @@ export namespace NotFoundException {
  *          <p>The input speech is too long.</p>
  *
  */
-export interface RequestTimeoutException extends _smithy.SmithyException, $MetadataBearer {
+export interface RequestTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RequestTimeoutException";
   $fault: "client";
   message?: string;
@@ -128,7 +142,9 @@ export namespace RequestTimeoutException {
  *          <p>The Content-Type header (<code>PostContent</code> API) has an invalid value. </p>
  *
  */
-export interface UnsupportedMediaTypeException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedMediaTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedMediaTypeException";
   $fault: "client";
   message?: string;
@@ -146,7 +162,9 @@ export namespace UnsupportedMediaTypeException {
  *       AWS Lambda) failed with an internal service error.</p>
  *
  */
-export interface BadGatewayException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadGatewayException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadGatewayException";
   $fault: "server";
   Message?: string;
@@ -161,7 +179,7 @@ export namespace BadGatewayException {
 export enum ConfirmationStatus {
   CONFIRMED = "Confirmed",
   DENIED = "Denied",
-  NONE = "None",
+  NONE = "None"
 }
 
 export interface DeleteSessionRequest {
@@ -248,7 +266,9 @@ export namespace DeleteSessionResponse {
  *          </ul>
  *
  */
-export interface DependencyFailedException extends _smithy.SmithyException, $MetadataBearer {
+export interface DependencyFailedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DependencyFailedException";
   $fault: "client";
   Message?: string;
@@ -397,7 +417,7 @@ export enum DialogActionType {
   CONFIRM_INTENT = "ConfirmIntent",
   DELEGATE = "Delegate",
   ELICIT_INTENT = "ElicitIntent",
-  ELICIT_SLOT = "ElicitSlot",
+  ELICIT_SLOT = "ElicitSlot"
 }
 
 export enum DialogState {
@@ -406,13 +426,13 @@ export enum DialogState {
   ELICIT_SLOT = "ElicitSlot",
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
 }
 
 export enum FulfillmentState {
   FAILED = "Failed",
   FULFILLED = "Fulfilled",
-  READY_FOR_FULFILLMENT = "ReadyForFulfillment",
+  READY_FOR_FULFILLMENT = "ReadyForFulfillment"
 }
 
 export interface GetSessionRequest {
@@ -634,7 +654,9 @@ export namespace IntentSummary {
  *          <p>This exception is not used.</p>
  *
  */
-export interface LoopDetectedException extends _smithy.SmithyException, $MetadataBearer {
+export interface LoopDetectedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LoopDetectedException";
   $fault: "server";
   Message?: string;
@@ -650,7 +672,7 @@ export enum MessageFormatType {
   COMPOSITE = "Composite",
   CUSTOM_PAYLOAD = "CustomPayload",
   PLAIN_TEXT = "PlainText",
-  SSML = "SSML",
+  SSML = "SSML"
 }
 
 export interface PostContentRequest {
@@ -1615,7 +1637,7 @@ export namespace Button {
 }
 
 export enum ContentType {
-  GENERIC = "application/vnd.amazonaws.card.generic",
+  GENERIC = "application/vnd.amazonaws.card.generic"
 }
 
 /**

@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "eks",
   credentialDefaultProvider,
-  regionDefaultProvider,
+  regionDefaultProvider
 };

@@ -1,20 +1,20 @@
 import {
   KMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KMSClient";
 import {
   DescribeCustomKeyStoresRequest,
-  DescribeCustomKeyStoresResponse,
+  DescribeCustomKeyStoresResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCustomKeyStoresCommand,
-  serializeAws_json1_1DescribeCustomKeyStoresCommand,
+  serializeAws_json1_1DescribeCustomKeyStoresCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeCustomKeyStoresCommandInput = DescribeCustomKeyStoresRequest;
 export type DescribeCustomKeyStoresCommandOutput = DescribeCustomKeyStoresResponse;
 
-export class DescribeCustomKeyStoresCommand extends $Command<DescribeCustomKeyStoresCommandInput, DescribeCustomKeyStoresCommandOutput, KMSClientResolvedConfig> {
+export class DescribeCustomKeyStoresCommand extends $Command<
+  DescribeCustomKeyStoresCommandInput,
+  DescribeCustomKeyStoresCommandOutput,
+  KMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeCustomKeyStoresCommand extends $Command<DescribeCustomKeySt
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeCustomKeyStoresCommandInput, DescribeCustomKeyStoresCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeCustomKeyStoresCommandInput,
+    DescribeCustomKeyStoresCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeCustomKeyStoresCommand extends $Command<DescribeCustomKeySt
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeCustomKeyStoresCommandOutput> {
-    return deserializeAws_json1_1DescribeCustomKeyStoresCommand(output, context);
+    return deserializeAws_json1_1DescribeCustomKeyStoresCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

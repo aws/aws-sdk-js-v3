@@ -1,20 +1,20 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
 import {
   DeleteEventSubscriptionMessage,
-  DeleteEventSubscriptionResponse,
+  DeleteEventSubscriptionResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteEventSubscriptionCommand,
-  serializeAws_json1_1DeleteEventSubscriptionCommand,
+  serializeAws_json1_1DeleteEventSubscriptionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteEventSubscriptionCommandInput = DeleteEventSubscriptionMessage;
 export type DeleteEventSubscriptionCommandOutput = DeleteEventSubscriptionResponse;
 
-export class DeleteEventSubscriptionCommand extends $Command<DeleteEventSubscriptionCommandInput, DeleteEventSubscriptionCommandOutput, DatabaseMigrationServiceClientResolvedConfig> {
+export class DeleteEventSubscriptionCommand extends $Command<
+  DeleteEventSubscriptionCommandInput,
+  DeleteEventSubscriptionCommandOutput,
+  DatabaseMigrationServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteEventSubscriptionCommand extends $Command<DeleteEventSubscrip
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteEventSubscriptionCommandInput, DeleteEventSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteEventSubscriptionCommandInput,
+    DeleteEventSubscriptionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DeleteEventSubscriptionCommand extends $Command<DeleteEventSubscrip
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteEventSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteEventSubscriptionCommand(output, context);
+    return deserializeAws_json1_1DeleteEventSubscriptionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

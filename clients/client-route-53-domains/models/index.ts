@@ -4,14 +4,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 /**
  *
  * 		       <p>Information for one billing record.</p>
- * 	
+ *
  */
 export interface BillingRecord {
   __type?: "BillingRecord";
   /**
    *
    * 		       <p>The date that the operation was billed, in Unix format.</p>
-   * 	
+   *
    */
   BillDate?: Date;
 
@@ -22,21 +22,21 @@ export interface BillingRecord {
    * 			For more information, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html">DNS Domain Name Format</a>
    * 			in the <i>Amazon Route 53 Developer Guidezzz</i>.</p>
-   * 	
+   *
    */
   DomainName?: string;
 
   /**
    *
    * 		       <p>The ID of the invoice that is associated with the billing record.</p>
-   * 	
+   *
    */
   InvoiceId?: string;
 
   /**
    *
    * 		       <p>The operation that you were charged for.</p>
-   * 	
+   *
    */
   Operation?: OperationType | string;
 
@@ -44,7 +44,7 @@ export interface BillingRecord {
    *
    * 		       <p>The price that you were charged for the operation, in US dollars.</p>
    * 		       <p>Example value: 12.0</p>
-   * 	
+   *
    */
   Price?: number;
 }
@@ -58,7 +58,7 @@ export namespace BillingRecord {
 /**
  *
  * 		       <p>The CheckDomainAvailability request contains the following elements.</p>
- * 	
+ *
  */
 export interface CheckDomainAvailabilityRequest {
   __type?: "CheckDomainAvailabilityRequest";
@@ -67,14 +67,14 @@ export interface CheckDomainAvailabilityRequest {
    * 		       <p>The name of the domain that you want to get availability for.</p>
    * 		       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9,
    * 			and hyphen (-). Internationalized Domain Names are not supported.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
   /**
    *
    * 		       <p>Reserved for future use.</p>
-   * 	
+   *
    */
   IdnLangCode?: string;
 }
@@ -88,7 +88,7 @@ export namespace CheckDomainAvailabilityRequest {
 /**
  *
  * 		       <p>The CheckDomainAvailability response includes the following elements.</p>
- * 	
+ *
  */
 export interface CheckDomainAvailabilityResponse extends $MetadataBearer {
   __type?: "CheckDomainAvailabilityResponse";
@@ -140,7 +140,7 @@ export interface CheckDomainAvailabilityResponse extends $MetadataBearer {
    *                <p>The domain name is forbidden.</p>
    *             </dd>
    *          </dl>
-   * 	
+   *
    */
   Availability: DomainAvailability | string | undefined;
 }
@@ -154,7 +154,7 @@ export namespace CheckDomainAvailabilityResponse {
 /**
  *
  * 		       <p>The CheckDomainTransferability request contains the following elements.</p>
- * 	
+ *
  */
 export interface CheckDomainTransferabilityRequest {
   __type?: "CheckDomainTransferabilityRequest";
@@ -162,7 +162,7 @@ export interface CheckDomainTransferabilityRequest {
    *
    * 		       <p>If the registrar for the top-level domain (TLD) requires an authorization code to transfer the domain,
    * 			the code that you got from the current registrar for the domain.</p>
-   * 	
+   *
    */
   AuthCode?: string;
 
@@ -171,7 +171,7 @@ export interface CheckDomainTransferabilityRequest {
    * 		       <p>The name of the domain that you want to transfer to Amazon Route 53.</p>
    * 		       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9,
    * 			and hyphen (-). Internationalized Domain Names are not supported.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -185,14 +185,14 @@ export namespace CheckDomainTransferabilityRequest {
 /**
  *
  * 		       <p>The CheckDomainTransferability response includes the following elements.</p>
- * 	
+ *
  */
 export interface CheckDomainTransferabilityResponse extends $MetadataBearer {
   __type?: "CheckDomainTransferabilityResponse";
   /**
    *
    * 		       <p>A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.</p>
-   * 	
+   *
    */
   Transferability: DomainTransferability | undefined;
 }
@@ -206,28 +206,28 @@ export namespace CheckDomainTransferabilityResponse {
 /**
  *
  * 		       <p>ContactDetail includes the following elements.</p>
- * 	
+ *
  */
 export interface ContactDetail {
   __type?: "ContactDetail";
   /**
    *
    * 		       <p>First line of the contact's address.</p>
-   * 	
+   *
    */
   AddressLine1?: string;
 
   /**
    *
    * 		       <p>Second line of contact's address, if any.</p>
-   * 	
+   *
    */
   AddressLine2?: string;
 
   /**
    *
    * 		       <p>The city of the contact's address.</p>
-   * 	
+   *
    */
   City?: string;
 
@@ -236,28 +236,28 @@ export interface ContactDetail {
    * 		       <p>Indicates whether the contact is a person, company, association, or public organization.
    * 			If you choose an option other than <code>PERSON</code>, you must enter an organization name, and you can't
    * 			enable privacy protection for the contact.</p>
-   * 	
+   *
    */
   ContactType?: ContactType | string;
 
   /**
    *
    * 		       <p>Code for the country of the contact's address.</p>
-   * 	
+   *
    */
   CountryCode?: CountryCode | string;
 
   /**
    *
    * 		       <p>Email address of the contact.</p>
-   * 	
+   *
    */
   Email?: string;
 
   /**
    *
    * 		       <p>A list of name-value pairs for parameters required by certain top-level domains.</p>
-   * 	
+   *
    */
   ExtraParams?: Array<ExtraParam>;
 
@@ -266,28 +266,28 @@ export interface ContactDetail {
    * 		       <p>Fax number of the contact.</p>
    * 		       <p>Constraints: Phone number must be specified in the format "+[country dialing code].[number including any area code]".
    * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
-   * 	
+   *
    */
   Fax?: string;
 
   /**
    *
    * 		       <p>First name of contact.</p>
-   * 	
+   *
    */
   FirstName?: string;
 
   /**
    *
    * 		       <p>Last name of contact.</p>
-   * 	
+   *
    */
   LastName?: string;
 
   /**
    *
    * 		       <p>Name of the organization for contact types other than <code>PERSON</code>.</p>
-   * 	
+   *
    */
   OrganizationName?: string;
 
@@ -296,21 +296,21 @@ export interface ContactDetail {
    * 		       <p>The phone number of the contact.</p>
    * 		       <p>Constraints: Phone number must be specified in the format "+[country	dialing code].[number including any area code>]".
    * 			For example, a US phone number might appear as <code>"+1.1234567890"</code>.</p>
-   * 	
+   *
    */
   PhoneNumber?: string;
 
   /**
    *
    * 		       <p>The state or province of the contact's city.</p>
-   * 	
+   *
    */
   State?: string;
 
   /**
    *
    * 		       <p>The zip or postal code of the contact's address.</p>
-   * 	
+   *
    */
   ZipCode?: string;
 }
@@ -321,28 +321,262 @@ export namespace ContactDetail {
   }
 }
 
-export type ContactType = "ASSOCIATION" | "COMPANY" | "PERSON" | "PUBLIC_BODY" | "RESELLER"
+export type ContactType =
+  | "ASSOCIATION"
+  | "COMPANY"
+  | "PERSON"
+  | "PUBLIC_BODY"
+  | "RESELLER";
 
-export type CountryCode = "AD" | "AE" | "AF" | "AG" | "AI" | "AL" | "AM" | "AN" | "AO" | "AQ" | "AR" | "AS" | "AT" | "AU" | "AW" | "AZ" | "BA" | "BB" | "BD" | "BE" | "BF" | "BG" | "BH" | "BI" | "BJ" | "BL" | "BM" | "BN" | "BO" | "BR" | "BS" | "BT" | "BW" | "BY" | "BZ" | "CA" | "CC" | "CD" | "CF" | "CG" | "CH" | "CI" | "CK" | "CL" | "CM" | "CN" | "CO" | "CR" | "CU" | "CV" | "CX" | "CY" | "CZ" | "DE" | "DJ" | "DK" | "DM" | "DO" | "DZ" | "EC" | "EE" | "EG" | "ER" | "ES" | "ET" | "FI" | "FJ" | "FK" | "FM" | "FO" | "FR" | "GA" | "GB" | "GD" | "GE" | "GH" | "GI" | "GL" | "GM" | "GN" | "GQ" | "GR" | "GT" | "GU" | "GW" | "GY" | "HK" | "HN" | "HR" | "HT" | "HU" | "ID" | "IE" | "IL" | "IM" | "IN" | "IQ" | "IR" | "IS" | "IT" | "JM" | "JO" | "JP" | "KE" | "KG" | "KH" | "KI" | "KM" | "KN" | "KP" | "KR" | "KW" | "KY" | "KZ" | "LA" | "LB" | "LC" | "LI" | "LK" | "LR" | "LS" | "LT" | "LU" | "LV" | "LY" | "MA" | "MC" | "MD" | "ME" | "MF" | "MG" | "MH" | "MK" | "ML" | "MM" | "MN" | "MO" | "MP" | "MR" | "MS" | "MT" | "MU" | "MV" | "MW" | "MX" | "MY" | "MZ" | "NA" | "NC" | "NE" | "NG" | "NI" | "NL" | "NO" | "NP" | "NR" | "NU" | "NZ" | "OM" | "PA" | "PE" | "PF" | "PG" | "PH" | "PK" | "PL" | "PM" | "PN" | "PR" | "PT" | "PW" | "PY" | "QA" | "RO" | "RS" | "RU" | "RW" | "SA" | "SB" | "SC" | "SD" | "SE" | "SG" | "SH" | "SI" | "SK" | "SL" | "SM" | "SN" | "SO" | "SR" | "ST" | "SV" | "SY" | "SZ" | "TC" | "TD" | "TG" | "TH" | "TJ" | "TK" | "TL" | "TM" | "TN" | "TO" | "TR" | "TT" | "TV" | "TW" | "TZ" | "UA" | "UG" | "US" | "UY" | "UZ" | "VA" | "VC" | "VE" | "VG" | "VI" | "VN" | "VU" | "WF" | "WS" | "YE" | "YT" | "ZA" | "ZM" | "ZW"
+export type CountryCode =
+  | "AD"
+  | "AE"
+  | "AF"
+  | "AG"
+  | "AI"
+  | "AL"
+  | "AM"
+  | "AN"
+  | "AO"
+  | "AQ"
+  | "AR"
+  | "AS"
+  | "AT"
+  | "AU"
+  | "AW"
+  | "AZ"
+  | "BA"
+  | "BB"
+  | "BD"
+  | "BE"
+  | "BF"
+  | "BG"
+  | "BH"
+  | "BI"
+  | "BJ"
+  | "BL"
+  | "BM"
+  | "BN"
+  | "BO"
+  | "BR"
+  | "BS"
+  | "BT"
+  | "BW"
+  | "BY"
+  | "BZ"
+  | "CA"
+  | "CC"
+  | "CD"
+  | "CF"
+  | "CG"
+  | "CH"
+  | "CI"
+  | "CK"
+  | "CL"
+  | "CM"
+  | "CN"
+  | "CO"
+  | "CR"
+  | "CU"
+  | "CV"
+  | "CX"
+  | "CY"
+  | "CZ"
+  | "DE"
+  | "DJ"
+  | "DK"
+  | "DM"
+  | "DO"
+  | "DZ"
+  | "EC"
+  | "EE"
+  | "EG"
+  | "ER"
+  | "ES"
+  | "ET"
+  | "FI"
+  | "FJ"
+  | "FK"
+  | "FM"
+  | "FO"
+  | "FR"
+  | "GA"
+  | "GB"
+  | "GD"
+  | "GE"
+  | "GH"
+  | "GI"
+  | "GL"
+  | "GM"
+  | "GN"
+  | "GQ"
+  | "GR"
+  | "GT"
+  | "GU"
+  | "GW"
+  | "GY"
+  | "HK"
+  | "HN"
+  | "HR"
+  | "HT"
+  | "HU"
+  | "ID"
+  | "IE"
+  | "IL"
+  | "IM"
+  | "IN"
+  | "IQ"
+  | "IR"
+  | "IS"
+  | "IT"
+  | "JM"
+  | "JO"
+  | "JP"
+  | "KE"
+  | "KG"
+  | "KH"
+  | "KI"
+  | "KM"
+  | "KN"
+  | "KP"
+  | "KR"
+  | "KW"
+  | "KY"
+  | "KZ"
+  | "LA"
+  | "LB"
+  | "LC"
+  | "LI"
+  | "LK"
+  | "LR"
+  | "LS"
+  | "LT"
+  | "LU"
+  | "LV"
+  | "LY"
+  | "MA"
+  | "MC"
+  | "MD"
+  | "ME"
+  | "MF"
+  | "MG"
+  | "MH"
+  | "MK"
+  | "ML"
+  | "MM"
+  | "MN"
+  | "MO"
+  | "MP"
+  | "MR"
+  | "MS"
+  | "MT"
+  | "MU"
+  | "MV"
+  | "MW"
+  | "MX"
+  | "MY"
+  | "MZ"
+  | "NA"
+  | "NC"
+  | "NE"
+  | "NG"
+  | "NI"
+  | "NL"
+  | "NO"
+  | "NP"
+  | "NR"
+  | "NU"
+  | "NZ"
+  | "OM"
+  | "PA"
+  | "PE"
+  | "PF"
+  | "PG"
+  | "PH"
+  | "PK"
+  | "PL"
+  | "PM"
+  | "PN"
+  | "PR"
+  | "PT"
+  | "PW"
+  | "PY"
+  | "QA"
+  | "RO"
+  | "RS"
+  | "RU"
+  | "RW"
+  | "SA"
+  | "SB"
+  | "SC"
+  | "SD"
+  | "SE"
+  | "SG"
+  | "SH"
+  | "SI"
+  | "SK"
+  | "SL"
+  | "SM"
+  | "SN"
+  | "SO"
+  | "SR"
+  | "ST"
+  | "SV"
+  | "SY"
+  | "SZ"
+  | "TC"
+  | "TD"
+  | "TG"
+  | "TH"
+  | "TJ"
+  | "TK"
+  | "TL"
+  | "TM"
+  | "TN"
+  | "TO"
+  | "TR"
+  | "TT"
+  | "TV"
+  | "TW"
+  | "TZ"
+  | "UA"
+  | "UG"
+  | "US"
+  | "UY"
+  | "UZ"
+  | "VA"
+  | "VC"
+  | "VE"
+  | "VG"
+  | "VI"
+  | "VN"
+  | "VU"
+  | "WF"
+  | "WS"
+  | "YE"
+  | "YT"
+  | "ZA"
+  | "ZM"
+  | "ZW";
 
 /**
  *
  * 		       <p>The DeleteTagsForDomainRequest includes the following elements.</p>
- * 	
+ *
  */
 export interface DeleteTagsForDomainRequest {
   __type?: "DeleteTagsForDomainRequest";
   /**
    *
    * 		       <p>The domain for which you want to delete one or more tags.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
   /**
    *
    * 		       <p>A list of tag keys to delete.</p>
-   * 	
+   *
    */
   TagsToDelete: Array<string> | undefined;
 }
@@ -368,7 +602,7 @@ export interface DisableDomainAutoRenewRequest {
   /**
    *
    * 		       <p>The name of the domain that you want to disable automatic renewal for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -392,14 +626,14 @@ export namespace DisableDomainAutoRenewResponse {
 /**
  *
  * 		       <p>The DisableDomainTransferLock request includes the following element.</p>
- * 	
+ *
  */
 export interface DisableDomainTransferLockRequest {
   __type?: "DisableDomainTransferLockRequest";
   /**
    *
    * 		       <p>The name of the domain that you want to remove the transfer lock for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -413,7 +647,7 @@ export namespace DisableDomainTransferLockRequest {
 /**
  *
  * 		       <p>The DisableDomainTransferLock response includes the following element.</p>
- * 	
+ *
  */
 export interface DisableDomainTransferLockResponse extends $MetadataBearer {
   __type?: "DisableDomainTransferLockResponse";
@@ -421,7 +655,7 @@ export interface DisableDomainTransferLockResponse extends $MetadataBearer {
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -432,20 +666,30 @@ export namespace DisableDomainTransferLockResponse {
   }
 }
 
-export type DomainAvailability = "AVAILABLE" | "AVAILABLE_PREORDER" | "AVAILABLE_RESERVED" | "DONT_KNOW" | "RESERVED" | "UNAVAILABLE" | "UNAVAILABLE_PREMIUM" | "UNAVAILABLE_RESTRICTED"
+export type DomainAvailability =
+  | "AVAILABLE"
+  | "AVAILABLE_PREORDER"
+  | "AVAILABLE_RESERVED"
+  | "DONT_KNOW"
+  | "RESERVED"
+  | "UNAVAILABLE"
+  | "UNAVAILABLE_PREMIUM"
+  | "UNAVAILABLE_RESTRICTED";
 
 /**
  *
  * 		       <p>The number of domains has exceeded the allowed threshold for the account.</p>
- * 	
+ *
  */
-export interface DomainLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface DomainLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DomainLimitExceeded";
   $fault: "client";
   /**
    *
    * 		       <p>The number of domains has exceeded the allowed threshold for the account.</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -459,7 +703,7 @@ export namespace DomainLimitExceeded {
 /**
  *
  * 		       <p>Information about one suggested domain name.</p>
- * 	
+ *
  */
 export interface DomainSuggestion {
   __type?: "DomainSuggestion";
@@ -511,14 +755,14 @@ export interface DomainSuggestion {
    *                <p>The domain name is forbidden.</p>
    *             </dd>
    *          </dl>
-   * 	
+   *
    */
   Availability?: string;
 
   /**
    *
    * 		       <p>A suggested domain name.</p>
-   * 	
+   *
    */
   DomainName?: string;
 }
@@ -532,35 +776,35 @@ export namespace DomainSuggestion {
 /**
  *
  * 		       <p>Summary information about one domain.</p>
- * 	
+ *
  */
 export interface DomainSummary {
   __type?: "DomainSummary";
   /**
    *
    * 		       <p>Indicates whether the domain is automatically renewed upon expiration.</p>
-   * 	
+   *
    */
   AutoRenew?: boolean;
 
   /**
    *
    * 		       <p>The name of the domain that the summary information applies to.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
   /**
    *
    * 		       <p>Expiration date of the domain in Coordinated Universal Time (UTC).</p>
-   * 	
+   *
    */
   Expiry?: Date;
 
   /**
    *
    * 		       <p>Indicates whether a domain is locked from unauthorized transfer to another party.</p>
-   * 	
+   *
    */
   TransferLock?: boolean;
 }
@@ -574,7 +818,7 @@ export namespace DomainSummary {
 /**
  *
  * 		       <p>A complex type that contains information about whether the specified domain can be transferred to Amazon Route 53.</p>
- * 	
+ *
  */
 export interface DomainTransferability {
   __type?: "DomainTransferability";
@@ -584,7 +828,7 @@ export interface DomainTransferability {
    * 		       <note>
    *             <p>You can transfer only domains that have a value of <code>TRANSFERABLE</code> for <code>Transferable</code>.</p>
    *          </note>
-   * 		
+   *
    * 		       <p>Valid values:</p>
    * 		       <dl>
    *             <dt>TRANSFERABLE</dt>
@@ -600,7 +844,7 @@ export interface DomainTransferability {
    *                <p>Reserved for future use.</p>
    *             </dd>
    *          </dl>
-   * 	
+   *
    */
   Transferable?: Transferable | string;
 }
@@ -614,15 +858,17 @@ export namespace DomainTransferability {
 /**
  *
  * 		       <p>The request is already in progress for the domain.</p>
- * 	
+ *
  */
-export interface DuplicateRequest extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateRequest
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateRequest";
   $fault: "client";
   /**
    *
    * 		       <p>The request is already in progress for the domain.</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -638,7 +884,7 @@ export interface EnableDomainAutoRenewRequest {
   /**
    *
    * 		       <p>The name of the domain that you want to enable automatic renewal for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -662,14 +908,14 @@ export namespace EnableDomainAutoRenewResponse {
 /**
  *
  * 		       <p>A request to set the transfer lock for the specified domain.</p>
- * 	
+ *
  */
 export interface EnableDomainTransferLockRequest {
   __type?: "EnableDomainTransferLockRequest";
   /**
    *
    * 		       <p>The name of the domain that you want to set the transfer lock for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -683,14 +929,14 @@ export namespace EnableDomainTransferLockRequest {
 /**
  *
  * 		       <p>The EnableDomainTransferLock response includes the following elements.</p>
- * 	
+ *
  */
 export interface EnableDomainTransferLockResponse extends $MetadataBearer {
   __type?: "EnableDomainTransferLockResponse";
   /**
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -704,7 +950,7 @@ export namespace EnableDomainTransferLockResponse {
 /**
  *
  * 		       <p>ExtraParam includes the following elements.</p>
- * 	
+ *
  */
 export interface ExtraParam {
   __type?: "ExtraParam";
@@ -782,14 +1028,14 @@ export interface ExtraParam {
    *             </li>
    *          </ul>
    * 		       <p>In addition, many TLDs require <code>VAT_NUMBER</code>.</p>
-   * 	
+   *
    */
   Name: ExtraParamName | string | undefined;
 
   /**
    *
    * 		       <p>Values corresponding to the additional parameter names required by some top-level domains.</p>
-   * 	
+   *
    */
   Value: string | undefined;
 }
@@ -826,7 +1072,7 @@ export enum ExtraParamName {
   SG_ID_NUMBER = "SG_ID_NUMBER",
   UK_COMPANY_NUMBER = "UK_COMPANY_NUMBER",
   UK_CONTACT_TYPE = "UK_CONTACT_TYPE",
-  VAT_NUMBER = "VAT_NUMBER",
+  VAT_NUMBER = "VAT_NUMBER"
 }
 
 export interface GetContactReachabilityStatusRequest {
@@ -834,7 +1080,7 @@ export interface GetContactReachabilityStatusRequest {
   /**
    *
    * 		       <p>The name of the domain for which you want to know whether the registrant contact has confirmed that the email address is valid.</p>
-   * 	
+   *
    */
   domainName?: string;
 }
@@ -850,7 +1096,7 @@ export interface GetContactReachabilityStatusResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The domain name for which you requested the reachability status.</p>
-   * 	
+   *
    */
   domainName?: string;
 
@@ -871,7 +1117,7 @@ export interface GetContactReachabilityStatusResponse extends $MetadataBearer {
    *                <p>The time limit expired before the registrant contact responded.</p>
    *             </dd>
    *          </dl>
-   * 	
+   *
    */
   status?: ReachabilityStatus | string;
 }
@@ -885,14 +1131,14 @@ export namespace GetContactReachabilityStatusResponse {
 /**
  *
  * 		       <p>The GetDomainDetail request includes the following element.</p>
- * 	
+ *
  */
 export interface GetDomainDetailRequest {
   __type?: "GetDomainDetailRequest";
   /**
    *
    * 		       <p>The name of the domain that you want to get detailed information about.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -906,7 +1152,7 @@ export namespace GetDomainDetailRequest {
 /**
  *
  * 		       <p>The GetDomainDetail response includes the following elements.</p>
- * 	
+ *
  */
 export interface GetDomainDetailResponse extends $MetadataBearer {
   __type?: "GetDomainDetailResponse";
@@ -914,21 +1160,21 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    *
    * 		       <p>Email address to contact to report incorrect contact information for a domain, to report that the domain
    * 			is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.</p>
-   * 	
+   *
    */
   AbuseContactEmail?: string;
 
   /**
    *
    * 		       <p>Phone number for reporting abuse.</p>
-   * 	
+   *
    */
   AbuseContactPhone?: string;
 
   /**
    *
    * 		       <p>Provides details about the domain administrative contact.</p>
-   * 	
+   *
    */
   AdminContact: ContactDetail | undefined;
 
@@ -938,14 +1184,14 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
-   * 	
+   *
    */
   AdminPrivacy?: boolean;
 
   /**
    *
    * 		       <p>Specifies whether the domain registration is set to renew automatically.</p>
-   * 	
+   *
    */
   AutoRenew?: boolean;
 
@@ -953,21 +1199,21 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    *
    * 		       <p>The date when the domain was created as found in the response to a WHOIS query. The date and time is in
    * 			Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   CreationDate?: Date;
 
   /**
    *
    * 		       <p>Reserved for future use.</p>
-   * 	
+   *
    */
   DnsSec?: string;
 
   /**
    *
    * 		       <p>The name of a domain.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -975,21 +1221,21 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    *
    * 		       <p>The date when the registration for the domain is set to expire. The date and time is in
    * 			Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   ExpirationDate?: Date;
 
   /**
    *
    * 		       <p>The name of the domain.</p>
-   * 	
+   *
    */
   Nameservers: Array<Nameserver> | undefined;
 
   /**
    *
    * 		       <p>Provides details about the domain registrant.</p>
-   * 	
+   *
    */
   RegistrantContact: ContactDetail | undefined;
 
@@ -999,7 +1245,7 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
-   * 	
+   *
    */
   RegistrantPrivacy?: boolean;
 
@@ -1008,28 +1254,28 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    * 		       <p>Name of the registrar of the domain as identified in the registry. Domains with a .com, .net, or .org TLD are registered by
    * 			Amazon Registrar. All other domains are registered by our registrar associate, Gandi. The value for domains that are registered by
    * 			Gandi is <code>"GANDI SAS"</code>. </p>
-   * 	
+   *
    */
   RegistrarName?: string;
 
   /**
    *
    * 		       <p>Web address of the registrar.</p>
-   * 	
+   *
    */
   RegistrarUrl?: string;
 
   /**
    *
    * 		       <p>Reserved for future use.</p>
-   * 	
+   *
    */
   RegistryDomainId?: string;
 
   /**
    *
    * 		       <p>Reseller of the domain. Domains registered or transferred using Amazon Route 53 domains will have <code>"Amazon"</code> as the reseller. </p>
-   * 	
+   *
    */
   Reseller?: string;
 
@@ -1043,14 +1289,14 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    * 		       <p>For a current list of domain name status codes and an explanation of what each code means, go to the
    * 	<a href="https://www.icann.org/">ICANN website</a> and search for <code>epp status codes</code>.
    * 	(Search on the ICANN website; web searches sometimes return an old version of the document.)</p>
-   * 	
+   *
    */
   StatusList?: Array<string>;
 
   /**
    *
    * 		       <p>Provides details about the domain technical contact.</p>
-   * 	
+   *
    */
   TechContact: ContactDetail | undefined;
 
@@ -1060,7 +1306,7 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If the value is <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
-   * 	
+   *
    */
   TechPrivacy?: boolean;
 
@@ -1068,14 +1314,14 @@ export interface GetDomainDetailResponse extends $MetadataBearer {
    *
    * 		       <p>The last updated date of the domain as found in the response to a WHOIS query. The date and time is in
    * 			Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   UpdatedDate?: Date;
 
   /**
    *
    * 		       <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the domain.</p>
-   * 	
+   *
    */
   WhoIsServer?: string;
 }
@@ -1094,7 +1340,7 @@ export interface GetDomainSuggestionsRequest {
    * 			a top-level domain (TLD), such as .com, that Amazon Route 53 supports. For a list of TLDs, see
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
    * 			<i>Amazon Route 53 Developer Guide</i>.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -1104,14 +1350,14 @@ export interface GetDomainSuggestionsRequest {
    * 			If <code>OnlyAvailable</code> is <code>false</code>, Amazon Route 53 returns domain names without checking whether they're
    * 			available to be registered. To determine whether the domain is available, you can call <code>checkDomainAvailability</code>
    * 			for each suggestion.</p>
-   * 	
+   *
    */
   OnlyAvailable: boolean | undefined;
 
   /**
    *
    * 		       <p>The number of suggested domain names that you want Amazon Route 53 to return.</p>
-   * 	
+   *
    */
   SuggestionCount: number | undefined;
 }
@@ -1128,7 +1374,7 @@ export interface GetDomainSuggestionsResponse extends $MetadataBearer {
    *
    * 		       <p>A list of possible domain names. If you specified <code>true</code> for <code>OnlyAvailable</code> in the request,
    * 			the list contains only domains that are available for registration.</p>
-   * 	
+   *
    */
   SuggestionsList?: Array<DomainSuggestion>;
 }
@@ -1142,7 +1388,7 @@ export namespace GetDomainSuggestionsResponse {
 /**
  *
  * 		       <p>The <a>GetOperationDetail</a> request includes the following element.</p>
- * 	
+ *
  */
 export interface GetOperationDetailRequest {
   __type?: "GetOperationDetailRequest";
@@ -1150,7 +1396,7 @@ export interface GetOperationDetailRequest {
    *
    * 		       <p>The identifier for the operation for which you want to get the status. Amazon Route 53 returned the identifier
    * 			in the response to the original request.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -1164,49 +1410,49 @@ export namespace GetOperationDetailRequest {
 /**
  *
  * 		       <p>The GetOperationDetail response includes the following elements.</p>
- * 	
+ *
  */
 export interface GetOperationDetailResponse extends $MetadataBearer {
   __type?: "GetOperationDetailResponse";
   /**
    *
    * 		       <p>The name of a domain.</p>
-   * 	
+   *
    */
   DomainName?: string;
 
   /**
    *
    * 		       <p>Detailed information on the status including possible errors.</p>
-   * 	
+   *
    */
   Message?: string;
 
   /**
    *
    * 		       <p>The identifier for the operation.</p>
-   * 	
+   *
    */
   OperationId?: string;
 
   /**
    *
    * 		       <p>The current status of the requested operation in the system.</p>
-   * 	
+   *
    */
   Status?: OperationStatus | string;
 
   /**
    *
    * 		       <p>The date when the request was submitted.</p>
-   * 	
+   *
    */
   SubmittedDate?: Date;
 
   /**
    *
    * 		       <p>The type of operation that was requested.</p>
-   * 	
+   *
    */
   Type?: OperationType | string;
 }
@@ -1221,7 +1467,7 @@ export namespace GetOperationDetailResponse {
  *
  * 		       <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation
  * 			that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
- * 	
+ *
  */
 export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
   __type: "InvalidInput";
@@ -1230,7 +1476,7 @@ export interface InvalidInput extends _smithy.SmithyException, $MetadataBearer {
    *
    * 		       <p>The requested item is not acceptable. For example, for an OperationId it might refer to the ID of an operation
    * 			that is already completed. For a domain name, it might not be a valid domain name or belong to the requester account.</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -1244,7 +1490,7 @@ export namespace InvalidInput {
 /**
  *
  * 		       <p>The ListDomains request includes the following elements.</p>
- * 	
+ *
  */
 export interface ListDomainsRequest {
   __type?: "ListDomainsRequest";
@@ -1256,7 +1502,7 @@ export interface ListDomainsRequest {
    * 			<code>NextPageMarker</code> from the previous response, and submit another request that includes the
    * 			value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>
    * 			      <p>Constraints: The marker must match the value specified in the previous request.</p>
-   * 	
+   *
    */
   Marker?: string;
 
@@ -1264,7 +1510,7 @@ export interface ListDomainsRequest {
    *
    * 		       <p>Number of domains to be returned.</p>
    * 		       <p>Default: 20</p>
-   * 	
+   *
    */
   MaxItems?: number;
 }
@@ -1278,14 +1524,14 @@ export namespace ListDomainsRequest {
 /**
  *
  * 		       <p>The ListDomains response includes the following elements.</p>
- * 	
+ *
  */
 export interface ListDomainsResponse extends $MetadataBearer {
   __type?: "ListDomainsResponse";
   /**
    *
    * 		       <p>A summary of domains.</p>
-   * 	
+   *
    */
   Domains: Array<DomainSummary> | undefined;
 
@@ -1293,7 +1539,7 @@ export interface ListDomainsResponse extends $MetadataBearer {
    *
    * 		       <p>If there are more domains than you specified for <code>MaxItems</code> in the request, submit another
    * 	request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
-   * 	
+   *
    */
   NextPageMarker?: string;
 }
@@ -1307,7 +1553,7 @@ export namespace ListDomainsResponse {
 /**
  *
  * 		       <p>The ListOperations request includes the following elements.</p>
- * 	
+ *
  */
 export interface ListOperationsRequest {
   __type?: "ListOperationsRequest";
@@ -1317,7 +1563,7 @@ export interface ListOperationsRequest {
    * 			not yet complete is greater than the value that you specified for <code>MaxItems</code>, you can use <code>Marker</code>
    * 			to return additional operations. Get the value of <code>NextPageMarker</code> from the previous response,
    * 			and submit another request that includes the value of <code>NextPageMarker</code> in the <code>Marker</code> element.</p>
-   * 	
+   *
    */
   Marker?: string;
 
@@ -1325,7 +1571,7 @@ export interface ListOperationsRequest {
    *
    * 		       <p>Number of domains to be returned.</p>
    * 		       <p>Default: 20</p>
-   * 	
+   *
    */
   MaxItems?: number;
 
@@ -1333,7 +1579,7 @@ export interface ListOperationsRequest {
    *
    * 		       <p>An optional parameter that lets you get information about all the operations that you submitted after a specified date and time.
    * 			Specify the date and time in Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   SubmittedSince?: Date;
 }
@@ -1347,7 +1593,7 @@ export namespace ListOperationsRequest {
 /**
  *
  * 		       <p>The ListOperations response includes the following elements.</p>
- * 	
+ *
  */
 export interface ListOperationsResponse extends $MetadataBearer {
   __type?: "ListOperationsResponse";
@@ -1355,14 +1601,14 @@ export interface ListOperationsResponse extends $MetadataBearer {
    *
    * 		       <p>If there are more operations than you specified for <code>MaxItems</code> in the request, submit another
    * 	request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
-   * 	
+   *
    */
   NextPageMarker?: string;
 
   /**
    *
    * 		       <p>Lists summaries of the operations.</p>
-   * 	
+   *
    */
   Operations: Array<OperationSummary> | undefined;
 }
@@ -1376,14 +1622,14 @@ export namespace ListOperationsResponse {
 /**
  *
  * 		       <p>The ListTagsForDomainRequest includes the following elements.</p>
- * 	
+ *
  */
 export interface ListTagsForDomainRequest {
   __type?: "ListTagsForDomainRequest";
   /**
    *
    * 		       <p>The domain for which you want to get a list of tags.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -1397,14 +1643,14 @@ export namespace ListTagsForDomainRequest {
 /**
  *
  * 		       <p>The ListTagsForDomain response includes the following elements.</p>
- * 	
+ *
  */
 export interface ListTagsForDomainResponse extends $MetadataBearer {
   __type?: "ListTagsForDomainResponse";
   /**
    *
    * 		       <p>A list of the tags that are associated with the specified domain.</p>
-   * 	
+   *
    */
   TagList: Array<Tag> | undefined;
 }
@@ -1418,7 +1664,7 @@ export namespace ListTagsForDomainResponse {
 /**
  *
  * 		       <p>Nameserver includes the following elements.</p>
- * 	
+ *
  */
 export interface Nameserver {
   __type?: "Nameserver";
@@ -1426,7 +1672,7 @@ export interface Nameserver {
    *
    * 		       <p>Glue IP address of a name server entry. Glue IP addresses are required only when the name of the name server is a subdomain of the domain. For example, if your domain is example.com and the name server for the domain is ns.example.com, you need to specify the IP address for ns.example.com.</p>
    * 		       <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>
-   * 	
+   *
    */
   GlueIps?: Array<string>;
 
@@ -1434,7 +1680,7 @@ export interface Nameserver {
    *
    * 		       <p>The fully qualified host name of the name server.</p>
    * 		       <p>Constraint: Maximum 255 characters</p>
-   * 	
+   *
    */
   Name: string | undefined;
 }
@@ -1448,15 +1694,17 @@ export namespace Nameserver {
 /**
  *
  * 		       <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
- * 	
+ *
  */
-export interface OperationLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationLimitExceeded";
   $fault: "client";
   /**
    *
    * 		       <p>The number of operations or jobs running exceeded the allowed threshold for the account.</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -1467,40 +1715,45 @@ export namespace OperationLimitExceeded {
   }
 }
 
-export type OperationStatus = "ERROR" | "FAILED" | "IN_PROGRESS" | "SUBMITTED" | "SUCCESSFUL"
+export type OperationStatus =
+  | "ERROR"
+  | "FAILED"
+  | "IN_PROGRESS"
+  | "SUBMITTED"
+  | "SUCCESSFUL";
 
 /**
  *
  * 		       <p>OperationSummary includes the following elements.</p>
- * 	
+ *
  */
 export interface OperationSummary {
   __type?: "OperationSummary";
   /**
    *
    * 		       <p>Identifier returned to track the requested action.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 
   /**
    *
    * 		       <p>The current status of the requested operation in the system.</p>
-   * 	
+   *
    */
   Status: OperationStatus | string | undefined;
 
   /**
    *
    * 		       <p>The date when the request was submitted.</p>
-   * 	
+   *
    */
   SubmittedDate: Date | undefined;
 
   /**
    *
    * 		       <p>Type of the action requested.</p>
-   * 	
+   *
    */
   Type: OperationType | string | undefined;
 }
@@ -1527,26 +1780,26 @@ export enum OperationType {
   TRANSFER_IN_DOMAIN = "TRANSFER_IN_DOMAIN",
   TRANSFER_OUT_DOMAIN = "TRANSFER_OUT_DOMAIN",
   UPDATE_DOMAIN_CONTACT = "UPDATE_DOMAIN_CONTACT",
-  UPDATE_NAMESERVER = "UPDATE_NAMESERVER",
+  UPDATE_NAMESERVER = "UPDATE_NAMESERVER"
 }
 
 export enum ReachabilityStatus {
   DONE = "DONE",
   EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
  *
  * 		       <p>The RegisterDomain request includes the following elements.</p>
- * 	
+ *
  */
 export interface RegisterDomainRequest {
   __type?: "RegisterDomainRequest";
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   AdminContact: ContactDetail | undefined;
 
@@ -1556,7 +1809,7 @@ export interface RegisterDomainRequest {
    * 			Autorenewal only takes effect after the account is charged.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   AutoRenew?: boolean;
 
@@ -1565,7 +1818,7 @@ export interface RegisterDomainRequest {
    * 		       <p>The domain name that you want to register.</p>
    * 		       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9,
    * 			and hyphen (-). Internationalized Domain Names are not supported.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -1576,14 +1829,14 @@ export interface RegisterDomainRequest {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
    * 			<i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       <p>Default: 1</p>
-   * 	
+   *
    */
   DurationInYears: number | undefined;
 
   /**
    *
    * 		       <p>Reserved for future use.</p>
-   * 	
+   *
    */
   IdnLangCode?: string;
 
@@ -1595,7 +1848,7 @@ export interface RegisterDomainRequest {
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectAdminContact?: boolean;
 
@@ -1607,7 +1860,7 @@ export interface RegisterDomainRequest {
    * 			WHOIS queries return the information that you entered for the registrant contact (the domain owner).</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectRegistrantContact?: boolean;
 
@@ -1619,21 +1872,21 @@ export interface RegisterDomainRequest {
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectTechContact?: boolean;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   RegistrantContact: ContactDetail | undefined;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   TechContact: ContactDetail | undefined;
 }
@@ -1647,7 +1900,7 @@ export namespace RegisterDomainRequest {
 /**
  *
  * 		       <p>The RegisterDomain response includes the following element.</p>
- * 	
+ *
  */
 export interface RegisterDomainResponse extends $MetadataBearer {
   __type?: "RegisterDomainResponse";
@@ -1655,7 +1908,7 @@ export interface RegisterDomainResponse extends $MetadataBearer {
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -1669,21 +1922,21 @@ export namespace RegisterDomainResponse {
 /**
  *
  * 		       <p>A <code>RenewDomain</code> request includes the number of years that you want to renew for and the current expiration year.</p>
- * 	
+ *
  */
 export interface RenewDomainRequest {
   __type?: "RenewDomainRequest";
   /**
    *
    * 		       <p>The year when the registration for the domain is set to expire. This value must match the current expiration date for the domain.</p>
-   * 	
+   *
    */
   CurrentExpiryYear: number | undefined;
 
   /**
    *
    * 		       <p>The name of the domain that you want to renew.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -1694,7 +1947,7 @@ export interface RenewDomainRequest {
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html">Domains that You Can Register with Amazon Route 53</a> in the
    * 			<i>Amazon Route 53 Developer Guide</i>.</p>
    * 		       <p>Default: 1</p>
-   * 	
+   *
    */
   DurationInYears?: number;
 }
@@ -1711,7 +1964,7 @@ export interface RenewDomainResponse extends $MetadataBearer {
    *
    * 		       <p>The identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -1727,7 +1980,7 @@ export interface ResendContactReachabilityEmailRequest {
   /**
    *
    * 		       <p>The name of the domain for which you want Amazon Route 53 to resend a confirmation email to the registrant contact.</p>
-   * 	
+   *
    */
   domainName?: string;
 }
@@ -1738,19 +1991,20 @@ export namespace ResendContactReachabilityEmailRequest {
   }
 }
 
-export interface ResendContactReachabilityEmailResponse extends $MetadataBearer {
+export interface ResendContactReachabilityEmailResponse
+  extends $MetadataBearer {
   __type?: "ResendContactReachabilityEmailResponse";
   /**
    *
    * 		       <p>The domain name for which you requested a confirmation email.</p>
-   * 	
+   *
    */
   domainName?: string;
 
   /**
    *
    * 		       <p>The email address for the registrant contact at the time that we sent the verification email.</p>
-   * 	
+   *
    */
   emailAddress?: string;
 
@@ -1759,7 +2013,7 @@ export interface ResendContactReachabilityEmailResponse extends $MetadataBearer 
    * 		       <p>
    *             <code>True</code> if the email address for the registrant contact has already been verified, and <code>false</code> otherwise.
    * 			If the email address has already been verified, we don't send another confirmation email.</p>
-   * 	
+   *
    */
   isAlreadyVerified?: boolean;
 }
@@ -1774,14 +2028,14 @@ export namespace ResendContactReachabilityEmailResponse {
  *
  * 		       <p>A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide
  * 			this value to the new registrar.</p>
- * 	
+ *
  */
 export interface RetrieveDomainAuthCodeRequest {
   __type?: "RetrieveDomainAuthCodeRequest";
   /**
    *
    * 		       <p>The name of the domain that you want to get an authorization code for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 }
@@ -1795,14 +2049,14 @@ export namespace RetrieveDomainAuthCodeRequest {
 /**
  *
  * 		       <p>The RetrieveDomainAuthCode response includes the following element.</p>
- * 	
+ *
  */
 export interface RetrieveDomainAuthCodeResponse extends $MetadataBearer {
   __type?: "RetrieveDomainAuthCodeResponse";
   /**
    *
    * 		       <p>The authorization code for the domain.</p>
-   * 	
+   *
    */
   AuthCode: string | undefined;
 }
@@ -1816,15 +2070,17 @@ export namespace RetrieveDomainAuthCodeResponse {
 /**
  *
  * 		       <p>The top-level domain does not support this operation.</p>
- * 	
+ *
  */
-export interface TLDRulesViolation extends _smithy.SmithyException, $MetadataBearer {
+export interface TLDRulesViolation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TLDRulesViolation";
   $fault: "client";
   /**
    *
    * 		       <p>The top-level domain does not support this operation.</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -1838,7 +2094,7 @@ export namespace TLDRulesViolation {
 /**
  *
  * 		       <p>Each tag includes the following elements.</p>
- * 	
+ *
  */
 export interface Tag {
   __type?: "Tag";
@@ -1847,7 +2103,7 @@ export interface Tag {
    * 		       <p>The key (name) of a tag.</p>
    * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
    * 		       <p>Constraints: Each key can be 1-128 characters long.</p>
-   * 	
+   *
    */
   Key?: string;
 
@@ -1856,7 +2112,7 @@ export interface Tag {
    * 		       <p>The value of a tag.</p>
    * 		       <p>Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"</p>
    * 		       <p>Constraints: Each value can be 0-256 characters long.</p>
-   * 	
+   *
    */
   Value?: string;
 }
@@ -1870,21 +2126,21 @@ export namespace Tag {
 /**
  *
  * 		       <p>The TransferDomain request includes the following elements.</p>
- * 	
+ *
  */
 export interface TransferDomainRequest {
   __type?: "TransferDomainRequest";
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   AdminContact: ContactDetail | undefined;
 
   /**
    *
    * 		       <p>The authorization code for the domain. You get this value from the current registrar.</p>
-   * 	
+   *
    */
   AuthCode?: string;
 
@@ -1893,7 +2149,7 @@ export interface TransferDomainRequest {
    * 		       <p>Indicates whether the domain will be automatically renewed (true) or not (false). Autorenewal only takes effect
    * 			after the account is charged.</p>
    * 		       <p>Default: true</p>
-   * 	
+   *
    */
   AutoRenew?: boolean;
 
@@ -1902,7 +2158,7 @@ export interface TransferDomainRequest {
    * 		       <p>The name of the domain that you want to transfer to Amazon Route 53.</p>
    * 		       <p>Constraints: The domain name can contain only the letters a through z, the numbers 0 through 9,
    * 			and hyphen (-). Internationalized Domain Names are not supported.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -1911,21 +2167,21 @@ export interface TransferDomainRequest {
    * 		       <p>The number of years that you want to register the domain for. Domains are registered for a minimum of one year.
    * 			The maximum period depends on the top-level domain.</p>
    * 		       <p>Default: 1</p>
-   * 	
+   *
    */
   DurationInYears: number | undefined;
 
   /**
    *
    * 		       <p>Reserved for future use.</p>
-   * 	
+   *
    */
   IdnLangCode?: string;
 
   /**
    *
    * 		       <p>Contains details for the host and glue IP addresses.</p>
-   * 	
+   *
    */
   Nameservers?: Array<Nameserver>;
 
@@ -1937,7 +2193,7 @@ export interface TransferDomainRequest {
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectAdminContact?: boolean;
 
@@ -1949,7 +2205,7 @@ export interface TransferDomainRequest {
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectRegistrantContact?: boolean;
 
@@ -1961,21 +2217,21 @@ export interface TransferDomainRequest {
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
    * 		       <p>Default: <code>true</code>
    *          </p>
-   * 	
+   *
    */
   PrivacyProtectTechContact?: boolean;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   RegistrantContact: ContactDetail | undefined;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   TechContact: ContactDetail | undefined;
 }
@@ -1989,7 +2245,7 @@ export namespace TransferDomainRequest {
 /**
  *
  * 		       <p>The TranserDomain response includes the following element.</p>
- * 	
+ *
  */
 export interface TransferDomainResponse extends $MetadataBearer {
   __type?: "TransferDomainResponse";
@@ -1997,7 +2253,7 @@ export interface TransferDomainResponse extends $MetadataBearer {
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -2011,21 +2267,23 @@ export namespace TransferDomainResponse {
 export enum Transferable {
   DONT_KNOW = "DONT_KNOW",
   TRANSFERABLE = "TRANSFERABLE",
-  UNTRANSFERABLE = "UNTRANSFERABLE",
+  UNTRANSFERABLE = "UNTRANSFERABLE"
 }
 
 /**
  *
  * 		       <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
- * 	
+ *
  */
-export interface UnsupportedTLD extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedTLD
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedTLD";
   $fault: "client";
   /**
    *
    * 		       <p>Amazon Route 53 does not support this top-level domain (TLD).</p>
-   * 	
+   *
    */
   message?: string;
 }
@@ -2039,7 +2297,7 @@ export namespace UnsupportedTLD {
 /**
  *
  * 		       <p>The UpdateDomainContactPrivacy request includes the following elements.</p>
- * 	
+ *
  */
 export interface UpdateDomainContactPrivacyRequest {
   __type?: "UpdateDomainContactPrivacyRequest";
@@ -2049,14 +2307,14 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the admin contact.</p>
-   * 	
+   *
    */
   AdminPrivacy?: boolean;
 
   /**
    *
    * 		       <p>The name of the domain that you want to update the privacy setting for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -2066,7 +2324,7 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the registrant contact (domain owner).</p>
-   * 	
+   *
    */
   RegistrantPrivacy?: boolean;
 
@@ -2076,7 +2334,7 @@ export interface UpdateDomainContactPrivacyRequest {
    * 			WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains)
    * 			or for our registrar associate, Gandi (for all other TLDs). If you specify <code>false</code>,
    * 			WHOIS queries return the information that you entered for the technical contact.</p>
-   * 	
+   *
    */
   TechPrivacy?: boolean;
 }
@@ -2090,14 +2348,14 @@ export namespace UpdateDomainContactPrivacyRequest {
 /**
  *
  * 		       <p>The UpdateDomainContactPrivacy response includes the following element.</p>
- * 	
+ *
  */
 export interface UpdateDomainContactPrivacyResponse extends $MetadataBearer {
   __type?: "UpdateDomainContactPrivacyResponse";
   /**
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -2111,35 +2369,35 @@ export namespace UpdateDomainContactPrivacyResponse {
 /**
  *
  * 		       <p>The UpdateDomainContact request includes the following elements.</p>
- * 	
+ *
  */
 export interface UpdateDomainContactRequest {
   __type?: "UpdateDomainContactRequest";
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   AdminContact?: ContactDetail;
 
   /**
    *
    * 		       <p>The name of the domain that you want to update contact information for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   RegistrantContact?: ContactDetail;
 
   /**
    *
    * 		       <p>Provides detailed contact information.</p>
-   * 	
+   *
    */
   TechContact?: ContactDetail;
 }
@@ -2153,7 +2411,7 @@ export namespace UpdateDomainContactRequest {
 /**
  *
  * 		       <p>The UpdateDomainContact response includes the following element.</p>
- * 	
+ *
  */
 export interface UpdateDomainContactResponse extends $MetadataBearer {
   __type?: "UpdateDomainContactResponse";
@@ -2161,7 +2419,7 @@ export interface UpdateDomainContactResponse extends $MetadataBearer {
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -2178,28 +2436,28 @@ export namespace UpdateDomainContactResponse {
  * 			If you use Amazon Route 53 as your DNS service, specify the four name servers in the delegation set for the hosted zone for the domain.</p>
  * 		       <p>If successful, this operation returns an operation ID that you can use to track the progress and
  * 			completion of the action. If the request is not completed successfully, the domain registrant will be notified by email. </p>
- * 	
+ *
  */
 export interface UpdateDomainNameserversRequest {
   __type?: "UpdateDomainNameserversRequest";
   /**
    *
    * 		       <p>The name of the domain that you want to change name servers for.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
   /**
    *
    * 		       <p>The authorization key for .fi domains</p>
-   * 	
+   *
    */
   FIAuthKey?: string;
 
   /**
    *
    * 		       <p>A list of new name servers for the domain.</p>
-   * 	
+   *
    */
   Nameservers: Array<Nameserver> | undefined;
 }
@@ -2213,7 +2471,7 @@ export namespace UpdateDomainNameserversRequest {
 /**
  *
  * 		       <p>The UpdateDomainNameservers response includes the following element.</p>
- * 	
+ *
  */
 export interface UpdateDomainNameserversResponse extends $MetadataBearer {
   __type?: "UpdateDomainNameserversResponse";
@@ -2221,7 +2479,7 @@ export interface UpdateDomainNameserversResponse extends $MetadataBearer {
    *
    * 		       <p>Identifier for tracking the progress of the request. To use this ID to query the operation status,
    * 			use <a>GetOperationDetail</a>.</p>
-   * 	
+   *
    */
   OperationId: string | undefined;
 }
@@ -2235,14 +2493,14 @@ export namespace UpdateDomainNameserversResponse {
 /**
  *
  * 		       <p>The UpdateTagsForDomainRequest includes the following elements.</p>
- * 	
+ *
  */
 export interface UpdateTagsForDomainRequest {
   __type?: "UpdateTagsForDomainRequest";
   /**
    *
    * 		       <p>The domain for which you want to add or update tags.</p>
-   * 	
+   *
    */
   DomainName: string | undefined;
 
@@ -2250,7 +2508,7 @@ export interface UpdateTagsForDomainRequest {
    *
    * 		       <p>A list of the tag keys and values that you want to add or update. If you specify a key
    * 			that already exists, the corresponding value will be replaced.</p>
-   * 	
+   *
    */
   TagsToUpdate?: Array<Tag>;
 }
@@ -2274,7 +2532,7 @@ export namespace UpdateTagsForDomainResponse {
 /**
  *
  * 		       <p>The ViewBilling request includes the following elements.</p>
- * 	
+ *
  */
 export interface ViewBillingRequest {
   __type?: "ViewBillingRequest";
@@ -2282,7 +2540,7 @@ export interface ViewBillingRequest {
    *
    * 		       <p>The end date and time for the time period for which you want a list of billing records. Specify the date and time
    * 			in Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   End?: Date;
 
@@ -2295,7 +2553,7 @@ export interface ViewBillingRequest {
    * 			the value of <code>NextPageMarker</code> in the <code>Marker</code> element.
    * 		</p>
    * 		       <p>Constraints: The marker must match the value of <code>NextPageMarker</code> that was returned in the previous response.</p>
-   * 	
+   *
    */
   Marker?: string;
 
@@ -2303,7 +2561,7 @@ export interface ViewBillingRequest {
    *
    * 		       <p>The number of billing records to be returned.</p>
    * 		       <p>Default: 20</p>
-   * 	
+   *
    */
   MaxItems?: number;
 
@@ -2311,7 +2569,7 @@ export interface ViewBillingRequest {
    *
    * 		       <p>The beginning date and time for the time period for which you want a list of billing records. Specify the date and time
    * 			in Coordinated Universal time (UTC).</p>
-   * 	
+   *
    */
   Start?: Date;
 }
@@ -2325,14 +2583,14 @@ export namespace ViewBillingRequest {
 /**
  *
  * 		       <p>The ViewBilling response includes the following elements.</p>
- * 	
+ *
  */
 export interface ViewBillingResponse extends $MetadataBearer {
   __type?: "ViewBillingResponse";
   /**
    *
    * 		       <p>A summary of billing records.</p>
-   * 	
+   *
    */
   BillingRecords?: Array<BillingRecord>;
 
@@ -2340,7 +2598,7 @@ export interface ViewBillingResponse extends $MetadataBearer {
    *
    * 		       <p>If there are more billing records than you specified for <code>MaxItems</code> in the request, submit another
    * 	request and include the value of <code>NextPageMarker</code> in the value of <code>Marker</code>.</p>
-   * 	
+   *
    */
   NextPageMarker?: string;
 }

@@ -2,7 +2,7 @@ import { QLDBSessionClient } from "./QLDBSessionClient";
 import {
   SendCommandCommand,
   SendCommandCommandInput,
-  SendCommandCommandOutput,
+  SendCommandCommandOutput
 } from "./commands/SendCommandCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -19,7 +19,7 @@ export class QLDBSession extends QLDBSessionClient {
    */
   public sendCommand(
     args: SendCommandCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SendCommandCommandOutput>;
   public sendCommand(
     args: SendCommandCommandInput,
@@ -32,19 +32,20 @@ export class QLDBSession extends QLDBSessionClient {
   ): void;
   public sendCommand(
     args: SendCommandCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SendCommandCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SendCommandCommandOutput) => void),
     cb?: (err: any, data?: SendCommandCommandOutput) => void
   ): Promise<SendCommandCommandOutput> | void {
     const command = new SendCommandCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

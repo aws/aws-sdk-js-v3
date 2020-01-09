@@ -1,20 +1,20 @@
 import {
   LambdaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LambdaClient";
 import {
   ListFunctionEventInvokeConfigsRequest,
-  ListFunctionEventInvokeConfigsResponse,
+  ListFunctionEventInvokeConfigsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand,
-  serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand,
+  serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListFunctionEventInvokeConfigsCommandInput = ListFunctionEventInvokeConfigsRequest;
 export type ListFunctionEventInvokeConfigsCommandOutput = ListFunctionEventInvokeConfigsResponse;
 
-export class ListFunctionEventInvokeConfigsCommand extends $Command<ListFunctionEventInvokeConfigsCommandInput, ListFunctionEventInvokeConfigsCommandOutput, LambdaClientResolvedConfig> {
+export class ListFunctionEventInvokeConfigsCommand extends $Command<
+  ListFunctionEventInvokeConfigsCommandInput,
+  ListFunctionEventInvokeConfigsCommandOutput,
+  LambdaClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<ListFunction
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListFunctionEventInvokeConfigsCommandInput, ListFunctionEventInvokeConfigsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListFunctionEventInvokeConfigsCommandInput,
+    ListFunctionEventInvokeConfigsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command<ListFunction
     input: ListFunctionEventInvokeConfigsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(input, context);
+    return serializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListFunctionEventInvokeConfigsCommandOutput> {
-    return deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(output, context);
+    return deserializeAws_restJson1_1ListFunctionEventInvokeConfigsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

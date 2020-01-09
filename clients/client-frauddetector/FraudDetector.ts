@@ -2,152 +2,152 @@ import { FraudDetectorClient } from "./FraudDetectorClient";
 import {
   BatchCreateVariableCommand,
   BatchCreateVariableCommandInput,
-  BatchCreateVariableCommandOutput,
+  BatchCreateVariableCommandOutput
 } from "./commands/BatchCreateVariableCommand";
 import {
   BatchGetVariableCommand,
   BatchGetVariableCommandInput,
-  BatchGetVariableCommandOutput,
+  BatchGetVariableCommandOutput
 } from "./commands/BatchGetVariableCommand";
 import {
   CreateDetectorVersionCommand,
   CreateDetectorVersionCommandInput,
-  CreateDetectorVersionCommandOutput,
+  CreateDetectorVersionCommandOutput
 } from "./commands/CreateDetectorVersionCommand";
 import {
   CreateModelVersionCommand,
   CreateModelVersionCommandInput,
-  CreateModelVersionCommandOutput,
+  CreateModelVersionCommandOutput
 } from "./commands/CreateModelVersionCommand";
 import {
   CreateRuleCommand,
   CreateRuleCommandInput,
-  CreateRuleCommandOutput,
+  CreateRuleCommandOutput
 } from "./commands/CreateRuleCommand";
 import {
   CreateVariableCommand,
   CreateVariableCommandInput,
-  CreateVariableCommandOutput,
+  CreateVariableCommandOutput
 } from "./commands/CreateVariableCommand";
 import {
   DeleteDetectorVersionCommand,
   DeleteDetectorVersionCommandInput,
-  DeleteDetectorVersionCommandOutput,
+  DeleteDetectorVersionCommandOutput
 } from "./commands/DeleteDetectorVersionCommand";
 import {
   DeleteEventCommand,
   DeleteEventCommandInput,
-  DeleteEventCommandOutput,
+  DeleteEventCommandOutput
 } from "./commands/DeleteEventCommand";
 import {
   DescribeDetectorCommand,
   DescribeDetectorCommandInput,
-  DescribeDetectorCommandOutput,
+  DescribeDetectorCommandOutput
 } from "./commands/DescribeDetectorCommand";
 import {
   DescribeModelVersionsCommand,
   DescribeModelVersionsCommandInput,
-  DescribeModelVersionsCommandOutput,
+  DescribeModelVersionsCommandOutput
 } from "./commands/DescribeModelVersionsCommand";
 import {
   GetDetectorVersionCommand,
   GetDetectorVersionCommandInput,
-  GetDetectorVersionCommandOutput,
+  GetDetectorVersionCommandOutput
 } from "./commands/GetDetectorVersionCommand";
 import {
   GetDetectorsCommand,
   GetDetectorsCommandInput,
-  GetDetectorsCommandOutput,
+  GetDetectorsCommandOutput
 } from "./commands/GetDetectorsCommand";
 import {
   GetExternalModelsCommand,
   GetExternalModelsCommandInput,
-  GetExternalModelsCommandOutput,
+  GetExternalModelsCommandOutput
 } from "./commands/GetExternalModelsCommand";
 import {
   GetModelVersionCommand,
   GetModelVersionCommandInput,
-  GetModelVersionCommandOutput,
+  GetModelVersionCommandOutput
 } from "./commands/GetModelVersionCommand";
 import {
   GetModelsCommand,
   GetModelsCommandInput,
-  GetModelsCommandOutput,
+  GetModelsCommandOutput
 } from "./commands/GetModelsCommand";
 import {
   GetOutcomesCommand,
   GetOutcomesCommandInput,
-  GetOutcomesCommandOutput,
+  GetOutcomesCommandOutput
 } from "./commands/GetOutcomesCommand";
 import {
   GetPredictionCommand,
   GetPredictionCommandInput,
-  GetPredictionCommandOutput,
+  GetPredictionCommandOutput
 } from "./commands/GetPredictionCommand";
 import {
   GetRulesCommand,
   GetRulesCommandInput,
-  GetRulesCommandOutput,
+  GetRulesCommandOutput
 } from "./commands/GetRulesCommand";
 import {
   GetVariablesCommand,
   GetVariablesCommandInput,
-  GetVariablesCommandOutput,
+  GetVariablesCommandOutput
 } from "./commands/GetVariablesCommand";
 import {
   PutDetectorCommand,
   PutDetectorCommandInput,
-  PutDetectorCommandOutput,
+  PutDetectorCommandOutput
 } from "./commands/PutDetectorCommand";
 import {
   PutExternalModelCommand,
   PutExternalModelCommandInput,
-  PutExternalModelCommandOutput,
+  PutExternalModelCommandOutput
 } from "./commands/PutExternalModelCommand";
 import {
   PutModelCommand,
   PutModelCommandInput,
-  PutModelCommandOutput,
+  PutModelCommandOutput
 } from "./commands/PutModelCommand";
 import {
   PutOutcomeCommand,
   PutOutcomeCommandInput,
-  PutOutcomeCommandOutput,
+  PutOutcomeCommandOutput
 } from "./commands/PutOutcomeCommand";
 import {
   UpdateDetectorVersionCommand,
   UpdateDetectorVersionCommandInput,
-  UpdateDetectorVersionCommandOutput,
+  UpdateDetectorVersionCommandOutput
 } from "./commands/UpdateDetectorVersionCommand";
 import {
   UpdateDetectorVersionMetadataCommand,
   UpdateDetectorVersionMetadataCommandInput,
-  UpdateDetectorVersionMetadataCommandOutput,
+  UpdateDetectorVersionMetadataCommandOutput
 } from "./commands/UpdateDetectorVersionMetadataCommand";
 import {
   UpdateDetectorVersionStatusCommand,
   UpdateDetectorVersionStatusCommandInput,
-  UpdateDetectorVersionStatusCommandOutput,
+  UpdateDetectorVersionStatusCommandOutput
 } from "./commands/UpdateDetectorVersionStatusCommand";
 import {
   UpdateModelVersionCommand,
   UpdateModelVersionCommandInput,
-  UpdateModelVersionCommandOutput,
+  UpdateModelVersionCommandOutput
 } from "./commands/UpdateModelVersionCommand";
 import {
   UpdateRuleMetadataCommand,
   UpdateRuleMetadataCommandInput,
-  UpdateRuleMetadataCommandOutput,
+  UpdateRuleMetadataCommandOutput
 } from "./commands/UpdateRuleMetadataCommand";
 import {
   UpdateRuleVersionCommand,
   UpdateRuleVersionCommandInput,
-  UpdateRuleVersionCommandOutput,
+  UpdateRuleVersionCommandOutput
 } from "./commands/UpdateRuleVersionCommand";
 import {
   UpdateVariableCommand,
   UpdateVariableCommandInput,
-  UpdateVariableCommandOutput,
+  UpdateVariableCommandOutput
 } from "./commands/UpdateVariableCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -166,7 +166,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public batchCreateVariable(
     args: BatchCreateVariableCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchCreateVariableCommandOutput>;
   public batchCreateVariable(
     args: BatchCreateVariableCommandInput,
@@ -179,16 +179,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public batchCreateVariable(
     args: BatchCreateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchCreateVariableCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchCreateVariableCommandOutput) => void),
     cb?: (err: any, data?: BatchCreateVariableCommandOutput) => void
   ): Promise<BatchCreateVariableCommandOutput> | void {
     const command = new BatchCreateVariableCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -201,7 +203,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public batchGetVariable(
     args: BatchGetVariableCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetVariableCommandOutput>;
   public batchGetVariable(
     args: BatchGetVariableCommandInput,
@@ -214,16 +216,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public batchGetVariable(
     args: BatchGetVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetVariableCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetVariableCommandOutput) => void),
     cb?: (err: any, data?: BatchGetVariableCommandOutput) => void
   ): Promise<BatchGetVariableCommandOutput> | void {
     const command = new BatchGetVariableCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -236,7 +240,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDetectorVersionCommandOutput>;
   public createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
@@ -249,16 +253,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createDetectorVersion(
     args: CreateDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDetectorVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDetectorVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateDetectorVersionCommandOutput) => void
   ): Promise<CreateDetectorVersionCommandOutput> | void {
     const command = new CreateDetectorVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -272,7 +278,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public createModelVersion(
     args: CreateModelVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateModelVersionCommandOutput>;
   public createModelVersion(
     args: CreateModelVersionCommandInput,
@@ -285,16 +291,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createModelVersion(
     args: CreateModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateModelVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateModelVersionCommandOutput) => void
   ): Promise<CreateModelVersionCommandOutput> | void {
     const command = new CreateModelVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -307,7 +315,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public createRule(
     args: CreateRuleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRuleCommandOutput>;
   public createRule(
     args: CreateRuleCommandInput,
@@ -320,16 +328,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createRule(
     args: CreateRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleCommandOutput) => void
   ): Promise<CreateRuleCommandOutput> | void {
     const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -342,7 +352,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public createVariable(
     args: CreateVariableCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateVariableCommandOutput>;
   public createVariable(
     args: CreateVariableCommandInput,
@@ -355,16 +365,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public createVariable(
     args: CreateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVariableCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateVariableCommandOutput) => void),
     cb?: (err: any, data?: CreateVariableCommandOutput) => void
   ): Promise<CreateVariableCommandOutput> | void {
     const command = new CreateVariableCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -377,7 +389,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDetectorVersionCommandOutput>;
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
@@ -390,16 +402,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public deleteDetectorVersion(
     args: DeleteDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDetectorVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDetectorVersionCommandOutput) => void),
     cb?: (err: any, data?: DeleteDetectorVersionCommandOutput) => void
   ): Promise<DeleteDetectorVersionCommandOutput> | void {
     const command = new DeleteDetectorVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -412,7 +426,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public deleteEvent(
     args: DeleteEventCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEventCommandOutput>;
   public deleteEvent(
     args: DeleteEventCommandInput,
@@ -425,16 +439,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public deleteEvent(
     args: DeleteEventCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEventCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventCommandOutput) => void
   ): Promise<DeleteEventCommandOutput> | void {
     const command = new DeleteEventCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -447,7 +463,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public describeDetector(
     args: DescribeDetectorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDetectorCommandOutput>;
   public describeDetector(
     args: DescribeDetectorCommandInput,
@@ -460,16 +476,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public describeDetector(
     args: DescribeDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDetectorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDetectorCommandOutput) => void),
     cb?: (err: any, data?: DescribeDetectorCommandOutput) => void
   ): Promise<DescribeDetectorCommandOutput> | void {
     const command = new DescribeDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -482,7 +500,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public describeModelVersions(
     args: DescribeModelVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeModelVersionsCommandOutput>;
   public describeModelVersions(
     args: DescribeModelVersionsCommandInput,
@@ -495,16 +513,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public describeModelVersions(
     args: DescribeModelVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelVersionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeModelVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeModelVersionsCommandOutput) => void
   ): Promise<DescribeModelVersionsCommandOutput> | void {
     const command = new DescribeModelVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -517,7 +537,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getDetectorVersion(
     args: GetDetectorVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDetectorVersionCommandOutput>;
   public getDetectorVersion(
     args: GetDetectorVersionCommandInput,
@@ -530,16 +550,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getDetectorVersion(
     args: GetDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDetectorVersionCommandOutput) => void),
     cb?: (err: any, data?: GetDetectorVersionCommandOutput) => void
   ): Promise<GetDetectorVersionCommandOutput> | void {
     const command = new GetDetectorVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -557,7 +579,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getDetectors(
     args: GetDetectorsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDetectorsCommandOutput>;
   public getDetectors(
     args: GetDetectorsCommandInput,
@@ -570,16 +592,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getDetectors(
     args: GetDetectorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDetectorsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDetectorsCommandOutput) => void),
     cb?: (err: any, data?: GetDetectorsCommandOutput) => void
   ): Promise<GetDetectorsCommandOutput> | void {
     const command = new GetDetectorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -597,7 +621,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getExternalModels(
     args: GetExternalModelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetExternalModelsCommandOutput>;
   public getExternalModels(
     args: GetExternalModelsCommandInput,
@@ -610,16 +634,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getExternalModels(
     args: GetExternalModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetExternalModelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetExternalModelsCommandOutput) => void),
     cb?: (err: any, data?: GetExternalModelsCommandOutput) => void
   ): Promise<GetExternalModelsCommandOutput> | void {
     const command = new GetExternalModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -632,7 +658,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getModelVersion(
     args: GetModelVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetModelVersionCommandOutput>;
   public getModelVersion(
     args: GetModelVersionCommandInput,
@@ -645,16 +671,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getModelVersion(
     args: GetModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelVersionCommandOutput) => void),
     cb?: (err: any, data?: GetModelVersionCommandOutput) => void
   ): Promise<GetModelVersionCommandOutput> | void {
     const command = new GetModelVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -668,7 +696,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getModels(
     args: GetModelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetModelsCommandOutput>;
   public getModels(
     args: GetModelsCommandInput,
@@ -681,16 +709,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getModels(
     args: GetModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelsCommandOutput) => void),
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -708,7 +738,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getOutcomes(
     args: GetOutcomesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetOutcomesCommandOutput>;
   public getOutcomes(
     args: GetOutcomesCommandInput,
@@ -721,16 +751,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getOutcomes(
     args: GetOutcomesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOutcomesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetOutcomesCommandOutput) => void),
     cb?: (err: any, data?: GetOutcomesCommandOutput) => void
   ): Promise<GetOutcomesCommandOutput> | void {
     const command = new GetOutcomesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -743,7 +775,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getPrediction(
     args: GetPredictionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetPredictionCommandOutput>;
   public getPrediction(
     args: GetPredictionCommandInput,
@@ -756,16 +788,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getPrediction(
     args: GetPredictionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPredictionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPredictionCommandOutput) => void),
     cb?: (err: any, data?: GetPredictionCommandOutput) => void
   ): Promise<GetPredictionCommandOutput> | void {
     const command = new GetPredictionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -778,7 +812,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getRules(
     args: GetRulesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRulesCommandOutput>;
   public getRules(
     args: GetRulesCommandInput,
@@ -791,16 +825,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getRules(
     args: GetRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRulesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRulesCommandOutput) => void),
     cb?: (err: any, data?: GetRulesCommandOutput) => void
   ): Promise<GetRulesCommandOutput> | void {
     const command = new GetRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -818,7 +854,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public getVariables(
     args: GetVariablesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetVariablesCommandOutput>;
   public getVariables(
     args: GetVariablesCommandInput,
@@ -831,16 +867,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public getVariables(
     args: GetVariablesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVariablesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVariablesCommandOutput) => void),
     cb?: (err: any, data?: GetVariablesCommandOutput) => void
   ): Promise<GetVariablesCommandOutput> | void {
     const command = new GetVariablesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -853,7 +891,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public putDetector(
     args: PutDetectorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutDetectorCommandOutput>;
   public putDetector(
     args: PutDetectorCommandInput,
@@ -866,16 +904,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putDetector(
     args: PutDetectorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutDetectorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutDetectorCommandOutput) => void),
     cb?: (err: any, data?: PutDetectorCommandOutput) => void
   ): Promise<PutDetectorCommandOutput> | void {
     const command = new PutDetectorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -888,7 +928,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public putExternalModel(
     args: PutExternalModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutExternalModelCommandOutput>;
   public putExternalModel(
     args: PutExternalModelCommandInput,
@@ -901,16 +941,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putExternalModel(
     args: PutExternalModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutExternalModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutExternalModelCommandOutput) => void),
     cb?: (err: any, data?: PutExternalModelCommandOutput) => void
   ): Promise<PutExternalModelCommandOutput> | void {
     const command = new PutExternalModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -923,7 +965,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public putModel(
     args: PutModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutModelCommandOutput>;
   public putModel(
     args: PutModelCommandInput,
@@ -936,16 +978,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putModel(
     args: PutModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutModelCommandOutput) => void),
     cb?: (err: any, data?: PutModelCommandOutput) => void
   ): Promise<PutModelCommandOutput> | void {
     const command = new PutModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -958,7 +1002,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public putOutcome(
     args: PutOutcomeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutOutcomeCommandOutput>;
   public putOutcome(
     args: PutOutcomeCommandInput,
@@ -971,16 +1015,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public putOutcome(
     args: PutOutcomeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutOutcomeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutOutcomeCommandOutput) => void),
     cb?: (err: any, data?: PutOutcomeCommandOutput) => void
   ): Promise<PutOutcomeCommandOutput> | void {
     const command = new PutOutcomeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -994,7 +1040,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionCommandOutput>;
   public updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
@@ -1007,16 +1053,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateDetectorVersion(
     args: UpdateDetectorVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDetectorVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorVersionCommandOutput) => void
   ): Promise<UpdateDetectorVersionCommandOutput> | void {
     const command = new UpdateDetectorVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1030,7 +1078,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionMetadataCommandOutput>;
   public updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
@@ -1043,16 +1091,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateDetectorVersionMetadata(
     args: UpdateDetectorVersionMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorVersionMetadataCommandOutput) => void
   ): Promise<UpdateDetectorVersionMetadataCommandOutput> | void {
     const command = new UpdateDetectorVersionMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1066,7 +1116,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDetectorVersionStatusCommandOutput>;
   public updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
@@ -1079,16 +1129,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateDetectorVersionStatus(
     args: UpdateDetectorVersionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void),
     cb?: (err: any, data?: UpdateDetectorVersionStatusCommandOutput) => void
   ): Promise<UpdateDetectorVersionStatusCommandOutput> | void {
     const command = new UpdateDetectorVersionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1112,7 +1164,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateModelVersion(
     args: UpdateModelVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateModelVersionCommandOutput>;
   public updateModelVersion(
     args: UpdateModelVersionCommandInput,
@@ -1125,16 +1177,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateModelVersion(
     args: UpdateModelVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateModelVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateModelVersionCommandOutput) => void
   ): Promise<UpdateModelVersionCommandOutput> | void {
     const command = new UpdateModelVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1147,7 +1201,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRuleMetadataCommandOutput>;
   public updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
@@ -1160,16 +1214,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateRuleMetadata(
     args: UpdateRuleMetadataCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleMetadataCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRuleMetadataCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleMetadataCommandOutput) => void
   ): Promise<UpdateRuleMetadataCommandOutput> | void {
     const command = new UpdateRuleMetadataCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1182,7 +1238,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRuleVersionCommandOutput>;
   public updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
@@ -1195,16 +1251,18 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateRuleVersion(
     args: UpdateRuleVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRuleVersionCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleVersionCommandOutput) => void
   ): Promise<UpdateRuleVersionCommandOutput> | void {
     const command = new UpdateRuleVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1217,7 +1275,7 @@ export class FraudDetector extends FraudDetectorClient {
    */
   public updateVariable(
     args: UpdateVariableCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateVariableCommandOutput>;
   public updateVariable(
     args: UpdateVariableCommandInput,
@@ -1230,19 +1288,20 @@ export class FraudDetector extends FraudDetectorClient {
   ): void;
   public updateVariable(
     args: UpdateVariableCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateVariableCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateVariableCommandOutput) => void),
     cb?: (err: any, data?: UpdateVariableCommandOutput) => void
   ): Promise<UpdateVariableCommandOutput> | void {
     const command = new UpdateVariableCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

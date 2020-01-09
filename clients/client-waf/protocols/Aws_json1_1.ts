@@ -1,306 +1,306 @@
 import {
   CreateByteMatchSetCommandInput,
-  CreateByteMatchSetCommandOutput,
+  CreateByteMatchSetCommandOutput
 } from "../commands/CreateByteMatchSetCommand";
 import {
   CreateGeoMatchSetCommandInput,
-  CreateGeoMatchSetCommandOutput,
+  CreateGeoMatchSetCommandOutput
 } from "../commands/CreateGeoMatchSetCommand";
 import {
   CreateIPSetCommandInput,
-  CreateIPSetCommandOutput,
+  CreateIPSetCommandOutput
 } from "../commands/CreateIPSetCommand";
 import {
   CreateRateBasedRuleCommandInput,
-  CreateRateBasedRuleCommandOutput,
+  CreateRateBasedRuleCommandOutput
 } from "../commands/CreateRateBasedRuleCommand";
 import {
   CreateRegexMatchSetCommandInput,
-  CreateRegexMatchSetCommandOutput,
+  CreateRegexMatchSetCommandOutput
 } from "../commands/CreateRegexMatchSetCommand";
 import {
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput,
+  CreateRegexPatternSetCommandOutput
 } from "../commands/CreateRegexPatternSetCommand";
 import {
   CreateRuleCommandInput,
-  CreateRuleCommandOutput,
+  CreateRuleCommandOutput
 } from "../commands/CreateRuleCommand";
 import {
   CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput,
+  CreateRuleGroupCommandOutput
 } from "../commands/CreateRuleGroupCommand";
 import {
   CreateSizeConstraintSetCommandInput,
-  CreateSizeConstraintSetCommandOutput,
+  CreateSizeConstraintSetCommandOutput
 } from "../commands/CreateSizeConstraintSetCommand";
 import {
   CreateSqlInjectionMatchSetCommandInput,
-  CreateSqlInjectionMatchSetCommandOutput,
+  CreateSqlInjectionMatchSetCommandOutput
 } from "../commands/CreateSqlInjectionMatchSetCommand";
 import {
   CreateWebACLCommandInput,
-  CreateWebACLCommandOutput,
+  CreateWebACLCommandOutput
 } from "../commands/CreateWebACLCommand";
 import {
   CreateXssMatchSetCommandInput,
-  CreateXssMatchSetCommandOutput,
+  CreateXssMatchSetCommandOutput
 } from "../commands/CreateXssMatchSetCommand";
 import {
   DeleteByteMatchSetCommandInput,
-  DeleteByteMatchSetCommandOutput,
+  DeleteByteMatchSetCommandOutput
 } from "../commands/DeleteByteMatchSetCommand";
 import {
   DeleteGeoMatchSetCommandInput,
-  DeleteGeoMatchSetCommandOutput,
+  DeleteGeoMatchSetCommandOutput
 } from "../commands/DeleteGeoMatchSetCommand";
 import {
   DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput,
+  DeleteIPSetCommandOutput
 } from "../commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput,
+  DeleteLoggingConfigurationCommandOutput
 } from "../commands/DeleteLoggingConfigurationCommand";
 import {
   DeletePermissionPolicyCommandInput,
-  DeletePermissionPolicyCommandOutput,
+  DeletePermissionPolicyCommandOutput
 } from "../commands/DeletePermissionPolicyCommand";
 import {
   DeleteRateBasedRuleCommandInput,
-  DeleteRateBasedRuleCommandOutput,
+  DeleteRateBasedRuleCommandOutput
 } from "../commands/DeleteRateBasedRuleCommand";
 import {
   DeleteRegexMatchSetCommandInput,
-  DeleteRegexMatchSetCommandOutput,
+  DeleteRegexMatchSetCommandOutput
 } from "../commands/DeleteRegexMatchSetCommand";
 import {
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput,
+  DeleteRegexPatternSetCommandOutput
 } from "../commands/DeleteRegexPatternSetCommand";
 import {
   DeleteRuleCommandInput,
-  DeleteRuleCommandOutput,
+  DeleteRuleCommandOutput
 } from "../commands/DeleteRuleCommand";
 import {
   DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput,
+  DeleteRuleGroupCommandOutput
 } from "../commands/DeleteRuleGroupCommand";
 import {
   DeleteSizeConstraintSetCommandInput,
-  DeleteSizeConstraintSetCommandOutput,
+  DeleteSizeConstraintSetCommandOutput
 } from "../commands/DeleteSizeConstraintSetCommand";
 import {
   DeleteSqlInjectionMatchSetCommandInput,
-  DeleteSqlInjectionMatchSetCommandOutput,
+  DeleteSqlInjectionMatchSetCommandOutput
 } from "../commands/DeleteSqlInjectionMatchSetCommand";
 import {
   DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput,
+  DeleteWebACLCommandOutput
 } from "../commands/DeleteWebACLCommand";
 import {
   DeleteXssMatchSetCommandInput,
-  DeleteXssMatchSetCommandOutput,
+  DeleteXssMatchSetCommandOutput
 } from "../commands/DeleteXssMatchSetCommand";
 import {
   GetByteMatchSetCommandInput,
-  GetByteMatchSetCommandOutput,
+  GetByteMatchSetCommandOutput
 } from "../commands/GetByteMatchSetCommand";
 import {
   GetChangeTokenCommandInput,
-  GetChangeTokenCommandOutput,
+  GetChangeTokenCommandOutput
 } from "../commands/GetChangeTokenCommand";
 import {
   GetChangeTokenStatusCommandInput,
-  GetChangeTokenStatusCommandOutput,
+  GetChangeTokenStatusCommandOutput
 } from "../commands/GetChangeTokenStatusCommand";
 import {
   GetGeoMatchSetCommandInput,
-  GetGeoMatchSetCommandOutput,
+  GetGeoMatchSetCommandOutput
 } from "../commands/GetGeoMatchSetCommand";
 import {
   GetIPSetCommandInput,
-  GetIPSetCommandOutput,
+  GetIPSetCommandOutput
 } from "../commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput,
+  GetLoggingConfigurationCommandOutput
 } from "../commands/GetLoggingConfigurationCommand";
 import {
   GetPermissionPolicyCommandInput,
-  GetPermissionPolicyCommandOutput,
+  GetPermissionPolicyCommandOutput
 } from "../commands/GetPermissionPolicyCommand";
 import {
   GetRateBasedRuleCommandInput,
-  GetRateBasedRuleCommandOutput,
+  GetRateBasedRuleCommandOutput
 } from "../commands/GetRateBasedRuleCommand";
 import {
   GetRateBasedRuleManagedKeysCommandInput,
-  GetRateBasedRuleManagedKeysCommandOutput,
+  GetRateBasedRuleManagedKeysCommandOutput
 } from "../commands/GetRateBasedRuleManagedKeysCommand";
 import {
   GetRegexMatchSetCommandInput,
-  GetRegexMatchSetCommandOutput,
+  GetRegexMatchSetCommandOutput
 } from "../commands/GetRegexMatchSetCommand";
 import {
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput,
+  GetRegexPatternSetCommandOutput
 } from "../commands/GetRegexPatternSetCommand";
 import {
   GetRuleCommandInput,
-  GetRuleCommandOutput,
+  GetRuleCommandOutput
 } from "../commands/GetRuleCommand";
 import {
   GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput,
+  GetRuleGroupCommandOutput
 } from "../commands/GetRuleGroupCommand";
 import {
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput,
+  GetSampledRequestsCommandOutput
 } from "../commands/GetSampledRequestsCommand";
 import {
   GetSizeConstraintSetCommandInput,
-  GetSizeConstraintSetCommandOutput,
+  GetSizeConstraintSetCommandOutput
 } from "../commands/GetSizeConstraintSetCommand";
 import {
   GetSqlInjectionMatchSetCommandInput,
-  GetSqlInjectionMatchSetCommandOutput,
+  GetSqlInjectionMatchSetCommandOutput
 } from "../commands/GetSqlInjectionMatchSetCommand";
 import {
   GetWebACLCommandInput,
-  GetWebACLCommandOutput,
+  GetWebACLCommandOutput
 } from "../commands/GetWebACLCommand";
 import {
   GetXssMatchSetCommandInput,
-  GetXssMatchSetCommandOutput,
+  GetXssMatchSetCommandOutput
 } from "../commands/GetXssMatchSetCommand";
 import {
   ListActivatedRulesInRuleGroupCommandInput,
-  ListActivatedRulesInRuleGroupCommandOutput,
+  ListActivatedRulesInRuleGroupCommandOutput
 } from "../commands/ListActivatedRulesInRuleGroupCommand";
 import {
   ListByteMatchSetsCommandInput,
-  ListByteMatchSetsCommandOutput,
+  ListByteMatchSetsCommandOutput
 } from "../commands/ListByteMatchSetsCommand";
 import {
   ListGeoMatchSetsCommandInput,
-  ListGeoMatchSetsCommandOutput,
+  ListGeoMatchSetsCommandOutput
 } from "../commands/ListGeoMatchSetsCommand";
 import {
   ListIPSetsCommandInput,
-  ListIPSetsCommandOutput,
+  ListIPSetsCommandOutput
 } from "../commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput,
+  ListLoggingConfigurationsCommandOutput
 } from "../commands/ListLoggingConfigurationsCommand";
 import {
   ListRateBasedRulesCommandInput,
-  ListRateBasedRulesCommandOutput,
+  ListRateBasedRulesCommandOutput
 } from "../commands/ListRateBasedRulesCommand";
 import {
   ListRegexMatchSetsCommandInput,
-  ListRegexMatchSetsCommandOutput,
+  ListRegexMatchSetsCommandOutput
 } from "../commands/ListRegexMatchSetsCommand";
 import {
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput,
+  ListRegexPatternSetsCommandOutput
 } from "../commands/ListRegexPatternSetsCommand";
 import {
   ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput,
+  ListRuleGroupsCommandOutput
 } from "../commands/ListRuleGroupsCommand";
 import {
   ListRulesCommandInput,
-  ListRulesCommandOutput,
+  ListRulesCommandOutput
 } from "../commands/ListRulesCommand";
 import {
   ListSizeConstraintSetsCommandInput,
-  ListSizeConstraintSetsCommandOutput,
+  ListSizeConstraintSetsCommandOutput
 } from "../commands/ListSizeConstraintSetsCommand";
 import {
   ListSqlInjectionMatchSetsCommandInput,
-  ListSqlInjectionMatchSetsCommandOutput,
+  ListSqlInjectionMatchSetsCommandOutput
 } from "../commands/ListSqlInjectionMatchSetsCommand";
 import {
   ListSubscribedRuleGroupsCommandInput,
-  ListSubscribedRuleGroupsCommandOutput,
+  ListSubscribedRuleGroupsCommandOutput
 } from "../commands/ListSubscribedRuleGroupsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   ListWebACLsCommandInput,
-  ListWebACLsCommandOutput,
+  ListWebACLsCommandOutput
 } from "../commands/ListWebACLsCommand";
 import {
   ListXssMatchSetsCommandInput,
-  ListXssMatchSetsCommandOutput,
+  ListXssMatchSetsCommandOutput
 } from "../commands/ListXssMatchSetsCommand";
 import {
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput,
+  PutLoggingConfigurationCommandOutput
 } from "../commands/PutLoggingConfigurationCommand";
 import {
   PutPermissionPolicyCommandInput,
-  PutPermissionPolicyCommandOutput,
+  PutPermissionPolicyCommandOutput
 } from "../commands/PutPermissionPolicyCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateByteMatchSetCommandInput,
-  UpdateByteMatchSetCommandOutput,
+  UpdateByteMatchSetCommandOutput
 } from "../commands/UpdateByteMatchSetCommand";
 import {
   UpdateGeoMatchSetCommandInput,
-  UpdateGeoMatchSetCommandOutput,
+  UpdateGeoMatchSetCommandOutput
 } from "../commands/UpdateGeoMatchSetCommand";
 import {
   UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput,
+  UpdateIPSetCommandOutput
 } from "../commands/UpdateIPSetCommand";
 import {
   UpdateRateBasedRuleCommandInput,
-  UpdateRateBasedRuleCommandOutput,
+  UpdateRateBasedRuleCommandOutput
 } from "../commands/UpdateRateBasedRuleCommand";
 import {
   UpdateRegexMatchSetCommandInput,
-  UpdateRegexMatchSetCommandOutput,
+  UpdateRegexMatchSetCommandOutput
 } from "../commands/UpdateRegexMatchSetCommand";
 import {
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput,
+  UpdateRegexPatternSetCommandOutput
 } from "../commands/UpdateRegexPatternSetCommand";
 import {
   UpdateRuleCommandInput,
-  UpdateRuleCommandOutput,
+  UpdateRuleCommandOutput
 } from "../commands/UpdateRuleCommand";
 import {
   UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput,
+  UpdateRuleGroupCommandOutput
 } from "../commands/UpdateRuleGroupCommand";
 import {
   UpdateSizeConstraintSetCommandInput,
-  UpdateSizeConstraintSetCommandOutput,
+  UpdateSizeConstraintSetCommandOutput
 } from "../commands/UpdateSizeConstraintSetCommand";
 import {
   UpdateSqlInjectionMatchSetCommandInput,
-  UpdateSqlInjectionMatchSetCommandOutput,
+  UpdateSqlInjectionMatchSetCommandOutput
 } from "../commands/UpdateSqlInjectionMatchSetCommand";
 import {
   UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput,
+  UpdateWebACLCommandOutput
 } from "../commands/UpdateWebACLCommand";
 import {
   UpdateXssMatchSetCommandInput,
-  UpdateXssMatchSetCommandOutput,
+  UpdateXssMatchSetCommandOutput
 } from "../commands/UpdateXssMatchSetCommand";
 import {
   ActivatedRule,
@@ -527,18 +527,18 @@ import {
   XssMatchSet,
   XssMatchSetSummary,
   XssMatchSetUpdate,
-  XssMatchTuple,
+  XssMatchTuple
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateByteMatchSetCommand(
@@ -546,11 +546,14 @@ export async function serializeAws_json1_1CreateByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateByteMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateByteMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateByteMatchSetRequest: serializeAws_json1_1CreateByteMatchSetRequest(input, context),
+    CreateByteMatchSetRequest: serializeAws_json1_1CreateByteMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -559,7 +562,7 @@ export async function serializeAws_json1_1CreateByteMatchSetCommand(
     method: "POST",
     path: "/CreateByteMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -568,11 +571,14 @@ export async function serializeAws_json1_1CreateGeoMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateGeoMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateGeoMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateGeoMatchSetRequest: serializeAws_json1_1CreateGeoMatchSetRequest(input, context),
+    CreateGeoMatchSetRequest: serializeAws_json1_1CreateGeoMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -581,7 +587,7 @@ export async function serializeAws_json1_1CreateGeoMatchSetCommand(
     method: "POST",
     path: "/CreateGeoMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -590,11 +596,11 @@ export async function serializeAws_json1_1CreateIPSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateIPSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateIPSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateIPSetRequest: serializeAws_json1_1CreateIPSetRequest(input, context),
+    CreateIPSetRequest: serializeAws_json1_1CreateIPSetRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -603,7 +609,7 @@ export async function serializeAws_json1_1CreateIPSetCommand(
     method: "POST",
     path: "/CreateIPSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -612,11 +618,14 @@ export async function serializeAws_json1_1CreateRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateRateBasedRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRateBasedRule";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRateBasedRuleRequest: serializeAws_json1_1CreateRateBasedRuleRequest(input, context),
+    CreateRateBasedRuleRequest: serializeAws_json1_1CreateRateBasedRuleRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -625,7 +634,7 @@ export async function serializeAws_json1_1CreateRateBasedRuleCommand(
     method: "POST",
     path: "/CreateRateBasedRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -634,11 +643,14 @@ export async function serializeAws_json1_1CreateRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateRegexMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRegexMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRegexMatchSetRequest: serializeAws_json1_1CreateRegexMatchSetRequest(input, context),
+    CreateRegexMatchSetRequest: serializeAws_json1_1CreateRegexMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -647,7 +659,7 @@ export async function serializeAws_json1_1CreateRegexMatchSetCommand(
     method: "POST",
     path: "/CreateRegexMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -656,11 +668,14 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateRegexPatternSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRegexPatternSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRegexPatternSetRequest: serializeAws_json1_1CreateRegexPatternSetRequest(input, context),
+    CreateRegexPatternSetRequest: serializeAws_json1_1CreateRegexPatternSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -669,7 +684,7 @@ export async function serializeAws_json1_1CreateRegexPatternSetCommand(
     method: "POST",
     path: "/CreateRegexPatternSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -678,11 +693,11 @@ export async function serializeAws_json1_1CreateRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRule";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRuleRequest: serializeAws_json1_1CreateRuleRequest(input, context),
+    CreateRuleRequest: serializeAws_json1_1CreateRuleRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -691,7 +706,7 @@ export async function serializeAws_json1_1CreateRuleCommand(
     method: "POST",
     path: "/CreateRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -700,11 +715,14 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateRuleGroup";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateRuleGroup";
   let body: any = {};
   const wrappedBody: any = {
-    CreateRuleGroupRequest: serializeAws_json1_1CreateRuleGroupRequest(input, context),
+    CreateRuleGroupRequest: serializeAws_json1_1CreateRuleGroupRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -713,7 +731,7 @@ export async function serializeAws_json1_1CreateRuleGroupCommand(
     method: "POST",
     path: "/CreateRuleGroup",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -722,11 +740,14 @@ export async function serializeAws_json1_1CreateSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateSizeConstraintSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateSizeConstraintSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateSizeConstraintSetRequest: serializeAws_json1_1CreateSizeConstraintSetRequest(input, context),
+    CreateSizeConstraintSetRequest: serializeAws_json1_1CreateSizeConstraintSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -735,7 +756,7 @@ export async function serializeAws_json1_1CreateSizeConstraintSetCommand(
     method: "POST",
     path: "/CreateSizeConstraintSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -744,11 +765,14 @@ export async function serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateSqlInjectionMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateSqlInjectionMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateSqlInjectionMatchSetRequest: serializeAws_json1_1CreateSqlInjectionMatchSetRequest(input, context),
+    CreateSqlInjectionMatchSetRequest: serializeAws_json1_1CreateSqlInjectionMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -757,7 +781,7 @@ export async function serializeAws_json1_1CreateSqlInjectionMatchSetCommand(
     method: "POST",
     path: "/CreateSqlInjectionMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -766,11 +790,11 @@ export async function serializeAws_json1_1CreateWebACLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateWebACL";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateWebACL";
   let body: any = {};
   const wrappedBody: any = {
-    CreateWebACLRequest: serializeAws_json1_1CreateWebACLRequest(input, context),
+    CreateWebACLRequest: serializeAws_json1_1CreateWebACLRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -779,7 +803,7 @@ export async function serializeAws_json1_1CreateWebACLCommand(
     method: "POST",
     path: "/CreateWebACL",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -788,11 +812,14 @@ export async function serializeAws_json1_1CreateXssMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.CreateXssMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.CreateXssMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    CreateXssMatchSetRequest: serializeAws_json1_1CreateXssMatchSetRequest(input, context),
+    CreateXssMatchSetRequest: serializeAws_json1_1CreateXssMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -801,7 +828,7 @@ export async function serializeAws_json1_1CreateXssMatchSetCommand(
     method: "POST",
     path: "/CreateXssMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -810,11 +837,14 @@ export async function serializeAws_json1_1DeleteByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteByteMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteByteMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteByteMatchSetRequest: serializeAws_json1_1DeleteByteMatchSetRequest(input, context),
+    DeleteByteMatchSetRequest: serializeAws_json1_1DeleteByteMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -823,7 +853,7 @@ export async function serializeAws_json1_1DeleteByteMatchSetCommand(
     method: "POST",
     path: "/DeleteByteMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -832,11 +862,14 @@ export async function serializeAws_json1_1DeleteGeoMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteGeoMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteGeoMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteGeoMatchSetRequest: serializeAws_json1_1DeleteGeoMatchSetRequest(input, context),
+    DeleteGeoMatchSetRequest: serializeAws_json1_1DeleteGeoMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -845,7 +878,7 @@ export async function serializeAws_json1_1DeleteGeoMatchSetCommand(
     method: "POST",
     path: "/DeleteGeoMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -854,11 +887,11 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteIPSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteIPSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteIPSetRequest: serializeAws_json1_1DeleteIPSetRequest(input, context),
+    DeleteIPSetRequest: serializeAws_json1_1DeleteIPSetRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -867,7 +900,7 @@ export async function serializeAws_json1_1DeleteIPSetCommand(
     method: "POST",
     path: "/DeleteIPSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -876,11 +909,14 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteLoggingConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteLoggingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteLoggingConfigurationRequest: serializeAws_json1_1DeleteLoggingConfigurationRequest(input, context),
+    DeleteLoggingConfigurationRequest: serializeAws_json1_1DeleteLoggingConfigurationRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -889,7 +925,7 @@ export async function serializeAws_json1_1DeleteLoggingConfigurationCommand(
     method: "POST",
     path: "/DeleteLoggingConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -898,11 +934,14 @@ export async function serializeAws_json1_1DeletePermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeletePermissionPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeletePermissionPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    DeletePermissionPolicyRequest: serializeAws_json1_1DeletePermissionPolicyRequest(input, context),
+    DeletePermissionPolicyRequest: serializeAws_json1_1DeletePermissionPolicyRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -911,7 +950,7 @@ export async function serializeAws_json1_1DeletePermissionPolicyCommand(
     method: "POST",
     path: "/DeletePermissionPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -920,11 +959,14 @@ export async function serializeAws_json1_1DeleteRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteRateBasedRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRateBasedRule";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRateBasedRuleRequest: serializeAws_json1_1DeleteRateBasedRuleRequest(input, context),
+    DeleteRateBasedRuleRequest: serializeAws_json1_1DeleteRateBasedRuleRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -933,7 +975,7 @@ export async function serializeAws_json1_1DeleteRateBasedRuleCommand(
     method: "POST",
     path: "/DeleteRateBasedRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -942,11 +984,14 @@ export async function serializeAws_json1_1DeleteRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteRegexMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRegexMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRegexMatchSetRequest: serializeAws_json1_1DeleteRegexMatchSetRequest(input, context),
+    DeleteRegexMatchSetRequest: serializeAws_json1_1DeleteRegexMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -955,7 +1000,7 @@ export async function serializeAws_json1_1DeleteRegexMatchSetCommand(
     method: "POST",
     path: "/DeleteRegexMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -964,11 +1009,14 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteRegexPatternSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRegexPatternSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRegexPatternSetRequest: serializeAws_json1_1DeleteRegexPatternSetRequest(input, context),
+    DeleteRegexPatternSetRequest: serializeAws_json1_1DeleteRegexPatternSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -977,7 +1025,7 @@ export async function serializeAws_json1_1DeleteRegexPatternSetCommand(
     method: "POST",
     path: "/DeleteRegexPatternSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -986,11 +1034,11 @@ export async function serializeAws_json1_1DeleteRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRule";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRuleRequest: serializeAws_json1_1DeleteRuleRequest(input, context),
+    DeleteRuleRequest: serializeAws_json1_1DeleteRuleRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -999,7 +1047,7 @@ export async function serializeAws_json1_1DeleteRuleCommand(
     method: "POST",
     path: "/DeleteRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1008,11 +1056,14 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteRuleGroup";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteRuleGroup";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteRuleGroupRequest: serializeAws_json1_1DeleteRuleGroupRequest(input, context),
+    DeleteRuleGroupRequest: serializeAws_json1_1DeleteRuleGroupRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1021,7 +1072,7 @@ export async function serializeAws_json1_1DeleteRuleGroupCommand(
     method: "POST",
     path: "/DeleteRuleGroup",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1030,11 +1081,14 @@ export async function serializeAws_json1_1DeleteSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteSizeConstraintSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteSizeConstraintSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteSizeConstraintSetRequest: serializeAws_json1_1DeleteSizeConstraintSetRequest(input, context),
+    DeleteSizeConstraintSetRequest: serializeAws_json1_1DeleteSizeConstraintSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1043,7 +1097,7 @@ export async function serializeAws_json1_1DeleteSizeConstraintSetCommand(
     method: "POST",
     path: "/DeleteSizeConstraintSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1052,11 +1106,14 @@ export async function serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteSqlInjectionMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteSqlInjectionMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteSqlInjectionMatchSetRequest: serializeAws_json1_1DeleteSqlInjectionMatchSetRequest(input, context),
+    DeleteSqlInjectionMatchSetRequest: serializeAws_json1_1DeleteSqlInjectionMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1065,7 +1122,7 @@ export async function serializeAws_json1_1DeleteSqlInjectionMatchSetCommand(
     method: "POST",
     path: "/DeleteSqlInjectionMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1074,11 +1131,11 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteWebACL";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteWebACL";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteWebACLRequest: serializeAws_json1_1DeleteWebACLRequest(input, context),
+    DeleteWebACLRequest: serializeAws_json1_1DeleteWebACLRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1087,7 +1144,7 @@ export async function serializeAws_json1_1DeleteWebACLCommand(
     method: "POST",
     path: "/DeleteWebACL",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1096,11 +1153,14 @@ export async function serializeAws_json1_1DeleteXssMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.DeleteXssMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.DeleteXssMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteXssMatchSetRequest: serializeAws_json1_1DeleteXssMatchSetRequest(input, context),
+    DeleteXssMatchSetRequest: serializeAws_json1_1DeleteXssMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1109,7 +1169,7 @@ export async function serializeAws_json1_1DeleteXssMatchSetCommand(
     method: "POST",
     path: "/DeleteXssMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1118,11 +1178,14 @@ export async function serializeAws_json1_1GetByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetByteMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetByteMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetByteMatchSetRequest: serializeAws_json1_1GetByteMatchSetRequest(input, context),
+    GetByteMatchSetRequest: serializeAws_json1_1GetByteMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1131,7 +1194,7 @@ export async function serializeAws_json1_1GetByteMatchSetCommand(
     method: "POST",
     path: "/GetByteMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1140,11 +1203,14 @@ export async function serializeAws_json1_1GetChangeTokenCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetChangeToken";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetChangeToken";
   let body: any = {};
   const wrappedBody: any = {
-    GetChangeTokenRequest: serializeAws_json1_1GetChangeTokenRequest(input, context),
+    GetChangeTokenRequest: serializeAws_json1_1GetChangeTokenRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1153,7 +1219,7 @@ export async function serializeAws_json1_1GetChangeTokenCommand(
     method: "POST",
     path: "/GetChangeToken",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1162,11 +1228,14 @@ export async function serializeAws_json1_1GetChangeTokenStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetChangeTokenStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetChangeTokenStatus";
   let body: any = {};
   const wrappedBody: any = {
-    GetChangeTokenStatusRequest: serializeAws_json1_1GetChangeTokenStatusRequest(input, context),
+    GetChangeTokenStatusRequest: serializeAws_json1_1GetChangeTokenStatusRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1175,7 +1244,7 @@ export async function serializeAws_json1_1GetChangeTokenStatusCommand(
     method: "POST",
     path: "/GetChangeTokenStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1184,11 +1253,14 @@ export async function serializeAws_json1_1GetGeoMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetGeoMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetGeoMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetGeoMatchSetRequest: serializeAws_json1_1GetGeoMatchSetRequest(input, context),
+    GetGeoMatchSetRequest: serializeAws_json1_1GetGeoMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1197,7 +1269,7 @@ export async function serializeAws_json1_1GetGeoMatchSetCommand(
     method: "POST",
     path: "/GetGeoMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1206,11 +1278,11 @@ export async function serializeAws_json1_1GetIPSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetIPSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetIPSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetIPSetRequest: serializeAws_json1_1GetIPSetRequest(input, context),
+    GetIPSetRequest: serializeAws_json1_1GetIPSetRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1219,7 +1291,7 @@ export async function serializeAws_json1_1GetIPSetCommand(
     method: "POST",
     path: "/GetIPSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1228,11 +1300,14 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetLoggingConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetLoggingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    GetLoggingConfigurationRequest: serializeAws_json1_1GetLoggingConfigurationRequest(input, context),
+    GetLoggingConfigurationRequest: serializeAws_json1_1GetLoggingConfigurationRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1241,7 +1316,7 @@ export async function serializeAws_json1_1GetLoggingConfigurationCommand(
     method: "POST",
     path: "/GetLoggingConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1250,11 +1325,14 @@ export async function serializeAws_json1_1GetPermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetPermissionPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetPermissionPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    GetPermissionPolicyRequest: serializeAws_json1_1GetPermissionPolicyRequest(input, context),
+    GetPermissionPolicyRequest: serializeAws_json1_1GetPermissionPolicyRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1263,7 +1341,7 @@ export async function serializeAws_json1_1GetPermissionPolicyCommand(
     method: "POST",
     path: "/GetPermissionPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1272,11 +1350,14 @@ export async function serializeAws_json1_1GetRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRateBasedRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRateBasedRule";
   let body: any = {};
   const wrappedBody: any = {
-    GetRateBasedRuleRequest: serializeAws_json1_1GetRateBasedRuleRequest(input, context),
+    GetRateBasedRuleRequest: serializeAws_json1_1GetRateBasedRuleRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1285,7 +1366,7 @@ export async function serializeAws_json1_1GetRateBasedRuleCommand(
     method: "POST",
     path: "/GetRateBasedRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1294,11 +1375,14 @@ export async function serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRateBasedRuleManagedKeys";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRateBasedRuleManagedKeys";
   let body: any = {};
   const wrappedBody: any = {
-    GetRateBasedRuleManagedKeysRequest: serializeAws_json1_1GetRateBasedRuleManagedKeysRequest(input, context),
+    GetRateBasedRuleManagedKeysRequest: serializeAws_json1_1GetRateBasedRuleManagedKeysRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1307,7 +1391,7 @@ export async function serializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
     method: "POST",
     path: "/GetRateBasedRuleManagedKeys",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1316,11 +1400,14 @@ export async function serializeAws_json1_1GetRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRegexMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRegexMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetRegexMatchSetRequest: serializeAws_json1_1GetRegexMatchSetRequest(input, context),
+    GetRegexMatchSetRequest: serializeAws_json1_1GetRegexMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1329,7 +1416,7 @@ export async function serializeAws_json1_1GetRegexMatchSetCommand(
     method: "POST",
     path: "/GetRegexMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1338,11 +1425,14 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRegexPatternSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRegexPatternSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetRegexPatternSetRequest: serializeAws_json1_1GetRegexPatternSetRequest(input, context),
+    GetRegexPatternSetRequest: serializeAws_json1_1GetRegexPatternSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1351,7 +1441,7 @@ export async function serializeAws_json1_1GetRegexPatternSetCommand(
     method: "POST",
     path: "/GetRegexPatternSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1360,11 +1450,11 @@ export async function serializeAws_json1_1GetRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRule";
   let body: any = {};
   const wrappedBody: any = {
-    GetRuleRequest: serializeAws_json1_1GetRuleRequest(input, context),
+    GetRuleRequest: serializeAws_json1_1GetRuleRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1373,7 +1463,7 @@ export async function serializeAws_json1_1GetRuleCommand(
     method: "POST",
     path: "/GetRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1382,11 +1472,11 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetRuleGroup";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetRuleGroup";
   let body: any = {};
   const wrappedBody: any = {
-    GetRuleGroupRequest: serializeAws_json1_1GetRuleGroupRequest(input, context),
+    GetRuleGroupRequest: serializeAws_json1_1GetRuleGroupRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1395,7 +1485,7 @@ export async function serializeAws_json1_1GetRuleGroupCommand(
     method: "POST",
     path: "/GetRuleGroup",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1404,11 +1494,14 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetSampledRequests";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetSampledRequests";
   let body: any = {};
   const wrappedBody: any = {
-    GetSampledRequestsRequest: serializeAws_json1_1GetSampledRequestsRequest(input, context),
+    GetSampledRequestsRequest: serializeAws_json1_1GetSampledRequestsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1417,7 +1510,7 @@ export async function serializeAws_json1_1GetSampledRequestsCommand(
     method: "POST",
     path: "/GetSampledRequests",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1426,11 +1519,14 @@ export async function serializeAws_json1_1GetSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetSizeConstraintSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetSizeConstraintSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetSizeConstraintSetRequest: serializeAws_json1_1GetSizeConstraintSetRequest(input, context),
+    GetSizeConstraintSetRequest: serializeAws_json1_1GetSizeConstraintSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1439,7 +1535,7 @@ export async function serializeAws_json1_1GetSizeConstraintSetCommand(
     method: "POST",
     path: "/GetSizeConstraintSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1448,11 +1544,14 @@ export async function serializeAws_json1_1GetSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetSqlInjectionMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetSqlInjectionMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetSqlInjectionMatchSetRequest: serializeAws_json1_1GetSqlInjectionMatchSetRequest(input, context),
+    GetSqlInjectionMatchSetRequest: serializeAws_json1_1GetSqlInjectionMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1461,7 +1560,7 @@ export async function serializeAws_json1_1GetSqlInjectionMatchSetCommand(
     method: "POST",
     path: "/GetSqlInjectionMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1470,11 +1569,11 @@ export async function serializeAws_json1_1GetWebACLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetWebACL";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetWebACL";
   let body: any = {};
   const wrappedBody: any = {
-    GetWebACLRequest: serializeAws_json1_1GetWebACLRequest(input, context),
+    GetWebACLRequest: serializeAws_json1_1GetWebACLRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1483,7 +1582,7 @@ export async function serializeAws_json1_1GetWebACLCommand(
     method: "POST",
     path: "/GetWebACL",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1492,11 +1591,14 @@ export async function serializeAws_json1_1GetXssMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.GetXssMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.GetXssMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    GetXssMatchSetRequest: serializeAws_json1_1GetXssMatchSetRequest(input, context),
+    GetXssMatchSetRequest: serializeAws_json1_1GetXssMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1505,7 +1607,7 @@ export async function serializeAws_json1_1GetXssMatchSetCommand(
     method: "POST",
     path: "/GetXssMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1514,11 +1616,14 @@ export async function serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListActivatedRulesInRuleGroup";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListActivatedRulesInRuleGroup";
   let body: any = {};
   const wrappedBody: any = {
-    ListActivatedRulesInRuleGroupRequest: serializeAws_json1_1ListActivatedRulesInRuleGroupRequest(input, context),
+    ListActivatedRulesInRuleGroupRequest: serializeAws_json1_1ListActivatedRulesInRuleGroupRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1527,7 +1632,7 @@ export async function serializeAws_json1_1ListActivatedRulesInRuleGroupCommand(
     method: "POST",
     path: "/ListActivatedRulesInRuleGroup",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1536,11 +1641,14 @@ export async function serializeAws_json1_1ListByteMatchSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListByteMatchSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListByteMatchSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListByteMatchSetsRequest: serializeAws_json1_1ListByteMatchSetsRequest(input, context),
+    ListByteMatchSetsRequest: serializeAws_json1_1ListByteMatchSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1549,7 +1657,7 @@ export async function serializeAws_json1_1ListByteMatchSetsCommand(
     method: "POST",
     path: "/ListByteMatchSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1558,11 +1666,14 @@ export async function serializeAws_json1_1ListGeoMatchSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListGeoMatchSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListGeoMatchSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListGeoMatchSetsRequest: serializeAws_json1_1ListGeoMatchSetsRequest(input, context),
+    ListGeoMatchSetsRequest: serializeAws_json1_1ListGeoMatchSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1571,7 +1682,7 @@ export async function serializeAws_json1_1ListGeoMatchSetsCommand(
     method: "POST",
     path: "/ListGeoMatchSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1580,11 +1691,11 @@ export async function serializeAws_json1_1ListIPSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListIPSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListIPSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListIPSetsRequest: serializeAws_json1_1ListIPSetsRequest(input, context),
+    ListIPSetsRequest: serializeAws_json1_1ListIPSetsRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1593,7 +1704,7 @@ export async function serializeAws_json1_1ListIPSetsCommand(
     method: "POST",
     path: "/ListIPSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1602,11 +1713,14 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListLoggingConfigurations";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListLoggingConfigurations";
   let body: any = {};
   const wrappedBody: any = {
-    ListLoggingConfigurationsRequest: serializeAws_json1_1ListLoggingConfigurationsRequest(input, context),
+    ListLoggingConfigurationsRequest: serializeAws_json1_1ListLoggingConfigurationsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1615,7 +1729,7 @@ export async function serializeAws_json1_1ListLoggingConfigurationsCommand(
     method: "POST",
     path: "/ListLoggingConfigurations",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1624,11 +1738,14 @@ export async function serializeAws_json1_1ListRateBasedRulesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListRateBasedRules";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListRateBasedRules";
   let body: any = {};
   const wrappedBody: any = {
-    ListRateBasedRulesRequest: serializeAws_json1_1ListRateBasedRulesRequest(input, context),
+    ListRateBasedRulesRequest: serializeAws_json1_1ListRateBasedRulesRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1637,7 +1754,7 @@ export async function serializeAws_json1_1ListRateBasedRulesCommand(
     method: "POST",
     path: "/ListRateBasedRules",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1646,11 +1763,14 @@ export async function serializeAws_json1_1ListRegexMatchSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListRegexMatchSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListRegexMatchSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListRegexMatchSetsRequest: serializeAws_json1_1ListRegexMatchSetsRequest(input, context),
+    ListRegexMatchSetsRequest: serializeAws_json1_1ListRegexMatchSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1659,7 +1779,7 @@ export async function serializeAws_json1_1ListRegexMatchSetsCommand(
     method: "POST",
     path: "/ListRegexMatchSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1668,11 +1788,14 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListRegexPatternSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListRegexPatternSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListRegexPatternSetsRequest: serializeAws_json1_1ListRegexPatternSetsRequest(input, context),
+    ListRegexPatternSetsRequest: serializeAws_json1_1ListRegexPatternSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1681,7 +1804,7 @@ export async function serializeAws_json1_1ListRegexPatternSetsCommand(
     method: "POST",
     path: "/ListRegexPatternSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1690,11 +1813,14 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListRuleGroups";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListRuleGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ListRuleGroupsRequest: serializeAws_json1_1ListRuleGroupsRequest(input, context),
+    ListRuleGroupsRequest: serializeAws_json1_1ListRuleGroupsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1703,7 +1829,7 @@ export async function serializeAws_json1_1ListRuleGroupsCommand(
     method: "POST",
     path: "/ListRuleGroups",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1712,11 +1838,11 @@ export async function serializeAws_json1_1ListRulesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListRules";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListRules";
   let body: any = {};
   const wrappedBody: any = {
-    ListRulesRequest: serializeAws_json1_1ListRulesRequest(input, context),
+    ListRulesRequest: serializeAws_json1_1ListRulesRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1725,7 +1851,7 @@ export async function serializeAws_json1_1ListRulesCommand(
     method: "POST",
     path: "/ListRules",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1734,11 +1860,14 @@ export async function serializeAws_json1_1ListSizeConstraintSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListSizeConstraintSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListSizeConstraintSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListSizeConstraintSetsRequest: serializeAws_json1_1ListSizeConstraintSetsRequest(input, context),
+    ListSizeConstraintSetsRequest: serializeAws_json1_1ListSizeConstraintSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1747,7 +1876,7 @@ export async function serializeAws_json1_1ListSizeConstraintSetsCommand(
     method: "POST",
     path: "/ListSizeConstraintSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1756,11 +1885,14 @@ export async function serializeAws_json1_1ListSqlInjectionMatchSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListSqlInjectionMatchSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListSqlInjectionMatchSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListSqlInjectionMatchSetsRequest: serializeAws_json1_1ListSqlInjectionMatchSetsRequest(input, context),
+    ListSqlInjectionMatchSetsRequest: serializeAws_json1_1ListSqlInjectionMatchSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1769,7 +1901,7 @@ export async function serializeAws_json1_1ListSqlInjectionMatchSetsCommand(
     method: "POST",
     path: "/ListSqlInjectionMatchSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1778,11 +1910,14 @@ export async function serializeAws_json1_1ListSubscribedRuleGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListSubscribedRuleGroups";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListSubscribedRuleGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ListSubscribedRuleGroupsRequest: serializeAws_json1_1ListSubscribedRuleGroupsRequest(input, context),
+    ListSubscribedRuleGroupsRequest: serializeAws_json1_1ListSubscribedRuleGroupsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1791,7 +1926,7 @@ export async function serializeAws_json1_1ListSubscribedRuleGroupsCommand(
     method: "POST",
     path: "/ListSubscribedRuleGroups",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1800,11 +1935,14 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListTagsForResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1813,7 +1951,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1822,11 +1960,11 @@ export async function serializeAws_json1_1ListWebACLsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListWebACLs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListWebACLs";
   let body: any = {};
   const wrappedBody: any = {
-    ListWebACLsRequest: serializeAws_json1_1ListWebACLsRequest(input, context),
+    ListWebACLsRequest: serializeAws_json1_1ListWebACLsRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1835,7 +1973,7 @@ export async function serializeAws_json1_1ListWebACLsCommand(
     method: "POST",
     path: "/ListWebACLs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1844,11 +1982,14 @@ export async function serializeAws_json1_1ListXssMatchSetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.ListXssMatchSets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.ListXssMatchSets";
   let body: any = {};
   const wrappedBody: any = {
-    ListXssMatchSetsRequest: serializeAws_json1_1ListXssMatchSetsRequest(input, context),
+    ListXssMatchSetsRequest: serializeAws_json1_1ListXssMatchSetsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1857,7 +1998,7 @@ export async function serializeAws_json1_1ListXssMatchSetsCommand(
     method: "POST",
     path: "/ListXssMatchSets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1866,11 +2007,14 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.PutLoggingConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.PutLoggingConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    PutLoggingConfigurationRequest: serializeAws_json1_1PutLoggingConfigurationRequest(input, context),
+    PutLoggingConfigurationRequest: serializeAws_json1_1PutLoggingConfigurationRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1879,7 +2023,7 @@ export async function serializeAws_json1_1PutLoggingConfigurationCommand(
     method: "POST",
     path: "/PutLoggingConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1888,11 +2032,14 @@ export async function serializeAws_json1_1PutPermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.PutPermissionPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.PutPermissionPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    PutPermissionPolicyRequest: serializeAws_json1_1PutPermissionPolicyRequest(input, context),
+    PutPermissionPolicyRequest: serializeAws_json1_1PutPermissionPolicyRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1901,7 +2048,7 @@ export async function serializeAws_json1_1PutPermissionPolicyCommand(
     method: "POST",
     path: "/PutPermissionPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1910,11 +2057,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.TagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context),
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1923,7 +2070,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1932,11 +2079,14 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UntagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(input, context),
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1945,7 +2095,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1954,11 +2104,14 @@ export async function serializeAws_json1_1UpdateByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateByteMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateByteMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateByteMatchSetRequest: serializeAws_json1_1UpdateByteMatchSetRequest(input, context),
+    UpdateByteMatchSetRequest: serializeAws_json1_1UpdateByteMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1967,7 +2120,7 @@ export async function serializeAws_json1_1UpdateByteMatchSetCommand(
     method: "POST",
     path: "/UpdateByteMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1976,11 +2129,14 @@ export async function serializeAws_json1_1UpdateGeoMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateGeoMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateGeoMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateGeoMatchSetRequest: serializeAws_json1_1UpdateGeoMatchSetRequest(input, context),
+    UpdateGeoMatchSetRequest: serializeAws_json1_1UpdateGeoMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1989,7 +2145,7 @@ export async function serializeAws_json1_1UpdateGeoMatchSetCommand(
     method: "POST",
     path: "/UpdateGeoMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1998,11 +2154,11 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateIPSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateIPSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateIPSetRequest: serializeAws_json1_1UpdateIPSetRequest(input, context),
+    UpdateIPSetRequest: serializeAws_json1_1UpdateIPSetRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2011,7 +2167,7 @@ export async function serializeAws_json1_1UpdateIPSetCommand(
     method: "POST",
     path: "/UpdateIPSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2020,11 +2176,14 @@ export async function serializeAws_json1_1UpdateRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateRateBasedRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRateBasedRule";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRateBasedRuleRequest: serializeAws_json1_1UpdateRateBasedRuleRequest(input, context),
+    UpdateRateBasedRuleRequest: serializeAws_json1_1UpdateRateBasedRuleRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2033,7 +2192,7 @@ export async function serializeAws_json1_1UpdateRateBasedRuleCommand(
     method: "POST",
     path: "/UpdateRateBasedRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2042,11 +2201,14 @@ export async function serializeAws_json1_1UpdateRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateRegexMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRegexMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRegexMatchSetRequest: serializeAws_json1_1UpdateRegexMatchSetRequest(input, context),
+    UpdateRegexMatchSetRequest: serializeAws_json1_1UpdateRegexMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2055,7 +2217,7 @@ export async function serializeAws_json1_1UpdateRegexMatchSetCommand(
     method: "POST",
     path: "/UpdateRegexMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2064,11 +2226,14 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateRegexPatternSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRegexPatternSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRegexPatternSetRequest: serializeAws_json1_1UpdateRegexPatternSetRequest(input, context),
+    UpdateRegexPatternSetRequest: serializeAws_json1_1UpdateRegexPatternSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2077,7 +2242,7 @@ export async function serializeAws_json1_1UpdateRegexPatternSetCommand(
     method: "POST",
     path: "/UpdateRegexPatternSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2086,11 +2251,11 @@ export async function serializeAws_json1_1UpdateRuleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateRule";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRule";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRuleRequest: serializeAws_json1_1UpdateRuleRequest(input, context),
+    UpdateRuleRequest: serializeAws_json1_1UpdateRuleRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2099,7 +2264,7 @@ export async function serializeAws_json1_1UpdateRuleCommand(
     method: "POST",
     path: "/UpdateRule",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2108,11 +2273,14 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateRuleGroup";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateRuleGroup";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateRuleGroupRequest: serializeAws_json1_1UpdateRuleGroupRequest(input, context),
+    UpdateRuleGroupRequest: serializeAws_json1_1UpdateRuleGroupRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2121,7 +2289,7 @@ export async function serializeAws_json1_1UpdateRuleGroupCommand(
     method: "POST",
     path: "/UpdateRuleGroup",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2130,11 +2298,14 @@ export async function serializeAws_json1_1UpdateSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateSizeConstraintSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateSizeConstraintSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateSizeConstraintSetRequest: serializeAws_json1_1UpdateSizeConstraintSetRequest(input, context),
+    UpdateSizeConstraintSetRequest: serializeAws_json1_1UpdateSizeConstraintSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2143,7 +2314,7 @@ export async function serializeAws_json1_1UpdateSizeConstraintSetCommand(
     method: "POST",
     path: "/UpdateSizeConstraintSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2152,11 +2323,14 @@ export async function serializeAws_json1_1UpdateSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateSqlInjectionMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateSqlInjectionMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateSqlInjectionMatchSetRequest: serializeAws_json1_1UpdateSqlInjectionMatchSetRequest(input, context),
+    UpdateSqlInjectionMatchSetRequest: serializeAws_json1_1UpdateSqlInjectionMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2165,7 +2339,7 @@ export async function serializeAws_json1_1UpdateSqlInjectionMatchSetCommand(
     method: "POST",
     path: "/UpdateSqlInjectionMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2174,11 +2348,11 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateWebACL";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateWebACL";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateWebACLRequest: serializeAws_json1_1UpdateWebACLRequest(input, context),
+    UpdateWebACLRequest: serializeAws_json1_1UpdateWebACLRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2187,7 +2361,7 @@ export async function serializeAws_json1_1UpdateWebACLCommand(
     method: "POST",
     path: "/UpdateWebACL",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2196,11 +2370,14 @@ export async function serializeAws_json1_1UpdateXssMatchSetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSWAF_20150824.UpdateXssMatchSet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSWAF_20150824.UpdateXssMatchSet";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateXssMatchSetRequest: serializeAws_json1_1UpdateXssMatchSetRequest(input, context),
+    UpdateXssMatchSetRequest: serializeAws_json1_1UpdateXssMatchSetRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -2209,7 +2386,7 @@ export async function serializeAws_json1_1UpdateXssMatchSetCommand(
     method: "POST",
     path: "/UpdateXssMatchSet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -2218,62 +2395,84 @@ export async function deserializeAws_json1_1CreateByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<CreateByteMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateByteMatchSetCommandError(output, context);
+    return deserializeAws_json1_1CreateByteMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateByteMatchSetResponse(data, context);
   const response: CreateByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateByteMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateByteMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateByteMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2286,60 +2485,79 @@ export async function deserializeAws_json1_1CreateGeoMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateGeoMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateGeoMatchSetResponse(data, context);
   const response: CreateGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGeoMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateGeoMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateGeoMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2352,60 +2570,79 @@ export async function deserializeAws_json1_1CreateIPSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateIPSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateIPSetResponse(data, context);
   const response: CreateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateIPSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateIPSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateIPSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2416,70 +2653,98 @@ export async function deserializeAws_json1_1CreateRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<CreateRateBasedRuleCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRateBasedRuleCommandError(output, context);
+    return deserializeAws_json1_1CreateRateBasedRuleCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRateBasedRuleResponse(data, context);
   const response: CreateRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRateBasedRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRateBasedRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateRateBasedRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2490,54 +2755,70 @@ export async function deserializeAws_json1_1CreateRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<CreateRegexMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRegexMatchSetCommandError(output, context);
+    return deserializeAws_json1_1CreateRegexMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRegexMatchSetResponse(data, context);
   const response: CreateRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRegexMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRegexMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateRegexMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2548,54 +2829,70 @@ export async function deserializeAws_json1_1CreateRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<CreateRegexPatternSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateRegexPatternSetCommandError(output, context);
+    return deserializeAws_json1_1CreateRegexPatternSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRegexPatternSetResponse(data, context);
   const response: CreateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRegexPatternSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRegexPatternSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateRegexPatternSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2608,68 +2905,93 @@ export async function deserializeAws_json1_1CreateRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateRuleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRuleResponse(data, context);
   const response: CreateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2682,64 +3004,86 @@ export async function deserializeAws_json1_1CreateRuleGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateRuleGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateRuleGroupResponse(data, context);
   const response: CreateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateRuleGroupResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateRuleGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateRuleGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2750,62 +3094,87 @@ export async function deserializeAws_json1_1CreateSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<CreateSizeConstraintSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSizeConstraintSetCommandError(output, context);
+    return deserializeAws_json1_1CreateSizeConstraintSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSizeConstraintSetResponse(data, context);
+  contents = deserializeAws_json1_1CreateSizeConstraintSetResponse(
+    data,
+    context
+  );
   const response: CreateSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSizeConstraintSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateSizeConstraintSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateSizeConstraintSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2816,62 +3185,87 @@ export async function deserializeAws_json1_1CreateSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<CreateSqlInjectionMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(output, context);
+    return deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSqlInjectionMatchSetResponse(data, context);
+  contents = deserializeAws_json1_1CreateSqlInjectionMatchSetResponse(
+    data,
+    context
+  );
   const response: CreateSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSqlInjectionMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateSqlInjectionMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2884,72 +3278,100 @@ export async function deserializeAws_json1_1CreateWebACLCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateWebACLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateWebACLResponse(data, context);
   const response: CreateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateWebACLResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateWebACLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateWebACLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2962,60 +3384,79 @@ export async function deserializeAws_json1_1CreateXssMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateXssMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateXssMatchSetResponse(data, context);
   const response: CreateXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateXssMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateXssMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateXssMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3026,62 +3467,84 @@ export async function deserializeAws_json1_1DeleteByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<DeleteByteMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteByteMatchSetCommandError(output, context);
+    return deserializeAws_json1_1DeleteByteMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteByteMatchSetResponse(data, context);
   const response: DeleteByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteByteMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteByteMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteByteMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3094,60 +3557,79 @@ export async function deserializeAws_json1_1DeleteGeoMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteGeoMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteGeoMatchSetResponse(data, context);
   const response: DeleteGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteGeoMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteGeoMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteGeoMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3160,60 +3642,79 @@ export async function deserializeAws_json1_1DeleteIPSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteIPSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteIPSetResponse(data, context);
   const response: DeleteIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteIPSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteIPSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteIPSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3224,50 +3725,66 @@ export async function deserializeAws_json1_1DeleteLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<DeleteLoggingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteLoggingConfigurationCommandError(output, context);
+    return deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteLoggingConfigurationResponse(data, context);
+  contents = deserializeAws_json1_1DeleteLoggingConfigurationResponse(
+    data,
+    context
+  );
   const response: DeleteLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLoggingConfigurationResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteLoggingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteLoggingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3278,50 +3795,66 @@ export async function deserializeAws_json1_1DeletePermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<DeletePermissionPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeletePermissionPolicyCommandError(output, context);
+    return deserializeAws_json1_1DeletePermissionPolicyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeletePermissionPolicyResponse(data, context);
+  contents = deserializeAws_json1_1DeletePermissionPolicyResponse(
+    data,
+    context
+  );
   const response: DeletePermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeletePermissionPolicyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeletePermissionPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePermissionPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3332,70 +3865,98 @@ export async function deserializeAws_json1_1DeleteRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<DeleteRateBasedRuleCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRateBasedRuleCommandError(output, context);
+    return deserializeAws_json1_1DeleteRateBasedRuleCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRateBasedRuleResponse(data, context);
   const response: DeleteRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRateBasedRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRateBasedRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteRateBasedRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3406,62 +3967,84 @@ export async function deserializeAws_json1_1DeleteRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<DeleteRegexMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRegexMatchSetCommandError(output, context);
+    return deserializeAws_json1_1DeleteRegexMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRegexMatchSetResponse(data, context);
   const response: DeleteRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRegexMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRegexMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteRegexMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3472,62 +4055,84 @@ export async function deserializeAws_json1_1DeleteRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<DeleteRegexPatternSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteRegexPatternSetCommandError(output, context);
+    return deserializeAws_json1_1DeleteRegexPatternSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRegexPatternSetResponse(data, context);
   const response: DeleteRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRegexPatternSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRegexPatternSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteRegexPatternSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3540,68 +4145,93 @@ export async function deserializeAws_json1_1DeleteRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRuleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRuleResponse(data, context);
   const response: DeleteRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3614,68 +4244,93 @@ export async function deserializeAws_json1_1DeleteRuleGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteRuleGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteRuleGroupResponse(data, context);
   const response: DeleteRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteRuleGroupResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteRuleGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteRuleGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3686,62 +4341,87 @@ export async function deserializeAws_json1_1DeleteSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<DeleteSizeConstraintSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSizeConstraintSetCommandError(output, context);
+    return deserializeAws_json1_1DeleteSizeConstraintSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSizeConstraintSetResponse(data, context);
+  contents = deserializeAws_json1_1DeleteSizeConstraintSetResponse(
+    data,
+    context
+  );
   const response: DeleteSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSizeConstraintSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteSizeConstraintSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteSizeConstraintSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3752,62 +4432,87 @@ export async function deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<DeleteSqlInjectionMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(output, context);
+    return deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse(data, context);
+  contents = deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse(
+    data,
+    context
+  );
   const response: DeleteSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSqlInjectionMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteSqlInjectionMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3820,68 +4525,93 @@ export async function deserializeAws_json1_1DeleteWebACLCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteWebACLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteWebACLResponse(data, context);
   const response: DeleteWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebACLResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteWebACLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteWebACLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3894,60 +4624,79 @@ export async function deserializeAws_json1_1DeleteXssMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteXssMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteXssMatchSetResponse(data, context);
   const response: DeleteXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteXssMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteXssMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteXssMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonEmptyEntityException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonEmptyEntityException":
-      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3960,48 +4709,58 @@ export async function deserializeAws_json1_1GetByteMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetByteMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetByteMatchSetResponse(data, context);
   const response: GetByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetByteMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetByteMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetByteMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4014,40 +4773,44 @@ export async function deserializeAws_json1_1GetChangeTokenCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetChangeTokenCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetChangeTokenResponse(data, context);
   const response: GetChangeTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetChangeTokenResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetChangeTokenCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetChangeTokenCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4058,46 +4821,56 @@ export async function deserializeAws_json1_1GetChangeTokenStatusCommand(
   context: __SerdeContext
 ): Promise<GetChangeTokenStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetChangeTokenStatusCommandError(output, context);
+    return deserializeAws_json1_1GetChangeTokenStatusCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetChangeTokenStatusResponse(data, context);
   const response: GetChangeTokenStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetChangeTokenStatusResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetChangeTokenStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetChangeTokenStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4110,48 +4883,58 @@ export async function deserializeAws_json1_1GetGeoMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetGeoMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetGeoMatchSetResponse(data, context);
   const response: GetGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetGeoMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetGeoMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetGeoMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4164,48 +4947,58 @@ export async function deserializeAws_json1_1GetIPSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetIPSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetIPSetResponse(data, context);
   const response: GetIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetIPSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetIPSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetIPSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4216,46 +5009,59 @@ export async function deserializeAws_json1_1GetLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<GetLoggingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetLoggingConfigurationCommandError(output, context);
+    return deserializeAws_json1_1GetLoggingConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetLoggingConfigurationResponse(data, context);
+  contents = deserializeAws_json1_1GetLoggingConfigurationResponse(
+    data,
+    context
+  );
   const response: GetLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetLoggingConfigurationResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetLoggingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetLoggingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4266,46 +5072,56 @@ export async function deserializeAws_json1_1GetPermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<GetPermissionPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetPermissionPolicyCommandError(output, context);
+    return deserializeAws_json1_1GetPermissionPolicyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPermissionPolicyResponse(data, context);
   const response: GetPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPermissionPolicyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPermissionPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPermissionPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4318,48 +5134,58 @@ export async function deserializeAws_json1_1GetRateBasedRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRateBasedRuleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRateBasedRuleResponse(data, context);
   const response: GetRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRateBasedRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRateBasedRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRateBasedRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4370,54 +5196,73 @@ export async function deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand(
   context: __SerdeContext
 ): Promise<GetRateBasedRuleManagedKeysCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(output, context);
+    return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse(data, context);
+  contents = deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse(
+    data,
+    context
+  );
   const response: GetRateBasedRuleManagedKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRateBasedRuleManagedKeysResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRateBasedRuleManagedKeysCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4430,48 +5275,58 @@ export async function deserializeAws_json1_1GetRegexMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRegexMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRegexMatchSetResponse(data, context);
   const response: GetRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRegexMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRegexMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRegexMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4482,50 +5337,63 @@ export async function deserializeAws_json1_1GetRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<GetRegexPatternSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetRegexPatternSetCommandError(output, context);
+    return deserializeAws_json1_1GetRegexPatternSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRegexPatternSetResponse(data, context);
   const response: GetRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRegexPatternSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRegexPatternSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRegexPatternSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4538,48 +5406,58 @@ export async function deserializeAws_json1_1GetRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRuleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRuleResponse(data, context);
   const response: GetRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4592,44 +5470,51 @@ export async function deserializeAws_json1_1GetRuleGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRuleGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRuleGroupResponse(data, context);
   const response: GetRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRuleGroupResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRuleGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRuleGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4640,46 +5525,56 @@ export async function deserializeAws_json1_1GetSampledRequestsCommand(
   context: __SerdeContext
 ): Promise<GetSampledRequestsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSampledRequestsCommandError(output, context);
+    return deserializeAws_json1_1GetSampledRequestsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSampledRequestsResponse(data, context);
   const response: GetSampledRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSampledRequestsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetSampledRequestsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSampledRequestsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4690,50 +5585,63 @@ export async function deserializeAws_json1_1GetSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<GetSizeConstraintSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSizeConstraintSetCommandError(output, context);
+    return deserializeAws_json1_1GetSizeConstraintSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetSizeConstraintSetResponse(data, context);
   const response: GetSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSizeConstraintSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetSizeConstraintSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSizeConstraintSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4744,50 +5652,66 @@ export async function deserializeAws_json1_1GetSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<GetSqlInjectionMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(output, context);
+    return deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetSqlInjectionMatchSetResponse(data, context);
+  contents = deserializeAws_json1_1GetSqlInjectionMatchSetResponse(
+    data,
+    context
+  );
   const response: GetSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetSqlInjectionMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetSqlInjectionMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4800,48 +5724,58 @@ export async function deserializeAws_json1_1GetWebACLCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetWebACLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetWebACLResponse(data, context);
   const response: GetWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetWebACLResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetWebACLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetWebACLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4854,48 +5788,58 @@ export async function deserializeAws_json1_1GetXssMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetXssMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetXssMatchSetResponse(data, context);
   const response: GetXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetXssMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetXssMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetXssMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4906,50 +5850,66 @@ export async function deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand
   context: __SerdeContext
 ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(output, context);
+    return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse(data, context);
+  contents = deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse(
+    data,
+    context
+  );
   const response: ListActivatedRulesInRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActivatedRulesInRuleGroupResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListActivatedRulesInRuleGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4962,44 +5922,51 @@ export async function deserializeAws_json1_1ListByteMatchSetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListByteMatchSetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListByteMatchSetsResponse(data, context);
   const response: ListByteMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListByteMatchSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListByteMatchSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListByteMatchSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5012,44 +5979,51 @@ export async function deserializeAws_json1_1ListGeoMatchSetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListGeoMatchSetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListGeoMatchSetsResponse(data, context);
   const response: ListGeoMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGeoMatchSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListGeoMatchSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListGeoMatchSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5062,44 +6036,51 @@ export async function deserializeAws_json1_1ListIPSetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListIPSetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListIPSetsResponse(data, context);
   const response: ListIPSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListIPSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListIPSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListIPSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5110,50 +6091,66 @@ export async function deserializeAws_json1_1ListLoggingConfigurationsCommand(
   context: __SerdeContext
 ): Promise<ListLoggingConfigurationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListLoggingConfigurationsCommandError(output, context);
+    return deserializeAws_json1_1ListLoggingConfigurationsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListLoggingConfigurationsResponse(data, context);
+  contents = deserializeAws_json1_1ListLoggingConfigurationsResponse(
+    data,
+    context
+  );
   const response: ListLoggingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLoggingConfigurationsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListLoggingConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListLoggingConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5164,46 +6161,56 @@ export async function deserializeAws_json1_1ListRateBasedRulesCommand(
   context: __SerdeContext
 ): Promise<ListRateBasedRulesCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRateBasedRulesCommandError(output, context);
+    return deserializeAws_json1_1ListRateBasedRulesCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRateBasedRulesResponse(data, context);
   const response: ListRateBasedRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRateBasedRulesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRateBasedRulesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListRateBasedRulesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5214,46 +6221,56 @@ export async function deserializeAws_json1_1ListRegexMatchSetsCommand(
   context: __SerdeContext
 ): Promise<ListRegexMatchSetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRegexMatchSetsCommandError(output, context);
+    return deserializeAws_json1_1ListRegexMatchSetsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRegexMatchSetsResponse(data, context);
   const response: ListRegexMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRegexMatchSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRegexMatchSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListRegexMatchSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5264,46 +6281,56 @@ export async function deserializeAws_json1_1ListRegexPatternSetsCommand(
   context: __SerdeContext
 ): Promise<ListRegexPatternSetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListRegexPatternSetsCommandError(output, context);
+    return deserializeAws_json1_1ListRegexPatternSetsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRegexPatternSetsResponse(data, context);
   const response: ListRegexPatternSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRegexPatternSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRegexPatternSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListRegexPatternSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5316,40 +6343,44 @@ export async function deserializeAws_json1_1ListRuleGroupsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRuleGroupsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRuleGroupsResponse(data, context);
   const response: ListRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRuleGroupsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRuleGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListRuleGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5362,44 +6393,51 @@ export async function deserializeAws_json1_1ListRulesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListRulesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListRulesResponse(data, context);
   const response: ListRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListRulesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListRulesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListRulesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5410,46 +6448,59 @@ export async function deserializeAws_json1_1ListSizeConstraintSetsCommand(
   context: __SerdeContext
 ): Promise<ListSizeConstraintSetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSizeConstraintSetsCommandError(output, context);
+    return deserializeAws_json1_1ListSizeConstraintSetsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSizeConstraintSetsResponse(data, context);
+  contents = deserializeAws_json1_1ListSizeConstraintSetsResponse(
+    data,
+    context
+  );
   const response: ListSizeConstraintSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSizeConstraintSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListSizeConstraintSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListSizeConstraintSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5460,46 +6511,59 @@ export async function deserializeAws_json1_1ListSqlInjectionMatchSetsCommand(
   context: __SerdeContext
 ): Promise<ListSqlInjectionMatchSetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(output, context);
+    return deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSqlInjectionMatchSetsResponse(data, context);
+  contents = deserializeAws_json1_1ListSqlInjectionMatchSetsResponse(
+    data,
+    context
+  );
   const response: ListSqlInjectionMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSqlInjectionMatchSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListSqlInjectionMatchSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5510,46 +6574,59 @@ export async function deserializeAws_json1_1ListSubscribedRuleGroupsCommand(
   context: __SerdeContext
 ): Promise<ListSubscribedRuleGroupsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(output, context);
+    return deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSubscribedRuleGroupsResponse(data, context);
+  contents = deserializeAws_json1_1ListSubscribedRuleGroupsResponse(
+    data,
+    context
+  );
   const response: ListSubscribedRuleGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSubscribedRuleGroupsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListSubscribedRuleGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5560,62 +6637,84 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5628,44 +6727,51 @@ export async function deserializeAws_json1_1ListWebACLsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListWebACLsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListWebACLsResponse(data, context);
   const response: ListWebACLsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebACLsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListWebACLsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListWebACLsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5678,44 +6784,51 @@ export async function deserializeAws_json1_1ListXssMatchSetsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListXssMatchSetsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListXssMatchSetsResponse(data, context);
   const response: ListXssMatchSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListXssMatchSetsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListXssMatchSetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListXssMatchSetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5726,54 +6839,73 @@ export async function deserializeAws_json1_1PutLoggingConfigurationCommand(
   context: __SerdeContext
 ): Promise<PutLoggingConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutLoggingConfigurationCommandError(output, context);
+    return deserializeAws_json1_1PutLoggingConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutLoggingConfigurationResponse(data, context);
+  contents = deserializeAws_json1_1PutLoggingConfigurationResponse(
+    data,
+    context
+  );
   const response: PutLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutLoggingConfigurationResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutLoggingConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutLoggingConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFServiceLinkedRoleErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFServiceLinkedRoleErrorException":
-      response = await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5784,54 +6916,70 @@ export async function deserializeAws_json1_1PutPermissionPolicyCommand(
   context: __SerdeContext
 ): Promise<PutPermissionPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutPermissionPolicyCommandError(output, context);
+    return deserializeAws_json1_1PutPermissionPolicyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutPermissionPolicyResponse(data, context);
   const response: PutPermissionPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPermissionPolicyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutPermissionPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutPermissionPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidPermissionPolicyException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidPermissionPolicyException":
-      response = await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5844,64 +6992,86 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5914,60 +7084,79 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFBadRequestException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFBadRequestException":
-      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFBadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationException":
-      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFTagOperationInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFTagOperationInternalErrorException":
-      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -5978,70 +7167,98 @@ export async function deserializeAws_json1_1UpdateByteMatchSetCommand(
   context: __SerdeContext
 ): Promise<UpdateByteMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateByteMatchSetCommandError(output, context);
+    return deserializeAws_json1_1UpdateByteMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateByteMatchSetResponse(data, context);
   const response: UpdateByteMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateByteMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateByteMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateByteMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6054,72 +7271,100 @@ export async function deserializeAws_json1_1UpdateGeoMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateGeoMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateGeoMatchSetResponse(data, context);
   const response: UpdateGeoMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGeoMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateGeoMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateGeoMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6132,72 +7377,100 @@ export async function deserializeAws_json1_1UpdateIPSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateIPSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateIPSetResponse(data, context);
   const response: UpdateIPSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateIPSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateIPSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateIPSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6208,74 +7481,105 @@ export async function deserializeAws_json1_1UpdateRateBasedRuleCommand(
   context: __SerdeContext
 ): Promise<UpdateRateBasedRuleCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRateBasedRuleCommandError(output, context);
+    return deserializeAws_json1_1UpdateRateBasedRuleCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRateBasedRuleResponse(data, context);
   const response: UpdateRateBasedRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRateBasedRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRateBasedRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateRateBasedRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6286,70 +7590,98 @@ export async function deserializeAws_json1_1UpdateRegexMatchSetCommand(
   context: __SerdeContext
 ): Promise<UpdateRegexMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRegexMatchSetCommandError(output, context);
+    return deserializeAws_json1_1UpdateRegexMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRegexMatchSetResponse(data, context);
   const response: UpdateRegexMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRegexMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRegexMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateRegexMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFDisallowedNameException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFDisallowedNameException":
-      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFDisallowedNameExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6360,70 +7692,98 @@ export async function deserializeAws_json1_1UpdateRegexPatternSetCommand(
   context: __SerdeContext
 ): Promise<UpdateRegexPatternSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateRegexPatternSetCommandError(output, context);
+    return deserializeAws_json1_1UpdateRegexPatternSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRegexPatternSetResponse(data, context);
   const response: UpdateRegexPatternSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRegexPatternSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRegexPatternSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateRegexPatternSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidRegexPatternException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidRegexPatternException":
-      response = await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6436,72 +7796,100 @@ export async function deserializeAws_json1_1UpdateRuleCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRuleCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRuleResponse(data, context);
   const response: UpdateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRuleResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRuleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateRuleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6514,64 +7902,86 @@ export async function deserializeAws_json1_1UpdateRuleGroupCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateRuleGroupCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateRuleGroupResponse(data, context);
   const response: UpdateRuleGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateRuleGroupResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateRuleGroupCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateRuleGroupCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6582,74 +7992,108 @@ export async function deserializeAws_json1_1UpdateSizeConstraintSetCommand(
   context: __SerdeContext
 ): Promise<UpdateSizeConstraintSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSizeConstraintSetCommandError(output, context);
+    return deserializeAws_json1_1UpdateSizeConstraintSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSizeConstraintSetResponse(data, context);
+  contents = deserializeAws_json1_1UpdateSizeConstraintSetResponse(
+    data,
+    context
+  );
   const response: UpdateSizeConstraintSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSizeConstraintSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateSizeConstraintSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateSizeConstraintSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6660,70 +8104,101 @@ export async function deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand(
   context: __SerdeContext
 ): Promise<UpdateSqlInjectionMatchSetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(output, context);
+    return deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse(data, context);
+  contents = deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse(
+    data,
+    context
+  );
   const response: UpdateSqlInjectionMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateSqlInjectionMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateSqlInjectionMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6736,76 +8211,107 @@ export async function deserializeAws_json1_1UpdateWebACLCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateWebACLCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateWebACLResponse(data, context);
   const response: UpdateWebACLCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateWebACLResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateWebACLCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateWebACLCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFReferencedItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFReferencedItemException":
-      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFReferencedItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFSubscriptionNotFoundException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFSubscriptionNotFoundException":
-      response = await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6818,68 +8324,93 @@ export async function deserializeAws_json1_1UpdateXssMatchSetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateXssMatchSetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateXssMatchSetResponse(data, context);
   const response: UpdateXssMatchSetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateXssMatchSetResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateXssMatchSetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateXssMatchSetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WAFInternalErrorException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInternalErrorException":
-      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidAccountException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidAccountException":
-      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidAccountExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidOperationException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidOperationException":
-      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFInvalidParameterException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFInvalidParameterException":
-      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFInvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFLimitsExceededException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFLimitsExceededException":
-      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFLimitsExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentContainerException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentContainerException":
-      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentContainerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFNonexistentItemException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFNonexistentItemException":
-      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFNonexistentItemExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "WAFStaleDataException":
     case "com.amazonaws.gokucustomerapiservice.v20150409#WAFStaleDataException":
-      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WAFStaleDataExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.gokucustomerapiservice.v20150409#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -6889,12 +8420,15 @@ const deserializeAws_json1_1WAFBadRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFBadRequestException> => {
-  const deserialized: any = deserializeAws_json1_1WAFBadRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFBadRequestException(
+    output.body,
+    context
+  );
   const contents: WAFBadRequestException = {
     __type: "WAFBadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6903,12 +8437,15 @@ const deserializeAws_json1_1WAFDisallowedNameExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFDisallowedNameException> => {
-  const deserialized: any = deserializeAws_json1_1WAFDisallowedNameException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFDisallowedNameException(
+    output.body,
+    context
+  );
   const contents: WAFDisallowedNameException = {
     __type: "WAFDisallowedNameException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6917,12 +8454,15 @@ const deserializeAws_json1_1WAFInternalErrorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFInternalErrorException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInternalErrorException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInternalErrorException(
+    output.body,
+    context
+  );
   const contents: WAFInternalErrorException = {
     __type: "WAFInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6931,12 +8471,15 @@ const deserializeAws_json1_1WAFInvalidAccountExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFInvalidAccountException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInvalidAccountException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInvalidAccountException(
+    output.body,
+    context
+  );
   const contents: WAFInvalidAccountException = {
     __type: "WAFInvalidAccountException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6945,12 +8488,15 @@ const deserializeAws_json1_1WAFInvalidOperationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFInvalidOperationException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInvalidOperationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInvalidOperationException(
+    output.body,
+    context
+  );
   const contents: WAFInvalidOperationException = {
     __type: "WAFInvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6959,12 +8505,15 @@ const deserializeAws_json1_1WAFInvalidParameterExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFInvalidParameterException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInvalidParameterException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInvalidParameterException(
+    output.body,
+    context
+  );
   const contents: WAFInvalidParameterException = {
     __type: "WAFInvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6973,12 +8522,15 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyExceptionResponse = async 
   output: any,
   context: __SerdeContext
 ): Promise<WAFInvalidPermissionPolicyException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInvalidPermissionPolicyException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInvalidPermissionPolicyException(
+    output.body,
+    context
+  );
   const contents: WAFInvalidPermissionPolicyException = {
     __type: "WAFInvalidPermissionPolicyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -6987,12 +8539,15 @@ const deserializeAws_json1_1WAFInvalidRegexPatternExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFInvalidRegexPatternException> => {
-  const deserialized: any = deserializeAws_json1_1WAFInvalidRegexPatternException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFInvalidRegexPatternException(
+    output.body,
+    context
+  );
   const contents: WAFInvalidRegexPatternException = {
     __type: "WAFInvalidRegexPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7001,12 +8556,15 @@ const deserializeAws_json1_1WAFLimitsExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFLimitsExceededException> => {
-  const deserialized: any = deserializeAws_json1_1WAFLimitsExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFLimitsExceededException(
+    output.body,
+    context
+  );
   const contents: WAFLimitsExceededException = {
     __type: "WAFLimitsExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7015,12 +8573,15 @@ const deserializeAws_json1_1WAFNonEmptyEntityExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFNonEmptyEntityException> => {
-  const deserialized: any = deserializeAws_json1_1WAFNonEmptyEntityException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFNonEmptyEntityException(
+    output.body,
+    context
+  );
   const contents: WAFNonEmptyEntityException = {
     __type: "WAFNonEmptyEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7029,12 +8590,15 @@ const deserializeAws_json1_1WAFNonexistentContainerExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFNonexistentContainerException> => {
-  const deserialized: any = deserializeAws_json1_1WAFNonexistentContainerException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFNonexistentContainerException(
+    output.body,
+    context
+  );
   const contents: WAFNonexistentContainerException = {
     __type: "WAFNonexistentContainerException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7043,12 +8607,15 @@ const deserializeAws_json1_1WAFNonexistentItemExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFNonexistentItemException> => {
-  const deserialized: any = deserializeAws_json1_1WAFNonexistentItemException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFNonexistentItemException(
+    output.body,
+    context
+  );
   const contents: WAFNonexistentItemException = {
     __type: "WAFNonexistentItemException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7057,12 +8624,15 @@ const deserializeAws_json1_1WAFReferencedItemExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFReferencedItemException> => {
-  const deserialized: any = deserializeAws_json1_1WAFReferencedItemException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFReferencedItemException(
+    output.body,
+    context
+  );
   const contents: WAFReferencedItemException = {
     __type: "WAFReferencedItemException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7071,12 +8641,15 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFServiceLinkedRoleErrorException> => {
-  const deserialized: any = deserializeAws_json1_1WAFServiceLinkedRoleErrorException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFServiceLinkedRoleErrorException(
+    output.body,
+    context
+  );
   const contents: WAFServiceLinkedRoleErrorException = {
     __type: "WAFServiceLinkedRoleErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7085,12 +8658,15 @@ const deserializeAws_json1_1WAFStaleDataExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFStaleDataException> => {
-  const deserialized: any = deserializeAws_json1_1WAFStaleDataException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFStaleDataException(
+    output.body,
+    context
+  );
   const contents: WAFStaleDataException = {
     __type: "WAFStaleDataException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7099,12 +8675,15 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFSubscriptionNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1WAFSubscriptionNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFSubscriptionNotFoundException(
+    output.body,
+    context
+  );
   const contents: WAFSubscriptionNotFoundException = {
     __type: "WAFSubscriptionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7113,12 +8692,15 @@ const deserializeAws_json1_1WAFTagOperationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WAFTagOperationException> => {
-  const deserialized: any = deserializeAws_json1_1WAFTagOperationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFTagOperationException(
+    output.body,
+    context
+  );
   const contents: WAFTagOperationException = {
     __type: "WAFTagOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7127,12 +8709,15 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorExceptionResponse = asyn
   output: any,
   context: __SerdeContext
 ): Promise<WAFTagOperationInternalErrorException> => {
-  const deserialized: any = deserializeAws_json1_1WAFTagOperationInternalErrorException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WAFTagOperationInternalErrorException(
+    output.body,
+    context
+  );
   const contents: WAFTagOperationInternalErrorException = {
     __type: "WAFTagOperationInternalErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -7143,25 +8728,31 @@ const serializeAws_json1_1ActivatedRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = serializeAws_json1_1WafAction(input.Action, context);
+    bodyParams["Action"] = serializeAws_json1_1WafAction(input.Action, context);
   }
   if (input.ExcludedRules !== undefined) {
-    bodyParams['ExcludedRules'] = serializeAws_json1_1ExcludedRules(input.ExcludedRules, context);
+    bodyParams["ExcludedRules"] = serializeAws_json1_1ExcludedRules(
+      input.ExcludedRules,
+      context
+    );
   }
   if (input.OverrideAction !== undefined) {
-    bodyParams['OverrideAction'] = serializeAws_json1_1WafOverrideAction(input.OverrideAction, context);
+    bodyParams["OverrideAction"] = serializeAws_json1_1WafOverrideAction(
+      input.OverrideAction,
+      context
+    );
   }
   if (input.Priority !== undefined) {
-    bodyParams['Priority'] = input.Priority;
+    bodyParams["Priority"] = input.Priority;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ByteMatchSetUpdate = (
   input: ByteMatchSetUpdate,
@@ -7169,13 +8760,16 @@ const serializeAws_json1_1ByteMatchSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.ByteMatchTuple !== undefined) {
-    bodyParams['ByteMatchTuple'] = serializeAws_json1_1ByteMatchTuple(input.ByteMatchTuple, context);
+    bodyParams["ByteMatchTuple"] = serializeAws_json1_1ByteMatchTuple(
+      input.ByteMatchTuple,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ByteMatchSetUpdates = (
   input: Array<ByteMatchSetUpdate>,
@@ -7184,7 +8778,7 @@ const serializeAws_json1_1ByteMatchSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1ByteMatchSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ByteMatchTuple = (
   input: ByteMatchTuple,
@@ -7192,19 +8786,22 @@ const serializeAws_json1_1ByteMatchTuple = (
 ): any => {
   let bodyParams: any = {};
   if (input.FieldToMatch !== undefined) {
-    bodyParams['FieldToMatch'] = serializeAws_json1_1FieldToMatch(input.FieldToMatch, context);
+    bodyParams["FieldToMatch"] = serializeAws_json1_1FieldToMatch(
+      input.FieldToMatch,
+      context
+    );
   }
   if (input.PositionalConstraint !== undefined) {
-    bodyParams['PositionalConstraint'] = input.PositionalConstraint;
+    bodyParams["PositionalConstraint"] = input.PositionalConstraint;
   }
   if (input.TargetString !== undefined) {
-    bodyParams['TargetString'] = context.base64Encoder(input.TargetString);
+    bodyParams["TargetString"] = context.base64Encoder(input.TargetString);
   }
   if (input.TextTransformation !== undefined) {
-    bodyParams['TextTransformation'] = input.TextTransformation;
+    bodyParams["TextTransformation"] = input.TextTransformation;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateByteMatchSetRequest = (
   input: CreateByteMatchSetRequest,
@@ -7212,13 +8809,13 @@ const serializeAws_json1_1CreateByteMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateGeoMatchSetRequest = (
   input: CreateGeoMatchSetRequest,
@@ -7226,13 +8823,13 @@ const serializeAws_json1_1CreateGeoMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateIPSetRequest = (
   input: CreateIPSetRequest,
@@ -7240,13 +8837,13 @@ const serializeAws_json1_1CreateIPSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateRateBasedRuleRequest = (
   input: CreateRateBasedRuleRequest,
@@ -7254,25 +8851,25 @@ const serializeAws_json1_1CreateRateBasedRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.MetricName !== undefined) {
-    bodyParams['MetricName'] = input.MetricName;
+    bodyParams["MetricName"] = input.MetricName;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.RateKey !== undefined) {
-    bodyParams['RateKey'] = input.RateKey;
+    bodyParams["RateKey"] = input.RateKey;
   }
   if (input.RateLimit !== undefined) {
-    bodyParams['RateLimit'] = input.RateLimit;
+    bodyParams["RateLimit"] = input.RateLimit;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateRegexMatchSetRequest = (
   input: CreateRegexMatchSetRequest,
@@ -7280,13 +8877,13 @@ const serializeAws_json1_1CreateRegexMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateRegexPatternSetRequest = (
   input: CreateRegexPatternSetRequest,
@@ -7294,13 +8891,13 @@ const serializeAws_json1_1CreateRegexPatternSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateRuleGroupRequest = (
   input: CreateRuleGroupRequest,
@@ -7308,19 +8905,19 @@ const serializeAws_json1_1CreateRuleGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.MetricName !== undefined) {
-    bodyParams['MetricName'] = input.MetricName;
+    bodyParams["MetricName"] = input.MetricName;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateRuleRequest = (
   input: CreateRuleRequest,
@@ -7328,19 +8925,19 @@ const serializeAws_json1_1CreateRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.MetricName !== undefined) {
-    bodyParams['MetricName'] = input.MetricName;
+    bodyParams["MetricName"] = input.MetricName;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateSizeConstraintSetRequest = (
   input: CreateSizeConstraintSetRequest,
@@ -7348,13 +8945,13 @@ const serializeAws_json1_1CreateSizeConstraintSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateSqlInjectionMatchSetRequest = (
   input: CreateSqlInjectionMatchSetRequest,
@@ -7362,13 +8959,13 @@ const serializeAws_json1_1CreateSqlInjectionMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateWebACLRequest = (
   input: CreateWebACLRequest,
@@ -7376,22 +8973,25 @@ const serializeAws_json1_1CreateWebACLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.DefaultAction !== undefined) {
-    bodyParams['DefaultAction'] = serializeAws_json1_1WafAction(input.DefaultAction, context);
+    bodyParams["DefaultAction"] = serializeAws_json1_1WafAction(
+      input.DefaultAction,
+      context
+    );
   }
   if (input.MetricName !== undefined) {
-    bodyParams['MetricName'] = input.MetricName;
+    bodyParams["MetricName"] = input.MetricName;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateXssMatchSetRequest = (
   input: CreateXssMatchSetRequest,
@@ -7399,13 +8999,13 @@ const serializeAws_json1_1CreateXssMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteByteMatchSetRequest = (
   input: DeleteByteMatchSetRequest,
@@ -7413,13 +9013,13 @@ const serializeAws_json1_1DeleteByteMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ByteMatchSetId !== undefined) {
-    bodyParams['ByteMatchSetId'] = input.ByteMatchSetId;
+    bodyParams["ByteMatchSetId"] = input.ByteMatchSetId;
   }
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteGeoMatchSetRequest = (
   input: DeleteGeoMatchSetRequest,
@@ -7427,13 +9027,13 @@ const serializeAws_json1_1DeleteGeoMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.GeoMatchSetId !== undefined) {
-    bodyParams['GeoMatchSetId'] = input.GeoMatchSetId;
+    bodyParams["GeoMatchSetId"] = input.GeoMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteIPSetRequest = (
   input: DeleteIPSetRequest,
@@ -7441,13 +9041,13 @@ const serializeAws_json1_1DeleteIPSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.IPSetId !== undefined) {
-    bodyParams['IPSetId'] = input.IPSetId;
+    bodyParams["IPSetId"] = input.IPSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteLoggingConfigurationRequest = (
   input: DeleteLoggingConfigurationRequest,
@@ -7455,10 +9055,10 @@ const serializeAws_json1_1DeleteLoggingConfigurationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeletePermissionPolicyRequest = (
   input: DeletePermissionPolicyRequest,
@@ -7466,10 +9066,10 @@ const serializeAws_json1_1DeletePermissionPolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteRateBasedRuleRequest = (
   input: DeleteRateBasedRuleRequest,
@@ -7477,13 +9077,13 @@ const serializeAws_json1_1DeleteRateBasedRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteRegexMatchSetRequest = (
   input: DeleteRegexMatchSetRequest,
@@ -7491,13 +9091,13 @@ const serializeAws_json1_1DeleteRegexMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RegexMatchSetId !== undefined) {
-    bodyParams['RegexMatchSetId'] = input.RegexMatchSetId;
+    bodyParams["RegexMatchSetId"] = input.RegexMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteRegexPatternSetRequest = (
   input: DeleteRegexPatternSetRequest,
@@ -7505,13 +9105,13 @@ const serializeAws_json1_1DeleteRegexPatternSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RegexPatternSetId !== undefined) {
-    bodyParams['RegexPatternSetId'] = input.RegexPatternSetId;
+    bodyParams["RegexPatternSetId"] = input.RegexPatternSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteRuleGroupRequest = (
   input: DeleteRuleGroupRequest,
@@ -7519,13 +9119,13 @@ const serializeAws_json1_1DeleteRuleGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RuleGroupId !== undefined) {
-    bodyParams['RuleGroupId'] = input.RuleGroupId;
+    bodyParams["RuleGroupId"] = input.RuleGroupId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteRuleRequest = (
   input: DeleteRuleRequest,
@@ -7533,13 +9133,13 @@ const serializeAws_json1_1DeleteRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteSizeConstraintSetRequest = (
   input: DeleteSizeConstraintSetRequest,
@@ -7547,13 +9147,13 @@ const serializeAws_json1_1DeleteSizeConstraintSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.SizeConstraintSetId !== undefined) {
-    bodyParams['SizeConstraintSetId'] = input.SizeConstraintSetId;
+    bodyParams["SizeConstraintSetId"] = input.SizeConstraintSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteSqlInjectionMatchSetRequest = (
   input: DeleteSqlInjectionMatchSetRequest,
@@ -7561,13 +9161,13 @@ const serializeAws_json1_1DeleteSqlInjectionMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.SqlInjectionMatchSetId !== undefined) {
-    bodyParams['SqlInjectionMatchSetId'] = input.SqlInjectionMatchSetId;
+    bodyParams["SqlInjectionMatchSetId"] = input.SqlInjectionMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteWebACLRequest = (
   input: DeleteWebACLRequest,
@@ -7575,13 +9175,13 @@ const serializeAws_json1_1DeleteWebACLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.WebACLId !== undefined) {
-    bodyParams['WebACLId'] = input.WebACLId;
+    bodyParams["WebACLId"] = input.WebACLId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteXssMatchSetRequest = (
   input: DeleteXssMatchSetRequest,
@@ -7589,13 +9189,13 @@ const serializeAws_json1_1DeleteXssMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.XssMatchSetId !== undefined) {
-    bodyParams['XssMatchSetId'] = input.XssMatchSetId;
+    bodyParams["XssMatchSetId"] = input.XssMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ExcludedRule = (
   input: ExcludedRule,
@@ -7603,10 +9203,10 @@ const serializeAws_json1_1ExcludedRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ExcludedRules = (
   input: Array<ExcludedRule>,
@@ -7615,7 +9215,7 @@ const serializeAws_json1_1ExcludedRules = (
   return (input || []).map(entry =>
     serializeAws_json1_1ExcludedRule(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1FieldToMatch = (
   input: FieldToMatch,
@@ -7623,13 +9223,13 @@ const serializeAws_json1_1FieldToMatch = (
 ): any => {
   let bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams['Data'] = input.Data;
+    bodyParams["Data"] = input.Data;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GeoMatchConstraint = (
   input: GeoMatchConstraint,
@@ -7637,13 +9237,13 @@ const serializeAws_json1_1GeoMatchConstraint = (
 ): any => {
   let bodyParams: any = {};
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GeoMatchSetUpdate = (
   input: GeoMatchSetUpdate,
@@ -7651,13 +9251,16 @@ const serializeAws_json1_1GeoMatchSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.GeoMatchConstraint !== undefined) {
-    bodyParams['GeoMatchConstraint'] = serializeAws_json1_1GeoMatchConstraint(input.GeoMatchConstraint, context);
+    bodyParams["GeoMatchConstraint"] = serializeAws_json1_1GeoMatchConstraint(
+      input.GeoMatchConstraint,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GeoMatchSetUpdates = (
   input: Array<GeoMatchSetUpdate>,
@@ -7666,7 +9269,7 @@ const serializeAws_json1_1GeoMatchSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1GeoMatchSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1GetByteMatchSetRequest = (
   input: GetByteMatchSetRequest,
@@ -7674,10 +9277,10 @@ const serializeAws_json1_1GetByteMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ByteMatchSetId !== undefined) {
-    bodyParams['ByteMatchSetId'] = input.ByteMatchSetId;
+    bodyParams["ByteMatchSetId"] = input.ByteMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetChangeTokenRequest = (
   input: GetChangeTokenRequest,
@@ -7685,7 +9288,7 @@ const serializeAws_json1_1GetChangeTokenRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetChangeTokenStatusRequest = (
   input: GetChangeTokenStatusRequest,
@@ -7693,10 +9296,10 @@ const serializeAws_json1_1GetChangeTokenStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetGeoMatchSetRequest = (
   input: GetGeoMatchSetRequest,
@@ -7704,10 +9307,10 @@ const serializeAws_json1_1GetGeoMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.GeoMatchSetId !== undefined) {
-    bodyParams['GeoMatchSetId'] = input.GeoMatchSetId;
+    bodyParams["GeoMatchSetId"] = input.GeoMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetIPSetRequest = (
   input: GetIPSetRequest,
@@ -7715,10 +9318,10 @@ const serializeAws_json1_1GetIPSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.IPSetId !== undefined) {
-    bodyParams['IPSetId'] = input.IPSetId;
+    bodyParams["IPSetId"] = input.IPSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetLoggingConfigurationRequest = (
   input: GetLoggingConfigurationRequest,
@@ -7726,10 +9329,10 @@ const serializeAws_json1_1GetLoggingConfigurationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPermissionPolicyRequest = (
   input: GetPermissionPolicyRequest,
@@ -7737,10 +9340,10 @@ const serializeAws_json1_1GetPermissionPolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRateBasedRuleManagedKeysRequest = (
   input: GetRateBasedRuleManagedKeysRequest,
@@ -7748,13 +9351,13 @@ const serializeAws_json1_1GetRateBasedRuleManagedKeysRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRateBasedRuleRequest = (
   input: GetRateBasedRuleRequest,
@@ -7762,10 +9365,10 @@ const serializeAws_json1_1GetRateBasedRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRegexMatchSetRequest = (
   input: GetRegexMatchSetRequest,
@@ -7773,10 +9376,10 @@ const serializeAws_json1_1GetRegexMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.RegexMatchSetId !== undefined) {
-    bodyParams['RegexMatchSetId'] = input.RegexMatchSetId;
+    bodyParams["RegexMatchSetId"] = input.RegexMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRegexPatternSetRequest = (
   input: GetRegexPatternSetRequest,
@@ -7784,10 +9387,10 @@ const serializeAws_json1_1GetRegexPatternSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.RegexPatternSetId !== undefined) {
-    bodyParams['RegexPatternSetId'] = input.RegexPatternSetId;
+    bodyParams["RegexPatternSetId"] = input.RegexPatternSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRuleGroupRequest = (
   input: GetRuleGroupRequest,
@@ -7795,10 +9398,10 @@ const serializeAws_json1_1GetRuleGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.RuleGroupId !== undefined) {
-    bodyParams['RuleGroupId'] = input.RuleGroupId;
+    bodyParams["RuleGroupId"] = input.RuleGroupId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRuleRequest = (
   input: GetRuleRequest,
@@ -7806,10 +9409,10 @@ const serializeAws_json1_1GetRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetSampledRequestsRequest = (
   input: GetSampledRequestsRequest,
@@ -7817,19 +9420,22 @@ const serializeAws_json1_1GetSampledRequestsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxItems !== undefined) {
-    bodyParams['MaxItems'] = input.MaxItems;
+    bodyParams["MaxItems"] = input.MaxItems;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   if (input.TimeWindow !== undefined) {
-    bodyParams['TimeWindow'] = serializeAws_json1_1TimeWindow(input.TimeWindow, context);
+    bodyParams["TimeWindow"] = serializeAws_json1_1TimeWindow(
+      input.TimeWindow,
+      context
+    );
   }
   if (input.WebAclId !== undefined) {
-    bodyParams['WebAclId'] = input.WebAclId;
+    bodyParams["WebAclId"] = input.WebAclId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetSizeConstraintSetRequest = (
   input: GetSizeConstraintSetRequest,
@@ -7837,10 +9443,10 @@ const serializeAws_json1_1GetSizeConstraintSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.SizeConstraintSetId !== undefined) {
-    bodyParams['SizeConstraintSetId'] = input.SizeConstraintSetId;
+    bodyParams["SizeConstraintSetId"] = input.SizeConstraintSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetSqlInjectionMatchSetRequest = (
   input: GetSqlInjectionMatchSetRequest,
@@ -7848,10 +9454,10 @@ const serializeAws_json1_1GetSqlInjectionMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.SqlInjectionMatchSetId !== undefined) {
-    bodyParams['SqlInjectionMatchSetId'] = input.SqlInjectionMatchSetId;
+    bodyParams["SqlInjectionMatchSetId"] = input.SqlInjectionMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetWebACLRequest = (
   input: GetWebACLRequest,
@@ -7859,10 +9465,10 @@ const serializeAws_json1_1GetWebACLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.WebACLId !== undefined) {
-    bodyParams['WebACLId'] = input.WebACLId;
+    bodyParams["WebACLId"] = input.WebACLId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetXssMatchSetRequest = (
   input: GetXssMatchSetRequest,
@@ -7870,10 +9476,10 @@ const serializeAws_json1_1GetXssMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.XssMatchSetId !== undefined) {
-    bodyParams['XssMatchSetId'] = input.XssMatchSetId;
+    bodyParams["XssMatchSetId"] = input.XssMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1IPSetDescriptor = (
   input: IPSetDescriptor,
@@ -7881,13 +9487,13 @@ const serializeAws_json1_1IPSetDescriptor = (
 ): any => {
   let bodyParams: any = {};
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1IPSetUpdate = (
   input: IPSetUpdate,
@@ -7895,13 +9501,16 @@ const serializeAws_json1_1IPSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.IPSetDescriptor !== undefined) {
-    bodyParams['IPSetDescriptor'] = serializeAws_json1_1IPSetDescriptor(input.IPSetDescriptor, context);
+    bodyParams["IPSetDescriptor"] = serializeAws_json1_1IPSetDescriptor(
+      input.IPSetDescriptor,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1IPSetUpdates = (
   input: Array<IPSetUpdate>,
@@ -7910,7 +9519,7 @@ const serializeAws_json1_1IPSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1IPSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ListActivatedRulesInRuleGroupRequest = (
   input: ListActivatedRulesInRuleGroupRequest,
@@ -7918,16 +9527,16 @@ const serializeAws_json1_1ListActivatedRulesInRuleGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   if (input.RuleGroupId !== undefined) {
-    bodyParams['RuleGroupId'] = input.RuleGroupId;
+    bodyParams["RuleGroupId"] = input.RuleGroupId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListByteMatchSetsRequest = (
   input: ListByteMatchSetsRequest,
@@ -7935,13 +9544,13 @@ const serializeAws_json1_1ListByteMatchSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListGeoMatchSetsRequest = (
   input: ListGeoMatchSetsRequest,
@@ -7949,13 +9558,13 @@ const serializeAws_json1_1ListGeoMatchSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListIPSetsRequest = (
   input: ListIPSetsRequest,
@@ -7963,13 +9572,13 @@ const serializeAws_json1_1ListIPSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListLoggingConfigurationsRequest = (
   input: ListLoggingConfigurationsRequest,
@@ -7977,13 +9586,13 @@ const serializeAws_json1_1ListLoggingConfigurationsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListRateBasedRulesRequest = (
   input: ListRateBasedRulesRequest,
@@ -7991,13 +9600,13 @@ const serializeAws_json1_1ListRateBasedRulesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListRegexMatchSetsRequest = (
   input: ListRegexMatchSetsRequest,
@@ -8005,13 +9614,13 @@ const serializeAws_json1_1ListRegexMatchSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListRegexPatternSetsRequest = (
   input: ListRegexPatternSetsRequest,
@@ -8019,13 +9628,13 @@ const serializeAws_json1_1ListRegexPatternSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListRuleGroupsRequest = (
   input: ListRuleGroupsRequest,
@@ -8033,13 +9642,13 @@ const serializeAws_json1_1ListRuleGroupsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListRulesRequest = (
   input: ListRulesRequest,
@@ -8047,13 +9656,13 @@ const serializeAws_json1_1ListRulesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListSizeConstraintSetsRequest = (
   input: ListSizeConstraintSetsRequest,
@@ -8061,13 +9670,13 @@ const serializeAws_json1_1ListSizeConstraintSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListSqlInjectionMatchSetsRequest = (
   input: ListSqlInjectionMatchSetsRequest,
@@ -8075,13 +9684,13 @@ const serializeAws_json1_1ListSqlInjectionMatchSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListSubscribedRuleGroupsRequest = (
   input: ListSubscribedRuleGroupsRequest,
@@ -8089,13 +9698,13 @@ const serializeAws_json1_1ListSubscribedRuleGroupsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -8103,16 +9712,16 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListWebACLsRequest = (
   input: ListWebACLsRequest,
@@ -8120,13 +9729,13 @@ const serializeAws_json1_1ListWebACLsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListXssMatchSetsRequest = (
   input: ListXssMatchSetsRequest,
@@ -8134,22 +9743,20 @@ const serializeAws_json1_1ListXssMatchSetsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.NextMarker !== undefined) {
-    bodyParams['NextMarker'] = input.NextMarker;
+    bodyParams["NextMarker"] = input.NextMarker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1LogDestinationConfigs = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1LoggingConfiguration = (
   input: LoggingConfiguration,
@@ -8157,16 +9764,24 @@ const serializeAws_json1_1LoggingConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.LogDestinationConfigs !== undefined) {
-    bodyParams['LogDestinationConfigs'] = serializeAws_json1_1LogDestinationConfigs(input.LogDestinationConfigs, context);
+    bodyParams[
+      "LogDestinationConfigs"
+    ] = serializeAws_json1_1LogDestinationConfigs(
+      input.LogDestinationConfigs,
+      context
+    );
   }
   if (input.RedactedFields !== undefined) {
-    bodyParams['RedactedFields'] = serializeAws_json1_1RedactedFields(input.RedactedFields, context);
+    bodyParams["RedactedFields"] = serializeAws_json1_1RedactedFields(
+      input.RedactedFields,
+      context
+    );
   }
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Predicate = (
   input: Predicate,
@@ -8174,16 +9789,16 @@ const serializeAws_json1_1Predicate = (
 ): any => {
   let bodyParams: any = {};
   if (input.DataId !== undefined) {
-    bodyParams['DataId'] = input.DataId;
+    bodyParams["DataId"] = input.DataId;
   }
   if (input.Negated !== undefined) {
-    bodyParams['Negated'] = input.Negated;
+    bodyParams["Negated"] = input.Negated;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutLoggingConfigurationRequest = (
   input: PutLoggingConfigurationRequest,
@@ -8191,10 +9806,15 @@ const serializeAws_json1_1PutLoggingConfigurationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LoggingConfiguration !== undefined) {
-    bodyParams['LoggingConfiguration'] = serializeAws_json1_1LoggingConfiguration(input.LoggingConfiguration, context);
+    bodyParams[
+      "LoggingConfiguration"
+    ] = serializeAws_json1_1LoggingConfiguration(
+      input.LoggingConfiguration,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutPermissionPolicyRequest = (
   input: PutPermissionPolicyRequest,
@@ -8202,13 +9822,13 @@ const serializeAws_json1_1PutPermissionPolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Policy !== undefined) {
-    bodyParams['Policy'] = input.Policy;
+    bodyParams["Policy"] = input.Policy;
   }
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RedactedFields = (
   input: Array<FieldToMatch>,
@@ -8217,7 +9837,7 @@ const serializeAws_json1_1RedactedFields = (
   return (input || []).map(entry =>
     serializeAws_json1_1FieldToMatch(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RegexMatchSetUpdate = (
   input: RegexMatchSetUpdate,
@@ -8225,13 +9845,16 @@ const serializeAws_json1_1RegexMatchSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.RegexMatchTuple !== undefined) {
-    bodyParams['RegexMatchTuple'] = serializeAws_json1_1RegexMatchTuple(input.RegexMatchTuple, context);
+    bodyParams["RegexMatchTuple"] = serializeAws_json1_1RegexMatchTuple(
+      input.RegexMatchTuple,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RegexMatchSetUpdates = (
   input: Array<RegexMatchSetUpdate>,
@@ -8240,7 +9863,7 @@ const serializeAws_json1_1RegexMatchSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1RegexMatchSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RegexMatchTuple = (
   input: RegexMatchTuple,
@@ -8248,16 +9871,19 @@ const serializeAws_json1_1RegexMatchTuple = (
 ): any => {
   let bodyParams: any = {};
   if (input.FieldToMatch !== undefined) {
-    bodyParams['FieldToMatch'] = serializeAws_json1_1FieldToMatch(input.FieldToMatch, context);
+    bodyParams["FieldToMatch"] = serializeAws_json1_1FieldToMatch(
+      input.FieldToMatch,
+      context
+    );
   }
   if (input.RegexPatternSetId !== undefined) {
-    bodyParams['RegexPatternSetId'] = input.RegexPatternSetId;
+    bodyParams["RegexPatternSetId"] = input.RegexPatternSetId;
   }
   if (input.TextTransformation !== undefined) {
-    bodyParams['TextTransformation'] = input.TextTransformation;
+    bodyParams["TextTransformation"] = input.TextTransformation;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RegexPatternSetUpdate = (
   input: RegexPatternSetUpdate,
@@ -8265,13 +9891,13 @@ const serializeAws_json1_1RegexPatternSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.RegexPatternString !== undefined) {
-    bodyParams['RegexPatternString'] = input.RegexPatternString;
+    bodyParams["RegexPatternString"] = input.RegexPatternString;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RegexPatternSetUpdates = (
   input: Array<RegexPatternSetUpdate>,
@@ -8280,7 +9906,7 @@ const serializeAws_json1_1RegexPatternSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1RegexPatternSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RuleGroupUpdate = (
   input: RuleGroupUpdate,
@@ -8288,13 +9914,16 @@ const serializeAws_json1_1RuleGroupUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.ActivatedRule !== undefined) {
-    bodyParams['ActivatedRule'] = serializeAws_json1_1ActivatedRule(input.ActivatedRule, context);
+    bodyParams["ActivatedRule"] = serializeAws_json1_1ActivatedRule(
+      input.ActivatedRule,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RuleGroupUpdates = (
   input: Array<RuleGroupUpdate>,
@@ -8303,7 +9932,7 @@ const serializeAws_json1_1RuleGroupUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1RuleGroupUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RuleUpdate = (
   input: RuleUpdate,
@@ -8311,13 +9940,16 @@ const serializeAws_json1_1RuleUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.Predicate !== undefined) {
-    bodyParams['Predicate'] = serializeAws_json1_1Predicate(input.Predicate, context);
+    bodyParams["Predicate"] = serializeAws_json1_1Predicate(
+      input.Predicate,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RuleUpdates = (
   input: Array<RuleUpdate>,
@@ -8326,7 +9958,7 @@ const serializeAws_json1_1RuleUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1RuleUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1SizeConstraint = (
   input: SizeConstraint,
@@ -8334,19 +9966,22 @@ const serializeAws_json1_1SizeConstraint = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
-    bodyParams['ComparisonOperator'] = input.ComparisonOperator;
+    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
   if (input.FieldToMatch !== undefined) {
-    bodyParams['FieldToMatch'] = serializeAws_json1_1FieldToMatch(input.FieldToMatch, context);
+    bodyParams["FieldToMatch"] = serializeAws_json1_1FieldToMatch(
+      input.FieldToMatch,
+      context
+    );
   }
   if (input.Size !== undefined) {
-    bodyParams['Size'] = input.Size;
+    bodyParams["Size"] = input.Size;
   }
   if (input.TextTransformation !== undefined) {
-    bodyParams['TextTransformation'] = input.TextTransformation;
+    bodyParams["TextTransformation"] = input.TextTransformation;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SizeConstraintSetUpdate = (
   input: SizeConstraintSetUpdate,
@@ -8354,13 +9989,16 @@ const serializeAws_json1_1SizeConstraintSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.SizeConstraint !== undefined) {
-    bodyParams['SizeConstraint'] = serializeAws_json1_1SizeConstraint(input.SizeConstraint, context);
+    bodyParams["SizeConstraint"] = serializeAws_json1_1SizeConstraint(
+      input.SizeConstraint,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SizeConstraintSetUpdates = (
   input: Array<SizeConstraintSetUpdate>,
@@ -8369,7 +10007,7 @@ const serializeAws_json1_1SizeConstraintSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1SizeConstraintSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1SqlInjectionMatchSetUpdate = (
   input: SqlInjectionMatchSetUpdate,
@@ -8377,13 +10015,18 @@ const serializeAws_json1_1SqlInjectionMatchSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.SqlInjectionMatchTuple !== undefined) {
-    bodyParams['SqlInjectionMatchTuple'] = serializeAws_json1_1SqlInjectionMatchTuple(input.SqlInjectionMatchTuple, context);
+    bodyParams[
+      "SqlInjectionMatchTuple"
+    ] = serializeAws_json1_1SqlInjectionMatchTuple(
+      input.SqlInjectionMatchTuple,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SqlInjectionMatchSetUpdates = (
   input: Array<SqlInjectionMatchSetUpdate>,
@@ -8392,7 +10035,7 @@ const serializeAws_json1_1SqlInjectionMatchSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1SqlInjectionMatchSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1SqlInjectionMatchTuple = (
   input: SqlInjectionMatchTuple,
@@ -8400,45 +10043,41 @@ const serializeAws_json1_1SqlInjectionMatchTuple = (
 ): any => {
   let bodyParams: any = {};
   if (input.FieldToMatch !== undefined) {
-    bodyParams['FieldToMatch'] = serializeAws_json1_1FieldToMatch(input.FieldToMatch, context);
+    bodyParams["FieldToMatch"] = serializeAws_json1_1FieldToMatch(
+      input.FieldToMatch,
+      context
+    );
   }
   if (input.TextTransformation !== undefined) {
-    bodyParams['TextTransformation'] = input.TextTransformation;
+    bodyParams["TextTransformation"] = input.TextTransformation;
   }
   return bodyParams;
-}
+};
 
-const serializeAws_json1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
@@ -8446,13 +10085,13 @@ const serializeAws_json1_1TagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TimeWindow = (
   input: TimeWindow,
@@ -8460,13 +10099,13 @@ const serializeAws_json1_1TimeWindow = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
@@ -8474,13 +10113,16 @@ const serializeAws_json1_1UntagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceARN !== undefined) {
-    bodyParams['ResourceARN'] = input.ResourceARN;
+    bodyParams["ResourceARN"] = input.ResourceARN;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams['TagKeys'] = serializeAws_json1_1TagKeyList(input.TagKeys, context);
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
+      input.TagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateByteMatchSetRequest = (
   input: UpdateByteMatchSetRequest,
@@ -8488,16 +10130,19 @@ const serializeAws_json1_1UpdateByteMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ByteMatchSetId !== undefined) {
-    bodyParams['ByteMatchSetId'] = input.ByteMatchSetId;
+    bodyParams["ByteMatchSetId"] = input.ByteMatchSetId;
   }
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1ByteMatchSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1ByteMatchSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateGeoMatchSetRequest = (
   input: UpdateGeoMatchSetRequest,
@@ -8505,16 +10150,19 @@ const serializeAws_json1_1UpdateGeoMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.GeoMatchSetId !== undefined) {
-    bodyParams['GeoMatchSetId'] = input.GeoMatchSetId;
+    bodyParams["GeoMatchSetId"] = input.GeoMatchSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1GeoMatchSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1GeoMatchSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateIPSetRequest = (
   input: UpdateIPSetRequest,
@@ -8522,16 +10170,19 @@ const serializeAws_json1_1UpdateIPSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.IPSetId !== undefined) {
-    bodyParams['IPSetId'] = input.IPSetId;
+    bodyParams["IPSetId"] = input.IPSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1IPSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1IPSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateRateBasedRuleRequest = (
   input: UpdateRateBasedRuleRequest,
@@ -8539,19 +10190,22 @@ const serializeAws_json1_1UpdateRateBasedRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RateLimit !== undefined) {
-    bodyParams['RateLimit'] = input.RateLimit;
+    bodyParams["RateLimit"] = input.RateLimit;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1RuleUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1RuleUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateRegexMatchSetRequest = (
   input: UpdateRegexMatchSetRequest,
@@ -8559,16 +10213,19 @@ const serializeAws_json1_1UpdateRegexMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RegexMatchSetId !== undefined) {
-    bodyParams['RegexMatchSetId'] = input.RegexMatchSetId;
+    bodyParams["RegexMatchSetId"] = input.RegexMatchSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1RegexMatchSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1RegexMatchSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateRegexPatternSetRequest = (
   input: UpdateRegexPatternSetRequest,
@@ -8576,16 +10233,19 @@ const serializeAws_json1_1UpdateRegexPatternSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RegexPatternSetId !== undefined) {
-    bodyParams['RegexPatternSetId'] = input.RegexPatternSetId;
+    bodyParams["RegexPatternSetId"] = input.RegexPatternSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1RegexPatternSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1RegexPatternSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateRuleGroupRequest = (
   input: UpdateRuleGroupRequest,
@@ -8593,16 +10253,19 @@ const serializeAws_json1_1UpdateRuleGroupRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RuleGroupId !== undefined) {
-    bodyParams['RuleGroupId'] = input.RuleGroupId;
+    bodyParams["RuleGroupId"] = input.RuleGroupId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1RuleGroupUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1RuleGroupUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateRuleRequest = (
   input: UpdateRuleRequest,
@@ -8610,16 +10273,19 @@ const serializeAws_json1_1UpdateRuleRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.RuleId !== undefined) {
-    bodyParams['RuleId'] = input.RuleId;
+    bodyParams["RuleId"] = input.RuleId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1RuleUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1RuleUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateSizeConstraintSetRequest = (
   input: UpdateSizeConstraintSetRequest,
@@ -8627,16 +10293,19 @@ const serializeAws_json1_1UpdateSizeConstraintSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.SizeConstraintSetId !== undefined) {
-    bodyParams['SizeConstraintSetId'] = input.SizeConstraintSetId;
+    bodyParams["SizeConstraintSetId"] = input.SizeConstraintSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1SizeConstraintSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1SizeConstraintSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateSqlInjectionMatchSetRequest = (
   input: UpdateSqlInjectionMatchSetRequest,
@@ -8644,16 +10313,19 @@ const serializeAws_json1_1UpdateSqlInjectionMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.SqlInjectionMatchSetId !== undefined) {
-    bodyParams['SqlInjectionMatchSetId'] = input.SqlInjectionMatchSetId;
+    bodyParams["SqlInjectionMatchSetId"] = input.SqlInjectionMatchSetId;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1SqlInjectionMatchSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1SqlInjectionMatchSetUpdates(
+      input.Updates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateWebACLRequest = (
   input: UpdateWebACLRequest,
@@ -8661,19 +10333,25 @@ const serializeAws_json1_1UpdateWebACLRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.DefaultAction !== undefined) {
-    bodyParams['DefaultAction'] = serializeAws_json1_1WafAction(input.DefaultAction, context);
+    bodyParams["DefaultAction"] = serializeAws_json1_1WafAction(
+      input.DefaultAction,
+      context
+    );
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1WebACLUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1WebACLUpdates(
+      input.Updates,
+      context
+    );
   }
   if (input.WebACLId !== undefined) {
-    bodyParams['WebACLId'] = input.WebACLId;
+    bodyParams["WebACLId"] = input.WebACLId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateXssMatchSetRequest = (
   input: UpdateXssMatchSetRequest,
@@ -8681,16 +10359,19 @@ const serializeAws_json1_1UpdateXssMatchSetRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ChangeToken !== undefined) {
-    bodyParams['ChangeToken'] = input.ChangeToken;
+    bodyParams["ChangeToken"] = input.ChangeToken;
   }
   if (input.Updates !== undefined) {
-    bodyParams['Updates'] = serializeAws_json1_1XssMatchSetUpdates(input.Updates, context);
+    bodyParams["Updates"] = serializeAws_json1_1XssMatchSetUpdates(
+      input.Updates,
+      context
+    );
   }
   if (input.XssMatchSetId !== undefined) {
-    bodyParams['XssMatchSetId'] = input.XssMatchSetId;
+    bodyParams["XssMatchSetId"] = input.XssMatchSetId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WafAction = (
   input: WafAction,
@@ -8698,10 +10379,10 @@ const serializeAws_json1_1WafAction = (
 ): any => {
   let bodyParams: any = {};
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WafOverrideAction = (
   input: WafOverrideAction,
@@ -8709,10 +10390,10 @@ const serializeAws_json1_1WafOverrideAction = (
 ): any => {
   let bodyParams: any = {};
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebACLUpdate = (
   input: WebACLUpdate,
@@ -8720,13 +10401,16 @@ const serializeAws_json1_1WebACLUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.ActivatedRule !== undefined) {
-    bodyParams['ActivatedRule'] = serializeAws_json1_1ActivatedRule(input.ActivatedRule, context);
+    bodyParams["ActivatedRule"] = serializeAws_json1_1ActivatedRule(
+      input.ActivatedRule,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebACLUpdates = (
   input: Array<WebACLUpdate>,
@@ -8735,7 +10419,7 @@ const serializeAws_json1_1WebACLUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1WebACLUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1XssMatchSetUpdate = (
   input: XssMatchSetUpdate,
@@ -8743,13 +10427,16 @@ const serializeAws_json1_1XssMatchSetUpdate = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = input.Action;
+    bodyParams["Action"] = input.Action;
   }
   if (input.XssMatchTuple !== undefined) {
-    bodyParams['XssMatchTuple'] = serializeAws_json1_1XssMatchTuple(input.XssMatchTuple, context);
+    bodyParams["XssMatchTuple"] = serializeAws_json1_1XssMatchTuple(
+      input.XssMatchTuple,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1XssMatchSetUpdates = (
   input: Array<XssMatchSetUpdate>,
@@ -8758,7 +10445,7 @@ const serializeAws_json1_1XssMatchSetUpdates = (
   return (input || []).map(entry =>
     serializeAws_json1_1XssMatchSetUpdate(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1XssMatchTuple = (
   input: XssMatchTuple,
@@ -8766,13 +10453,16 @@ const serializeAws_json1_1XssMatchTuple = (
 ): any => {
   let bodyParams: any = {};
   if (input.FieldToMatch !== undefined) {
-    bodyParams['FieldToMatch'] = serializeAws_json1_1FieldToMatch(input.FieldToMatch, context);
+    bodyParams["FieldToMatch"] = serializeAws_json1_1FieldToMatch(
+      input.FieldToMatch,
+      context
+    );
   }
   if (input.TextTransformation !== undefined) {
-    bodyParams['TextTransformation'] = input.TextTransformation;
+    bodyParams["TextTransformation"] = input.TextTransformation;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1ActivatedRule = (
   output: any,
@@ -8785,16 +10475,22 @@ const deserializeAws_json1_1ActivatedRule = (
     OverrideAction: undefined,
     Priority: undefined,
     RuleId: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Action !== undefined) {
     contents.Action = deserializeAws_json1_1WafAction(output.Action, context);
   }
   if (output.ExcludedRules !== undefined) {
-    contents.ExcludedRules = deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context);
+    contents.ExcludedRules = deserializeAws_json1_1ExcludedRules(
+      output.ExcludedRules,
+      context
+    );
   }
   if (output.OverrideAction !== undefined) {
-    contents.OverrideAction = deserializeAws_json1_1WafOverrideAction(output.OverrideAction, context);
+    contents.OverrideAction = deserializeAws_json1_1WafOverrideAction(
+      output.OverrideAction,
+      context
+    );
   }
   if (output.Priority !== undefined) {
     contents.Priority = output.Priority;
@@ -8806,7 +10502,7 @@ const deserializeAws_json1_1ActivatedRule = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActivatedRules = (
   output: any,
@@ -8815,7 +10511,7 @@ const deserializeAws_json1_1ActivatedRules = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActivatedRule(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ByteMatchSet = (
   output: any,
@@ -8825,19 +10521,22 @@ const deserializeAws_json1_1ByteMatchSet = (
     __type: "ByteMatchSet",
     ByteMatchSetId: undefined,
     ByteMatchTuples: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.ByteMatchSetId !== undefined) {
     contents.ByteMatchSetId = output.ByteMatchSetId;
   }
   if (output.ByteMatchTuples !== undefined) {
-    contents.ByteMatchTuples = deserializeAws_json1_1ByteMatchTuples(output.ByteMatchTuples, context);
+    contents.ByteMatchTuples = deserializeAws_json1_1ByteMatchTuples(
+      output.ByteMatchTuples,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ByteMatchSetSummaries = (
   output: any,
@@ -8846,7 +10545,7 @@ const deserializeAws_json1_1ByteMatchSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ByteMatchSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ByteMatchSetSummary = (
   output: any,
@@ -8855,7 +10554,7 @@ const deserializeAws_json1_1ByteMatchSetSummary = (
   let contents: any = {
     __type: "ByteMatchSetSummary",
     ByteMatchSetId: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.ByteMatchSetId !== undefined) {
     contents.ByteMatchSetId = output.ByteMatchSetId;
@@ -8864,7 +10563,7 @@ const deserializeAws_json1_1ByteMatchSetSummary = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ByteMatchTuple = (
   output: any,
@@ -8875,10 +10574,13 @@ const deserializeAws_json1_1ByteMatchTuple = (
     FieldToMatch: undefined,
     PositionalConstraint: undefined,
     TargetString: undefined,
-    TextTransformation: undefined,
+    TextTransformation: undefined
   };
   if (output.FieldToMatch !== undefined) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context);
+    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
+      output.FieldToMatch,
+      context
+    );
   }
   if (output.PositionalConstraint !== undefined) {
     contents.PositionalConstraint = output.PositionalConstraint;
@@ -8890,7 +10592,7 @@ const deserializeAws_json1_1ByteMatchTuple = (
     contents.TextTransformation = output.TextTransformation;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ByteMatchTuples = (
   output: any,
@@ -8899,7 +10601,7 @@ const deserializeAws_json1_1ByteMatchTuples = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ByteMatchTuple(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1CreateByteMatchSetResponse = (
   output: any,
@@ -8908,16 +10610,19 @@ const deserializeAws_json1_1CreateByteMatchSetResponse = (
   let contents: any = {
     __type: "CreateByteMatchSetResponse",
     ByteMatchSet: undefined,
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ByteMatchSet !== undefined) {
-    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(output.ByteMatchSet, context);
+    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(
+      output.ByteMatchSet,
+      context
+    );
   }
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateGeoMatchSetResponse = (
   output: any,
@@ -8926,16 +10631,19 @@ const deserializeAws_json1_1CreateGeoMatchSetResponse = (
   let contents: any = {
     __type: "CreateGeoMatchSetResponse",
     ChangeToken: undefined,
-    GeoMatchSet: undefined,
+    GeoMatchSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.GeoMatchSet !== undefined) {
-    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(output.GeoMatchSet, context);
+    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(
+      output.GeoMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateIPSetResponse = (
   output: any,
@@ -8944,7 +10652,7 @@ const deserializeAws_json1_1CreateIPSetResponse = (
   let contents: any = {
     __type: "CreateIPSetResponse",
     ChangeToken: undefined,
-    IPSet: undefined,
+    IPSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
@@ -8953,7 +10661,7 @@ const deserializeAws_json1_1CreateIPSetResponse = (
     contents.IPSet = deserializeAws_json1_1IPSet(output.IPSet, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateRateBasedRuleResponse = (
   output: any,
@@ -8962,7 +10670,7 @@ const deserializeAws_json1_1CreateRateBasedRuleResponse = (
   let contents: any = {
     __type: "CreateRateBasedRuleResponse",
     ChangeToken: undefined,
-    Rule: undefined,
+    Rule: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
@@ -8971,7 +10679,7 @@ const deserializeAws_json1_1CreateRateBasedRuleResponse = (
     contents.Rule = deserializeAws_json1_1RateBasedRule(output.Rule, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateRegexMatchSetResponse = (
   output: any,
@@ -8980,16 +10688,19 @@ const deserializeAws_json1_1CreateRegexMatchSetResponse = (
   let contents: any = {
     __type: "CreateRegexMatchSetResponse",
     ChangeToken: undefined,
-    RegexMatchSet: undefined,
+    RegexMatchSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.RegexMatchSet !== undefined) {
-    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(output.RegexMatchSet, context);
+    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(
+      output.RegexMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateRegexPatternSetResponse = (
   output: any,
@@ -8998,16 +10709,19 @@ const deserializeAws_json1_1CreateRegexPatternSetResponse = (
   let contents: any = {
     __type: "CreateRegexPatternSetResponse",
     ChangeToken: undefined,
-    RegexPatternSet: undefined,
+    RegexPatternSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.RegexPatternSet !== undefined) {
-    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(output.RegexPatternSet, context);
+    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(
+      output.RegexPatternSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateRuleGroupResponse = (
   output: any,
@@ -9016,16 +10730,19 @@ const deserializeAws_json1_1CreateRuleGroupResponse = (
   let contents: any = {
     __type: "CreateRuleGroupResponse",
     ChangeToken: undefined,
-    RuleGroup: undefined,
+    RuleGroup: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.RuleGroup !== undefined) {
-    contents.RuleGroup = deserializeAws_json1_1RuleGroup(output.RuleGroup, context);
+    contents.RuleGroup = deserializeAws_json1_1RuleGroup(
+      output.RuleGroup,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateRuleResponse = (
   output: any,
@@ -9034,7 +10751,7 @@ const deserializeAws_json1_1CreateRuleResponse = (
   let contents: any = {
     __type: "CreateRuleResponse",
     ChangeToken: undefined,
-    Rule: undefined,
+    Rule: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
@@ -9043,7 +10760,7 @@ const deserializeAws_json1_1CreateRuleResponse = (
     contents.Rule = deserializeAws_json1_1Rule(output.Rule, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateSizeConstraintSetResponse = (
   output: any,
@@ -9052,16 +10769,19 @@ const deserializeAws_json1_1CreateSizeConstraintSetResponse = (
   let contents: any = {
     __type: "CreateSizeConstraintSetResponse",
     ChangeToken: undefined,
-    SizeConstraintSet: undefined,
+    SizeConstraintSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.SizeConstraintSet !== undefined) {
-    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(output.SizeConstraintSet, context);
+    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(
+      output.SizeConstraintSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateSqlInjectionMatchSetResponse = (
   output: any,
@@ -9070,16 +10790,19 @@ const deserializeAws_json1_1CreateSqlInjectionMatchSetResponse = (
   let contents: any = {
     __type: "CreateSqlInjectionMatchSetResponse",
     ChangeToken: undefined,
-    SqlInjectionMatchSet: undefined,
+    SqlInjectionMatchSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.SqlInjectionMatchSet !== undefined) {
-    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(output.SqlInjectionMatchSet, context);
+    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(
+      output.SqlInjectionMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateWebACLResponse = (
   output: any,
@@ -9088,7 +10811,7 @@ const deserializeAws_json1_1CreateWebACLResponse = (
   let contents: any = {
     __type: "CreateWebACLResponse",
     ChangeToken: undefined,
-    WebACL: undefined,
+    WebACL: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
@@ -9097,7 +10820,7 @@ const deserializeAws_json1_1CreateWebACLResponse = (
     contents.WebACL = deserializeAws_json1_1WebACL(output.WebACL, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateXssMatchSetResponse = (
   output: any,
@@ -9106,16 +10829,19 @@ const deserializeAws_json1_1CreateXssMatchSetResponse = (
   let contents: any = {
     __type: "CreateXssMatchSetResponse",
     ChangeToken: undefined,
-    XssMatchSet: undefined,
+    XssMatchSet: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   if (output.XssMatchSet !== undefined) {
-    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(output.XssMatchSet, context);
+    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(
+      output.XssMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteByteMatchSetResponse = (
   output: any,
@@ -9123,13 +10849,13 @@ const deserializeAws_json1_1DeleteByteMatchSetResponse = (
 ): DeleteByteMatchSetResponse => {
   let contents: any = {
     __type: "DeleteByteMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteGeoMatchSetResponse = (
   output: any,
@@ -9137,13 +10863,13 @@ const deserializeAws_json1_1DeleteGeoMatchSetResponse = (
 ): DeleteGeoMatchSetResponse => {
   let contents: any = {
     __type: "DeleteGeoMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteIPSetResponse = (
   output: any,
@@ -9151,33 +10877,33 @@ const deserializeAws_json1_1DeleteIPSetResponse = (
 ): DeleteIPSetResponse => {
   let contents: any = {
     __type: "DeleteIPSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLoggingConfigurationResponse => {
   let contents: any = {
-    __type: "DeleteLoggingConfigurationResponse",
+    __type: "DeleteLoggingConfigurationResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeletePermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeletePermissionPolicyResponse => {
   let contents: any = {
-    __type: "DeletePermissionPolicyResponse",
+    __type: "DeletePermissionPolicyResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteRateBasedRuleResponse = (
   output: any,
@@ -9185,13 +10911,13 @@ const deserializeAws_json1_1DeleteRateBasedRuleResponse = (
 ): DeleteRateBasedRuleResponse => {
   let contents: any = {
     __type: "DeleteRateBasedRuleResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteRegexMatchSetResponse = (
   output: any,
@@ -9199,13 +10925,13 @@ const deserializeAws_json1_1DeleteRegexMatchSetResponse = (
 ): DeleteRegexMatchSetResponse => {
   let contents: any = {
     __type: "DeleteRegexMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteRegexPatternSetResponse = (
   output: any,
@@ -9213,13 +10939,13 @@ const deserializeAws_json1_1DeleteRegexPatternSetResponse = (
 ): DeleteRegexPatternSetResponse => {
   let contents: any = {
     __type: "DeleteRegexPatternSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteRuleGroupResponse = (
   output: any,
@@ -9227,13 +10953,13 @@ const deserializeAws_json1_1DeleteRuleGroupResponse = (
 ): DeleteRuleGroupResponse => {
   let contents: any = {
     __type: "DeleteRuleGroupResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteRuleResponse = (
   output: any,
@@ -9241,13 +10967,13 @@ const deserializeAws_json1_1DeleteRuleResponse = (
 ): DeleteRuleResponse => {
   let contents: any = {
     __type: "DeleteRuleResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteSizeConstraintSetResponse = (
   output: any,
@@ -9255,13 +10981,13 @@ const deserializeAws_json1_1DeleteSizeConstraintSetResponse = (
 ): DeleteSizeConstraintSetResponse => {
   let contents: any = {
     __type: "DeleteSizeConstraintSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse = (
   output: any,
@@ -9269,13 +10995,13 @@ const deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse = (
 ): DeleteSqlInjectionMatchSetResponse => {
   let contents: any = {
     __type: "DeleteSqlInjectionMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteWebACLResponse = (
   output: any,
@@ -9283,13 +11009,13 @@ const deserializeAws_json1_1DeleteWebACLResponse = (
 ): DeleteWebACLResponse => {
   let contents: any = {
     __type: "DeleteWebACLResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteXssMatchSetResponse = (
   output: any,
@@ -9297,13 +11023,13 @@ const deserializeAws_json1_1DeleteXssMatchSetResponse = (
 ): DeleteXssMatchSetResponse => {
   let contents: any = {
     __type: "DeleteXssMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ExcludedRule = (
   output: any,
@@ -9311,13 +11037,13 @@ const deserializeAws_json1_1ExcludedRule = (
 ): ExcludedRule => {
   let contents: any = {
     __type: "ExcludedRule",
-    RuleId: undefined,
+    RuleId: undefined
   };
   if (output.RuleId !== undefined) {
     contents.RuleId = output.RuleId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ExcludedRules = (
   output: any,
@@ -9326,7 +11052,7 @@ const deserializeAws_json1_1ExcludedRules = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ExcludedRule(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1FieldToMatch = (
   output: any,
@@ -9335,7 +11061,7 @@ const deserializeAws_json1_1FieldToMatch = (
   let contents: any = {
     __type: "FieldToMatch",
     Data: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Data !== undefined) {
     contents.Data = output.Data;
@@ -9344,7 +11070,7 @@ const deserializeAws_json1_1FieldToMatch = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GeoMatchConstraint = (
   output: any,
@@ -9353,7 +11079,7 @@ const deserializeAws_json1_1GeoMatchConstraint = (
   let contents: any = {
     __type: "GeoMatchConstraint",
     Type: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Type !== undefined) {
     contents.Type = output.Type;
@@ -9362,7 +11088,7 @@ const deserializeAws_json1_1GeoMatchConstraint = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GeoMatchConstraints = (
   output: any,
@@ -9371,7 +11097,7 @@ const deserializeAws_json1_1GeoMatchConstraints = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GeoMatchConstraint(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1GeoMatchSet = (
   output: any,
@@ -9381,10 +11107,13 @@ const deserializeAws_json1_1GeoMatchSet = (
     __type: "GeoMatchSet",
     GeoMatchConstraints: undefined,
     GeoMatchSetId: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.GeoMatchConstraints !== undefined) {
-    contents.GeoMatchConstraints = deserializeAws_json1_1GeoMatchConstraints(output.GeoMatchConstraints, context);
+    contents.GeoMatchConstraints = deserializeAws_json1_1GeoMatchConstraints(
+      output.GeoMatchConstraints,
+      context
+    );
   }
   if (output.GeoMatchSetId !== undefined) {
     contents.GeoMatchSetId = output.GeoMatchSetId;
@@ -9393,7 +11122,7 @@ const deserializeAws_json1_1GeoMatchSet = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GeoMatchSetSummaries = (
   output: any,
@@ -9402,7 +11131,7 @@ const deserializeAws_json1_1GeoMatchSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1GeoMatchSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1GeoMatchSetSummary = (
   output: any,
@@ -9411,7 +11140,7 @@ const deserializeAws_json1_1GeoMatchSetSummary = (
   let contents: any = {
     __type: "GeoMatchSetSummary",
     GeoMatchSetId: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.GeoMatchSetId !== undefined) {
     contents.GeoMatchSetId = output.GeoMatchSetId;
@@ -9420,7 +11149,7 @@ const deserializeAws_json1_1GeoMatchSetSummary = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetByteMatchSetResponse = (
   output: any,
@@ -9428,13 +11157,16 @@ const deserializeAws_json1_1GetByteMatchSetResponse = (
 ): GetByteMatchSetResponse => {
   let contents: any = {
     __type: "GetByteMatchSetResponse",
-    ByteMatchSet: undefined,
+    ByteMatchSet: undefined
   };
   if (output.ByteMatchSet !== undefined) {
-    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(output.ByteMatchSet, context);
+    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(
+      output.ByteMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetChangeTokenResponse = (
   output: any,
@@ -9442,13 +11174,13 @@ const deserializeAws_json1_1GetChangeTokenResponse = (
 ): GetChangeTokenResponse => {
   let contents: any = {
     __type: "GetChangeTokenResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetChangeTokenStatusResponse = (
   output: any,
@@ -9456,13 +11188,13 @@ const deserializeAws_json1_1GetChangeTokenStatusResponse = (
 ): GetChangeTokenStatusResponse => {
   let contents: any = {
     __type: "GetChangeTokenStatusResponse",
-    ChangeTokenStatus: undefined,
+    ChangeTokenStatus: undefined
   };
   if (output.ChangeTokenStatus !== undefined) {
     contents.ChangeTokenStatus = output.ChangeTokenStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetGeoMatchSetResponse = (
   output: any,
@@ -9470,13 +11202,16 @@ const deserializeAws_json1_1GetGeoMatchSetResponse = (
 ): GetGeoMatchSetResponse => {
   let contents: any = {
     __type: "GetGeoMatchSetResponse",
-    GeoMatchSet: undefined,
+    GeoMatchSet: undefined
   };
   if (output.GeoMatchSet !== undefined) {
-    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(output.GeoMatchSet, context);
+    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(
+      output.GeoMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetIPSetResponse = (
   output: any,
@@ -9484,13 +11219,13 @@ const deserializeAws_json1_1GetIPSetResponse = (
 ): GetIPSetResponse => {
   let contents: any = {
     __type: "GetIPSetResponse",
-    IPSet: undefined,
+    IPSet: undefined
   };
   if (output.IPSet !== undefined) {
     contents.IPSet = deserializeAws_json1_1IPSet(output.IPSet, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetLoggingConfigurationResponse = (
   output: any,
@@ -9498,13 +11233,16 @@ const deserializeAws_json1_1GetLoggingConfigurationResponse = (
 ): GetLoggingConfigurationResponse => {
   let contents: any = {
     __type: "GetLoggingConfigurationResponse",
-    LoggingConfiguration: undefined,
+    LoggingConfiguration: undefined
   };
   if (output.LoggingConfiguration !== undefined) {
-    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context);
+    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(
+      output.LoggingConfiguration,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPermissionPolicyResponse = (
   output: any,
@@ -9512,13 +11250,13 @@ const deserializeAws_json1_1GetPermissionPolicyResponse = (
 ): GetPermissionPolicyResponse => {
   let contents: any = {
     __type: "GetPermissionPolicyResponse",
-    Policy: undefined,
+    Policy: undefined
   };
   if (output.Policy !== undefined) {
     contents.Policy = output.Policy;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse = (
   output: any,
@@ -9527,16 +11265,19 @@ const deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse = (
   let contents: any = {
     __type: "GetRateBasedRuleManagedKeysResponse",
     ManagedKeys: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.ManagedKeys !== undefined) {
-    contents.ManagedKeys = deserializeAws_json1_1ManagedKeys(output.ManagedKeys, context);
+    contents.ManagedKeys = deserializeAws_json1_1ManagedKeys(
+      output.ManagedKeys,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRateBasedRuleResponse = (
   output: any,
@@ -9544,13 +11285,13 @@ const deserializeAws_json1_1GetRateBasedRuleResponse = (
 ): GetRateBasedRuleResponse => {
   let contents: any = {
     __type: "GetRateBasedRuleResponse",
-    Rule: undefined,
+    Rule: undefined
   };
   if (output.Rule !== undefined) {
     contents.Rule = deserializeAws_json1_1RateBasedRule(output.Rule, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRegexMatchSetResponse = (
   output: any,
@@ -9558,13 +11299,16 @@ const deserializeAws_json1_1GetRegexMatchSetResponse = (
 ): GetRegexMatchSetResponse => {
   let contents: any = {
     __type: "GetRegexMatchSetResponse",
-    RegexMatchSet: undefined,
+    RegexMatchSet: undefined
   };
   if (output.RegexMatchSet !== undefined) {
-    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(output.RegexMatchSet, context);
+    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(
+      output.RegexMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRegexPatternSetResponse = (
   output: any,
@@ -9572,13 +11316,16 @@ const deserializeAws_json1_1GetRegexPatternSetResponse = (
 ): GetRegexPatternSetResponse => {
   let contents: any = {
     __type: "GetRegexPatternSetResponse",
-    RegexPatternSet: undefined,
+    RegexPatternSet: undefined
   };
   if (output.RegexPatternSet !== undefined) {
-    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(output.RegexPatternSet, context);
+    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(
+      output.RegexPatternSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRuleGroupResponse = (
   output: any,
@@ -9586,13 +11333,16 @@ const deserializeAws_json1_1GetRuleGroupResponse = (
 ): GetRuleGroupResponse => {
   let contents: any = {
     __type: "GetRuleGroupResponse",
-    RuleGroup: undefined,
+    RuleGroup: undefined
   };
   if (output.RuleGroup !== undefined) {
-    contents.RuleGroup = deserializeAws_json1_1RuleGroup(output.RuleGroup, context);
+    contents.RuleGroup = deserializeAws_json1_1RuleGroup(
+      output.RuleGroup,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRuleResponse = (
   output: any,
@@ -9600,13 +11350,13 @@ const deserializeAws_json1_1GetRuleResponse = (
 ): GetRuleResponse => {
   let contents: any = {
     __type: "GetRuleResponse",
-    Rule: undefined,
+    Rule: undefined
   };
   if (output.Rule !== undefined) {
     contents.Rule = deserializeAws_json1_1Rule(output.Rule, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetSampledRequestsResponse = (
   output: any,
@@ -9616,19 +11366,25 @@ const deserializeAws_json1_1GetSampledRequestsResponse = (
     __type: "GetSampledRequestsResponse",
     PopulationSize: undefined,
     SampledRequests: undefined,
-    TimeWindow: undefined,
+    TimeWindow: undefined
   };
   if (output.PopulationSize !== undefined) {
     contents.PopulationSize = output.PopulationSize;
   }
   if (output.SampledRequests !== undefined) {
-    contents.SampledRequests = deserializeAws_json1_1SampledHTTPRequests(output.SampledRequests, context);
+    contents.SampledRequests = deserializeAws_json1_1SampledHTTPRequests(
+      output.SampledRequests,
+      context
+    );
   }
   if (output.TimeWindow !== undefined) {
-    contents.TimeWindow = deserializeAws_json1_1TimeWindow(output.TimeWindow, context);
+    contents.TimeWindow = deserializeAws_json1_1TimeWindow(
+      output.TimeWindow,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetSizeConstraintSetResponse = (
   output: any,
@@ -9636,13 +11392,16 @@ const deserializeAws_json1_1GetSizeConstraintSetResponse = (
 ): GetSizeConstraintSetResponse => {
   let contents: any = {
     __type: "GetSizeConstraintSetResponse",
-    SizeConstraintSet: undefined,
+    SizeConstraintSet: undefined
   };
   if (output.SizeConstraintSet !== undefined) {
-    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(output.SizeConstraintSet, context);
+    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(
+      output.SizeConstraintSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetSqlInjectionMatchSetResponse = (
   output: any,
@@ -9650,13 +11409,16 @@ const deserializeAws_json1_1GetSqlInjectionMatchSetResponse = (
 ): GetSqlInjectionMatchSetResponse => {
   let contents: any = {
     __type: "GetSqlInjectionMatchSetResponse",
-    SqlInjectionMatchSet: undefined,
+    SqlInjectionMatchSet: undefined
   };
   if (output.SqlInjectionMatchSet !== undefined) {
-    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(output.SqlInjectionMatchSet, context);
+    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(
+      output.SqlInjectionMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetWebACLResponse = (
   output: any,
@@ -9664,13 +11426,13 @@ const deserializeAws_json1_1GetWebACLResponse = (
 ): GetWebACLResponse => {
   let contents: any = {
     __type: "GetWebACLResponse",
-    WebACL: undefined,
+    WebACL: undefined
   };
   if (output.WebACL !== undefined) {
     contents.WebACL = deserializeAws_json1_1WebACL(output.WebACL, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetXssMatchSetResponse = (
   output: any,
@@ -9678,13 +11440,16 @@ const deserializeAws_json1_1GetXssMatchSetResponse = (
 ): GetXssMatchSetResponse => {
   let contents: any = {
     __type: "GetXssMatchSetResponse",
-    XssMatchSet: undefined,
+    XssMatchSet: undefined
   };
   if (output.XssMatchSet !== undefined) {
-    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(output.XssMatchSet, context);
+    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(
+      output.XssMatchSet,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HTTPHeader = (
   output: any,
@@ -9693,7 +11458,7 @@ const deserializeAws_json1_1HTTPHeader = (
   let contents: any = {
     __type: "HTTPHeader",
     Name: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -9702,7 +11467,7 @@ const deserializeAws_json1_1HTTPHeader = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HTTPHeaders = (
   output: any,
@@ -9711,7 +11476,7 @@ const deserializeAws_json1_1HTTPHeaders = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HTTPHeader(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1HTTPRequest = (
   output: any,
@@ -9724,7 +11489,7 @@ const deserializeAws_json1_1HTTPRequest = (
     HTTPVersion: undefined,
     Headers: undefined,
     Method: undefined,
-    URI: undefined,
+    URI: undefined
   };
   if (output.ClientIP !== undefined) {
     contents.ClientIP = output.ClientIP;
@@ -9736,7 +11501,10 @@ const deserializeAws_json1_1HTTPRequest = (
     contents.HTTPVersion = output.HTTPVersion;
   }
   if (output.Headers !== undefined) {
-    contents.Headers = deserializeAws_json1_1HTTPHeaders(output.Headers, context);
+    contents.Headers = deserializeAws_json1_1HTTPHeaders(
+      output.Headers,
+      context
+    );
   }
   if (output.Method !== undefined) {
     contents.Method = output.Method;
@@ -9745,7 +11513,7 @@ const deserializeAws_json1_1HTTPRequest = (
     contents.URI = output.URI;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1IPSet = (
   output: any,
@@ -9755,10 +11523,13 @@ const deserializeAws_json1_1IPSet = (
     __type: "IPSet",
     IPSetDescriptors: undefined,
     IPSetId: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.IPSetDescriptors !== undefined) {
-    contents.IPSetDescriptors = deserializeAws_json1_1IPSetDescriptors(output.IPSetDescriptors, context);
+    contents.IPSetDescriptors = deserializeAws_json1_1IPSetDescriptors(
+      output.IPSetDescriptors,
+      context
+    );
   }
   if (output.IPSetId !== undefined) {
     contents.IPSetId = output.IPSetId;
@@ -9767,7 +11538,7 @@ const deserializeAws_json1_1IPSet = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1IPSetDescriptor = (
   output: any,
@@ -9776,7 +11547,7 @@ const deserializeAws_json1_1IPSetDescriptor = (
   let contents: any = {
     __type: "IPSetDescriptor",
     Type: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Type !== undefined) {
     contents.Type = output.Type;
@@ -9785,7 +11556,7 @@ const deserializeAws_json1_1IPSetDescriptor = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1IPSetDescriptors = (
   output: any,
@@ -9794,7 +11565,7 @@ const deserializeAws_json1_1IPSetDescriptors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IPSetDescriptor(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1IPSetSummaries = (
   output: any,
@@ -9803,7 +11574,7 @@ const deserializeAws_json1_1IPSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1IPSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1IPSetSummary = (
   output: any,
@@ -9812,7 +11583,7 @@ const deserializeAws_json1_1IPSetSummary = (
   let contents: any = {
     __type: "IPSetSummary",
     IPSetId: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.IPSetId !== undefined) {
     contents.IPSetId = output.IPSetId;
@@ -9821,7 +11592,7 @@ const deserializeAws_json1_1IPSetSummary = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse = (
   output: any,
@@ -9830,16 +11601,19 @@ const deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse = (
   let contents: any = {
     __type: "ListActivatedRulesInRuleGroupResponse",
     ActivatedRules: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.ActivatedRules !== undefined) {
-    contents.ActivatedRules = deserializeAws_json1_1ActivatedRules(output.ActivatedRules, context);
+    contents.ActivatedRules = deserializeAws_json1_1ActivatedRules(
+      output.ActivatedRules,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListByteMatchSetsResponse = (
   output: any,
@@ -9848,16 +11622,19 @@ const deserializeAws_json1_1ListByteMatchSetsResponse = (
   let contents: any = {
     __type: "ListByteMatchSetsResponse",
     ByteMatchSets: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.ByteMatchSets !== undefined) {
-    contents.ByteMatchSets = deserializeAws_json1_1ByteMatchSetSummaries(output.ByteMatchSets, context);
+    contents.ByteMatchSets = deserializeAws_json1_1ByteMatchSetSummaries(
+      output.ByteMatchSets,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListGeoMatchSetsResponse = (
   output: any,
@@ -9866,16 +11643,19 @@ const deserializeAws_json1_1ListGeoMatchSetsResponse = (
   let contents: any = {
     __type: "ListGeoMatchSetsResponse",
     GeoMatchSets: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.GeoMatchSets !== undefined) {
-    contents.GeoMatchSets = deserializeAws_json1_1GeoMatchSetSummaries(output.GeoMatchSets, context);
+    contents.GeoMatchSets = deserializeAws_json1_1GeoMatchSetSummaries(
+      output.GeoMatchSets,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListIPSetsResponse = (
   output: any,
@@ -9884,16 +11664,19 @@ const deserializeAws_json1_1ListIPSetsResponse = (
   let contents: any = {
     __type: "ListIPSetsResponse",
     IPSets: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.IPSets !== undefined) {
-    contents.IPSets = deserializeAws_json1_1IPSetSummaries(output.IPSets, context);
+    contents.IPSets = deserializeAws_json1_1IPSetSummaries(
+      output.IPSets,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
   output: any,
@@ -9902,16 +11685,19 @@ const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
   let contents: any = {
     __type: "ListLoggingConfigurationsResponse",
     LoggingConfigurations: undefined,
-    NextMarker: undefined,
+    NextMarker: undefined
   };
   if (output.LoggingConfigurations !== undefined) {
-    contents.LoggingConfigurations = deserializeAws_json1_1LoggingConfigurations(output.LoggingConfigurations, context);
+    contents.LoggingConfigurations = deserializeAws_json1_1LoggingConfigurations(
+      output.LoggingConfigurations,
+      context
+    );
   }
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListRateBasedRulesResponse = (
   output: any,
@@ -9920,7 +11706,7 @@ const deserializeAws_json1_1ListRateBasedRulesResponse = (
   let contents: any = {
     __type: "ListRateBasedRulesResponse",
     NextMarker: undefined,
-    Rules: undefined,
+    Rules: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
@@ -9929,7 +11715,7 @@ const deserializeAws_json1_1ListRateBasedRulesResponse = (
     contents.Rules = deserializeAws_json1_1RuleSummaries(output.Rules, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListRegexMatchSetsResponse = (
   output: any,
@@ -9938,16 +11724,19 @@ const deserializeAws_json1_1ListRegexMatchSetsResponse = (
   let contents: any = {
     __type: "ListRegexMatchSetsResponse",
     NextMarker: undefined,
-    RegexMatchSets: undefined,
+    RegexMatchSets: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.RegexMatchSets !== undefined) {
-    contents.RegexMatchSets = deserializeAws_json1_1RegexMatchSetSummaries(output.RegexMatchSets, context);
+    contents.RegexMatchSets = deserializeAws_json1_1RegexMatchSetSummaries(
+      output.RegexMatchSets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   output: any,
@@ -9956,16 +11745,19 @@ const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   let contents: any = {
     __type: "ListRegexPatternSetsResponse",
     NextMarker: undefined,
-    RegexPatternSets: undefined,
+    RegexPatternSets: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.RegexPatternSets !== undefined) {
-    contents.RegexPatternSets = deserializeAws_json1_1RegexPatternSetSummaries(output.RegexPatternSets, context);
+    contents.RegexPatternSets = deserializeAws_json1_1RegexPatternSetSummaries(
+      output.RegexPatternSets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListRuleGroupsResponse = (
   output: any,
@@ -9974,16 +11766,19 @@ const deserializeAws_json1_1ListRuleGroupsResponse = (
   let contents: any = {
     __type: "ListRuleGroupsResponse",
     NextMarker: undefined,
-    RuleGroups: undefined,
+    RuleGroups: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.RuleGroups !== undefined) {
-    contents.RuleGroups = deserializeAws_json1_1RuleGroupSummaries(output.RuleGroups, context);
+    contents.RuleGroups = deserializeAws_json1_1RuleGroupSummaries(
+      output.RuleGroups,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListRulesResponse = (
   output: any,
@@ -9992,7 +11787,7 @@ const deserializeAws_json1_1ListRulesResponse = (
   let contents: any = {
     __type: "ListRulesResponse",
     NextMarker: undefined,
-    Rules: undefined,
+    Rules: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
@@ -10001,7 +11796,7 @@ const deserializeAws_json1_1ListRulesResponse = (
     contents.Rules = deserializeAws_json1_1RuleSummaries(output.Rules, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListSizeConstraintSetsResponse = (
   output: any,
@@ -10010,16 +11805,19 @@ const deserializeAws_json1_1ListSizeConstraintSetsResponse = (
   let contents: any = {
     __type: "ListSizeConstraintSetsResponse",
     NextMarker: undefined,
-    SizeConstraintSets: undefined,
+    SizeConstraintSets: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.SizeConstraintSets !== undefined) {
-    contents.SizeConstraintSets = deserializeAws_json1_1SizeConstraintSetSummaries(output.SizeConstraintSets, context);
+    contents.SizeConstraintSets = deserializeAws_json1_1SizeConstraintSetSummaries(
+      output.SizeConstraintSets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListSqlInjectionMatchSetsResponse = (
   output: any,
@@ -10028,16 +11826,19 @@ const deserializeAws_json1_1ListSqlInjectionMatchSetsResponse = (
   let contents: any = {
     __type: "ListSqlInjectionMatchSetsResponse",
     NextMarker: undefined,
-    SqlInjectionMatchSets: undefined,
+    SqlInjectionMatchSets: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.SqlInjectionMatchSets !== undefined) {
-    contents.SqlInjectionMatchSets = deserializeAws_json1_1SqlInjectionMatchSetSummaries(output.SqlInjectionMatchSets, context);
+    contents.SqlInjectionMatchSets = deserializeAws_json1_1SqlInjectionMatchSetSummaries(
+      output.SqlInjectionMatchSets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListSubscribedRuleGroupsResponse = (
   output: any,
@@ -10046,16 +11847,19 @@ const deserializeAws_json1_1ListSubscribedRuleGroupsResponse = (
   let contents: any = {
     __type: "ListSubscribedRuleGroupsResponse",
     NextMarker: undefined,
-    RuleGroups: undefined,
+    RuleGroups: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.RuleGroups !== undefined) {
-    contents.RuleGroups = deserializeAws_json1_1SubscribedRuleGroupSummaries(output.RuleGroups, context);
+    contents.RuleGroups = deserializeAws_json1_1SubscribedRuleGroupSummaries(
+      output.RuleGroups,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -10064,16 +11868,19 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   let contents: any = {
     __type: "ListTagsForResourceResponse",
     NextMarker: undefined,
-    TagInfoForResource: undefined,
+    TagInfoForResource: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.TagInfoForResource !== undefined) {
-    contents.TagInfoForResource = deserializeAws_json1_1TagInfoForResource(output.TagInfoForResource, context);
+    contents.TagInfoForResource = deserializeAws_json1_1TagInfoForResource(
+      output.TagInfoForResource,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListWebACLsResponse = (
   output: any,
@@ -10082,16 +11889,19 @@ const deserializeAws_json1_1ListWebACLsResponse = (
   let contents: any = {
     __type: "ListWebACLsResponse",
     NextMarker: undefined,
-    WebACLs: undefined,
+    WebACLs: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.WebACLs !== undefined) {
-    contents.WebACLs = deserializeAws_json1_1WebACLSummaries(output.WebACLs, context);
+    contents.WebACLs = deserializeAws_json1_1WebACLSummaries(
+      output.WebACLs,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListXssMatchSetsResponse = (
   output: any,
@@ -10100,25 +11910,26 @@ const deserializeAws_json1_1ListXssMatchSetsResponse = (
   let contents: any = {
     __type: "ListXssMatchSetsResponse",
     NextMarker: undefined,
-    XssMatchSets: undefined,
+    XssMatchSets: undefined
   };
   if (output.NextMarker !== undefined) {
     contents.NextMarker = output.NextMarker;
   }
   if (output.XssMatchSets !== undefined) {
-    contents.XssMatchSets = deserializeAws_json1_1XssMatchSetSummaries(output.XssMatchSets, context);
+    contents.XssMatchSets = deserializeAws_json1_1XssMatchSetSummaries(
+      output.XssMatchSets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1LogDestinationConfigs = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1LoggingConfiguration = (
   output: any,
@@ -10128,19 +11939,25 @@ const deserializeAws_json1_1LoggingConfiguration = (
     __type: "LoggingConfiguration",
     LogDestinationConfigs: undefined,
     RedactedFields: undefined,
-    ResourceArn: undefined,
+    ResourceArn: undefined
   };
   if (output.LogDestinationConfigs !== undefined) {
-    contents.LogDestinationConfigs = deserializeAws_json1_1LogDestinationConfigs(output.LogDestinationConfigs, context);
+    contents.LogDestinationConfigs = deserializeAws_json1_1LogDestinationConfigs(
+      output.LogDestinationConfigs,
+      context
+    );
   }
   if (output.RedactedFields !== undefined) {
-    contents.RedactedFields = deserializeAws_json1_1RedactedFields(output.RedactedFields, context);
+    contents.RedactedFields = deserializeAws_json1_1RedactedFields(
+      output.RedactedFields,
+      context
+    );
   }
   if (output.ResourceArn !== undefined) {
     contents.ResourceArn = output.ResourceArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1LoggingConfigurations = (
   output: any,
@@ -10149,16 +11966,14 @@ const deserializeAws_json1_1LoggingConfigurations = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LoggingConfiguration(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ManagedKeys = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1Predicate = (
   output: any,
@@ -10168,7 +11983,7 @@ const deserializeAws_json1_1Predicate = (
     __type: "Predicate",
     DataId: undefined,
     Negated: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.DataId !== undefined) {
     contents.DataId = output.DataId;
@@ -10180,7 +11995,7 @@ const deserializeAws_json1_1Predicate = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Predicates = (
   output: any,
@@ -10189,7 +12004,7 @@ const deserializeAws_json1_1Predicates = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Predicate(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PutLoggingConfigurationResponse = (
   output: any,
@@ -10197,23 +12012,26 @@ const deserializeAws_json1_1PutLoggingConfigurationResponse = (
 ): PutLoggingConfigurationResponse => {
   let contents: any = {
     __type: "PutLoggingConfigurationResponse",
-    LoggingConfiguration: undefined,
+    LoggingConfiguration: undefined
   };
   if (output.LoggingConfiguration !== undefined) {
-    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(output.LoggingConfiguration, context);
+    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(
+      output.LoggingConfiguration,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutPermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutPermissionPolicyResponse => {
   let contents: any = {
-    __type: "PutPermissionPolicyResponse",
+    __type: "PutPermissionPolicyResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1RateBasedRule = (
   output: any,
@@ -10226,10 +12044,13 @@ const deserializeAws_json1_1RateBasedRule = (
     Name: undefined,
     RateKey: undefined,
     RateLimit: undefined,
-    RuleId: undefined,
+    RuleId: undefined
   };
   if (output.MatchPredicates !== undefined) {
-    contents.MatchPredicates = deserializeAws_json1_1Predicates(output.MatchPredicates, context);
+    contents.MatchPredicates = deserializeAws_json1_1Predicates(
+      output.MatchPredicates,
+      context
+    );
   }
   if (output.MetricName !== undefined) {
     contents.MetricName = output.MetricName;
@@ -10247,7 +12068,7 @@ const deserializeAws_json1_1RateBasedRule = (
     contents.RuleId = output.RuleId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RedactedFields = (
   output: any,
@@ -10256,7 +12077,7 @@ const deserializeAws_json1_1RedactedFields = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FieldToMatch(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RegexMatchSet = (
   output: any,
@@ -10266,7 +12087,7 @@ const deserializeAws_json1_1RegexMatchSet = (
     __type: "RegexMatchSet",
     Name: undefined,
     RegexMatchSetId: undefined,
-    RegexMatchTuples: undefined,
+    RegexMatchTuples: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10275,10 +12096,13 @@ const deserializeAws_json1_1RegexMatchSet = (
     contents.RegexMatchSetId = output.RegexMatchSetId;
   }
   if (output.RegexMatchTuples !== undefined) {
-    contents.RegexMatchTuples = deserializeAws_json1_1RegexMatchTuples(output.RegexMatchTuples, context);
+    contents.RegexMatchTuples = deserializeAws_json1_1RegexMatchTuples(
+      output.RegexMatchTuples,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegexMatchSetSummaries = (
   output: any,
@@ -10287,7 +12111,7 @@ const deserializeAws_json1_1RegexMatchSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RegexMatchSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RegexMatchSetSummary = (
   output: any,
@@ -10296,7 +12120,7 @@ const deserializeAws_json1_1RegexMatchSetSummary = (
   let contents: any = {
     __type: "RegexMatchSetSummary",
     Name: undefined,
-    RegexMatchSetId: undefined,
+    RegexMatchSetId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10305,7 +12129,7 @@ const deserializeAws_json1_1RegexMatchSetSummary = (
     contents.RegexMatchSetId = output.RegexMatchSetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegexMatchTuple = (
   output: any,
@@ -10315,10 +12139,13 @@ const deserializeAws_json1_1RegexMatchTuple = (
     __type: "RegexMatchTuple",
     FieldToMatch: undefined,
     RegexPatternSetId: undefined,
-    TextTransformation: undefined,
+    TextTransformation: undefined
   };
   if (output.FieldToMatch !== undefined) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context);
+    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
+      output.FieldToMatch,
+      context
+    );
   }
   if (output.RegexPatternSetId !== undefined) {
     contents.RegexPatternSetId = output.RegexPatternSetId;
@@ -10327,7 +12154,7 @@ const deserializeAws_json1_1RegexMatchTuple = (
     contents.TextTransformation = output.TextTransformation;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegexMatchTuples = (
   output: any,
@@ -10336,7 +12163,7 @@ const deserializeAws_json1_1RegexMatchTuples = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RegexMatchTuple(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RegexPatternSet = (
   output: any,
@@ -10346,7 +12173,7 @@ const deserializeAws_json1_1RegexPatternSet = (
     __type: "RegexPatternSet",
     Name: undefined,
     RegexPatternSetId: undefined,
-    RegexPatternStrings: undefined,
+    RegexPatternStrings: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10355,10 +12182,13 @@ const deserializeAws_json1_1RegexPatternSet = (
     contents.RegexPatternSetId = output.RegexPatternSetId;
   }
   if (output.RegexPatternStrings !== undefined) {
-    contents.RegexPatternStrings = deserializeAws_json1_1RegexPatternStrings(output.RegexPatternStrings, context);
+    contents.RegexPatternStrings = deserializeAws_json1_1RegexPatternStrings(
+      output.RegexPatternStrings,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegexPatternSetSummaries = (
   output: any,
@@ -10367,7 +12197,7 @@ const deserializeAws_json1_1RegexPatternSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RegexPatternSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RegexPatternSetSummary = (
   output: any,
@@ -10376,7 +12206,7 @@ const deserializeAws_json1_1RegexPatternSetSummary = (
   let contents: any = {
     __type: "RegexPatternSetSummary",
     Name: undefined,
-    RegexPatternSetId: undefined,
+    RegexPatternSetId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10385,16 +12215,14 @@ const deserializeAws_json1_1RegexPatternSetSummary = (
     contents.RegexPatternSetId = output.RegexPatternSetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegexPatternStrings = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1Rule = (
   output: any,
@@ -10405,7 +12233,7 @@ const deserializeAws_json1_1Rule = (
     MetricName: undefined,
     Name: undefined,
     Predicates: undefined,
-    RuleId: undefined,
+    RuleId: undefined
   };
   if (output.MetricName !== undefined) {
     contents.MetricName = output.MetricName;
@@ -10414,13 +12242,16 @@ const deserializeAws_json1_1Rule = (
     contents.Name = output.Name;
   }
   if (output.Predicates !== undefined) {
-    contents.Predicates = deserializeAws_json1_1Predicates(output.Predicates, context);
+    contents.Predicates = deserializeAws_json1_1Predicates(
+      output.Predicates,
+      context
+    );
   }
   if (output.RuleId !== undefined) {
     contents.RuleId = output.RuleId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RuleGroup = (
   output: any,
@@ -10430,7 +12261,7 @@ const deserializeAws_json1_1RuleGroup = (
     __type: "RuleGroup",
     MetricName: undefined,
     Name: undefined,
-    RuleGroupId: undefined,
+    RuleGroupId: undefined
   };
   if (output.MetricName !== undefined) {
     contents.MetricName = output.MetricName;
@@ -10442,7 +12273,7 @@ const deserializeAws_json1_1RuleGroup = (
     contents.RuleGroupId = output.RuleGroupId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RuleGroupSummaries = (
   output: any,
@@ -10451,7 +12282,7 @@ const deserializeAws_json1_1RuleGroupSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleGroupSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RuleGroupSummary = (
   output: any,
@@ -10460,7 +12291,7 @@ const deserializeAws_json1_1RuleGroupSummary = (
   let contents: any = {
     __type: "RuleGroupSummary",
     Name: undefined,
-    RuleGroupId: undefined,
+    RuleGroupId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10469,7 +12300,7 @@ const deserializeAws_json1_1RuleGroupSummary = (
     contents.RuleGroupId = output.RuleGroupId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RuleSummaries = (
   output: any,
@@ -10478,7 +12309,7 @@ const deserializeAws_json1_1RuleSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1RuleSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RuleSummary = (
   output: any,
@@ -10487,7 +12318,7 @@ const deserializeAws_json1_1RuleSummary = (
   let contents: any = {
     __type: "RuleSummary",
     Name: undefined,
-    RuleId: undefined,
+    RuleId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10496,7 +12327,7 @@ const deserializeAws_json1_1RuleSummary = (
     contents.RuleId = output.RuleId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SampledHTTPRequest = (
   output: any,
@@ -10508,25 +12339,32 @@ const deserializeAws_json1_1SampledHTTPRequest = (
     Request: undefined,
     RuleWithinRuleGroup: undefined,
     Timestamp: undefined,
-    Weight: undefined,
+    Weight: undefined
   };
   if (output.Action !== undefined) {
     contents.Action = output.Action;
   }
   if (output.Request !== undefined) {
-    contents.Request = deserializeAws_json1_1HTTPRequest(output.Request, context);
+    contents.Request = deserializeAws_json1_1HTTPRequest(
+      output.Request,
+      context
+    );
   }
   if (output.RuleWithinRuleGroup !== undefined) {
     contents.RuleWithinRuleGroup = output.RuleWithinRuleGroup;
   }
   if (output.Timestamp !== undefined) {
-    contents.Timestamp = new Date(output.Timestamp % 1 != 0 ? Math.round(output.Timestamp * 1000) : output.Timestamp);
+    contents.Timestamp = new Date(
+      output.Timestamp % 1 != 0
+        ? Math.round(output.Timestamp * 1000)
+        : output.Timestamp
+    );
   }
   if (output.Weight !== undefined) {
     contents.Weight = output.Weight;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SampledHTTPRequests = (
   output: any,
@@ -10535,7 +12373,7 @@ const deserializeAws_json1_1SampledHTTPRequests = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SampledHTTPRequest(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SizeConstraint = (
   output: any,
@@ -10546,13 +12384,16 @@ const deserializeAws_json1_1SizeConstraint = (
     ComparisonOperator: undefined,
     FieldToMatch: undefined,
     Size: undefined,
-    TextTransformation: undefined,
+    TextTransformation: undefined
   };
   if (output.ComparisonOperator !== undefined) {
     contents.ComparisonOperator = output.ComparisonOperator;
   }
   if (output.FieldToMatch !== undefined) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context);
+    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
+      output.FieldToMatch,
+      context
+    );
   }
   if (output.Size !== undefined) {
     contents.Size = output.Size;
@@ -10561,7 +12402,7 @@ const deserializeAws_json1_1SizeConstraint = (
     contents.TextTransformation = output.TextTransformation;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SizeConstraintSet = (
   output: any,
@@ -10571,7 +12412,7 @@ const deserializeAws_json1_1SizeConstraintSet = (
     __type: "SizeConstraintSet",
     Name: undefined,
     SizeConstraintSetId: undefined,
-    SizeConstraints: undefined,
+    SizeConstraints: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10580,10 +12421,13 @@ const deserializeAws_json1_1SizeConstraintSet = (
     contents.SizeConstraintSetId = output.SizeConstraintSetId;
   }
   if (output.SizeConstraints !== undefined) {
-    contents.SizeConstraints = deserializeAws_json1_1SizeConstraints(output.SizeConstraints, context);
+    contents.SizeConstraints = deserializeAws_json1_1SizeConstraints(
+      output.SizeConstraints,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SizeConstraintSetSummaries = (
   output: any,
@@ -10592,7 +12436,7 @@ const deserializeAws_json1_1SizeConstraintSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SizeConstraintSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SizeConstraintSetSummary = (
   output: any,
@@ -10601,7 +12445,7 @@ const deserializeAws_json1_1SizeConstraintSetSummary = (
   let contents: any = {
     __type: "SizeConstraintSetSummary",
     Name: undefined,
-    SizeConstraintSetId: undefined,
+    SizeConstraintSetId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10610,7 +12454,7 @@ const deserializeAws_json1_1SizeConstraintSetSummary = (
     contents.SizeConstraintSetId = output.SizeConstraintSetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SizeConstraints = (
   output: any,
@@ -10619,7 +12463,7 @@ const deserializeAws_json1_1SizeConstraints = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SizeConstraint(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SqlInjectionMatchSet = (
   output: any,
@@ -10629,7 +12473,7 @@ const deserializeAws_json1_1SqlInjectionMatchSet = (
     __type: "SqlInjectionMatchSet",
     Name: undefined,
     SqlInjectionMatchSetId: undefined,
-    SqlInjectionMatchTuples: undefined,
+    SqlInjectionMatchTuples: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10638,10 +12482,13 @@ const deserializeAws_json1_1SqlInjectionMatchSet = (
     contents.SqlInjectionMatchSetId = output.SqlInjectionMatchSetId;
   }
   if (output.SqlInjectionMatchTuples !== undefined) {
-    contents.SqlInjectionMatchTuples = deserializeAws_json1_1SqlInjectionMatchTuples(output.SqlInjectionMatchTuples, context);
+    contents.SqlInjectionMatchTuples = deserializeAws_json1_1SqlInjectionMatchTuples(
+      output.SqlInjectionMatchTuples,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SqlInjectionMatchSetSummaries = (
   output: any,
@@ -10650,7 +12497,7 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SqlInjectionMatchSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
   output: any,
@@ -10659,7 +12506,7 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
   let contents: any = {
     __type: "SqlInjectionMatchSetSummary",
     Name: undefined,
-    SqlInjectionMatchSetId: undefined,
+    SqlInjectionMatchSetId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -10668,7 +12515,7 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
     contents.SqlInjectionMatchSetId = output.SqlInjectionMatchSetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SqlInjectionMatchTuple = (
   output: any,
@@ -10677,16 +12524,19 @@ const deserializeAws_json1_1SqlInjectionMatchTuple = (
   let contents: any = {
     __type: "SqlInjectionMatchTuple",
     FieldToMatch: undefined,
-    TextTransformation: undefined,
+    TextTransformation: undefined
   };
   if (output.FieldToMatch !== undefined) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context);
+    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
+      output.FieldToMatch,
+      context
+    );
   }
   if (output.TextTransformation !== undefined) {
     contents.TextTransformation = output.TextTransformation;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SqlInjectionMatchTuples = (
   output: any,
@@ -10695,7 +12545,7 @@ const deserializeAws_json1_1SqlInjectionMatchTuples = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SqlInjectionMatchTuple(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SubscribedRuleGroupSummaries = (
   output: any,
@@ -10704,7 +12554,7 @@ const deserializeAws_json1_1SubscribedRuleGroupSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SubscribedRuleGroupSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SubscribedRuleGroupSummary = (
   output: any,
@@ -10714,7 +12564,7 @@ const deserializeAws_json1_1SubscribedRuleGroupSummary = (
     __type: "SubscribedRuleGroupSummary",
     MetricName: undefined,
     Name: undefined,
-    RuleGroupId: undefined,
+    RuleGroupId: undefined
   };
   if (output.MetricName !== undefined) {
     contents.MetricName = output.MetricName;
@@ -10726,7 +12576,7 @@ const deserializeAws_json1_1SubscribedRuleGroupSummary = (
     contents.RuleGroupId = output.RuleGroupId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -10735,7 +12585,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -10744,7 +12594,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagInfoForResource = (
   output: any,
@@ -10753,7 +12603,7 @@ const deserializeAws_json1_1TagInfoForResource = (
   let contents: any = {
     __type: "TagInfoForResource",
     ResourceARN: undefined,
-    TagList: undefined,
+    TagList: undefined
   };
   if (output.ResourceARN !== undefined) {
     contents.ResourceARN = output.ResourceARN;
@@ -10762,7 +12612,7 @@ const deserializeAws_json1_1TagInfoForResource = (
     contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -10771,17 +12621,17 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
   let contents: any = {
-    __type: "TagResourceResponse",
+    __type: "TagResourceResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1TimeWindow = (
   output: any,
@@ -10790,26 +12640,34 @@ const deserializeAws_json1_1TimeWindow = (
   let contents: any = {
     __type: "TimeWindow",
     EndTime: undefined,
-    StartTime: undefined,
+    StartTime: undefined
   };
   if (output.EndTime !== undefined) {
-    contents.EndTime = new Date(output.EndTime % 1 != 0 ? Math.round(output.EndTime * 1000) : output.EndTime);
+    contents.EndTime = new Date(
+      output.EndTime % 1 != 0
+        ? Math.round(output.EndTime * 1000)
+        : output.EndTime
+    );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
   let contents: any = {
-    __type: "UntagResourceResponse",
+    __type: "UntagResourceResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateByteMatchSetResponse = (
   output: any,
@@ -10817,13 +12675,13 @@ const deserializeAws_json1_1UpdateByteMatchSetResponse = (
 ): UpdateByteMatchSetResponse => {
   let contents: any = {
     __type: "UpdateByteMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateGeoMatchSetResponse = (
   output: any,
@@ -10831,13 +12689,13 @@ const deserializeAws_json1_1UpdateGeoMatchSetResponse = (
 ): UpdateGeoMatchSetResponse => {
   let contents: any = {
     __type: "UpdateGeoMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateIPSetResponse = (
   output: any,
@@ -10845,13 +12703,13 @@ const deserializeAws_json1_1UpdateIPSetResponse = (
 ): UpdateIPSetResponse => {
   let contents: any = {
     __type: "UpdateIPSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateRateBasedRuleResponse = (
   output: any,
@@ -10859,13 +12717,13 @@ const deserializeAws_json1_1UpdateRateBasedRuleResponse = (
 ): UpdateRateBasedRuleResponse => {
   let contents: any = {
     __type: "UpdateRateBasedRuleResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateRegexMatchSetResponse = (
   output: any,
@@ -10873,13 +12731,13 @@ const deserializeAws_json1_1UpdateRegexMatchSetResponse = (
 ): UpdateRegexMatchSetResponse => {
   let contents: any = {
     __type: "UpdateRegexMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
   output: any,
@@ -10887,13 +12745,13 @@ const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
 ): UpdateRegexPatternSetResponse => {
   let contents: any = {
     __type: "UpdateRegexPatternSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateRuleGroupResponse = (
   output: any,
@@ -10901,13 +12759,13 @@ const deserializeAws_json1_1UpdateRuleGroupResponse = (
 ): UpdateRuleGroupResponse => {
   let contents: any = {
     __type: "UpdateRuleGroupResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateRuleResponse = (
   output: any,
@@ -10915,13 +12773,13 @@ const deserializeAws_json1_1UpdateRuleResponse = (
 ): UpdateRuleResponse => {
   let contents: any = {
     __type: "UpdateRuleResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateSizeConstraintSetResponse = (
   output: any,
@@ -10929,13 +12787,13 @@ const deserializeAws_json1_1UpdateSizeConstraintSetResponse = (
 ): UpdateSizeConstraintSetResponse => {
   let contents: any = {
     __type: "UpdateSizeConstraintSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse = (
   output: any,
@@ -10943,13 +12801,13 @@ const deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse = (
 ): UpdateSqlInjectionMatchSetResponse => {
   let contents: any = {
     __type: "UpdateSqlInjectionMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateWebACLResponse = (
   output: any,
@@ -10957,13 +12815,13 @@ const deserializeAws_json1_1UpdateWebACLResponse = (
 ): UpdateWebACLResponse => {
   let contents: any = {
     __type: "UpdateWebACLResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateXssMatchSetResponse = (
   output: any,
@@ -10971,13 +12829,13 @@ const deserializeAws_json1_1UpdateXssMatchSetResponse = (
 ): UpdateXssMatchSetResponse => {
   let contents: any = {
     __type: "UpdateXssMatchSetResponse",
-    ChangeToken: undefined,
+    ChangeToken: undefined
   };
   if (output.ChangeToken !== undefined) {
     contents.ChangeToken = output.ChangeToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFBadRequestException = (
   output: any,
@@ -10985,13 +12843,13 @@ const deserializeAws_json1_1WAFBadRequestException = (
 ): WAFBadRequestException => {
   let contents: any = {
     __type: "WAFBadRequestException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFDisallowedNameException = (
   output: any,
@@ -10999,13 +12857,13 @@ const deserializeAws_json1_1WAFDisallowedNameException = (
 ): WAFDisallowedNameException => {
   let contents: any = {
     __type: "WAFDisallowedNameException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInternalErrorException = (
   output: any,
@@ -11013,23 +12871,23 @@ const deserializeAws_json1_1WAFInternalErrorException = (
 ): WAFInternalErrorException => {
   let contents: any = {
     __type: "WAFInternalErrorException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInvalidAccountException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidAccountException => {
   let contents: any = {
-    __type: "WAFInvalidAccountException",
+    __type: "WAFInvalidAccountException"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInvalidOperationException = (
   output: any,
@@ -11037,13 +12895,13 @@ const deserializeAws_json1_1WAFInvalidOperationException = (
 ): WAFInvalidOperationException => {
   let contents: any = {
     __type: "WAFInvalidOperationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInvalidParameterException = (
   output: any,
@@ -11053,7 +12911,7 @@ const deserializeAws_json1_1WAFInvalidParameterException = (
     __type: "WAFInvalidParameterException",
     field: undefined,
     parameter: undefined,
-    reason: undefined,
+    reason: undefined
   };
   if (output.field !== undefined) {
     contents.field = output.field;
@@ -11065,7 +12923,7 @@ const deserializeAws_json1_1WAFInvalidParameterException = (
     contents.reason = output.reason;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInvalidPermissionPolicyException = (
   output: any,
@@ -11073,13 +12931,13 @@ const deserializeAws_json1_1WAFInvalidPermissionPolicyException = (
 ): WAFInvalidPermissionPolicyException => {
   let contents: any = {
     __type: "WAFInvalidPermissionPolicyException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFInvalidRegexPatternException = (
   output: any,
@@ -11087,13 +12945,13 @@ const deserializeAws_json1_1WAFInvalidRegexPatternException = (
 ): WAFInvalidRegexPatternException => {
   let contents: any = {
     __type: "WAFInvalidRegexPatternException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFLimitsExceededException = (
   output: any,
@@ -11101,13 +12959,13 @@ const deserializeAws_json1_1WAFLimitsExceededException = (
 ): WAFLimitsExceededException => {
   let contents: any = {
     __type: "WAFLimitsExceededException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFNonEmptyEntityException = (
   output: any,
@@ -11115,13 +12973,13 @@ const deserializeAws_json1_1WAFNonEmptyEntityException = (
 ): WAFNonEmptyEntityException => {
   let contents: any = {
     __type: "WAFNonEmptyEntityException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFNonexistentContainerException = (
   output: any,
@@ -11129,13 +12987,13 @@ const deserializeAws_json1_1WAFNonexistentContainerException = (
 ): WAFNonexistentContainerException => {
   let contents: any = {
     __type: "WAFNonexistentContainerException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFNonexistentItemException = (
   output: any,
@@ -11143,13 +13001,13 @@ const deserializeAws_json1_1WAFNonexistentItemException = (
 ): WAFNonexistentItemException => {
   let contents: any = {
     __type: "WAFNonexistentItemException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFReferencedItemException = (
   output: any,
@@ -11157,13 +13015,13 @@ const deserializeAws_json1_1WAFReferencedItemException = (
 ): WAFReferencedItemException => {
   let contents: any = {
     __type: "WAFReferencedItemException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFServiceLinkedRoleErrorException = (
   output: any,
@@ -11171,13 +13029,13 @@ const deserializeAws_json1_1WAFServiceLinkedRoleErrorException = (
 ): WAFServiceLinkedRoleErrorException => {
   let contents: any = {
     __type: "WAFServiceLinkedRoleErrorException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFStaleDataException = (
   output: any,
@@ -11185,13 +13043,13 @@ const deserializeAws_json1_1WAFStaleDataException = (
 ): WAFStaleDataException => {
   let contents: any = {
     __type: "WAFStaleDataException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFSubscriptionNotFoundException = (
   output: any,
@@ -11199,13 +13057,13 @@ const deserializeAws_json1_1WAFSubscriptionNotFoundException = (
 ): WAFSubscriptionNotFoundException => {
   let contents: any = {
     __type: "WAFSubscriptionNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFTagOperationException = (
   output: any,
@@ -11213,13 +13071,13 @@ const deserializeAws_json1_1WAFTagOperationException = (
 ): WAFTagOperationException => {
   let contents: any = {
     __type: "WAFTagOperationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WAFTagOperationInternalErrorException = (
   output: any,
@@ -11227,13 +13085,13 @@ const deserializeAws_json1_1WAFTagOperationInternalErrorException = (
 ): WAFTagOperationInternalErrorException => {
   let contents: any = {
     __type: "WAFTagOperationInternalErrorException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WafAction = (
   output: any,
@@ -11241,13 +13099,13 @@ const deserializeAws_json1_1WafAction = (
 ): WafAction => {
   let contents: any = {
     __type: "WafAction",
-    Type: undefined,
+    Type: undefined
   };
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WafOverrideAction = (
   output: any,
@@ -11255,13 +13113,13 @@ const deserializeAws_json1_1WafOverrideAction = (
 ): WafOverrideAction => {
   let contents: any = {
     __type: "WafOverrideAction",
-    Type: undefined,
+    Type: undefined
   };
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebACL = (
   output: any,
@@ -11274,10 +13132,13 @@ const deserializeAws_json1_1WebACL = (
     Name: undefined,
     Rules: undefined,
     WebACLArn: undefined,
-    WebACLId: undefined,
+    WebACLId: undefined
   };
   if (output.DefaultAction !== undefined) {
-    contents.DefaultAction = deserializeAws_json1_1WafAction(output.DefaultAction, context);
+    contents.DefaultAction = deserializeAws_json1_1WafAction(
+      output.DefaultAction,
+      context
+    );
   }
   if (output.MetricName !== undefined) {
     contents.MetricName = output.MetricName;
@@ -11286,7 +13147,10 @@ const deserializeAws_json1_1WebACL = (
     contents.Name = output.Name;
   }
   if (output.Rules !== undefined) {
-    contents.Rules = deserializeAws_json1_1ActivatedRules(output.Rules, context);
+    contents.Rules = deserializeAws_json1_1ActivatedRules(
+      output.Rules,
+      context
+    );
   }
   if (output.WebACLArn !== undefined) {
     contents.WebACLArn = output.WebACLArn;
@@ -11295,7 +13159,7 @@ const deserializeAws_json1_1WebACL = (
     contents.WebACLId = output.WebACLId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebACLSummaries = (
   output: any,
@@ -11304,7 +13168,7 @@ const deserializeAws_json1_1WebACLSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebACLSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1WebACLSummary = (
   output: any,
@@ -11313,7 +13177,7 @@ const deserializeAws_json1_1WebACLSummary = (
   let contents: any = {
     __type: "WebACLSummary",
     Name: undefined,
-    WebACLId: undefined,
+    WebACLId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -11322,7 +13186,7 @@ const deserializeAws_json1_1WebACLSummary = (
     contents.WebACLId = output.WebACLId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1XssMatchSet = (
   output: any,
@@ -11332,7 +13196,7 @@ const deserializeAws_json1_1XssMatchSet = (
     __type: "XssMatchSet",
     Name: undefined,
     XssMatchSetId: undefined,
-    XssMatchTuples: undefined,
+    XssMatchTuples: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -11341,10 +13205,13 @@ const deserializeAws_json1_1XssMatchSet = (
     contents.XssMatchSetId = output.XssMatchSetId;
   }
   if (output.XssMatchTuples !== undefined) {
-    contents.XssMatchTuples = deserializeAws_json1_1XssMatchTuples(output.XssMatchTuples, context);
+    contents.XssMatchTuples = deserializeAws_json1_1XssMatchTuples(
+      output.XssMatchTuples,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1XssMatchSetSummaries = (
   output: any,
@@ -11353,7 +13220,7 @@ const deserializeAws_json1_1XssMatchSetSummaries = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1XssMatchSetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1XssMatchSetSummary = (
   output: any,
@@ -11362,7 +13229,7 @@ const deserializeAws_json1_1XssMatchSetSummary = (
   let contents: any = {
     __type: "XssMatchSetSummary",
     Name: undefined,
-    XssMatchSetId: undefined,
+    XssMatchSetId: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -11371,7 +13238,7 @@ const deserializeAws_json1_1XssMatchSetSummary = (
     contents.XssMatchSetId = output.XssMatchSetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1XssMatchTuple = (
   output: any,
@@ -11380,16 +13247,19 @@ const deserializeAws_json1_1XssMatchTuple = (
   let contents: any = {
     __type: "XssMatchTuple",
     FieldToMatch: undefined,
-    TextTransformation: undefined,
+    TextTransformation: undefined
   };
   if (output.FieldToMatch !== undefined) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context);
+    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
+      output.FieldToMatch,
+      context
+    );
   }
   if (output.TextTransformation !== undefined) {
     contents.TextTransformation = output.TextTransformation;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1XssMatchTuples = (
   output: any,
@@ -11398,7 +13268,7 @@ const deserializeAws_json1_1XssMatchTuples = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1XssMatchTuple(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
 }
@@ -386,11 +388,11 @@ export namespace DeleteNodeOutput {
 
 export enum Edition {
   STANDARD = "STANDARD",
-  STARTER = "STARTER",
+  STARTER = "STARTER"
 }
 
 export enum Framework {
-  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC",
+  HYPERLEDGER_FABRIC = "HYPERLEDGER_FABRIC"
 }
 
 export interface GetMemberInput {
@@ -554,7 +556,9 @@ export namespace GetProposalOutput {
  *          <p></p>
  *
  */
-export interface IllegalActionException extends _smithy.SmithyException, $MetadataBearer {
+export interface IllegalActionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IllegalActionException";
   $fault: "client";
   Message?: string;
@@ -571,7 +575,9 @@ export namespace IllegalActionException {
  *          <p>The request processing has failed because of an unknown error, exception or failure.</p>
  *
  */
-export interface InternalServiceErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceErrorException";
   $fault: "server";
 }
@@ -587,7 +593,9 @@ export namespace InternalServiceErrorException {
  *          <p>The action or operation requested is invalid. Verify that the action is typed correctly.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -675,7 +683,7 @@ export enum InvitationStatus {
   ACCEPTING = "ACCEPTING",
   EXPIRED = "EXPIRED",
   PENDING = "PENDING",
-  REJECTED = "REJECTED",
+  REJECTED = "REJECTED"
 }
 
 /**
@@ -1311,7 +1319,7 @@ export enum MemberStatus {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
   DELETED = "DELETED",
-  DELETING = "DELETING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -1578,7 +1586,7 @@ export enum NetworkStatus {
   CREATE_FAILED = "CREATE_FAILED",
   CREATING = "CREATING",
   DELETED = "DELETED",
-  DELETING = "DELETING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -1797,7 +1805,7 @@ export enum NodeStatus {
   CREATING = "CREATING",
   DELETED = "DELETED",
   DELETING = "DELETING",
-  FAILED = "FAILED",
+  FAILED = "FAILED"
 }
 
 /**
@@ -2018,7 +2026,7 @@ export enum ProposalStatus {
   APPROVED = "APPROVED",
   EXPIRED = "EXPIRED",
   IN_PROGRESS = "IN_PROGRESS",
-  REJECTED = "REJECTED",
+  REJECTED = "REJECTED"
 }
 
 /**
@@ -2170,7 +2178,9 @@ export namespace RemoveAction {
  *          <p>A resource request is issued for a resource that already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -2187,7 +2197,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The maximum number of resources of that type already exist. Ensure the resources requested are within the boundaries of the service edition and your account limits.</p>
  *
  */
-export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2204,7 +2216,9 @@ export namespace ResourceLimitExceededException {
  *          <p>A requested resource does not exist on the network. It may have been deleted or referenced inaccurately.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2221,7 +2235,9 @@ export namespace ResourceNotFoundException {
  *          <p>The requested resource exists but is not in a status that can complete the operation.</p>
  *
  */
-export interface ResourceNotReadyException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotReadyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotReadyException";
   $fault: "client";
   Message?: string;
@@ -2235,7 +2251,7 @@ export namespace ResourceNotReadyException {
 
 export enum ThresholdComparator {
   GREATER_THAN = "GREATER_THAN",
-  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO",
+  GREATER_THAN_OR_EQUAL_TO = "GREATER_THAN_OR_EQUAL_TO"
 }
 
 /**
@@ -2243,7 +2259,9 @@ export enum ThresholdComparator {
  *          <p>The request or operation could not be performed because a service is throttling requests. The most common source of throttling errors is launching EC2 instances such that your service limit for EC2 instances is exceeded. Request a limit increase or delete unused resources if possible.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
 }
@@ -2353,7 +2371,7 @@ export namespace VoteSummary {
 
 export enum VoteValue {
   NO = "NO",
-  YES = "YES",
+  YES = "YES"
 }
 
 /**

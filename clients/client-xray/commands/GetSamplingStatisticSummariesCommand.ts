@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  XRayClientResolvedConfig,
+  XRayClientResolvedConfig
 } from "../XRayClient";
 import {
   GetSamplingStatisticSummariesRequest,
-  GetSamplingStatisticSummariesResult,
+  GetSamplingStatisticSummariesResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand,
-  serializeAws_restJson1_1GetSamplingStatisticSummariesCommand,
+  serializeAws_restJson1_1GetSamplingStatisticSummariesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetSamplingStatisticSummariesCommandInput = GetSamplingStatisticSummariesRequest;
 export type GetSamplingStatisticSummariesCommandOutput = GetSamplingStatisticSummariesResult;
 
-export class GetSamplingStatisticSummariesCommand extends $Command<GetSamplingStatisticSummariesCommandInput, GetSamplingStatisticSummariesCommandOutput, XRayClientResolvedConfig> {
+export class GetSamplingStatisticSummariesCommand extends $Command<
+  GetSamplingStatisticSummariesCommandInput,
+  GetSamplingStatisticSummariesCommandOutput,
+  XRayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetSamplingStatisticSummariesCommand extends $Command<GetSamplingSt
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSamplingStatisticSummariesCommandInput, GetSamplingStatisticSummariesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetSamplingStatisticSummariesCommandInput,
+    GetSamplingStatisticSummariesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetSamplingStatisticSummariesCommand extends $Command<GetSamplingSt
     input: GetSamplingStatisticSummariesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSamplingStatisticSummariesCommand(input, context);
+    return serializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetSamplingStatisticSummariesCommandOutput> {
-    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand(output, context);
+    return deserializeAws_restJson1_1GetSamplingStatisticSummariesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

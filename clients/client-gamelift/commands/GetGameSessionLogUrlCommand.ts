@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
 import {
   GetGameSessionLogUrlInput,
-  GetGameSessionLogUrlOutput,
+  GetGameSessionLogUrlOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1GetGameSessionLogUrlCommand,
-  serializeAws_json1_1GetGameSessionLogUrlCommand,
+  serializeAws_json1_1GetGameSessionLogUrlCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetGameSessionLogUrlCommandInput = GetGameSessionLogUrlInput;
 export type GetGameSessionLogUrlCommandOutput = GetGameSessionLogUrlOutput;
 
-export class GetGameSessionLogUrlCommand extends $Command<GetGameSessionLogUrlCommandInput, GetGameSessionLogUrlCommandOutput, GameLiftClientResolvedConfig> {
+export class GetGameSessionLogUrlCommand extends $Command<
+  GetGameSessionLogUrlCommandInput,
+  GetGameSessionLogUrlCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetGameSessionLogUrlCommand extends $Command<GetGameSessionLogUrlCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetGameSessionLogUrlCommandInput, GetGameSessionLogUrlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetGameSessionLogUrlCommandInput,
+    GetGameSessionLogUrlCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

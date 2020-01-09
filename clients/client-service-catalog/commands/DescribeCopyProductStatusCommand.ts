@@ -1,20 +1,20 @@
 import {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ServiceCatalogClient";
 import {
   DescribeCopyProductStatusInput,
-  DescribeCopyProductStatusOutput,
+  DescribeCopyProductStatusOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCopyProductStatusCommand,
-  serializeAws_json1_1DescribeCopyProductStatusCommand,
+  serializeAws_json1_1DescribeCopyProductStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeCopyProductStatusCommandInput = DescribeCopyProductStatusInput;
 export type DescribeCopyProductStatusCommandOutput = DescribeCopyProductStatusOutput;
 
-export class DescribeCopyProductStatusCommand extends $Command<DescribeCopyProductStatusCommandInput, DescribeCopyProductStatusCommandOutput, ServiceCatalogClientResolvedConfig> {
+export class DescribeCopyProductStatusCommand extends $Command<
+  DescribeCopyProductStatusCommandInput,
+  DescribeCopyProductStatusCommandOutput,
+  ServiceCatalogClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeCopyProductStatusCommand extends $Command<DescribeCopyProdu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeCopyProductStatusCommandInput, DescribeCopyProductStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeCopyProductStatusCommandInput,
+    DescribeCopyProductStatusCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeCopyProductStatusCommand extends $Command<DescribeCopyProdu
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeCopyProductStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeCopyProductStatusCommand(output, context);
+    return deserializeAws_json1_1DescribeCopyProductStatusCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   PinpointSMSVoiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointSMSVoiceClient";
 import {
   UpdateConfigurationSetEventDestinationRequest,
-  UpdateConfigurationSetEventDestinationResponse,
+  UpdateConfigurationSetEventDestinationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand,
-  serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand,
+  serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateConfigurationSetEventDestinationCommandInput = UpdateConfigurationSetEventDestinationRequest;
 export type UpdateConfigurationSetEventDestinationCommandOutput = UpdateConfigurationSetEventDestinationResponse;
 
-export class UpdateConfigurationSetEventDestinationCommand extends $Command<UpdateConfigurationSetEventDestinationCommandInput, UpdateConfigurationSetEventDestinationCommandOutput, PinpointSMSVoiceClientResolvedConfig> {
+export class UpdateConfigurationSetEventDestinationCommand extends $Command<
+  UpdateConfigurationSetEventDestinationCommandInput,
+  UpdateConfigurationSetEventDestinationCommandOutput,
+  PinpointSMSVoiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: UpdateConfigurationSetEventDestinationCommandInput) {
+  constructor(
+    readonly input: UpdateConfigurationSetEventDestinationCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<Upda
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateConfigurationSetEventDestinationCommandInput, UpdateConfigurationSetEventDestinationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateConfigurationSetEventDestinationCommandInput,
+    UpdateConfigurationSetEventDestinationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class UpdateConfigurationSetEventDestinationCommand extends $Command<Upda
     input: UpdateConfigurationSetEventDestinationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(input, context);
+    return serializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(output, context);
+    return deserializeAws_restJson1_1UpdateConfigurationSetEventDestinationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

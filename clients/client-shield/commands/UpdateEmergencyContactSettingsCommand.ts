@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  ShieldClientResolvedConfig,
+  ShieldClientResolvedConfig
 } from "../ShieldClient";
 import {
   UpdateEmergencyContactSettingsRequest,
-  UpdateEmergencyContactSettingsResponse,
+  UpdateEmergencyContactSettingsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateEmergencyContactSettingsCommand,
-  serializeAws_json1_1UpdateEmergencyContactSettingsCommand,
+  serializeAws_json1_1UpdateEmergencyContactSettingsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateEmergencyContactSettingsCommandInput = UpdateEmergencyContactSettingsRequest;
 export type UpdateEmergencyContactSettingsCommandOutput = UpdateEmergencyContactSettingsResponse;
 
-export class UpdateEmergencyContactSettingsCommand extends $Command<UpdateEmergencyContactSettingsCommandInput, UpdateEmergencyContactSettingsCommandOutput, ShieldClientResolvedConfig> {
+export class UpdateEmergencyContactSettingsCommand extends $Command<
+  UpdateEmergencyContactSettingsCommandInput,
+  UpdateEmergencyContactSettingsCommandOutput,
+  ShieldClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<UpdateEmerge
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ShieldClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateEmergencyContactSettingsCommandInput, UpdateEmergencyContactSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateEmergencyContactSettingsCommandInput,
+    UpdateEmergencyContactSettingsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateEmergencyContactSettingsCommand extends $Command<UpdateEmerge
     input: UpdateEmergencyContactSettingsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(input, context);
+    return serializeAws_json1_1UpdateEmergencyContactSettingsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateEmergencyContactSettingsCommandOutput> {
-    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(output, context);
+    return deserializeAws_json1_1UpdateEmergencyContactSettingsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

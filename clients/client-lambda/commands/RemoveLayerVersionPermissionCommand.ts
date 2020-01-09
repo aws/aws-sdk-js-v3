@@ -1,17 +1,17 @@
 import {
   LambdaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LambdaClient";
 import { RemoveLayerVersionPermissionRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand,
-  serializeAws_restJson1_1RemoveLayerVersionPermissionCommand,
+  serializeAws_restJson1_1RemoveLayerVersionPermissionCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type RemoveLayerVersionPermissionCommandInput = RemoveLayerVersionPermissionRequest;
-export type RemoveLayerVersionPermissionCommandOutput = __MetadataBearer
+export type RemoveLayerVersionPermissionCommandOutput = __MetadataBearer;
 
-export class RemoveLayerVersionPermissionCommand extends $Command<RemoveLayerVersionPermissionCommandInput, RemoveLayerVersionPermissionCommandOutput, LambdaClientResolvedConfig> {
+export class RemoveLayerVersionPermissionCommand extends $Command<
+  RemoveLayerVersionPermissionCommandInput,
+  RemoveLayerVersionPermissionCommandOutput,
+  LambdaClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class RemoveLayerVersionPermissionCommand extends $Command<RemoveLayerVer
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LambdaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RemoveLayerVersionPermissionCommandInput, RemoveLayerVersionPermissionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    RemoveLayerVersionPermissionCommandInput,
+    RemoveLayerVersionPermissionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +70,20 @@ export class RemoveLayerVersionPermissionCommand extends $Command<RemoveLayerVer
     input: RemoveLayerVersionPermissionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1RemoveLayerVersionPermissionCommand(input, context);
+    return serializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<RemoveLayerVersionPermissionCommandOutput> {
-    return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(output, context);
+    return deserializeAws_restJson1_1RemoveLayerVersionPermissionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

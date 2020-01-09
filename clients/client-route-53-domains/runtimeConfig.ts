@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "route53domains",
   credentialDefaultProvider,
-  regionDefaultProvider,
+  regionDefaultProvider
 };

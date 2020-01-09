@@ -2,7 +2,7 @@ import { WorkMailMessageFlowClient } from "./WorkMailMessageFlowClient";
 import {
   GetRawMessageContentCommand,
   GetRawMessageContentCommandInput,
-  GetRawMessageContentCommandOutput,
+  GetRawMessageContentCommandOutput
 } from "./commands/GetRawMessageContentCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -23,7 +23,7 @@ export class WorkMailMessageFlow extends WorkMailMessageFlowClient {
    */
   public getRawMessageContent(
     args: GetRawMessageContentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRawMessageContentCommandOutput>;
   public getRawMessageContent(
     args: GetRawMessageContentCommandInput,
@@ -36,19 +36,20 @@ export class WorkMailMessageFlow extends WorkMailMessageFlowClient {
   ): void;
   public getRawMessageContent(
     args: GetRawMessageContentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRawMessageContentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRawMessageContentCommandOutput) => void),
     cb?: (err: any, data?: GetRawMessageContentCommandOutput) => void
   ): Promise<GetRawMessageContentCommandOutput> | void {
     const command = new GetRawMessageContentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

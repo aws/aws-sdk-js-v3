@@ -1,20 +1,20 @@
 import {
   BackupClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../BackupClient";
 import {
   CreateBackupVaultInput,
-  CreateBackupVaultOutput,
+  CreateBackupVaultOutput
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateBackupVaultCommand,
-  serializeAws_restJson1_1CreateBackupVaultCommand,
+  serializeAws_restJson1_1CreateBackupVaultCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateBackupVaultCommandInput = CreateBackupVaultInput;
 export type CreateBackupVaultCommandOutput = CreateBackupVaultOutput;
 
-export class CreateBackupVaultCommand extends $Command<CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput, BackupClientResolvedConfig> {
+export class CreateBackupVaultCommand extends $Command<
+  CreateBackupVaultCommandInput,
+  CreateBackupVaultCommandOutput,
+  BackupClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class CreateBackupVaultCommand extends $Command<CreateBackupVaultCommandI
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   NetworkManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../NetworkManagerClient";
 import {
   GetLinkAssociationsRequest,
-  GetLinkAssociationsResponse,
+  GetLinkAssociationsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetLinkAssociationsCommand,
-  serializeAws_restJson1_1GetLinkAssociationsCommand,
+  serializeAws_restJson1_1GetLinkAssociationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetLinkAssociationsCommandInput = GetLinkAssociationsRequest;
 export type GetLinkAssociationsCommandOutput = GetLinkAssociationsResponse;
 
-export class GetLinkAssociationsCommand extends $Command<GetLinkAssociationsCommandInput, GetLinkAssociationsCommandOutput, NetworkManagerClientResolvedConfig> {
+export class GetLinkAssociationsCommand extends $Command<
+  GetLinkAssociationsCommandInput,
+  GetLinkAssociationsCommandOutput,
+  NetworkManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetLinkAssociationsCommand extends $Command<GetLinkAssociationsComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetLinkAssociationsCommandInput, GetLinkAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetLinkAssociationsCommandInput,
+    GetLinkAssociationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class GetLinkAssociationsCommand extends $Command<GetLinkAssociationsComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetLinkAssociationsCommandOutput> {
-    return deserializeAws_restJson1_1GetLinkAssociationsCommand(output, context);
+    return deserializeAws_restJson1_1GetLinkAssociationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

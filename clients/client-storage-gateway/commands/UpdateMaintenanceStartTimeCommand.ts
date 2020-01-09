@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
+  StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
 import {
   UpdateMaintenanceStartTimeInput,
-  UpdateMaintenanceStartTimeOutput,
+  UpdateMaintenanceStartTimeOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateMaintenanceStartTimeCommand,
-  serializeAws_json1_1UpdateMaintenanceStartTimeCommand,
+  serializeAws_json1_1UpdateMaintenanceStartTimeCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateMaintenanceStartTimeCommandInput = UpdateMaintenanceStartTimeInput;
 export type UpdateMaintenanceStartTimeCommandOutput = UpdateMaintenanceStartTimeOutput;
 
-export class UpdateMaintenanceStartTimeCommand extends $Command<UpdateMaintenanceStartTimeCommandInput, UpdateMaintenanceStartTimeCommandOutput, StorageGatewayClientResolvedConfig> {
+export class UpdateMaintenanceStartTimeCommand extends $Command<
+  UpdateMaintenanceStartTimeCommandInput,
+  UpdateMaintenanceStartTimeCommandOutput,
+  StorageGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<UpdateMaintenanc
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateMaintenanceStartTimeCommandInput, UpdateMaintenanceStartTimeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateMaintenanceStartTimeCommandInput,
+    UpdateMaintenanceStartTimeCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateMaintenanceStartTimeCommand extends $Command<UpdateMaintenanc
     input: UpdateMaintenanceStartTimeCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateMaintenanceStartTimeCommand(input, context);
+    return serializeAws_json1_1UpdateMaintenanceStartTimeCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateMaintenanceStartTimeCommandOutput> {
-    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommand(output, context);
+    return deserializeAws_json1_1UpdateMaintenanceStartTimeCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

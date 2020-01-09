@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig,
+  WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
 import {
   UpdateRateBasedRuleRequest,
-  UpdateRateBasedRuleResponse,
+  UpdateRateBasedRuleResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRateBasedRuleCommand,
-  serializeAws_json1_1UpdateRateBasedRuleCommand,
+  serializeAws_json1_1UpdateRateBasedRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateRateBasedRuleCommandInput = UpdateRateBasedRuleRequest;
 export type UpdateRateBasedRuleCommandOutput = UpdateRateBasedRuleResponse;
 
-export class UpdateRateBasedRuleCommand extends $Command<UpdateRateBasedRuleCommandInput, UpdateRateBasedRuleCommandOutput, WAFRegionalClientResolvedConfig> {
+export class UpdateRateBasedRuleCommand extends $Command<
+  UpdateRateBasedRuleCommandInput,
+  UpdateRateBasedRuleCommandOutput,
+  WAFRegionalClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateRateBasedRuleCommand extends $Command<UpdateRateBasedRuleComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateRateBasedRuleCommandInput, UpdateRateBasedRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateRateBasedRuleCommandInput,
+    UpdateRateBasedRuleCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

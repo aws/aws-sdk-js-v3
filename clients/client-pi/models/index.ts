@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The request failed due to an unknown error.</p>
  *
  */
-export interface InternalServiceError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceError";
   $fault: "server";
   Message?: string;
@@ -23,7 +25,9 @@ export namespace InternalServiceError {
  *          <p>One of the arguments provided is invalid for this request.</p>
  *
  */
-export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -40,7 +44,9 @@ export namespace InvalidArgumentException {
  *          <p>The user is not authorized to perform this request.</p>
  *
  */
-export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -53,7 +59,7 @@ export namespace NotAuthorizedException {
 }
 
 export enum ServiceType {
-  RDS = "RDS",
+  RDS = "RDS"
 }
 
 /**

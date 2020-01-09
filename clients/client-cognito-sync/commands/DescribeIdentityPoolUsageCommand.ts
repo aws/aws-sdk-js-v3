@@ -1,20 +1,20 @@
 import {
   CognitoSyncClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoSyncClient";
 import {
   DescribeIdentityPoolUsageRequest,
-  DescribeIdentityPoolUsageResponse,
+  DescribeIdentityPoolUsageResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand,
-  serializeAws_restJson1_1DescribeIdentityPoolUsageCommand,
+  serializeAws_restJson1_1DescribeIdentityPoolUsageCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeIdentityPoolUsageCommandInput = DescribeIdentityPoolUsageRequest;
 export type DescribeIdentityPoolUsageCommandOutput = DescribeIdentityPoolUsageResponse;
 
-export class DescribeIdentityPoolUsageCommand extends $Command<DescribeIdentityPoolUsageCommandInput, DescribeIdentityPoolUsageCommandOutput, CognitoSyncClientResolvedConfig> {
+export class DescribeIdentityPoolUsageCommand extends $Command<
+  DescribeIdentityPoolUsageCommandInput,
+  DescribeIdentityPoolUsageCommandOutput,
+  CognitoSyncClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeIdentityPoolUsageCommand extends $Command<DescribeIdentityP
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeIdentityPoolUsageCommandInput, DescribeIdentityPoolUsageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeIdentityPoolUsageCommandInput,
+    DescribeIdentityPoolUsageCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeIdentityPoolUsageCommand extends $Command<DescribeIdentityP
     input: DescribeIdentityPoolUsageCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(input, context);
+    return serializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeIdentityPoolUsageCommandOutput> {
-    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand(output, context);
+    return deserializeAws_restJson1_1DescribeIdentityPoolUsageCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

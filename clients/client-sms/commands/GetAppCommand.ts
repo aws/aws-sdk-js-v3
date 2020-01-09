@@ -1,20 +1,17 @@
 import {
   SMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SMSClient";
-import {
-  GetAppRequest,
-  GetAppResponse,
-} from "../models/index";
+import { GetAppRequest, GetAppResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetAppCommand,
-  serializeAws_json1_1GetAppCommand,
+  serializeAws_json1_1GetAppCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetAppCommandInput = GetAppRequest;
 export type GetAppCommandOutput = GetAppResponse;
 
-export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOutput, SMSClientResolvedConfig> {
+export class GetAppCommand extends $Command<
+  GetAppCommandInput,
+  GetAppCommandOutput,
+  SMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetAppCommandInput, GetAppCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

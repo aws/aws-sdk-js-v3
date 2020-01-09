@@ -232,7 +232,7 @@ export namespace ApiKeyIds {
 
 export enum ApiKeySourceType {
   AUTHORIZER = "AUTHORIZER",
-  HEADER = "HEADER",
+  HEADER = "HEADER"
 }
 
 /**
@@ -270,7 +270,7 @@ export namespace ApiKeys {
 }
 
 export enum ApiKeysFormat {
-  csv = "csv",
+  csv = "csv"
 }
 
 /**
@@ -399,7 +399,7 @@ export namespace Authorizer {
 export enum AuthorizerType {
   COGNITO_USER_POOLS = "COGNITO_USER_POOLS",
   REQUEST = "REQUEST",
-  TOKEN = "TOKEN",
+  TOKEN = "TOKEN"
 }
 
 /**
@@ -504,7 +504,7 @@ export enum CacheClusterSize {
   SIZE_237_GB = "237",
   SIZE_28_POINT_4_GB = "28.4",
   SIZE_58_POINT_2_GB = "58.2",
-  SIZE_6_POINT_1_GB = "6.1",
+  SIZE_6_POINT_1_GB = "6.1"
 }
 
 export enum CacheClusterStatus {
@@ -512,7 +512,7 @@ export enum CacheClusterStatus {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
   FLUSH_IN_PROGRESS = "FLUSH_IN_PROGRESS",
-  NOT_AVAILABLE = "NOT_AVAILABLE",
+  NOT_AVAILABLE = "NOT_AVAILABLE"
 }
 
 /**
@@ -648,12 +648,12 @@ export namespace ClientCertificates {
 
 export enum ConnectionType {
   INTERNET = "INTERNET",
-  VPC_LINK = "VPC_LINK",
+  VPC_LINK = "VPC_LINK"
 }
 
 export enum ContentHandlingStrategy {
   CONVERT_TO_BINARY = "CONVERT_TO_BINARY",
-  CONVERT_TO_TEXT = "CONVERT_TO_TEXT",
+  CONVERT_TO_TEXT = "CONVERT_TO_TEXT"
 }
 
 /**
@@ -2437,7 +2437,7 @@ export enum DocumentationPartType {
   RESOURCE = "RESOURCE",
   RESPONSE = "RESPONSE",
   RESPONSE_BODY = "RESPONSE_BODY",
-  RESPONSE_HEADER = "RESPONSE_HEADER",
+  RESPONSE_HEADER = "RESPONSE_HEADER"
 }
 
 /**
@@ -2665,7 +2665,7 @@ export namespace DomainName {
 export enum DomainNameStatus {
   AVAILABLE = "AVAILABLE",
   PENDING = "PENDING",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -2725,7 +2725,7 @@ export namespace EndpointConfiguration {
   }
 }
 
-export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL"
+export type EndpointType = "EDGE" | "PRIVATE" | "REGIONAL";
 
 /**
  *
@@ -2942,7 +2942,7 @@ export enum GatewayResponseType {
   RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
   THROTTLED = "THROTTLED",
   UNAUTHORIZED = "UNAUTHORIZED",
-  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE",
+  UNSUPPORTED_MEDIA_TYPE = "UNSUPPORTED_MEDIA_TYPE"
 }
 
 /**
@@ -5477,12 +5477,12 @@ export enum IntegrationType {
   AWS_PROXY = "AWS_PROXY",
   HTTP = "HTTP",
   HTTP_PROXY = "HTTP_PROXY",
-  MOCK = "MOCK",
+  MOCK = "MOCK"
 }
 
 export enum LocationStatusType {
   DOCUMENTED = "DOCUMENTED",
-  UNDOCUMENTED = "UNDOCUMENTED",
+  UNDOCUMENTED = "UNDOCUMENTED"
 }
 
 /**
@@ -6025,7 +6025,9 @@ export interface MethodSetting {
    *         <p>Specifies how to handle unauthorized requests for cache invalidation. The PATCH path for this setting is <code>/{method_setting_key}/caching/unauthorizedCacheControlHeaderStrategy</code>, and the available values are <code>FAIL_WITH_403</code>, <code>SUCCEED_WITH_RESPONSE_HEADER</code>, <code>SUCCEED_WITHOUT_RESPONSE_HEADER</code>.</p>
    *
    */
-  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | string;
+  unauthorizedCacheControlHeaderStrategy?:
+    | UnauthorizedCacheControlHeaderStrategy
+    | string;
 }
 
 export namespace MethodSetting {
@@ -6564,7 +6566,7 @@ export namespace PutMethodResponseRequest {
 
 export enum PutMode {
   Merge = "merge",
-  Overwrite = "overwrite",
+  Overwrite = "overwrite"
 }
 
 /**
@@ -6617,7 +6619,7 @@ export namespace PutRestApiRequest {
 export enum QuotaPeriodType {
   DAY = "DAY",
   MONTH = "MONTH",
-  WEEK = "WEEK",
+  WEEK = "WEEK"
 }
 
 /**
@@ -7235,7 +7237,7 @@ export namespace SdkTypes {
   }
 }
 
-export type SecurityPolicy = "TLS_1_0" | "TLS_1_2"
+export type SecurityPolicy = "TLS_1_0" | "TLS_1_2";
 
 /**
  *
@@ -7788,7 +7790,7 @@ export namespace ThrottleSettings {
 export enum UnauthorizedCacheControlHeaderStrategy {
   FAIL_WITH_403 = "FAIL_WITH_403",
   SUCCEED_WITHOUT_RESPONSE_HEADER = "SUCCEED_WITHOUT_RESPONSE_HEADER",
-  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER",
+  SUCCEED_WITH_RESPONSE_HEADER = "SUCCEED_WITH_RESPONSE_HEADER"
 }
 
 /**
@@ -8953,7 +8955,7 @@ export enum VpcLinkStatus {
   AVAILABLE = "AVAILABLE",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -8990,7 +8992,7 @@ export namespace VpcLinks {
   }
 }
 
-export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test"
+export type Op = "add" | "copy" | "move" | "remove" | "replace" | "test";
 
 /**
  *
@@ -9040,7 +9042,9 @@ export namespace PatchOperation {
  *         <p>The submitted request is not valid, for example, the input is incomplete or incorrect. See the accompanying error message for details.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -9060,7 +9064,9 @@ export namespace BadRequestException {
  *       <p>The request configuration has conflicts. For details, see the accompanying error message.</p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -9080,7 +9086,9 @@ export namespace ConflictException {
  *       <p>The request exceeded the rate limit. Retry after the specified time period.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -9102,7 +9110,9 @@ export namespace LimitExceededException {
  *       <p>The requested resource is not found. Make sure that the request URI is correct.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -9122,7 +9132,9 @@ export namespace NotFoundException {
  *       <p>The requested service is not available. For details see the accompanying error message. Retry after the specified time period.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -9147,7 +9159,9 @@ export namespace ServiceUnavailableException {
  *       <p>The request has reached its throttling limit. Retry after the specified time period.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -9172,7 +9186,9 @@ export namespace TooManyRequestsException {
  *       <p>The request is denied because the caller has insufficient permissions.</p>
  *
  */
-export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   /**

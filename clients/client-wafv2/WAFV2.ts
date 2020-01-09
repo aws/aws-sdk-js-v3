@@ -2,182 +2,182 @@ import { WAFV2Client } from "./WAFV2Client";
 import {
   AssociateWebACLCommand,
   AssociateWebACLCommandInput,
-  AssociateWebACLCommandOutput,
+  AssociateWebACLCommandOutput
 } from "./commands/AssociateWebACLCommand";
 import {
   CheckCapacityCommand,
   CheckCapacityCommandInput,
-  CheckCapacityCommandOutput,
+  CheckCapacityCommandOutput
 } from "./commands/CheckCapacityCommand";
 import {
   CreateIPSetCommand,
   CreateIPSetCommandInput,
-  CreateIPSetCommandOutput,
+  CreateIPSetCommandOutput
 } from "./commands/CreateIPSetCommand";
 import {
   CreateRegexPatternSetCommand,
   CreateRegexPatternSetCommandInput,
-  CreateRegexPatternSetCommandOutput,
+  CreateRegexPatternSetCommandOutput
 } from "./commands/CreateRegexPatternSetCommand";
 import {
   CreateRuleGroupCommand,
   CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput,
+  CreateRuleGroupCommandOutput
 } from "./commands/CreateRuleGroupCommand";
 import {
   CreateWebACLCommand,
   CreateWebACLCommandInput,
-  CreateWebACLCommandOutput,
+  CreateWebACLCommandOutput
 } from "./commands/CreateWebACLCommand";
 import {
   DeleteIPSetCommand,
   DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput,
+  DeleteIPSetCommandOutput
 } from "./commands/DeleteIPSetCommand";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
-  DeleteLoggingConfigurationCommandOutput,
+  DeleteLoggingConfigurationCommandOutput
 } from "./commands/DeleteLoggingConfigurationCommand";
 import {
   DeleteRegexPatternSetCommand,
   DeleteRegexPatternSetCommandInput,
-  DeleteRegexPatternSetCommandOutput,
+  DeleteRegexPatternSetCommandOutput
 } from "./commands/DeleteRegexPatternSetCommand";
 import {
   DeleteRuleGroupCommand,
   DeleteRuleGroupCommandInput,
-  DeleteRuleGroupCommandOutput,
+  DeleteRuleGroupCommandOutput
 } from "./commands/DeleteRuleGroupCommand";
 import {
   DeleteWebACLCommand,
   DeleteWebACLCommandInput,
-  DeleteWebACLCommandOutput,
+  DeleteWebACLCommandOutput
 } from "./commands/DeleteWebACLCommand";
 import {
   DescribeManagedRuleGroupCommand,
   DescribeManagedRuleGroupCommandInput,
-  DescribeManagedRuleGroupCommandOutput,
+  DescribeManagedRuleGroupCommandOutput
 } from "./commands/DescribeManagedRuleGroupCommand";
 import {
   DisassociateWebACLCommand,
   DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput,
+  DisassociateWebACLCommandOutput
 } from "./commands/DisassociateWebACLCommand";
 import {
   GetIPSetCommand,
   GetIPSetCommandInput,
-  GetIPSetCommandOutput,
+  GetIPSetCommandOutput
 } from "./commands/GetIPSetCommand";
 import {
   GetLoggingConfigurationCommand,
   GetLoggingConfigurationCommandInput,
-  GetLoggingConfigurationCommandOutput,
+  GetLoggingConfigurationCommandOutput
 } from "./commands/GetLoggingConfigurationCommand";
 import {
   GetRateBasedStatementManagedKeysCommand,
   GetRateBasedStatementManagedKeysCommandInput,
-  GetRateBasedStatementManagedKeysCommandOutput,
+  GetRateBasedStatementManagedKeysCommandOutput
 } from "./commands/GetRateBasedStatementManagedKeysCommand";
 import {
   GetRegexPatternSetCommand,
   GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput,
+  GetRegexPatternSetCommandOutput
 } from "./commands/GetRegexPatternSetCommand";
 import {
   GetRuleGroupCommand,
   GetRuleGroupCommandInput,
-  GetRuleGroupCommandOutput,
+  GetRuleGroupCommandOutput
 } from "./commands/GetRuleGroupCommand";
 import {
   GetSampledRequestsCommand,
   GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput,
+  GetSampledRequestsCommandOutput
 } from "./commands/GetSampledRequestsCommand";
 import {
   GetWebACLCommand,
   GetWebACLCommandInput,
-  GetWebACLCommandOutput,
+  GetWebACLCommandOutput
 } from "./commands/GetWebACLCommand";
 import {
   GetWebACLForResourceCommand,
   GetWebACLForResourceCommandInput,
-  GetWebACLForResourceCommandOutput,
+  GetWebACLForResourceCommandOutput
 } from "./commands/GetWebACLForResourceCommand";
 import {
   ListAvailableManagedRuleGroupsCommand,
   ListAvailableManagedRuleGroupsCommandInput,
-  ListAvailableManagedRuleGroupsCommandOutput,
+  ListAvailableManagedRuleGroupsCommandOutput
 } from "./commands/ListAvailableManagedRuleGroupsCommand";
 import {
   ListIPSetsCommand,
   ListIPSetsCommandInput,
-  ListIPSetsCommandOutput,
+  ListIPSetsCommandOutput
 } from "./commands/ListIPSetsCommand";
 import {
   ListLoggingConfigurationsCommand,
   ListLoggingConfigurationsCommandInput,
-  ListLoggingConfigurationsCommandOutput,
+  ListLoggingConfigurationsCommandOutput
 } from "./commands/ListLoggingConfigurationsCommand";
 import {
   ListRegexPatternSetsCommand,
   ListRegexPatternSetsCommandInput,
-  ListRegexPatternSetsCommandOutput,
+  ListRegexPatternSetsCommandOutput
 } from "./commands/ListRegexPatternSetsCommand";
 import {
   ListResourcesForWebACLCommand,
   ListResourcesForWebACLCommandInput,
-  ListResourcesForWebACLCommandOutput,
+  ListResourcesForWebACLCommandOutput
 } from "./commands/ListResourcesForWebACLCommand";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
-  ListRuleGroupsCommandOutput,
+  ListRuleGroupsCommandOutput
 } from "./commands/ListRuleGroupsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListWebACLsCommand,
   ListWebACLsCommandInput,
-  ListWebACLsCommandOutput,
+  ListWebACLsCommandOutput
 } from "./commands/ListWebACLsCommand";
 import {
   PutLoggingConfigurationCommand,
   PutLoggingConfigurationCommandInput,
-  PutLoggingConfigurationCommandOutput,
+  PutLoggingConfigurationCommandOutput
 } from "./commands/PutLoggingConfigurationCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateIPSetCommand,
   UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput,
+  UpdateIPSetCommandOutput
 } from "./commands/UpdateIPSetCommand";
 import {
   UpdateRegexPatternSetCommand,
   UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput,
+  UpdateRegexPatternSetCommandOutput
 } from "./commands/UpdateRegexPatternSetCommand";
 import {
   UpdateRuleGroupCommand,
   UpdateRuleGroupCommandInput,
-  UpdateRuleGroupCommandOutput,
+  UpdateRuleGroupCommandOutput
 } from "./commands/UpdateRuleGroupCommand";
 import {
   UpdateWebACLCommand,
   UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput,
+  UpdateWebACLCommandOutput
 } from "./commands/UpdateWebACLCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -254,7 +254,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public associateWebACL(
     args: AssociateWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AssociateWebACLCommandOutput>;
   public associateWebACL(
     args: AssociateWebACLCommandInput,
@@ -267,16 +267,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public associateWebACL(
     args: AssociateWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateWebACLCommandOutput) => void),
     cb?: (err: any, data?: AssociateWebACLCommandOutput) => void
   ): Promise<AssociateWebACLCommandOutput> | void {
     const command = new AssociateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -303,7 +305,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public checkCapacity(
     args: CheckCapacityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CheckCapacityCommandOutput>;
   public checkCapacity(
     args: CheckCapacityCommandInput,
@@ -316,16 +318,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public checkCapacity(
     args: CheckCapacityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CheckCapacityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CheckCapacityCommandOutput) => void),
     cb?: (err: any, data?: CheckCapacityCommandOutput) => void
   ): Promise<CheckCapacityCommandOutput> | void {
     const command = new CheckCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -341,7 +345,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public createIPSet(
     args: CreateIPSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateIPSetCommandOutput>;
   public createIPSet(
     args: CreateIPSetCommandInput,
@@ -354,16 +358,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public createIPSet(
     args: CreateIPSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIPSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateIPSetCommandOutput) => void),
     cb?: (err: any, data?: CreateIPSetCommandOutput) => void
   ): Promise<CreateIPSetCommandOutput> | void {
     const command = new CreateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -379,7 +385,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRegexPatternSetCommandOutput>;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
@@ -392,16 +398,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public createRegexPatternSet(
     args: CreateRegexPatternSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: CreateRegexPatternSetCommandOutput) => void
   ): Promise<CreateRegexPatternSetCommandOutput> | void {
     const command = new CreateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -418,7 +426,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRuleGroupCommandOutput>;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
@@ -431,16 +439,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public createRuleGroup(
     args: CreateRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateRuleGroupCommandOutput) => void
   ): Promise<CreateRuleGroupCommandOutput> | void {
     const command = new CreateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -457,7 +467,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public createWebACL(
     args: CreateWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateWebACLCommandOutput>;
   public createWebACL(
     args: CreateWebACLCommandInput,
@@ -470,16 +480,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public createWebACL(
     args: CreateWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateWebACLCommandOutput) => void),
     cb?: (err: any, data?: CreateWebACLCommandOutput) => void
   ): Promise<CreateWebACLCommandOutput> | void {
     const command = new CreateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -495,7 +507,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteIPSetCommandOutput>;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
@@ -508,16 +520,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public deleteIPSet(
     args: DeleteIPSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIPSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteIPSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteIPSetCommandOutput) => void
   ): Promise<DeleteIPSetCommandOutput> | void {
     const command = new DeleteIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -534,7 +548,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteLoggingConfigurationCommandOutput>;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
@@ -547,16 +561,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public deleteLoggingConfiguration(
     args: DeleteLoggingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteLoggingConfigurationCommandOutput) => void
   ): Promise<DeleteLoggingConfigurationCommandOutput> | void {
     const command = new DeleteLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -572,7 +588,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRegexPatternSetCommandOutput>;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
@@ -585,16 +601,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public deleteRegexPatternSet(
     args: DeleteRegexPatternSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteRegexPatternSetCommandOutput) => void
   ): Promise<DeleteRegexPatternSetCommandOutput> | void {
     const command = new DeleteRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -610,7 +628,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRuleGroupCommandOutput>;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
@@ -623,16 +641,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteRuleGroupCommandOutput) => void
   ): Promise<DeleteRuleGroupCommandOutput> | void {
     const command = new DeleteRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -648,7 +668,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteWebACLCommandOutput>;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
@@ -661,16 +681,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public deleteWebACL(
     args: DeleteWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteWebACLCommandOutput) => void),
     cb?: (err: any, data?: DeleteWebACLCommandOutput) => void
   ): Promise<DeleteWebACLCommandOutput> | void {
     const command = new DeleteWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -686,7 +708,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeManagedRuleGroupCommandOutput>;
   public describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
@@ -699,16 +721,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public describeManagedRuleGroup(
     args: DescribeManagedRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeManagedRuleGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeManagedRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeManagedRuleGroupCommandOutput) => void
   ): Promise<DescribeManagedRuleGroupCommandOutput> | void {
     const command = new DescribeManagedRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -725,7 +749,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateWebACLCommandOutput>;
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
@@ -738,16 +762,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public disassociateWebACL(
     args: DisassociateWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateWebACLCommandOutput) => void),
     cb?: (err: any, data?: DisassociateWebACLCommandOutput) => void
   ): Promise<DisassociateWebACLCommandOutput> | void {
     const command = new DisassociateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -763,7 +789,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getIPSet(
     args: GetIPSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIPSetCommandOutput>;
   public getIPSet(
     args: GetIPSetCommandInput,
@@ -776,16 +802,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getIPSet(
     args: GetIPSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIPSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIPSetCommandOutput) => void),
     cb?: (err: any, data?: GetIPSetCommandOutput) => void
   ): Promise<GetIPSetCommandOutput> | void {
     const command = new GetIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -801,7 +829,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetLoggingConfigurationCommandOutput>;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
@@ -814,16 +842,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getLoggingConfiguration(
     args: GetLoggingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetLoggingConfigurationCommandOutput) => void
   ): Promise<GetLoggingConfigurationCommandOutput> | void {
     const command = new GetLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -839,7 +869,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput>;
   public getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
@@ -852,16 +882,24 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getRateBasedStatementManagedKeys(
     args: GetRateBasedStatementManagedKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRateBasedStatementManagedKeysCommandOutput) => void),
-    cb?: (err: any, data?: GetRateBasedStatementManagedKeysCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetRateBasedStatementManagedKeysCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetRateBasedStatementManagedKeysCommandOutput
+    ) => void
   ): Promise<GetRateBasedStatementManagedKeysCommandOutput> | void {
     const command = new GetRateBasedStatementManagedKeysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -877,7 +915,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRegexPatternSetCommandOutput>;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
@@ -890,16 +928,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getRegexPatternSet(
     args: GetRegexPatternSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: GetRegexPatternSetCommandOutput) => void
   ): Promise<GetRegexPatternSetCommandOutput> | void {
     const command = new GetRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -915,7 +955,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRuleGroupCommandOutput>;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
@@ -928,16 +968,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getRuleGroup(
     args: GetRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRuleGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: GetRuleGroupCommandOutput) => void
   ): Promise<GetRuleGroupCommandOutput> | void {
     const command = new GetRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -957,7 +999,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSampledRequestsCommandOutput>;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
@@ -970,16 +1012,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getSampledRequests(
     args: GetSampledRequestsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSampledRequestsCommandOutput) => void),
     cb?: (err: any, data?: GetSampledRequestsCommandOutput) => void
   ): Promise<GetSampledRequestsCommandOutput> | void {
     const command = new GetSampledRequestsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -995,7 +1039,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getWebACL(
     args: GetWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetWebACLCommandOutput>;
   public getWebACL(
     args: GetWebACLCommandInput,
@@ -1008,16 +1052,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getWebACL(
     args: GetWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetWebACLCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLCommandOutput) => void
   ): Promise<GetWebACLCommandOutput> | void {
     const command = new GetWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1033,7 +1079,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetWebACLForResourceCommandOutput>;
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
@@ -1046,16 +1092,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public getWebACLForResource(
     args: GetWebACLForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetWebACLForResourceCommandOutput) => void),
     cb?: (err: any, data?: GetWebACLForResourceCommandOutput) => void
   ): Promise<GetWebACLForResourceCommandOutput> | void {
     const command = new GetWebACLForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1071,7 +1119,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput>;
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
@@ -1084,16 +1132,21 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listAvailableManagedRuleGroups(
     args: ListAvailableManagedRuleGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableManagedRuleGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListAvailableManagedRuleGroupsCommandOutput
+        ) => void),
     cb?: (err: any, data?: ListAvailableManagedRuleGroupsCommandOutput) => void
   ): Promise<ListAvailableManagedRuleGroupsCommandOutput> | void {
     const command = new ListAvailableManagedRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1109,7 +1162,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listIPSets(
     args: ListIPSetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListIPSetsCommandOutput>;
   public listIPSets(
     args: ListIPSetsCommandInput,
@@ -1122,16 +1175,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listIPSets(
     args: ListIPSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIPSetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIPSetsCommandOutput) => void),
     cb?: (err: any, data?: ListIPSetsCommandOutput) => void
   ): Promise<ListIPSetsCommandOutput> | void {
     const command = new ListIPSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1147,7 +1202,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLoggingConfigurationsCommandOutput>;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
@@ -1160,16 +1215,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLoggingConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListLoggingConfigurationsCommandOutput) => void
   ): Promise<ListLoggingConfigurationsCommandOutput> | void {
     const command = new ListLoggingConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1185,7 +1242,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRegexPatternSetsCommandOutput>;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
@@ -1198,16 +1255,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRegexPatternSetsCommandOutput) => void),
     cb?: (err: any, data?: ListRegexPatternSetsCommandOutput) => void
   ): Promise<ListRegexPatternSetsCommandOutput> | void {
     const command = new ListRegexPatternSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1223,7 +1282,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListResourcesForWebACLCommandOutput>;
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
@@ -1236,16 +1295,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listResourcesForWebACL(
     args: ListResourcesForWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourcesForWebACLCommandOutput) => void),
     cb?: (err: any, data?: ListResourcesForWebACLCommandOutput) => void
   ): Promise<ListResourcesForWebACLCommandOutput> | void {
     const command = new ListResourcesForWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1261,7 +1322,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRuleGroupsCommandOutput>;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
@@ -1274,16 +1335,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listRuleGroups(
     args: ListRuleGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRuleGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListRuleGroupsCommandOutput) => void
   ): Promise<ListRuleGroupsCommandOutput> | void {
     const command = new ListRuleGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1299,7 +1362,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1312,16 +1375,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1337,7 +1402,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListWebACLsCommandOutput>;
   public listWebACLs(
     args: ListWebACLsCommandInput,
@@ -1350,16 +1415,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public listWebACLs(
     args: ListWebACLsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWebACLsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListWebACLsCommandOutput) => void),
     cb?: (err: any, data?: ListWebACLsCommandOutput) => void
   ): Promise<ListWebACLsCommandOutput> | void {
     const command = new ListWebACLsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1393,7 +1460,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutLoggingConfigurationCommandOutput>;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
@@ -1406,16 +1473,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public putLoggingConfiguration(
     args: PutLoggingConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutLoggingConfigurationCommandOutput) => void),
     cb?: (err: any, data?: PutLoggingConfigurationCommandOutput) => void
   ): Promise<PutLoggingConfigurationCommandOutput> | void {
     const command = new PutLoggingConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1431,7 +1500,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1444,16 +1513,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1469,7 +1540,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1482,16 +1553,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1507,7 +1580,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateIPSetCommandOutput>;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
@@ -1520,16 +1593,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public updateIPSet(
     args: UpdateIPSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIPSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateIPSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateIPSetCommandOutput) => void
   ): Promise<UpdateIPSetCommandOutput> | void {
     const command = new UpdateIPSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1545,7 +1620,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRegexPatternSetCommandOutput>;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
@@ -1558,16 +1633,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public updateRegexPatternSet(
     args: UpdateRegexPatternSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRegexPatternSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateRegexPatternSetCommandOutput) => void
   ): Promise<UpdateRegexPatternSetCommandOutput> | void {
     const command = new UpdateRegexPatternSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1584,7 +1661,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRuleGroupCommandOutput>;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
@@ -1597,16 +1674,18 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public updateRuleGroup(
     args: UpdateRuleGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRuleGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateRuleGroupCommandOutput) => void
   ): Promise<UpdateRuleGroupCommandOutput> | void {
     const command = new UpdateRuleGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1623,7 +1702,7 @@ export class WAFV2 extends WAFV2Client {
    */
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateWebACLCommandOutput>;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
@@ -1636,19 +1715,20 @@ export class WAFV2 extends WAFV2Client {
   ): void;
   public updateWebACL(
     args: UpdateWebACLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWebACLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateWebACLCommandOutput) => void),
     cb?: (err: any, data?: UpdateWebACLCommandOutput) => void
   ): Promise<UpdateWebACLCommandOutput> | void {
     const command = new UpdateWebACLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

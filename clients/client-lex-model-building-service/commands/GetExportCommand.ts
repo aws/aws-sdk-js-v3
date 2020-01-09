@@ -1,20 +1,17 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
-import {
-  GetExportRequest,
-  GetExportResponse,
-} from "../models/index";
+import { GetExportRequest, GetExportResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetExportCommand,
-  serializeAws_restJson1_1GetExportCommand,
+  serializeAws_restJson1_1GetExportCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetExportCommandInput = GetExportRequest;
 export type GetExportCommandOutput = GetExportResponse;
 
-export class GetExportCommand extends $Command<GetExportCommandInput, GetExportCommandOutput, LexModelBuildingServiceClientResolvedConfig> {
+export class GetExportCommand extends $Command<
+  GetExportCommandInput,
+  GetExportCommandOutput,
+  LexModelBuildingServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetExportCommand extends $Command<GetExportCommandInput, GetExportC
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetExportCommandInput, GetExportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

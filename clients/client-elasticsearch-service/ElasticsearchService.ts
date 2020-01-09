@@ -2,117 +2,117 @@ import { ElasticsearchServiceClient } from "./ElasticsearchServiceClient";
 import {
   AddTagsCommand,
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "./commands/AddTagsCommand";
 import {
   CancelElasticsearchServiceSoftwareUpdateCommand,
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
-  CancelElasticsearchServiceSoftwareUpdateCommandOutput,
+  CancelElasticsearchServiceSoftwareUpdateCommandOutput
 } from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
 import {
   CreateElasticsearchDomainCommand,
   CreateElasticsearchDomainCommandInput,
-  CreateElasticsearchDomainCommandOutput,
+  CreateElasticsearchDomainCommandOutput
 } from "./commands/CreateElasticsearchDomainCommand";
 import {
   DeleteElasticsearchDomainCommand,
   DeleteElasticsearchDomainCommandInput,
-  DeleteElasticsearchDomainCommandOutput,
+  DeleteElasticsearchDomainCommandOutput
 } from "./commands/DeleteElasticsearchDomainCommand";
 import {
   DeleteElasticsearchServiceRoleCommand,
   DeleteElasticsearchServiceRoleCommandInput,
-  DeleteElasticsearchServiceRoleCommandOutput,
+  DeleteElasticsearchServiceRoleCommandOutput
 } from "./commands/DeleteElasticsearchServiceRoleCommand";
 import {
   DescribeElasticsearchDomainCommand,
   DescribeElasticsearchDomainCommandInput,
-  DescribeElasticsearchDomainCommandOutput,
+  DescribeElasticsearchDomainCommandOutput
 } from "./commands/DescribeElasticsearchDomainCommand";
 import {
   DescribeElasticsearchDomainConfigCommand,
   DescribeElasticsearchDomainConfigCommandInput,
-  DescribeElasticsearchDomainConfigCommandOutput,
+  DescribeElasticsearchDomainConfigCommandOutput
 } from "./commands/DescribeElasticsearchDomainConfigCommand";
 import {
   DescribeElasticsearchDomainsCommand,
   DescribeElasticsearchDomainsCommandInput,
-  DescribeElasticsearchDomainsCommandOutput,
+  DescribeElasticsearchDomainsCommandOutput
 } from "./commands/DescribeElasticsearchDomainsCommand";
 import {
   DescribeElasticsearchInstanceTypeLimitsCommand,
   DescribeElasticsearchInstanceTypeLimitsCommandInput,
-  DescribeElasticsearchInstanceTypeLimitsCommandOutput,
+  DescribeElasticsearchInstanceTypeLimitsCommandOutput
 } from "./commands/DescribeElasticsearchInstanceTypeLimitsCommand";
 import {
   DescribeReservedElasticsearchInstanceOfferingsCommand,
   DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-  DescribeReservedElasticsearchInstanceOfferingsCommandOutput,
+  DescribeReservedElasticsearchInstanceOfferingsCommandOutput
 } from "./commands/DescribeReservedElasticsearchInstanceOfferingsCommand";
 import {
   DescribeReservedElasticsearchInstancesCommand,
   DescribeReservedElasticsearchInstancesCommandInput,
-  DescribeReservedElasticsearchInstancesCommandOutput,
+  DescribeReservedElasticsearchInstancesCommandOutput
 } from "./commands/DescribeReservedElasticsearchInstancesCommand";
 import {
   GetCompatibleElasticsearchVersionsCommand,
   GetCompatibleElasticsearchVersionsCommandInput,
-  GetCompatibleElasticsearchVersionsCommandOutput,
+  GetCompatibleElasticsearchVersionsCommandOutput
 } from "./commands/GetCompatibleElasticsearchVersionsCommand";
 import {
   GetUpgradeHistoryCommand,
   GetUpgradeHistoryCommandInput,
-  GetUpgradeHistoryCommandOutput,
+  GetUpgradeHistoryCommandOutput
 } from "./commands/GetUpgradeHistoryCommand";
 import {
   GetUpgradeStatusCommand,
   GetUpgradeStatusCommandInput,
-  GetUpgradeStatusCommandOutput,
+  GetUpgradeStatusCommandOutput
 } from "./commands/GetUpgradeStatusCommand";
 import {
   ListDomainNamesCommand,
   ListDomainNamesCommandInput,
-  ListDomainNamesCommandOutput,
+  ListDomainNamesCommandOutput
 } from "./commands/ListDomainNamesCommand";
 import {
   ListElasticsearchInstanceTypesCommand,
   ListElasticsearchInstanceTypesCommandInput,
-  ListElasticsearchInstanceTypesCommandOutput,
+  ListElasticsearchInstanceTypesCommandOutput
 } from "./commands/ListElasticsearchInstanceTypesCommand";
 import {
   ListElasticsearchVersionsCommand,
   ListElasticsearchVersionsCommandInput,
-  ListElasticsearchVersionsCommandOutput,
+  ListElasticsearchVersionsCommandOutput
 } from "./commands/ListElasticsearchVersionsCommand";
 import {
   ListTagsCommand,
   ListTagsCommandInput,
-  ListTagsCommandOutput,
+  ListTagsCommandOutput
 } from "./commands/ListTagsCommand";
 import {
   PurchaseReservedElasticsearchInstanceOfferingCommand,
   PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-  PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
+  PurchaseReservedElasticsearchInstanceOfferingCommandOutput
 } from "./commands/PurchaseReservedElasticsearchInstanceOfferingCommand";
 import {
   RemoveTagsCommand,
   RemoveTagsCommandInput,
-  RemoveTagsCommandOutput,
+  RemoveTagsCommandOutput
 } from "./commands/RemoveTagsCommand";
 import {
   StartElasticsearchServiceSoftwareUpdateCommand,
   StartElasticsearchServiceSoftwareUpdateCommandInput,
-  StartElasticsearchServiceSoftwareUpdateCommandOutput,
+  StartElasticsearchServiceSoftwareUpdateCommandOutput
 } from "./commands/StartElasticsearchServiceSoftwareUpdateCommand";
 import {
   UpdateElasticsearchDomainConfigCommand,
   UpdateElasticsearchDomainConfigCommandInput,
-  UpdateElasticsearchDomainConfigCommandOutput,
+  UpdateElasticsearchDomainConfigCommandOutput
 } from "./commands/UpdateElasticsearchDomainConfigCommand";
 import {
   UpgradeElasticsearchDomainCommand,
   UpgradeElasticsearchDomainCommandInput,
-  UpgradeElasticsearchDomainCommandOutput,
+  UpgradeElasticsearchDomainCommandOutput
 } from "./commands/UpgradeElasticsearchDomainCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -136,7 +136,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsCommandOutput>;
   public addTags(
     args: AddTagsCommandInput,
@@ -149,16 +149,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -171,29 +173,43 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput>;
   public cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    cb: (err: any, data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
   public cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
   public cancelElasticsearchServiceSoftwareUpdate(
     args: CancelElasticsearchServiceSoftwareUpdateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput) => void),
-    cb?: (err: any, data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CancelElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): Promise<CancelElasticsearchServiceSoftwareUpdateCommandOutput> | void {
     const command = new CancelElasticsearchServiceSoftwareUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -207,7 +223,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateElasticsearchDomainCommandOutput>;
   public createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
@@ -220,16 +236,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public createElasticsearchDomain(
     args: CreateElasticsearchDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateElasticsearchDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateElasticsearchDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateElasticsearchDomainCommandOutput) => void
   ): Promise<CreateElasticsearchDomainCommandOutput> | void {
     const command = new CreateElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -242,7 +260,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteElasticsearchDomainCommandOutput>;
   public deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
@@ -255,16 +273,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public deleteElasticsearchDomain(
     args: DeleteElasticsearchDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteElasticsearchDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteElasticsearchDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteElasticsearchDomainCommandOutput) => void
   ): Promise<DeleteElasticsearchDomainCommandOutput> | void {
     const command = new DeleteElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -277,7 +297,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
   public deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
@@ -290,16 +310,21 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DeleteElasticsearchServiceRoleCommandOutput
+        ) => void),
     cb?: (err: any, data?: DeleteElasticsearchServiceRoleCommandOutput) => void
   ): Promise<DeleteElasticsearchServiceRoleCommandOutput> | void {
     const command = new DeleteElasticsearchServiceRoleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -312,7 +337,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeElasticsearchDomainCommandOutput>;
   public describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
@@ -325,16 +350,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public describeElasticsearchDomain(
     args: DescribeElasticsearchDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticsearchDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeElasticsearchDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeElasticsearchDomainCommandOutput) => void
   ): Promise<DescribeElasticsearchDomainCommandOutput> | void {
     const command = new DescribeElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -347,29 +374,43 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput>;
   public describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
-    cb: (err: any, data?: DescribeElasticsearchDomainConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeElasticsearchDomainConfigCommandOutput
+    ) => void
   ): void;
   public describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticsearchDomainConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeElasticsearchDomainConfigCommandOutput
+    ) => void
   ): void;
   public describeElasticsearchDomainConfig(
     args: DescribeElasticsearchDomainConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticsearchDomainConfigCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticsearchDomainConfigCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeElasticsearchDomainConfigCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeElasticsearchDomainConfigCommandOutput
+    ) => void
   ): Promise<DescribeElasticsearchDomainConfigCommandOutput> | void {
     const command = new DescribeElasticsearchDomainConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -382,7 +423,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeElasticsearchDomainsCommandOutput>;
   public describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
@@ -395,16 +436,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public describeElasticsearchDomains(
     args: DescribeElasticsearchDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void),
     cb?: (err: any, data?: DescribeElasticsearchDomainsCommandOutput) => void
   ): Promise<DescribeElasticsearchDomainsCommandOutput> | void {
     const command = new DescribeElasticsearchDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -424,29 +467,43 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput>;
   public describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    cb: (err: any, data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput
+    ) => void
   ): void;
   public describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput
+    ) => void
   ): void;
   public describeElasticsearchInstanceTypeLimits(
     args: DescribeElasticsearchInstanceTypeLimitsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeElasticsearchInstanceTypeLimitsCommandOutput
+    ) => void
   ): Promise<DescribeElasticsearchInstanceTypeLimitsCommandOutput> | void {
     const command = new DescribeElasticsearchInstanceTypeLimitsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -455,33 +512,51 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
    *
    * 		<p>Lists available reserved Elasticsearch instance offerings.</p>
-   * 	
+   *
    */
   public describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
   public describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    cb: (err: any, data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
   ): void;
   public describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
   ): void;
   public describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput) => void
-  ): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput> | void {
-    const command = new DescribeReservedElasticsearchInstanceOfferingsCommand(args);
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+    ) => void
+  ): Promise<
+    DescribeReservedElasticsearchInstanceOfferingsCommandOutput
+  > | void {
+    const command = new DescribeReservedElasticsearchInstanceOfferingsCommand(
+      args
+    );
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -490,33 +565,47 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
    *
    * 		<p>Returns information about reserved Elasticsearch instances for this account.</p>
-   * 	
+   *
    */
   public describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
   public describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
-    cb: (err: any, data?: DescribeReservedElasticsearchInstancesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
   ): void;
   public describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeReservedElasticsearchInstancesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
   ): void;
   public describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReservedElasticsearchInstancesCommandOutput) => void),
-    cb?: (err: any, data?: DescribeReservedElasticsearchInstancesCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeReservedElasticsearchInstancesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeReservedElasticsearchInstancesCommandOutput
+    ) => void
   ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> | void {
     const command = new DescribeReservedElasticsearchInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -536,29 +625,43 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput>;
   public getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
-    cb: (err: any, data?: GetCompatibleElasticsearchVersionsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetCompatibleElasticsearchVersionsCommandOutput
+    ) => void
   ): void;
   public getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCompatibleElasticsearchVersionsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetCompatibleElasticsearchVersionsCommandOutput
+    ) => void
   ): void;
   public getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCompatibleElasticsearchVersionsCommandOutput) => void),
-    cb?: (err: any, data?: GetCompatibleElasticsearchVersionsCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetCompatibleElasticsearchVersionsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetCompatibleElasticsearchVersionsCommandOutput
+    ) => void
   ): Promise<GetCompatibleElasticsearchVersionsCommandOutput> | void {
     const command = new GetCompatibleElasticsearchVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -571,7 +674,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetUpgradeHistoryCommandOutput>;
   public getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
@@ -584,16 +687,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public getUpgradeHistory(
     args: GetUpgradeHistoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUpgradeHistoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetUpgradeHistoryCommandOutput) => void),
     cb?: (err: any, data?: GetUpgradeHistoryCommandOutput) => void
   ): Promise<GetUpgradeHistoryCommandOutput> | void {
     const command = new GetUpgradeHistoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -606,7 +711,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetUpgradeStatusCommandOutput>;
   public getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
@@ -619,16 +724,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public getUpgradeStatus(
     args: GetUpgradeStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetUpgradeStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetUpgradeStatusCommandOutput) => void),
     cb?: (err: any, data?: GetUpgradeStatusCommandOutput) => void
   ): Promise<GetUpgradeStatusCommandOutput> | void {
     const command = new GetUpgradeStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -641,7 +748,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public listDomainNames(
     args: ListDomainNamesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDomainNamesCommandOutput>;
   public listDomainNames(
     args: ListDomainNamesCommandInput,
@@ -654,16 +761,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public listDomainNames(
     args: ListDomainNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainNamesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: ListDomainNamesCommandOutput) => void
   ): Promise<ListDomainNamesCommandOutput> | void {
     const command = new ListDomainNamesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -676,7 +785,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListElasticsearchInstanceTypesCommandOutput>;
   public listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
@@ -689,16 +798,21 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public listElasticsearchInstanceTypes(
     args: ListElasticsearchInstanceTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListElasticsearchInstanceTypesCommandOutput
+        ) => void),
     cb?: (err: any, data?: ListElasticsearchInstanceTypesCommandOutput) => void
   ): Promise<ListElasticsearchInstanceTypesCommandOutput> | void {
     const command = new ListElasticsearchInstanceTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -711,7 +825,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListElasticsearchVersionsCommandOutput>;
   public listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
@@ -724,16 +838,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListElasticsearchVersionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListElasticsearchVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListElasticsearchVersionsCommandOutput) => void
   ): Promise<ListElasticsearchVersionsCommandOutput> | void {
     const command = new ListElasticsearchVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -746,7 +862,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsCommandOutput>;
   public listTags(
     args: ListTagsCommandInput,
@@ -759,16 +875,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -777,33 +895,51 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   /**
    *
    * 		<p>Allows you to purchase reserved Elasticsearch instances.</p>
-   * 	
+   *
    */
   public purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput>;
   public purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    cb: (err: any, data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+    ) => void
   ): void;
   public purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+    ) => void
   ): void;
   public purchaseReservedElasticsearchInstanceOffering(
     args: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput) => void),
-    cb?: (err: any, data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput) => void
-  ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> | void {
-    const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(args);
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+    ) => void
+  ): Promise<
+    PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  > | void {
+    const command = new PurchaseReservedElasticsearchInstanceOfferingCommand(
+      args
+    );
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -816,7 +952,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveTagsCommandOutput>;
   public removeTags(
     args: RemoveTagsCommandInput,
@@ -829,16 +965,18 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -851,29 +989,43 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput>;
   public startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    cb: (err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
   public startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): void;
   public startElasticsearchServiceSoftwareUpdate(
     args: StartElasticsearchServiceSoftwareUpdateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void),
-    cb?: (err: any, data?: StartElasticsearchServiceSoftwareUpdateCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: StartElasticsearchServiceSoftwareUpdateCommandOutput
+    ) => void
   ): Promise<StartElasticsearchServiceSoftwareUpdateCommandOutput> | void {
     const command = new StartElasticsearchServiceSoftwareUpdateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -886,7 +1038,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput>;
   public updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
@@ -899,16 +1051,21 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public updateElasticsearchDomainConfig(
     args: UpdateElasticsearchDomainConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateElasticsearchDomainConfigCommandOutput
+        ) => void),
     cb?: (err: any, data?: UpdateElasticsearchDomainConfigCommandOutput) => void
   ): Promise<UpdateElasticsearchDomainConfigCommandOutput> | void {
     const command = new UpdateElasticsearchDomainConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -921,7 +1078,7 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
    */
   public upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpgradeElasticsearchDomainCommandOutput>;
   public upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
@@ -934,19 +1091,20 @@ export class ElasticsearchService extends ElasticsearchServiceClient {
   ): void;
   public upgradeElasticsearchDomain(
     args: UpgradeElasticsearchDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void),
     cb?: (err: any, data?: UpgradeElasticsearchDomainCommandOutput) => void
   ): Promise<UpgradeElasticsearchDomainCommandOutput> | void {
     const command = new UpgradeElasticsearchDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

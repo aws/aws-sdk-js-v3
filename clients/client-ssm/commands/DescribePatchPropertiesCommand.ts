@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   DescribePatchPropertiesRequest,
-  DescribePatchPropertiesResult,
+  DescribePatchPropertiesResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribePatchPropertiesCommand,
-  serializeAws_json1_1DescribePatchPropertiesCommand,
+  serializeAws_json1_1DescribePatchPropertiesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribePatchPropertiesCommandInput = DescribePatchPropertiesRequest;
 export type DescribePatchPropertiesCommandOutput = DescribePatchPropertiesResult;
 
-export class DescribePatchPropertiesCommand extends $Command<DescribePatchPropertiesCommandInput, DescribePatchPropertiesCommandOutput, SSMClientResolvedConfig> {
+export class DescribePatchPropertiesCommand extends $Command<
+  DescribePatchPropertiesCommandInput,
+  DescribePatchPropertiesCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribePatchPropertiesCommand extends $Command<DescribePatchProper
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePatchPropertiesCommandInput, DescribePatchPropertiesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribePatchPropertiesCommandInput,
+    DescribePatchPropertiesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribePatchPropertiesCommand extends $Command<DescribePatchProper
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribePatchPropertiesCommandOutput> {
-    return deserializeAws_json1_1DescribePatchPropertiesCommand(output, context);
+    return deserializeAws_json1_1DescribePatchPropertiesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

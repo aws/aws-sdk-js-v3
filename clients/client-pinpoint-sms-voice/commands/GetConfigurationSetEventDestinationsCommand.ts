@@ -1,20 +1,20 @@
 import {
   PinpointSMSVoiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointSMSVoiceClient";
 import {
   GetConfigurationSetEventDestinationsRequest,
-  GetConfigurationSetEventDestinationsResponse,
+  GetConfigurationSetEventDestinationsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand,
-  serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand,
+  serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetConfigurationSetEventDestinationsCommandInput = GetConfigurationSetEventDestinationsRequest;
 export type GetConfigurationSetEventDestinationsCommandOutput = GetConfigurationSetEventDestinationsResponse;
 
-export class GetConfigurationSetEventDestinationsCommand extends $Command<GetConfigurationSetEventDestinationsCommandInput, GetConfigurationSetEventDestinationsCommandOutput, PinpointSMSVoiceClientResolvedConfig> {
+export class GetConfigurationSetEventDestinationsCommand extends $Command<
+  GetConfigurationSetEventDestinationsCommandInput,
+  GetConfigurationSetEventDestinationsCommandOutput,
+  PinpointSMSVoiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetConfigurationSetEventDestinationsCommandInput) {
+  constructor(
+    readonly input: GetConfigurationSetEventDestinationsCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<GetCon
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetConfigurationSetEventDestinationsCommandInput, GetConfigurationSetEventDestinationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetConfigurationSetEventDestinationsCommandInput,
+    GetConfigurationSetEventDestinationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class GetConfigurationSetEventDestinationsCommand extends $Command<GetCon
     input: GetConfigurationSetEventDestinationsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(input, context);
+    return serializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> {
-    return deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(output, context);
+    return deserializeAws_restJson1_1GetConfigurationSetEventDestinationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

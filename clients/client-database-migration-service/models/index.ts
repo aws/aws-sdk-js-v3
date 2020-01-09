@@ -7,7 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             role is correctly configured.</p>
  *
  */
-export interface AccessDeniedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedFault";
   $fault: "client";
   /**
@@ -29,7 +31,9 @@ export namespace AccessDeniedFault {
  *         <p>There are not enough resources allocated to the database migration.</p>
  *
  */
-export interface InsufficientResourceCapacityFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InsufficientResourceCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InsufficientResourceCapacityFault";
   $fault: "client";
   /**
@@ -51,7 +55,9 @@ export namespace InsufficientResourceCapacityFault {
  *         <p>The certificate was not valid.</p>
  *
  */
-export interface InvalidCertificateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCertificateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCertificateFault";
   $fault: "client";
   message?: string;
@@ -68,7 +74,9 @@ export namespace InvalidCertificateFault {
  *         <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
  */
-export interface InvalidResourceStateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceStateFault";
   $fault: "client";
   /**
@@ -90,7 +98,9 @@ export namespace InvalidResourceStateFault {
  *         <p>The subnet provided is invalid.</p>
  *
  */
-export interface InvalidSubnet extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSubnet";
   $fault: "client";
   /**
@@ -112,7 +122,9 @@ export namespace InvalidSubnet {
  *         <p>The ciphertext references a key that doesn't exist or that the DMS account doesn't have access to.</p>
  *
  */
-export interface KMSAccessDeniedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSAccessDeniedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSAccessDeniedFault";
   $fault: "client";
   message?: string;
@@ -129,7 +141,9 @@ export namespace KMSAccessDeniedFault {
  *         <p>The specified master key (CMK) isn't enabled.</p>
  *
  */
-export interface KMSDisabledFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSDisabledFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSDisabledFault";
   $fault: "client";
   message?: string;
@@ -146,7 +160,9 @@ export namespace KMSDisabledFault {
  *         <p>The state of the specified AWS KMS resource isn't valid for this request.</p>
  *
  */
-export interface KMSInvalidStateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSInvalidStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSInvalidStateFault";
   $fault: "client";
   message?: string;
@@ -163,7 +179,9 @@ export namespace KMSInvalidStateFault {
  *         <p>AWS DMS cannot access the AWS KMS key.</p>
  *
  */
-export interface KMSKeyNotAccessibleFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSKeyNotAccessibleFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSKeyNotAccessibleFault";
   $fault: "client";
   /**
@@ -185,7 +203,9 @@ export namespace KMSKeyNotAccessibleFault {
  *         <p>The specified AWS KMS entity or resource can't be found.</p>
  *
  */
-export interface KMSNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSNotFoundFault";
   $fault: "client";
   message?: string;
@@ -202,7 +222,9 @@ export namespace KMSNotFoundFault {
  *         <p>This request triggered AWS KMS request throttling.</p>
  *
  */
-export interface KMSThrottlingFault extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSThrottlingFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSThrottlingFault";
   $fault: "client";
   message?: string;
@@ -219,7 +241,9 @@ export namespace KMSThrottlingFault {
  *         <p>The replication subnet group does not cover enough Availability Zones (AZs). Edit the replication subnet group and add more AZs.</p>
  *
  */
-export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs extends _smithy.SmithyException, $MetadataBearer {
+export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs";
   $fault: "client";
   /**
@@ -231,7 +255,9 @@ export interface ReplicationSubnetGroupDoesNotCoverEnoughAZs extends _smithy.Smi
 }
 
 export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
-  export function isa(o: any): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs {
+  export function isa(
+    o: any
+  ): o is ReplicationSubnetGroupDoesNotCoverEnoughAZs {
     return _smithy.isa(o, "ReplicationSubnetGroupDoesNotCoverEnoughAZs");
   }
 }
@@ -241,7 +267,9 @@ export namespace ReplicationSubnetGroupDoesNotCoverEnoughAZs {
  *         <p>The resource you are attempting to create already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsFault";
   $fault: "client";
   /**
@@ -265,7 +293,9 @@ export namespace ResourceAlreadyExistsFault {
  *          <p>The resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundFault";
   $fault: "client";
   /**
@@ -287,7 +317,9 @@ export namespace ResourceNotFoundFault {
  *         <p>The quota for this resource quota has been exceeded.</p>
  *
  */
-export interface ResourceQuotaExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceQuotaExceededFault";
   $fault: "client";
   /**
@@ -309,7 +341,9 @@ export namespace ResourceQuotaExceededFault {
  *         <p>The SNS topic is invalid.</p>
  *
  */
-export interface SNSInvalidTopicFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SNSInvalidTopicFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SNSInvalidTopicFault";
   $fault: "client";
   /**
@@ -331,7 +365,9 @@ export namespace SNSInvalidTopicFault {
  *          <p>You are not authorized for the SNS subscription.</p>
  *
  */
-export interface SNSNoAuthorizationFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SNSNoAuthorizationFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SNSNoAuthorizationFault";
   $fault: "client";
   /**
@@ -353,7 +389,9 @@ export namespace SNSNoAuthorizationFault {
  *         <p>The storage quota has been exceeded.</p>
  *
  */
-export interface StorageQuotaExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface StorageQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StorageQuotaExceededFault";
   $fault: "client";
   /**
@@ -375,7 +413,9 @@ export namespace StorageQuotaExceededFault {
  *          <p>The specified subnet is already in use.</p>
  *
  */
-export interface SubnetAlreadyInUse extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetAlreadyInUse
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetAlreadyInUse";
   $fault: "client";
   /**
@@ -397,7 +437,9 @@ export namespace SubnetAlreadyInUse {
  *         <p>An upgrade dependency is preventing the database migration.</p>
  *
  */
-export interface UpgradeDependencyFailureFault extends _smithy.SmithyException, $MetadataBearer {
+export interface UpgradeDependencyFailureFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UpgradeDependencyFailureFault";
   $fault: "client";
   /**
@@ -572,12 +614,12 @@ export namespace ApplyPendingMaintenanceActionResponse {
 export enum AuthMechanismValue {
   DEFAULT = "default",
   MONGODB_CR = "mongodb_cr",
-  SCRAM_SHA_1 = "scram_sha_1",
+  SCRAM_SHA_1 = "scram_sha_1"
 }
 
 export enum AuthTypeValue {
   NO = "no",
-  PASSWORD = "password",
+  PASSWORD = "password"
 }
 
 /**
@@ -690,7 +732,7 @@ export namespace Certificate {
 
 export enum CompressionTypeValue {
   GZIP = "gzip",
-  NONE = "none",
+  NONE = "none"
 }
 
 /**
@@ -1501,7 +1543,7 @@ export namespace CreateReplicationTaskResponse {
 
 export enum DataFormatValue {
   CSV = "csv",
-  PARQUET = "parquet",
+  PARQUET = "parquet"
 }
 
 export interface DeleteCertificateMessage {
@@ -2391,7 +2433,9 @@ export interface DescribeOrderableReplicationInstancesMessage {
 }
 
 export namespace DescribeOrderableReplicationInstancesMessage {
-  export function isa(o: any): o is DescribeOrderableReplicationInstancesMessage {
+  export function isa(
+    o: any
+  ): o is DescribeOrderableReplicationInstancesMessage {
     return _smithy.isa(o, "DescribeOrderableReplicationInstancesMessage");
   }
 }
@@ -2401,7 +2445,8 @@ export namespace DescribeOrderableReplicationInstancesMessage {
  *          <p></p>
  *
  */
-export interface DescribeOrderableReplicationInstancesResponse extends $MetadataBearer {
+export interface DescribeOrderableReplicationInstancesResponse
+  extends $MetadataBearer {
   __type?: "DescribeOrderableReplicationInstancesResponse";
   /**
    *
@@ -2421,7 +2466,9 @@ export interface DescribeOrderableReplicationInstancesResponse extends $Metadata
 }
 
 export namespace DescribeOrderableReplicationInstancesResponse {
-  export function isa(o: any): o is DescribeOrderableReplicationInstancesResponse {
+  export function isa(
+    o: any
+  ): o is DescribeOrderableReplicationInstancesResponse {
     return _smithy.isa(o, "DescribeOrderableReplicationInstancesResponse");
   }
 }
@@ -2479,7 +2526,8 @@ export namespace DescribePendingMaintenanceActionsMessage {
  *          <p></p>
  *
  */
-export interface DescribePendingMaintenanceActionsResponse extends $MetadataBearer {
+export interface DescribePendingMaintenanceActionsResponse
+  extends $MetadataBearer {
   __type?: "DescribePendingMaintenanceActionsResponse";
   /**
    *
@@ -2582,7 +2630,8 @@ export namespace DescribeReplicationInstanceTaskLogsMessage {
   }
 }
 
-export interface DescribeReplicationInstanceTaskLogsResponse extends $MetadataBearer {
+export interface DescribeReplicationInstanceTaskLogsResponse
+  extends $MetadataBearer {
   __type?: "DescribeReplicationInstanceTaskLogsResponse";
   /**
    *
@@ -2610,7 +2659,9 @@ export interface DescribeReplicationInstanceTaskLogsResponse extends $MetadataBe
 }
 
 export namespace DescribeReplicationInstanceTaskLogsResponse {
-  export function isa(o: any): o is DescribeReplicationInstanceTaskLogsResponse {
+  export function isa(
+    o: any
+  ): o is DescribeReplicationInstanceTaskLogsResponse {
     return _smithy.isa(o, "DescribeReplicationInstanceTaskLogsResponse");
   }
 }
@@ -2734,7 +2785,8 @@ export namespace DescribeReplicationSubnetGroupsMessage {
  *          <p></p>
  *
  */
-export interface DescribeReplicationSubnetGroupsResponse extends $MetadataBearer {
+export interface DescribeReplicationSubnetGroupsResponse
+  extends $MetadataBearer {
   __type?: "DescribeReplicationSubnetGroupsResponse";
   /**
    *
@@ -2797,7 +2849,9 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
 }
 
 export namespace DescribeReplicationTaskAssessmentResultsMessage {
-  export function isa(o: any): o is DescribeReplicationTaskAssessmentResultsMessage {
+  export function isa(
+    o: any
+  ): o is DescribeReplicationTaskAssessmentResultsMessage {
     return _smithy.isa(o, "DescribeReplicationTaskAssessmentResultsMessage");
   }
 }
@@ -2807,7 +2861,8 @@ export namespace DescribeReplicationTaskAssessmentResultsMessage {
  *          <p></p>
  *
  */
-export interface DescribeReplicationTaskAssessmentResultsResponse extends $MetadataBearer {
+export interface DescribeReplicationTaskAssessmentResultsResponse
+  extends $MetadataBearer {
   __type?: "DescribeReplicationTaskAssessmentResultsResponse";
   /**
    *
@@ -2834,7 +2889,9 @@ export interface DescribeReplicationTaskAssessmentResultsResponse extends $Metad
 }
 
 export namespace DescribeReplicationTaskAssessmentResultsResponse {
-  export function isa(o: any): o is DescribeReplicationTaskAssessmentResultsResponse {
+  export function isa(
+    o: any
+  ): o is DescribeReplicationTaskAssessmentResultsResponse {
     return _smithy.isa(o, "DescribeReplicationTaskAssessmentResultsResponse");
   }
 }
@@ -3084,7 +3141,7 @@ export enum DmsSslModeValue {
   NONE = "none",
   REQUIRE = "require",
   VERIFY_CA = "verify-ca",
-  VERIFY_FULL = "verify-full",
+  VERIFY_FULL = "verify-full"
 }
 
 /**
@@ -3183,12 +3240,12 @@ export namespace ElasticsearchSettings {
 export enum EncodingTypeValue {
   PLAIN = "plain",
   PLAIN_DICTIONARY = "plain-dictionary",
-  RLE_DICTIONARY = "rle-dictionary",
+  RLE_DICTIONARY = "rle-dictionary"
 }
 
 export enum EncryptionModeValue {
   SSE_KMS = "sse-kms",
-  SSE_S3 = "sse-s3",
+  SSE_S3 = "sse-s3"
 }
 
 /**
@@ -3743,13 +3800,13 @@ export namespace ListTagsForResourceResponse {
 }
 
 export enum MessageFormatValue {
-  JSON = "json",
+  JSON = "json"
 }
 
 export enum MigrationTypeValue {
   CDC = "cdc",
   FULL_LOAD = "full-load",
-  FULL_LOAD_AND_CDC = "full-load-and-cdc",
+  FULL_LOAD_AND_CDC = "full-load-and-cdc"
 }
 
 /**
@@ -4491,7 +4548,7 @@ export namespace MongoDbSettings {
 
 export enum NestingLevelValue {
   NONE = "none",
-  ONE = "one",
+  ONE = "one"
 }
 
 /**
@@ -4584,7 +4641,7 @@ export namespace OrderableReplicationInstance {
 
 export enum ParquetVersionValue {
   PARQUET_1_0 = "parquet-1-0",
-  PARQUET_2_0 = "parquet-2-0",
+  PARQUET_2_0 = "parquet-2-0"
 }
 
 /**
@@ -5031,16 +5088,16 @@ export namespace RefreshSchemasStatus {
 export enum RefreshSchemasStatusTypeValue {
   FAILED = "failed",
   REFRESHING = "refreshing",
-  SUCCESSFUL = "successful",
+  SUCCESSFUL = "successful"
 }
 
 export enum ReleaseStatusValues {
-  BETA = "beta",
+  BETA = "beta"
 }
 
 export enum ReloadOptionValue {
   DATA_RELOAD = "data-reload",
-  VALIDATE_ONLY = "validate-only",
+  VALIDATE_ONLY = "validate-only"
 }
 
 export interface ReloadTablesMessage {
@@ -5138,7 +5195,7 @@ export namespace RemoveTagsFromResourceResponse {
 
 export enum ReplicationEndpointTypeValue {
   SOURCE = "source",
-  TARGET = "target",
+  TARGET = "target"
 }
 
 /**
@@ -6180,7 +6237,7 @@ export namespace S3Settings {
   }
 }
 
-export type SourceType = "replication-instance"
+export type SourceType = "replication-instance";
 
 /**
  *
@@ -6208,7 +6265,8 @@ export namespace StartReplicationTaskAssessmentMessage {
  *          <p></p>
  *
  */
-export interface StartReplicationTaskAssessmentResponse extends $MetadataBearer {
+export interface StartReplicationTaskAssessmentResponse
+  extends $MetadataBearer {
   __type?: "StartReplicationTaskAssessmentResponse";
   /**
    *
@@ -6317,7 +6375,7 @@ export namespace StartReplicationTaskResponse {
 export enum StartReplicationTaskTypeValue {
   RELOAD_TARGET = "reload-target",
   RESUME_PROCESSING = "resume-processing",
-  START_REPLICATION = "start-replication",
+  START_REPLICATION = "start-replication"
 }
 
 /**

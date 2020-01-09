@@ -1,17 +1,17 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
 import { DescribeOrganizationResponse } from "../models/index";
 import {
   deserializeAws_json1_1DescribeOrganizationCommand,
-  serializeAws_json1_1DescribeOrganizationCommand,
+  serializeAws_json1_1DescribeOrganizationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
-export type DescribeOrganizationCommandInput = {}
+export type DescribeOrganizationCommandInput = {};
 export type DescribeOrganizationCommandOutput = DescribeOrganizationResponse;
 
-export class DescribeOrganizationCommand extends $Command<DescribeOrganizationCommandInput, DescribeOrganizationCommandOutput, OrganizationsClientResolvedConfig> {
+export class DescribeOrganizationCommand extends $Command<
+  DescribeOrganizationCommandInput,
+  DescribeOrganizationCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -40,14 +44,19 @@ export class DescribeOrganizationCommand extends $Command<DescribeOrganizationCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeOrganizationCommandInput, DescribeOrganizationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeOrganizationCommandInput,
+    DescribeOrganizationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

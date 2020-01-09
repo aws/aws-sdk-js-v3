@@ -1,20 +1,17 @@
 import {
   PinpointClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointClient";
-import {
-  GetImportJobRequest,
-  GetImportJobResponse,
-} from "../models/index";
+import { GetImportJobRequest, GetImportJobResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetImportJobCommand,
-  serializeAws_restJson1_1GetImportJobCommand,
+  serializeAws_restJson1_1GetImportJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetImportJobCommandInput = GetImportJobRequest;
 export type GetImportJobCommandOutput = GetImportJobResponse;
 
-export class GetImportJobCommand extends $Command<GetImportJobCommandInput, GetImportJobCommandOutput, PinpointClientResolvedConfig> {
+export class GetImportJobCommand extends $Command<
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput,
+  PinpointClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetImportJobCommand extends $Command<GetImportJobCommandInput, GetI
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetImportJobCommandInput, GetImportJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

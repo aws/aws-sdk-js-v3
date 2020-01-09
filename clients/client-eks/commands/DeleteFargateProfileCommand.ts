@@ -1,20 +1,20 @@
 import {
   EKSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EKSClient";
 import {
   DeleteFargateProfileRequest,
-  DeleteFargateProfileResponse,
+  DeleteFargateProfileResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteFargateProfileCommand,
-  serializeAws_restJson1_1DeleteFargateProfileCommand,
+  serializeAws_restJson1_1DeleteFargateProfileCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteFargateProfileCommandInput = DeleteFargateProfileRequest;
 export type DeleteFargateProfileCommandOutput = DeleteFargateProfileResponse;
 
-export class DeleteFargateProfileCommand extends $Command<DeleteFargateProfileCommandInput, DeleteFargateProfileCommandOutput, EKSClientResolvedConfig> {
+export class DeleteFargateProfileCommand extends $Command<
+  DeleteFargateProfileCommandInput,
+  DeleteFargateProfileCommandOutput,
+  EKSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteFargateProfileCommand extends $Command<DeleteFargateProfileCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EKSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteFargateProfileCommandInput, DeleteFargateProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteFargateProfileCommandInput,
+    DeleteFargateProfileCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DeleteFargateProfileCommand extends $Command<DeleteFargateProfileCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteFargateProfileCommandOutput> {
-    return deserializeAws_restJson1_1DeleteFargateProfileCommand(output, context);
+    return deserializeAws_restJson1_1DeleteFargateProfileCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

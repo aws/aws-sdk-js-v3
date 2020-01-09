@@ -2,12 +2,12 @@ import { PIClient } from "./PIClient";
 import {
   DescribeDimensionKeysCommand,
   DescribeDimensionKeysCommandInput,
-  DescribeDimensionKeysCommandOutput,
+  DescribeDimensionKeysCommandOutput
 } from "./commands/DescribeDimensionKeysCommand";
 import {
   GetResourceMetricsCommand,
   GetResourceMetricsCommandInput,
-  GetResourceMetricsCommandOutput,
+  GetResourceMetricsCommandOutput
 } from "./commands/GetResourceMetricsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -40,7 +40,7 @@ export class PI extends PIClient {
    */
   public describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDimensionKeysCommandOutput>;
   public describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
@@ -53,16 +53,18 @@ export class PI extends PIClient {
   ): void;
   public describeDimensionKeys(
     args: DescribeDimensionKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDimensionKeysCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDimensionKeysCommandOutput) => void),
     cb?: (err: any, data?: DescribeDimensionKeysCommandOutput) => void
   ): Promise<DescribeDimensionKeysCommandOutput> | void {
     const command = new DescribeDimensionKeysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -78,7 +80,7 @@ export class PI extends PIClient {
    */
   public getResourceMetrics(
     args: GetResourceMetricsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetResourceMetricsCommandOutput>;
   public getResourceMetrics(
     args: GetResourceMetricsCommandInput,
@@ -91,19 +93,20 @@ export class PI extends PIClient {
   ): void;
   public getResourceMetrics(
     args: GetResourceMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceMetricsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResourceMetricsCommandOutput) => void),
     cb?: (err: any, data?: GetResourceMetricsCommandOutput) => void
   ): Promise<GetResourceMetricsCommandOutput> | void {
     const command = new GetResourceMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

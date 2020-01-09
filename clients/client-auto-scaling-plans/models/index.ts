@@ -35,7 +35,9 @@ export namespace ApplicationSource {
  *          scaling plan that already has a pending update.</p>
  *
  */
-export interface ConcurrentUpdateException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentUpdateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentUpdateException";
   $fault: "server";
   Message?: string;
@@ -431,7 +433,7 @@ export enum ForecastDataType {
   CapacityForecast = "CapacityForecast",
   LoadForecast = "LoadForecast",
   ScheduledActionMaxCapacity = "ScheduledActionMaxCapacity",
-  ScheduledActionMinCapacity = "ScheduledActionMinCapacity",
+  ScheduledActionMinCapacity = "ScheduledActionMinCapacity"
 }
 
 export interface GetScalingPlanResourceForecastDataRequest {
@@ -553,7 +555,8 @@ export namespace GetScalingPlanResourceForecastDataRequest {
   }
 }
 
-export interface GetScalingPlanResourceForecastDataResponse extends $MetadataBearer {
+export interface GetScalingPlanResourceForecastDataResponse
+  extends $MetadataBearer {
   __type?: "GetScalingPlanResourceForecastDataResponse";
   /**
    *
@@ -574,7 +577,9 @@ export namespace GetScalingPlanResourceForecastDataResponse {
  *          <p>The service encountered an internal error.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -591,7 +596,9 @@ export namespace InternalServiceException {
  *          <p>The token provided is not valid.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -609,7 +616,9 @@ export namespace InvalidNextTokenException {
  *          limit is exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -625,7 +634,7 @@ export enum LoadMetricType {
   ALBTargetGroupRequestCount = "ALBTargetGroupRequestCount",
   ASGTotalCPUUtilization = "ASGTotalCPUUtilization",
   ASGTotalNetworkIn = "ASGTotalNetworkIn",
-  ASGTotalNetworkOut = "ASGTotalNetworkOut",
+  ASGTotalNetworkOut = "ASGTotalNetworkOut"
 }
 
 /**
@@ -661,7 +670,7 @@ export enum MetricStatistic {
   Maximum = "Maximum",
   Minimum = "Minimum",
   SampleCount = "SampleCount",
-  Sum = "Sum",
+  Sum = "Sum"
 }
 
 /**
@@ -669,7 +678,9 @@ export enum MetricStatistic {
  *          <p>The specified object could not be found.</p>
  *
  */
-export interface ObjectNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ObjectNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -682,7 +693,7 @@ export namespace ObjectNotFoundException {
 }
 
 export enum PolicyType {
-  TargetTrackingScaling = "TargetTrackingScaling",
+  TargetTrackingScaling = "TargetTrackingScaling"
 }
 
 /**
@@ -777,12 +788,12 @@ export namespace PredefinedScalingMetricSpecification {
 export enum PredictiveScalingMaxCapacityBehavior {
   SetForecastCapacityToMaxCapacity = "SetForecastCapacityToMaxCapacity",
   SetMaxCapacityAboveForecastCapacity = "SetMaxCapacityAboveForecastCapacity",
-  SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity",
+  SetMaxCapacityToForecastCapacity = "SetMaxCapacityToForecastCapacity"
 }
 
 export enum PredictiveScalingMode {
   ForecastAndScale = "ForecastAndScale",
-  ForecastOnly = "ForecastOnly",
+  ForecastOnly = "ForecastOnly"
 }
 
 export enum ScalableDimension {
@@ -793,7 +804,7 @@ export enum ScalableDimension {
   DynamoDBTableWriteCapacityUnits = "dynamodb:table:WriteCapacityUnits",
   EC2SpotFleetRequestTargetCapacity = "ec2:spot-fleet-request:TargetCapacity",
   ECSServiceDesiredCount = "ecs:service:DesiredCount",
-  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
+  RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount"
 }
 
 /**
@@ -892,7 +903,9 @@ export interface ScalingInstruction {
    *          <p>Only valid when configuring predictive scaling.</p>
    *
    */
-  PredictiveScalingMaxCapacityBehavior?: PredictiveScalingMaxCapacityBehavior | string;
+  PredictiveScalingMaxCapacityBehavior?:
+    | PredictiveScalingMaxCapacityBehavior
+    | string;
 
   /**
    *
@@ -1062,7 +1075,7 @@ export enum ScalingMetricType {
   ECSServiceAverageCPUUtilization = "ECSServiceAverageCPUUtilization",
   ECSServiceAverageMemoryUtilization = "ECSServiceAverageMemoryUtilization",
   RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
-  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
+  RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections"
 }
 
 /**
@@ -1327,7 +1340,7 @@ export enum ScalingPlanStatusCode {
   DeletionFailed = "DeletionFailed",
   DeletionInProgress = "DeletionInProgress",
   UpdateFailed = "UpdateFailed",
-  UpdateInProgress = "UpdateInProgress",
+  UpdateInProgress = "UpdateInProgress"
 }
 
 /**
@@ -1368,13 +1381,13 @@ export namespace ScalingPolicy {
 
 export enum ScalingPolicyUpdateBehavior {
   KeepExternalPolicies = "KeepExternalPolicies",
-  ReplaceExternalPolicies = "ReplaceExternalPolicies",
+  ReplaceExternalPolicies = "ReplaceExternalPolicies"
 }
 
 export enum ScalingStatusCode {
   Active = "Active",
   Inactive = "Inactive",
-  PartiallyActive = "PartiallyActive",
+  PartiallyActive = "PartiallyActive"
 }
 
 export enum ServiceNamespace {
@@ -1382,7 +1395,7 @@ export enum ServiceNamespace {
   DYNAMODB = "dynamodb",
   EC2 = "ec2",
   ECS = "ecs",
-  RDS = "rds",
+  RDS = "rds"
 }
 
 /**
@@ -1548,7 +1561,9 @@ export namespace UpdateScalingPlanResponse {
  *          <p>An exception was thrown for a validation issue. Review the parameters provided.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

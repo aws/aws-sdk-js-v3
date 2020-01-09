@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConfigServiceClient";
 import {
   GetAggregateComplianceDetailsByConfigRuleRequest,
-  GetAggregateComplianceDetailsByConfigRuleResponse,
+  GetAggregateComplianceDetailsByConfigRuleResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand,
-  serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand,
+  serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetAggregateComplianceDetailsByConfigRuleCommandInput = GetAggregateComplianceDetailsByConfigRuleRequest;
 export type GetAggregateComplianceDetailsByConfigRuleCommandOutput = GetAggregateComplianceDetailsByConfigRuleResponse;
 
-export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<GetAggregateComplianceDetailsByConfigRuleCommandInput, GetAggregateComplianceDetailsByConfigRuleCommandOutput, ConfigServiceClientResolvedConfig> {
+export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<
+  GetAggregateComplianceDetailsByConfigRuleCommandInput,
+  GetAggregateComplianceDetailsByConfigRuleCommandOutput,
+  ConfigServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput) {
+  constructor(
+    readonly input: GetAggregateComplianceDetailsByConfigRuleCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<G
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAggregateComplianceDetailsByConfigRuleCommandInput, GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetAggregateComplianceDetailsByConfigRuleCommandInput,
+    GetAggregateComplianceDetailsByConfigRuleCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class GetAggregateComplianceDetailsByConfigRuleCommand extends $Command<G
     input: GetAggregateComplianceDetailsByConfigRuleCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(input, context);
+    return serializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> {
-    return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(output, context);
+    return deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

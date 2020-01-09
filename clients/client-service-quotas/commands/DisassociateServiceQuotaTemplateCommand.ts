@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  ServiceQuotasClientResolvedConfig,
+  ServiceQuotasClientResolvedConfig
 } from "../ServiceQuotasClient";
 import {
   DisassociateServiceQuotaTemplateRequest,
-  DisassociateServiceQuotaTemplateResponse,
+  DisassociateServiceQuotaTemplateResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
-  serializeAws_json1_1DisassociateServiceQuotaTemplateCommand,
+  serializeAws_json1_1DisassociateServiceQuotaTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DisassociateServiceQuotaTemplateCommandInput = DisassociateServiceQuotaTemplateRequest;
 export type DisassociateServiceQuotaTemplateCommandOutput = DisassociateServiceQuotaTemplateResponse;
 
-export class DisassociateServiceQuotaTemplateCommand extends $Command<DisassociateServiceQuotaTemplateCommandInput, DisassociateServiceQuotaTemplateCommandOutput, ServiceQuotasClientResolvedConfig> {
+export class DisassociateServiceQuotaTemplateCommand extends $Command<
+  DisassociateServiceQuotaTemplateCommandInput,
+  DisassociateServiceQuotaTemplateCommandOutput,
+  ServiceQuotasClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<Disassocia
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateServiceQuotaTemplateCommandInput, DisassociateServiceQuotaTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DisassociateServiceQuotaTemplateCommandInput,
+    DisassociateServiceQuotaTemplateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DisassociateServiceQuotaTemplateCommand extends $Command<Disassocia
     input: DisassociateServiceQuotaTemplateCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(input, context);
+    return serializeAws_json1_1DisassociateServiceQuotaTemplateCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateServiceQuotaTemplateCommandOutput> {
-    return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand(output, context);
+    return deserializeAws_json1_1DisassociateServiceQuotaTemplateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

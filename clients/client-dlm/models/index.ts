@@ -267,7 +267,7 @@ export namespace GetLifecyclePolicyResponse {
 export enum GettablePolicyStateValues {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
-  ERROR = "ERROR",
+  ERROR = "ERROR"
 }
 
 /**
@@ -275,7 +275,9 @@ export enum GettablePolicyStateValues {
  *          <p>The service failed in an unexpected way.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Code?: string;
@@ -289,7 +291,7 @@ export namespace InternalServerException {
 }
 
 export enum IntervalUnitValues {
-  HOURS = "HOURS",
+  HOURS = "HOURS"
 }
 
 /**
@@ -297,7 +299,9 @@ export enum IntervalUnitValues {
  *          <p>Bad request. The request is missing required parameters or has invalid parameters.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Code?: string;
@@ -455,7 +459,9 @@ export namespace LifecyclePolicySummary {
  *          <p>The request failed because a limit was exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -581,7 +587,7 @@ export namespace PolicyDetails {
 }
 
 export enum PolicyTypeValues {
-  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT",
+  EBS_SNAPSHOT_MANAGEMENT = "EBS_SNAPSHOT_MANAGEMENT"
 }
 
 /**
@@ -589,7 +595,9 @@ export enum PolicyTypeValues {
  *          <p>A requested resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -617,7 +625,7 @@ export namespace ResourceNotFoundException {
 
 export enum ResourceTypeValues {
   INSTANCE = "INSTANCE",
-  VOLUME = "VOLUME",
+  VOLUME = "VOLUME"
 }
 
 /**
@@ -661,7 +669,7 @@ export enum RetentionIntervalUnitValues {
   DAYS = "DAYS",
   MONTHS = "MONTHS",
   WEEKS = "WEEKS",
-  YEARS = "YEARS",
+  YEARS = "YEARS"
 }
 
 /**
@@ -734,7 +742,7 @@ export namespace Schedule {
 
 export enum SettablePolicyStateValues {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**

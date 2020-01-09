@@ -1,20 +1,17 @@
 import {
   ManagedBlockchainClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ManagedBlockchainClient";
-import {
-  CreateProposalInput,
-  CreateProposalOutput,
-} from "../models/index";
+import { CreateProposalInput, CreateProposalOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateProposalCommand,
-  serializeAws_restJson1_1CreateProposalCommand,
+  serializeAws_restJson1_1CreateProposalCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateProposalCommandInput = CreateProposalInput;
 export type CreateProposalCommandOutput = CreateProposalOutput;
 
-export class CreateProposalCommand extends $Command<CreateProposalCommandInput, CreateProposalCommandOutput, ManagedBlockchainClientResolvedConfig> {
+export class CreateProposalCommand extends $Command<
+  CreateProposalCommandInput,
+  CreateProposalCommandOutput,
+  ManagedBlockchainClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateProposalCommand extends $Command<CreateProposalCommandInput, 
     configuration: ManagedBlockchainClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateProposalCommandInput, CreateProposalCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

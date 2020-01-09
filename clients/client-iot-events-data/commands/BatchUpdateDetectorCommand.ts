@@ -1,20 +1,20 @@
 import {
   IoTEventsDataClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../IoTEventsDataClient";
 import {
   BatchUpdateDetectorRequest,
-  BatchUpdateDetectorResponse,
+  BatchUpdateDetectorResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchUpdateDetectorCommand,
-  serializeAws_restJson1_1BatchUpdateDetectorCommand,
+  serializeAws_restJson1_1BatchUpdateDetectorCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type BatchUpdateDetectorCommandInput = BatchUpdateDetectorRequest;
 export type BatchUpdateDetectorCommandOutput = BatchUpdateDetectorResponse;
 
-export class BatchUpdateDetectorCommand extends $Command<BatchUpdateDetectorCommandInput, BatchUpdateDetectorCommandOutput, IoTEventsDataClientResolvedConfig> {
+export class BatchUpdateDetectorCommand extends $Command<
+  BatchUpdateDetectorCommandInput,
+  BatchUpdateDetectorCommandOutput,
+  IoTEventsDataClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class BatchUpdateDetectorCommand extends $Command<BatchUpdateDetectorComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTEventsDataClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchUpdateDetectorCommandInput, BatchUpdateDetectorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    BatchUpdateDetectorCommandInput,
+    BatchUpdateDetectorCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class BatchUpdateDetectorCommand extends $Command<BatchUpdateDetectorComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<BatchUpdateDetectorCommandOutput> {
-    return deserializeAws_restJson1_1BatchUpdateDetectorCommand(output, context);
+    return deserializeAws_restJson1_1BatchUpdateDetectorCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

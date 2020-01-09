@@ -1,20 +1,17 @@
 import {
   SageMakerA2IRuntimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerA2IRuntimeClient";
-import {
-  ListHumanLoopsRequest,
-  ListHumanLoopsResponse,
-} from "../models/index";
+import { ListHumanLoopsRequest, ListHumanLoopsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListHumanLoopsCommand,
-  serializeAws_restJson1_1ListHumanLoopsCommand,
+  serializeAws_restJson1_1ListHumanLoopsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListHumanLoopsCommandInput = ListHumanLoopsRequest;
 export type ListHumanLoopsCommandOutput = ListHumanLoopsResponse;
 
-export class ListHumanLoopsCommand extends $Command<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput, SageMakerA2IRuntimeClientResolvedConfig> {
+export class ListHumanLoopsCommand extends $Command<
+  ListHumanLoopsCommandInput,
+  ListHumanLoopsCommandOutput,
+  SageMakerA2IRuntimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListHumanLoopsCommand extends $Command<ListHumanLoopsCommandInput, 
     configuration: SageMakerA2IRuntimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListHumanLoopsCommandInput, ListHumanLoopsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

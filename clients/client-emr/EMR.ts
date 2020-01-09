@@ -2,152 +2,152 @@ import { EMRClient } from "./EMRClient";
 import {
   AddInstanceFleetCommand,
   AddInstanceFleetCommandInput,
-  AddInstanceFleetCommandOutput,
+  AddInstanceFleetCommandOutput
 } from "./commands/AddInstanceFleetCommand";
 import {
   AddInstanceGroupsCommand,
   AddInstanceGroupsCommandInput,
-  AddInstanceGroupsCommandOutput,
+  AddInstanceGroupsCommandOutput
 } from "./commands/AddInstanceGroupsCommand";
 import {
   AddJobFlowStepsCommand,
   AddJobFlowStepsCommandInput,
-  AddJobFlowStepsCommandOutput,
+  AddJobFlowStepsCommandOutput
 } from "./commands/AddJobFlowStepsCommand";
 import {
   AddTagsCommand,
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "./commands/AddTagsCommand";
 import {
   CancelStepsCommand,
   CancelStepsCommandInput,
-  CancelStepsCommandOutput,
+  CancelStepsCommandOutput
 } from "./commands/CancelStepsCommand";
 import {
   CreateSecurityConfigurationCommand,
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput,
+  CreateSecurityConfigurationCommandOutput
 } from "./commands/CreateSecurityConfigurationCommand";
 import {
   DeleteSecurityConfigurationCommand,
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput,
+  DeleteSecurityConfigurationCommandOutput
 } from "./commands/DeleteSecurityConfigurationCommand";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
+  DescribeClusterCommandOutput
 } from "./commands/DescribeClusterCommand";
 import {
   DescribeJobFlowsCommand,
   DescribeJobFlowsCommandInput,
-  DescribeJobFlowsCommandOutput,
+  DescribeJobFlowsCommandOutput
 } from "./commands/DescribeJobFlowsCommand";
 import {
   DescribeSecurityConfigurationCommand,
   DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput,
+  DescribeSecurityConfigurationCommandOutput
 } from "./commands/DescribeSecurityConfigurationCommand";
 import {
   DescribeStepCommand,
   DescribeStepCommandInput,
-  DescribeStepCommandOutput,
+  DescribeStepCommandOutput
 } from "./commands/DescribeStepCommand";
 import {
   GetBlockPublicAccessConfigurationCommand,
   GetBlockPublicAccessConfigurationCommandInput,
-  GetBlockPublicAccessConfigurationCommandOutput,
+  GetBlockPublicAccessConfigurationCommandOutput
 } from "./commands/GetBlockPublicAccessConfigurationCommand";
 import {
   ListBootstrapActionsCommand,
   ListBootstrapActionsCommandInput,
-  ListBootstrapActionsCommandOutput,
+  ListBootstrapActionsCommandOutput
 } from "./commands/ListBootstrapActionsCommand";
 import {
   ListClustersCommand,
   ListClustersCommandInput,
-  ListClustersCommandOutput,
+  ListClustersCommandOutput
 } from "./commands/ListClustersCommand";
 import {
   ListInstanceFleetsCommand,
   ListInstanceFleetsCommandInput,
-  ListInstanceFleetsCommandOutput,
+  ListInstanceFleetsCommandOutput
 } from "./commands/ListInstanceFleetsCommand";
 import {
   ListInstanceGroupsCommand,
   ListInstanceGroupsCommandInput,
-  ListInstanceGroupsCommandOutput,
+  ListInstanceGroupsCommandOutput
 } from "./commands/ListInstanceGroupsCommand";
 import {
   ListInstancesCommand,
   ListInstancesCommandInput,
-  ListInstancesCommandOutput,
+  ListInstancesCommandOutput
 } from "./commands/ListInstancesCommand";
 import {
   ListSecurityConfigurationsCommand,
   ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput,
+  ListSecurityConfigurationsCommandOutput
 } from "./commands/ListSecurityConfigurationsCommand";
 import {
   ListStepsCommand,
   ListStepsCommandInput,
-  ListStepsCommandOutput,
+  ListStepsCommandOutput
 } from "./commands/ListStepsCommand";
 import {
   ModifyClusterCommand,
   ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
+  ModifyClusterCommandOutput
 } from "./commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommand,
   ModifyInstanceFleetCommandInput,
-  ModifyInstanceFleetCommandOutput,
+  ModifyInstanceFleetCommandOutput
 } from "./commands/ModifyInstanceFleetCommand";
 import {
   ModifyInstanceGroupsCommand,
   ModifyInstanceGroupsCommandInput,
-  ModifyInstanceGroupsCommandOutput,
+  ModifyInstanceGroupsCommandOutput
 } from "./commands/ModifyInstanceGroupsCommand";
 import {
   PutAutoScalingPolicyCommand,
   PutAutoScalingPolicyCommandInput,
-  PutAutoScalingPolicyCommandOutput,
+  PutAutoScalingPolicyCommandOutput
 } from "./commands/PutAutoScalingPolicyCommand";
 import {
   PutBlockPublicAccessConfigurationCommand,
   PutBlockPublicAccessConfigurationCommandInput,
-  PutBlockPublicAccessConfigurationCommandOutput,
+  PutBlockPublicAccessConfigurationCommandOutput
 } from "./commands/PutBlockPublicAccessConfigurationCommand";
 import {
   RemoveAutoScalingPolicyCommand,
   RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput,
+  RemoveAutoScalingPolicyCommandOutput
 } from "./commands/RemoveAutoScalingPolicyCommand";
 import {
   RemoveTagsCommand,
   RemoveTagsCommandInput,
-  RemoveTagsCommandOutput,
+  RemoveTagsCommandOutput
 } from "./commands/RemoveTagsCommand";
 import {
   RunJobFlowCommand,
   RunJobFlowCommandInput,
-  RunJobFlowCommandOutput,
+  RunJobFlowCommandOutput
 } from "./commands/RunJobFlowCommand";
 import {
   SetTerminationProtectionCommand,
   SetTerminationProtectionCommandInput,
-  SetTerminationProtectionCommandOutput,
+  SetTerminationProtectionCommandOutput
 } from "./commands/SetTerminationProtectionCommand";
 import {
   SetVisibleToAllUsersCommand,
   SetVisibleToAllUsersCommandInput,
-  SetVisibleToAllUsersCommandOutput,
+  SetVisibleToAllUsersCommandOutput
 } from "./commands/SetVisibleToAllUsersCommand";
 import {
   TerminateJobFlowsCommand,
   TerminateJobFlowsCommandInput,
-  TerminateJobFlowsCommandOutput,
+  TerminateJobFlowsCommandOutput
 } from "./commands/TerminateJobFlowsCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -167,7 +167,7 @@ export class EMR extends EMRClient {
    */
   public addInstanceFleet(
     args: AddInstanceFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddInstanceFleetCommandOutput>;
   public addInstanceFleet(
     args: AddInstanceFleetCommandInput,
@@ -180,16 +180,18 @@ export class EMR extends EMRClient {
   ): void;
   public addInstanceFleet(
     args: AddInstanceFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddInstanceFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddInstanceFleetCommandOutput) => void),
     cb?: (err: any, data?: AddInstanceFleetCommandOutput) => void
   ): Promise<AddInstanceFleetCommandOutput> | void {
     const command = new AddInstanceFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -205,7 +207,7 @@ export class EMR extends EMRClient {
    */
   public addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddInstanceGroupsCommandOutput>;
   public addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
@@ -218,16 +220,18 @@ export class EMR extends EMRClient {
   ): void;
   public addInstanceGroups(
     args: AddInstanceGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddInstanceGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddInstanceGroupsCommandOutput) => void),
     cb?: (err: any, data?: AddInstanceGroupsCommandOutput) => void
   ): Promise<AddInstanceGroupsCommandOutput> | void {
     const command = new AddInstanceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -245,7 +249,7 @@ export class EMR extends EMRClient {
    */
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddJobFlowStepsCommandOutput>;
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
@@ -258,16 +262,18 @@ export class EMR extends EMRClient {
   ): void;
   public addJobFlowSteps(
     args: AddJobFlowStepsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddJobFlowStepsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddJobFlowStepsCommandOutput) => void),
     cb?: (err: any, data?: AddJobFlowStepsCommandOutput) => void
   ): Promise<AddJobFlowStepsCommandOutput> | void {
     const command = new AddJobFlowStepsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -283,7 +289,7 @@ export class EMR extends EMRClient {
    */
   public addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsCommandOutput>;
   public addTags(
     args: AddTagsCommandInput,
@@ -296,16 +302,18 @@ export class EMR extends EMRClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -319,7 +327,7 @@ export class EMR extends EMRClient {
    */
   public cancelSteps(
     args: CancelStepsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelStepsCommandOutput>;
   public cancelSteps(
     args: CancelStepsCommandInput,
@@ -332,16 +340,18 @@ export class EMR extends EMRClient {
   ): void;
   public cancelSteps(
     args: CancelStepsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelStepsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelStepsCommandOutput) => void),
     cb?: (err: any, data?: CancelStepsCommandOutput) => void
   ): Promise<CancelStepsCommandOutput> | void {
     const command = new CancelStepsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -354,7 +364,7 @@ export class EMR extends EMRClient {
    */
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSecurityConfigurationCommandOutput>;
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
@@ -367,16 +377,18 @@ export class EMR extends EMRClient {
   ): void;
   public createSecurityConfiguration(
     args: CreateSecurityConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateSecurityConfigurationCommandOutput) => void
   ): Promise<CreateSecurityConfigurationCommandOutput> | void {
     const command = new CreateSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -389,7 +401,7 @@ export class EMR extends EMRClient {
    */
   public deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSecurityConfigurationCommandOutput>;
   public deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
@@ -402,16 +414,18 @@ export class EMR extends EMRClient {
   ): void;
   public deleteSecurityConfiguration(
     args: DeleteSecurityConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
   ): Promise<DeleteSecurityConfigurationCommandOutput> | void {
     const command = new DeleteSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -425,7 +439,7 @@ export class EMR extends EMRClient {
    */
   public describeCluster(
     args: DescribeClusterCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeClusterCommandOutput>;
   public describeCluster(
     args: DescribeClusterCommandInput,
@@ -438,16 +452,18 @@ export class EMR extends EMRClient {
   ): void;
   public describeCluster(
     args: DescribeClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeClusterCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeClusterCommandOutput) => void),
     cb?: (err: any, data?: DescribeClusterCommandOutput) => void
   ): Promise<DescribeClusterCommandOutput> | void {
     const command = new DescribeClusterCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -477,7 +493,7 @@ export class EMR extends EMRClient {
    */
   public describeJobFlows(
     args: DescribeJobFlowsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeJobFlowsCommandOutput>;
   public describeJobFlows(
     args: DescribeJobFlowsCommandInput,
@@ -490,16 +506,18 @@ export class EMR extends EMRClient {
   ): void;
   public describeJobFlows(
     args: DescribeJobFlowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobFlowsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeJobFlowsCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobFlowsCommandOutput) => void
   ): Promise<DescribeJobFlowsCommandOutput> | void {
     const command = new DescribeJobFlowsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -512,7 +530,7 @@ export class EMR extends EMRClient {
    */
   public describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSecurityConfigurationCommandOutput>;
   public describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
@@ -525,16 +543,18 @@ export class EMR extends EMRClient {
   ): void;
   public describeSecurityConfiguration(
     args: DescribeSecurityConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecurityConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSecurityConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecurityConfigurationCommandOutput) => void
   ): Promise<DescribeSecurityConfigurationCommandOutput> | void {
     const command = new DescribeSecurityConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -547,7 +567,7 @@ export class EMR extends EMRClient {
    */
   public describeStep(
     args: DescribeStepCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeStepCommandOutput>;
   public describeStep(
     args: DescribeStepCommandInput,
@@ -560,16 +580,18 @@ export class EMR extends EMRClient {
   ): void;
   public describeStep(
     args: DescribeStepCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStepCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStepCommandOutput) => void),
     cb?: (err: any, data?: DescribeStepCommandOutput) => void
   ): Promise<DescribeStepCommandOutput> | void {
     const command = new DescribeStepCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -582,29 +604,43 @@ export class EMR extends EMRClient {
    */
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput>;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    cb: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): void;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): void;
   public getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: GetBlockPublicAccessConfigurationCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetBlockPublicAccessConfigurationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): Promise<GetBlockPublicAccessConfigurationCommandOutput> | void {
     const command = new GetBlockPublicAccessConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -617,7 +653,7 @@ export class EMR extends EMRClient {
    */
   public listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListBootstrapActionsCommandOutput>;
   public listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
@@ -630,16 +666,18 @@ export class EMR extends EMRClient {
   ): void;
   public listBootstrapActions(
     args: ListBootstrapActionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBootstrapActionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBootstrapActionsCommandOutput) => void),
     cb?: (err: any, data?: ListBootstrapActionsCommandOutput) => void
   ): Promise<ListBootstrapActionsCommandOutput> | void {
     const command = new ListBootstrapActionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -653,7 +691,7 @@ export class EMR extends EMRClient {
    */
   public listClusters(
     args: ListClustersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListClustersCommandOutput>;
   public listClusters(
     args: ListClustersCommandInput,
@@ -666,16 +704,18 @@ export class EMR extends EMRClient {
   ): void;
   public listClusters(
     args: ListClustersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListClustersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListClustersCommandOutput) => void),
     cb?: (err: any, data?: ListClustersCommandOutput) => void
   ): Promise<ListClustersCommandOutput> | void {
     const command = new ListClustersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -691,7 +731,7 @@ export class EMR extends EMRClient {
    */
   public listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListInstanceFleetsCommandOutput>;
   public listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
@@ -704,16 +744,18 @@ export class EMR extends EMRClient {
   ): void;
   public listInstanceFleets(
     args: ListInstanceFleetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceFleetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListInstanceFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListInstanceFleetsCommandOutput) => void
   ): Promise<ListInstanceFleetsCommandOutput> | void {
     const command = new ListInstanceFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -727,7 +769,7 @@ export class EMR extends EMRClient {
    */
   public listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListInstanceGroupsCommandOutput>;
   public listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
@@ -740,16 +782,18 @@ export class EMR extends EMRClient {
   ): void;
   public listInstanceGroups(
     args: ListInstanceGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstanceGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListInstanceGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListInstanceGroupsCommandOutput) => void
   ): Promise<ListInstanceGroupsCommandOutput> | void {
     const command = new ListInstanceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -762,7 +806,7 @@ export class EMR extends EMRClient {
    */
   public listInstances(
     args: ListInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListInstancesCommandOutput>;
   public listInstances(
     args: ListInstancesCommandInput,
@@ -775,16 +819,18 @@ export class EMR extends EMRClient {
   ): void;
   public listInstances(
     args: ListInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListInstancesCommandOutput) => void
   ): Promise<ListInstancesCommandOutput> | void {
     const command = new ListInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -797,7 +843,7 @@ export class EMR extends EMRClient {
    */
   public listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSecurityConfigurationsCommandOutput>;
   public listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
@@ -810,16 +856,18 @@ export class EMR extends EMRClient {
   ): void;
   public listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecurityConfigurationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecurityConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListSecurityConfigurationsCommandOutput) => void
   ): Promise<ListSecurityConfigurationsCommandOutput> | void {
     const command = new ListSecurityConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -832,7 +880,7 @@ export class EMR extends EMRClient {
    */
   public listSteps(
     args: ListStepsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListStepsCommandOutput>;
   public listSteps(
     args: ListStepsCommandInput,
@@ -845,16 +893,18 @@ export class EMR extends EMRClient {
   ): void;
   public listSteps(
     args: ListStepsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStepsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStepsCommandOutput) => void),
     cb?: (err: any, data?: ListStepsCommandOutput) => void
   ): Promise<ListStepsCommandOutput> | void {
     const command = new ListStepsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -867,7 +917,7 @@ export class EMR extends EMRClient {
    */
   public modifyCluster(
     args: ModifyClusterCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyClusterCommandOutput>;
   public modifyCluster(
     args: ModifyClusterCommandInput,
@@ -880,16 +930,18 @@ export class EMR extends EMRClient {
   ): void;
   public modifyCluster(
     args: ModifyClusterCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyClusterCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyClusterCommandOutput) => void),
     cb?: (err: any, data?: ModifyClusterCommandOutput) => void
   ): Promise<ModifyClusterCommandOutput> | void {
     const command = new ModifyClusterCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -905,7 +957,7 @@ export class EMR extends EMRClient {
    */
   public modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyInstanceFleetCommandOutput>;
   public modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
@@ -918,16 +970,18 @@ export class EMR extends EMRClient {
   ): void;
   public modifyInstanceFleet(
     args: ModifyInstanceFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyInstanceFleetCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstanceFleetCommandOutput) => void
   ): Promise<ModifyInstanceFleetCommandOutput> | void {
     const command = new ModifyInstanceFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -943,7 +997,7 @@ export class EMR extends EMRClient {
    */
   public modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyInstanceGroupsCommandOutput>;
   public modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
@@ -956,16 +1010,18 @@ export class EMR extends EMRClient {
   ): void;
   public modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyInstanceGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyInstanceGroupsCommandOutput) => void),
     cb?: (err: any, data?: ModifyInstanceGroupsCommandOutput) => void
   ): Promise<ModifyInstanceGroupsCommandOutput> | void {
     const command = new ModifyInstanceGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -978,7 +1034,7 @@ export class EMR extends EMRClient {
    */
   public putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutAutoScalingPolicyCommandOutput>;
   public putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
@@ -991,16 +1047,18 @@ export class EMR extends EMRClient {
   ): void;
   public putAutoScalingPolicy(
     args: PutAutoScalingPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAutoScalingPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutAutoScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutAutoScalingPolicyCommandOutput) => void
   ): Promise<PutAutoScalingPolicyCommandOutput> | void {
     const command = new PutAutoScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1013,29 +1071,43 @@ export class EMR extends EMRClient {
    */
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput>;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    cb: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PutBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): void;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PutBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): void;
   public putBlockPublicAccessConfiguration(
     args: PutBlockPublicAccessConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void),
-    cb?: (err: any, data?: PutBlockPublicAccessConfigurationCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: PutBlockPublicAccessConfigurationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: PutBlockPublicAccessConfigurationCommandOutput
+    ) => void
   ): Promise<PutBlockPublicAccessConfigurationCommandOutput> | void {
     const command = new PutBlockPublicAccessConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1048,7 +1120,7 @@ export class EMR extends EMRClient {
    */
   public removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveAutoScalingPolicyCommandOutput>;
   public removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
@@ -1061,16 +1133,18 @@ export class EMR extends EMRClient {
   ): void;
   public removeAutoScalingPolicy(
     args: RemoveAutoScalingPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void),
     cb?: (err: any, data?: RemoveAutoScalingPolicyCommandOutput) => void
   ): Promise<RemoveAutoScalingPolicyCommandOutput> | void {
     const command = new RemoveAutoScalingPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1087,7 +1161,7 @@ export class EMR extends EMRClient {
    */
   public removeTags(
     args: RemoveTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveTagsCommandOutput>;
   public removeTags(
     args: RemoveTagsCommandInput,
@@ -1100,16 +1174,18 @@ export class EMR extends EMRClient {
   ): void;
   public removeTags(
     args: RemoveTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveTagsCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsCommandOutput) => void
   ): Promise<RemoveTagsCommandOutput> | void {
     const command = new RemoveTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1141,7 +1217,7 @@ export class EMR extends EMRClient {
    */
   public runJobFlow(
     args: RunJobFlowCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RunJobFlowCommandOutput>;
   public runJobFlow(
     args: RunJobFlowCommandInput,
@@ -1154,16 +1230,18 @@ export class EMR extends EMRClient {
   ): void;
   public runJobFlow(
     args: RunJobFlowCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RunJobFlowCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RunJobFlowCommandOutput) => void),
     cb?: (err: any, data?: RunJobFlowCommandOutput) => void
   ): Promise<RunJobFlowCommandOutput> | void {
     const command = new RunJobFlowCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1186,7 +1264,7 @@ export class EMR extends EMRClient {
    */
   public setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SetTerminationProtectionCommandOutput>;
   public setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
@@ -1199,16 +1277,18 @@ export class EMR extends EMRClient {
   ): void;
   public setTerminationProtection(
     args: SetTerminationProtectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetTerminationProtectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetTerminationProtectionCommandOutput) => void),
     cb?: (err: any, data?: SetTerminationProtectionCommandOutput) => void
   ): Promise<SetTerminationProtectionCommandOutput> | void {
     const command = new SetTerminationProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1222,7 +1302,7 @@ export class EMR extends EMRClient {
    */
   public setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SetVisibleToAllUsersCommandOutput>;
   public setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
@@ -1235,16 +1315,18 @@ export class EMR extends EMRClient {
   ): void;
   public setVisibleToAllUsers(
     args: SetVisibleToAllUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetVisibleToAllUsersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetVisibleToAllUsersCommandOutput) => void),
     cb?: (err: any, data?: SetVisibleToAllUsersCommandOutput) => void
   ): Promise<SetVisibleToAllUsersCommandOutput> | void {
     const command = new SetVisibleToAllUsersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1260,7 +1342,7 @@ export class EMR extends EMRClient {
    */
   public terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TerminateJobFlowsCommandOutput>;
   public terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
@@ -1273,19 +1355,20 @@ export class EMR extends EMRClient {
   ): void;
   public terminateJobFlows(
     args: TerminateJobFlowsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TerminateJobFlowsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TerminateJobFlowsCommandOutput) => void),
     cb?: (err: any, data?: TerminateJobFlowsCommandOutput) => void
   ): Promise<TerminateJobFlowsCommandOutput> | void {
     const command = new TerminateJobFlowsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

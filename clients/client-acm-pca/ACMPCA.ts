@@ -2,102 +2,102 @@ import { ACMPCAClient } from "./ACMPCAClient";
 import {
   CreateCertificateAuthorityAuditReportCommand,
   CreateCertificateAuthorityAuditReportCommandInput,
-  CreateCertificateAuthorityAuditReportCommandOutput,
+  CreateCertificateAuthorityAuditReportCommandOutput
 } from "./commands/CreateCertificateAuthorityAuditReportCommand";
 import {
   CreateCertificateAuthorityCommand,
   CreateCertificateAuthorityCommandInput,
-  CreateCertificateAuthorityCommandOutput,
+  CreateCertificateAuthorityCommandOutput
 } from "./commands/CreateCertificateAuthorityCommand";
 import {
   CreatePermissionCommand,
   CreatePermissionCommandInput,
-  CreatePermissionCommandOutput,
+  CreatePermissionCommandOutput
 } from "./commands/CreatePermissionCommand";
 import {
   DeleteCertificateAuthorityCommand,
   DeleteCertificateAuthorityCommandInput,
-  DeleteCertificateAuthorityCommandOutput,
+  DeleteCertificateAuthorityCommandOutput
 } from "./commands/DeleteCertificateAuthorityCommand";
 import {
   DeletePermissionCommand,
   DeletePermissionCommandInput,
-  DeletePermissionCommandOutput,
+  DeletePermissionCommandOutput
 } from "./commands/DeletePermissionCommand";
 import {
   DescribeCertificateAuthorityAuditReportCommand,
   DescribeCertificateAuthorityAuditReportCommandInput,
-  DescribeCertificateAuthorityAuditReportCommandOutput,
+  DescribeCertificateAuthorityAuditReportCommandOutput
 } from "./commands/DescribeCertificateAuthorityAuditReportCommand";
 import {
   DescribeCertificateAuthorityCommand,
   DescribeCertificateAuthorityCommandInput,
-  DescribeCertificateAuthorityCommandOutput,
+  DescribeCertificateAuthorityCommandOutput
 } from "./commands/DescribeCertificateAuthorityCommand";
 import {
   GetCertificateAuthorityCertificateCommand,
   GetCertificateAuthorityCertificateCommandInput,
-  GetCertificateAuthorityCertificateCommandOutput,
+  GetCertificateAuthorityCertificateCommandOutput
 } from "./commands/GetCertificateAuthorityCertificateCommand";
 import {
   GetCertificateAuthorityCsrCommand,
   GetCertificateAuthorityCsrCommandInput,
-  GetCertificateAuthorityCsrCommandOutput,
+  GetCertificateAuthorityCsrCommandOutput
 } from "./commands/GetCertificateAuthorityCsrCommand";
 import {
   GetCertificateCommand,
   GetCertificateCommandInput,
-  GetCertificateCommandOutput,
+  GetCertificateCommandOutput
 } from "./commands/GetCertificateCommand";
 import {
   ImportCertificateAuthorityCertificateCommand,
   ImportCertificateAuthorityCertificateCommandInput,
-  ImportCertificateAuthorityCertificateCommandOutput,
+  ImportCertificateAuthorityCertificateCommandOutput
 } from "./commands/ImportCertificateAuthorityCertificateCommand";
 import {
   IssueCertificateCommand,
   IssueCertificateCommandInput,
-  IssueCertificateCommandOutput,
+  IssueCertificateCommandOutput
 } from "./commands/IssueCertificateCommand";
 import {
   ListCertificateAuthoritiesCommand,
   ListCertificateAuthoritiesCommandInput,
-  ListCertificateAuthoritiesCommandOutput,
+  ListCertificateAuthoritiesCommandOutput
 } from "./commands/ListCertificateAuthoritiesCommand";
 import {
   ListPermissionsCommand,
   ListPermissionsCommandInput,
-  ListPermissionsCommandOutput,
+  ListPermissionsCommandOutput
 } from "./commands/ListPermissionsCommand";
 import {
   ListTagsCommand,
   ListTagsCommandInput,
-  ListTagsCommandOutput,
+  ListTagsCommandOutput
 } from "./commands/ListTagsCommand";
 import {
   RestoreCertificateAuthorityCommand,
   RestoreCertificateAuthorityCommandInput,
-  RestoreCertificateAuthorityCommandOutput,
+  RestoreCertificateAuthorityCommandOutput
 } from "./commands/RestoreCertificateAuthorityCommand";
 import {
   RevokeCertificateCommand,
   RevokeCertificateCommandInput,
-  RevokeCertificateCommandOutput,
+  RevokeCertificateCommandOutput
 } from "./commands/RevokeCertificateCommand";
 import {
   TagCertificateAuthorityCommand,
   TagCertificateAuthorityCommandInput,
-  TagCertificateAuthorityCommandOutput,
+  TagCertificateAuthorityCommandOutput
 } from "./commands/TagCertificateAuthorityCommand";
 import {
   UntagCertificateAuthorityCommand,
   UntagCertificateAuthorityCommandInput,
-  UntagCertificateAuthorityCommandOutput,
+  UntagCertificateAuthorityCommandOutput
 } from "./commands/UntagCertificateAuthorityCommand";
 import {
   UpdateCertificateAuthorityCommand,
   UpdateCertificateAuthorityCommandInput,
-  UpdateCertificateAuthorityCommandOutput,
+  UpdateCertificateAuthorityCommandOutput
 } from "./commands/UpdateCertificateAuthorityCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -116,7 +116,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
  * 				the action can be called per second. For more information, see <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaLimits.html#PcaLimits-api">API Rate Limits in ACM Private CA</a>
  * 				in the ACM Private CA user guide.</p>
  * 		       </note>
- * 	
+ *
  */
 export class ACMPCA extends ACMPCAClient {
   /**
@@ -130,12 +130,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			validity period of the CRL), the Amazon S3 bucket that will contain the CRL, and a CNAME
    * 			alias for the S3 bucket that is included in certificates issued by the CA. If
    * 			successful, this action returns the Amazon Resource Name (ARN) of the CA.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCertificateAuthorityCommandOutput>;
   public createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
@@ -148,16 +148,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public createCertificateAuthority(
     args: CreateCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: CreateCertificateAuthorityCommandOutput) => void
   ): Promise<CreateCertificateAuthorityCommandOutput> | void {
     const command = new CreateCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -168,34 +170,48 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>Creates an audit report that lists every time that your CA private key is used. The report
    * 			is saved in the Amazon S3 bucket that you specify on input. The <a>IssueCertificate</a> and <a>RevokeCertificate</a> actions use the
    * 			private key.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput>;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    cb: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): void;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): void;
   public createCertificateAuthorityAuditReport(
     args: CreateCertificateAuthorityAuditReportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void),
-    cb?: (err: any, data?: CreateCertificateAuthorityAuditReportCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CreateCertificateAuthorityAuditReportCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CreateCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): Promise<CreateCertificateAuthorityAuditReportCommandOutput> | void {
     const command = new CreateCertificateAuthorityAuditReportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -212,12 +228,12 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>At this time, you can only assign permissions to ACM (<code>acm.amazonaws.com</code>).
    * 			Permissions can be revoked with the <a>DeletePermission</a> action and listed
    * 			with the <a>ListPermissions</a> action.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public createPermission(
     args: CreatePermissionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreatePermissionCommandOutput>;
   public createPermission(
     args: CreatePermissionCommandInput,
@@ -230,16 +246,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public createPermission(
     args: CreatePermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePermissionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePermissionCommandOutput) => void),
     cb?: (err: any, data?: CreatePermissionCommandOutput) => void
   ): Promise<CreatePermissionCommandOutput> | void {
     const command = new CreatePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -269,12 +287,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			days. You can set the parameter from 7 to 30 days. The <a>DescribeCertificateAuthority</a> action returns the time remaining in the
    * 			restoration window of a private CA in the <code>DELETED</code> state. To restore an
    * 			eligible CA, call the <a>RestoreCertificateAuthority</a> action.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteCertificateAuthorityCommandOutput>;
   public deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
@@ -287,16 +305,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public deleteCertificateAuthority(
     args: DeleteCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: DeleteCertificateAuthorityCommandOutput) => void
   ): Promise<DeleteCertificateAuthorityCommandOutput> | void {
     const command = new DeleteCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -307,12 +327,12 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>Revokes permissions that a private CA assigned to a designated AWS service. Permissions
    * 			can be created with the <a>CreatePermission</a> action and listed with the
    * 				<a>ListPermissions</a> action. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public deletePermission(
     args: DeletePermissionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeletePermissionCommandOutput>;
   public deletePermission(
     args: DeletePermissionCommandInput,
@@ -325,16 +345,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public deletePermission(
     args: DeletePermissionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePermissionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePermissionCommandOutput) => void),
     cb?: (err: any, data?: DeletePermissionCommandOutput) => void
   ): Promise<DeletePermissionCommandOutput> | void {
     const command = new DeletePermissionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -383,12 +405,12 @@ export class ACMPCA extends ACMPCAClient {
    * 					is also included in this action's output.</p>
    * 			         </li>
    *          </ul>
-   * 		
-   * 	
+   *
+   *
    */
   public describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCertificateAuthorityCommandOutput>;
   public describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
@@ -401,16 +423,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public describeCertificateAuthority(
     args: DescribeCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: DescribeCertificateAuthorityCommandOutput) => void
   ): Promise<DescribeCertificateAuthorityCommandOutput> | void {
     const command = new DescribeCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -421,34 +445,48 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>Lists information about a specific audit report created by calling the <a>CreateCertificateAuthorityAuditReport</a> action. Audit information is
    * 			created every time the certificate authority (CA) private key is used. The private key
    * 			is used when you call the <a>IssueCertificate</a> action or the <a>RevokeCertificate</a> action. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput>;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    cb: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): void;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): void;
   public describeCertificateAuthorityAuditReport(
     args: DescribeCertificateAuthorityAuditReportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void),
-    cb?: (err: any, data?: DescribeCertificateAuthorityAuditReportCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeCertificateAuthorityAuditReportCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeCertificateAuthorityAuditReportCommandOutput
+    ) => void
   ): Promise<DescribeCertificateAuthorityAuditReportCommandOutput> | void {
     const command = new DescribeCertificateAuthorityAuditReportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -462,12 +500,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			is in the <b>ISSUED</b> state. You can call the <a>CreateCertificateAuthorityAuditReport</a> action to create a report that
    * 			contains information about all of the certificates issued and revoked by your private
    * 			CA. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public getCertificate(
     args: GetCertificateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCertificateCommandOutput>;
   public getCertificate(
     args: GetCertificateCommandInput,
@@ -480,16 +518,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public getCertificate(
     args: GetCertificateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCertificateCommandOutput) => void),
     cb?: (err: any, data?: GetCertificateCommandOutput) => void
   ): Promise<GetCertificateCommandOutput> | void {
     const command = new GetCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -500,34 +540,48 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <p>Retrieves the certificate and certificate chain for your private certificate authority
    * 			(CA). Both the certificate and the chain are base64 PEM-encoded. The chain does not
    * 			include the CA certificate. Each certificate in the chain signs the one before it. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCertificateAuthorityCertificateCommandOutput>;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    cb: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): void;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GetCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): void;
   public getCertificateAuthorityCertificate(
     args: GetCertificateAuthorityCertificateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void),
-    cb?: (err: any, data?: GetCertificateAuthorityCertificateCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetCertificateAuthorityCertificateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GetCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): Promise<GetCertificateAuthorityCertificateCommandOutput> | void {
     const command = new GetCertificateAuthorityCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -540,12 +594,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			action. Sign the CSR with your ACM Private CA-hosted or on-premises root or subordinate CA. Then
    * 			import the signed certificate back into ACM Private CA by calling the <a>ImportCertificateAuthorityCertificate</a> action. The CSR is returned as a
    * 			base64 PEM-encoded string. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCertificateAuthorityCsrCommandOutput>;
   public getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
@@ -558,16 +612,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public getCertificateAuthorityCsr(
     args: GetCertificateAuthorityCsrCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCertificateAuthorityCsrCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCertificateAuthorityCsrCommandOutput) => void),
     cb?: (err: any, data?: GetCertificateAuthorityCsrCommandOutput) => void
   ): Promise<GetCertificateAuthorityCsrCommandOutput> | void {
     const command = new GetCertificateAuthorityCsrCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -579,7 +635,7 @@ export class ACMPCA extends ACMPCAClient {
    * 			private CA certificate into ACM Private CA. This action is used when you are using a chain of
    * 			trust whose root is located outside ACM Private CA. Before you can call this action, the
    * 			following preparations must in place:</p>
-   * 		
+   *
    * 		       <ol>
    *             <li>
    *                <p>In ACM Private CA,  call the <a>CreateCertificateAuthority</a> action to create the private
@@ -598,8 +654,8 @@ export class ACMPCA extends ACMPCAClient {
    * 					certificate chain and copy the signed certificate and the certificate chain to your
    * 					working directory.</p>
    *             </li>
-   *          </ol>		
-   * 		
+   *          </ol>
+   *
    * 		       <p>The following requirements apply when you import a CA certificate.</p>
    * 		       <ul>
    *             <li>
@@ -623,34 +679,48 @@ export class ACMPCA extends ACMPCAClient {
    * 				           <p>The chain must be PEM-encoded.</p>
    * 			         </li>
    *          </ul>
-   * 		
-   * 	
+   *
+   *
    */
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput>;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    cb: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ImportCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): void;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ImportCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): void;
   public importCertificateAuthorityCertificate(
     args: ImportCertificateAuthorityCertificateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void),
-    cb?: (err: any, data?: ImportCertificateAuthorityCertificateCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ImportCertificateAuthorityCertificateCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ImportCertificateAuthorityCertificateCommandOutput
+    ) => void
   ): Promise<ImportCertificateAuthorityCertificateCommandOutput> | void {
     const command = new ImportCertificateAuthorityCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -666,12 +736,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			         <p>You cannot use the ACM <b>ListCertificateAuthorities</b> action
    * 				to retrieve the ARNs of the certificates that you issue by using ACM Private CA.</p>
    * 		       </note>
-   * 		
-   * 	
+   *
+   *
    */
   public issueCertificate(
     args: IssueCertificateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<IssueCertificateCommandOutput>;
   public issueCertificate(
     args: IssueCertificateCommandInput,
@@ -684,16 +754,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public issueCertificate(
     args: IssueCertificateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IssueCertificateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: IssueCertificateCommandOutput) => void),
     cb?: (err: any, data?: IssueCertificateCommandOutput) => void
   ): Promise<IssueCertificateCommandOutput> | void {
     const command = new IssueCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -702,12 +774,12 @@ export class ACMPCA extends ACMPCAClient {
   /**
    *
    * 		       <p>Lists the private certificate authorities that you created by using the <a>CreateCertificateAuthority</a> action.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCertificateAuthoritiesCommandOutput>;
   public listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
@@ -720,16 +792,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCertificateAuthoritiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCertificateAuthoritiesCommandOutput) => void),
     cb?: (err: any, data?: ListCertificateAuthoritiesCommandOutput) => void
   ): Promise<ListCertificateAuthoritiesCommandOutput> | void {
     const command = new ListCertificateAuthoritiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -739,12 +813,12 @@ export class ACMPCA extends ACMPCAClient {
    *
    * 		       <p>Lists all the permissions, if any, that have been assigned by a private CA. Permissions can
    * 			be granted with the <a>CreatePermission</a> action and revoked with the <a>DeletePermission</a> action.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public listPermissions(
     args: ListPermissionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPermissionsCommandOutput>;
   public listPermissions(
     args: ListPermissionsCommandInput,
@@ -757,16 +831,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public listPermissions(
     args: ListPermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPermissionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPermissionsCommandOutput) => void),
     cb?: (err: any, data?: ListPermissionsCommandOutput) => void
   ): Promise<ListPermissionsCommandOutput> | void {
     const command = new ListPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -778,12 +854,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			can use to identify and organize your CAs. Each tag consists of a key and an optional
    * 			value. Call the <a>TagCertificateAuthority</a> action to add one or more tags
    * 			to your CA. Call the <a>UntagCertificateAuthority</a> action to remove tags. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsCommandOutput>;
   public listTags(
     args: ListTagsCommandInput,
@@ -796,16 +872,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -824,12 +902,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			must use the <a>ImportCertificateAuthorityCertificate</a> action to import a
    * 			certificate authority into the private CA before it can be activated. You cannot restore
    * 			a CA after the restoration period has ended.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RestoreCertificateAuthorityCommandOutput>;
   public restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
@@ -842,16 +920,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public restoreCertificateAuthority(
     args: RestoreCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RestoreCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: RestoreCertificateAuthorityCommandOutput) => void
   ): Promise<RestoreCertificateAuthorityCommandOutput> | void {
     const command = new RestoreCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -867,12 +947,12 @@ export class ACMPCA extends ACMPCAClient {
    * 		       <note>
    * 			         <p>You cannot revoke a root CA self-signed certificate.</p>
    * 		       </note>
-   * 		
-   * 	
+   *
+   *
    */
   public revokeCertificate(
     args: RevokeCertificateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RevokeCertificateCommandOutput>;
   public revokeCertificate(
     args: RevokeCertificateCommandInput,
@@ -885,16 +965,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public revokeCertificate(
     args: RevokeCertificateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeCertificateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RevokeCertificateCommandOutput) => void),
     cb?: (err: any, data?: RevokeCertificateCommandOutput) => void
   ): Promise<RevokeCertificateCommandOutput> | void {
     const command = new RevokeCertificateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -910,12 +992,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			private CAs if you want to filter for a common relationship among those CAs. To remove
    * 			one or more tags, use the <a>UntagCertificateAuthority</a> action. Call the
    * 				<a>ListTags</a> action to see what tags are associated with your CA. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagCertificateAuthorityCommandOutput>;
   public tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
@@ -928,16 +1010,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public tagCertificateAuthority(
     args: TagCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: TagCertificateAuthorityCommandOutput) => void
   ): Promise<TagCertificateAuthorityCommandOutput> | void {
     const command = new TagCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -950,12 +1034,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			removed regardless of value. If you specify a value, the tag is removed only if it is
    * 			associated with the specified value. To add tags to a private CA, use the <a>TagCertificateAuthority</a>. Call the <a>ListTags</a> action to
    * 			see what tags are associated with your CA. </p>
-   * 		
-   * 	
+   *
+   *
    */
   public untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagCertificateAuthorityCommandOutput>;
   public untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
@@ -968,16 +1052,18 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public untagCertificateAuthority(
     args: UntagCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: UntagCertificateAuthorityCommandOutput) => void
   ): Promise<UntagCertificateAuthorityCommandOutput> | void {
     const command = new UntagCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -989,12 +1075,12 @@ export class ACMPCA extends ACMPCAClient {
    * 			private CA must be in the <code>ACTIVE</code> or <code>DISABLED</code> state before you
    * 			can update it. You can disable a private CA that is in the <code>ACTIVE</code> state or
    * 			make a CA that is in the <code>DISABLED</code> state active again.</p>
-   * 		
-   * 	
+   *
+   *
    */
   public updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateCertificateAuthorityCommandOutput>;
   public updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
@@ -1007,19 +1093,20 @@ export class ACMPCA extends ACMPCAClient {
   ): void;
   public updateCertificateAuthority(
     args: UpdateCertificateAuthorityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCertificateAuthorityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCertificateAuthorityCommandOutput) => void),
     cb?: (err: any, data?: UpdateCertificateAuthorityCommandOutput) => void
   ): Promise<UpdateCertificateAuthorityCommandOutput> | void {
     const command = new UpdateCertificateAuthorityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

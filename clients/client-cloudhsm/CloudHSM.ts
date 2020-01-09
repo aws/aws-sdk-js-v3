@@ -2,102 +2,102 @@ import { CloudHSMClient } from "./CloudHSMClient";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
-  AddTagsToResourceCommandOutput,
+  AddTagsToResourceCommandOutput
 } from "./commands/AddTagsToResourceCommand";
 import {
   CreateHapgCommand,
   CreateHapgCommandInput,
-  CreateHapgCommandOutput,
+  CreateHapgCommandOutput
 } from "./commands/CreateHapgCommand";
 import {
   CreateHsmCommand,
   CreateHsmCommandInput,
-  CreateHsmCommandOutput,
+  CreateHsmCommandOutput
 } from "./commands/CreateHsmCommand";
 import {
   CreateLunaClientCommand,
   CreateLunaClientCommandInput,
-  CreateLunaClientCommandOutput,
+  CreateLunaClientCommandOutput
 } from "./commands/CreateLunaClientCommand";
 import {
   DeleteHapgCommand,
   DeleteHapgCommandInput,
-  DeleteHapgCommandOutput,
+  DeleteHapgCommandOutput
 } from "./commands/DeleteHapgCommand";
 import {
   DeleteHsmCommand,
   DeleteHsmCommandInput,
-  DeleteHsmCommandOutput,
+  DeleteHsmCommandOutput
 } from "./commands/DeleteHsmCommand";
 import {
   DeleteLunaClientCommand,
   DeleteLunaClientCommandInput,
-  DeleteLunaClientCommandOutput,
+  DeleteLunaClientCommandOutput
 } from "./commands/DeleteLunaClientCommand";
 import {
   DescribeHapgCommand,
   DescribeHapgCommandInput,
-  DescribeHapgCommandOutput,
+  DescribeHapgCommandOutput
 } from "./commands/DescribeHapgCommand";
 import {
   DescribeHsmCommand,
   DescribeHsmCommandInput,
-  DescribeHsmCommandOutput,
+  DescribeHsmCommandOutput
 } from "./commands/DescribeHsmCommand";
 import {
   DescribeLunaClientCommand,
   DescribeLunaClientCommandInput,
-  DescribeLunaClientCommandOutput,
+  DescribeLunaClientCommandOutput
 } from "./commands/DescribeLunaClientCommand";
 import {
   GetConfigCommand,
   GetConfigCommandInput,
-  GetConfigCommandOutput,
+  GetConfigCommandOutput
 } from "./commands/GetConfigCommand";
 import {
   ListAvailableZonesCommand,
   ListAvailableZonesCommandInput,
-  ListAvailableZonesCommandOutput,
+  ListAvailableZonesCommandOutput
 } from "./commands/ListAvailableZonesCommand";
 import {
   ListHapgsCommand,
   ListHapgsCommandInput,
-  ListHapgsCommandOutput,
+  ListHapgsCommandOutput
 } from "./commands/ListHapgsCommand";
 import {
   ListHsmsCommand,
   ListHsmsCommandInput,
-  ListHsmsCommandOutput,
+  ListHsmsCommandOutput
 } from "./commands/ListHsmsCommand";
 import {
   ListLunaClientsCommand,
   ListLunaClientsCommandInput,
-  ListLunaClientsCommandOutput,
+  ListLunaClientsCommandOutput
 } from "./commands/ListLunaClientsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ModifyHapgCommand,
   ModifyHapgCommandInput,
-  ModifyHapgCommandOutput,
+  ModifyHapgCommandOutput
 } from "./commands/ModifyHapgCommand";
 import {
   ModifyHsmCommand,
   ModifyHsmCommandInput,
-  ModifyHsmCommandOutput,
+  ModifyHsmCommandOutput
 } from "./commands/ModifyHsmCommand";
 import {
   ModifyLunaClientCommand,
   ModifyLunaClientCommandInput,
-  ModifyLunaClientCommandOutput,
+  ModifyLunaClientCommandOutput
 } from "./commands/ModifyLunaClientCommand";
 import {
   RemoveTagsFromResourceCommand,
   RemoveTagsFromResourceCommandInput,
-  RemoveTagsFromResourceCommandOutput,
+  RemoveTagsFromResourceCommandOutput
 } from "./commands/RemoveTagsFromResourceCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -136,7 +136,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsToResourceCommandOutput>;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -149,16 +149,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsToResourceCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToResourceCommandOutput) => void
   ): Promise<AddTagsToResourceCommandOutput> | void {
     const command = new AddTagsToResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -182,7 +184,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public createHapg(
     args: CreateHapgCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateHapgCommandOutput>;
   public createHapg(
     args: CreateHapgCommandInput,
@@ -195,16 +197,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createHapg(
     args: CreateHapgCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHapgCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateHapgCommandOutput) => void),
     cb?: (err: any, data?: CreateHapgCommandOutput) => void
   ): Promise<CreateHapgCommandOutput> | void {
     const command = new CreateHapgCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -236,7 +240,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public createHsm(
     args: CreateHsmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateHsmCommandOutput>;
   public createHsm(
     args: CreateHsmCommandInput,
@@ -249,16 +253,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createHsm(
     args: CreateHsmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHsmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateHsmCommandOutput) => void),
     cb?: (err: any, data?: CreateHsmCommandOutput) => void
   ): Promise<CreateHsmCommandOutput> | void {
     const command = new CreateHsmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -281,7 +287,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public createLunaClient(
     args: CreateLunaClientCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateLunaClientCommandOutput>;
   public createLunaClient(
     args: CreateLunaClientCommandInput,
@@ -294,16 +300,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public createLunaClient(
     args: CreateLunaClientCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLunaClientCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLunaClientCommandOutput) => void),
     cb?: (err: any, data?: CreateLunaClientCommandOutput) => void
   ): Promise<CreateLunaClientCommandOutput> | void {
     const command = new CreateLunaClientCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -326,7 +334,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public deleteHapg(
     args: DeleteHapgCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteHapgCommandOutput>;
   public deleteHapg(
     args: DeleteHapgCommandInput,
@@ -339,16 +347,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteHapg(
     args: DeleteHapgCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHapgCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteHapgCommandOutput) => void),
     cb?: (err: any, data?: DeleteHapgCommandOutput) => void
   ): Promise<DeleteHapgCommandOutput> | void {
     const command = new DeleteHapgCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -372,7 +382,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public deleteHsm(
     args: DeleteHsmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteHsmCommandOutput>;
   public deleteHsm(
     args: DeleteHsmCommandInput,
@@ -385,16 +395,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteHsm(
     args: DeleteHsmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteHsmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteHsmCommandOutput) => void),
     cb?: (err: any, data?: DeleteHsmCommandOutput) => void
   ): Promise<DeleteHsmCommandOutput> | void {
     const command = new DeleteHsmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -417,7 +429,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public deleteLunaClient(
     args: DeleteLunaClientCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteLunaClientCommandOutput>;
   public deleteLunaClient(
     args: DeleteLunaClientCommandInput,
@@ -430,16 +442,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public deleteLunaClient(
     args: DeleteLunaClientCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteLunaClientCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteLunaClientCommandOutput) => void),
     cb?: (err: any, data?: DeleteLunaClientCommandOutput) => void
   ): Promise<DeleteLunaClientCommandOutput> | void {
     const command = new DeleteLunaClientCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -462,7 +476,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public describeHapg(
     args: DescribeHapgCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHapgCommandOutput>;
   public describeHapg(
     args: DescribeHapgCommandInput,
@@ -475,16 +489,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public describeHapg(
     args: DescribeHapgCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHapgCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHapgCommandOutput) => void),
     cb?: (err: any, data?: DescribeHapgCommandOutput) => void
   ): Promise<DescribeHapgCommandOutput> | void {
     const command = new DescribeHapgCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -508,7 +524,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public describeHsm(
     args: DescribeHsmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHsmCommandOutput>;
   public describeHsm(
     args: DescribeHsmCommandInput,
@@ -521,16 +537,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public describeHsm(
     args: DescribeHsmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHsmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHsmCommandOutput) => void),
     cb?: (err: any, data?: DescribeHsmCommandOutput) => void
   ): Promise<DescribeHsmCommandOutput> | void {
     const command = new DescribeHsmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -553,7 +571,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public describeLunaClient(
     args: DescribeLunaClientCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeLunaClientCommandOutput>;
   public describeLunaClient(
     args: DescribeLunaClientCommandInput,
@@ -566,16 +584,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public describeLunaClient(
     args: DescribeLunaClientCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLunaClientCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeLunaClientCommandOutput) => void),
     cb?: (err: any, data?: DescribeLunaClientCommandOutput) => void
   ): Promise<DescribeLunaClientCommandOutput> | void {
     const command = new DescribeLunaClientCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -599,7 +619,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public getConfig(
     args: GetConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetConfigCommandOutput>;
   public getConfig(
     args: GetConfigCommandInput,
@@ -612,16 +632,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public getConfig(
     args: GetConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetConfigCommandOutput) => void),
     cb?: (err: any, data?: GetConfigCommandOutput) => void
   ): Promise<GetConfigCommandOutput> | void {
     const command = new GetConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -644,7 +666,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public listAvailableZones(
     args: ListAvailableZonesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAvailableZonesCommandOutput>;
   public listAvailableZones(
     args: ListAvailableZonesCommandInput,
@@ -657,16 +679,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listAvailableZones(
     args: ListAvailableZonesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAvailableZonesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAvailableZonesCommandOutput) => void),
     cb?: (err: any, data?: ListAvailableZonesCommandOutput) => void
   ): Promise<ListAvailableZonesCommandOutput> | void {
     const command = new ListAvailableZonesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -693,7 +717,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public listHapgs(
     args: ListHapgsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHapgsCommandOutput>;
   public listHapgs(
     args: ListHapgsCommandInput,
@@ -706,16 +730,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listHapgs(
     args: ListHapgsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHapgsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHapgsCommandOutput) => void),
     cb?: (err: any, data?: ListHapgsCommandOutput) => void
   ): Promise<ListHapgsCommandOutput> | void {
     const command = new ListHapgsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -743,7 +769,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public listHsms(
     args: ListHsmsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHsmsCommandOutput>;
   public listHsms(
     args: ListHsmsCommandInput,
@@ -756,16 +782,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listHsms(
     args: ListHsmsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHsmsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHsmsCommandOutput) => void),
     cb?: (err: any, data?: ListHsmsCommandOutput) => void
   ): Promise<ListHsmsCommandOutput> | void {
     const command = new ListHsmsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -792,7 +820,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public listLunaClients(
     args: ListLunaClientsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLunaClientsCommandOutput>;
   public listLunaClients(
     args: ListLunaClientsCommandInput,
@@ -805,16 +833,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listLunaClients(
     args: ListLunaClientsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLunaClientsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLunaClientsCommandOutput) => void),
     cb?: (err: any, data?: ListLunaClientsCommandOutput) => void
   ): Promise<ListLunaClientsCommandOutput> | void {
     const command = new ListLunaClientsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -837,7 +867,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -850,16 +880,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -882,7 +914,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public modifyHapg(
     args: ModifyHapgCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyHapgCommandOutput>;
   public modifyHapg(
     args: ModifyHapgCommandInput,
@@ -895,16 +927,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyHapg(
     args: ModifyHapgCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHapgCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyHapgCommandOutput) => void),
     cb?: (err: any, data?: ModifyHapgCommandOutput) => void
   ): Promise<ModifyHapgCommandOutput> | void {
     const command = new ModifyHapgCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -933,7 +967,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public modifyHsm(
     args: ModifyHsmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyHsmCommandOutput>;
   public modifyHsm(
     args: ModifyHsmCommandInput,
@@ -946,16 +980,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyHsm(
     args: ModifyHsmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyHsmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyHsmCommandOutput) => void),
     cb?: (err: any, data?: ModifyHsmCommandOutput) => void
   ): Promise<ModifyHsmCommandOutput> | void {
     const command = new ModifyHsmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -980,7 +1016,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public modifyLunaClient(
     args: ModifyLunaClientCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ModifyLunaClientCommandOutput>;
   public modifyLunaClient(
     args: ModifyLunaClientCommandInput,
@@ -993,16 +1029,18 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public modifyLunaClient(
     args: ModifyLunaClientCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyLunaClientCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyLunaClientCommandOutput) => void),
     cb?: (err: any, data?: ModifyLunaClientCommandOutput) => void
   ): Promise<ModifyLunaClientCommandOutput> | void {
     const command = new ModifyLunaClientCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1027,7 +1065,7 @@ export class CloudHSM extends CloudHSMClient {
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveTagsFromResourceCommandOutput>;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
@@ -1040,19 +1078,20 @@ export class CloudHSM extends CloudHSMClient {
   ): void;
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveTagsFromResourceCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromResourceCommandOutput) => void
   ): Promise<RemoveTagsFromResourceCommandOutput> | void {
     const command = new RemoveTagsFromResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

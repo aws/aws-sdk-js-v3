@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConfigServiceClient";
 import {
   DescribeConfigRuleEvaluationStatusRequest,
-  DescribeConfigRuleEvaluationStatusResponse,
+  DescribeConfigRuleEvaluationStatusResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
-  serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand,
+  serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeConfigRuleEvaluationStatusCommandInput = DescribeConfigRuleEvaluationStatusRequest;
 export type DescribeConfigRuleEvaluationStatusCommandOutput = DescribeConfigRuleEvaluationStatusResponse;
 
-export class DescribeConfigRuleEvaluationStatusCommand extends $Command<DescribeConfigRuleEvaluationStatusCommandInput, DescribeConfigRuleEvaluationStatusCommandOutput, ConfigServiceClientResolvedConfig> {
+export class DescribeConfigRuleEvaluationStatusCommand extends $Command<
+  DescribeConfigRuleEvaluationStatusCommandInput,
+  DescribeConfigRuleEvaluationStatusCommandOutput,
+  ConfigServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<Describe
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeConfigRuleEvaluationStatusCommandInput, DescribeConfigRuleEvaluationStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeConfigRuleEvaluationStatusCommandInput,
+    DescribeConfigRuleEvaluationStatusCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeConfigRuleEvaluationStatusCommand extends $Command<Describe
     input: DescribeConfigRuleEvaluationStatusCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(input, context);
+    return serializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(output, context);
+    return deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

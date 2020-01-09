@@ -1,20 +1,20 @@
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LexModelBuildingServiceClient";
 import {
   GetBuiltinIntentsRequest,
-  GetBuiltinIntentsResponse,
+  GetBuiltinIntentsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetBuiltinIntentsCommand,
-  serializeAws_restJson1_1GetBuiltinIntentsCommand,
+  serializeAws_restJson1_1GetBuiltinIntentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetBuiltinIntentsCommandInput = GetBuiltinIntentsRequest;
 export type GetBuiltinIntentsCommandOutput = GetBuiltinIntentsResponse;
 
-export class GetBuiltinIntentsCommand extends $Command<GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput, LexModelBuildingServiceClientResolvedConfig> {
+export class GetBuiltinIntentsCommand extends $Command<
+  GetBuiltinIntentsCommandInput,
+  GetBuiltinIntentsCommandOutput,
+  LexModelBuildingServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class GetBuiltinIntentsCommand extends $Command<GetBuiltinIntentsCommandI
     configuration: LexModelBuildingServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

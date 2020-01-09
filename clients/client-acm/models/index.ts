@@ -284,7 +284,9 @@ export interface CertificateOptions {
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    *
    */
-  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
+  CertificateTransparencyLoggingPreference?:
+    | CertificateTransparencyLoggingPreference
+    | string;
 }
 
 export namespace CertificateOptions {
@@ -300,7 +302,7 @@ export enum CertificateStatus {
   ISSUED = "ISSUED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
   REVOKED = "REVOKED",
-  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT",
+  VALIDATION_TIMED_OUT = "VALIDATION_TIMED_OUT"
 }
 
 /**
@@ -341,13 +343,13 @@ export namespace CertificateSummary {
 
 export enum CertificateTransparencyLoggingPreference {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 export enum CertificateType {
   AMAZON_ISSUED = "AMAZON_ISSUED",
   IMPORTED = "IMPORTED",
-  PRIVATE = "PRIVATE",
+  PRIVATE = "PRIVATE"
 }
 
 export interface DeleteCertificateRequest {
@@ -411,7 +413,7 @@ export namespace DescribeCertificateResponse {
 export enum DomainStatus {
   FAILED = "FAILED",
   PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -693,7 +695,7 @@ export enum ExtendedKeyUsageName {
   OCSP_SIGNING = "OCSP_SIGNING",
   TIME_STAMPING = "TIME_STAMPING",
   TLS_WEB_CLIENT_AUTHENTICATION = "TLS_WEB_CLIENT_AUTHENTICATION",
-  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION",
+  TLS_WEB_SERVER_AUTHENTICATION = "TLS_WEB_SERVER_AUTHENTICATION"
 }
 
 export enum FailureReason {
@@ -712,7 +714,7 @@ export enum FailureReason {
   PCA_LIMIT_EXCEEDED = "PCA_LIMIT_EXCEEDED",
   PCA_NAME_CONSTRAINTS_VALIDATION = "PCA_NAME_CONSTRAINTS_VALIDATION",
   PCA_REQUEST_FAILED = "PCA_REQUEST_FAILED",
-  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND",
+  PCA_RESOURCE_NOT_FOUND = "PCA_RESOURCE_NOT_FOUND"
 }
 
 /**
@@ -869,7 +871,9 @@ export namespace ImportCertificateResponse {
  *          <p>One or more of of request parameters specified is not valid.</p>
  *
  */
-export interface InvalidArgsException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArgsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArgsException";
   $fault: "client";
   message?: string;
@@ -886,7 +890,9 @@ export namespace InvalidArgsException {
  *          <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  */
-export interface InvalidArnException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArnException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -904,7 +910,9 @@ export namespace InvalidArnException {
  *       incorrect.</p>
  *
  */
-export interface InvalidDomainValidationOptionsException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDomainValidationOptionsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDomainValidationOptionsException";
   $fault: "client";
   message?: string;
@@ -921,7 +929,9 @@ export namespace InvalidDomainValidationOptionsException {
  *          <p>An input parameter was invalid.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -938,7 +948,9 @@ export namespace InvalidParameterException {
  *          <p>Processing has reached an invalid state.</p>
  *
  */
-export interface InvalidStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -956,7 +968,9 @@ export namespace InvalidStateException {
  *       cannot specify a tag value that begins with <code>aws:</code>.</p>
  *
  */
-export interface InvalidTagException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTagException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTagException";
   $fault: "client";
   message?: string;
@@ -974,7 +988,7 @@ export enum KeyAlgorithm {
   EC_secp521r1 = "EC_secp521r1",
   RSA_1024 = "RSA_1024",
   RSA_2048 = "RSA_2048",
-  RSA_4096 = "RSA_4096",
+  RSA_4096 = "RSA_4096"
 }
 
 /**
@@ -1010,7 +1024,7 @@ export enum KeyUsageName {
   ENCHIPER_ONLY = "ENCIPHER_ONLY",
   KEY_AGREEMENT = "KEY_AGREEMENT",
   KEY_ENCIPHERMENT = "KEY_ENCIPHERMENT",
-  NON_REPUDATION = "NON_REPUDIATION",
+  NON_REPUDATION = "NON_REPUDIATION"
 }
 
 /**
@@ -1018,7 +1032,9 @@ export enum KeyUsageName {
  *          <p>An ACM limit has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1135,7 +1151,7 @@ export namespace ListTagsForCertificateResponse {
 }
 
 export enum RecordType {
-  CNAME = "CNAME",
+  CNAME = "CNAME"
 }
 
 export interface RemoveTagsFromCertificateRequest {
@@ -1191,14 +1207,14 @@ export namespace RenewCertificateRequest {
 
 export enum RenewalEligibility {
   ELIGIBLE = "ELIGIBLE",
-  INELIGIBLE = "INELIGIBLE",
+  INELIGIBLE = "INELIGIBLE"
 }
 
 export enum RenewalStatus {
   FAILED = "FAILED",
   PENDING_AUTO_RENEWAL = "PENDING_AUTO_RENEWAL",
   PENDING_VALIDATION = "PENDING_VALIDATION",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -1390,7 +1406,9 @@ export namespace RequestCertificateResponse {
  *       issued.</p>
  *
  */
-export interface RequestInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface RequestInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RequestInProgressException";
   $fault: "client";
   message?: string;
@@ -1468,7 +1486,9 @@ export namespace ResendValidationEmailRequest {
  *       association and try again.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -1486,7 +1506,9 @@ export namespace ResourceInUseException {
  *       cannot be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -1545,7 +1567,7 @@ export enum RevocationReason {
   PRIVILEGE_WITHDRAWN = "PRIVILEGE_WITHDRAWN",
   REMOVE_FROM_CRL = "REMOVE_FROM_CRL",
   SUPERCEDED = "SUPERCEDED",
-  UNSPECIFIED = "UNSPECIFIED",
+  UNSPECIFIED = "UNSPECIFIED"
 }
 
 /**
@@ -1581,7 +1603,9 @@ export namespace Tag {
  *          <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
  *
  */
-export interface TagPolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface TagPolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TagPolicyException";
   $fault: "client";
   message?: string;
@@ -1598,7 +1622,9 @@ export namespace TagPolicyException {
  *          <p>The request contains too many tags. Try the request again with fewer tags.</p>
  *
  */
-export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -1642,5 +1668,5 @@ export namespace UpdateCertificateOptionsRequest {
 
 export enum ValidationMethod {
   DNS = "DNS",
-  EMAIL = "EMAIL",
+  EMAIL = "EMAIL"
 }

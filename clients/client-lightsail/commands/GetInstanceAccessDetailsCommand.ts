@@ -1,20 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
 import {
   GetInstanceAccessDetailsRequest,
-  GetInstanceAccessDetailsResult,
+  GetInstanceAccessDetailsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1GetInstanceAccessDetailsCommand,
-  serializeAws_json1_1GetInstanceAccessDetailsCommand,
+  serializeAws_json1_1GetInstanceAccessDetailsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetInstanceAccessDetailsCommandInput = GetInstanceAccessDetailsRequest;
 export type GetInstanceAccessDetailsCommandOutput = GetInstanceAccessDetailsResult;
 
-export class GetInstanceAccessDetailsCommand extends $Command<GetInstanceAccessDetailsCommandInput, GetInstanceAccessDetailsCommandOutput, LightsailClientResolvedConfig> {
+export class GetInstanceAccessDetailsCommand extends $Command<
+  GetInstanceAccessDetailsCommandInput,
+  GetInstanceAccessDetailsCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetInstanceAccessDetailsCommand extends $Command<GetInstanceAccessD
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetInstanceAccessDetailsCommandInput, GetInstanceAccessDetailsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetInstanceAccessDetailsCommandInput,
+    GetInstanceAccessDetailsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class GetInstanceAccessDetailsCommand extends $Command<GetInstanceAccessD
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetInstanceAccessDetailsCommandOutput> {
-    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(output, context);
+    return deserializeAws_json1_1GetInstanceAccessDetailsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

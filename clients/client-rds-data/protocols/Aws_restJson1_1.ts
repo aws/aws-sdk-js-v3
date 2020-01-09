@@ -1,26 +1,26 @@
 import {
   BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
+  BatchExecuteStatementCommandOutput
 } from "../commands/BatchExecuteStatementCommand";
 import {
   BeginTransactionCommandInput,
-  BeginTransactionCommandOutput,
+  BeginTransactionCommandOutput
 } from "../commands/BeginTransactionCommand";
 import {
   CommitTransactionCommandInput,
-  CommitTransactionCommandOutput,
+  CommitTransactionCommandOutput
 } from "../commands/CommitTransactionCommand";
 import {
   ExecuteSqlCommandInput,
-  ExecuteSqlCommandOutput,
+  ExecuteSqlCommandOutput
 } from "../commands/ExecuteSqlCommand";
 import {
   ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
+  ExecuteStatementCommandOutput
 } from "../commands/ExecuteStatementCommand";
 import {
   RollbackTransactionCommandInput,
-  RollbackTransactionCommandOutput,
+  RollbackTransactionCommandOutput
 } from "../commands/RollbackTransactionCommand";
 import {
   ArrayValue,
@@ -39,18 +39,18 @@ import {
   StructValue,
   UpdateResult,
   Value,
-  _Record,
+  _Record
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
@@ -58,30 +58,33 @@ export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/BatchExecute";
   let body: any = {};
   const bodyParams: any = {};
   if (input.database !== undefined) {
-    bodyParams['database'] = input.database;
+    bodyParams["database"] = input.database;
   }
   if (input.parameterSets !== undefined) {
-    bodyParams['parameterSets'] = serializeAws_restJson1_1SqlParameterSets(input.parameterSets, context);
+    bodyParams["parameterSets"] = serializeAws_restJson1_1SqlParameterSets(
+      input.parameterSets,
+      context
+    );
   }
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.schema !== undefined) {
-    bodyParams['schema'] = input.schema;
+    bodyParams["schema"] = input.schema;
   }
   if (input.secretArn !== undefined) {
-    bodyParams['secretArn'] = input.secretArn;
+    bodyParams["secretArn"] = input.secretArn;
   }
   if (input.sql !== undefined) {
-    bodyParams['sql'] = input.sql;
+    bodyParams["sql"] = input.sql;
   }
   if (input.transactionId !== undefined) {
-    bodyParams['transactionId'] = input.transactionId;
+    bodyParams["transactionId"] = input.transactionId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -90,7 +93,7 @@ export async function serializeAws_restJson1_1BatchExecuteStatementCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -99,21 +102,21 @@ export async function serializeAws_restJson1_1BeginTransactionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/BeginTransaction";
   let body: any = {};
   const bodyParams: any = {};
   if (input.database !== undefined) {
-    bodyParams['database'] = input.database;
+    bodyParams["database"] = input.database;
   }
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.schema !== undefined) {
-    bodyParams['schema'] = input.schema;
+    bodyParams["schema"] = input.schema;
   }
   if (input.secretArn !== undefined) {
-    bodyParams['secretArn'] = input.secretArn;
+    bodyParams["secretArn"] = input.secretArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -122,7 +125,7 @@ export async function serializeAws_restJson1_1BeginTransactionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -131,18 +134,18 @@ export async function serializeAws_restJson1_1CommitTransactionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CommitTransaction";
   let body: any = {};
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.secretArn !== undefined) {
-    bodyParams['secretArn'] = input.secretArn;
+    bodyParams["secretArn"] = input.secretArn;
   }
   if (input.transactionId !== undefined) {
-    bodyParams['transactionId'] = input.transactionId;
+    bodyParams["transactionId"] = input.transactionId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -151,7 +154,7 @@ export async function serializeAws_restJson1_1CommitTransactionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -160,24 +163,24 @@ export async function serializeAws_restJson1_1ExecuteSqlCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ExecuteSql";
   let body: any = {};
   const bodyParams: any = {};
   if (input.awsSecretStoreArn !== undefined) {
-    bodyParams['awsSecretStoreArn'] = input.awsSecretStoreArn;
+    bodyParams["awsSecretStoreArn"] = input.awsSecretStoreArn;
   }
   if (input.database !== undefined) {
-    bodyParams['database'] = input.database;
+    bodyParams["database"] = input.database;
   }
   if (input.dbClusterOrInstanceArn !== undefined) {
-    bodyParams['dbClusterOrInstanceArn'] = input.dbClusterOrInstanceArn;
+    bodyParams["dbClusterOrInstanceArn"] = input.dbClusterOrInstanceArn;
   }
   if (input.schema !== undefined) {
-    bodyParams['schema'] = input.schema;
+    bodyParams["schema"] = input.schema;
   }
   if (input.sqlStatements !== undefined) {
-    bodyParams['sqlStatements'] = input.sqlStatements;
+    bodyParams["sqlStatements"] = input.sqlStatements;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -186,7 +189,7 @@ export async function serializeAws_restJson1_1ExecuteSqlCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -195,36 +198,39 @@ export async function serializeAws_restJson1_1ExecuteStatementCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/Execute";
   let body: any = {};
   const bodyParams: any = {};
   if (input.continueAfterTimeout !== undefined) {
-    bodyParams['continueAfterTimeout'] = input.continueAfterTimeout;
+    bodyParams["continueAfterTimeout"] = input.continueAfterTimeout;
   }
   if (input.database !== undefined) {
-    bodyParams['database'] = input.database;
+    bodyParams["database"] = input.database;
   }
   if (input.includeResultMetadata !== undefined) {
-    bodyParams['includeResultMetadata'] = input.includeResultMetadata;
+    bodyParams["includeResultMetadata"] = input.includeResultMetadata;
   }
   if (input.parameters !== undefined) {
-    bodyParams['parameters'] = serializeAws_restJson1_1SqlParametersList(input.parameters, context);
+    bodyParams["parameters"] = serializeAws_restJson1_1SqlParametersList(
+      input.parameters,
+      context
+    );
   }
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.schema !== undefined) {
-    bodyParams['schema'] = input.schema;
+    bodyParams["schema"] = input.schema;
   }
   if (input.secretArn !== undefined) {
-    bodyParams['secretArn'] = input.secretArn;
+    bodyParams["secretArn"] = input.secretArn;
   }
   if (input.sql !== undefined) {
-    bodyParams['sql'] = input.sql;
+    bodyParams["sql"] = input.sql;
   }
   if (input.transactionId !== undefined) {
-    bodyParams['transactionId'] = input.transactionId;
+    bodyParams["transactionId"] = input.transactionId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -233,7 +239,7 @@ export async function serializeAws_restJson1_1ExecuteStatementCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -242,18 +248,18 @@ export async function serializeAws_restJson1_1RollbackTransactionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/RollbackTransaction";
   let body: any = {};
   const bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.secretArn !== undefined) {
-    bodyParams['secretArn'] = input.secretArn;
+    bodyParams["secretArn"] = input.secretArn;
   }
   if (input.transactionId !== undefined) {
-    bodyParams['transactionId'] = input.transactionId;
+    bodyParams["transactionId"] = input.transactionId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -262,7 +268,7 @@ export async function serializeAws_restJson1_1RollbackTransactionCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -271,60 +277,81 @@ export async function deserializeAws_restJson1_1BatchExecuteStatementCommand(
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1BatchExecuteStatementCommandError(output, context);
+    return deserializeAws_restJson1_1BatchExecuteStatementCommandError(
+      output,
+      context
+    );
   }
   const contents: BatchExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchExecuteStatementResponse",
-    updateResults: undefined,
+    updateResults: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.updateResults !== undefined) {
-    contents.updateResults = deserializeAws_restJson1_1UpdateResults(data.updateResults, context);
+    contents.updateResults = deserializeAws_restJson1_1UpdateResults(
+      data.updateResults,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1BatchExecuteStatementCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -335,12 +362,15 @@ export async function deserializeAws_restJson1_1BeginTransactionCommand(
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1BeginTransactionCommandError(output, context);
+    return deserializeAws_restJson1_1BeginTransactionCommandError(
+      output,
+      context
+    );
   }
   const contents: BeginTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BeginTransactionResponse",
-    transactionId: undefined,
+    transactionId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionId !== undefined) {
@@ -351,44 +381,59 @@ export async function deserializeAws_restJson1_1BeginTransactionCommand(
 
 async function deserializeAws_restJson1_1BeginTransactionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -399,12 +444,15 @@ export async function deserializeAws_restJson1_1CommitTransactionCommand(
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CommitTransactionCommandError(output, context);
+    return deserializeAws_restJson1_1CommitTransactionCommandError(
+      output,
+      context
+    );
   }
   const contents: CommitTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CommitTransactionResponse",
-    transactionStatus: undefined,
+    transactionStatus: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionStatus !== undefined) {
@@ -415,44 +463,59 @@ export async function deserializeAws_restJson1_1CommitTransactionCommand(
 
 async function deserializeAws_restJson1_1CommitTransactionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazon.rdsdataservice#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -468,51 +531,66 @@ export async function deserializeAws_restJson1_1ExecuteSqlCommand(
   const contents: ExecuteSqlCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ExecuteSqlResponse",
-    sqlStatementResults: undefined,
+    sqlStatementResults: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.sqlStatementResults !== undefined) {
-    contents.sqlStatementResults = deserializeAws_restJson1_1SqlStatementResults(data.sqlStatementResults, context);
+    contents.sqlStatementResults = deserializeAws_restJson1_1SqlStatementResults(
+      data.sqlStatementResults,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ExecuteSqlCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -523,7 +601,10 @@ export async function deserializeAws_restJson1_1ExecuteStatementCommand(
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ExecuteStatementCommandError(output, context);
+    return deserializeAws_restJson1_1ExecuteStatementCommandError(
+      output,
+      context
+    );
   }
   const contents: ExecuteStatementCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -531,64 +612,88 @@ export async function deserializeAws_restJson1_1ExecuteStatementCommand(
     columnMetadata: undefined,
     generatedFields: undefined,
     numberOfRecordsUpdated: undefined,
-    records: undefined,
+    records: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.columnMetadata !== undefined) {
-    contents.columnMetadata = deserializeAws_restJson1_1Metadata(data.columnMetadata, context);
+    contents.columnMetadata = deserializeAws_restJson1_1Metadata(
+      data.columnMetadata,
+      context
+    );
   }
   if (data.generatedFields !== undefined) {
-    contents.generatedFields = deserializeAws_restJson1_1FieldList(data.generatedFields, context);
+    contents.generatedFields = deserializeAws_restJson1_1FieldList(
+      data.generatedFields,
+      context
+    );
   }
   if (data.numberOfRecordsUpdated !== undefined) {
     contents.numberOfRecordsUpdated = data.numberOfRecordsUpdated;
   }
   if (data.records !== undefined) {
-    contents.records = deserializeAws_restJson1_1SqlRecords(data.records, context);
+    contents.records = deserializeAws_restJson1_1SqlRecords(
+      data.records,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ExecuteStatementCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StatementTimeoutException":
     case "com.amazon.rdsdataservice#StatementTimeoutException":
-      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1StatementTimeoutExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -599,12 +704,15 @@ export async function deserializeAws_restJson1_1RollbackTransactionCommand(
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RollbackTransactionCommandError(output, context);
+    return deserializeAws_restJson1_1RollbackTransactionCommandError(
+      output,
+      context
+    );
   }
   const contents: RollbackTransactionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RollbackTransactionResponse",
-    transactionStatus: undefined,
+    transactionStatus: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.transactionStatus !== undefined) {
@@ -615,44 +723,59 @@ export async function deserializeAws_restJson1_1RollbackTransactionCommand(
 
 async function deserializeAws_restJson1_1RollbackTransactionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazon.rdsdataservice#BadRequestException":
-      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazon.rdsdataservice#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazon.rdsdataservice#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazon.rdsdataservice#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableError":
     case "com.amazon.rdsdataservice#ServiceUnavailableError":
-      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.rdsdataservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -666,7 +789,7 @@ const deserializeAws_restJson1_1BadRequestExceptionResponse = async (
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -683,7 +806,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -699,7 +822,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
   const contents: InternalServerErrorException = {
     __type: "InternalServerErrorException",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return contents;
 };
@@ -712,7 +835,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -728,7 +851,7 @@ const deserializeAws_restJson1_1ServiceUnavailableErrorResponse = async (
   const contents: ServiceUnavailableError = {
     __type: "ServiceUnavailableError",
     $fault: "server",
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return contents;
 };
@@ -742,7 +865,7 @@ const deserializeAws_restJson1_1StatementTimeoutExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     dbConnectionId: undefined,
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.dbConnectionId !== undefined) {
@@ -761,7 +884,7 @@ const serializeAws_restJson1_1ArrayOfArray = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ArrayValue(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1ArrayValue = (
   input: ArrayValue,
@@ -769,31 +892,28 @@ const serializeAws_restJson1_1ArrayValue = (
 ): any => {
   return ArrayValue.visit(input, {
     arrayValues: value => serializeAws_restJson1_1ArrayOfArray(value, context),
-    booleanValues: value => serializeAws_restJson1_1BooleanArray(value, context),
+    booleanValues: value =>
+      serializeAws_restJson1_1BooleanArray(value, context),
     doubleValues: value => serializeAws_restJson1_1DoubleArray(value, context),
     longValues: value => serializeAws_restJson1_1LongArray(value, context),
     stringValues: value => serializeAws_restJson1_1StringArray(value, context),
     _: value => value
   });
-}
+};
 
 const serializeAws_restJson1_1BooleanArray = (
   input: Array<boolean>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1DoubleArray = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1Field = (
   input: Field,
@@ -809,16 +929,14 @@ const serializeAws_restJson1_1Field = (
     stringValue: value => value,
     _: value => value
   });
-}
+};
 
 const serializeAws_restJson1_1LongArray = (
   input: Array<number>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1SqlParameter = (
   input: SqlParameter,
@@ -826,13 +944,13 @@ const serializeAws_restJson1_1SqlParameter = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.value !== undefined) {
-    bodyParams['value'] = serializeAws_restJson1_1Field(input.value, context);
+    bodyParams["value"] = serializeAws_restJson1_1Field(input.value, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SqlParameterSets = (
   input: Array<Array<SqlParameter>>,
@@ -841,7 +959,7 @@ const serializeAws_restJson1_1SqlParameterSets = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1SqlParametersList(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1SqlParametersList = (
   input: Array<SqlParameter>,
@@ -850,16 +968,14 @@ const serializeAws_restJson1_1SqlParametersList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1SqlParameter(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1StringArray = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const deserializeAws_restJson1_1ArrayOfArray = (
   output: any,
@@ -868,7 +984,7 @@ const deserializeAws_restJson1_1ArrayOfArray = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ArrayValue(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ArrayValue = (
   output: any,
@@ -876,32 +992,47 @@ const deserializeAws_restJson1_1ArrayValue = (
 ): ArrayValue => {
   if (output.arrayValues !== undefined) {
     return {
-      arrayValues: deserializeAws_restJson1_1ArrayOfArray(output.arrayValues, context)
+      arrayValues: deserializeAws_restJson1_1ArrayOfArray(
+        output.arrayValues,
+        context
+      )
     };
   }
   if (output.booleanValues !== undefined) {
     return {
-      booleanValues: deserializeAws_restJson1_1BooleanArray(output.booleanValues, context)
+      booleanValues: deserializeAws_restJson1_1BooleanArray(
+        output.booleanValues,
+        context
+      )
     };
   }
   if (output.doubleValues !== undefined) {
     return {
-      doubleValues: deserializeAws_restJson1_1DoubleArray(output.doubleValues, context)
+      doubleValues: deserializeAws_restJson1_1DoubleArray(
+        output.doubleValues,
+        context
+      )
     };
   }
   if (output.longValues !== undefined) {
     return {
-      longValues: deserializeAws_restJson1_1LongArray(output.longValues, context)
+      longValues: deserializeAws_restJson1_1LongArray(
+        output.longValues,
+        context
+      )
     };
   }
   if (output.stringValues !== undefined) {
     return {
-      stringValues: deserializeAws_restJson1_1StringArray(output.stringValues, context)
+      stringValues: deserializeAws_restJson1_1StringArray(
+        output.stringValues,
+        context
+      )
     };
   }
   const key = Object.keys(output)[0];
   return { $unknown: [key, output[key]] };
-}
+};
 
 const deserializeAws_restJson1_1ArrayValueList = (
   output: any,
@@ -910,16 +1041,14 @@ const deserializeAws_restJson1_1ArrayValueList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Value(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1BooleanArray = (
   output: any,
   context: __SerdeContext
 ): Array<boolean> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1ColumnMetadata = (
   output: any,
@@ -940,7 +1069,7 @@ const deserializeAws_restJson1_1ColumnMetadata = (
     schemaName: undefined,
     tableName: undefined,
     type: undefined,
-    typeName: undefined,
+    typeName: undefined
   };
   if (output.arrayBaseColumnType !== undefined) {
     contents.arrayBaseColumnType = output.arrayBaseColumnType;
@@ -985,16 +1114,14 @@ const deserializeAws_restJson1_1ColumnMetadata = (
     contents.typeName = output.typeName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DoubleArray = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Field = (
   output: any,
@@ -1002,7 +1129,10 @@ const deserializeAws_restJson1_1Field = (
 ): Field => {
   if (output.arrayValue !== undefined) {
     return {
-      arrayValue: deserializeAws_restJson1_1ArrayValue(output.arrayValue, context)
+      arrayValue: deserializeAws_restJson1_1ArrayValue(
+        output.arrayValue,
+        context
+      )
     };
   }
   if (output.blobValue !== undefined) {
@@ -1037,7 +1167,7 @@ const deserializeAws_restJson1_1Field = (
   }
   const key = Object.keys(output)[0];
   return { $unknown: [key, output[key]] };
-}
+};
 
 const deserializeAws_restJson1_1FieldList = (
   output: any,
@@ -1046,16 +1176,14 @@ const deserializeAws_restJson1_1FieldList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Field(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1LongArray = (
   output: any,
   context: __SerdeContext
 ): Array<number> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Metadata = (
   output: any,
@@ -1064,7 +1192,7 @@ const deserializeAws_restJson1_1Metadata = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ColumnMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1_Record = (
   output: any,
@@ -1072,13 +1200,13 @@ const deserializeAws_restJson1_1_Record = (
 ): _Record => {
   let contents: any = {
     __type: "Record",
-    values: undefined,
+    values: undefined
   };
   if (output.values !== undefined) {
     contents.values = deserializeAws_restJson1_1Row(output.values, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Records = (
   output: any,
@@ -1087,7 +1215,7 @@ const deserializeAws_restJson1_1Records = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1_Record(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ResultFrame = (
   output: any,
@@ -1096,16 +1224,22 @@ const deserializeAws_restJson1_1ResultFrame = (
   let contents: any = {
     __type: "ResultFrame",
     records: undefined,
-    resultSetMetadata: undefined,
+    resultSetMetadata: undefined
   };
   if (output.records !== undefined) {
-    contents.records = deserializeAws_restJson1_1Records(output.records, context);
+    contents.records = deserializeAws_restJson1_1Records(
+      output.records,
+      context
+    );
   }
   if (output.resultSetMetadata !== undefined) {
-    contents.resultSetMetadata = deserializeAws_restJson1_1ResultSetMetadata(output.resultSetMetadata, context);
+    contents.resultSetMetadata = deserializeAws_restJson1_1ResultSetMetadata(
+      output.resultSetMetadata,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResultSetMetadata = (
   output: any,
@@ -1114,16 +1248,19 @@ const deserializeAws_restJson1_1ResultSetMetadata = (
   let contents: any = {
     __type: "ResultSetMetadata",
     columnCount: undefined,
-    columnMetadata: undefined,
+    columnMetadata: undefined
   };
   if (output.columnCount !== undefined) {
     contents.columnCount = output.columnCount;
   }
   if (output.columnMetadata !== undefined) {
-    contents.columnMetadata = deserializeAws_restJson1_1Metadata(output.columnMetadata, context);
+    contents.columnMetadata = deserializeAws_restJson1_1Metadata(
+      output.columnMetadata,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Row = (
   output: any,
@@ -1132,7 +1269,7 @@ const deserializeAws_restJson1_1Row = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Value(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SqlRecords = (
   output: any,
@@ -1141,7 +1278,7 @@ const deserializeAws_restJson1_1SqlRecords = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FieldList(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SqlStatementResult = (
   output: any,
@@ -1150,16 +1287,19 @@ const deserializeAws_restJson1_1SqlStatementResult = (
   let contents: any = {
     __type: "SqlStatementResult",
     numberOfRecordsUpdated: undefined,
-    resultFrame: undefined,
+    resultFrame: undefined
   };
   if (output.numberOfRecordsUpdated !== undefined) {
     contents.numberOfRecordsUpdated = output.numberOfRecordsUpdated;
   }
   if (output.resultFrame !== undefined) {
-    contents.resultFrame = deserializeAws_restJson1_1ResultFrame(output.resultFrame, context);
+    contents.resultFrame = deserializeAws_restJson1_1ResultFrame(
+      output.resultFrame,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SqlStatementResults = (
   output: any,
@@ -1168,16 +1308,14 @@ const deserializeAws_restJson1_1SqlStatementResults = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SqlStatementResult(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1StringArray = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1StructValue = (
   output: any,
@@ -1185,13 +1323,16 @@ const deserializeAws_restJson1_1StructValue = (
 ): StructValue => {
   let contents: any = {
     __type: "StructValue",
-    attributes: undefined,
+    attributes: undefined
   };
   if (output.attributes !== undefined) {
-    contents.attributes = deserializeAws_restJson1_1ArrayValueList(output.attributes, context);
+    contents.attributes = deserializeAws_restJson1_1ArrayValueList(
+      output.attributes,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UpdateResult = (
   output: any,
@@ -1199,13 +1340,16 @@ const deserializeAws_restJson1_1UpdateResult = (
 ): UpdateResult => {
   let contents: any = {
     __type: "UpdateResult",
-    generatedFields: undefined,
+    generatedFields: undefined
   };
   if (output.generatedFields !== undefined) {
-    contents.generatedFields = deserializeAws_restJson1_1FieldList(output.generatedFields, context);
+    contents.generatedFields = deserializeAws_restJson1_1FieldList(
+      output.generatedFields,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UpdateResults = (
   output: any,
@@ -1214,7 +1358,7 @@ const deserializeAws_restJson1_1UpdateResults = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UpdateResult(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Value = (
   output: any,
@@ -1222,7 +1366,10 @@ const deserializeAws_restJson1_1Value = (
 ): Value => {
   if (output.arrayValues !== undefined) {
     return {
-      arrayValues: deserializeAws_restJson1_1ArrayValueList(output.arrayValues, context)
+      arrayValues: deserializeAws_restJson1_1ArrayValueList(
+        output.arrayValues,
+        context
+      )
     };
   }
   if (output.bigIntValue !== undefined) {
@@ -1267,12 +1414,15 @@ const deserializeAws_restJson1_1Value = (
   }
   if (output.structValue !== undefined) {
     return {
-      structValue: deserializeAws_restJson1_1StructValue(output.structValue, context)
+      structValue: deserializeAws_restJson1_1StructValue(
+        output.structValue,
+        context
+      )
     };
   }
   const key = Object.keys(output)[0];
   return { $unknown: [key, output[key]] };
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

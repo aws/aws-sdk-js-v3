@@ -1,20 +1,20 @@
 import {
   GuardDutyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GuardDutyClient";
 import {
   UpdateFindingsFeedbackRequest,
-  UpdateFindingsFeedbackResponse,
+  UpdateFindingsFeedbackResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateFindingsFeedbackCommand,
-  serializeAws_restJson1_1UpdateFindingsFeedbackCommand,
+  serializeAws_restJson1_1UpdateFindingsFeedbackCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateFindingsFeedbackCommandInput = UpdateFindingsFeedbackRequest;
 export type UpdateFindingsFeedbackCommandOutput = UpdateFindingsFeedbackResponse;
 
-export class UpdateFindingsFeedbackCommand extends $Command<UpdateFindingsFeedbackCommandInput, UpdateFindingsFeedbackCommandOutput, GuardDutyClientResolvedConfig> {
+export class UpdateFindingsFeedbackCommand extends $Command<
+  UpdateFindingsFeedbackCommandInput,
+  UpdateFindingsFeedbackCommandOutput,
+  GuardDutyClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateFindingsFeedbackCommand extends $Command<UpdateFindingsFeedba
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateFindingsFeedbackCommandInput, UpdateFindingsFeedbackCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateFindingsFeedbackCommandInput,
+    UpdateFindingsFeedbackCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateFindingsFeedbackCommand extends $Command<UpdateFindingsFeedba
     input: UpdateFindingsFeedbackCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateFindingsFeedbackCommand(input, context);
+    return serializeAws_restJson1_1UpdateFindingsFeedbackCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateFindingsFeedbackCommandOutput> {
-    return deserializeAws_restJson1_1UpdateFindingsFeedbackCommand(output, context);
+    return deserializeAws_restJson1_1UpdateFindingsFeedbackCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

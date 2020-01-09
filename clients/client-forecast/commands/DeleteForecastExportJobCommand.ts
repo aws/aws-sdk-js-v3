@@ -1,17 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  forecastClientResolvedConfig,
+  forecastClientResolvedConfig
 } from "../forecastClient";
 import { DeleteForecastExportJobRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteForecastExportJobCommand,
-  serializeAws_json1_1DeleteForecastExportJobCommand,
+  serializeAws_json1_1DeleteForecastExportJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteForecastExportJobCommandInput = DeleteForecastExportJobRequest;
-export type DeleteForecastExportJobCommandOutput = __MetadataBearer
+export type DeleteForecastExportJobCommandOutput = __MetadataBearer;
 
-export class DeleteForecastExportJobCommand extends $Command<DeleteForecastExportJobCommandInput, DeleteForecastExportJobCommandOutput, forecastClientResolvedConfig> {
+export class DeleteForecastExportJobCommand extends $Command<
+  DeleteForecastExportJobCommandInput,
+  DeleteForecastExportJobCommandOutput,
+  forecastClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteForecastExportJobCommand extends $Command<DeleteForecastExpor
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteForecastExportJobCommandInput, DeleteForecastExportJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteForecastExportJobCommandInput,
+    DeleteForecastExportJobCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class DeleteForecastExportJobCommand extends $Command<DeleteForecastExpor
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteForecastExportJobCommandOutput> {
-    return deserializeAws_json1_1DeleteForecastExportJobCommand(output, context);
+    return deserializeAws_json1_1DeleteForecastExportJobCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

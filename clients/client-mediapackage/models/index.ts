@@ -4,14 +4,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum AdMarkers {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
-  SCTE35_ENHANCED = "SCTE35_ENHANCED",
+  SCTE35_ENHANCED = "SCTE35_ENHANCED"
 }
 
 export enum AdsOnDeliveryRestrictions {
   BOTH = "BOTH",
   NONE = "NONE",
   RESTRICTED = "RESTRICTED",
-  UNRESTRICTED = "UNRESTRICTED",
+  UNRESTRICTED = "UNRESTRICTED"
 }
 
 /**
@@ -904,13 +904,15 @@ export namespace DescribeOriginEndpointResponse {
 
 export enum EncryptionMethod {
   AES_128 = "AES_128",
-  SAMPLE_AES = "SAMPLE_AES",
+  SAMPLE_AES = "SAMPLE_AES"
 }
 
 /**
  * The client is not authorized to access the requested resource.
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   Message?: string;
@@ -1337,7 +1339,9 @@ export namespace IngestEndpoint {
 /**
  * An unexpected error occurred.
  */
-export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   Message?: string;
@@ -1502,7 +1506,7 @@ export namespace ListTagsForResourceResponse {
 
 export enum ManifestLayout {
   COMPACT = "COMPACT",
-  FULL = "FULL",
+  FULL = "FULL"
 }
 
 /**
@@ -1557,7 +1561,9 @@ export namespace MssPackage {
 /**
  * The requested resource does not exist.
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -1665,18 +1671,18 @@ export namespace OriginEndpoint {
 
 export enum Origination {
   ALLOW = "ALLOW",
-  DENY = "DENY",
+  DENY = "DENY"
 }
 
 export enum PlaylistType {
   EVENT = "EVENT",
   NONE = "NONE",
-  VOD = "VOD",
+  VOD = "VOD"
 }
 
 export enum Profile {
   HBBTV_1_5 = "HBBTV_1_5",
-  NONE = "NONE",
+  NONE = "NONE"
 }
 
 export interface RotateChannelCredentialsRequest {
@@ -1746,7 +1752,8 @@ export namespace RotateIngestEndpointCredentialsRequest {
   }
 }
 
-export interface RotateIngestEndpointCredentialsResponse extends $MetadataBearer {
+export interface RotateIngestEndpointCredentialsResponse
+  extends $MetadataBearer {
   __type?: "RotateIngestEndpointCredentialsResponse";
   /**
    * The Amazon Resource Name (ARN) assigned to the Channel.
@@ -1814,13 +1821,15 @@ export namespace S3Destination {
 export enum SegmentTemplateFormat {
   NUMBER_WITH_DURATION = "NUMBER_WITH_DURATION",
   NUMBER_WITH_TIMELINE = "NUMBER_WITH_TIMELINE",
-  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE",
+  TIME_WITH_TIMELINE = "TIME_WITH_TIMELINE"
 }
 
 /**
  * An unexpected error occurred.
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1877,13 +1886,13 @@ export namespace SpekeKeyProvider {
 export enum Status {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 export enum StreamOrder {
   ORIGINAL = "ORIGINAL",
   VIDEO_BITRATE_ASCENDING = "VIDEO_BITRATE_ASCENDING",
-  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING",
+  VIDEO_BITRATE_DESCENDING = "VIDEO_BITRATE_DESCENDING"
 }
 
 /**
@@ -1928,7 +1937,9 @@ export namespace TagResourceRequest {
 /**
  * The client has exceeded their resource or throttling limits.
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1943,7 +1954,9 @@ export namespace TooManyRequestsException {
 /**
  * The parameters sent in the request are not valid.
  */
-export interface UnprocessableEntityException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnprocessableEntityException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnprocessableEntityException";
   $fault: "client";
   Message?: string;
@@ -2199,9 +2212,9 @@ export enum __AdTriggersElement {
   PROVIDER_ADVERTISEMENT = "PROVIDER_ADVERTISEMENT",
   PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY = "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY",
   PROVIDER_PLACEMENT_OPPORTUNITY = "PROVIDER_PLACEMENT_OPPORTUNITY",
-  SPLICE_INSERT = "SPLICE_INSERT",
+  SPLICE_INSERT = "SPLICE_INSERT"
 }
 
 export enum __PeriodTriggersElement {
-  ADS = "ADS",
+  ADS = "ADS"
 }

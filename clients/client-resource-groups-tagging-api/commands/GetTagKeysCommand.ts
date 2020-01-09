@@ -1,20 +1,17 @@
 import {
   ResourceGroupsTaggingAPIClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ResourceGroupsTaggingAPIClient";
-import {
-  GetTagKeysInput,
-  GetTagKeysOutput,
-} from "../models/index";
+import { GetTagKeysInput, GetTagKeysOutput } from "../models/index";
 import {
   deserializeAws_json1_1GetTagKeysCommand,
-  serializeAws_json1_1GetTagKeysCommand,
+  serializeAws_json1_1GetTagKeysCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetTagKeysCommandInput = GetTagKeysInput;
 export type GetTagKeysCommandOutput = GetTagKeysOutput;
 
-export class GetTagKeysCommand extends $Command<GetTagKeysCommandInput, GetTagKeysCommandOutput, ResourceGroupsTaggingAPIClientResolvedConfig> {
+export class GetTagKeysCommand extends $Command<
+  GetTagKeysCommandInput,
+  GetTagKeysCommandOutput,
+  ResourceGroupsTaggingAPIClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetTagKeysCommand extends $Command<GetTagKeysCommandInput, GetTagKe
     configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetTagKeysCommandInput, GetTagKeysCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

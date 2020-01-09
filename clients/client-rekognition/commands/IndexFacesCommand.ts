@@ -1,20 +1,17 @@
 import {
   RekognitionClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RekognitionClient";
-import {
-  IndexFacesRequest,
-  IndexFacesResponse,
-} from "../models/index";
+import { IndexFacesRequest, IndexFacesResponse } from "../models/index";
 import {
   deserializeAws_json1_1IndexFacesCommand,
-  serializeAws_json1_1IndexFacesCommand,
+  serializeAws_json1_1IndexFacesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type IndexFacesCommandInput = IndexFacesRequest;
 export type IndexFacesCommandOutput = IndexFacesResponse;
 
-export class IndexFacesCommand extends $Command<IndexFacesCommandInput, IndexFacesCommandOutput, RekognitionClientResolvedConfig> {
+export class IndexFacesCommand extends $Command<
+  IndexFacesCommandInput,
+  IndexFacesCommandOutput,
+  RekognitionClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class IndexFacesCommand extends $Command<IndexFacesCommandInput, IndexFac
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<IndexFacesCommandInput, IndexFacesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

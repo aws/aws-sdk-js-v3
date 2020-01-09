@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
 import {
   DeleteVpcPeeringAuthorizationInput,
-  DeleteVpcPeeringAuthorizationOutput,
+  DeleteVpcPeeringAuthorizationOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
-  serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand,
+  serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteVpcPeeringAuthorizationCommandInput = DeleteVpcPeeringAuthorizationInput;
 export type DeleteVpcPeeringAuthorizationCommandOutput = DeleteVpcPeeringAuthorizationOutput;
 
-export class DeleteVpcPeeringAuthorizationCommand extends $Command<DeleteVpcPeeringAuthorizationCommandInput, DeleteVpcPeeringAuthorizationCommandOutput, GameLiftClientResolvedConfig> {
+export class DeleteVpcPeeringAuthorizationCommand extends $Command<
+  DeleteVpcPeeringAuthorizationCommandInput,
+  DeleteVpcPeeringAuthorizationCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<DeleteVpcPeer
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteVpcPeeringAuthorizationCommandInput, DeleteVpcPeeringAuthorizationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteVpcPeeringAuthorizationCommandInput,
+    DeleteVpcPeeringAuthorizationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DeleteVpcPeeringAuthorizationCommand extends $Command<DeleteVpcPeer
     input: DeleteVpcPeeringAuthorizationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(input, context);
+    return serializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteVpcPeeringAuthorizationCommandOutput> {
-    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(output, context);
+    return deserializeAws_json1_1DeleteVpcPeeringAuthorizationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

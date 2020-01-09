@@ -1,20 +1,20 @@
 import {
   DynamoDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DynamoDBClient";
 import {
   DescribeContributorInsightsInput,
-  DescribeContributorInsightsOutput,
+  DescribeContributorInsightsOutput
 } from "../models/index";
 import {
   deserializeAws_json1_0DescribeContributorInsightsCommand,
-  serializeAws_json1_0DescribeContributorInsightsCommand,
+  serializeAws_json1_0DescribeContributorInsightsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeContributorInsightsCommandInput = DescribeContributorInsightsInput;
 export type DescribeContributorInsightsCommandOutput = DescribeContributorInsightsOutput;
 
-export class DescribeContributorInsightsCommand extends $Command<DescribeContributorInsightsCommandInput, DescribeContributorInsightsCommandOutput, DynamoDBClientResolvedConfig> {
+export class DescribeContributorInsightsCommand extends $Command<
+  DescribeContributorInsightsCommandInput,
+  DescribeContributorInsightsCommandOutput,
+  DynamoDBClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeContributorInsightsCommand extends $Command<DescribeContrib
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeContributorInsightsCommandInput, DescribeContributorInsightsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeContributorInsightsCommandInput,
+    DescribeContributorInsightsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeContributorInsightsCommand extends $Command<DescribeContrib
     input: DescribeContributorInsightsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeContributorInsightsCommand(input, context);
+    return serializeAws_json1_0DescribeContributorInsightsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeContributorInsightsCommandOutput> {
-    return deserializeAws_json1_0DescribeContributorInsightsCommand(output, context);
+    return deserializeAws_json1_0DescribeContributorInsightsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

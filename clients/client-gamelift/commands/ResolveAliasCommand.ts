@@ -1,20 +1,17 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  ResolveAliasInput,
-  ResolveAliasOutput,
-} from "../models/index";
+import { ResolveAliasInput, ResolveAliasOutput } from "../models/index";
 import {
   deserializeAws_json1_1ResolveAliasCommand,
-  serializeAws_json1_1ResolveAliasCommand,
+  serializeAws_json1_1ResolveAliasCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ResolveAliasCommandInput = ResolveAliasInput;
 export type ResolveAliasCommandOutput = ResolveAliasOutput;
 
-export class ResolveAliasCommand extends $Command<ResolveAliasCommandInput, ResolveAliasCommandOutput, GameLiftClientResolvedConfig> {
+export class ResolveAliasCommand extends $Command<
+  ResolveAliasCommandInput,
+  ResolveAliasCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ResolveAliasCommand extends $Command<ResolveAliasCommandInput, Reso
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ResolveAliasCommandInput, ResolveAliasCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

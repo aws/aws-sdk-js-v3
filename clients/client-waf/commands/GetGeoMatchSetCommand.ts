@@ -1,20 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFClientResolvedConfig,
+  WAFClientResolvedConfig
 } from "../WAFClient";
-import {
-  GetGeoMatchSetRequest,
-  GetGeoMatchSetResponse,
-} from "../models/index";
+import { GetGeoMatchSetRequest, GetGeoMatchSetResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetGeoMatchSetCommand,
-  serializeAws_json1_1GetGeoMatchSetCommand,
+  serializeAws_json1_1GetGeoMatchSetCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetGeoMatchSetCommandInput = GetGeoMatchSetRequest;
 export type GetGeoMatchSetCommandOutput = GetGeoMatchSetResponse;
 
-export class GetGeoMatchSetCommand extends $Command<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput, WAFClientResolvedConfig> {
+export class GetGeoMatchSetCommand extends $Command<
+  GetGeoMatchSetCommandInput,
+  GetGeoMatchSetCommandOutput,
+  WAFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetGeoMatchSetCommand extends $Command<GetGeoMatchSetCommandInput, 
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetGeoMatchSetCommandInput, GetGeoMatchSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

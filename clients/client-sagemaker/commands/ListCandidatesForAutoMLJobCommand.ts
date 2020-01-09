@@ -1,20 +1,20 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerClient";
 import {
   ListCandidatesForAutoMLJobRequest,
-  ListCandidatesForAutoMLJobResponse,
+  ListCandidatesForAutoMLJobResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListCandidatesForAutoMLJobCommand,
-  serializeAws_json1_1ListCandidatesForAutoMLJobCommand,
+  serializeAws_json1_1ListCandidatesForAutoMLJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListCandidatesForAutoMLJobCommandInput = ListCandidatesForAutoMLJobRequest;
 export type ListCandidatesForAutoMLJobCommandOutput = ListCandidatesForAutoMLJobResponse;
 
-export class ListCandidatesForAutoMLJobCommand extends $Command<ListCandidatesForAutoMLJobCommandInput, ListCandidatesForAutoMLJobCommandOutput, SageMakerClientResolvedConfig> {
+export class ListCandidatesForAutoMLJobCommand extends $Command<
+  ListCandidatesForAutoMLJobCommandInput,
+  ListCandidatesForAutoMLJobCommandOutput,
+  SageMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<ListCandidatesFo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListCandidatesForAutoMLJobCommandInput, ListCandidatesForAutoMLJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListCandidatesForAutoMLJobCommandInput,
+    ListCandidatesForAutoMLJobCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListCandidatesForAutoMLJobCommand extends $Command<ListCandidatesFo
     input: ListCandidatesForAutoMLJobCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(input, context);
+    return serializeAws_json1_1ListCandidatesForAutoMLJobCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListCandidatesForAutoMLJobCommandOutput> {
-    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(output, context);
+    return deserializeAws_json1_1ListCandidatesForAutoMLJobCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

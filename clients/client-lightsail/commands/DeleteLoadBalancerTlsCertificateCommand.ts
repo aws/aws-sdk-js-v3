@@ -1,20 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
 import {
   DeleteLoadBalancerTlsCertificateRequest,
-  DeleteLoadBalancerTlsCertificateResult,
+  DeleteLoadBalancerTlsCertificateResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
-  serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand,
+  serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteLoadBalancerTlsCertificateCommandInput = DeleteLoadBalancerTlsCertificateRequest;
 export type DeleteLoadBalancerTlsCertificateCommandOutput = DeleteLoadBalancerTlsCertificateResult;
 
-export class DeleteLoadBalancerTlsCertificateCommand extends $Command<DeleteLoadBalancerTlsCertificateCommandInput, DeleteLoadBalancerTlsCertificateCommandOutput, LightsailClientResolvedConfig> {
+export class DeleteLoadBalancerTlsCertificateCommand extends $Command<
+  DeleteLoadBalancerTlsCertificateCommandInput,
+  DeleteLoadBalancerTlsCertificateCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<DeleteLoad
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteLoadBalancerTlsCertificateCommandInput, DeleteLoadBalancerTlsCertificateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteLoadBalancerTlsCertificateCommandInput,
+    DeleteLoadBalancerTlsCertificateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DeleteLoadBalancerTlsCertificateCommand extends $Command<DeleteLoad
     input: DeleteLoadBalancerTlsCertificateCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(input, context);
+    return serializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> {
-    return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(output, context);
+    return deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

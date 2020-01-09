@@ -2,7 +2,7 @@ import * as _smithy from "@aws-sdk/smithy-client";
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum Channel {
-  VOICE = "VOICE",
+  VOICE = "VOICE"
 }
 
 export enum ContactFlowType {
@@ -14,7 +14,7 @@ export enum ContactFlowType {
   CUSTOMER_QUEUE = "CUSTOMER_QUEUE",
   CUSTOMER_WHISPER = "CUSTOMER_WHISPER",
   OUTBOUND_WHISPER = "OUTBOUND_WHISPER",
-  QUEUE_TRANSFER = "QUEUE_TRANSFER",
+  QUEUE_TRANSFER = "QUEUE_TRANSFER"
 }
 
 export enum PhoneNumberCountryCode {
@@ -254,26 +254,26 @@ export enum PhoneNumberCountryCode {
   YT = "YT",
   ZA = "ZA",
   ZM = "ZM",
-  ZW = "ZW",
+  ZW = "ZW"
 }
 
 export enum PhoneNumberType {
   DID = "DID",
-  TOLL_FREE = "TOLL_FREE",
+  TOLL_FREE = "TOLL_FREE"
 }
 
 export enum PhoneType {
   DESK_PHONE = "DESK_PHONE",
-  SOFT_PHONE = "SOFT_PHONE",
+  SOFT_PHONE = "SOFT_PHONE"
 }
 
 export enum QueueType {
   AGENT = "AGENT",
-  STANDARD = "STANDARD",
+  STANDARD = "STANDARD"
 }
 
 export enum Comparison {
-  LT = "LT",
+  LT = "LT"
 }
 
 /**
@@ -342,7 +342,7 @@ export enum CurrentMetricName {
   AGENTS_STAFFED = "AGENTS_STAFFED",
   CONTACTS_IN_QUEUE = "CONTACTS_IN_QUEUE",
   CONTACTS_SCHEDULED = "CONTACTS_SCHEDULED",
-  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE",
+  OLDEST_CONTACT_AGE = "OLDEST_CONTACT_AGE"
 }
 
 /**
@@ -431,7 +431,7 @@ export namespace Filters {
 
 export enum Grouping {
   CHANNEL = "CHANNEL",
-  QUEUE = "QUEUE",
+  QUEUE = "QUEUE"
 }
 
 /**
@@ -529,7 +529,7 @@ export enum HistoricalMetricName {
   OCCUPANCY = "OCCUPANCY",
   QUEUED_TIME = "QUEUED_TIME",
   QUEUE_ANSWER_TIME = "QUEUE_ANSWER_TIME",
-  SERVICE_LEVEL = "SERVICE_LEVEL",
+  SERVICE_LEVEL = "SERVICE_LEVEL"
 }
 
 /**
@@ -591,7 +591,7 @@ export namespace QueueReference {
 export enum Statistic {
   AVG = "AVG",
   MAX = "MAX",
-  SUM = "SUM",
+  SUM = "SUM"
 }
 
 /**
@@ -625,7 +625,7 @@ export namespace Threshold {
 export enum Unit {
   COUNT = "COUNT",
   PERCENT = "PERCENT",
-  SECONDS = "SECONDS",
+  SECONDS = "SECONDS"
 }
 
 /**
@@ -675,7 +675,9 @@ export namespace ContactFlowSummary {
  *          <p>The contact with the specified ID is not active or does not exist.</p>
  *
  */
-export interface ContactNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ContactNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ContactNotFoundException";
   $fault: "client";
   /**
@@ -917,7 +919,8 @@ export namespace DescribeUserHierarchyStructureRequest {
   }
 }
 
-export interface DescribeUserHierarchyStructureResponse extends $MetadataBearer {
+export interface DescribeUserHierarchyStructureResponse
+  extends $MetadataBearer {
   __type?: "DescribeUserHierarchyStructureResponse";
   /**
    *
@@ -977,7 +980,9 @@ export namespace DescribeUserResponse {
  *          <p>Outbound calls to the destination number are not allowed.</p>
  *
  */
-export interface DestinationNotAllowedException extends _smithy.SmithyException, $MetadataBearer {
+export interface DestinationNotAllowedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DestinationNotAllowedException";
   $fault: "client";
   /**
@@ -999,7 +1004,9 @@ export namespace DestinationNotAllowedException {
  *          <p>A resource with the specified name already exists.</p>
  *
  */
-export interface DuplicateResourceException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateResourceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateResourceException";
   $fault: "client";
   Message?: string;
@@ -1711,7 +1718,9 @@ export namespace HoursOfOperationSummary {
  *          <p>Request processing failed due to an error or failure with the service.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   /**
@@ -1733,7 +1742,9 @@ export namespace InternalServiceException {
  *          <p>One or more of the specified parameters are not valid.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1755,7 +1766,9 @@ export namespace InvalidParameterException {
  *          <p>The request is not valid.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1777,7 +1790,9 @@ export namespace InvalidRequestException {
  *          <p>The allowed limit for the resource has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -2259,7 +2274,9 @@ export namespace ListUsersResponse {
  *          <p>The contact is not permitted.</p>
  *
  */
-export interface OutboundContactNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OutboundContactNotPermittedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OutboundContactNotPermittedException";
   $fault: "client";
   /**
@@ -2372,7 +2389,9 @@ export namespace QueueSummary {
  *          <p>The specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2579,7 +2598,9 @@ export namespace StopContactResponse {
  *          <p>The throttling limit has been exceeded.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -2902,7 +2923,9 @@ export namespace UserIdentityInfo {
  *          <p>No user with the specified credentials was found in the Amazon Connect instance.</p>
  *
  */
-export interface UserNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface UserNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UserNotFoundException";
   $fault: "client";
   Message?: string;

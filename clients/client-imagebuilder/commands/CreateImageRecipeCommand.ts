@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  imagebuilderClientResolvedConfig,
+  imagebuilderClientResolvedConfig
 } from "../imagebuilderClient";
 import {
   CreateImageRecipeRequest,
-  CreateImageRecipeResponse,
+  CreateImageRecipeResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateImageRecipeCommand,
-  serializeAws_restJson1_1CreateImageRecipeCommand,
+  serializeAws_restJson1_1CreateImageRecipeCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateImageRecipeCommandInput = CreateImageRecipeRequest;
 export type CreateImageRecipeCommandOutput = CreateImageRecipeResponse;
 
-export class CreateImageRecipeCommand extends $Command<CreateImageRecipeCommandInput, CreateImageRecipeCommandOutput, imagebuilderClientResolvedConfig> {
+export class CreateImageRecipeCommand extends $Command<
+  CreateImageRecipeCommandInput,
+  CreateImageRecipeCommandOutput,
+  imagebuilderClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class CreateImageRecipeCommand extends $Command<CreateImageRecipeCommandI
     configuration: imagebuilderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateImageRecipeCommandInput, CreateImageRecipeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

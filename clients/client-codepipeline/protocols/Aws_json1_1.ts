@@ -1,146 +1,146 @@
 import {
   AcknowledgeJobCommandInput,
-  AcknowledgeJobCommandOutput,
+  AcknowledgeJobCommandOutput
 } from "../commands/AcknowledgeJobCommand";
 import {
   AcknowledgeThirdPartyJobCommandInput,
-  AcknowledgeThirdPartyJobCommandOutput,
+  AcknowledgeThirdPartyJobCommandOutput
 } from "../commands/AcknowledgeThirdPartyJobCommand";
 import {
   CreateCustomActionTypeCommandInput,
-  CreateCustomActionTypeCommandOutput,
+  CreateCustomActionTypeCommandOutput
 } from "../commands/CreateCustomActionTypeCommand";
 import {
   CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
+  CreatePipelineCommandOutput
 } from "../commands/CreatePipelineCommand";
 import {
   DeleteCustomActionTypeCommandInput,
-  DeleteCustomActionTypeCommandOutput,
+  DeleteCustomActionTypeCommandOutput
 } from "../commands/DeleteCustomActionTypeCommand";
 import {
   DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
+  DeletePipelineCommandOutput
 } from "../commands/DeletePipelineCommand";
 import {
   DeleteWebhookCommandInput,
-  DeleteWebhookCommandOutput,
+  DeleteWebhookCommandOutput
 } from "../commands/DeleteWebhookCommand";
 import {
   DeregisterWebhookWithThirdPartyCommandInput,
-  DeregisterWebhookWithThirdPartyCommandOutput,
+  DeregisterWebhookWithThirdPartyCommandOutput
 } from "../commands/DeregisterWebhookWithThirdPartyCommand";
 import {
   DisableStageTransitionCommandInput,
-  DisableStageTransitionCommandOutput,
+  DisableStageTransitionCommandOutput
 } from "../commands/DisableStageTransitionCommand";
 import {
   EnableStageTransitionCommandInput,
-  EnableStageTransitionCommandOutput,
+  EnableStageTransitionCommandOutput
 } from "../commands/EnableStageTransitionCommand";
 import {
   GetJobDetailsCommandInput,
-  GetJobDetailsCommandOutput,
+  GetJobDetailsCommandOutput
 } from "../commands/GetJobDetailsCommand";
 import {
   GetPipelineCommandInput,
-  GetPipelineCommandOutput,
+  GetPipelineCommandOutput
 } from "../commands/GetPipelineCommand";
 import {
   GetPipelineExecutionCommandInput,
-  GetPipelineExecutionCommandOutput,
+  GetPipelineExecutionCommandOutput
 } from "../commands/GetPipelineExecutionCommand";
 import {
   GetPipelineStateCommandInput,
-  GetPipelineStateCommandOutput,
+  GetPipelineStateCommandOutput
 } from "../commands/GetPipelineStateCommand";
 import {
   GetThirdPartyJobDetailsCommandInput,
-  GetThirdPartyJobDetailsCommandOutput,
+  GetThirdPartyJobDetailsCommandOutput
 } from "../commands/GetThirdPartyJobDetailsCommand";
 import {
   ListActionExecutionsCommandInput,
-  ListActionExecutionsCommandOutput,
+  ListActionExecutionsCommandOutput
 } from "../commands/ListActionExecutionsCommand";
 import {
   ListActionTypesCommandInput,
-  ListActionTypesCommandOutput,
+  ListActionTypesCommandOutput
 } from "../commands/ListActionTypesCommand";
 import {
   ListPipelineExecutionsCommandInput,
-  ListPipelineExecutionsCommandOutput,
+  ListPipelineExecutionsCommandOutput
 } from "../commands/ListPipelineExecutionsCommand";
 import {
   ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
+  ListPipelinesCommandOutput
 } from "../commands/ListPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   ListWebhooksCommandInput,
-  ListWebhooksCommandOutput,
+  ListWebhooksCommandOutput
 } from "../commands/ListWebhooksCommand";
 import {
   PollForJobsCommandInput,
-  PollForJobsCommandOutput,
+  PollForJobsCommandOutput
 } from "../commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
-  PollForThirdPartyJobsCommandOutput,
+  PollForThirdPartyJobsCommandOutput
 } from "../commands/PollForThirdPartyJobsCommand";
 import {
   PutActionRevisionCommandInput,
-  PutActionRevisionCommandOutput,
+  PutActionRevisionCommandOutput
 } from "../commands/PutActionRevisionCommand";
 import {
   PutApprovalResultCommandInput,
-  PutApprovalResultCommandOutput,
+  PutApprovalResultCommandOutput
 } from "../commands/PutApprovalResultCommand";
 import {
   PutJobFailureResultCommandInput,
-  PutJobFailureResultCommandOutput,
+  PutJobFailureResultCommandOutput
 } from "../commands/PutJobFailureResultCommand";
 import {
   PutJobSuccessResultCommandInput,
-  PutJobSuccessResultCommandOutput,
+  PutJobSuccessResultCommandOutput
 } from "../commands/PutJobSuccessResultCommand";
 import {
   PutThirdPartyJobFailureResultCommandInput,
-  PutThirdPartyJobFailureResultCommandOutput,
+  PutThirdPartyJobFailureResultCommandOutput
 } from "../commands/PutThirdPartyJobFailureResultCommand";
 import {
   PutThirdPartyJobSuccessResultCommandInput,
-  PutThirdPartyJobSuccessResultCommandOutput,
+  PutThirdPartyJobSuccessResultCommandOutput
 } from "../commands/PutThirdPartyJobSuccessResultCommand";
 import {
   PutWebhookCommandInput,
-  PutWebhookCommandOutput,
+  PutWebhookCommandOutput
 } from "../commands/PutWebhookCommand";
 import {
   RegisterWebhookWithThirdPartyCommandInput,
-  RegisterWebhookWithThirdPartyCommandOutput,
+  RegisterWebhookWithThirdPartyCommandOutput
 } from "../commands/RegisterWebhookWithThirdPartyCommand";
 import {
   RetryStageExecutionCommandInput,
-  RetryStageExecutionCommandOutput,
+  RetryStageExecutionCommandOutput
 } from "../commands/RetryStageExecutionCommand";
 import {
   StartPipelineExecutionCommandInput,
-  StartPipelineExecutionCommandOutput,
+  StartPipelineExecutionCommandOutput
 } from "../commands/StartPipelineExecutionCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput,
+  UpdatePipelineCommandOutput
 } from "../commands/UpdatePipelineCommand";
 import {
   AWSSessionCredentials,
@@ -295,18 +295,18 @@ import {
   WebhookAuthConfiguration,
   WebhookDefinition,
   WebhookFilterRule,
-  WebhookNotFoundException,
+  WebhookNotFoundException
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AcknowledgeJobCommand(
@@ -314,11 +314,11 @@ export async function serializeAws_json1_1AcknowledgeJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.AcknowledgeJob";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeJob";
   let body: any = {};
   const wrappedBody: any = {
-    AcknowledgeJobInput: serializeAws_json1_1AcknowledgeJobInput(input, context),
+    AcknowledgeJobInput: serializeAws_json1_1AcknowledgeJobInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -327,7 +327,7 @@ export async function serializeAws_json1_1AcknowledgeJobCommand(
     method: "POST",
     path: "/AcknowledgeJob",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -336,11 +336,14 @@ export async function serializeAws_json1_1AcknowledgeThirdPartyJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.AcknowledgeThirdPartyJob";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.AcknowledgeThirdPartyJob";
   let body: any = {};
   const wrappedBody: any = {
-    AcknowledgeThirdPartyJobInput: serializeAws_json1_1AcknowledgeThirdPartyJobInput(input, context),
+    AcknowledgeThirdPartyJobInput: serializeAws_json1_1AcknowledgeThirdPartyJobInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -349,7 +352,7 @@ export async function serializeAws_json1_1AcknowledgeThirdPartyJobCommand(
     method: "POST",
     path: "/AcknowledgeThirdPartyJob",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -358,11 +361,14 @@ export async function serializeAws_json1_1CreateCustomActionTypeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.CreateCustomActionType";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.CreateCustomActionType";
   let body: any = {};
   const wrappedBody: any = {
-    CreateCustomActionTypeInput: serializeAws_json1_1CreateCustomActionTypeInput(input, context),
+    CreateCustomActionTypeInput: serializeAws_json1_1CreateCustomActionTypeInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -371,7 +377,7 @@ export async function serializeAws_json1_1CreateCustomActionTypeCommand(
     method: "POST",
     path: "/CreateCustomActionType",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -380,11 +386,11 @@ export async function serializeAws_json1_1CreatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.CreatePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.CreatePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePipelineInput: serializeAws_json1_1CreatePipelineInput(input, context),
+    CreatePipelineInput: serializeAws_json1_1CreatePipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -393,7 +399,7 @@ export async function serializeAws_json1_1CreatePipelineCommand(
     method: "POST",
     path: "/CreatePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -402,11 +408,14 @@ export async function serializeAws_json1_1DeleteCustomActionTypeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.DeleteCustomActionType";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteCustomActionType";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteCustomActionTypeInput: serializeAws_json1_1DeleteCustomActionTypeInput(input, context),
+    DeleteCustomActionTypeInput: serializeAws_json1_1DeleteCustomActionTypeInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -415,7 +424,7 @@ export async function serializeAws_json1_1DeleteCustomActionTypeCommand(
     method: "POST",
     path: "/DeleteCustomActionType",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -424,11 +433,11 @@ export async function serializeAws_json1_1DeletePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.DeletePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.DeletePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    DeletePipelineInput: serializeAws_json1_1DeletePipelineInput(input, context),
+    DeletePipelineInput: serializeAws_json1_1DeletePipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -437,7 +446,7 @@ export async function serializeAws_json1_1DeletePipelineCommand(
     method: "POST",
     path: "/DeletePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -446,11 +455,11 @@ export async function serializeAws_json1_1DeleteWebhookCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.DeleteWebhook";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.DeleteWebhook";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteWebhookInput: serializeAws_json1_1DeleteWebhookInput(input, context),
+    DeleteWebhookInput: serializeAws_json1_1DeleteWebhookInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -459,7 +468,7 @@ export async function serializeAws_json1_1DeleteWebhookCommand(
     method: "POST",
     path: "/DeleteWebhook",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -468,11 +477,15 @@ export async function serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.DeregisterWebhookWithThirdParty";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "CodePipeline_20150709.DeregisterWebhookWithThirdParty";
   let body: any = {};
   const wrappedBody: any = {
-    DeregisterWebhookWithThirdPartyInput: serializeAws_json1_1DeregisterWebhookWithThirdPartyInput(input, context),
+    DeregisterWebhookWithThirdPartyInput: serializeAws_json1_1DeregisterWebhookWithThirdPartyInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -481,7 +494,7 @@ export async function serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand
     method: "POST",
     path: "/DeregisterWebhookWithThirdParty",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -490,11 +503,14 @@ export async function serializeAws_json1_1DisableStageTransitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.DisableStageTransition";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.DisableStageTransition";
   let body: any = {};
   const wrappedBody: any = {
-    DisableStageTransitionInput: serializeAws_json1_1DisableStageTransitionInput(input, context),
+    DisableStageTransitionInput: serializeAws_json1_1DisableStageTransitionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -503,7 +519,7 @@ export async function serializeAws_json1_1DisableStageTransitionCommand(
     method: "POST",
     path: "/DisableStageTransition",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -512,11 +528,14 @@ export async function serializeAws_json1_1EnableStageTransitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.EnableStageTransition";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.EnableStageTransition";
   let body: any = {};
   const wrappedBody: any = {
-    EnableStageTransitionInput: serializeAws_json1_1EnableStageTransitionInput(input, context),
+    EnableStageTransitionInput: serializeAws_json1_1EnableStageTransitionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -525,7 +544,7 @@ export async function serializeAws_json1_1EnableStageTransitionCommand(
     method: "POST",
     path: "/EnableStageTransition",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -534,11 +553,11 @@ export async function serializeAws_json1_1GetJobDetailsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.GetJobDetails";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.GetJobDetails";
   let body: any = {};
   const wrappedBody: any = {
-    GetJobDetailsInput: serializeAws_json1_1GetJobDetailsInput(input, context),
+    GetJobDetailsInput: serializeAws_json1_1GetJobDetailsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -547,7 +566,7 @@ export async function serializeAws_json1_1GetJobDetailsCommand(
     method: "POST",
     path: "/GetJobDetails",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -556,11 +575,11 @@ export async function serializeAws_json1_1GetPipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.GetPipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipeline";
   let body: any = {};
   const wrappedBody: any = {
-    GetPipelineInput: serializeAws_json1_1GetPipelineInput(input, context),
+    GetPipelineInput: serializeAws_json1_1GetPipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -569,7 +588,7 @@ export async function serializeAws_json1_1GetPipelineCommand(
     method: "POST",
     path: "/GetPipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -578,11 +597,14 @@ export async function serializeAws_json1_1GetPipelineExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.GetPipelineExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineExecution";
   let body: any = {};
   const wrappedBody: any = {
-    GetPipelineExecutionInput: serializeAws_json1_1GetPipelineExecutionInput(input, context),
+    GetPipelineExecutionInput: serializeAws_json1_1GetPipelineExecutionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -591,7 +613,7 @@ export async function serializeAws_json1_1GetPipelineExecutionCommand(
     method: "POST",
     path: "/GetPipelineExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -600,11 +622,14 @@ export async function serializeAws_json1_1GetPipelineStateCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.GetPipelineState";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.GetPipelineState";
   let body: any = {};
   const wrappedBody: any = {
-    GetPipelineStateInput: serializeAws_json1_1GetPipelineStateInput(input, context),
+    GetPipelineStateInput: serializeAws_json1_1GetPipelineStateInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -613,7 +638,7 @@ export async function serializeAws_json1_1GetPipelineStateCommand(
     method: "POST",
     path: "/GetPipelineState",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -622,11 +647,14 @@ export async function serializeAws_json1_1GetThirdPartyJobDetailsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.GetThirdPartyJobDetails";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.GetThirdPartyJobDetails";
   let body: any = {};
   const wrappedBody: any = {
-    GetThirdPartyJobDetailsInput: serializeAws_json1_1GetThirdPartyJobDetailsInput(input, context),
+    GetThirdPartyJobDetailsInput: serializeAws_json1_1GetThirdPartyJobDetailsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -635,7 +663,7 @@ export async function serializeAws_json1_1GetThirdPartyJobDetailsCommand(
     method: "POST",
     path: "/GetThirdPartyJobDetails",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -644,11 +672,14 @@ export async function serializeAws_json1_1ListActionExecutionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListActionExecutions";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionExecutions";
   let body: any = {};
   const wrappedBody: any = {
-    ListActionExecutionsInput: serializeAws_json1_1ListActionExecutionsInput(input, context),
+    ListActionExecutionsInput: serializeAws_json1_1ListActionExecutionsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -657,7 +688,7 @@ export async function serializeAws_json1_1ListActionExecutionsCommand(
     method: "POST",
     path: "/ListActionExecutions",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -666,11 +697,14 @@ export async function serializeAws_json1_1ListActionTypesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListActionTypes";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListActionTypes";
   let body: any = {};
   const wrappedBody: any = {
-    ListActionTypesInput: serializeAws_json1_1ListActionTypesInput(input, context),
+    ListActionTypesInput: serializeAws_json1_1ListActionTypesInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -679,7 +713,7 @@ export async function serializeAws_json1_1ListActionTypesCommand(
     method: "POST",
     path: "/ListActionTypes",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -688,11 +722,14 @@ export async function serializeAws_json1_1ListPipelineExecutionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListPipelineExecutions";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelineExecutions";
   let body: any = {};
   const wrappedBody: any = {
-    ListPipelineExecutionsInput: serializeAws_json1_1ListPipelineExecutionsInput(input, context),
+    ListPipelineExecutionsInput: serializeAws_json1_1ListPipelineExecutionsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -701,7 +738,7 @@ export async function serializeAws_json1_1ListPipelineExecutionsCommand(
     method: "POST",
     path: "/ListPipelineExecutions",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -710,11 +747,11 @@ export async function serializeAws_json1_1ListPipelinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListPipelines";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListPipelines";
   let body: any = {};
   const wrappedBody: any = {
-    ListPipelinesInput: serializeAws_json1_1ListPipelinesInput(input, context),
+    ListPipelinesInput: serializeAws_json1_1ListPipelinesInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -723,7 +760,7 @@ export async function serializeAws_json1_1ListPipelinesCommand(
     method: "POST",
     path: "/ListPipelines",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -732,11 +769,14 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListTagsForResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(input, context),
+    ListTagsForResourceInput: serializeAws_json1_1ListTagsForResourceInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -745,7 +785,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -754,11 +794,11 @@ export async function serializeAws_json1_1ListWebhooksCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.ListWebhooks";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.ListWebhooks";
   let body: any = {};
   const wrappedBody: any = {
-    ListWebhooksInput: serializeAws_json1_1ListWebhooksInput(input, context),
+    ListWebhooksInput: serializeAws_json1_1ListWebhooksInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -767,7 +807,7 @@ export async function serializeAws_json1_1ListWebhooksCommand(
     method: "POST",
     path: "/ListWebhooks",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -776,11 +816,11 @@ export async function serializeAws_json1_1PollForJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PollForJobs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PollForJobs";
   let body: any = {};
   const wrappedBody: any = {
-    PollForJobsInput: serializeAws_json1_1PollForJobsInput(input, context),
+    PollForJobsInput: serializeAws_json1_1PollForJobsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -789,7 +829,7 @@ export async function serializeAws_json1_1PollForJobsCommand(
     method: "POST",
     path: "/PollForJobs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -798,11 +838,14 @@ export async function serializeAws_json1_1PollForThirdPartyJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PollForThirdPartyJobs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PollForThirdPartyJobs";
   let body: any = {};
   const wrappedBody: any = {
-    PollForThirdPartyJobsInput: serializeAws_json1_1PollForThirdPartyJobsInput(input, context),
+    PollForThirdPartyJobsInput: serializeAws_json1_1PollForThirdPartyJobsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -811,7 +854,7 @@ export async function serializeAws_json1_1PollForThirdPartyJobsCommand(
     method: "POST",
     path: "/PollForThirdPartyJobs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -820,11 +863,14 @@ export async function serializeAws_json1_1PutActionRevisionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutActionRevision";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PutActionRevision";
   let body: any = {};
   const wrappedBody: any = {
-    PutActionRevisionInput: serializeAws_json1_1PutActionRevisionInput(input, context),
+    PutActionRevisionInput: serializeAws_json1_1PutActionRevisionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -833,7 +879,7 @@ export async function serializeAws_json1_1PutActionRevisionCommand(
     method: "POST",
     path: "/PutActionRevision",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -842,11 +888,14 @@ export async function serializeAws_json1_1PutApprovalResultCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutApprovalResult";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PutApprovalResult";
   let body: any = {};
   const wrappedBody: any = {
-    PutApprovalResultInput: serializeAws_json1_1PutApprovalResultInput(input, context),
+    PutApprovalResultInput: serializeAws_json1_1PutApprovalResultInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -855,7 +904,7 @@ export async function serializeAws_json1_1PutApprovalResultCommand(
     method: "POST",
     path: "/PutApprovalResult",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -864,11 +913,14 @@ export async function serializeAws_json1_1PutJobFailureResultCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutJobFailureResult";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobFailureResult";
   let body: any = {};
   const wrappedBody: any = {
-    PutJobFailureResultInput: serializeAws_json1_1PutJobFailureResultInput(input, context),
+    PutJobFailureResultInput: serializeAws_json1_1PutJobFailureResultInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -877,7 +929,7 @@ export async function serializeAws_json1_1PutJobFailureResultCommand(
     method: "POST",
     path: "/PutJobFailureResult",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -886,11 +938,14 @@ export async function serializeAws_json1_1PutJobSuccessResultCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutJobSuccessResult";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PutJobSuccessResult";
   let body: any = {};
   const wrappedBody: any = {
-    PutJobSuccessResultInput: serializeAws_json1_1PutJobSuccessResultInput(input, context),
+    PutJobSuccessResultInput: serializeAws_json1_1PutJobSuccessResultInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -899,7 +954,7 @@ export async function serializeAws_json1_1PutJobSuccessResultCommand(
     method: "POST",
     path: "/PutJobSuccessResult",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -908,11 +963,15 @@ export async function serializeAws_json1_1PutThirdPartyJobFailureResultCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutThirdPartyJobFailureResult";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "CodePipeline_20150709.PutThirdPartyJobFailureResult";
   let body: any = {};
   const wrappedBody: any = {
-    PutThirdPartyJobFailureResultInput: serializeAws_json1_1PutThirdPartyJobFailureResultInput(input, context),
+    PutThirdPartyJobFailureResultInput: serializeAws_json1_1PutThirdPartyJobFailureResultInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -921,7 +980,7 @@ export async function serializeAws_json1_1PutThirdPartyJobFailureResultCommand(
     method: "POST",
     path: "/PutThirdPartyJobFailureResult",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -930,11 +989,15 @@ export async function serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutThirdPartyJobSuccessResult";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "CodePipeline_20150709.PutThirdPartyJobSuccessResult";
   let body: any = {};
   const wrappedBody: any = {
-    PutThirdPartyJobSuccessResultInput: serializeAws_json1_1PutThirdPartyJobSuccessResultInput(input, context),
+    PutThirdPartyJobSuccessResultInput: serializeAws_json1_1PutThirdPartyJobSuccessResultInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -943,7 +1006,7 @@ export async function serializeAws_json1_1PutThirdPartyJobSuccessResultCommand(
     method: "POST",
     path: "/PutThirdPartyJobSuccessResult",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -952,11 +1015,11 @@ export async function serializeAws_json1_1PutWebhookCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.PutWebhook";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.PutWebhook";
   let body: any = {};
   const wrappedBody: any = {
-    PutWebhookInput: serializeAws_json1_1PutWebhookInput(input, context),
+    PutWebhookInput: serializeAws_json1_1PutWebhookInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -965,7 +1028,7 @@ export async function serializeAws_json1_1PutWebhookCommand(
     method: "POST",
     path: "/PutWebhook",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -974,11 +1037,15 @@ export async function serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.RegisterWebhookWithThirdParty";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "CodePipeline_20150709.RegisterWebhookWithThirdParty";
   let body: any = {};
   const wrappedBody: any = {
-    RegisterWebhookWithThirdPartyInput: serializeAws_json1_1RegisterWebhookWithThirdPartyInput(input, context),
+    RegisterWebhookWithThirdPartyInput: serializeAws_json1_1RegisterWebhookWithThirdPartyInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -987,7 +1054,7 @@ export async function serializeAws_json1_1RegisterWebhookWithThirdPartyCommand(
     method: "POST",
     path: "/RegisterWebhookWithThirdParty",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -996,11 +1063,14 @@ export async function serializeAws_json1_1RetryStageExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.RetryStageExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.RetryStageExecution";
   let body: any = {};
   const wrappedBody: any = {
-    RetryStageExecutionInput: serializeAws_json1_1RetryStageExecutionInput(input, context),
+    RetryStageExecutionInput: serializeAws_json1_1RetryStageExecutionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1009,7 +1079,7 @@ export async function serializeAws_json1_1RetryStageExecutionCommand(
     method: "POST",
     path: "/RetryStageExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1018,11 +1088,14 @@ export async function serializeAws_json1_1StartPipelineExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.StartPipelineExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.StartPipelineExecution";
   let body: any = {};
   const wrappedBody: any = {
-    StartPipelineExecutionInput: serializeAws_json1_1StartPipelineExecutionInput(input, context),
+    StartPipelineExecutionInput: serializeAws_json1_1StartPipelineExecutionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1031,7 +1104,7 @@ export async function serializeAws_json1_1StartPipelineExecutionCommand(
     method: "POST",
     path: "/StartPipelineExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1040,11 +1113,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.TagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context),
+    TagResourceInput: serializeAws_json1_1TagResourceInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1053,7 +1126,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1062,11 +1135,11 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.UntagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context),
+    UntagResourceInput: serializeAws_json1_1UntagResourceInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1075,7 +1148,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1084,11 +1157,11 @@ export async function serializeAws_json1_1UpdatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "CodePipeline_20150709.UpdatePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "CodePipeline_20150709.UpdatePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    UpdatePipelineInput: serializeAws_json1_1UpdatePipelineInput(input, context),
+    UpdatePipelineInput: serializeAws_json1_1UpdatePipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -1097,7 +1170,7 @@ export async function serializeAws_json1_1UpdatePipelineCommand(
     method: "POST",
     path: "/UpdatePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -1108,48 +1181,58 @@ export async function deserializeAws_json1_1AcknowledgeJobCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AcknowledgeJobCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AcknowledgeJobOutput(data, context);
   const response: AcknowledgeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcknowledgeJobOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AcknowledgeJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AcknowledgeJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNonceException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
-      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1160,54 +1243,73 @@ export async function deserializeAws_json1_1AcknowledgeThirdPartyJobCommand(
   context: __SerdeContext
 ): Promise<AcknowledgeThirdPartyJobCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(output, context);
+    return deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1AcknowledgeThirdPartyJobOutput(data, context);
+  contents = deserializeAws_json1_1AcknowledgeThirdPartyJobOutput(
+    data,
+    context
+  );
   const response: AcknowledgeThirdPartyJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AcknowledgeThirdPartyJobOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AcknowledgeThirdPartyJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidNonceException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidNonceException":
-      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNonceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1218,58 +1320,77 @@ export async function deserializeAws_json1_1CreateCustomActionTypeCommand(
   context: __SerdeContext
 ): Promise<CreateCustomActionTypeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateCustomActionTypeCommandError(output, context);
+    return deserializeAws_json1_1CreateCustomActionTypeCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateCustomActionTypeOutput(data, context);
   const response: CreateCustomActionTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCustomActionTypeOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateCustomActionTypeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateCustomActionTypeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1282,76 +1403,107 @@ export async function deserializeAws_json1_1CreatePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePipelineCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidActionDeclarationException":
     case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
-      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidBlockerDeclarationException":
     case "com.amazonaws.codepipeline#InvalidBlockerDeclarationException":
-      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidStageDeclarationException":
     case "com.amazonaws.codepipeline#InvalidStageDeclarationException":
-      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidStructureException":
     case "com.amazonaws.codepipeline#InvalidStructureException":
-      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNameInUseException":
     case "com.amazonaws.codepipeline#PipelineNameInUseException":
-      response = await deserializeAws_json1_1PipelineNameInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNameInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1362,41 +1514,51 @@ export async function deserializeAws_json1_1DeleteCustomActionTypeCommand(
   context: __SerdeContext
 ): Promise<DeleteCustomActionTypeCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteCustomActionTypeCommandError(output, context);
+    return deserializeAws_json1_1DeleteCustomActionTypeCommandError(
+      output,
+      context
+    );
   }
   const response: DeleteCustomActionTypeCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteCustomActionTypeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteCustomActionTypeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1410,38 +1572,45 @@ export async function deserializeAws_json1_1DeletePipelineCommand(
     return deserializeAws_json1_1DeletePipelineCommandError(output, context);
   }
   const response: DeletePipelineCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeletePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1454,44 +1623,51 @@ export async function deserializeAws_json1_1DeleteWebhookCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteWebhookCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteWebhookOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteWebhookCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1502,46 +1678,59 @@ export async function deserializeAws_json1_1DeregisterWebhookWithThirdPartyComma
   context: __SerdeContext
 ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError(output, context);
+    return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput(data, context);
+  contents = deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput(
+    data,
+    context
+  );
   const response: DeregisterWebhookWithThirdPartyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterWebhookWithThirdPartyOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WebhookNotFoundException":
     case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1552,45 +1741,58 @@ export async function deserializeAws_json1_1DisableStageTransitionCommand(
   context: __SerdeContext
 ): Promise<DisableStageTransitionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisableStageTransitionCommandError(output, context);
+    return deserializeAws_json1_1DisableStageTransitionCommandError(
+      output,
+      context
+    );
   }
   const response: DisableStageTransitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DisableStageTransitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisableStageTransitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1601,45 +1803,58 @@ export async function deserializeAws_json1_1EnableStageTransitionCommand(
   context: __SerdeContext
 ): Promise<EnableStageTransitionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1EnableStageTransitionCommandError(output, context);
+    return deserializeAws_json1_1EnableStageTransitionCommandError(
+      output,
+      context
+    );
   }
   const response: EnableStageTransitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1EnableStageTransitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<EnableStageTransitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1652,44 +1867,51 @@ export async function deserializeAws_json1_1GetJobDetailsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetJobDetailsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetJobDetailsOutput(data, context);
   const response: GetJobDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetJobDetailsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetJobDetailsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetJobDetailsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1702,48 +1924,58 @@ export async function deserializeAws_json1_1GetPipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPipelineCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPipelineOutput(data, context);
   const response: GetPipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineVersionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineVersionNotFoundException":
-      response = await deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1754,50 +1986,63 @@ export async function deserializeAws_json1_1GetPipelineExecutionCommand(
   context: __SerdeContext
 ): Promise<GetPipelineExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetPipelineExecutionCommandError(output, context);
+    return deserializeAws_json1_1GetPipelineExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPipelineExecutionOutput(data, context);
   const response: GetPipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPipelineExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPipelineExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineExecutionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1810,44 +2055,51 @@ export async function deserializeAws_json1_1GetPipelineStateCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPipelineStateCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPipelineStateOutput(data, context);
   const response: GetPipelineStateCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineStateOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPipelineStateCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPipelineStateCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1858,54 +2110,70 @@ export async function deserializeAws_json1_1GetThirdPartyJobDetailsCommand(
   context: __SerdeContext
 ): Promise<GetThirdPartyJobDetailsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(output, context);
+    return deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetThirdPartyJobDetailsOutput(data, context);
   const response: GetThirdPartyJobDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetThirdPartyJobDetailsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetThirdPartyJobDetailsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidJobException":
     case "com.amazonaws.codepipeline#InvalidJobException":
-      response = await deserializeAws_json1_1InvalidJobExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidJobExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1916,54 +2184,70 @@ export async function deserializeAws_json1_1ListActionExecutionsCommand(
   context: __SerdeContext
 ): Promise<ListActionExecutionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListActionExecutionsCommandError(output, context);
+    return deserializeAws_json1_1ListActionExecutionsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListActionExecutionsOutput(data, context);
   const response: ListActionExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActionExecutionsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListActionExecutionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListActionExecutionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineExecutionNotFoundException":
     case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1976,44 +2260,51 @@ export async function deserializeAws_json1_1ListActionTypesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListActionTypesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListActionTypesOutput(data, context);
   const response: ListActionTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActionTypesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListActionTypesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListActionTypesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2024,50 +2315,63 @@ export async function deserializeAws_json1_1ListPipelineExecutionsCommand(
   context: __SerdeContext
 ): Promise<ListPipelineExecutionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListPipelineExecutionsCommandError(output, context);
+    return deserializeAws_json1_1ListPipelineExecutionsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPipelineExecutionsOutput(data, context);
   const response: ListPipelineExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelineExecutionsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListPipelineExecutionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPipelineExecutionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2080,44 +2384,51 @@ export async function deserializeAws_json1_1ListPipelinesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPipelinesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPipelinesOutput(data, context);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListPipelinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2128,54 +2439,70 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2188,44 +2515,51 @@ export async function deserializeAws_json1_1ListWebhooksCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListWebhooksCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListWebhooksOutput(data, context);
   const response: ListWebhooksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebhooksOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListWebhooksCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2238,44 +2572,51 @@ export async function deserializeAws_json1_1PollForJobsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PollForJobsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PollForJobsOutput(data, context);
   const response: PollForJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForJobsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PollForJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PollForJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionTypeNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
-      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2286,46 +2627,56 @@ export async function deserializeAws_json1_1PollForThirdPartyJobsCommand(
   context: __SerdeContext
 ): Promise<PollForThirdPartyJobsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PollForThirdPartyJobsCommandError(output, context);
+    return deserializeAws_json1_1PollForThirdPartyJobsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PollForThirdPartyJobsOutput(data, context);
   const response: PollForThirdPartyJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForThirdPartyJobsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PollForThirdPartyJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PollForThirdPartyJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionTypeNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ActionTypeNotFoundException":
-      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ActionTypeNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2338,52 +2689,65 @@ export async function deserializeAws_json1_1PutActionRevisionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutActionRevisionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutActionRevisionOutput(data, context);
   const response: PutActionRevisionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutActionRevisionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutActionRevisionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutActionRevisionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionNotFoundException":
     case "com.amazonaws.codepipeline#ActionNotFoundException":
-      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2396,60 +2760,79 @@ export async function deserializeAws_json1_1PutApprovalResultCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutApprovalResultCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutApprovalResultOutput(data, context);
   const response: PutApprovalResultCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutApprovalResultOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutApprovalResultCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutApprovalResultCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActionNotFoundException":
     case "com.amazonaws.codepipeline#ActionNotFoundException":
-      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ActionNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ApprovalAlreadyCompletedException":
     case "com.amazonaws.codepipeline#ApprovalAlreadyCompletedException":
-      response = await deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidApprovalTokenException":
     case "com.amazonaws.codepipeline#InvalidApprovalTokenException":
-      response = await deserializeAws_json1_1InvalidApprovalTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidApprovalTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2460,45 +2843,58 @@ export async function deserializeAws_json1_1PutJobFailureResultCommand(
   context: __SerdeContext
 ): Promise<PutJobFailureResultCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutJobFailureResultCommandError(output, context);
+    return deserializeAws_json1_1PutJobFailureResultCommandError(
+      output,
+      context
+    );
   }
   const response: PutJobFailureResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutJobFailureResultCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutJobFailureResultCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2509,49 +2905,65 @@ export async function deserializeAws_json1_1PutJobSuccessResultCommand(
   context: __SerdeContext
 ): Promise<PutJobSuccessResultCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutJobSuccessResultCommandError(output, context);
+    return deserializeAws_json1_1PutJobSuccessResultCommandError(
+      output,
+      context
+    );
   }
   const response: PutJobSuccessResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutJobSuccessResultCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutJobSuccessResultCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "OutputVariablesSizeExceededException":
     case "com.amazonaws.codepipeline.common.frontend.service#OutputVariablesSizeExceededException":
-      response = await deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2562,49 +2974,65 @@ export async function deserializeAws_json1_1PutThirdPartyJobFailureResultCommand
   context: __SerdeContext
 ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(output, context);
+    return deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(
+      output,
+      context
+    );
   }
   const response: PutThirdPartyJobFailureResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutThirdPartyJobFailureResultCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2615,49 +3043,65 @@ export async function deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand
   context: __SerdeContext
 ): Promise<PutThirdPartyJobSuccessResultCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(output, context);
+    return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(
+      output,
+      context
+    );
   }
   const response: PutThirdPartyJobSuccessResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutThirdPartyJobSuccessResultCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidClientTokenException":
     case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidClientTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidJobStateException":
     case "com.amazonaws.codepipeline.common.frontend.service#InvalidJobStateException":
-      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidJobStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "JobNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#JobNotFoundException":
-      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1JobNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2670,68 +3114,93 @@ export async function deserializeAws_json1_1PutWebhookCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutWebhookCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutWebhookOutput(data, context);
   const response: PutWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutWebhookOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutWebhookCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutWebhookCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidWebhookAuthenticationParametersException":
     case "com.amazonaws.codepipeline#InvalidWebhookAuthenticationParametersException":
-      response = await deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidWebhookFilterPatternException":
     case "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException":
-      response = await deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2742,46 +3211,59 @@ export async function deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand
   context: __SerdeContext
 ): Promise<RegisterWebhookWithThirdPartyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(output, context);
+    return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput(data, context);
+  contents = deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput(
+    data,
+    context
+  );
   const response: RegisterWebhookWithThirdPartyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterWebhookWithThirdPartyOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RegisterWebhookWithThirdPartyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "WebhookNotFoundException":
     case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1WebhookNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2792,58 +3274,77 @@ export async function deserializeAws_json1_1RetryStageExecutionCommand(
   context: __SerdeContext
 ): Promise<RetryStageExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RetryStageExecutionCommandError(output, context);
+    return deserializeAws_json1_1RetryStageExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RetryStageExecutionOutput(data, context);
   const response: RetryStageExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RetryStageExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RetryStageExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RetryStageExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "NotLatestPipelineExecutionException":
     case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
-      response = await deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotFoundException":
     case "com.amazonaws.codepipeline#StageNotFoundException":
-      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StageNotRetryableException":
     case "com.amazonaws.codepipeline#StageNotRetryableException":
-      response = await deserializeAws_json1_1StageNotRetryableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1StageNotRetryableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2854,46 +3355,56 @@ export async function deserializeAws_json1_1StartPipelineExecutionCommand(
   context: __SerdeContext
 ): Promise<StartPipelineExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartPipelineExecutionCommandError(output, context);
+    return deserializeAws_json1_1StartPipelineExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartPipelineExecutionOutput(data, context);
   const response: StartPipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartPipelineExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartPipelineExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartPipelineExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2906,60 +3417,79 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTagsException":
     case "com.amazonaws.codepipeline#TooManyTagsException":
-      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TooManyTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2972,56 +3502,72 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArnException":
     case "com.amazonaws.codepipeline#InvalidArnException":
-      response = await deserializeAws_json1_1InvalidArnExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArnExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTagsException":
     case "com.amazonaws.codepipeline#InvalidTagsException":
-      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTagsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.codepipeline.common.frontend.service#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3034,60 +3580,79 @@ export async function deserializeAws_json1_1UpdatePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdatePipelineCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdatePipelineOutput(data, context);
   const response: UpdatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidActionDeclarationException":
     case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
-      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidActionDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidBlockerDeclarationException":
     case "com.amazonaws.codepipeline#InvalidBlockerDeclarationException":
-      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidStageDeclarationException":
     case "com.amazonaws.codepipeline#InvalidStageDeclarationException":
-      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidStageDeclarationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidStructureException":
     case "com.amazonaws.codepipeline#InvalidStructureException":
-      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidStructureExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.codepipeline#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.codepipeline.common.frontend.service#ValidationException":
-      response = await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.codepipeline#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3097,12 +3662,15 @@ const deserializeAws_json1_1ActionNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ActionNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ActionNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ActionNotFoundException(
+    output.body,
+    context
+  );
   const contents: ActionNotFoundException = {
     __type: "ActionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3111,12 +3679,15 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ApprovalAlreadyCompletedException> => {
-  const deserialized: any = deserializeAws_json1_1ApprovalAlreadyCompletedException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ApprovalAlreadyCompletedException(
+    output.body,
+    context
+  );
   const contents: ApprovalAlreadyCompletedException = {
     __type: "ApprovalAlreadyCompletedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3125,12 +3696,15 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ConcurrentModificationException> => {
-  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(
+    output.body,
+    context
+  );
   const contents: ConcurrentModificationException = {
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3139,12 +3713,15 @@ const deserializeAws_json1_1InvalidActionDeclarationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidActionDeclarationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidActionDeclarationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidActionDeclarationException(
+    output.body,
+    context
+  );
   const contents: InvalidActionDeclarationException = {
     __type: "InvalidActionDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3153,12 +3730,15 @@ const deserializeAws_json1_1InvalidApprovalTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidApprovalTokenException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidApprovalTokenException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidApprovalTokenException(
+    output.body,
+    context
+  );
   const contents: InvalidApprovalTokenException = {
     __type: "InvalidApprovalTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3167,12 +3747,15 @@ const deserializeAws_json1_1InvalidArnExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidArnException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidArnException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidArnException(
+    output.body,
+    context
+  );
   const contents: InvalidArnException = {
     __type: "InvalidArnException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3181,12 +3764,15 @@ const deserializeAws_json1_1InvalidBlockerDeclarationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidBlockerDeclarationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidBlockerDeclarationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidBlockerDeclarationException(
+    output.body,
+    context
+  );
   const contents: InvalidBlockerDeclarationException = {
     __type: "InvalidBlockerDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3195,12 +3781,15 @@ const deserializeAws_json1_1InvalidClientTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidClientTokenException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidClientTokenException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidClientTokenException(
+    output.body,
+    context
+  );
   const contents: InvalidClientTokenException = {
     __type: "InvalidClientTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3209,12 +3798,15 @@ const deserializeAws_json1_1InvalidJobExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidJobException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidJobException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidJobException(
+    output.body,
+    context
+  );
   const contents: InvalidJobException = {
     __type: "InvalidJobException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3223,12 +3815,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
+    output.body,
+    context
+  );
   const contents: InvalidNextTokenException = {
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3237,12 +3832,15 @@ const deserializeAws_json1_1InvalidStageDeclarationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidStageDeclarationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidStageDeclarationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidStageDeclarationException(
+    output.body,
+    context
+  );
   const contents: InvalidStageDeclarationException = {
     __type: "InvalidStageDeclarationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3251,12 +3849,15 @@ const deserializeAws_json1_1InvalidStructureExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidStructureException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidStructureException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidStructureException(
+    output.body,
+    context
+  );
   const contents: InvalidStructureException = {
     __type: "InvalidStructureException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3265,12 +3866,15 @@ const deserializeAws_json1_1InvalidTagsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidTagsException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidTagsException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidTagsException(
+    output.body,
+    context
+  );
   const contents: InvalidTagsException = {
     __type: "InvalidTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3279,12 +3883,15 @@ const deserializeAws_json1_1InvalidWebhookAuthenticationParametersExceptionRespo
   output: any,
   context: __SerdeContext
 ): Promise<InvalidWebhookAuthenticationParametersException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidWebhookAuthenticationParametersException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidWebhookAuthenticationParametersException(
+    output.body,
+    context
+  );
   const contents: InvalidWebhookAuthenticationParametersException = {
     __type: "InvalidWebhookAuthenticationParametersException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3293,12 +3900,15 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<InvalidWebhookFilterPatternException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidWebhookFilterPatternException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidWebhookFilterPatternException(
+    output.body,
+    context
+  );
   const contents: InvalidWebhookFilterPatternException = {
     __type: "InvalidWebhookFilterPatternException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3307,12 +3917,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(
+    output.body,
+    context
+  );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3321,12 +3934,15 @@ const deserializeAws_json1_1NotLatestPipelineExecutionExceptionResponse = async 
   output: any,
   context: __SerdeContext
 ): Promise<NotLatestPipelineExecutionException> => {
-  const deserialized: any = deserializeAws_json1_1NotLatestPipelineExecutionException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1NotLatestPipelineExecutionException(
+    output.body,
+    context
+  );
   const contents: NotLatestPipelineExecutionException = {
     __type: "NotLatestPipelineExecutionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3335,12 +3951,15 @@ const deserializeAws_json1_1PipelineExecutionNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineExecutionNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineExecutionNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineExecutionNotFoundException(
+    output.body,
+    context
+  );
   const contents: PipelineExecutionNotFoundException = {
     __type: "PipelineExecutionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3349,12 +3968,15 @@ const deserializeAws_json1_1PipelineNameInUseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineNameInUseException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineNameInUseException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineNameInUseException(
+    output.body,
+    context
+  );
   const contents: PipelineNameInUseException = {
     __type: "PipelineNameInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3363,12 +3985,15 @@ const deserializeAws_json1_1PipelineNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineNotFoundException(
+    output.body,
+    context
+  );
   const contents: PipelineNotFoundException = {
     __type: "PipelineNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3377,12 +4002,15 @@ const deserializeAws_json1_1PipelineVersionNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineVersionNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineVersionNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineVersionNotFoundException(
+    output.body,
+    context
+  );
   const contents: PipelineVersionNotFoundException = {
     __type: "PipelineVersionNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3391,12 +4019,15 @@ const deserializeAws_json1_1StageNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StageNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1StageNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1StageNotFoundException(
+    output.body,
+    context
+  );
   const contents: StageNotFoundException = {
     __type: "StageNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3405,12 +4036,15 @@ const deserializeAws_json1_1StageNotRetryableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StageNotRetryableException> => {
-  const deserialized: any = deserializeAws_json1_1StageNotRetryableException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1StageNotRetryableException(
+    output.body,
+    context
+  );
   const contents: StageNotRetryableException = {
     __type: "StageNotRetryableException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3419,12 +4053,15 @@ const deserializeAws_json1_1TooManyTagsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TooManyTagsException> => {
-  const deserialized: any = deserializeAws_json1_1TooManyTagsException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1TooManyTagsException(
+    output.body,
+    context
+  );
   const contents: TooManyTagsException = {
     __type: "TooManyTagsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3433,12 +4070,15 @@ const deserializeAws_json1_1WebhookNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<WebhookNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1WebhookNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1WebhookNotFoundException(
+    output.body,
+    context
+  );
   const contents: WebhookNotFoundException = {
     __type: "WebhookNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3447,12 +4087,15 @@ const deserializeAws_json1_1ActionTypeNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ActionTypeNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ActionTypeNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ActionTypeNotFoundException(
+    output.body,
+    context
+  );
   const contents: ActionTypeNotFoundException = {
     __type: "ActionTypeNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3461,12 +4104,15 @@ const deserializeAws_json1_1InvalidJobStateExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidJobStateException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidJobStateException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidJobStateException(
+    output.body,
+    context
+  );
   const contents: InvalidJobStateException = {
     __type: "InvalidJobStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3475,12 +4121,15 @@ const deserializeAws_json1_1InvalidNonceExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidNonceException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidNonceException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidNonceException(
+    output.body,
+    context
+  );
   const contents: InvalidNonceException = {
     __type: "InvalidNonceException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3489,12 +4138,15 @@ const deserializeAws_json1_1JobNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<JobNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1JobNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1JobNotFoundException(
+    output.body,
+    context
+  );
   const contents: JobNotFoundException = {
     __type: "JobNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3503,12 +4155,15 @@ const deserializeAws_json1_1OutputVariablesSizeExceededExceptionResponse = async
   output: any,
   context: __SerdeContext
 ): Promise<OutputVariablesSizeExceededException> => {
-  const deserialized: any = deserializeAws_json1_1OutputVariablesSizeExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1OutputVariablesSizeExceededException(
+    output.body,
+    context
+  );
   const contents: OutputVariablesSizeExceededException = {
     __type: "OutputVariablesSizeExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3517,12 +4172,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    output.body,
+    context
+  );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3531,12 +4189,15 @@ const deserializeAws_json1_1ValidationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ValidationException> => {
-  const deserialized: any = deserializeAws_json1_1ValidationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ValidationException(
+    output.body,
+    context
+  );
   const contents: ValidationException = {
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -3547,13 +4208,13 @@ const serializeAws_json1_1AcknowledgeJobInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   if (input.nonce !== undefined) {
-    bodyParams['nonce'] = input.nonce;
+    bodyParams["nonce"] = input.nonce;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1AcknowledgeThirdPartyJobInput = (
   input: AcknowledgeThirdPartyJobInput,
@@ -3561,16 +4222,16 @@ const serializeAws_json1_1AcknowledgeThirdPartyJobInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   if (input.nonce !== undefined) {
-    bodyParams['nonce'] = input.nonce;
+    bodyParams["nonce"] = input.nonce;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ActionConfigurationProperty = (
   input: ActionConfigurationProperty,
@@ -3578,28 +4239,28 @@ const serializeAws_json1_1ActionConfigurationProperty = (
 ): any => {
   let bodyParams: any = {};
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.queryable !== undefined) {
-    bodyParams['queryable'] = input.queryable;
+    bodyParams["queryable"] = input.queryable;
   }
   if (input.required !== undefined) {
-    bodyParams['required'] = input.required;
+    bodyParams["required"] = input.required;
   }
   if (input.secret !== undefined) {
-    bodyParams['secret'] = input.secret;
+    bodyParams["secret"] = input.secret;
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ActionConfigurationPropertyList = (
   input: Array<ActionConfigurationProperty>,
@@ -3608,7 +4269,7 @@ const serializeAws_json1_1ActionConfigurationPropertyList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ActionConfigurationProperty(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ActionDeclaration = (
   input: ActionDeclaration,
@@ -3616,34 +4277,46 @@ const serializeAws_json1_1ActionDeclaration = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionTypeId !== undefined) {
-    bodyParams['actionTypeId'] = serializeAws_json1_1ActionTypeId(input.actionTypeId, context);
+    bodyParams["actionTypeId"] = serializeAws_json1_1ActionTypeId(
+      input.actionTypeId,
+      context
+    );
   }
   if (input.configuration !== undefined) {
-    bodyParams['configuration'] = serializeAws_json1_1ActionConfigurationMap(input.configuration, context);
+    bodyParams["configuration"] = serializeAws_json1_1ActionConfigurationMap(
+      input.configuration,
+      context
+    );
   }
   if (input.inputArtifacts !== undefined) {
-    bodyParams['inputArtifacts'] = serializeAws_json1_1InputArtifactList(input.inputArtifacts, context);
+    bodyParams["inputArtifacts"] = serializeAws_json1_1InputArtifactList(
+      input.inputArtifacts,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.namespace !== undefined) {
-    bodyParams['namespace'] = input.namespace;
+    bodyParams["namespace"] = input.namespace;
   }
   if (input.outputArtifacts !== undefined) {
-    bodyParams['outputArtifacts'] = serializeAws_json1_1OutputArtifactList(input.outputArtifacts, context);
+    bodyParams["outputArtifacts"] = serializeAws_json1_1OutputArtifactList(
+      input.outputArtifacts,
+      context
+    );
   }
   if (input.region !== undefined) {
-    bodyParams['region'] = input.region;
+    bodyParams["region"] = input.region;
   }
   if (input.roleArn !== undefined) {
-    bodyParams['roleArn'] = input.roleArn;
+    bodyParams["roleArn"] = input.roleArn;
   }
   if (input.runOrder !== undefined) {
-    bodyParams['runOrder'] = input.runOrder;
+    bodyParams["runOrder"] = input.runOrder;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ActionExecutionFilter = (
   input: ActionExecutionFilter,
@@ -3651,10 +4324,10 @@ const serializeAws_json1_1ActionExecutionFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineExecutionId !== undefined) {
-    bodyParams['pipelineExecutionId'] = input.pipelineExecutionId;
+    bodyParams["pipelineExecutionId"] = input.pipelineExecutionId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ActionRevision = (
   input: ActionRevision,
@@ -3662,16 +4335,16 @@ const serializeAws_json1_1ActionRevision = (
 ): any => {
   let bodyParams: any = {};
   if (input.created !== undefined) {
-    bodyParams['created'] = Math.round(input.created.getTime() / 1000);
+    bodyParams["created"] = Math.round(input.created.getTime() / 1000);
   }
   if (input.revisionChangeId !== undefined) {
-    bodyParams['revisionChangeId'] = input.revisionChangeId;
+    bodyParams["revisionChangeId"] = input.revisionChangeId;
   }
   if (input.revisionId !== undefined) {
-    bodyParams['revisionId'] = input.revisionId;
+    bodyParams["revisionId"] = input.revisionId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ActionTypeSettings = (
   input: ActionTypeSettings,
@@ -3679,19 +4352,19 @@ const serializeAws_json1_1ActionTypeSettings = (
 ): any => {
   let bodyParams: any = {};
   if (input.entityUrlTemplate !== undefined) {
-    bodyParams['entityUrlTemplate'] = input.entityUrlTemplate;
+    bodyParams["entityUrlTemplate"] = input.entityUrlTemplate;
   }
   if (input.executionUrlTemplate !== undefined) {
-    bodyParams['executionUrlTemplate'] = input.executionUrlTemplate;
+    bodyParams["executionUrlTemplate"] = input.executionUrlTemplate;
   }
   if (input.revisionUrlTemplate !== undefined) {
-    bodyParams['revisionUrlTemplate'] = input.revisionUrlTemplate;
+    bodyParams["revisionUrlTemplate"] = input.revisionUrlTemplate;
   }
   if (input.thirdPartyConfigurationUrl !== undefined) {
-    bodyParams['thirdPartyConfigurationUrl'] = input.thirdPartyConfigurationUrl;
+    bodyParams["thirdPartyConfigurationUrl"] = input.thirdPartyConfigurationUrl;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ApprovalResult = (
   input: ApprovalResult,
@@ -3699,13 +4372,13 @@ const serializeAws_json1_1ApprovalResult = (
 ): any => {
   let bodyParams: any = {};
   if (input.status !== undefined) {
-    bodyParams['status'] = input.status;
+    bodyParams["status"] = input.status;
   }
   if (input.summary !== undefined) {
-    bodyParams['summary'] = input.summary;
+    bodyParams["summary"] = input.summary;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ArtifactDetails = (
   input: ArtifactDetails,
@@ -3713,13 +4386,13 @@ const serializeAws_json1_1ArtifactDetails = (
 ): any => {
   let bodyParams: any = {};
   if (input.maximumCount !== undefined) {
-    bodyParams['maximumCount'] = input.maximumCount;
+    bodyParams["maximumCount"] = input.maximumCount;
   }
   if (input.minimumCount !== undefined) {
-    bodyParams['minimumCount'] = input.minimumCount;
+    bodyParams["minimumCount"] = input.minimumCount;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ArtifactStore = (
   input: ArtifactStore,
@@ -3727,16 +4400,19 @@ const serializeAws_json1_1ArtifactStore = (
 ): any => {
   let bodyParams: any = {};
   if (input.encryptionKey !== undefined) {
-    bodyParams['encryptionKey'] = serializeAws_json1_1EncryptionKey(input.encryptionKey, context);
+    bodyParams["encryptionKey"] = serializeAws_json1_1EncryptionKey(
+      input.encryptionKey,
+      context
+    );
   }
   if (input.location !== undefined) {
-    bodyParams['location'] = input.location;
+    bodyParams["location"] = input.location;
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ArtifactStoreMap = (
   input: { [key: string]: ArtifactStore },
@@ -3747,7 +4423,7 @@ const serializeAws_json1_1ArtifactStoreMap = (
     mapParams[key] = serializeAws_json1_1ArtifactStore(input[key], context);
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1BlockerDeclaration = (
   input: BlockerDeclaration,
@@ -3755,13 +4431,13 @@ const serializeAws_json1_1BlockerDeclaration = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateCustomActionTypeInput = (
   input: CreateCustomActionTypeInput,
@@ -3769,31 +4445,45 @@ const serializeAws_json1_1CreateCustomActionTypeInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.category !== undefined) {
-    bodyParams['category'] = input.category;
+    bodyParams["category"] = input.category;
   }
   if (input.configurationProperties !== undefined) {
-    bodyParams['configurationProperties'] = serializeAws_json1_1ActionConfigurationPropertyList(input.configurationProperties, context);
+    bodyParams[
+      "configurationProperties"
+    ] = serializeAws_json1_1ActionConfigurationPropertyList(
+      input.configurationProperties,
+      context
+    );
   }
   if (input.inputArtifactDetails !== undefined) {
-    bodyParams['inputArtifactDetails'] = serializeAws_json1_1ArtifactDetails(input.inputArtifactDetails, context);
+    bodyParams["inputArtifactDetails"] = serializeAws_json1_1ArtifactDetails(
+      input.inputArtifactDetails,
+      context
+    );
   }
   if (input.outputArtifactDetails !== undefined) {
-    bodyParams['outputArtifactDetails'] = serializeAws_json1_1ArtifactDetails(input.outputArtifactDetails, context);
+    bodyParams["outputArtifactDetails"] = serializeAws_json1_1ArtifactDetails(
+      input.outputArtifactDetails,
+      context
+    );
   }
   if (input.provider !== undefined) {
-    bodyParams['provider'] = input.provider;
+    bodyParams["provider"] = input.provider;
   }
   if (input.settings !== undefined) {
-    bodyParams['settings'] = serializeAws_json1_1ActionTypeSettings(input.settings, context);
+    bodyParams["settings"] = serializeAws_json1_1ActionTypeSettings(
+      input.settings,
+      context
+    );
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreatePipelineInput = (
   input: CreatePipelineInput,
@@ -3801,13 +4491,16 @@ const serializeAws_json1_1CreatePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipeline !== undefined) {
-    bodyParams['pipeline'] = serializeAws_json1_1PipelineDeclaration(input.pipeline, context);
+    bodyParams["pipeline"] = serializeAws_json1_1PipelineDeclaration(
+      input.pipeline,
+      context
+    );
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteCustomActionTypeInput = (
   input: DeleteCustomActionTypeInput,
@@ -3815,16 +4508,16 @@ const serializeAws_json1_1DeleteCustomActionTypeInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.category !== undefined) {
-    bodyParams['category'] = input.category;
+    bodyParams["category"] = input.category;
   }
   if (input.provider !== undefined) {
-    bodyParams['provider'] = input.provider;
+    bodyParams["provider"] = input.provider;
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeletePipelineInput = (
   input: DeletePipelineInput,
@@ -3832,10 +4525,10 @@ const serializeAws_json1_1DeletePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteWebhookInput = (
   input: DeleteWebhookInput,
@@ -3843,10 +4536,10 @@ const serializeAws_json1_1DeleteWebhookInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeregisterWebhookWithThirdPartyInput = (
   input: DeregisterWebhookWithThirdPartyInput,
@@ -3854,10 +4547,10 @@ const serializeAws_json1_1DeregisterWebhookWithThirdPartyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.webhookName !== undefined) {
-    bodyParams['webhookName'] = input.webhookName;
+    bodyParams["webhookName"] = input.webhookName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DisableStageTransitionInput = (
   input: DisableStageTransitionInput,
@@ -3865,19 +4558,19 @@ const serializeAws_json1_1DisableStageTransitionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   if (input.reason !== undefined) {
-    bodyParams['reason'] = input.reason;
+    bodyParams["reason"] = input.reason;
   }
   if (input.stageName !== undefined) {
-    bodyParams['stageName'] = input.stageName;
+    bodyParams["stageName"] = input.stageName;
   }
   if (input.transitionType !== undefined) {
-    bodyParams['transitionType'] = input.transitionType;
+    bodyParams["transitionType"] = input.transitionType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EnableStageTransitionInput = (
   input: EnableStageTransitionInput,
@@ -3885,16 +4578,16 @@ const serializeAws_json1_1EnableStageTransitionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   if (input.stageName !== undefined) {
-    bodyParams['stageName'] = input.stageName;
+    bodyParams["stageName"] = input.stageName;
   }
   if (input.transitionType !== undefined) {
-    bodyParams['transitionType'] = input.transitionType;
+    bodyParams["transitionType"] = input.transitionType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetJobDetailsInput = (
   input: GetJobDetailsInput,
@@ -3902,10 +4595,10 @@ const serializeAws_json1_1GetJobDetailsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPipelineExecutionInput = (
   input: GetPipelineExecutionInput,
@@ -3913,13 +4606,13 @@ const serializeAws_json1_1GetPipelineExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineExecutionId !== undefined) {
-    bodyParams['pipelineExecutionId'] = input.pipelineExecutionId;
+    bodyParams["pipelineExecutionId"] = input.pipelineExecutionId;
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPipelineInput = (
   input: GetPipelineInput,
@@ -3927,13 +4620,13 @@ const serializeAws_json1_1GetPipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPipelineStateInput = (
   input: GetPipelineStateInput,
@@ -3941,10 +4634,10 @@ const serializeAws_json1_1GetPipelineStateInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetThirdPartyJobDetailsInput = (
   input: GetThirdPartyJobDetailsInput,
@@ -3952,13 +4645,13 @@ const serializeAws_json1_1GetThirdPartyJobDetailsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InputArtifact = (
   input: InputArtifact,
@@ -3966,10 +4659,10 @@ const serializeAws_json1_1InputArtifact = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InputArtifactList = (
   input: Array<InputArtifact>,
@@ -3978,7 +4671,7 @@ const serializeAws_json1_1InputArtifactList = (
   return (input || []).map(entry =>
     serializeAws_json1_1InputArtifact(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ListActionExecutionsInput = (
   input: ListActionExecutionsInput,
@@ -3986,19 +4679,22 @@ const serializeAws_json1_1ListActionExecutionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.filter !== undefined) {
-    bodyParams['filter'] = serializeAws_json1_1ActionExecutionFilter(input.filter, context);
+    bodyParams["filter"] = serializeAws_json1_1ActionExecutionFilter(
+      input.filter,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListActionTypesInput = (
   input: ListActionTypesInput,
@@ -4006,13 +4702,13 @@ const serializeAws_json1_1ListActionTypesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionOwnerFilter !== undefined) {
-    bodyParams['actionOwnerFilter'] = input.actionOwnerFilter;
+    bodyParams["actionOwnerFilter"] = input.actionOwnerFilter;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListPipelineExecutionsInput = (
   input: ListPipelineExecutionsInput,
@@ -4020,16 +4716,16 @@ const serializeAws_json1_1ListPipelineExecutionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListPipelinesInput = (
   input: ListPipelinesInput,
@@ -4037,10 +4733,10 @@ const serializeAws_json1_1ListPipelinesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
@@ -4048,16 +4744,16 @@ const serializeAws_json1_1ListTagsForResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListWebhooksInput = (
   input: ListWebhooksInput,
@@ -4065,13 +4761,13 @@ const serializeAws_json1_1ListWebhooksInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1OutputArtifact = (
   input: OutputArtifact,
@@ -4079,10 +4775,10 @@ const serializeAws_json1_1OutputArtifact = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1OutputArtifactList = (
   input: Array<OutputArtifact>,
@@ -4091,7 +4787,7 @@ const serializeAws_json1_1OutputArtifactList = (
   return (input || []).map(entry =>
     serializeAws_json1_1OutputArtifact(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PipelineDeclaration = (
   input: PipelineDeclaration,
@@ -4099,25 +4795,34 @@ const serializeAws_json1_1PipelineDeclaration = (
 ): any => {
   let bodyParams: any = {};
   if (input.artifactStore !== undefined) {
-    bodyParams['artifactStore'] = serializeAws_json1_1ArtifactStore(input.artifactStore, context);
+    bodyParams["artifactStore"] = serializeAws_json1_1ArtifactStore(
+      input.artifactStore,
+      context
+    );
   }
   if (input.artifactStores !== undefined) {
-    bodyParams['artifactStores'] = serializeAws_json1_1ArtifactStoreMap(input.artifactStores, context);
+    bodyParams["artifactStores"] = serializeAws_json1_1ArtifactStoreMap(
+      input.artifactStores,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.roleArn !== undefined) {
-    bodyParams['roleArn'] = input.roleArn;
+    bodyParams["roleArn"] = input.roleArn;
   }
   if (input.stages !== undefined) {
-    bodyParams['stages'] = serializeAws_json1_1PipelineStageDeclarationList(input.stages, context);
+    bodyParams["stages"] = serializeAws_json1_1PipelineStageDeclarationList(
+      input.stages,
+      context
+    );
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PipelineStageDeclarationList = (
   input: Array<StageDeclaration>,
@@ -4126,7 +4831,7 @@ const serializeAws_json1_1PipelineStageDeclarationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1StageDeclaration(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PollForJobsInput = (
   input: PollForJobsInput,
@@ -4134,16 +4839,22 @@ const serializeAws_json1_1PollForJobsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionTypeId !== undefined) {
-    bodyParams['actionTypeId'] = serializeAws_json1_1ActionTypeId(input.actionTypeId, context);
+    bodyParams["actionTypeId"] = serializeAws_json1_1ActionTypeId(
+      input.actionTypeId,
+      context
+    );
   }
   if (input.maxBatchSize !== undefined) {
-    bodyParams['maxBatchSize'] = input.maxBatchSize;
+    bodyParams["maxBatchSize"] = input.maxBatchSize;
   }
   if (input.queryParam !== undefined) {
-    bodyParams['queryParam'] = serializeAws_json1_1QueryParamMap(input.queryParam, context);
+    bodyParams["queryParam"] = serializeAws_json1_1QueryParamMap(
+      input.queryParam,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PollForThirdPartyJobsInput = (
   input: PollForThirdPartyJobsInput,
@@ -4151,13 +4862,16 @@ const serializeAws_json1_1PollForThirdPartyJobsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionTypeId !== undefined) {
-    bodyParams['actionTypeId'] = serializeAws_json1_1ActionTypeId(input.actionTypeId, context);
+    bodyParams["actionTypeId"] = serializeAws_json1_1ActionTypeId(
+      input.actionTypeId,
+      context
+    );
   }
   if (input.maxBatchSize !== undefined) {
-    bodyParams['maxBatchSize'] = input.maxBatchSize;
+    bodyParams["maxBatchSize"] = input.maxBatchSize;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutActionRevisionInput = (
   input: PutActionRevisionInput,
@@ -4165,19 +4879,22 @@ const serializeAws_json1_1PutActionRevisionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionName !== undefined) {
-    bodyParams['actionName'] = input.actionName;
+    bodyParams["actionName"] = input.actionName;
   }
   if (input.actionRevision !== undefined) {
-    bodyParams['actionRevision'] = serializeAws_json1_1ActionRevision(input.actionRevision, context);
+    bodyParams["actionRevision"] = serializeAws_json1_1ActionRevision(
+      input.actionRevision,
+      context
+    );
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   if (input.stageName !== undefined) {
-    bodyParams['stageName'] = input.stageName;
+    bodyParams["stageName"] = input.stageName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutApprovalResultInput = (
   input: PutApprovalResultInput,
@@ -4185,22 +4902,25 @@ const serializeAws_json1_1PutApprovalResultInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.actionName !== undefined) {
-    bodyParams['actionName'] = input.actionName;
+    bodyParams["actionName"] = input.actionName;
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   if (input.result !== undefined) {
-    bodyParams['result'] = serializeAws_json1_1ApprovalResult(input.result, context);
+    bodyParams["result"] = serializeAws_json1_1ApprovalResult(
+      input.result,
+      context
+    );
   }
   if (input.stageName !== undefined) {
-    bodyParams['stageName'] = input.stageName;
+    bodyParams["stageName"] = input.stageName;
   }
   if (input.token !== undefined) {
-    bodyParams['token'] = input.token;
+    bodyParams["token"] = input.token;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutJobFailureResultInput = (
   input: PutJobFailureResultInput,
@@ -4208,13 +4928,16 @@ const serializeAws_json1_1PutJobFailureResultInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.failureDetails !== undefined) {
-    bodyParams['failureDetails'] = serializeAws_json1_1FailureDetails(input.failureDetails, context);
+    bodyParams["failureDetails"] = serializeAws_json1_1FailureDetails(
+      input.failureDetails,
+      context
+    );
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutJobSuccessResultInput = (
   input: PutJobSuccessResultInput,
@@ -4222,22 +4945,31 @@ const serializeAws_json1_1PutJobSuccessResultInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.continuationToken !== undefined) {
-    bodyParams['continuationToken'] = input.continuationToken;
+    bodyParams["continuationToken"] = input.continuationToken;
   }
   if (input.currentRevision !== undefined) {
-    bodyParams['currentRevision'] = serializeAws_json1_1CurrentRevision(input.currentRevision, context);
+    bodyParams["currentRevision"] = serializeAws_json1_1CurrentRevision(
+      input.currentRevision,
+      context
+    );
   }
   if (input.executionDetails !== undefined) {
-    bodyParams['executionDetails'] = serializeAws_json1_1ExecutionDetails(input.executionDetails, context);
+    bodyParams["executionDetails"] = serializeAws_json1_1ExecutionDetails(
+      input.executionDetails,
+      context
+    );
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   if (input.outputVariables !== undefined) {
-    bodyParams['outputVariables'] = serializeAws_json1_1OutputVariablesMap(input.outputVariables, context);
+    bodyParams["outputVariables"] = serializeAws_json1_1OutputVariablesMap(
+      input.outputVariables,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutThirdPartyJobFailureResultInput = (
   input: PutThirdPartyJobFailureResultInput,
@@ -4245,16 +4977,19 @@ const serializeAws_json1_1PutThirdPartyJobFailureResultInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.failureDetails !== undefined) {
-    bodyParams['failureDetails'] = serializeAws_json1_1FailureDetails(input.failureDetails, context);
+    bodyParams["failureDetails"] = serializeAws_json1_1FailureDetails(
+      input.failureDetails,
+      context
+    );
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutThirdPartyJobSuccessResultInput = (
   input: PutThirdPartyJobSuccessResultInput,
@@ -4262,22 +4997,28 @@ const serializeAws_json1_1PutThirdPartyJobSuccessResultInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.continuationToken !== undefined) {
-    bodyParams['continuationToken'] = input.continuationToken;
+    bodyParams["continuationToken"] = input.continuationToken;
   }
   if (input.currentRevision !== undefined) {
-    bodyParams['currentRevision'] = serializeAws_json1_1CurrentRevision(input.currentRevision, context);
+    bodyParams["currentRevision"] = serializeAws_json1_1CurrentRevision(
+      input.currentRevision,
+      context
+    );
   }
   if (input.executionDetails !== undefined) {
-    bodyParams['executionDetails'] = serializeAws_json1_1ExecutionDetails(input.executionDetails, context);
+    bodyParams["executionDetails"] = serializeAws_json1_1ExecutionDetails(
+      input.executionDetails,
+      context
+    );
   }
   if (input.jobId !== undefined) {
-    bodyParams['jobId'] = input.jobId;
+    bodyParams["jobId"] = input.jobId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutWebhookInput = (
   input: PutWebhookInput,
@@ -4285,13 +5026,16 @@ const serializeAws_json1_1PutWebhookInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
   if (input.webhook !== undefined) {
-    bodyParams['webhook'] = serializeAws_json1_1WebhookDefinition(input.webhook, context);
+    bodyParams["webhook"] = serializeAws_json1_1WebhookDefinition(
+      input.webhook,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RegisterWebhookWithThirdPartyInput = (
   input: RegisterWebhookWithThirdPartyInput,
@@ -4299,10 +5043,10 @@ const serializeAws_json1_1RegisterWebhookWithThirdPartyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.webhookName !== undefined) {
-    bodyParams['webhookName'] = input.webhookName;
+    bodyParams["webhookName"] = input.webhookName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RetryStageExecutionInput = (
   input: RetryStageExecutionInput,
@@ -4310,19 +5054,19 @@ const serializeAws_json1_1RetryStageExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineExecutionId !== undefined) {
-    bodyParams['pipelineExecutionId'] = input.pipelineExecutionId;
+    bodyParams["pipelineExecutionId"] = input.pipelineExecutionId;
   }
   if (input.pipelineName !== undefined) {
-    bodyParams['pipelineName'] = input.pipelineName;
+    bodyParams["pipelineName"] = input.pipelineName;
   }
   if (input.retryMode !== undefined) {
-    bodyParams['retryMode'] = input.retryMode;
+    bodyParams["retryMode"] = input.retryMode;
   }
   if (input.stageName !== undefined) {
-    bodyParams['stageName'] = input.stageName;
+    bodyParams["stageName"] = input.stageName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StageActionDeclarationList = (
   input: Array<ActionDeclaration>,
@@ -4331,7 +5075,7 @@ const serializeAws_json1_1StageActionDeclarationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ActionDeclaration(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1StageBlockerDeclarationList = (
   input: Array<BlockerDeclaration>,
@@ -4340,7 +5084,7 @@ const serializeAws_json1_1StageBlockerDeclarationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1BlockerDeclaration(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1StageDeclaration = (
   input: StageDeclaration,
@@ -4348,16 +5092,22 @@ const serializeAws_json1_1StageDeclaration = (
 ): any => {
   let bodyParams: any = {};
   if (input.actions !== undefined) {
-    bodyParams['actions'] = serializeAws_json1_1StageActionDeclarationList(input.actions, context);
+    bodyParams["actions"] = serializeAws_json1_1StageActionDeclarationList(
+      input.actions,
+      context
+    );
   }
   if (input.blockers !== undefined) {
-    bodyParams['blockers'] = serializeAws_json1_1StageBlockerDeclarationList(input.blockers, context);
+    bodyParams["blockers"] = serializeAws_json1_1StageBlockerDeclarationList(
+      input.blockers,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StartPipelineExecutionInput = (
   input: StartPipelineExecutionInput,
@@ -4365,45 +5115,38 @@ const serializeAws_json1_1StartPipelineExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.clientRequestToken !== undefined) {
-    bodyParams['clientRequestToken'] = input.clientRequestToken;
+    bodyParams["clientRequestToken"] = input.clientRequestToken;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
-const serializeAws_json1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams['value'] = input.value;
+    bodyParams["value"] = input.value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
 
 const serializeAws_json1_1TagResourceInput = (
   input: TagResourceInput,
@@ -4411,13 +5154,13 @@ const serializeAws_json1_1TagResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UntagResourceInput = (
   input: UntagResourceInput,
@@ -4425,13 +5168,16 @@ const serializeAws_json1_1UntagResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tagKeys !== undefined) {
-    bodyParams['tagKeys'] = serializeAws_json1_1TagKeyList(input.tagKeys, context);
+    bodyParams["tagKeys"] = serializeAws_json1_1TagKeyList(
+      input.tagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdatePipelineInput = (
   input: UpdatePipelineInput,
@@ -4439,10 +5185,13 @@ const serializeAws_json1_1UpdatePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipeline !== undefined) {
-    bodyParams['pipeline'] = serializeAws_json1_1PipelineDeclaration(input.pipeline, context);
+    bodyParams["pipeline"] = serializeAws_json1_1PipelineDeclaration(
+      input.pipeline,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebhookAuthConfiguration = (
   input: WebhookAuthConfiguration,
@@ -4450,13 +5199,13 @@ const serializeAws_json1_1WebhookAuthConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AllowedIPRange !== undefined) {
-    bodyParams['AllowedIPRange'] = input.AllowedIPRange;
+    bodyParams["AllowedIPRange"] = input.AllowedIPRange;
   }
   if (input.SecretToken !== undefined) {
-    bodyParams['SecretToken'] = input.SecretToken;
+    bodyParams["SecretToken"] = input.SecretToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebhookDefinition = (
   input: WebhookDefinition,
@@ -4464,25 +5213,33 @@ const serializeAws_json1_1WebhookDefinition = (
 ): any => {
   let bodyParams: any = {};
   if (input.authentication !== undefined) {
-    bodyParams['authentication'] = input.authentication;
+    bodyParams["authentication"] = input.authentication;
   }
   if (input.authenticationConfiguration !== undefined) {
-    bodyParams['authenticationConfiguration'] = serializeAws_json1_1WebhookAuthConfiguration(input.authenticationConfiguration, context);
+    bodyParams[
+      "authenticationConfiguration"
+    ] = serializeAws_json1_1WebhookAuthConfiguration(
+      input.authenticationConfiguration,
+      context
+    );
   }
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_json1_1WebhookFilters(input.filters, context);
+    bodyParams["filters"] = serializeAws_json1_1WebhookFilters(
+      input.filters,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.targetAction !== undefined) {
-    bodyParams['targetAction'] = input.targetAction;
+    bodyParams["targetAction"] = input.targetAction;
   }
   if (input.targetPipeline !== undefined) {
-    bodyParams['targetPipeline'] = input.targetPipeline;
+    bodyParams["targetPipeline"] = input.targetPipeline;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebhookFilterRule = (
   input: WebhookFilterRule,
@@ -4490,13 +5247,13 @@ const serializeAws_json1_1WebhookFilterRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.jsonPath !== undefined) {
-    bodyParams['jsonPath'] = input.jsonPath;
+    bodyParams["jsonPath"] = input.jsonPath;
   }
   if (input.matchEquals !== undefined) {
-    bodyParams['matchEquals'] = input.matchEquals;
+    bodyParams["matchEquals"] = input.matchEquals;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1WebhookFilters = (
   input: Array<WebhookFilterRule>,
@@ -4505,7 +5262,7 @@ const serializeAws_json1_1WebhookFilters = (
   return (input || []).map(entry =>
     serializeAws_json1_1WebhookFilterRule(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ActionConfigurationMap = (
   input: { [key: string]: string },
@@ -4516,7 +5273,7 @@ const serializeAws_json1_1ActionConfigurationMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1ActionTypeId = (
   input: ActionTypeId,
@@ -4524,19 +5281,19 @@ const serializeAws_json1_1ActionTypeId = (
 ): any => {
   let bodyParams: any = {};
   if (input.category !== undefined) {
-    bodyParams['category'] = input.category;
+    bodyParams["category"] = input.category;
   }
   if (input.owner !== undefined) {
-    bodyParams['owner'] = input.owner;
+    bodyParams["owner"] = input.owner;
   }
   if (input.provider !== undefined) {
-    bodyParams['provider'] = input.provider;
+    bodyParams["provider"] = input.provider;
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CurrentRevision = (
   input: CurrentRevision,
@@ -4544,19 +5301,19 @@ const serializeAws_json1_1CurrentRevision = (
 ): any => {
   let bodyParams: any = {};
   if (input.changeIdentifier !== undefined) {
-    bodyParams['changeIdentifier'] = input.changeIdentifier;
+    bodyParams["changeIdentifier"] = input.changeIdentifier;
   }
   if (input.created !== undefined) {
-    bodyParams['created'] = Math.round(input.created.getTime() / 1000);
+    bodyParams["created"] = Math.round(input.created.getTime() / 1000);
   }
   if (input.revision !== undefined) {
-    bodyParams['revision'] = input.revision;
+    bodyParams["revision"] = input.revision;
   }
   if (input.revisionSummary !== undefined) {
-    bodyParams['revisionSummary'] = input.revisionSummary;
+    bodyParams["revisionSummary"] = input.revisionSummary;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EncryptionKey = (
   input: EncryptionKey,
@@ -4564,13 +5321,13 @@ const serializeAws_json1_1EncryptionKey = (
 ): any => {
   let bodyParams: any = {};
   if (input.id !== undefined) {
-    bodyParams['id'] = input.id;
+    bodyParams["id"] = input.id;
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ExecutionDetails = (
   input: ExecutionDetails,
@@ -4578,16 +5335,16 @@ const serializeAws_json1_1ExecutionDetails = (
 ): any => {
   let bodyParams: any = {};
   if (input.externalExecutionId !== undefined) {
-    bodyParams['externalExecutionId'] = input.externalExecutionId;
+    bodyParams["externalExecutionId"] = input.externalExecutionId;
   }
   if (input.percentComplete !== undefined) {
-    bodyParams['percentComplete'] = input.percentComplete;
+    bodyParams["percentComplete"] = input.percentComplete;
   }
   if (input.summary !== undefined) {
-    bodyParams['summary'] = input.summary;
+    bodyParams["summary"] = input.summary;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1FailureDetails = (
   input: FailureDetails,
@@ -4595,16 +5352,16 @@ const serializeAws_json1_1FailureDetails = (
 ): any => {
   let bodyParams: any = {};
   if (input.externalExecutionId !== undefined) {
-    bodyParams['externalExecutionId'] = input.externalExecutionId;
+    bodyParams["externalExecutionId"] = input.externalExecutionId;
   }
   if (input.message !== undefined) {
-    bodyParams['message'] = input.message;
+    bodyParams["message"] = input.message;
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1OutputVariablesMap = (
   input: { [key: string]: string },
@@ -4615,7 +5372,7 @@ const serializeAws_json1_1OutputVariablesMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1QueryParamMap = (
   input: { [key: string]: string },
@@ -4626,7 +5383,7 @@ const serializeAws_json1_1QueryParamMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1AcknowledgeJobOutput = (
   output: any,
@@ -4634,13 +5391,13 @@ const deserializeAws_json1_1AcknowledgeJobOutput = (
 ): AcknowledgeJobOutput => {
   let contents: any = {
     __type: "AcknowledgeJobOutput",
-    status: undefined,
+    status: undefined
   };
   if (output.status !== undefined) {
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
   output: any,
@@ -4648,13 +5405,13 @@ const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
 ): AcknowledgeThirdPartyJobOutput => {
   let contents: any = {
     __type: "AcknowledgeThirdPartyJobOutput",
-    status: undefined,
+    status: undefined
   };
   if (output.status !== undefined) {
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionConfigurationProperty = (
   output: any,
@@ -4668,7 +5425,7 @@ const deserializeAws_json1_1ActionConfigurationProperty = (
     queryable: undefined,
     required: undefined,
     secret: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -4692,7 +5449,7 @@ const deserializeAws_json1_1ActionConfigurationProperty = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionConfigurationPropertyList = (
   output: any,
@@ -4701,7 +5458,7 @@ const deserializeAws_json1_1ActionConfigurationPropertyList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionConfigurationProperty(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ActionDeclaration = (
   output: any,
@@ -4717,16 +5474,25 @@ const deserializeAws_json1_1ActionDeclaration = (
     outputArtifacts: undefined,
     region: undefined,
     roleArn: undefined,
-    runOrder: undefined,
+    runOrder: undefined
   };
   if (output.actionTypeId !== undefined) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(output.actionTypeId, context);
+    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
+      output.actionTypeId,
+      context
+    );
   }
   if (output.configuration !== undefined) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(output.configuration, context);
+    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
+      output.configuration,
+      context
+    );
   }
   if (output.inputArtifacts !== undefined) {
-    contents.inputArtifacts = deserializeAws_json1_1InputArtifactList(output.inputArtifacts, context);
+    contents.inputArtifacts = deserializeAws_json1_1InputArtifactList(
+      output.inputArtifacts,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -4735,7 +5501,10 @@ const deserializeAws_json1_1ActionDeclaration = (
     contents.namespace = output.namespace;
   }
   if (output.outputArtifacts !== undefined) {
-    contents.outputArtifacts = deserializeAws_json1_1OutputArtifactList(output.outputArtifacts, context);
+    contents.outputArtifacts = deserializeAws_json1_1OutputArtifactList(
+      output.outputArtifacts,
+      context
+    );
   }
   if (output.region !== undefined) {
     contents.region = output.region;
@@ -4747,7 +5516,7 @@ const deserializeAws_json1_1ActionDeclaration = (
     contents.runOrder = output.runOrder;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionExecution = (
   output: any,
@@ -4763,10 +5532,13 @@ const deserializeAws_json1_1ActionExecution = (
     percentComplete: undefined,
     status: undefined,
     summary: undefined,
-    token: undefined,
+    token: undefined
   };
   if (output.errorDetails !== undefined) {
-    contents.errorDetails = deserializeAws_json1_1ErrorDetails(output.errorDetails, context);
+    contents.errorDetails = deserializeAws_json1_1ErrorDetails(
+      output.errorDetails,
+      context
+    );
   }
   if (output.externalExecutionId !== undefined) {
     contents.externalExecutionId = output.externalExecutionId;
@@ -4775,7 +5547,11 @@ const deserializeAws_json1_1ActionExecution = (
     contents.externalExecutionUrl = output.externalExecutionUrl;
   }
   if (output.lastStatusChange !== undefined) {
-    contents.lastStatusChange = new Date(output.lastStatusChange % 1 != 0 ? Math.round(output.lastStatusChange * 1000) : output.lastStatusChange);
+    contents.lastStatusChange = new Date(
+      output.lastStatusChange % 1 != 0
+        ? Math.round(output.lastStatusChange * 1000)
+        : output.lastStatusChange
+    );
   }
   if (output.lastUpdatedBy !== undefined) {
     contents.lastUpdatedBy = output.lastUpdatedBy;
@@ -4793,7 +5569,7 @@ const deserializeAws_json1_1ActionExecution = (
     contents.token = output.token;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionExecutionDetail = (
   output: any,
@@ -4810,7 +5586,7 @@ const deserializeAws_json1_1ActionExecutionDetail = (
     pipelineVersion: undefined,
     stageName: undefined,
     startTime: undefined,
-    status: undefined,
+    status: undefined
   };
   if (output.actionExecutionId !== undefined) {
     contents.actionExecutionId = output.actionExecutionId;
@@ -4819,13 +5595,23 @@ const deserializeAws_json1_1ActionExecutionDetail = (
     contents.actionName = output.actionName;
   }
   if (output.input !== undefined) {
-    contents.input = deserializeAws_json1_1ActionExecutionInput(output.input, context);
+    contents.input = deserializeAws_json1_1ActionExecutionInput(
+      output.input,
+      context
+    );
   }
   if (output.lastUpdateTime !== undefined) {
-    contents.lastUpdateTime = new Date(output.lastUpdateTime % 1 != 0 ? Math.round(output.lastUpdateTime * 1000) : output.lastUpdateTime);
+    contents.lastUpdateTime = new Date(
+      output.lastUpdateTime % 1 != 0
+        ? Math.round(output.lastUpdateTime * 1000)
+        : output.lastUpdateTime
+    );
   }
   if (output.output !== undefined) {
-    contents.output = deserializeAws_json1_1ActionExecutionOutput(output.output, context);
+    contents.output = deserializeAws_json1_1ActionExecutionOutput(
+      output.output,
+      context
+    );
   }
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
@@ -4837,13 +5623,17 @@ const deserializeAws_json1_1ActionExecutionDetail = (
     contents.stageName = output.stageName;
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(output.startTime % 1 != 0 ? Math.round(output.startTime * 1000) : output.startTime);
+    contents.startTime = new Date(
+      output.startTime % 1 != 0
+        ? Math.round(output.startTime * 1000)
+        : output.startTime
+    );
   }
   if (output.status !== undefined) {
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionExecutionDetailList = (
   output: any,
@@ -4852,7 +5642,7 @@ const deserializeAws_json1_1ActionExecutionDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionExecutionDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ActionExecutionInput = (
   output: any,
@@ -4866,16 +5656,25 @@ const deserializeAws_json1_1ActionExecutionInput = (
     namespace: undefined,
     region: undefined,
     resolvedConfiguration: undefined,
-    roleArn: undefined,
+    roleArn: undefined
   };
   if (output.actionTypeId !== undefined) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(output.actionTypeId, context);
+    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
+      output.actionTypeId,
+      context
+    );
   }
   if (output.configuration !== undefined) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(output.configuration, context);
+    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
+      output.configuration,
+      context
+    );
   }
   if (output.inputArtifacts !== undefined) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactDetailList(output.inputArtifacts, context);
+    contents.inputArtifacts = deserializeAws_json1_1ArtifactDetailList(
+      output.inputArtifacts,
+      context
+    );
   }
   if (output.namespace !== undefined) {
     contents.namespace = output.namespace;
@@ -4884,13 +5683,16 @@ const deserializeAws_json1_1ActionExecutionInput = (
     contents.region = output.region;
   }
   if (output.resolvedConfiguration !== undefined) {
-    contents.resolvedConfiguration = deserializeAws_json1_1ResolvedActionConfigurationMap(output.resolvedConfiguration, context);
+    contents.resolvedConfiguration = deserializeAws_json1_1ResolvedActionConfigurationMap(
+      output.resolvedConfiguration,
+      context
+    );
   }
   if (output.roleArn !== undefined) {
     contents.roleArn = output.roleArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionExecutionOutput = (
   output: any,
@@ -4900,19 +5702,28 @@ const deserializeAws_json1_1ActionExecutionOutput = (
     __type: "ActionExecutionOutput",
     executionResult: undefined,
     outputArtifacts: undefined,
-    outputVariables: undefined,
+    outputVariables: undefined
   };
   if (output.executionResult !== undefined) {
-    contents.executionResult = deserializeAws_json1_1ActionExecutionResult(output.executionResult, context);
+    contents.executionResult = deserializeAws_json1_1ActionExecutionResult(
+      output.executionResult,
+      context
+    );
   }
   if (output.outputArtifacts !== undefined) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactDetailList(output.outputArtifacts, context);
+    contents.outputArtifacts = deserializeAws_json1_1ArtifactDetailList(
+      output.outputArtifacts,
+      context
+    );
   }
   if (output.outputVariables !== undefined) {
-    contents.outputVariables = deserializeAws_json1_1OutputVariablesMap(output.outputVariables, context);
+    contents.outputVariables = deserializeAws_json1_1OutputVariablesMap(
+      output.outputVariables,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionExecutionResult = (
   output: any,
@@ -4922,7 +5733,7 @@ const deserializeAws_json1_1ActionExecutionResult = (
     __type: "ActionExecutionResult",
     externalExecutionId: undefined,
     externalExecutionSummary: undefined,
-    externalExecutionUrl: undefined,
+    externalExecutionUrl: undefined
   };
   if (output.externalExecutionId !== undefined) {
     contents.externalExecutionId = output.externalExecutionId;
@@ -4934,7 +5745,7 @@ const deserializeAws_json1_1ActionExecutionResult = (
     contents.externalExecutionUrl = output.externalExecutionUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionNotFoundException = (
   output: any,
@@ -4942,13 +5753,13 @@ const deserializeAws_json1_1ActionNotFoundException = (
 ): ActionNotFoundException => {
   let contents: any = {
     __type: "ActionNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionRevision = (
   output: any,
@@ -4958,10 +5769,14 @@ const deserializeAws_json1_1ActionRevision = (
     __type: "ActionRevision",
     created: undefined,
     revisionChangeId: undefined,
-    revisionId: undefined,
+    revisionId: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(output.created % 1 != 0 ? Math.round(output.created * 1000) : output.created);
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
   }
   if (output.revisionChangeId !== undefined) {
     contents.revisionChangeId = output.revisionChangeId;
@@ -4970,7 +5785,7 @@ const deserializeAws_json1_1ActionRevision = (
     contents.revisionId = output.revisionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionState = (
   output: any,
@@ -4982,25 +5797,31 @@ const deserializeAws_json1_1ActionState = (
     currentRevision: undefined,
     entityUrl: undefined,
     latestExecution: undefined,
-    revisionUrl: undefined,
+    revisionUrl: undefined
   };
   if (output.actionName !== undefined) {
     contents.actionName = output.actionName;
   }
   if (output.currentRevision !== undefined) {
-    contents.currentRevision = deserializeAws_json1_1ActionRevision(output.currentRevision, context);
+    contents.currentRevision = deserializeAws_json1_1ActionRevision(
+      output.currentRevision,
+      context
+    );
   }
   if (output.entityUrl !== undefined) {
     contents.entityUrl = output.entityUrl;
   }
   if (output.latestExecution !== undefined) {
-    contents.latestExecution = deserializeAws_json1_1ActionExecution(output.latestExecution, context);
+    contents.latestExecution = deserializeAws_json1_1ActionExecution(
+      output.latestExecution,
+      context
+    );
   }
   if (output.revisionUrl !== undefined) {
     contents.revisionUrl = output.revisionUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionStateList = (
   output: any,
@@ -5009,7 +5830,7 @@ const deserializeAws_json1_1ActionStateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionState(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ActionType = (
   output: any,
@@ -5021,25 +5842,37 @@ const deserializeAws_json1_1ActionType = (
     id: undefined,
     inputArtifactDetails: undefined,
     outputArtifactDetails: undefined,
-    settings: undefined,
+    settings: undefined
   };
   if (output.actionConfigurationProperties !== undefined) {
-    contents.actionConfigurationProperties = deserializeAws_json1_1ActionConfigurationPropertyList(output.actionConfigurationProperties, context);
+    contents.actionConfigurationProperties = deserializeAws_json1_1ActionConfigurationPropertyList(
+      output.actionConfigurationProperties,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = deserializeAws_json1_1ActionTypeId(output.id, context);
   }
   if (output.inputArtifactDetails !== undefined) {
-    contents.inputArtifactDetails = deserializeAws_json1_1ArtifactDetails(output.inputArtifactDetails, context);
+    contents.inputArtifactDetails = deserializeAws_json1_1ArtifactDetails(
+      output.inputArtifactDetails,
+      context
+    );
   }
   if (output.outputArtifactDetails !== undefined) {
-    contents.outputArtifactDetails = deserializeAws_json1_1ArtifactDetails(output.outputArtifactDetails, context);
+    contents.outputArtifactDetails = deserializeAws_json1_1ArtifactDetails(
+      output.outputArtifactDetails,
+      context
+    );
   }
   if (output.settings !== undefined) {
-    contents.settings = deserializeAws_json1_1ActionTypeSettings(output.settings, context);
+    contents.settings = deserializeAws_json1_1ActionTypeSettings(
+      output.settings,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionTypeList = (
   output: any,
@@ -5048,7 +5881,7 @@ const deserializeAws_json1_1ActionTypeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionType(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ActionTypeSettings = (
   output: any,
@@ -5059,7 +5892,7 @@ const deserializeAws_json1_1ActionTypeSettings = (
     entityUrlTemplate: undefined,
     executionUrlTemplate: undefined,
     revisionUrlTemplate: undefined,
-    thirdPartyConfigurationUrl: undefined,
+    thirdPartyConfigurationUrl: undefined
   };
   if (output.entityUrlTemplate !== undefined) {
     contents.entityUrlTemplate = output.entityUrlTemplate;
@@ -5074,7 +5907,7 @@ const deserializeAws_json1_1ActionTypeSettings = (
     contents.thirdPartyConfigurationUrl = output.thirdPartyConfigurationUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
   output: any,
@@ -5082,13 +5915,13 @@ const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
 ): ApprovalAlreadyCompletedException => {
   let contents: any = {
     __type: "ApprovalAlreadyCompletedException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactDetail = (
   output: any,
@@ -5097,16 +5930,19 @@ const deserializeAws_json1_1ArtifactDetail = (
   let contents: any = {
     __type: "ArtifactDetail",
     name: undefined,
-    s3location: undefined,
+    s3location: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.s3location !== undefined) {
-    contents.s3location = deserializeAws_json1_1S3Location(output.s3location, context);
+    contents.s3location = deserializeAws_json1_1S3Location(
+      output.s3location,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactDetailList = (
   output: any,
@@ -5115,7 +5951,7 @@ const deserializeAws_json1_1ArtifactDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ArtifactDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ArtifactDetails = (
   output: any,
@@ -5124,7 +5960,7 @@ const deserializeAws_json1_1ArtifactDetails = (
   let contents: any = {
     __type: "ArtifactDetails",
     maximumCount: undefined,
-    minimumCount: undefined,
+    minimumCount: undefined
   };
   if (output.maximumCount !== undefined) {
     contents.maximumCount = output.maximumCount;
@@ -5133,7 +5969,7 @@ const deserializeAws_json1_1ArtifactDetails = (
     contents.minimumCount = output.minimumCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactRevision = (
   output: any,
@@ -5146,10 +5982,14 @@ const deserializeAws_json1_1ArtifactRevision = (
     revisionChangeIdentifier: undefined,
     revisionId: undefined,
     revisionSummary: undefined,
-    revisionUrl: undefined,
+    revisionUrl: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(output.created % 1 != 0 ? Math.round(output.created * 1000) : output.created);
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5167,7 +6007,7 @@ const deserializeAws_json1_1ArtifactRevision = (
     contents.revisionUrl = output.revisionUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactRevisionList = (
   output: any,
@@ -5176,7 +6016,7 @@ const deserializeAws_json1_1ArtifactRevisionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ArtifactRevision(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ArtifactStore = (
   output: any,
@@ -5186,10 +6026,13 @@ const deserializeAws_json1_1ArtifactStore = (
     __type: "ArtifactStore",
     encryptionKey: undefined,
     location: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.encryptionKey !== undefined) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(output.encryptionKey, context);
+    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
+      output.encryptionKey,
+      context
+    );
   }
   if (output.location !== undefined) {
     contents.location = output.location;
@@ -5198,7 +6041,7 @@ const deserializeAws_json1_1ArtifactStore = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactStoreMap = (
   output: any,
@@ -5209,7 +6052,7 @@ const deserializeAws_json1_1ArtifactStoreMap = (
     mapParams[key] = deserializeAws_json1_1ArtifactStore(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1BlockerDeclaration = (
   output: any,
@@ -5218,7 +6061,7 @@ const deserializeAws_json1_1BlockerDeclaration = (
   let contents: any = {
     __type: "BlockerDeclaration",
     name: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5227,7 +6070,7 @@ const deserializeAws_json1_1BlockerDeclaration = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
@@ -5235,13 +6078,13 @@ const deserializeAws_json1_1ConcurrentModificationException = (
 ): ConcurrentModificationException => {
   let contents: any = {
     __type: "ConcurrentModificationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateCustomActionTypeOutput = (
   output: any,
@@ -5250,16 +6093,19 @@ const deserializeAws_json1_1CreateCustomActionTypeOutput = (
   let contents: any = {
     __type: "CreateCustomActionTypeOutput",
     actionType: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.actionType !== undefined) {
-    contents.actionType = deserializeAws_json1_1ActionType(output.actionType, context);
+    contents.actionType = deserializeAws_json1_1ActionType(
+      output.actionType,
+      context
+    );
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreatePipelineOutput = (
   output: any,
@@ -5268,36 +6114,39 @@ const deserializeAws_json1_1CreatePipelineOutput = (
   let contents: any = {
     __type: "CreatePipelineOutput",
     pipeline: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.pipeline !== undefined) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(output.pipeline, context);
+    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
+      output.pipeline,
+      context
+    );
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteWebhookOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteWebhookOutput => {
   let contents: any = {
-    __type: "DeleteWebhookOutput",
+    __type: "DeleteWebhookOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput = (
   output: any,
   context: __SerdeContext
 ): DeregisterWebhookWithThirdPartyOutput => {
   let contents: any = {
-    __type: "DeregisterWebhookWithThirdPartyOutput",
+    __type: "DeregisterWebhookWithThirdPartyOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1ErrorDetails = (
   output: any,
@@ -5306,7 +6155,7 @@ const deserializeAws_json1_1ErrorDetails = (
   let contents: any = {
     __type: "ErrorDetails",
     code: undefined,
-    message: undefined,
+    message: undefined
   };
   if (output.code !== undefined) {
     contents.code = output.code;
@@ -5315,7 +6164,7 @@ const deserializeAws_json1_1ErrorDetails = (
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ExecutionTrigger = (
   output: any,
@@ -5324,7 +6173,7 @@ const deserializeAws_json1_1ExecutionTrigger = (
   let contents: any = {
     __type: "ExecutionTrigger",
     triggerDetail: undefined,
-    triggerType: undefined,
+    triggerType: undefined
   };
   if (output.triggerDetail !== undefined) {
     contents.triggerDetail = output.triggerDetail;
@@ -5333,7 +6182,7 @@ const deserializeAws_json1_1ExecutionTrigger = (
     contents.triggerType = output.triggerType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetJobDetailsOutput = (
   output: any,
@@ -5341,13 +6190,16 @@ const deserializeAws_json1_1GetJobDetailsOutput = (
 ): GetJobDetailsOutput => {
   let contents: any = {
     __type: "GetJobDetailsOutput",
-    jobDetails: undefined,
+    jobDetails: undefined
   };
   if (output.jobDetails !== undefined) {
-    contents.jobDetails = deserializeAws_json1_1JobDetails(output.jobDetails, context);
+    contents.jobDetails = deserializeAws_json1_1JobDetails(
+      output.jobDetails,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPipelineExecutionOutput = (
   output: any,
@@ -5355,13 +6207,16 @@ const deserializeAws_json1_1GetPipelineExecutionOutput = (
 ): GetPipelineExecutionOutput => {
   let contents: any = {
     __type: "GetPipelineExecutionOutput",
-    pipelineExecution: undefined,
+    pipelineExecution: undefined
   };
   if (output.pipelineExecution !== undefined) {
-    contents.pipelineExecution = deserializeAws_json1_1PipelineExecution(output.pipelineExecution, context);
+    contents.pipelineExecution = deserializeAws_json1_1PipelineExecution(
+      output.pipelineExecution,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPipelineOutput = (
   output: any,
@@ -5370,16 +6225,22 @@ const deserializeAws_json1_1GetPipelineOutput = (
   let contents: any = {
     __type: "GetPipelineOutput",
     metadata: undefined,
-    pipeline: undefined,
+    pipeline: undefined
   };
   if (output.metadata !== undefined) {
-    contents.metadata = deserializeAws_json1_1PipelineMetadata(output.metadata, context);
+    contents.metadata = deserializeAws_json1_1PipelineMetadata(
+      output.metadata,
+      context
+    );
   }
   if (output.pipeline !== undefined) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(output.pipeline, context);
+    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
+      output.pipeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPipelineStateOutput = (
   output: any,
@@ -5391,10 +6252,14 @@ const deserializeAws_json1_1GetPipelineStateOutput = (
     pipelineName: undefined,
     pipelineVersion: undefined,
     stageStates: undefined,
-    updated: undefined,
+    updated: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(output.created % 1 != 0 ? Math.round(output.created * 1000) : output.created);
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
   }
   if (output.pipelineName !== undefined) {
     contents.pipelineName = output.pipelineName;
@@ -5403,13 +6268,20 @@ const deserializeAws_json1_1GetPipelineStateOutput = (
     contents.pipelineVersion = output.pipelineVersion;
   }
   if (output.stageStates !== undefined) {
-    contents.stageStates = deserializeAws_json1_1StageStateList(output.stageStates, context);
+    contents.stageStates = deserializeAws_json1_1StageStateList(
+      output.stageStates,
+      context
+    );
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(output.updated % 1 != 0 ? Math.round(output.updated * 1000) : output.updated);
+    contents.updated = new Date(
+      output.updated % 1 != 0
+        ? Math.round(output.updated * 1000)
+        : output.updated
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetThirdPartyJobDetailsOutput = (
   output: any,
@@ -5417,13 +6289,16 @@ const deserializeAws_json1_1GetThirdPartyJobDetailsOutput = (
 ): GetThirdPartyJobDetailsOutput => {
   let contents: any = {
     __type: "GetThirdPartyJobDetailsOutput",
-    jobDetails: undefined,
+    jobDetails: undefined
   };
   if (output.jobDetails !== undefined) {
-    contents.jobDetails = deserializeAws_json1_1ThirdPartyJobDetails(output.jobDetails, context);
+    contents.jobDetails = deserializeAws_json1_1ThirdPartyJobDetails(
+      output.jobDetails,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InputArtifact = (
   output: any,
@@ -5431,13 +6306,13 @@ const deserializeAws_json1_1InputArtifact = (
 ): InputArtifact => {
   let contents: any = {
     __type: "InputArtifact",
-    name: undefined,
+    name: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InputArtifactList = (
   output: any,
@@ -5446,7 +6321,7 @@ const deserializeAws_json1_1InputArtifactList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InputArtifact(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InvalidActionDeclarationException = (
   output: any,
@@ -5454,13 +6329,13 @@ const deserializeAws_json1_1InvalidActionDeclarationException = (
 ): InvalidActionDeclarationException => {
   let contents: any = {
     __type: "InvalidActionDeclarationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidApprovalTokenException = (
   output: any,
@@ -5468,13 +6343,13 @@ const deserializeAws_json1_1InvalidApprovalTokenException = (
 ): InvalidApprovalTokenException => {
   let contents: any = {
     __type: "InvalidApprovalTokenException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidArnException = (
   output: any,
@@ -5482,13 +6357,13 @@ const deserializeAws_json1_1InvalidArnException = (
 ): InvalidArnException => {
   let contents: any = {
     __type: "InvalidArnException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidBlockerDeclarationException = (
   output: any,
@@ -5496,13 +6371,13 @@ const deserializeAws_json1_1InvalidBlockerDeclarationException = (
 ): InvalidBlockerDeclarationException => {
   let contents: any = {
     __type: "InvalidBlockerDeclarationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidClientTokenException = (
   output: any,
@@ -5510,13 +6385,13 @@ const deserializeAws_json1_1InvalidClientTokenException = (
 ): InvalidClientTokenException => {
   let contents: any = {
     __type: "InvalidClientTokenException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidJobException = (
   output: any,
@@ -5524,13 +6399,13 @@ const deserializeAws_json1_1InvalidJobException = (
 ): InvalidJobException => {
   let contents: any = {
     __type: "InvalidJobException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
@@ -5538,13 +6413,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   let contents: any = {
     __type: "InvalidNextTokenException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidStageDeclarationException = (
   output: any,
@@ -5552,13 +6427,13 @@ const deserializeAws_json1_1InvalidStageDeclarationException = (
 ): InvalidStageDeclarationException => {
   let contents: any = {
     __type: "InvalidStageDeclarationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidStructureException = (
   output: any,
@@ -5566,13 +6441,13 @@ const deserializeAws_json1_1InvalidStructureException = (
 ): InvalidStructureException => {
   let contents: any = {
     __type: "InvalidStructureException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidTagsException = (
   output: any,
@@ -5580,13 +6455,13 @@ const deserializeAws_json1_1InvalidTagsException = (
 ): InvalidTagsException => {
   let contents: any = {
     __type: "InvalidTagsException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidWebhookAuthenticationParametersException = (
   output: any,
@@ -5594,13 +6469,13 @@ const deserializeAws_json1_1InvalidWebhookAuthenticationParametersException = (
 ): InvalidWebhookAuthenticationParametersException => {
   let contents: any = {
     __type: "InvalidWebhookAuthenticationParametersException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidWebhookFilterPatternException = (
   output: any,
@@ -5608,13 +6483,13 @@ const deserializeAws_json1_1InvalidWebhookFilterPatternException = (
 ): InvalidWebhookFilterPatternException => {
   let contents: any = {
     __type: "InvalidWebhookFilterPatternException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Job = (
   output: any,
@@ -5625,7 +6500,7 @@ const deserializeAws_json1_1Job = (
     accountId: undefined,
     data: undefined,
     id: undefined,
-    nonce: undefined,
+    nonce: undefined
   };
   if (output.accountId !== undefined) {
     contents.accountId = output.accountId;
@@ -5640,7 +6515,7 @@ const deserializeAws_json1_1Job = (
     contents.nonce = output.nonce;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobData = (
   output: any,
@@ -5655,34 +6530,55 @@ const deserializeAws_json1_1JobData = (
     encryptionKey: undefined,
     inputArtifacts: undefined,
     outputArtifacts: undefined,
-    pipelineContext: undefined,
+    pipelineContext: undefined
   };
   if (output.actionConfiguration !== undefined) {
-    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(output.actionConfiguration, context);
+    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(
+      output.actionConfiguration,
+      context
+    );
   }
   if (output.actionTypeId !== undefined) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(output.actionTypeId, context);
+    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
+      output.actionTypeId,
+      context
+    );
   }
   if (output.artifactCredentials !== undefined) {
-    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context);
+    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(
+      output.artifactCredentials,
+      context
+    );
   }
   if (output.continuationToken !== undefined) {
     contents.continuationToken = output.continuationToken;
   }
   if (output.encryptionKey !== undefined) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(output.encryptionKey, context);
+    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
+      output.encryptionKey,
+      context
+    );
   }
   if (output.inputArtifacts !== undefined) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(output.inputArtifacts, context);
+    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(
+      output.inputArtifacts,
+      context
+    );
   }
   if (output.outputArtifacts !== undefined) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(output.outputArtifacts, context);
+    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(
+      output.outputArtifacts,
+      context
+    );
   }
   if (output.pipelineContext !== undefined) {
-    contents.pipelineContext = deserializeAws_json1_1PipelineContext(output.pipelineContext, context);
+    contents.pipelineContext = deserializeAws_json1_1PipelineContext(
+      output.pipelineContext,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobDetails = (
   output: any,
@@ -5692,7 +6588,7 @@ const deserializeAws_json1_1JobDetails = (
     __type: "JobDetails",
     accountId: undefined,
     data: undefined,
-    id: undefined,
+    id: undefined
   };
   if (output.accountId !== undefined) {
     contents.accountId = output.accountId;
@@ -5704,7 +6600,7 @@ const deserializeAws_json1_1JobDetails = (
     contents.id = output.id;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobList = (
   output: any,
@@ -5713,7 +6609,7 @@ const deserializeAws_json1_1JobList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Job(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -5721,13 +6617,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListActionExecutionsOutput = (
   output: any,
@@ -5736,16 +6632,19 @@ const deserializeAws_json1_1ListActionExecutionsOutput = (
   let contents: any = {
     __type: "ListActionExecutionsOutput",
     actionExecutionDetails: undefined,
-    nextToken: undefined,
+    nextToken: undefined
   };
   if (output.actionExecutionDetails !== undefined) {
-    contents.actionExecutionDetails = deserializeAws_json1_1ActionExecutionDetailList(output.actionExecutionDetails, context);
+    contents.actionExecutionDetails = deserializeAws_json1_1ActionExecutionDetailList(
+      output.actionExecutionDetails,
+      context
+    );
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListActionTypesOutput = (
   output: any,
@@ -5754,16 +6653,19 @@ const deserializeAws_json1_1ListActionTypesOutput = (
   let contents: any = {
     __type: "ListActionTypesOutput",
     actionTypes: undefined,
-    nextToken: undefined,
+    nextToken: undefined
   };
   if (output.actionTypes !== undefined) {
-    contents.actionTypes = deserializeAws_json1_1ActionTypeList(output.actionTypes, context);
+    contents.actionTypes = deserializeAws_json1_1ActionTypeList(
+      output.actionTypes,
+      context
+    );
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListPipelineExecutionsOutput = (
   output: any,
@@ -5772,16 +6674,19 @@ const deserializeAws_json1_1ListPipelineExecutionsOutput = (
   let contents: any = {
     __type: "ListPipelineExecutionsOutput",
     nextToken: undefined,
-    pipelineExecutionSummaries: undefined,
+    pipelineExecutionSummaries: undefined
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   if (output.pipelineExecutionSummaries !== undefined) {
-    contents.pipelineExecutionSummaries = deserializeAws_json1_1PipelineExecutionSummaryList(output.pipelineExecutionSummaries, context);
+    contents.pipelineExecutionSummaries = deserializeAws_json1_1PipelineExecutionSummaryList(
+      output.pipelineExecutionSummaries,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListPipelinesOutput = (
   output: any,
@@ -5790,16 +6695,19 @@ const deserializeAws_json1_1ListPipelinesOutput = (
   let contents: any = {
     __type: "ListPipelinesOutput",
     nextToken: undefined,
-    pipelines: undefined,
+    pipelines: undefined
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   if (output.pipelines !== undefined) {
-    contents.pipelines = deserializeAws_json1_1PipelineList(output.pipelines, context);
+    contents.pipelines = deserializeAws_json1_1PipelineList(
+      output.pipelines,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTagsForResourceOutput = (
   output: any,
@@ -5808,7 +6716,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
   let contents: any = {
     __type: "ListTagsForResourceOutput",
     nextToken: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
@@ -5817,7 +6725,7 @@ const deserializeAws_json1_1ListTagsForResourceOutput = (
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListWebhookItem = (
   output: any,
@@ -5831,13 +6739,16 @@ const deserializeAws_json1_1ListWebhookItem = (
     errorMessage: undefined,
     lastTriggered: undefined,
     tags: undefined,
-    url: undefined,
+    url: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.definition !== undefined) {
-    contents.definition = deserializeAws_json1_1WebhookDefinition(output.definition, context);
+    contents.definition = deserializeAws_json1_1WebhookDefinition(
+      output.definition,
+      context
+    );
   }
   if (output.errorCode !== undefined) {
     contents.errorCode = output.errorCode;
@@ -5846,7 +6757,11 @@ const deserializeAws_json1_1ListWebhookItem = (
     contents.errorMessage = output.errorMessage;
   }
   if (output.lastTriggered !== undefined) {
-    contents.lastTriggered = new Date(output.lastTriggered % 1 != 0 ? Math.round(output.lastTriggered * 1000) : output.lastTriggered);
+    contents.lastTriggered = new Date(
+      output.lastTriggered % 1 != 0
+        ? Math.round(output.lastTriggered * 1000)
+        : output.lastTriggered
+    );
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_1TagList(output.tags, context);
@@ -5855,7 +6770,7 @@ const deserializeAws_json1_1ListWebhookItem = (
     contents.url = output.url;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListWebhooksOutput = (
   output: any,
@@ -5864,16 +6779,19 @@ const deserializeAws_json1_1ListWebhooksOutput = (
   let contents: any = {
     __type: "ListWebhooksOutput",
     NextToken: undefined,
-    webhooks: undefined,
+    webhooks: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.webhooks !== undefined) {
-    contents.webhooks = deserializeAws_json1_1WebhookList(output.webhooks, context);
+    contents.webhooks = deserializeAws_json1_1WebhookList(
+      output.webhooks,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NotLatestPipelineExecutionException = (
   output: any,
@@ -5881,13 +6799,13 @@ const deserializeAws_json1_1NotLatestPipelineExecutionException = (
 ): NotLatestPipelineExecutionException => {
   let contents: any = {
     __type: "NotLatestPipelineExecutionException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OutputArtifact = (
   output: any,
@@ -5895,13 +6813,13 @@ const deserializeAws_json1_1OutputArtifact = (
 ): OutputArtifact => {
   let contents: any = {
     __type: "OutputArtifact",
-    name: undefined,
+    name: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OutputArtifactList = (
   output: any,
@@ -5910,7 +6828,7 @@ const deserializeAws_json1_1OutputArtifactList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OutputArtifact(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineDeclaration = (
   output: any,
@@ -5923,13 +6841,19 @@ const deserializeAws_json1_1PipelineDeclaration = (
     name: undefined,
     roleArn: undefined,
     stages: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.artifactStore !== undefined) {
-    contents.artifactStore = deserializeAws_json1_1ArtifactStore(output.artifactStore, context);
+    contents.artifactStore = deserializeAws_json1_1ArtifactStore(
+      output.artifactStore,
+      context
+    );
   }
   if (output.artifactStores !== undefined) {
-    contents.artifactStores = deserializeAws_json1_1ArtifactStoreMap(output.artifactStores, context);
+    contents.artifactStores = deserializeAws_json1_1ArtifactStoreMap(
+      output.artifactStores,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5938,13 +6862,16 @@ const deserializeAws_json1_1PipelineDeclaration = (
     contents.roleArn = output.roleArn;
   }
   if (output.stages !== undefined) {
-    contents.stages = deserializeAws_json1_1PipelineStageDeclarationList(output.stages, context);
+    contents.stages = deserializeAws_json1_1PipelineStageDeclarationList(
+      output.stages,
+      context
+    );
   }
   if (output.version !== undefined) {
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineExecution = (
   output: any,
@@ -5956,10 +6883,13 @@ const deserializeAws_json1_1PipelineExecution = (
     pipelineExecutionId: undefined,
     pipelineName: undefined,
     pipelineVersion: undefined,
-    status: undefined,
+    status: undefined
   };
   if (output.artifactRevisions !== undefined) {
-    contents.artifactRevisions = deserializeAws_json1_1ArtifactRevisionList(output.artifactRevisions, context);
+    contents.artifactRevisions = deserializeAws_json1_1ArtifactRevisionList(
+      output.artifactRevisions,
+      context
+    );
   }
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
@@ -5974,7 +6904,7 @@ const deserializeAws_json1_1PipelineExecution = (
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineExecutionNotFoundException = (
   output: any,
@@ -5982,13 +6912,13 @@ const deserializeAws_json1_1PipelineExecutionNotFoundException = (
 ): PipelineExecutionNotFoundException => {
   let contents: any = {
     __type: "PipelineExecutionNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineExecutionSummary = (
   output: any,
@@ -6001,28 +6931,42 @@ const deserializeAws_json1_1PipelineExecutionSummary = (
     sourceRevisions: undefined,
     startTime: undefined,
     status: undefined,
-    trigger: undefined,
+    trigger: undefined
   };
   if (output.lastUpdateTime !== undefined) {
-    contents.lastUpdateTime = new Date(output.lastUpdateTime % 1 != 0 ? Math.round(output.lastUpdateTime * 1000) : output.lastUpdateTime);
+    contents.lastUpdateTime = new Date(
+      output.lastUpdateTime % 1 != 0
+        ? Math.round(output.lastUpdateTime * 1000)
+        : output.lastUpdateTime
+    );
   }
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
   }
   if (output.sourceRevisions !== undefined) {
-    contents.sourceRevisions = deserializeAws_json1_1SourceRevisionList(output.sourceRevisions, context);
+    contents.sourceRevisions = deserializeAws_json1_1SourceRevisionList(
+      output.sourceRevisions,
+      context
+    );
   }
   if (output.startTime !== undefined) {
-    contents.startTime = new Date(output.startTime % 1 != 0 ? Math.round(output.startTime * 1000) : output.startTime);
+    contents.startTime = new Date(
+      output.startTime % 1 != 0
+        ? Math.round(output.startTime * 1000)
+        : output.startTime
+    );
   }
   if (output.status !== undefined) {
     contents.status = output.status;
   }
   if (output.trigger !== undefined) {
-    contents.trigger = deserializeAws_json1_1ExecutionTrigger(output.trigger, context);
+    contents.trigger = deserializeAws_json1_1ExecutionTrigger(
+      output.trigger,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineExecutionSummaryList = (
   output: any,
@@ -6031,7 +6975,7 @@ const deserializeAws_json1_1PipelineExecutionSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineExecutionSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineList = (
   output: any,
@@ -6040,7 +6984,7 @@ const deserializeAws_json1_1PipelineList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineMetadata = (
   output: any,
@@ -6050,19 +6994,27 @@ const deserializeAws_json1_1PipelineMetadata = (
     __type: "PipelineMetadata",
     created: undefined,
     pipelineArn: undefined,
-    updated: undefined,
+    updated: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(output.created % 1 != 0 ? Math.round(output.created * 1000) : output.created);
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
   }
   if (output.pipelineArn !== undefined) {
     contents.pipelineArn = output.pipelineArn;
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(output.updated % 1 != 0 ? Math.round(output.updated * 1000) : output.updated);
+    contents.updated = new Date(
+      output.updated % 1 != 0
+        ? Math.round(output.updated * 1000)
+        : output.updated
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineNameInUseException = (
   output: any,
@@ -6070,13 +7022,13 @@ const deserializeAws_json1_1PipelineNameInUseException = (
 ): PipelineNameInUseException => {
   let contents: any = {
     __type: "PipelineNameInUseException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineNotFoundException = (
   output: any,
@@ -6084,13 +7036,13 @@ const deserializeAws_json1_1PipelineNotFoundException = (
 ): PipelineNotFoundException => {
   let contents: any = {
     __type: "PipelineNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineStageDeclarationList = (
   output: any,
@@ -6099,7 +7051,7 @@ const deserializeAws_json1_1PipelineStageDeclarationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StageDeclaration(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineSummary = (
   output: any,
@@ -6110,22 +7062,30 @@ const deserializeAws_json1_1PipelineSummary = (
     created: undefined,
     name: undefined,
     updated: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.created !== undefined) {
-    contents.created = new Date(output.created % 1 != 0 ? Math.round(output.created * 1000) : output.created);
+    contents.created = new Date(
+      output.created % 1 != 0
+        ? Math.round(output.created * 1000)
+        : output.created
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.updated !== undefined) {
-    contents.updated = new Date(output.updated % 1 != 0 ? Math.round(output.updated * 1000) : output.updated);
+    contents.updated = new Date(
+      output.updated % 1 != 0
+        ? Math.round(output.updated * 1000)
+        : output.updated
+    );
   }
   if (output.version !== undefined) {
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineVersionNotFoundException = (
   output: any,
@@ -6133,13 +7093,13 @@ const deserializeAws_json1_1PipelineVersionNotFoundException = (
 ): PipelineVersionNotFoundException => {
   let contents: any = {
     __type: "PipelineVersionNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PollForJobsOutput = (
   output: any,
@@ -6147,13 +7107,13 @@ const deserializeAws_json1_1PollForJobsOutput = (
 ): PollForJobsOutput => {
   let contents: any = {
     __type: "PollForJobsOutput",
-    jobs: undefined,
+    jobs: undefined
   };
   if (output.jobs !== undefined) {
     contents.jobs = deserializeAws_json1_1JobList(output.jobs, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PollForThirdPartyJobsOutput = (
   output: any,
@@ -6161,13 +7121,16 @@ const deserializeAws_json1_1PollForThirdPartyJobsOutput = (
 ): PollForThirdPartyJobsOutput => {
   let contents: any = {
     __type: "PollForThirdPartyJobsOutput",
-    jobs: undefined,
+    jobs: undefined
   };
   if (output.jobs !== undefined) {
-    contents.jobs = deserializeAws_json1_1ThirdPartyJobList(output.jobs, context);
+    contents.jobs = deserializeAws_json1_1ThirdPartyJobList(
+      output.jobs,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutActionRevisionOutput = (
   output: any,
@@ -6176,7 +7139,7 @@ const deserializeAws_json1_1PutActionRevisionOutput = (
   let contents: any = {
     __type: "PutActionRevisionOutput",
     newRevision: undefined,
-    pipelineExecutionId: undefined,
+    pipelineExecutionId: undefined
   };
   if (output.newRevision !== undefined) {
     contents.newRevision = output.newRevision;
@@ -6185,7 +7148,7 @@ const deserializeAws_json1_1PutActionRevisionOutput = (
     contents.pipelineExecutionId = output.pipelineExecutionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutApprovalResultOutput = (
   output: any,
@@ -6193,13 +7156,17 @@ const deserializeAws_json1_1PutApprovalResultOutput = (
 ): PutApprovalResultOutput => {
   let contents: any = {
     __type: "PutApprovalResultOutput",
-    approvedAt: undefined,
+    approvedAt: undefined
   };
   if (output.approvedAt !== undefined) {
-    contents.approvedAt = new Date(output.approvedAt % 1 != 0 ? Math.round(output.approvedAt * 1000) : output.approvedAt);
+    contents.approvedAt = new Date(
+      output.approvedAt % 1 != 0
+        ? Math.round(output.approvedAt * 1000)
+        : output.approvedAt
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutWebhookOutput = (
   output: any,
@@ -6207,23 +7174,26 @@ const deserializeAws_json1_1PutWebhookOutput = (
 ): PutWebhookOutput => {
   let contents: any = {
     __type: "PutWebhookOutput",
-    webhook: undefined,
+    webhook: undefined
   };
   if (output.webhook !== undefined) {
-    contents.webhook = deserializeAws_json1_1ListWebhookItem(output.webhook, context);
+    contents.webhook = deserializeAws_json1_1ListWebhookItem(
+      output.webhook,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput = (
   output: any,
   context: __SerdeContext
 ): RegisterWebhookWithThirdPartyOutput => {
   let contents: any = {
-    __type: "RegisterWebhookWithThirdPartyOutput",
+    __type: "RegisterWebhookWithThirdPartyOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResolvedActionConfigurationMap = (
   output: any,
@@ -6234,7 +7204,7 @@ const deserializeAws_json1_1ResolvedActionConfigurationMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1RetryStageExecutionOutput = (
   output: any,
@@ -6242,13 +7212,13 @@ const deserializeAws_json1_1RetryStageExecutionOutput = (
 ): RetryStageExecutionOutput => {
   let contents: any = {
     __type: "RetryStageExecutionOutput",
-    pipelineExecutionId: undefined,
+    pipelineExecutionId: undefined
   };
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1S3Location = (
   output: any,
@@ -6257,7 +7227,7 @@ const deserializeAws_json1_1S3Location = (
   let contents: any = {
     __type: "S3Location",
     bucket: undefined,
-    key: undefined,
+    key: undefined
   };
   if (output.bucket !== undefined) {
     contents.bucket = output.bucket;
@@ -6266,7 +7236,7 @@ const deserializeAws_json1_1S3Location = (
     contents.key = output.key;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SourceRevision = (
   output: any,
@@ -6277,7 +7247,7 @@ const deserializeAws_json1_1SourceRevision = (
     actionName: undefined,
     revisionId: undefined,
     revisionSummary: undefined,
-    revisionUrl: undefined,
+    revisionUrl: undefined
   };
   if (output.actionName !== undefined) {
     contents.actionName = output.actionName;
@@ -6292,7 +7262,7 @@ const deserializeAws_json1_1SourceRevision = (
     contents.revisionUrl = output.revisionUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SourceRevisionList = (
   output: any,
@@ -6301,7 +7271,7 @@ const deserializeAws_json1_1SourceRevisionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SourceRevision(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StageActionDeclarationList = (
   output: any,
@@ -6310,7 +7280,7 @@ const deserializeAws_json1_1StageActionDeclarationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ActionDeclaration(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StageBlockerDeclarationList = (
   output: any,
@@ -6319,7 +7289,7 @@ const deserializeAws_json1_1StageBlockerDeclarationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BlockerDeclaration(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StageDeclaration = (
   output: any,
@@ -6329,19 +7299,25 @@ const deserializeAws_json1_1StageDeclaration = (
     __type: "StageDeclaration",
     actions: undefined,
     blockers: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.actions !== undefined) {
-    contents.actions = deserializeAws_json1_1StageActionDeclarationList(output.actions, context);
+    contents.actions = deserializeAws_json1_1StageActionDeclarationList(
+      output.actions,
+      context
+    );
   }
   if (output.blockers !== undefined) {
-    contents.blockers = deserializeAws_json1_1StageBlockerDeclarationList(output.blockers, context);
+    contents.blockers = deserializeAws_json1_1StageBlockerDeclarationList(
+      output.blockers,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageExecution = (
   output: any,
@@ -6350,7 +7326,7 @@ const deserializeAws_json1_1StageExecution = (
   let contents: any = {
     __type: "StageExecution",
     pipelineExecutionId: undefined,
-    status: undefined,
+    status: undefined
   };
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
@@ -6359,7 +7335,7 @@ const deserializeAws_json1_1StageExecution = (
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageNotFoundException = (
   output: any,
@@ -6367,13 +7343,13 @@ const deserializeAws_json1_1StageNotFoundException = (
 ): StageNotFoundException => {
   let contents: any = {
     __type: "StageNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageNotRetryableException = (
   output: any,
@@ -6381,13 +7357,13 @@ const deserializeAws_json1_1StageNotRetryableException = (
 ): StageNotRetryableException => {
   let contents: any = {
     __type: "StageNotRetryableException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageState = (
   output: any,
@@ -6398,22 +7374,31 @@ const deserializeAws_json1_1StageState = (
     actionStates: undefined,
     inboundTransitionState: undefined,
     latestExecution: undefined,
-    stageName: undefined,
+    stageName: undefined
   };
   if (output.actionStates !== undefined) {
-    contents.actionStates = deserializeAws_json1_1ActionStateList(output.actionStates, context);
+    contents.actionStates = deserializeAws_json1_1ActionStateList(
+      output.actionStates,
+      context
+    );
   }
   if (output.inboundTransitionState !== undefined) {
-    contents.inboundTransitionState = deserializeAws_json1_1TransitionState(output.inboundTransitionState, context);
+    contents.inboundTransitionState = deserializeAws_json1_1TransitionState(
+      output.inboundTransitionState,
+      context
+    );
   }
   if (output.latestExecution !== undefined) {
-    contents.latestExecution = deserializeAws_json1_1StageExecution(output.latestExecution, context);
+    contents.latestExecution = deserializeAws_json1_1StageExecution(
+      output.latestExecution,
+      context
+    );
   }
   if (output.stageName !== undefined) {
     contents.stageName = output.stageName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageStateList = (
   output: any,
@@ -6422,7 +7407,7 @@ const deserializeAws_json1_1StageStateList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StageState(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StartPipelineExecutionOutput = (
   output: any,
@@ -6430,13 +7415,13 @@ const deserializeAws_json1_1StartPipelineExecutionOutput = (
 ): StartPipelineExecutionOutput => {
   let contents: any = {
     __type: "StartPipelineExecutionOutput",
-    pipelineExecutionId: undefined,
+    pipelineExecutionId: undefined
   };
   if (output.pipelineExecutionId !== undefined) {
     contents.pipelineExecutionId = output.pipelineExecutionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -6445,7 +7430,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     key: undefined,
-    value: undefined,
+    value: undefined
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -6454,7 +7439,7 @@ const deserializeAws_json1_1Tag = (
     contents.value = output.value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -6463,17 +7448,17 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): TagResourceOutput => {
   let contents: any = {
-    __type: "TagResourceOutput",
+    __type: "TagResourceOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1ThirdPartyJob = (
   output: any,
@@ -6482,7 +7467,7 @@ const deserializeAws_json1_1ThirdPartyJob = (
   let contents: any = {
     __type: "ThirdPartyJob",
     clientId: undefined,
-    jobId: undefined,
+    jobId: undefined
   };
   if (output.clientId !== undefined) {
     contents.clientId = output.clientId;
@@ -6491,7 +7476,7 @@ const deserializeAws_json1_1ThirdPartyJob = (
     contents.jobId = output.jobId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ThirdPartyJobData = (
   output: any,
@@ -6506,34 +7491,55 @@ const deserializeAws_json1_1ThirdPartyJobData = (
     encryptionKey: undefined,
     inputArtifacts: undefined,
     outputArtifacts: undefined,
-    pipelineContext: undefined,
+    pipelineContext: undefined
   };
   if (output.actionConfiguration !== undefined) {
-    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(output.actionConfiguration, context);
+    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(
+      output.actionConfiguration,
+      context
+    );
   }
   if (output.actionTypeId !== undefined) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(output.actionTypeId, context);
+    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
+      output.actionTypeId,
+      context
+    );
   }
   if (output.artifactCredentials !== undefined) {
-    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(output.artifactCredentials, context);
+    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(
+      output.artifactCredentials,
+      context
+    );
   }
   if (output.continuationToken !== undefined) {
     contents.continuationToken = output.continuationToken;
   }
   if (output.encryptionKey !== undefined) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(output.encryptionKey, context);
+    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
+      output.encryptionKey,
+      context
+    );
   }
   if (output.inputArtifacts !== undefined) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(output.inputArtifacts, context);
+    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(
+      output.inputArtifacts,
+      context
+    );
   }
   if (output.outputArtifacts !== undefined) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(output.outputArtifacts, context);
+    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(
+      output.outputArtifacts,
+      context
+    );
   }
   if (output.pipelineContext !== undefined) {
-    contents.pipelineContext = deserializeAws_json1_1PipelineContext(output.pipelineContext, context);
+    contents.pipelineContext = deserializeAws_json1_1PipelineContext(
+      output.pipelineContext,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ThirdPartyJobDetails = (
   output: any,
@@ -6543,10 +7549,13 @@ const deserializeAws_json1_1ThirdPartyJobDetails = (
     __type: "ThirdPartyJobDetails",
     data: undefined,
     id: undefined,
-    nonce: undefined,
+    nonce: undefined
   };
   if (output.data !== undefined) {
-    contents.data = deserializeAws_json1_1ThirdPartyJobData(output.data, context);
+    contents.data = deserializeAws_json1_1ThirdPartyJobData(
+      output.data,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -6555,7 +7564,7 @@ const deserializeAws_json1_1ThirdPartyJobDetails = (
     contents.nonce = output.nonce;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ThirdPartyJobList = (
   output: any,
@@ -6564,7 +7573,7 @@ const deserializeAws_json1_1ThirdPartyJobList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ThirdPartyJob(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TooManyTagsException = (
   output: any,
@@ -6572,13 +7581,13 @@ const deserializeAws_json1_1TooManyTagsException = (
 ): TooManyTagsException => {
   let contents: any = {
     __type: "TooManyTagsException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TransitionState = (
   output: any,
@@ -6589,7 +7598,7 @@ const deserializeAws_json1_1TransitionState = (
     disabledReason: undefined,
     enabled: undefined,
     lastChangedAt: undefined,
-    lastChangedBy: undefined,
+    lastChangedBy: undefined
   };
   if (output.disabledReason !== undefined) {
     contents.disabledReason = output.disabledReason;
@@ -6598,23 +7607,27 @@ const deserializeAws_json1_1TransitionState = (
     contents.enabled = output.enabled;
   }
   if (output.lastChangedAt !== undefined) {
-    contents.lastChangedAt = new Date(output.lastChangedAt % 1 != 0 ? Math.round(output.lastChangedAt * 1000) : output.lastChangedAt);
+    contents.lastChangedAt = new Date(
+      output.lastChangedAt % 1 != 0
+        ? Math.round(output.lastChangedAt * 1000)
+        : output.lastChangedAt
+    );
   }
   if (output.lastChangedBy !== undefined) {
     contents.lastChangedBy = output.lastChangedBy;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UntagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): UntagResourceOutput => {
   let contents: any = {
-    __type: "UntagResourceOutput",
+    __type: "UntagResourceOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdatePipelineOutput = (
   output: any,
@@ -6622,13 +7635,16 @@ const deserializeAws_json1_1UpdatePipelineOutput = (
 ): UpdatePipelineOutput => {
   let contents: any = {
     __type: "UpdatePipelineOutput",
-    pipeline: undefined,
+    pipeline: undefined
   };
   if (output.pipeline !== undefined) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(output.pipeline, context);
+    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
+      output.pipeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebhookAuthConfiguration = (
   output: any,
@@ -6637,7 +7653,7 @@ const deserializeAws_json1_1WebhookAuthConfiguration = (
   let contents: any = {
     __type: "WebhookAuthConfiguration",
     AllowedIPRange: undefined,
-    SecretToken: undefined,
+    SecretToken: undefined
   };
   if (output.AllowedIPRange !== undefined) {
     contents.AllowedIPRange = output.AllowedIPRange;
@@ -6646,7 +7662,7 @@ const deserializeAws_json1_1WebhookAuthConfiguration = (
     contents.SecretToken = output.SecretToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebhookDefinition = (
   output: any,
@@ -6659,16 +7675,22 @@ const deserializeAws_json1_1WebhookDefinition = (
     filters: undefined,
     name: undefined,
     targetAction: undefined,
-    targetPipeline: undefined,
+    targetPipeline: undefined
   };
   if (output.authentication !== undefined) {
     contents.authentication = output.authentication;
   }
   if (output.authenticationConfiguration !== undefined) {
-    contents.authenticationConfiguration = deserializeAws_json1_1WebhookAuthConfiguration(output.authenticationConfiguration, context);
+    contents.authenticationConfiguration = deserializeAws_json1_1WebhookAuthConfiguration(
+      output.authenticationConfiguration,
+      context
+    );
   }
   if (output.filters !== undefined) {
-    contents.filters = deserializeAws_json1_1WebhookFilters(output.filters, context);
+    contents.filters = deserializeAws_json1_1WebhookFilters(
+      output.filters,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -6680,7 +7702,7 @@ const deserializeAws_json1_1WebhookDefinition = (
     contents.targetPipeline = output.targetPipeline;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebhookFilterRule = (
   output: any,
@@ -6689,7 +7711,7 @@ const deserializeAws_json1_1WebhookFilterRule = (
   let contents: any = {
     __type: "WebhookFilterRule",
     jsonPath: undefined,
-    matchEquals: undefined,
+    matchEquals: undefined
   };
   if (output.jsonPath !== undefined) {
     contents.jsonPath = output.jsonPath;
@@ -6698,7 +7720,7 @@ const deserializeAws_json1_1WebhookFilterRule = (
     contents.matchEquals = output.matchEquals;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1WebhookFilters = (
   output: any,
@@ -6707,7 +7729,7 @@ const deserializeAws_json1_1WebhookFilters = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1WebhookFilterRule(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1WebhookList = (
   output: any,
@@ -6716,17 +7738,17 @@ const deserializeAws_json1_1WebhookList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListWebhookItem(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1WebhookNotFoundException = (
   output: any,
   context: __SerdeContext
 ): WebhookNotFoundException => {
   let contents: any = {
-    __type: "WebhookNotFoundException",
+    __type: "WebhookNotFoundException"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1AWSSessionCredentials = (
   output: any,
@@ -6736,7 +7758,7 @@ const deserializeAws_json1_1AWSSessionCredentials = (
     __type: "AWSSessionCredentials",
     accessKeyId: undefined,
     secretAccessKey: undefined,
-    sessionToken: undefined,
+    sessionToken: undefined
   };
   if (output.accessKeyId !== undefined) {
     contents.accessKeyId = output.accessKeyId;
@@ -6748,7 +7770,7 @@ const deserializeAws_json1_1AWSSessionCredentials = (
     contents.sessionToken = output.sessionToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionConfiguration = (
   output: any,
@@ -6756,13 +7778,16 @@ const deserializeAws_json1_1ActionConfiguration = (
 ): ActionConfiguration => {
   let contents: any = {
     __type: "ActionConfiguration",
-    configuration: undefined,
+    configuration: undefined
   };
   if (output.configuration !== undefined) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(output.configuration, context);
+    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
+      output.configuration,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionConfigurationMap = (
   output: any,
@@ -6773,7 +7798,7 @@ const deserializeAws_json1_1ActionConfigurationMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1ActionContext = (
   output: any,
@@ -6782,7 +7807,7 @@ const deserializeAws_json1_1ActionContext = (
   let contents: any = {
     __type: "ActionContext",
     actionExecutionId: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.actionExecutionId !== undefined) {
     contents.actionExecutionId = output.actionExecutionId;
@@ -6791,7 +7816,7 @@ const deserializeAws_json1_1ActionContext = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionTypeId = (
   output: any,
@@ -6802,7 +7827,7 @@ const deserializeAws_json1_1ActionTypeId = (
     category: undefined,
     owner: undefined,
     provider: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.category !== undefined) {
     contents.category = output.category;
@@ -6817,7 +7842,7 @@ const deserializeAws_json1_1ActionTypeId = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ActionTypeNotFoundException = (
   output: any,
@@ -6825,13 +7850,13 @@ const deserializeAws_json1_1ActionTypeNotFoundException = (
 ): ActionTypeNotFoundException => {
   let contents: any = {
     __type: "ActionTypeNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Artifact = (
   output: any,
@@ -6841,10 +7866,13 @@ const deserializeAws_json1_1Artifact = (
     __type: "Artifact",
     location: undefined,
     name: undefined,
-    revision: undefined,
+    revision: undefined
   };
   if (output.location !== undefined) {
-    contents.location = deserializeAws_json1_1ArtifactLocation(output.location, context);
+    contents.location = deserializeAws_json1_1ArtifactLocation(
+      output.location,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -6853,7 +7881,7 @@ const deserializeAws_json1_1Artifact = (
     contents.revision = output.revision;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ArtifactList = (
   output: any,
@@ -6862,7 +7890,7 @@ const deserializeAws_json1_1ArtifactList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Artifact(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ArtifactLocation = (
   output: any,
@@ -6871,16 +7899,19 @@ const deserializeAws_json1_1ArtifactLocation = (
   let contents: any = {
     __type: "ArtifactLocation",
     s3Location: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.s3Location !== undefined) {
-    contents.s3Location = deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context);
+    contents.s3Location = deserializeAws_json1_1S3ArtifactLocation(
+      output.s3Location,
+      context
+    );
   }
   if (output.type !== undefined) {
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EncryptionKey = (
   output: any,
@@ -6889,7 +7920,7 @@ const deserializeAws_json1_1EncryptionKey = (
   let contents: any = {
     __type: "EncryptionKey",
     id: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -6898,7 +7929,7 @@ const deserializeAws_json1_1EncryptionKey = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidJobStateException = (
   output: any,
@@ -6906,13 +7937,13 @@ const deserializeAws_json1_1InvalidJobStateException = (
 ): InvalidJobStateException => {
   let contents: any = {
     __type: "InvalidJobStateException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidNonceException = (
   output: any,
@@ -6920,13 +7951,13 @@ const deserializeAws_json1_1InvalidNonceException = (
 ): InvalidNonceException => {
   let contents: any = {
     __type: "InvalidNonceException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobNotFoundException = (
   output: any,
@@ -6934,13 +7965,13 @@ const deserializeAws_json1_1JobNotFoundException = (
 ): JobNotFoundException => {
   let contents: any = {
     __type: "JobNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OutputVariablesMap = (
   output: any,
@@ -6951,7 +7982,7 @@ const deserializeAws_json1_1OutputVariablesMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1OutputVariablesSizeExceededException = (
   output: any,
@@ -6959,13 +7990,13 @@ const deserializeAws_json1_1OutputVariablesSizeExceededException = (
 ): OutputVariablesSizeExceededException => {
   let contents: any = {
     __type: "OutputVariablesSizeExceededException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineContext = (
   output: any,
@@ -6977,10 +8008,13 @@ const deserializeAws_json1_1PipelineContext = (
     pipelineArn: undefined,
     pipelineExecutionId: undefined,
     pipelineName: undefined,
-    stage: undefined,
+    stage: undefined
   };
   if (output.action !== undefined) {
-    contents.action = deserializeAws_json1_1ActionContext(output.action, context);
+    contents.action = deserializeAws_json1_1ActionContext(
+      output.action,
+      context
+    );
   }
   if (output.pipelineArn !== undefined) {
     contents.pipelineArn = output.pipelineArn;
@@ -6995,7 +8029,7 @@ const deserializeAws_json1_1PipelineContext = (
     contents.stage = deserializeAws_json1_1StageContext(output.stage, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -7003,13 +8037,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1S3ArtifactLocation = (
   output: any,
@@ -7018,7 +8052,7 @@ const deserializeAws_json1_1S3ArtifactLocation = (
   let contents: any = {
     __type: "S3ArtifactLocation",
     bucketName: undefined,
-    objectKey: undefined,
+    objectKey: undefined
   };
   if (output.bucketName !== undefined) {
     contents.bucketName = output.bucketName;
@@ -7027,7 +8061,7 @@ const deserializeAws_json1_1S3ArtifactLocation = (
     contents.objectKey = output.objectKey;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StageContext = (
   output: any,
@@ -7035,13 +8069,13 @@ const deserializeAws_json1_1StageContext = (
 ): StageContext => {
   let contents: any = {
     __type: "StageContext",
-    name: undefined,
+    name: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ValidationException = (
   output: any,
@@ -7049,13 +8083,13 @@ const deserializeAws_json1_1ValidationException = (
 ): ValidationException => {
   let contents: any = {
     __type: "ValidationException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -1,20 +1,17 @@
 import {
   LexRuntimeServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LexRuntimeServiceClient";
-import {
-  PostContentRequest,
-  PostContentResponse,
-} from "../models/index";
+import { PostContentRequest, PostContentResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1PostContentCommand,
-  serializeAws_restJson1_1PostContentCommand,
+  serializeAws_restJson1_1PostContentCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PostContentCommandInput = PostContentRequest;
 export type PostContentCommandOutput = PostContentResponse;
 
-export class PostContentCommand extends $Command<PostContentCommandInput, PostContentCommandOutput, LexRuntimeServiceClientResolvedConfig> {
+export class PostContentCommand extends $Command<
+  PostContentCommandInput,
+  PostContentCommandOutput,
+  LexRuntimeServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class PostContentCommand extends $Command<PostContentCommandInput, PostCo
     configuration: LexRuntimeServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PostContentCommandInput, PostContentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

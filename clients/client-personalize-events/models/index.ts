@@ -112,7 +112,9 @@ export namespace PutEventsRequest {
  *          <p>Provide a valid value for the field or parameter.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   message?: string;

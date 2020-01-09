@@ -180,7 +180,9 @@ export namespace CreateLogStreamRequest {
  *          <p>The event was already logged.</p>
  *
  */
-export interface DataAlreadyAcceptedException extends _smithy.SmithyException, $MetadataBearer {
+export interface DataAlreadyAcceptedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DataAlreadyAcceptedException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -898,7 +900,7 @@ export namespace DisassociateKmsKeyRequest {
 
 export enum Distribution {
   ByLogStream = "ByLogStream",
-  Random = "Random",
+  Random = "Random"
 }
 
 /**
@@ -1044,7 +1046,7 @@ export enum ExportTaskStatusCode {
   FAILED = "FAILED",
   PENDING = "PENDING",
   PENDING_CANCEL = "PENDING_CANCEL",
-  RUNNING = "RUNNING",
+  RUNNING = "RUNNING"
 }
 
 export interface FilterLogEventsRequest {
@@ -1483,7 +1485,9 @@ export namespace InputLogEvent {
  *          <p>The operation is not valid on the specified resource.</p>
  *
  */
-export interface InvalidOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOperationException";
   $fault: "client";
   message?: string;
@@ -1500,7 +1504,9 @@ export namespace InvalidOperationException {
  *          <p>A parameter is specified incorrectly.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1517,7 +1523,9 @@ export namespace InvalidParameterException {
  *          <p>The sequence token is not valid.</p>
  *
  */
-export interface InvalidSequenceTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSequenceTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSequenceTokenException";
   $fault: "client";
   expectedSequenceToken?: string;
@@ -1535,7 +1543,9 @@ export namespace InvalidSequenceTokenException {
  *          <p>You have reached the maximum number of resources that can be created.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -1765,7 +1775,9 @@ export namespace LogStream {
  *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
  *
  */
-export interface MalformedQueryException extends _smithy.SmithyException, $MetadataBearer {
+export interface MalformedQueryException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MalformedQueryException";
   $fault: "client";
   message?: string;
@@ -1920,7 +1932,9 @@ export namespace MetricTransformation {
  *          <p>Multiple requests to update the same resource were in conflict.</p>
  *
  */
-export interface OperationAbortedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationAbortedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationAbortedException";
   $fault: "client";
   message?: string;
@@ -1934,7 +1948,7 @@ export namespace OperationAbortedException {
 
 export enum OrderBy {
   LastEventTime = "LastEventTime",
-  LogStreamName = "LogStreamName",
+  LogStreamName = "LogStreamName"
 }
 
 /**
@@ -2461,7 +2475,7 @@ export enum QueryStatus {
   Complete = "Complete",
   Failed = "Failed",
   Running = "Running",
-  Scheduled = "Scheduled",
+  Scheduled = "Scheduled"
 }
 
 /**
@@ -2504,7 +2518,9 @@ export namespace RejectedLogEventsInfo {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2521,7 +2537,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -2630,7 +2648,9 @@ export namespace SearchedLogStream {
  *          <p>The service cannot complete the request.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   message?: string;
@@ -2888,7 +2908,9 @@ export namespace TestMetricFilterResponse {
  *          <p>The most likely cause is an invalid AWS access key ID or secret key.</p>
  *
  */
-export interface UnrecognizedClientException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnrecognizedClientException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnrecognizedClientException";
   $fault: "client";
   message?: string;

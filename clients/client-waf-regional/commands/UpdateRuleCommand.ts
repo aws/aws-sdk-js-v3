@@ -1,20 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig,
+  WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
-import {
-  UpdateRuleRequest,
-  UpdateRuleResponse,
-} from "../models/index";
+import { UpdateRuleRequest, UpdateRuleResponse } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRuleCommand,
-  serializeAws_json1_1UpdateRuleCommand,
+  serializeAws_json1_1UpdateRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateRuleCommandInput = UpdateRuleRequest;
 export type UpdateRuleCommandOutput = UpdateRuleResponse;
 
-export class UpdateRuleCommand extends $Command<UpdateRuleCommandInput, UpdateRuleCommandOutput, WAFRegionalClientResolvedConfig> {
+export class UpdateRuleCommand extends $Command<
+  UpdateRuleCommandInput,
+  UpdateRuleCommandOutput,
+  WAFRegionalClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateRuleCommand extends $Command<UpdateRuleCommandInput, UpdateRu
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRuleCommandInput, UpdateRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

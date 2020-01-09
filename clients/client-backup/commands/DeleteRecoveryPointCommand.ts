@@ -1,17 +1,17 @@
 import {
   BackupClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../BackupClient";
 import { DeleteRecoveryPointInput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRecoveryPointCommand,
-  serializeAws_restJson1_1DeleteRecoveryPointCommand,
+  serializeAws_restJson1_1DeleteRecoveryPointCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteRecoveryPointCommandInput = DeleteRecoveryPointInput;
-export type DeleteRecoveryPointCommandOutput = __MetadataBearer
+export type DeleteRecoveryPointCommandOutput = __MetadataBearer;
 
-export class DeleteRecoveryPointCommand extends $Command<DeleteRecoveryPointCommandInput, DeleteRecoveryPointCommandOutput, BackupClientResolvedConfig> {
+export class DeleteRecoveryPointCommand extends $Command<
+  DeleteRecoveryPointCommandInput,
+  DeleteRecoveryPointCommandOutput,
+  BackupClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteRecoveryPointCommand extends $Command<DeleteRecoveryPointComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteRecoveryPointCommandInput, DeleteRecoveryPointCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteRecoveryPointCommandInput,
+    DeleteRecoveryPointCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class DeleteRecoveryPointCommand extends $Command<DeleteRecoveryPointComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteRecoveryPointCommandOutput> {
-    return deserializeAws_restJson1_1DeleteRecoveryPointCommand(output, context);
+    return deserializeAws_restJson1_1DeleteRecoveryPointCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

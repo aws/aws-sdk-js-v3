@@ -1,20 +1,20 @@
 import {
   EFSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EFSClient";
 import {
   DescribeMountTargetsRequest,
-  DescribeMountTargetsResponse,
+  DescribeMountTargetsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeMountTargetsCommand,
-  serializeAws_restJson1_1DescribeMountTargetsCommand,
+  serializeAws_restJson1_1DescribeMountTargetsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeMountTargetsCommandInput = DescribeMountTargetsRequest;
 export type DescribeMountTargetsCommandOutput = DescribeMountTargetsResponse;
 
-export class DescribeMountTargetsCommand extends $Command<DescribeMountTargetsCommandInput, DescribeMountTargetsCommandOutput, EFSClientResolvedConfig> {
+export class DescribeMountTargetsCommand extends $Command<
+  DescribeMountTargetsCommandInput,
+  DescribeMountTargetsCommandOutput,
+  EFSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeMountTargetsCommand extends $Command<DescribeMountTargetsCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: EFSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeMountTargetsCommandInput, DescribeMountTargetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeMountTargetsCommandInput,
+    DescribeMountTargetsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeMountTargetsCommand extends $Command<DescribeMountTargetsCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeMountTargetsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMountTargetsCommand(output, context);
+    return deserializeAws_restJson1_1DescribeMountTargetsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

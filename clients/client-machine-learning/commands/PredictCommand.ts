@@ -1,21 +1,18 @@
 import {
   MachineLearningClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MachineLearningClient";
-import {
-  PredictInput,
-  PredictOutput,
-} from "../models/index";
+import { PredictInput, PredictOutput } from "../models/index";
 import {
   deserializeAws_json1_1PredictCommand,
-  serializeAws_json1_1PredictCommand,
+  serializeAws_json1_1PredictCommand
 } from "../protocols/Aws_json1_1";
 import { getPredictEndpointPlugin } from "@aws-sdk/middleware-sdk-machinelearning";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -24,13 +21,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PredictCommandInput = PredictInput;
 export type PredictCommandOutput = PredictOutput;
 
-export class PredictCommand extends $Command<PredictCommandInput, PredictCommandOutput, MachineLearningClientResolvedConfig> {
+export class PredictCommand extends $Command<
+  PredictCommandInput,
+  PredictCommandOutput,
+  MachineLearningClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -45,14 +46,16 @@ export class PredictCommand extends $Command<PredictCommandInput, PredictCommand
     configuration: MachineLearningClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PredictCommandInput, PredictCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
     this.middlewareStack.use(getPredictEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

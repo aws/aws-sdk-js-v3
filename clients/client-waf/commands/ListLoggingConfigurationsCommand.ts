@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFClientResolvedConfig,
+  WAFClientResolvedConfig
 } from "../WAFClient";
 import {
   ListLoggingConfigurationsRequest,
-  ListLoggingConfigurationsResponse,
+  ListLoggingConfigurationsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListLoggingConfigurationsCommand,
-  serializeAws_json1_1ListLoggingConfigurationsCommand,
+  serializeAws_json1_1ListLoggingConfigurationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListLoggingConfigurationsCommandInput = ListLoggingConfigurationsRequest;
 export type ListLoggingConfigurationsCommandOutput = ListLoggingConfigurationsResponse;
 
-export class ListLoggingConfigurationsCommand extends $Command<ListLoggingConfigurationsCommandInput, ListLoggingConfigurationsCommandOutput, WAFClientResolvedConfig> {
+export class ListLoggingConfigurationsCommand extends $Command<
+  ListLoggingConfigurationsCommandInput,
+  ListLoggingConfigurationsCommandOutput,
+  WAFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListLoggingConfigurationsCommand extends $Command<ListLoggingConfig
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLoggingConfigurationsCommandInput, ListLoggingConfigurationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListLoggingConfigurationsCommandInput,
+    ListLoggingConfigurationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class ListLoggingConfigurationsCommand extends $Command<ListLoggingConfig
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListLoggingConfigurationsCommandOutput> {
-    return deserializeAws_json1_1ListLoggingConfigurationsCommand(output, context);
+    return deserializeAws_json1_1ListLoggingConfigurationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

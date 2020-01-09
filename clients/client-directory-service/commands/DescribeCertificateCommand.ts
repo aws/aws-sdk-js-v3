@@ -1,20 +1,20 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectoryServiceClient";
 import {
   DescribeCertificateRequest,
-  DescribeCertificateResult,
+  DescribeCertificateResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCertificateCommand,
-  serializeAws_json1_1DescribeCertificateCommand,
+  serializeAws_json1_1DescribeCertificateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeCertificateCommandInput = DescribeCertificateRequest;
 export type DescribeCertificateCommandOutput = DescribeCertificateResult;
 
-export class DescribeCertificateCommand extends $Command<DescribeCertificateCommandInput, DescribeCertificateCommandOutput, DirectoryServiceClientResolvedConfig> {
+export class DescribeCertificateCommand extends $Command<
+  DescribeCertificateCommandInput,
+  DescribeCertificateCommandOutput,
+  DirectoryServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeCertificateCommand extends $Command<DescribeCertificateComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeCertificateCommandInput, DescribeCertificateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeCertificateCommandInput,
+    DescribeCertificateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

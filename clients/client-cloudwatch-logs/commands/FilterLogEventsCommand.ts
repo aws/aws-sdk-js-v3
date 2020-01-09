@@ -1,20 +1,20 @@
 import {
   CloudWatchLogsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CloudWatchLogsClient";
 import {
   FilterLogEventsRequest,
-  FilterLogEventsResponse,
+  FilterLogEventsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1FilterLogEventsCommand,
-  serializeAws_json1_1FilterLogEventsCommand,
+  serializeAws_json1_1FilterLogEventsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type FilterLogEventsCommandInput = FilterLogEventsRequest;
 export type FilterLogEventsCommandOutput = FilterLogEventsResponse;
 
-export class FilterLogEventsCommand extends $Command<FilterLogEventsCommandInput, FilterLogEventsCommandOutput, CloudWatchLogsClientResolvedConfig> {
+export class FilterLogEventsCommand extends $Command<
+  FilterLogEventsCommandInput,
+  FilterLogEventsCommandOutput,
+  CloudWatchLogsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class FilterLogEventsCommand extends $Command<FilterLogEventsCommandInput
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<FilterLogEventsCommandInput, FilterLogEventsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

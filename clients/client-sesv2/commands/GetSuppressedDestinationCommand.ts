@@ -1,20 +1,20 @@
 import {
   SESv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SESv2Client";
 import {
   GetSuppressedDestinationRequest,
-  GetSuppressedDestinationResponse,
+  GetSuppressedDestinationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetSuppressedDestinationCommand,
-  serializeAws_restJson1_1GetSuppressedDestinationCommand,
+  serializeAws_restJson1_1GetSuppressedDestinationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetSuppressedDestinationCommandInput = GetSuppressedDestinationRequest;
 export type GetSuppressedDestinationCommandOutput = GetSuppressedDestinationResponse;
 
-export class GetSuppressedDestinationCommand extends $Command<GetSuppressedDestinationCommandInput, GetSuppressedDestinationCommandOutput, SESv2ClientResolvedConfig> {
+export class GetSuppressedDestinationCommand extends $Command<
+  GetSuppressedDestinationCommandInput,
+  GetSuppressedDestinationCommandOutput,
+  SESv2ClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetSuppressedDestinationCommand extends $Command<GetSuppressedDesti
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSuppressedDestinationCommandInput, GetSuppressedDestinationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetSuppressedDestinationCommandInput,
+    GetSuppressedDestinationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetSuppressedDestinationCommand extends $Command<GetSuppressedDesti
     input: GetSuppressedDestinationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetSuppressedDestinationCommand(input, context);
+    return serializeAws_restJson1_1GetSuppressedDestinationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetSuppressedDestinationCommandOutput> {
-    return deserializeAws_restJson1_1GetSuppressedDestinationCommand(output, context);
+    return deserializeAws_restJson1_1GetSuppressedDestinationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

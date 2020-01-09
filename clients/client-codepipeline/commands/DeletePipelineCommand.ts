@@ -1,17 +1,17 @@
 import {
   CodePipelineClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodePipelineClient";
 import { DeletePipelineInput } from "../models/index";
 import {
   deserializeAws_json1_1DeletePipelineCommand,
-  serializeAws_json1_1DeletePipelineCommand,
+  serializeAws_json1_1DeletePipelineCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeletePipelineCommandInput = DeletePipelineInput;
-export type DeletePipelineCommandOutput = __MetadataBearer
+export type DeletePipelineCommandOutput = __MetadataBearer;
 
-export class DeletePipelineCommand extends $Command<DeletePipelineCommandInput, DeletePipelineCommandOutput, CodePipelineClientResolvedConfig> {
+export class DeletePipelineCommand extends $Command<
+  DeletePipelineCommandInput,
+  DeletePipelineCommandOutput,
+  CodePipelineClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class DeletePipelineCommand extends $Command<DeletePipelineCommandInput, 
     configuration: CodePipelineClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeletePipelineCommandInput, DeletePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -2,237 +2,237 @@ import { AppStreamClient } from "./AppStreamClient";
 import {
   AssociateFleetCommand,
   AssociateFleetCommandInput,
-  AssociateFleetCommandOutput,
+  AssociateFleetCommandOutput
 } from "./commands/AssociateFleetCommand";
 import {
   BatchAssociateUserStackCommand,
   BatchAssociateUserStackCommandInput,
-  BatchAssociateUserStackCommandOutput,
+  BatchAssociateUserStackCommandOutput
 } from "./commands/BatchAssociateUserStackCommand";
 import {
   BatchDisassociateUserStackCommand,
   BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput,
+  BatchDisassociateUserStackCommandOutput
 } from "./commands/BatchDisassociateUserStackCommand";
 import {
   CopyImageCommand,
   CopyImageCommandInput,
-  CopyImageCommandOutput,
+  CopyImageCommandOutput
 } from "./commands/CopyImageCommand";
 import {
   CreateDirectoryConfigCommand,
   CreateDirectoryConfigCommandInput,
-  CreateDirectoryConfigCommandOutput,
+  CreateDirectoryConfigCommandOutput
 } from "./commands/CreateDirectoryConfigCommand";
 import {
   CreateFleetCommand,
   CreateFleetCommandInput,
-  CreateFleetCommandOutput,
+  CreateFleetCommandOutput
 } from "./commands/CreateFleetCommand";
 import {
   CreateImageBuilderCommand,
   CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput,
+  CreateImageBuilderCommandOutput
 } from "./commands/CreateImageBuilderCommand";
 import {
   CreateImageBuilderStreamingURLCommand,
   CreateImageBuilderStreamingURLCommandInput,
-  CreateImageBuilderStreamingURLCommandOutput,
+  CreateImageBuilderStreamingURLCommandOutput
 } from "./commands/CreateImageBuilderStreamingURLCommand";
 import {
   CreateStackCommand,
   CreateStackCommandInput,
-  CreateStackCommandOutput,
+  CreateStackCommandOutput
 } from "./commands/CreateStackCommand";
 import {
   CreateStreamingURLCommand,
   CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput,
+  CreateStreamingURLCommandOutput
 } from "./commands/CreateStreamingURLCommand";
 import {
   CreateUsageReportSubscriptionCommand,
   CreateUsageReportSubscriptionCommandInput,
-  CreateUsageReportSubscriptionCommandOutput,
+  CreateUsageReportSubscriptionCommandOutput
 } from "./commands/CreateUsageReportSubscriptionCommand";
 import {
   CreateUserCommand,
   CreateUserCommandInput,
-  CreateUserCommandOutput,
+  CreateUserCommandOutput
 } from "./commands/CreateUserCommand";
 import {
   DeleteDirectoryConfigCommand,
   DeleteDirectoryConfigCommandInput,
-  DeleteDirectoryConfigCommandOutput,
+  DeleteDirectoryConfigCommandOutput
 } from "./commands/DeleteDirectoryConfigCommand";
 import {
   DeleteFleetCommand,
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
+  DeleteFleetCommandOutput
 } from "./commands/DeleteFleetCommand";
 import {
   DeleteImageBuilderCommand,
   DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput,
+  DeleteImageBuilderCommandOutput
 } from "./commands/DeleteImageBuilderCommand";
 import {
   DeleteImageCommand,
   DeleteImageCommandInput,
-  DeleteImageCommandOutput,
+  DeleteImageCommandOutput
 } from "./commands/DeleteImageCommand";
 import {
   DeleteImagePermissionsCommand,
   DeleteImagePermissionsCommandInput,
-  DeleteImagePermissionsCommandOutput,
+  DeleteImagePermissionsCommandOutput
 } from "./commands/DeleteImagePermissionsCommand";
 import {
   DeleteStackCommand,
   DeleteStackCommandInput,
-  DeleteStackCommandOutput,
+  DeleteStackCommandOutput
 } from "./commands/DeleteStackCommand";
 import {
   DeleteUsageReportSubscriptionCommand,
   DeleteUsageReportSubscriptionCommandInput,
-  DeleteUsageReportSubscriptionCommandOutput,
+  DeleteUsageReportSubscriptionCommandOutput
 } from "./commands/DeleteUsageReportSubscriptionCommand";
 import {
   DeleteUserCommand,
   DeleteUserCommandInput,
-  DeleteUserCommandOutput,
+  DeleteUserCommandOutput
 } from "./commands/DeleteUserCommand";
 import {
   DescribeDirectoryConfigsCommand,
   DescribeDirectoryConfigsCommandInput,
-  DescribeDirectoryConfigsCommandOutput,
+  DescribeDirectoryConfigsCommandOutput
 } from "./commands/DescribeDirectoryConfigsCommand";
 import {
   DescribeFleetsCommand,
   DescribeFleetsCommandInput,
-  DescribeFleetsCommandOutput,
+  DescribeFleetsCommandOutput
 } from "./commands/DescribeFleetsCommand";
 import {
   DescribeImageBuildersCommand,
   DescribeImageBuildersCommandInput,
-  DescribeImageBuildersCommandOutput,
+  DescribeImageBuildersCommandOutput
 } from "./commands/DescribeImageBuildersCommand";
 import {
   DescribeImagePermissionsCommand,
   DescribeImagePermissionsCommandInput,
-  DescribeImagePermissionsCommandOutput,
+  DescribeImagePermissionsCommandOutput
 } from "./commands/DescribeImagePermissionsCommand";
 import {
   DescribeImagesCommand,
   DescribeImagesCommandInput,
-  DescribeImagesCommandOutput,
+  DescribeImagesCommandOutput
 } from "./commands/DescribeImagesCommand";
 import {
   DescribeSessionsCommand,
   DescribeSessionsCommandInput,
-  DescribeSessionsCommandOutput,
+  DescribeSessionsCommandOutput
 } from "./commands/DescribeSessionsCommand";
 import {
   DescribeStacksCommand,
   DescribeStacksCommandInput,
-  DescribeStacksCommandOutput,
+  DescribeStacksCommandOutput
 } from "./commands/DescribeStacksCommand";
 import {
   DescribeUsageReportSubscriptionsCommand,
   DescribeUsageReportSubscriptionsCommandInput,
-  DescribeUsageReportSubscriptionsCommandOutput,
+  DescribeUsageReportSubscriptionsCommandOutput
 } from "./commands/DescribeUsageReportSubscriptionsCommand";
 import {
   DescribeUserStackAssociationsCommand,
   DescribeUserStackAssociationsCommandInput,
-  DescribeUserStackAssociationsCommandOutput,
+  DescribeUserStackAssociationsCommandOutput
 } from "./commands/DescribeUserStackAssociationsCommand";
 import {
   DescribeUsersCommand,
   DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
+  DescribeUsersCommandOutput
 } from "./commands/DescribeUsersCommand";
 import {
   DisableUserCommand,
   DisableUserCommandInput,
-  DisableUserCommandOutput,
+  DisableUserCommandOutput
 } from "./commands/DisableUserCommand";
 import {
   DisassociateFleetCommand,
   DisassociateFleetCommandInput,
-  DisassociateFleetCommandOutput,
+  DisassociateFleetCommandOutput
 } from "./commands/DisassociateFleetCommand";
 import {
   EnableUserCommand,
   EnableUserCommandInput,
-  EnableUserCommandOutput,
+  EnableUserCommandOutput
 } from "./commands/EnableUserCommand";
 import {
   ExpireSessionCommand,
   ExpireSessionCommandInput,
-  ExpireSessionCommandOutput,
+  ExpireSessionCommandOutput
 } from "./commands/ExpireSessionCommand";
 import {
   ListAssociatedFleetsCommand,
   ListAssociatedFleetsCommandInput,
-  ListAssociatedFleetsCommandOutput,
+  ListAssociatedFleetsCommandOutput
 } from "./commands/ListAssociatedFleetsCommand";
 import {
   ListAssociatedStacksCommand,
   ListAssociatedStacksCommandInput,
-  ListAssociatedStacksCommandOutput,
+  ListAssociatedStacksCommandOutput
 } from "./commands/ListAssociatedStacksCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   StartFleetCommand,
   StartFleetCommandInput,
-  StartFleetCommandOutput,
+  StartFleetCommandOutput
 } from "./commands/StartFleetCommand";
 import {
   StartImageBuilderCommand,
   StartImageBuilderCommandInput,
-  StartImageBuilderCommandOutput,
+  StartImageBuilderCommandOutput
 } from "./commands/StartImageBuilderCommand";
 import {
   StopFleetCommand,
   StopFleetCommandInput,
-  StopFleetCommandOutput,
+  StopFleetCommandOutput
 } from "./commands/StopFleetCommand";
 import {
   StopImageBuilderCommand,
   StopImageBuilderCommandInput,
-  StopImageBuilderCommandOutput,
+  StopImageBuilderCommandOutput
 } from "./commands/StopImageBuilderCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateDirectoryConfigCommand,
   UpdateDirectoryConfigCommandInput,
-  UpdateDirectoryConfigCommandOutput,
+  UpdateDirectoryConfigCommandOutput
 } from "./commands/UpdateDirectoryConfigCommand";
 import {
   UpdateFleetCommand,
   UpdateFleetCommandInput,
-  UpdateFleetCommandOutput,
+  UpdateFleetCommandOutput
 } from "./commands/UpdateFleetCommand";
 import {
   UpdateImagePermissionsCommand,
   UpdateImagePermissionsCommandInput,
-  UpdateImagePermissionsCommandOutput,
+  UpdateImagePermissionsCommandOutput
 } from "./commands/UpdateImagePermissionsCommand";
 import {
   UpdateStackCommand,
   UpdateStackCommandInput,
-  UpdateStackCommandOutput,
+  UpdateStackCommandOutput
 } from "./commands/UpdateStackCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -270,7 +270,7 @@ export class AppStream extends AppStreamClient {
    */
   public associateFleet(
     args: AssociateFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AssociateFleetCommandOutput>;
   public associateFleet(
     args: AssociateFleetCommandInput,
@@ -283,16 +283,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public associateFleet(
     args: AssociateFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateFleetCommandOutput) => void),
     cb?: (err: any, data?: AssociateFleetCommandOutput) => void
   ): Promise<AssociateFleetCommandOutput> | void {
     const command = new AssociateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -305,7 +307,7 @@ export class AppStream extends AppStreamClient {
    */
   public batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchAssociateUserStackCommandOutput>;
   public batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
@@ -318,16 +320,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public batchAssociateUserStack(
     args: BatchAssociateUserStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchAssociateUserStackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchAssociateUserStackCommandOutput) => void),
     cb?: (err: any, data?: BatchAssociateUserStackCommandOutput) => void
   ): Promise<BatchAssociateUserStackCommandOutput> | void {
     const command = new BatchAssociateUserStackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -340,7 +344,7 @@ export class AppStream extends AppStreamClient {
    */
   public batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchDisassociateUserStackCommandOutput>;
   public batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
@@ -353,16 +357,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public batchDisassociateUserStack(
     args: BatchDisassociateUserStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisassociateUserStackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchDisassociateUserStackCommandOutput) => void),
     cb?: (err: any, data?: BatchDisassociateUserStackCommandOutput) => void
   ): Promise<BatchDisassociateUserStackCommandOutput> | void {
     const command = new BatchDisassociateUserStackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -375,7 +381,7 @@ export class AppStream extends AppStreamClient {
    */
   public copyImage(
     args: CopyImageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CopyImageCommandOutput>;
   public copyImage(
     args: CopyImageCommandInput,
@@ -388,16 +394,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public copyImage(
     args: CopyImageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyImageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CopyImageCommandOutput) => void),
     cb?: (err: any, data?: CopyImageCommandOutput) => void
   ): Promise<CopyImageCommandOutput> | void {
     const command = new CopyImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -410,7 +418,7 @@ export class AppStream extends AppStreamClient {
    */
   public createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDirectoryConfigCommandOutput>;
   public createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
@@ -423,16 +431,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createDirectoryConfig(
     args: CreateDirectoryConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectoryConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDirectoryConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectoryConfigCommandOutput) => void
   ): Promise<CreateDirectoryConfigCommandOutput> | void {
     const command = new CreateDirectoryConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -445,7 +455,7 @@ export class AppStream extends AppStreamClient {
    */
   public createFleet(
     args: CreateFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateFleetCommandOutput>;
   public createFleet(
     args: CreateFleetCommandInput,
@@ -458,16 +468,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createFleet(
     args: CreateFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateFleetCommandOutput) => void),
     cb?: (err: any, data?: CreateFleetCommandOutput) => void
   ): Promise<CreateFleetCommandOutput> | void {
     const command = new CreateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -481,7 +493,7 @@ export class AppStream extends AppStreamClient {
    */
   public createImageBuilder(
     args: CreateImageBuilderCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateImageBuilderCommandOutput>;
   public createImageBuilder(
     args: CreateImageBuilderCommandInput,
@@ -494,16 +506,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createImageBuilder(
     args: CreateImageBuilderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageBuilderCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateImageBuilderCommandOutput) => void),
     cb?: (err: any, data?: CreateImageBuilderCommandOutput) => void
   ): Promise<CreateImageBuilderCommandOutput> | void {
     const command = new CreateImageBuilderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -516,7 +530,7 @@ export class AppStream extends AppStreamClient {
    */
   public createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateImageBuilderStreamingURLCommandOutput>;
   public createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
@@ -529,16 +543,21 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createImageBuilderStreamingURL(
     args: CreateImageBuilderStreamingURLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CreateImageBuilderStreamingURLCommandOutput
+        ) => void),
     cb?: (err: any, data?: CreateImageBuilderStreamingURLCommandOutput) => void
   ): Promise<CreateImageBuilderStreamingURLCommandOutput> | void {
     const command = new CreateImageBuilderStreamingURLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -551,7 +570,7 @@ export class AppStream extends AppStreamClient {
    */
   public createStack(
     args: CreateStackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateStackCommandOutput>;
   public createStack(
     args: CreateStackCommandInput,
@@ -564,16 +583,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createStack(
     args: CreateStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStackCommandOutput) => void),
     cb?: (err: any, data?: CreateStackCommandOutput) => void
   ): Promise<CreateStackCommandOutput> | void {
     const command = new CreateStackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -586,7 +607,7 @@ export class AppStream extends AppStreamClient {
    */
   public createStreamingURL(
     args: CreateStreamingURLCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateStreamingURLCommandOutput>;
   public createStreamingURL(
     args: CreateStreamingURLCommandInput,
@@ -599,16 +620,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createStreamingURL(
     args: CreateStreamingURLCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamingURLCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStreamingURLCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamingURLCommandOutput) => void
   ): Promise<CreateStreamingURLCommandOutput> | void {
     const command = new CreateStreamingURLCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -621,7 +644,7 @@ export class AppStream extends AppStreamClient {
    */
   public createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateUsageReportSubscriptionCommandOutput>;
   public createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
@@ -634,16 +657,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUsageReportSubscriptionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUsageReportSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: CreateUsageReportSubscriptionCommandOutput) => void
   ): Promise<CreateUsageReportSubscriptionCommandOutput> | void {
     const command = new CreateUsageReportSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -656,7 +681,7 @@ export class AppStream extends AppStreamClient {
    */
   public createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateUserCommandOutput>;
   public createUser(
     args: CreateUserCommandInput,
@@ -669,16 +694,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -691,7 +718,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDirectoryConfigCommandOutput>;
   public deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
@@ -704,16 +731,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteDirectoryConfig(
     args: DeleteDirectoryConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectoryConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDirectoryConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectoryConfigCommandOutput) => void
   ): Promise<DeleteDirectoryConfigCommandOutput> | void {
     const command = new DeleteDirectoryConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -726,7 +755,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFleetCommandOutput>;
   public deleteFleet(
     args: DeleteFleetCommandInput,
@@ -739,16 +768,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteFleet(
     args: DeleteFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFleetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFleetCommandOutput) => void
   ): Promise<DeleteFleetCommandOutput> | void {
     const command = new DeleteFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -762,7 +793,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteImage(
     args: DeleteImageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteImageCommandOutput>;
   public deleteImage(
     args: DeleteImageCommandInput,
@@ -775,16 +806,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteImage(
     args: DeleteImageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteImageCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageCommandOutput) => void
   ): Promise<DeleteImageCommandOutput> | void {
     const command = new DeleteImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -797,7 +830,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteImageBuilderCommandOutput>;
   public deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
@@ -810,16 +843,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteImageBuilder(
     args: DeleteImageBuilderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImageBuilderCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteImageBuilderCommandOutput) => void),
     cb?: (err: any, data?: DeleteImageBuilderCommandOutput) => void
   ): Promise<DeleteImageBuilderCommandOutput> | void {
     const command = new DeleteImageBuilderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -832,7 +867,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteImagePermissionsCommandOutput>;
   public deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
@@ -845,16 +880,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteImagePermissions(
     args: DeleteImagePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImagePermissionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteImagePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DeleteImagePermissionsCommandOutput) => void
   ): Promise<DeleteImagePermissionsCommandOutput> | void {
     const command = new DeleteImagePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -867,7 +904,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteStack(
     args: DeleteStackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteStackCommandOutput>;
   public deleteStack(
     args: DeleteStackCommandInput,
@@ -880,16 +917,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteStack(
     args: DeleteStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStackCommandOutput) => void),
     cb?: (err: any, data?: DeleteStackCommandOutput) => void
   ): Promise<DeleteStackCommandOutput> | void {
     const command = new DeleteStackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -902,7 +941,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteUsageReportSubscriptionCommandOutput>;
   public deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
@@ -915,16 +954,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUsageReportSubscriptionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteUsageReportSubscriptionCommandOutput) => void),
     cb?: (err: any, data?: DeleteUsageReportSubscriptionCommandOutput) => void
   ): Promise<DeleteUsageReportSubscriptionCommandOutput> | void {
     const command = new DeleteUsageReportSubscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -937,7 +978,7 @@ export class AppStream extends AppStreamClient {
    */
   public deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteUserCommandOutput>;
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -950,16 +991,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -974,7 +1017,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDirectoryConfigsCommandOutput>;
   public describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
@@ -987,16 +1030,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDirectoryConfigsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDirectoryConfigsCommandOutput) => void),
     cb?: (err: any, data?: DescribeDirectoryConfigsCommandOutput) => void
   ): Promise<DescribeDirectoryConfigsCommandOutput> | void {
     const command = new DescribeDirectoryConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1009,7 +1054,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeFleets(
     args: DescribeFleetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeFleetsCommandOutput>;
   public describeFleets(
     args: DescribeFleetsCommandInput,
@@ -1022,16 +1067,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeFleets(
     args: DescribeFleetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFleetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFleetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeFleetsCommandOutput) => void
   ): Promise<DescribeFleetsCommandOutput> | void {
     const command = new DescribeFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1044,7 +1091,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeImageBuildersCommandOutput>;
   public describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
@@ -1057,16 +1104,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImageBuildersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeImageBuildersCommandOutput) => void),
     cb?: (err: any, data?: DescribeImageBuildersCommandOutput) => void
   ): Promise<DescribeImageBuildersCommandOutput> | void {
     const command = new DescribeImageBuildersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1079,7 +1128,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeImagePermissionsCommandOutput>;
   public describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
@@ -1092,16 +1141,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeImagePermissions(
     args: DescribeImagePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagePermissionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeImagePermissionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagePermissionsCommandOutput) => void
   ): Promise<DescribeImagePermissionsCommandOutput> | void {
     const command = new DescribeImagePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1114,7 +1165,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeImages(
     args: DescribeImagesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeImagesCommandOutput>;
   public describeImages(
     args: DescribeImagesCommandInput,
@@ -1127,16 +1178,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeImages(
     args: DescribeImagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeImagesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeImagesCommandOutput) => void),
     cb?: (err: any, data?: DescribeImagesCommandOutput) => void
   ): Promise<DescribeImagesCommandOutput> | void {
     const command = new DescribeImagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1151,7 +1204,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeSessions(
     args: DescribeSessionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSessionsCommandOutput>;
   public describeSessions(
     args: DescribeSessionsCommandInput,
@@ -1164,16 +1217,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeSessions(
     args: DescribeSessionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSessionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSessionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeSessionsCommandOutput) => void
   ): Promise<DescribeSessionsCommandOutput> | void {
     const command = new DescribeSessionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1186,7 +1241,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeStacks(
     args: DescribeStacksCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeStacksCommandOutput>;
   public describeStacks(
     args: DescribeStacksCommandInput,
@@ -1199,16 +1254,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeStacks(
     args: DescribeStacksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStacksCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStacksCommandOutput) => void),
     cb?: (err: any, data?: DescribeStacksCommandOutput) => void
   ): Promise<DescribeStacksCommandOutput> | void {
     const command = new DescribeStacksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1221,7 +1278,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput>;
   public describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
@@ -1234,16 +1291,24 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsageReportSubscriptionsCommandOutput) => void),
-    cb?: (err: any, data?: DescribeUsageReportSubscriptionsCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeUsageReportSubscriptionsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeUsageReportSubscriptionsCommandOutput
+    ) => void
   ): Promise<DescribeUsageReportSubscriptionsCommandOutput> | void {
     const command = new DescribeUsageReportSubscriptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1264,7 +1329,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeUserStackAssociationsCommandOutput>;
   public describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
@@ -1277,16 +1342,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserStackAssociationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUserStackAssociationsCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserStackAssociationsCommandOutput) => void
   ): Promise<DescribeUserStackAssociationsCommandOutput> | void {
     const command = new DescribeUserStackAssociationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1299,7 +1366,7 @@ export class AppStream extends AppStreamClient {
    */
   public describeUsers(
     args: DescribeUsersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeUsersCommandOutput>;
   public describeUsers(
     args: DescribeUsersCommandInput,
@@ -1312,16 +1379,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public describeUsers(
     args: DescribeUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUsersCommandOutput) => void),
     cb?: (err: any, data?: DescribeUsersCommandOutput) => void
   ): Promise<DescribeUsersCommandOutput> | void {
     const command = new DescribeUsersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1334,7 +1403,7 @@ export class AppStream extends AppStreamClient {
    */
   public disableUser(
     args: DisableUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableUserCommandOutput>;
   public disableUser(
     args: DisableUserCommandInput,
@@ -1347,16 +1416,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public disableUser(
     args: DisableUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableUserCommandOutput) => void),
     cb?: (err: any, data?: DisableUserCommandOutput) => void
   ): Promise<DisableUserCommandOutput> | void {
     const command = new DisableUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1369,7 +1440,7 @@ export class AppStream extends AppStreamClient {
    */
   public disassociateFleet(
     args: DisassociateFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateFleetCommandOutput>;
   public disassociateFleet(
     args: DisassociateFleetCommandInput,
@@ -1382,16 +1453,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public disassociateFleet(
     args: DisassociateFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateFleetCommandOutput) => void),
     cb?: (err: any, data?: DisassociateFleetCommandOutput) => void
   ): Promise<DisassociateFleetCommandOutput> | void {
     const command = new DisassociateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1404,7 +1477,7 @@ export class AppStream extends AppStreamClient {
    */
   public enableUser(
     args: EnableUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableUserCommandOutput>;
   public enableUser(
     args: EnableUserCommandInput,
@@ -1417,16 +1490,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public enableUser(
     args: EnableUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableUserCommandOutput) => void),
     cb?: (err: any, data?: EnableUserCommandOutput) => void
   ): Promise<EnableUserCommandOutput> | void {
     const command = new EnableUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1439,7 +1514,7 @@ export class AppStream extends AppStreamClient {
    */
   public expireSession(
     args: ExpireSessionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ExpireSessionCommandOutput>;
   public expireSession(
     args: ExpireSessionCommandInput,
@@ -1452,16 +1527,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public expireSession(
     args: ExpireSessionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExpireSessionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ExpireSessionCommandOutput) => void),
     cb?: (err: any, data?: ExpireSessionCommandOutput) => void
   ): Promise<ExpireSessionCommandOutput> | void {
     const command = new ExpireSessionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1474,7 +1551,7 @@ export class AppStream extends AppStreamClient {
    */
   public listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAssociatedFleetsCommandOutput>;
   public listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
@@ -1487,16 +1564,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public listAssociatedFleets(
     args: ListAssociatedFleetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociatedFleetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAssociatedFleetsCommandOutput) => void),
     cb?: (err: any, data?: ListAssociatedFleetsCommandOutput) => void
   ): Promise<ListAssociatedFleetsCommandOutput> | void {
     const command = new ListAssociatedFleetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1509,7 +1588,7 @@ export class AppStream extends AppStreamClient {
    */
   public listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAssociatedStacksCommandOutput>;
   public listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
@@ -1522,16 +1601,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public listAssociatedStacks(
     args: ListAssociatedStacksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAssociatedStacksCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAssociatedStacksCommandOutput) => void),
     cb?: (err: any, data?: ListAssociatedStacksCommandOutput) => void
   ): Promise<ListAssociatedStacksCommandOutput> | void {
     const command = new ListAssociatedStacksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1545,7 +1626,7 @@ export class AppStream extends AppStreamClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1558,16 +1639,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1580,7 +1663,7 @@ export class AppStream extends AppStreamClient {
    */
   public startFleet(
     args: StartFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartFleetCommandOutput>;
   public startFleet(
     args: StartFleetCommandInput,
@@ -1593,16 +1676,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public startFleet(
     args: StartFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartFleetCommandOutput) => void),
     cb?: (err: any, data?: StartFleetCommandOutput) => void
   ): Promise<StartFleetCommandOutput> | void {
     const command = new StartFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1615,7 +1700,7 @@ export class AppStream extends AppStreamClient {
    */
   public startImageBuilder(
     args: StartImageBuilderCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartImageBuilderCommandOutput>;
   public startImageBuilder(
     args: StartImageBuilderCommandInput,
@@ -1628,16 +1713,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public startImageBuilder(
     args: StartImageBuilderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartImageBuilderCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartImageBuilderCommandOutput) => void),
     cb?: (err: any, data?: StartImageBuilderCommandOutput) => void
   ): Promise<StartImageBuilderCommandOutput> | void {
     const command = new StartImageBuilderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1650,7 +1737,7 @@ export class AppStream extends AppStreamClient {
    */
   public stopFleet(
     args: StopFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopFleetCommandOutput>;
   public stopFleet(
     args: StopFleetCommandInput,
@@ -1663,16 +1750,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public stopFleet(
     args: StopFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopFleetCommandOutput) => void),
     cb?: (err: any, data?: StopFleetCommandOutput) => void
   ): Promise<StopFleetCommandOutput> | void {
     const command = new StopFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1685,7 +1774,7 @@ export class AppStream extends AppStreamClient {
    */
   public stopImageBuilder(
     args: StopImageBuilderCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopImageBuilderCommandOutput>;
   public stopImageBuilder(
     args: StopImageBuilderCommandInput,
@@ -1698,16 +1787,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public stopImageBuilder(
     args: StopImageBuilderCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopImageBuilderCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopImageBuilderCommandOutput) => void),
     cb?: (err: any, data?: StopImageBuilderCommandOutput) => void
   ): Promise<StopImageBuilderCommandOutput> | void {
     const command = new StopImageBuilderCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1727,7 +1818,7 @@ export class AppStream extends AppStreamClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1740,16 +1831,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1764,7 +1857,7 @@ export class AppStream extends AppStreamClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1777,16 +1870,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1799,7 +1894,7 @@ export class AppStream extends AppStreamClient {
    */
   public updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDirectoryConfigCommandOutput>;
   public updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
@@ -1812,16 +1907,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateDirectoryConfig(
     args: UpdateDirectoryConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDirectoryConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDirectoryConfigCommandOutput) => void),
     cb?: (err: any, data?: UpdateDirectoryConfigCommandOutput) => void
   ): Promise<UpdateDirectoryConfigCommandOutput> | void {
     const command = new UpdateDirectoryConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1837,7 +1934,7 @@ export class AppStream extends AppStreamClient {
    */
   public updateFleet(
     args: UpdateFleetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateFleetCommandOutput>;
   public updateFleet(
     args: UpdateFleetCommandInput,
@@ -1850,16 +1947,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateFleet(
     args: UpdateFleetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFleetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateFleetCommandOutput) => void),
     cb?: (err: any, data?: UpdateFleetCommandOutput) => void
   ): Promise<UpdateFleetCommandOutput> | void {
     const command = new UpdateFleetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1872,7 +1971,7 @@ export class AppStream extends AppStreamClient {
    */
   public updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateImagePermissionsCommandOutput>;
   public updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
@@ -1885,16 +1984,18 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateImagePermissions(
     args: UpdateImagePermissionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImagePermissionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateImagePermissionsCommandOutput) => void),
     cb?: (err: any, data?: UpdateImagePermissionsCommandOutput) => void
   ): Promise<UpdateImagePermissionsCommandOutput> | void {
     const command = new UpdateImagePermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1907,7 +2008,7 @@ export class AppStream extends AppStreamClient {
    */
   public updateStack(
     args: UpdateStackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateStackCommandOutput>;
   public updateStack(
     args: UpdateStackCommandInput,
@@ -1920,19 +2021,20 @@ export class AppStream extends AppStreamClient {
   ): void;
   public updateStack(
     args: UpdateStackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateStackCommandOutput) => void),
     cb?: (err: any, data?: UpdateStackCommandOutput) => void
   ): Promise<UpdateStackCommandOutput> | void {
     const command = new UpdateStackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

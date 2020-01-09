@@ -1,17 +1,17 @@
 import {
   AppConfigClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppConfigClient";
 import { DeleteDeploymentStrategyRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteDeploymentStrategyCommand,
-  serializeAws_restJson1_1DeleteDeploymentStrategyCommand,
+  serializeAws_restJson1_1DeleteDeploymentStrategyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteDeploymentStrategyCommandInput = DeleteDeploymentStrategyRequest;
-export type DeleteDeploymentStrategyCommandOutput = __MetadataBearer
+export type DeleteDeploymentStrategyCommandOutput = __MetadataBearer;
 
-export class DeleteDeploymentStrategyCommand extends $Command<DeleteDeploymentStrategyCommandInput, DeleteDeploymentStrategyCommandOutput, AppConfigClientResolvedConfig> {
+export class DeleteDeploymentStrategyCommand extends $Command<
+  DeleteDeploymentStrategyCommandInput,
+  DeleteDeploymentStrategyCommandOutput,
+  AppConfigClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteDeploymentStrategyCommand extends $Command<DeleteDeploymentSt
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteDeploymentStrategyCommandInput, DeleteDeploymentStrategyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteDeploymentStrategyCommandInput,
+    DeleteDeploymentStrategyCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +70,20 @@ export class DeleteDeploymentStrategyCommand extends $Command<DeleteDeploymentSt
     input: DeleteDeploymentStrategyCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteDeploymentStrategyCommand(input, context);
+    return serializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteDeploymentStrategyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(output, context);
+    return deserializeAws_restJson1_1DeleteDeploymentStrategyCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

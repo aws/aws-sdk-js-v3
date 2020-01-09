@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   error?: string;
@@ -24,7 +26,9 @@ export namespace AccessDeniedException {
  *          <p>Indicates that a request to authorize a client with an access user session token is pending.</p>
  *
  */
-export interface AuthorizationPendingException extends _smithy.SmithyException, $MetadataBearer {
+export interface AuthorizationPendingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AuthorizationPendingException";
   $fault: "client";
   error?: string;
@@ -157,7 +161,9 @@ export namespace CreateTokenResponse {
  *          <p>Indicates that the token issued by the service is expired and is no longer valid.</p>
  *
  */
-export interface ExpiredTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ExpiredTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExpiredTokenException";
   $fault: "client";
   error?: string;
@@ -175,7 +181,9 @@ export namespace ExpiredTokenException {
  *          <p>Indicates that an error from the service occurred while trying to process a request.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   error?: string;
@@ -195,7 +203,9 @@ export namespace InternalServerException {
  *       an expired <code>clientSecret</code>.</p>
  *
  */
-export interface InvalidClientException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidClientException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidClientException";
   $fault: "client";
   error?: string;
@@ -213,7 +223,9 @@ export namespace InvalidClientException {
  *          <p>Indicates that the client information sent in the request during registration is invalid.</p>
  *
  */
-export interface InvalidClientMetadataException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidClientMetadataException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidClientMetadataException";
   $fault: "client";
   error?: string;
@@ -231,7 +243,9 @@ export namespace InvalidClientMetadataException {
  *          <p>Indicates that a request contains an invalid grant. This can occur if a client makes a <a>CreateToken</a> request with an invalid grant type.</p>
  *
  */
-export interface InvalidGrantException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidGrantException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidGrantException";
   $fault: "client";
   error?: string;
@@ -250,7 +264,9 @@ export namespace InvalidGrantException {
  *       parameter might be missing or out of range.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   error?: string;
@@ -268,7 +284,9 @@ export namespace InvalidRequestException {
  *          <p>Indicates that the scope provided in the request is invalid.</p>
  *
  */
-export interface InvalidScopeException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidScopeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidScopeException";
   $fault: "client";
   error?: string;
@@ -370,7 +388,9 @@ export namespace RegisterClientResponse {
  *          <p>Indicates that the client is making the request too frequently and is more than the service can handle. </p>
  *
  */
-export interface SlowDownException extends _smithy.SmithyException, $MetadataBearer {
+export interface SlowDownException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SlowDownException";
   $fault: "client";
   error?: string;
@@ -476,7 +496,9 @@ export namespace StartDeviceAuthorizationResponse {
  *       when a <code>clientId</code> is not issued for a public client.</p>
  *
  */
-export interface UnauthorizedClientException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedClientException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedClientException";
   $fault: "client";
   error?: string;
@@ -494,7 +516,9 @@ export namespace UnauthorizedClientException {
  *          <p>Indicates that the grant type in the request is not supported by the service.</p>
  *
  */
-export interface UnsupportedGrantTypeException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedGrantTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedGrantTypeException";
   $fault: "client";
   error?: string;

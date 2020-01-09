@@ -1,20 +1,20 @@
 import {
   MediaLiveClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MediaLiveClient";
 import {
   DescribeMultiplexProgramRequest,
-  DescribeMultiplexProgramResponse,
+  DescribeMultiplexProgramResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeMultiplexProgramCommand,
-  serializeAws_restJson1_1DescribeMultiplexProgramCommand,
+  serializeAws_restJson1_1DescribeMultiplexProgramCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeMultiplexProgramCommandInput = DescribeMultiplexProgramRequest;
 export type DescribeMultiplexProgramCommandOutput = DescribeMultiplexProgramResponse;
 
-export class DescribeMultiplexProgramCommand extends $Command<DescribeMultiplexProgramCommandInput, DescribeMultiplexProgramCommandOutput, MediaLiveClientResolvedConfig> {
+export class DescribeMultiplexProgramCommand extends $Command<
+  DescribeMultiplexProgramCommandInput,
+  DescribeMultiplexProgramCommandOutput,
+  MediaLiveClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeMultiplexProgramCommand extends $Command<DescribeMultiplexP
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeMultiplexProgramCommandInput, DescribeMultiplexProgramCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeMultiplexProgramCommandInput,
+    DescribeMultiplexProgramCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeMultiplexProgramCommand extends $Command<DescribeMultiplexP
     input: DescribeMultiplexProgramCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeMultiplexProgramCommand(input, context);
+    return serializeAws_restJson1_1DescribeMultiplexProgramCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1DescribeMultiplexProgramCommand(output, context);
+    return deserializeAws_restJson1_1DescribeMultiplexProgramCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

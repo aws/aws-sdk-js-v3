@@ -1,20 +1,20 @@
 import {
   MTurkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MTurkClient";
 import {
   ListAssignmentsForHITRequest,
-  ListAssignmentsForHITResponse,
+  ListAssignmentsForHITResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListAssignmentsForHITCommand,
-  serializeAws_json1_1ListAssignmentsForHITCommand,
+  serializeAws_json1_1ListAssignmentsForHITCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListAssignmentsForHITCommandInput = ListAssignmentsForHITRequest;
 export type ListAssignmentsForHITCommandOutput = ListAssignmentsForHITResponse;
 
-export class ListAssignmentsForHITCommand extends $Command<ListAssignmentsForHITCommandInput, ListAssignmentsForHITCommandOutput, MTurkClientResolvedConfig> {
+export class ListAssignmentsForHITCommand extends $Command<
+  ListAssignmentsForHITCommandInput,
+  ListAssignmentsForHITCommandOutput,
+  MTurkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListAssignmentsForHITCommand extends $Command<ListAssignmentsForHIT
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAssignmentsForHITCommandInput, ListAssignmentsForHITCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListAssignmentsForHITCommandInput,
+    ListAssignmentsForHITCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   Route53ResolverClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../Route53ResolverClient";
 import {
   CreateResolverRuleRequest,
-  CreateResolverRuleResponse,
+  CreateResolverRuleResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateResolverRuleCommand,
-  serializeAws_json1_1CreateResolverRuleCommand,
+  serializeAws_json1_1CreateResolverRuleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateResolverRuleCommandInput = CreateResolverRuleRequest;
 export type CreateResolverRuleCommandOutput = CreateResolverRuleResponse;
 
-export class CreateResolverRuleCommand extends $Command<CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput, Route53ResolverClientResolvedConfig> {
+export class CreateResolverRuleCommand extends $Command<
+  CreateResolverRuleCommandInput,
+  CreateResolverRuleCommandOutput,
+  Route53ResolverClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class CreateResolverRuleCommand extends $Command<CreateResolverRuleComman
     configuration: Route53ResolverClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

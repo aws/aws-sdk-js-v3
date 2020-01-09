@@ -1,74 +1,74 @@
 import {
   CreateServerCommandInput,
-  CreateServerCommandOutput,
+  CreateServerCommandOutput
 } from "../commands/CreateServerCommand";
 import {
   CreateUserCommandInput,
-  CreateUserCommandOutput,
+  CreateUserCommandOutput
 } from "../commands/CreateUserCommand";
 import {
   DeleteServerCommandInput,
-  DeleteServerCommandOutput,
+  DeleteServerCommandOutput
 } from "../commands/DeleteServerCommand";
 import {
   DeleteSshPublicKeyCommandInput,
-  DeleteSshPublicKeyCommandOutput,
+  DeleteSshPublicKeyCommandOutput
 } from "../commands/DeleteSshPublicKeyCommand";
 import {
   DeleteUserCommandInput,
-  DeleteUserCommandOutput,
+  DeleteUserCommandOutput
 } from "../commands/DeleteUserCommand";
 import {
   DescribeServerCommandInput,
-  DescribeServerCommandOutput,
+  DescribeServerCommandOutput
 } from "../commands/DescribeServerCommand";
 import {
   DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+  DescribeUserCommandOutput
 } from "../commands/DescribeUserCommand";
 import {
   ImportSshPublicKeyCommandInput,
-  ImportSshPublicKeyCommandOutput,
+  ImportSshPublicKeyCommandOutput
 } from "../commands/ImportSshPublicKeyCommand";
 import {
   ListServersCommandInput,
-  ListServersCommandOutput,
+  ListServersCommandOutput
 } from "../commands/ListServersCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   ListUsersCommandInput,
-  ListUsersCommandOutput,
+  ListUsersCommandOutput
 } from "../commands/ListUsersCommand";
 import {
   StartServerCommandInput,
-  StartServerCommandOutput,
+  StartServerCommandOutput
 } from "../commands/StartServerCommand";
 import {
   StopServerCommandInput,
-  StopServerCommandOutput,
+  StopServerCommandOutput
 } from "../commands/StopServerCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   TestIdentityProviderCommandInput,
-  TestIdentityProviderCommandOutput,
+  TestIdentityProviderCommandOutput
 } from "../commands/TestIdentityProviderCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateServerCommandInput,
-  UpdateServerCommandOutput,
+  UpdateServerCommandOutput
 } from "../commands/UpdateServerCommand";
 import {
   UpdateUserCommandInput,
-  UpdateUserCommandOutput,
+  UpdateUserCommandOutput
 } from "../commands/UpdateUserCommand";
 import {
   CreateServerRequest,
@@ -115,18 +115,18 @@ import {
   UpdateServerRequest,
   UpdateServerResponse,
   UpdateUserRequest,
-  UpdateUserResponse,
+  UpdateUserResponse
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateServerCommand(
@@ -134,11 +134,11 @@ export async function serializeAws_json1_1CreateServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.CreateServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.CreateServer";
   let body: any = {};
   const wrappedBody: any = {
-    CreateServerRequest: serializeAws_json1_1CreateServerRequest(input, context),
+    CreateServerRequest: serializeAws_json1_1CreateServerRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -147,7 +147,7 @@ export async function serializeAws_json1_1CreateServerCommand(
     method: "POST",
     path: "/CreateServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -156,11 +156,11 @@ export async function serializeAws_json1_1CreateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.CreateUser";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.CreateUser";
   let body: any = {};
   const wrappedBody: any = {
-    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context),
+    CreateUserRequest: serializeAws_json1_1CreateUserRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -169,7 +169,7 @@ export async function serializeAws_json1_1CreateUserCommand(
     method: "POST",
     path: "/CreateUser",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -178,11 +178,11 @@ export async function serializeAws_json1_1DeleteServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.DeleteServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.DeleteServer";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteServerRequest: serializeAws_json1_1DeleteServerRequest(input, context),
+    DeleteServerRequest: serializeAws_json1_1DeleteServerRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -191,7 +191,7 @@ export async function serializeAws_json1_1DeleteServerCommand(
     method: "POST",
     path: "/DeleteServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -200,11 +200,14 @@ export async function serializeAws_json1_1DeleteSshPublicKeyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.DeleteSshPublicKey";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.DeleteSshPublicKey";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteSshPublicKeyRequest: serializeAws_json1_1DeleteSshPublicKeyRequest(input, context),
+    DeleteSshPublicKeyRequest: serializeAws_json1_1DeleteSshPublicKeyRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -213,7 +216,7 @@ export async function serializeAws_json1_1DeleteSshPublicKeyCommand(
     method: "POST",
     path: "/DeleteSshPublicKey",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -222,11 +225,11 @@ export async function serializeAws_json1_1DeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.DeleteUser";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.DeleteUser";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context),
+    DeleteUserRequest: serializeAws_json1_1DeleteUserRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -235,7 +238,7 @@ export async function serializeAws_json1_1DeleteUserCommand(
     method: "POST",
     path: "/DeleteUser",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -244,11 +247,14 @@ export async function serializeAws_json1_1DescribeServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.DescribeServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.DescribeServer";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeServerRequest: serializeAws_json1_1DescribeServerRequest(input, context),
+    DescribeServerRequest: serializeAws_json1_1DescribeServerRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -257,7 +263,7 @@ export async function serializeAws_json1_1DescribeServerCommand(
     method: "POST",
     path: "/DescribeServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -266,11 +272,11 @@ export async function serializeAws_json1_1DescribeUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.DescribeUser";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.DescribeUser";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeUserRequest: serializeAws_json1_1DescribeUserRequest(input, context),
+    DescribeUserRequest: serializeAws_json1_1DescribeUserRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -279,7 +285,7 @@ export async function serializeAws_json1_1DescribeUserCommand(
     method: "POST",
     path: "/DescribeUser",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -288,11 +294,14 @@ export async function serializeAws_json1_1ImportSshPublicKeyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.ImportSshPublicKey";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.ImportSshPublicKey";
   let body: any = {};
   const wrappedBody: any = {
-    ImportSshPublicKeyRequest: serializeAws_json1_1ImportSshPublicKeyRequest(input, context),
+    ImportSshPublicKeyRequest: serializeAws_json1_1ImportSshPublicKeyRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -301,7 +310,7 @@ export async function serializeAws_json1_1ImportSshPublicKeyCommand(
     method: "POST",
     path: "/ImportSshPublicKey",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -310,11 +319,11 @@ export async function serializeAws_json1_1ListServersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.ListServers";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.ListServers";
   let body: any = {};
   const wrappedBody: any = {
-    ListServersRequest: serializeAws_json1_1ListServersRequest(input, context),
+    ListServersRequest: serializeAws_json1_1ListServersRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -323,7 +332,7 @@ export async function serializeAws_json1_1ListServersCommand(
     method: "POST",
     path: "/ListServers",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -332,11 +341,14 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.ListTagsForResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -345,7 +357,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -354,11 +366,11 @@ export async function serializeAws_json1_1ListUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.ListUsers";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.ListUsers";
   let body: any = {};
   const wrappedBody: any = {
-    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context),
+    ListUsersRequest: serializeAws_json1_1ListUsersRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -367,7 +379,7 @@ export async function serializeAws_json1_1ListUsersCommand(
     method: "POST",
     path: "/ListUsers",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -376,11 +388,11 @@ export async function serializeAws_json1_1StartServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.StartServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.StartServer";
   let body: any = {};
   const wrappedBody: any = {
-    StartServerRequest: serializeAws_json1_1StartServerRequest(input, context),
+    StartServerRequest: serializeAws_json1_1StartServerRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -389,7 +401,7 @@ export async function serializeAws_json1_1StartServerCommand(
     method: "POST",
     path: "/StartServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -398,11 +410,11 @@ export async function serializeAws_json1_1StopServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.StopServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.StopServer";
   let body: any = {};
   const wrappedBody: any = {
-    StopServerRequest: serializeAws_json1_1StopServerRequest(input, context),
+    StopServerRequest: serializeAws_json1_1StopServerRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -411,7 +423,7 @@ export async function serializeAws_json1_1StopServerCommand(
     method: "POST",
     path: "/StopServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -420,11 +432,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.TagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context),
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -433,7 +445,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -442,11 +454,14 @@ export async function serializeAws_json1_1TestIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.TestIdentityProvider";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.TestIdentityProvider";
   let body: any = {};
   const wrappedBody: any = {
-    TestIdentityProviderRequest: serializeAws_json1_1TestIdentityProviderRequest(input, context),
+    TestIdentityProviderRequest: serializeAws_json1_1TestIdentityProviderRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -455,7 +470,7 @@ export async function serializeAws_json1_1TestIdentityProviderCommand(
     method: "POST",
     path: "/TestIdentityProvider",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -464,11 +479,14 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.UntagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(input, context),
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -477,7 +495,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -486,11 +504,11 @@ export async function serializeAws_json1_1UpdateServerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.UpdateServer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.UpdateServer";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateServerRequest: serializeAws_json1_1UpdateServerRequest(input, context),
+    UpdateServerRequest: serializeAws_json1_1UpdateServerRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -499,7 +517,7 @@ export async function serializeAws_json1_1UpdateServerCommand(
     method: "POST",
     path: "/UpdateServer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -508,11 +526,11 @@ export async function serializeAws_json1_1UpdateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "TransferService.UpdateUser";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "TransferService.UpdateUser";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateUserRequest: serializeAws_json1_1UpdateUserRequest(input, context),
+    UpdateUserRequest: serializeAws_json1_1UpdateUserRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -521,7 +539,7 @@ export async function serializeAws_json1_1UpdateUserCommand(
     method: "POST",
     path: "/UpdateUser",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -532,52 +550,65 @@ export async function deserializeAws_json1_1CreateServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateServerResponse(data, context);
   const response: CreateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServerResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -590,56 +621,72 @@ export async function deserializeAws_json1_1CreateUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -653,46 +700,59 @@ export async function deserializeAws_json1_1DeleteServerCommand(
     return deserializeAws_json1_1DeleteServerCommandError(output, context);
   }
   const response: DeleteServerCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -703,53 +763,72 @@ export async function deserializeAws_json1_1DeleteSshPublicKeyCommand(
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSshPublicKeyCommandError(output, context);
+    return deserializeAws_json1_1DeleteSshPublicKeyCommandError(
+      output,
+      context
+    );
   }
   const response: DeleteSshPublicKeyCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteSshPublicKeyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -763,46 +842,59 @@ export async function deserializeAws_json1_1DeleteUserCommand(
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
   const response: DeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -815,52 +907,65 @@ export async function deserializeAws_json1_1DescribeServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeServerResponse(data, context);
   const response: DescribeServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeServerResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -873,52 +978,65 @@ export async function deserializeAws_json1_1DescribeUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeUserResponse(data, context);
   const response: DescribeUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeUserResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -929,62 +1047,84 @@ export async function deserializeAws_json1_1ImportSshPublicKeyCommand(
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ImportSshPublicKeyCommandError(output, context);
+    return deserializeAws_json1_1ImportSshPublicKeyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ImportSshPublicKeyResponse(data, context);
   const response: ImportSshPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportSshPublicKeyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ImportSshPublicKeyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -997,52 +1137,65 @@ export async function deserializeAws_json1_1ListServersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListServersResponse(data, context);
   const response: ListServersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServersResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListServersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListServersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1053,54 +1206,70 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1113,56 +1282,72 @@ export async function deserializeAws_json1_1ListUsersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListUsersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListUsersResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidNextTokenException":
     case "com.amazonaws.necco.coral#InvalidNextTokenException":
-      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1176,50 +1361,66 @@ export async function deserializeAws_json1_1StartServerCommand(
     return deserializeAws_json1_1StartServerCommandError(output, context);
   }
   const response: StartServerCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1233,50 +1434,66 @@ export async function deserializeAws_json1_1StopServerCommand(
     return deserializeAws_json1_1StopServerCommandError(output, context);
   }
   const response: StopServerCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StopServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1290,46 +1507,59 @@ export async function deserializeAws_json1_1TagResourceCommand(
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1340,54 +1570,70 @@ export async function deserializeAws_json1_1TestIdentityProviderCommand(
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1TestIdentityProviderCommandError(output, context);
+    return deserializeAws_json1_1TestIdentityProviderCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1TestIdentityProviderResponse(data, context);
   const response: TestIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TestIdentityProviderResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TestIdentityProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1401,46 +1647,59 @@ export async function deserializeAws_json1_1UntagResourceCommand(
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1453,60 +1712,79 @@ export async function deserializeAws_json1_1UpdateServerCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateServerCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateServerResponse(data, context);
   const response: UpdateServerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServerResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateServerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceExistsException":
     case "com.amazonaws.necco.coral#ResourceExistsException":
-      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1519,56 +1797,72 @@ export async function deserializeAws_json1_1UpdateUserCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateUserCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateUserResponse(data, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.coral.service#ServiceUnavailableException":
-      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceError":
     case "com.amazonaws.necco.coral#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.necco.coral#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.necco.coral#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ThrottlingException":
     case "com.amazonaws.necco.coral#ThrottlingException":
-      response = await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.necco.coral#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1578,12 +1872,15 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceUnavailableException> => {
-  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ServiceUnavailableException(
+    output.body,
+    context
+  );
   const contents: ServiceUnavailableException = {
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1592,12 +1889,15 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalServiceError(
+    output.body,
+    context
+  );
   const contents: InternalServiceError = {
     __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1606,12 +1906,15 @@ const deserializeAws_json1_1InvalidNextTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidNextTokenException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidNextTokenException(
+    output.body,
+    context
+  );
   const contents: InvalidNextTokenException = {
     __type: "InvalidNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1620,12 +1923,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
+    output.body,
+    context
+  );
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1634,12 +1940,15 @@ const deserializeAws_json1_1ResourceExistsExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceExistsException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceExistsException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceExistsException(
+    output.body,
+    context
+  );
   const contents: ResourceExistsException = {
     __type: "ResourceExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1648,12 +1957,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    output.body,
+    context
+  );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1662,12 +1974,15 @@ const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ThrottlingException> => {
-  const deserialized: any = deserializeAws_json1_1ThrottlingException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ThrottlingException(
+    output.body,
+    context
+  );
   const contents: ThrottlingException = {
     __type: "ThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1678,28 +1993,36 @@ const serializeAws_json1_1CreateServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointDetails !== undefined) {
-    bodyParams['EndpointDetails'] = serializeAws_json1_1EndpointDetails(input.EndpointDetails, context);
+    bodyParams["EndpointDetails"] = serializeAws_json1_1EndpointDetails(
+      input.EndpointDetails,
+      context
+    );
   }
   if (input.EndpointType !== undefined) {
-    bodyParams['EndpointType'] = input.EndpointType;
+    bodyParams["EndpointType"] = input.EndpointType;
   }
   if (input.HostKey !== undefined) {
-    bodyParams['HostKey'] = input.HostKey;
+    bodyParams["HostKey"] = input.HostKey;
   }
   if (input.IdentityProviderDetails !== undefined) {
-    bodyParams['IdentityProviderDetails'] = serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context);
+    bodyParams[
+      "IdentityProviderDetails"
+    ] = serializeAws_json1_1IdentityProviderDetails(
+      input.IdentityProviderDetails,
+      context
+    );
   }
   if (input.IdentityProviderType !== undefined) {
-    bodyParams['IdentityProviderType'] = input.IdentityProviderType;
+    bodyParams["IdentityProviderType"] = input.IdentityProviderType;
   }
   if (input.LoggingRole !== undefined) {
-    bodyParams['LoggingRole'] = input.LoggingRole;
+    bodyParams["LoggingRole"] = input.LoggingRole;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
@@ -1707,34 +2030,39 @@ const serializeAws_json1_1CreateUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HomeDirectory !== undefined) {
-    bodyParams['HomeDirectory'] = input.HomeDirectory;
+    bodyParams["HomeDirectory"] = input.HomeDirectory;
   }
   if (input.HomeDirectoryMappings !== undefined) {
-    bodyParams['HomeDirectoryMappings'] = serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context);
+    bodyParams[
+      "HomeDirectoryMappings"
+    ] = serializeAws_json1_1HomeDirectoryMappings(
+      input.HomeDirectoryMappings,
+      context
+    );
   }
   if (input.HomeDirectoryType !== undefined) {
-    bodyParams['HomeDirectoryType'] = input.HomeDirectoryType;
+    bodyParams["HomeDirectoryType"] = input.HomeDirectoryType;
   }
   if (input.Policy !== undefined) {
-    bodyParams['Policy'] = input.Policy;
+    bodyParams["Policy"] = input.Policy;
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.SshPublicKeyBody !== undefined) {
-    bodyParams['SshPublicKeyBody'] = input.SshPublicKeyBody;
+    bodyParams["SshPublicKeyBody"] = input.SshPublicKeyBody;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteServerRequest = (
   input: DeleteServerRequest,
@@ -1742,10 +2070,10 @@ const serializeAws_json1_1DeleteServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteSshPublicKeyRequest = (
   input: DeleteSshPublicKeyRequest,
@@ -1753,16 +2081,16 @@ const serializeAws_json1_1DeleteSshPublicKeyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.SshPublicKeyId !== undefined) {
-    bodyParams['SshPublicKeyId'] = input.SshPublicKeyId;
+    bodyParams["SshPublicKeyId"] = input.SshPublicKeyId;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
@@ -1770,13 +2098,13 @@ const serializeAws_json1_1DeleteUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeServerRequest = (
   input: DescribeServerRequest,
@@ -1784,10 +2112,10 @@ const serializeAws_json1_1DescribeServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeUserRequest = (
   input: DescribeUserRequest,
@@ -1795,13 +2123,13 @@ const serializeAws_json1_1DescribeUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EndpointDetails = (
   input: EndpointDetails,
@@ -1809,10 +2137,10 @@ const serializeAws_json1_1EndpointDetails = (
 ): any => {
   let bodyParams: any = {};
   if (input.VpcEndpointId !== undefined) {
-    bodyParams['VpcEndpointId'] = input.VpcEndpointId;
+    bodyParams["VpcEndpointId"] = input.VpcEndpointId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1HomeDirectoryMapEntry = (
   input: HomeDirectoryMapEntry,
@@ -1820,13 +2148,13 @@ const serializeAws_json1_1HomeDirectoryMapEntry = (
 ): any => {
   let bodyParams: any = {};
   if (input.Entry !== undefined) {
-    bodyParams['Entry'] = input.Entry;
+    bodyParams["Entry"] = input.Entry;
   }
   if (input.Target !== undefined) {
-    bodyParams['Target'] = input.Target;
+    bodyParams["Target"] = input.Target;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1HomeDirectoryMappings = (
   input: Array<HomeDirectoryMapEntry>,
@@ -1835,7 +2163,7 @@ const serializeAws_json1_1HomeDirectoryMappings = (
   return (input || []).map(entry =>
     serializeAws_json1_1HomeDirectoryMapEntry(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1IdentityProviderDetails = (
   input: IdentityProviderDetails,
@@ -1843,13 +2171,13 @@ const serializeAws_json1_1IdentityProviderDetails = (
 ): any => {
   let bodyParams: any = {};
   if (input.InvocationRole !== undefined) {
-    bodyParams['InvocationRole'] = input.InvocationRole;
+    bodyParams["InvocationRole"] = input.InvocationRole;
   }
   if (input.Url !== undefined) {
-    bodyParams['Url'] = input.Url;
+    bodyParams["Url"] = input.Url;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ImportSshPublicKeyRequest = (
   input: ImportSshPublicKeyRequest,
@@ -1857,16 +2185,16 @@ const serializeAws_json1_1ImportSshPublicKeyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.SshPublicKeyBody !== undefined) {
-    bodyParams['SshPublicKeyBody'] = input.SshPublicKeyBody;
+    bodyParams["SshPublicKeyBody"] = input.SshPublicKeyBody;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListServersRequest = (
   input: ListServersRequest,
@@ -1874,13 +2202,13 @@ const serializeAws_json1_1ListServersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -1888,16 +2216,16 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Arn !== undefined) {
-    bodyParams['Arn'] = input.Arn;
+    bodyParams["Arn"] = input.Arn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListUsersRequest = (
   input: ListUsersRequest,
@@ -1905,16 +2233,16 @@ const serializeAws_json1_1ListUsersRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StartServerRequest = (
   input: StartServerRequest,
@@ -1922,10 +2250,10 @@ const serializeAws_json1_1StartServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StopServerRequest = (
   input: StopServerRequest,
@@ -1933,33 +2261,28 @@ const serializeAws_json1_1StopServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
-const serializeAws_json1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
@@ -1967,22 +2290,20 @@ const serializeAws_json1_1TagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Arn !== undefined) {
-    bodyParams['Arn'] = input.Arn;
+    bodyParams["Arn"] = input.Arn;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1Tags(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Tags = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
 
 const serializeAws_json1_1TestIdentityProviderRequest = (
   input: TestIdentityProviderRequest,
@@ -1990,16 +2311,16 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   if (input.UserPassword !== undefined) {
-    bodyParams['UserPassword'] = input.UserPassword;
+    bodyParams["UserPassword"] = input.UserPassword;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
@@ -2007,13 +2328,13 @@ const serializeAws_json1_1UntagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Arn !== undefined) {
-    bodyParams['Arn'] = input.Arn;
+    bodyParams["Arn"] = input.Arn;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams['TagKeys'] = serializeAws_json1_1TagKeys(input.TagKeys, context);
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateServerRequest = (
   input: UpdateServerRequest,
@@ -2021,25 +2342,33 @@ const serializeAws_json1_1UpdateServerRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndpointDetails !== undefined) {
-    bodyParams['EndpointDetails'] = serializeAws_json1_1EndpointDetails(input.EndpointDetails, context);
+    bodyParams["EndpointDetails"] = serializeAws_json1_1EndpointDetails(
+      input.EndpointDetails,
+      context
+    );
   }
   if (input.EndpointType !== undefined) {
-    bodyParams['EndpointType'] = input.EndpointType;
+    bodyParams["EndpointType"] = input.EndpointType;
   }
   if (input.HostKey !== undefined) {
-    bodyParams['HostKey'] = input.HostKey;
+    bodyParams["HostKey"] = input.HostKey;
   }
   if (input.IdentityProviderDetails !== undefined) {
-    bodyParams['IdentityProviderDetails'] = serializeAws_json1_1IdentityProviderDetails(input.IdentityProviderDetails, context);
+    bodyParams[
+      "IdentityProviderDetails"
+    ] = serializeAws_json1_1IdentityProviderDetails(
+      input.IdentityProviderDetails,
+      context
+    );
   }
   if (input.LoggingRole !== undefined) {
-    bodyParams['LoggingRole'] = input.LoggingRole;
+    bodyParams["LoggingRole"] = input.LoggingRole;
   }
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateUserRequest = (
   input: UpdateUserRequest,
@@ -2047,28 +2376,33 @@ const serializeAws_json1_1UpdateUserRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HomeDirectory !== undefined) {
-    bodyParams['HomeDirectory'] = input.HomeDirectory;
+    bodyParams["HomeDirectory"] = input.HomeDirectory;
   }
   if (input.HomeDirectoryMappings !== undefined) {
-    bodyParams['HomeDirectoryMappings'] = serializeAws_json1_1HomeDirectoryMappings(input.HomeDirectoryMappings, context);
+    bodyParams[
+      "HomeDirectoryMappings"
+    ] = serializeAws_json1_1HomeDirectoryMappings(
+      input.HomeDirectoryMappings,
+      context
+    );
   }
   if (input.HomeDirectoryType !== undefined) {
-    bodyParams['HomeDirectoryType'] = input.HomeDirectoryType;
+    bodyParams["HomeDirectoryType"] = input.HomeDirectoryType;
   }
   if (input.Policy !== undefined) {
-    bodyParams['Policy'] = input.Policy;
+    bodyParams["Policy"] = input.Policy;
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.ServerId !== undefined) {
-    bodyParams['ServerId'] = input.ServerId;
+    bodyParams["ServerId"] = input.ServerId;
   }
   if (input.UserName !== undefined) {
-    bodyParams['UserName'] = input.UserName;
+    bodyParams["UserName"] = input.UserName;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
@@ -2076,13 +2410,13 @@ const deserializeAws_json1_1ServiceUnavailableException = (
 ): ServiceUnavailableException => {
   let contents: any = {
     __type: "ServiceUnavailableException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateServerResponse = (
   output: any,
@@ -2090,13 +2424,13 @@ const deserializeAws_json1_1CreateServerResponse = (
 ): CreateServerResponse => {
   let contents: any = {
     __type: "CreateServerResponse",
-    ServerId: undefined,
+    ServerId: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateUserResponse = (
   output: any,
@@ -2105,7 +2439,7 @@ const deserializeAws_json1_1CreateUserResponse = (
   let contents: any = {
     __type: "CreateUserResponse",
     ServerId: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
@@ -2114,7 +2448,7 @@ const deserializeAws_json1_1CreateUserResponse = (
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeServerResponse = (
   output: any,
@@ -2122,13 +2456,16 @@ const deserializeAws_json1_1DescribeServerResponse = (
 ): DescribeServerResponse => {
   let contents: any = {
     __type: "DescribeServerResponse",
-    Server: undefined,
+    Server: undefined
   };
   if (output.Server !== undefined) {
-    contents.Server = deserializeAws_json1_1DescribedServer(output.Server, context);
+    contents.Server = deserializeAws_json1_1DescribedServer(
+      output.Server,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeUserResponse = (
   output: any,
@@ -2137,7 +2474,7 @@ const deserializeAws_json1_1DescribeUserResponse = (
   let contents: any = {
     __type: "DescribeUserResponse",
     ServerId: undefined,
-    User: undefined,
+    User: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
@@ -2146,7 +2483,7 @@ const deserializeAws_json1_1DescribeUserResponse = (
     contents.User = deserializeAws_json1_1DescribedUser(output.User, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribedServer = (
   output: any,
@@ -2164,13 +2501,16 @@ const deserializeAws_json1_1DescribedServer = (
     ServerId: undefined,
     State: undefined,
     Tags: undefined,
-    UserCount: undefined,
+    UserCount: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.EndpointDetails !== undefined) {
-    contents.EndpointDetails = deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context);
+    contents.EndpointDetails = deserializeAws_json1_1EndpointDetails(
+      output.EndpointDetails,
+      context
+    );
   }
   if (output.EndpointType !== undefined) {
     contents.EndpointType = output.EndpointType;
@@ -2179,7 +2519,10 @@ const deserializeAws_json1_1DescribedServer = (
     contents.HostKeyFingerprint = output.HostKeyFingerprint;
   }
   if (output.IdentityProviderDetails !== undefined) {
-    contents.IdentityProviderDetails = deserializeAws_json1_1IdentityProviderDetails(output.IdentityProviderDetails, context);
+    contents.IdentityProviderDetails = deserializeAws_json1_1IdentityProviderDetails(
+      output.IdentityProviderDetails,
+      context
+    );
   }
   if (output.IdentityProviderType !== undefined) {
     contents.IdentityProviderType = output.IdentityProviderType;
@@ -2200,7 +2543,7 @@ const deserializeAws_json1_1DescribedServer = (
     contents.UserCount = output.UserCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribedUser = (
   output: any,
@@ -2216,7 +2559,7 @@ const deserializeAws_json1_1DescribedUser = (
     Role: undefined,
     SshPublicKeys: undefined,
     Tags: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -2225,7 +2568,10 @@ const deserializeAws_json1_1DescribedUser = (
     contents.HomeDirectory = output.HomeDirectory;
   }
   if (output.HomeDirectoryMappings !== undefined) {
-    contents.HomeDirectoryMappings = deserializeAws_json1_1HomeDirectoryMappings(output.HomeDirectoryMappings, context);
+    contents.HomeDirectoryMappings = deserializeAws_json1_1HomeDirectoryMappings(
+      output.HomeDirectoryMappings,
+      context
+    );
   }
   if (output.HomeDirectoryType !== undefined) {
     contents.HomeDirectoryType = output.HomeDirectoryType;
@@ -2237,7 +2583,10 @@ const deserializeAws_json1_1DescribedUser = (
     contents.Role = output.Role;
   }
   if (output.SshPublicKeys !== undefined) {
-    contents.SshPublicKeys = deserializeAws_json1_1SshPublicKeys(output.SshPublicKeys, context);
+    contents.SshPublicKeys = deserializeAws_json1_1SshPublicKeys(
+      output.SshPublicKeys,
+      context
+    );
   }
   if (output.Tags !== undefined) {
     contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
@@ -2246,7 +2595,7 @@ const deserializeAws_json1_1DescribedUser = (
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EndpointDetails = (
   output: any,
@@ -2254,13 +2603,13 @@ const deserializeAws_json1_1EndpointDetails = (
 ): EndpointDetails => {
   let contents: any = {
     __type: "EndpointDetails",
-    VpcEndpointId: undefined,
+    VpcEndpointId: undefined
   };
   if (output.VpcEndpointId !== undefined) {
     contents.VpcEndpointId = output.VpcEndpointId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HomeDirectoryMapEntry = (
   output: any,
@@ -2269,7 +2618,7 @@ const deserializeAws_json1_1HomeDirectoryMapEntry = (
   let contents: any = {
     __type: "HomeDirectoryMapEntry",
     Entry: undefined,
-    Target: undefined,
+    Target: undefined
   };
   if (output.Entry !== undefined) {
     contents.Entry = output.Entry;
@@ -2278,7 +2627,7 @@ const deserializeAws_json1_1HomeDirectoryMapEntry = (
     contents.Target = output.Target;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HomeDirectoryMappings = (
   output: any,
@@ -2287,7 +2636,7 @@ const deserializeAws_json1_1HomeDirectoryMappings = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HomeDirectoryMapEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1IdentityProviderDetails = (
   output: any,
@@ -2296,7 +2645,7 @@ const deserializeAws_json1_1IdentityProviderDetails = (
   let contents: any = {
     __type: "IdentityProviderDetails",
     InvocationRole: undefined,
-    Url: undefined,
+    Url: undefined
   };
   if (output.InvocationRole !== undefined) {
     contents.InvocationRole = output.InvocationRole;
@@ -2305,7 +2654,7 @@ const deserializeAws_json1_1IdentityProviderDetails = (
     contents.Url = output.Url;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ImportSshPublicKeyResponse = (
   output: any,
@@ -2315,7 +2664,7 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
     __type: "ImportSshPublicKeyResponse",
     ServerId: undefined,
     SshPublicKeyId: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
@@ -2327,7 +2676,7 @@ const deserializeAws_json1_1ImportSshPublicKeyResponse = (
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalServiceError = (
   output: any,
@@ -2335,13 +2684,13 @@ const deserializeAws_json1_1InternalServiceError = (
 ): InternalServiceError => {
   let contents: any = {
     __type: "InternalServiceError",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
@@ -2349,13 +2698,13 @@ const deserializeAws_json1_1InvalidNextTokenException = (
 ): InvalidNextTokenException => {
   let contents: any = {
     __type: "InvalidNextTokenException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -2363,13 +2712,13 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   let contents: any = {
     __type: "InvalidRequestException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListServersResponse = (
   output: any,
@@ -2378,16 +2727,19 @@ const deserializeAws_json1_1ListServersResponse = (
   let contents: any = {
     __type: "ListServersResponse",
     NextToken: undefined,
-    Servers: undefined,
+    Servers: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Servers !== undefined) {
-    contents.Servers = deserializeAws_json1_1ListedServers(output.Servers, context);
+    contents.Servers = deserializeAws_json1_1ListedServers(
+      output.Servers,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -2397,7 +2749,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     __type: "ListTagsForResourceResponse",
     Arn: undefined,
     NextToken: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -2409,7 +2761,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListUsersResponse = (
   output: any,
@@ -2419,7 +2771,7 @@ const deserializeAws_json1_1ListUsersResponse = (
     __type: "ListUsersResponse",
     NextToken: undefined,
     ServerId: undefined,
-    Users: undefined,
+    Users: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -2431,7 +2783,7 @@ const deserializeAws_json1_1ListUsersResponse = (
     contents.Users = deserializeAws_json1_1ListedUsers(output.Users, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListedServer = (
   output: any,
@@ -2445,7 +2797,7 @@ const deserializeAws_json1_1ListedServer = (
     LoggingRole: undefined,
     ServerId: undefined,
     State: undefined,
-    UserCount: undefined,
+    UserCount: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -2469,7 +2821,7 @@ const deserializeAws_json1_1ListedServer = (
     contents.UserCount = output.UserCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListedServers = (
   output: any,
@@ -2478,7 +2830,7 @@ const deserializeAws_json1_1ListedServers = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListedServer(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ListedUser = (
   output: any,
@@ -2491,7 +2843,7 @@ const deserializeAws_json1_1ListedUser = (
     HomeDirectoryType: undefined,
     Role: undefined,
     SshPublicKeyCount: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -2512,7 +2864,7 @@ const deserializeAws_json1_1ListedUser = (
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListedUsers = (
   output: any,
@@ -2521,7 +2873,7 @@ const deserializeAws_json1_1ListedUsers = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ListedUser(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ResourceExistsException = (
   output: any,
@@ -2531,7 +2883,7 @@ const deserializeAws_json1_1ResourceExistsException = (
     __type: "ResourceExistsException",
     Message: undefined,
     Resource: undefined,
-    ResourceType: undefined,
+    ResourceType: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -2543,7 +2895,7 @@ const deserializeAws_json1_1ResourceExistsException = (
     contents.ResourceType = output.ResourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -2553,7 +2905,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     __type: "ResourceNotFoundException",
     Message: undefined,
     Resource: undefined,
-    ResourceType: undefined,
+    ResourceType: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -2565,7 +2917,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     contents.ResourceType = output.ResourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SshPublicKey = (
   output: any,
@@ -2575,10 +2927,14 @@ const deserializeAws_json1_1SshPublicKey = (
     __type: "SshPublicKey",
     DateImported: undefined,
     SshPublicKeyBody: undefined,
-    SshPublicKeyId: undefined,
+    SshPublicKeyId: undefined
   };
   if (output.DateImported !== undefined) {
-    contents.DateImported = new Date(output.DateImported % 1 != 0 ? Math.round(output.DateImported * 1000) : output.DateImported);
+    contents.DateImported = new Date(
+      output.DateImported % 1 != 0
+        ? Math.round(output.DateImported * 1000)
+        : output.DateImported
+    );
   }
   if (output.SshPublicKeyBody !== undefined) {
     contents.SshPublicKeyBody = output.SshPublicKeyBody;
@@ -2587,7 +2943,7 @@ const deserializeAws_json1_1SshPublicKey = (
     contents.SshPublicKeyId = output.SshPublicKeyId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SshPublicKeys = (
   output: any,
@@ -2596,7 +2952,7 @@ const deserializeAws_json1_1SshPublicKeys = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SshPublicKey(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -2605,7 +2961,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -2614,7 +2970,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Tags = (
   output: any,
@@ -2623,7 +2979,7 @@ const deserializeAws_json1_1Tags = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TestIdentityProviderResponse = (
   output: any,
@@ -2634,7 +2990,7 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
     Message: undefined,
     Response: undefined,
     StatusCode: undefined,
-    Url: undefined,
+    Url: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
@@ -2649,7 +3005,7 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
     contents.Url = output.Url;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
@@ -2657,13 +3013,13 @@ const deserializeAws_json1_1ThrottlingException = (
 ): ThrottlingException => {
   let contents: any = {
     __type: "ThrottlingException",
-    RetryAfterSeconds: undefined,
+    RetryAfterSeconds: undefined
   };
   if (output.RetryAfterSeconds !== undefined) {
     contents.RetryAfterSeconds = output.RetryAfterSeconds;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateServerResponse = (
   output: any,
@@ -2671,13 +3027,13 @@ const deserializeAws_json1_1UpdateServerResponse = (
 ): UpdateServerResponse => {
   let contents: any = {
     __type: "UpdateServerResponse",
-    ServerId: undefined,
+    ServerId: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateUserResponse = (
   output: any,
@@ -2686,7 +3042,7 @@ const deserializeAws_json1_1UpdateUserResponse = (
   let contents: any = {
     __type: "UpdateUserResponse",
     ServerId: undefined,
-    UserName: undefined,
+    UserName: undefined
   };
   if (output.ServerId !== undefined) {
     contents.ServerId = output.ServerId;
@@ -2695,7 +3051,7 @@ const deserializeAws_json1_1UpdateUserResponse = (
     contents.UserName = output.UserName;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

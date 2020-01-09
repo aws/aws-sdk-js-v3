@@ -1,20 +1,20 @@
 import {
   ApplicationAutoScalingClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ApplicationAutoScalingClient";
 import {
   DeleteScheduledActionRequest,
-  DeleteScheduledActionResponse,
+  DeleteScheduledActionResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
-  serializeAws_json1_1DeleteScheduledActionCommand,
+  serializeAws_json1_1DeleteScheduledActionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteScheduledActionCommandInput = DeleteScheduledActionRequest;
 export type DeleteScheduledActionCommandOutput = DeleteScheduledActionResponse;
 
-export class DeleteScheduledActionCommand extends $Command<DeleteScheduledActionCommandInput, DeleteScheduledActionCommandOutput, ApplicationAutoScalingClientResolvedConfig> {
+export class DeleteScheduledActionCommand extends $Command<
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput,
+  ApplicationAutoScalingClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteScheduledActionCommand extends $Command<DeleteScheduledAction
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationAutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteScheduledActionCommandInput, DeleteScheduledActionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteScheduledActionCommandInput,
+    DeleteScheduledActionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

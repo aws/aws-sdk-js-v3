@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig,
+  WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
 import {
   UpdateAuditStreamConfigurationRequest,
-  UpdateAuditStreamConfigurationResponse,
+  UpdateAuditStreamConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand,
-  serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand,
+  serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateAuditStreamConfigurationCommandInput = UpdateAuditStreamConfigurationRequest;
 export type UpdateAuditStreamConfigurationCommandOutput = UpdateAuditStreamConfigurationResponse;
 
-export class UpdateAuditStreamConfigurationCommand extends $Command<UpdateAuditStreamConfigurationCommandInput, UpdateAuditStreamConfigurationCommandOutput, WorkLinkClientResolvedConfig> {
+export class UpdateAuditStreamConfigurationCommand extends $Command<
+  UpdateAuditStreamConfigurationCommandInput,
+  UpdateAuditStreamConfigurationCommandOutput,
+  WorkLinkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<UpdateAuditS
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateAuditStreamConfigurationCommandInput, UpdateAuditStreamConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateAuditStreamConfigurationCommandInput,
+    UpdateAuditStreamConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateAuditStreamConfigurationCommand extends $Command<UpdateAuditS
     input: UpdateAuditStreamConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(input, context);
+    return serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

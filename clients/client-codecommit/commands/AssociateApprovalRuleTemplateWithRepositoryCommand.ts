@@ -1,17 +1,17 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeCommitClient";
 import { AssociateApprovalRuleTemplateWithRepositoryInput } from "../models/index";
 import {
   deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
-  serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand,
+  serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,17 +21,23 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type AssociateApprovalRuleTemplateWithRepositoryCommandInput = AssociateApprovalRuleTemplateWithRepositoryInput;
-export type AssociateApprovalRuleTemplateWithRepositoryCommandOutput = __MetadataBearer
+export type AssociateApprovalRuleTemplateWithRepositoryCommandOutput = __MetadataBearer;
 
-export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command<AssociateApprovalRuleTemplateWithRepositoryCommandInput, AssociateApprovalRuleTemplateWithRepositoryCommandOutput, CodeCommitClientResolvedConfig> {
+export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command<
+  AssociateApprovalRuleTemplateWithRepositoryCommandInput,
+  AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
+  CodeCommitClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput) {
+  constructor(
+    readonly input: AssociateApprovalRuleTemplateWithRepositoryCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -41,14 +47,19 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateApprovalRuleTemplateWithRepositoryCommandInput, AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AssociateApprovalRuleTemplateWithRepositoryCommandInput,
+    AssociateApprovalRuleTemplateWithRepositoryCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +72,20 @@ export class AssociateApprovalRuleTemplateWithRepositoryCommand extends $Command
     input: AssociateApprovalRuleTemplateWithRepositoryCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(input, context);
+    return serializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociateApprovalRuleTemplateWithRepositoryCommandOutput> {
-    return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(output, context);
+    return deserializeAws_json1_1AssociateApprovalRuleTemplateWithRepositoryCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

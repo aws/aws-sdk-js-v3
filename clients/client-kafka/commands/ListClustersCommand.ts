@@ -1,20 +1,17 @@
 import {
   KafkaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KafkaClient";
-import {
-  ListClustersRequest,
-  ListClustersResponse,
-} from "../models/index";
+import { ListClustersRequest, ListClustersResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListClustersCommand,
-  serializeAws_restJson1_1ListClustersCommand,
+  serializeAws_restJson1_1ListClustersCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListClustersCommandInput = ListClustersRequest;
 export type ListClustersCommandOutput = ListClustersResponse;
 
-export class ListClustersCommand extends $Command<ListClustersCommandInput, ListClustersCommandOutput, KafkaClientResolvedConfig> {
+export class ListClustersCommand extends $Command<
+  ListClustersCommandInput,
+  ListClustersCommandOutput,
+  KafkaClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListClustersCommand extends $Command<ListClustersCommandInput, List
     configuration: KafkaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListClustersCommandInput, ListClustersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

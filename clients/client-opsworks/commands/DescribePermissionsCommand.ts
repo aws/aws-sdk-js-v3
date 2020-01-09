@@ -1,20 +1,20 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksClient";
 import {
   DescribePermissionsRequest,
-  DescribePermissionsResult,
+  DescribePermissionsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribePermissionsCommand,
-  serializeAws_json1_1DescribePermissionsCommand,
+  serializeAws_json1_1DescribePermissionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribePermissionsCommandInput = DescribePermissionsRequest;
 export type DescribePermissionsCommandOutput = DescribePermissionsResult;
 
-export class DescribePermissionsCommand extends $Command<DescribePermissionsCommandInput, DescribePermissionsCommandOutput, OpsWorksClientResolvedConfig> {
+export class DescribePermissionsCommand extends $Command<
+  DescribePermissionsCommandInput,
+  DescribePermissionsCommandOutput,
+  OpsWorksClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribePermissionsCommand extends $Command<DescribePermissionsComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribePermissionsCommandInput, DescribePermissionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribePermissionsCommandInput,
+    DescribePermissionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

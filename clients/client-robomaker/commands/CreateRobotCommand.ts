@@ -1,20 +1,17 @@
 import {
   RoboMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RoboMakerClient";
-import {
-  CreateRobotRequest,
-  CreateRobotResponse,
-} from "../models/index";
+import { CreateRobotRequest, CreateRobotResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateRobotCommand,
-  serializeAws_restJson1_1CreateRobotCommand,
+  serializeAws_restJson1_1CreateRobotCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateRobotCommandInput = CreateRobotRequest;
 export type CreateRobotCommandOutput = CreateRobotResponse;
 
-export class CreateRobotCommand extends $Command<CreateRobotCommandInput, CreateRobotCommandOutput, RoboMakerClientResolvedConfig> {
+export class CreateRobotCommand extends $Command<
+  CreateRobotCommandInput,
+  CreateRobotCommandOutput,
+  RoboMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateRobotCommand extends $Command<CreateRobotCommandInput, Create
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateRobotCommandInput, CreateRobotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

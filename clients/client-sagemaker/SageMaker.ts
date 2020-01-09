@@ -2,657 +2,657 @@ import { SageMakerClient } from "./SageMakerClient";
 import {
   AddTagsCommand,
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "./commands/AddTagsCommand";
 import {
   AssociateTrialComponentCommand,
   AssociateTrialComponentCommandInput,
-  AssociateTrialComponentCommandOutput,
+  AssociateTrialComponentCommandOutput
 } from "./commands/AssociateTrialComponentCommand";
 import {
   CreateAlgorithmCommand,
   CreateAlgorithmCommandInput,
-  CreateAlgorithmCommandOutput,
+  CreateAlgorithmCommandOutput
 } from "./commands/CreateAlgorithmCommand";
 import {
   CreateAppCommand,
   CreateAppCommandInput,
-  CreateAppCommandOutput,
+  CreateAppCommandOutput
 } from "./commands/CreateAppCommand";
 import {
   CreateAutoMLJobCommand,
   CreateAutoMLJobCommandInput,
-  CreateAutoMLJobCommandOutput,
+  CreateAutoMLJobCommandOutput
 } from "./commands/CreateAutoMLJobCommand";
 import {
   CreateCodeRepositoryCommand,
   CreateCodeRepositoryCommandInput,
-  CreateCodeRepositoryCommandOutput,
+  CreateCodeRepositoryCommandOutput
 } from "./commands/CreateCodeRepositoryCommand";
 import {
   CreateCompilationJobCommand,
   CreateCompilationJobCommandInput,
-  CreateCompilationJobCommandOutput,
+  CreateCompilationJobCommandOutput
 } from "./commands/CreateCompilationJobCommand";
 import {
   CreateDomainCommand,
   CreateDomainCommandInput,
-  CreateDomainCommandOutput,
+  CreateDomainCommandOutput
 } from "./commands/CreateDomainCommand";
 import {
   CreateEndpointCommand,
   CreateEndpointCommandInput,
-  CreateEndpointCommandOutput,
+  CreateEndpointCommandOutput
 } from "./commands/CreateEndpointCommand";
 import {
   CreateEndpointConfigCommand,
   CreateEndpointConfigCommandInput,
-  CreateEndpointConfigCommandOutput,
+  CreateEndpointConfigCommandOutput
 } from "./commands/CreateEndpointConfigCommand";
 import {
   CreateExperimentCommand,
   CreateExperimentCommandInput,
-  CreateExperimentCommandOutput,
+  CreateExperimentCommandOutput
 } from "./commands/CreateExperimentCommand";
 import {
   CreateFlowDefinitionCommand,
   CreateFlowDefinitionCommandInput,
-  CreateFlowDefinitionCommandOutput,
+  CreateFlowDefinitionCommandOutput
 } from "./commands/CreateFlowDefinitionCommand";
 import {
   CreateHumanTaskUiCommand,
   CreateHumanTaskUiCommandInput,
-  CreateHumanTaskUiCommandOutput,
+  CreateHumanTaskUiCommandOutput
 } from "./commands/CreateHumanTaskUiCommand";
 import {
   CreateHyperParameterTuningJobCommand,
   CreateHyperParameterTuningJobCommandInput,
-  CreateHyperParameterTuningJobCommandOutput,
+  CreateHyperParameterTuningJobCommandOutput
 } from "./commands/CreateHyperParameterTuningJobCommand";
 import {
   CreateLabelingJobCommand,
   CreateLabelingJobCommandInput,
-  CreateLabelingJobCommandOutput,
+  CreateLabelingJobCommandOutput
 } from "./commands/CreateLabelingJobCommand";
 import {
   CreateModelCommand,
   CreateModelCommandInput,
-  CreateModelCommandOutput,
+  CreateModelCommandOutput
 } from "./commands/CreateModelCommand";
 import {
   CreateModelPackageCommand,
   CreateModelPackageCommandInput,
-  CreateModelPackageCommandOutput,
+  CreateModelPackageCommandOutput
 } from "./commands/CreateModelPackageCommand";
 import {
   CreateMonitoringScheduleCommand,
   CreateMonitoringScheduleCommandInput,
-  CreateMonitoringScheduleCommandOutput,
+  CreateMonitoringScheduleCommandOutput
 } from "./commands/CreateMonitoringScheduleCommand";
 import {
   CreateNotebookInstanceCommand,
   CreateNotebookInstanceCommandInput,
-  CreateNotebookInstanceCommandOutput,
+  CreateNotebookInstanceCommandOutput
 } from "./commands/CreateNotebookInstanceCommand";
 import {
   CreateNotebookInstanceLifecycleConfigCommand,
   CreateNotebookInstanceLifecycleConfigCommandInput,
-  CreateNotebookInstanceLifecycleConfigCommandOutput,
+  CreateNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
 import {
   CreatePresignedDomainUrlCommand,
   CreatePresignedDomainUrlCommandInput,
-  CreatePresignedDomainUrlCommandOutput,
+  CreatePresignedDomainUrlCommandOutput
 } from "./commands/CreatePresignedDomainUrlCommand";
 import {
   CreatePresignedNotebookInstanceUrlCommand,
   CreatePresignedNotebookInstanceUrlCommandInput,
-  CreatePresignedNotebookInstanceUrlCommandOutput,
+  CreatePresignedNotebookInstanceUrlCommandOutput
 } from "./commands/CreatePresignedNotebookInstanceUrlCommand";
 import {
   CreateProcessingJobCommand,
   CreateProcessingJobCommandInput,
-  CreateProcessingJobCommandOutput,
+  CreateProcessingJobCommandOutput
 } from "./commands/CreateProcessingJobCommand";
 import {
   CreateTrainingJobCommand,
   CreateTrainingJobCommandInput,
-  CreateTrainingJobCommandOutput,
+  CreateTrainingJobCommandOutput
 } from "./commands/CreateTrainingJobCommand";
 import {
   CreateTransformJobCommand,
   CreateTransformJobCommandInput,
-  CreateTransformJobCommandOutput,
+  CreateTransformJobCommandOutput
 } from "./commands/CreateTransformJobCommand";
 import {
   CreateTrialCommand,
   CreateTrialCommandInput,
-  CreateTrialCommandOutput,
+  CreateTrialCommandOutput
 } from "./commands/CreateTrialCommand";
 import {
   CreateTrialComponentCommand,
   CreateTrialComponentCommandInput,
-  CreateTrialComponentCommandOutput,
+  CreateTrialComponentCommandOutput
 } from "./commands/CreateTrialComponentCommand";
 import {
   CreateUserProfileCommand,
   CreateUserProfileCommandInput,
-  CreateUserProfileCommandOutput,
+  CreateUserProfileCommandOutput
 } from "./commands/CreateUserProfileCommand";
 import {
   CreateWorkteamCommand,
   CreateWorkteamCommandInput,
-  CreateWorkteamCommandOutput,
+  CreateWorkteamCommandOutput
 } from "./commands/CreateWorkteamCommand";
 import {
   DeleteAlgorithmCommand,
   DeleteAlgorithmCommandInput,
-  DeleteAlgorithmCommandOutput,
+  DeleteAlgorithmCommandOutput
 } from "./commands/DeleteAlgorithmCommand";
 import {
   DeleteAppCommand,
   DeleteAppCommandInput,
-  DeleteAppCommandOutput,
+  DeleteAppCommandOutput
 } from "./commands/DeleteAppCommand";
 import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
-  DeleteCodeRepositoryCommandOutput,
+  DeleteCodeRepositoryCommandOutput
 } from "./commands/DeleteCodeRepositoryCommand";
 import {
   DeleteDomainCommand,
   DeleteDomainCommandInput,
-  DeleteDomainCommandOutput,
+  DeleteDomainCommandOutput
 } from "./commands/DeleteDomainCommand";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
-  DeleteEndpointCommandOutput,
+  DeleteEndpointCommandOutput
 } from "./commands/DeleteEndpointCommand";
 import {
   DeleteEndpointConfigCommand,
   DeleteEndpointConfigCommandInput,
-  DeleteEndpointConfigCommandOutput,
+  DeleteEndpointConfigCommandOutput
 } from "./commands/DeleteEndpointConfigCommand";
 import {
   DeleteExperimentCommand,
   DeleteExperimentCommandInput,
-  DeleteExperimentCommandOutput,
+  DeleteExperimentCommandOutput
 } from "./commands/DeleteExperimentCommand";
 import {
   DeleteFlowDefinitionCommand,
   DeleteFlowDefinitionCommandInput,
-  DeleteFlowDefinitionCommandOutput,
+  DeleteFlowDefinitionCommandOutput
 } from "./commands/DeleteFlowDefinitionCommand";
 import {
   DeleteModelCommand,
   DeleteModelCommandInput,
-  DeleteModelCommandOutput,
+  DeleteModelCommandOutput
 } from "./commands/DeleteModelCommand";
 import {
   DeleteModelPackageCommand,
   DeleteModelPackageCommandInput,
-  DeleteModelPackageCommandOutput,
+  DeleteModelPackageCommandOutput
 } from "./commands/DeleteModelPackageCommand";
 import {
   DeleteMonitoringScheduleCommand,
   DeleteMonitoringScheduleCommandInput,
-  DeleteMonitoringScheduleCommandOutput,
+  DeleteMonitoringScheduleCommandOutput
 } from "./commands/DeleteMonitoringScheduleCommand";
 import {
   DeleteNotebookInstanceCommand,
   DeleteNotebookInstanceCommandInput,
-  DeleteNotebookInstanceCommandOutput,
+  DeleteNotebookInstanceCommandOutput
 } from "./commands/DeleteNotebookInstanceCommand";
 import {
   DeleteNotebookInstanceLifecycleConfigCommand,
   DeleteNotebookInstanceLifecycleConfigCommandInput,
-  DeleteNotebookInstanceLifecycleConfigCommandOutput,
+  DeleteNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
 import {
   DeleteTagsCommand,
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput,
+  DeleteTagsCommandOutput
 } from "./commands/DeleteTagsCommand";
 import {
   DeleteTrialCommand,
   DeleteTrialCommandInput,
-  DeleteTrialCommandOutput,
+  DeleteTrialCommandOutput
 } from "./commands/DeleteTrialCommand";
 import {
   DeleteTrialComponentCommand,
   DeleteTrialComponentCommandInput,
-  DeleteTrialComponentCommandOutput,
+  DeleteTrialComponentCommandOutput
 } from "./commands/DeleteTrialComponentCommand";
 import {
   DeleteUserProfileCommand,
   DeleteUserProfileCommandInput,
-  DeleteUserProfileCommandOutput,
+  DeleteUserProfileCommandOutput
 } from "./commands/DeleteUserProfileCommand";
 import {
   DeleteWorkteamCommand,
   DeleteWorkteamCommandInput,
-  DeleteWorkteamCommandOutput,
+  DeleteWorkteamCommandOutput
 } from "./commands/DeleteWorkteamCommand";
 import {
   DescribeAlgorithmCommand,
   DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput,
+  DescribeAlgorithmCommandOutput
 } from "./commands/DescribeAlgorithmCommand";
 import {
   DescribeAppCommand,
   DescribeAppCommandInput,
-  DescribeAppCommandOutput,
+  DescribeAppCommandOutput
 } from "./commands/DescribeAppCommand";
 import {
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobCommandInput,
-  DescribeAutoMLJobCommandOutput,
+  DescribeAutoMLJobCommandOutput
 } from "./commands/DescribeAutoMLJobCommand";
 import {
   DescribeCodeRepositoryCommand,
   DescribeCodeRepositoryCommandInput,
-  DescribeCodeRepositoryCommandOutput,
+  DescribeCodeRepositoryCommandOutput
 } from "./commands/DescribeCodeRepositoryCommand";
 import {
   DescribeCompilationJobCommand,
   DescribeCompilationJobCommandInput,
-  DescribeCompilationJobCommandOutput,
+  DescribeCompilationJobCommandOutput
 } from "./commands/DescribeCompilationJobCommand";
 import {
   DescribeDomainCommand,
   DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
+  DescribeDomainCommandOutput
 } from "./commands/DescribeDomainCommand";
 import {
   DescribeEndpointCommand,
   DescribeEndpointCommandInput,
-  DescribeEndpointCommandOutput,
+  DescribeEndpointCommandOutput
 } from "./commands/DescribeEndpointCommand";
 import {
   DescribeEndpointConfigCommand,
   DescribeEndpointConfigCommandInput,
-  DescribeEndpointConfigCommandOutput,
+  DescribeEndpointConfigCommandOutput
 } from "./commands/DescribeEndpointConfigCommand";
 import {
   DescribeExperimentCommand,
   DescribeExperimentCommandInput,
-  DescribeExperimentCommandOutput,
+  DescribeExperimentCommandOutput
 } from "./commands/DescribeExperimentCommand";
 import {
   DescribeFlowDefinitionCommand,
   DescribeFlowDefinitionCommandInput,
-  DescribeFlowDefinitionCommandOutput,
+  DescribeFlowDefinitionCommandOutput
 } from "./commands/DescribeFlowDefinitionCommand";
 import {
   DescribeHumanTaskUiCommand,
   DescribeHumanTaskUiCommandInput,
-  DescribeHumanTaskUiCommandOutput,
+  DescribeHumanTaskUiCommandOutput
 } from "./commands/DescribeHumanTaskUiCommand";
 import {
   DescribeHyperParameterTuningJobCommand,
   DescribeHyperParameterTuningJobCommandInput,
-  DescribeHyperParameterTuningJobCommandOutput,
+  DescribeHyperParameterTuningJobCommandOutput
 } from "./commands/DescribeHyperParameterTuningJobCommand";
 import {
   DescribeLabelingJobCommand,
   DescribeLabelingJobCommandInput,
-  DescribeLabelingJobCommandOutput,
+  DescribeLabelingJobCommandOutput
 } from "./commands/DescribeLabelingJobCommand";
 import {
   DescribeModelCommand,
   DescribeModelCommandInput,
-  DescribeModelCommandOutput,
+  DescribeModelCommandOutput
 } from "./commands/DescribeModelCommand";
 import {
   DescribeModelPackageCommand,
   DescribeModelPackageCommandInput,
-  DescribeModelPackageCommandOutput,
+  DescribeModelPackageCommandOutput
 } from "./commands/DescribeModelPackageCommand";
 import {
   DescribeMonitoringScheduleCommand,
   DescribeMonitoringScheduleCommandInput,
-  DescribeMonitoringScheduleCommandOutput,
+  DescribeMonitoringScheduleCommandOutput
 } from "./commands/DescribeMonitoringScheduleCommand";
 import {
   DescribeNotebookInstanceCommand,
   DescribeNotebookInstanceCommandInput,
-  DescribeNotebookInstanceCommandOutput,
+  DescribeNotebookInstanceCommandOutput
 } from "./commands/DescribeNotebookInstanceCommand";
 import {
   DescribeNotebookInstanceLifecycleConfigCommand,
   DescribeNotebookInstanceLifecycleConfigCommandInput,
-  DescribeNotebookInstanceLifecycleConfigCommandOutput,
+  DescribeNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
 import {
   DescribeProcessingJobCommand,
   DescribeProcessingJobCommandInput,
-  DescribeProcessingJobCommandOutput,
+  DescribeProcessingJobCommandOutput
 } from "./commands/DescribeProcessingJobCommand";
 import {
   DescribeSubscribedWorkteamCommand,
   DescribeSubscribedWorkteamCommandInput,
-  DescribeSubscribedWorkteamCommandOutput,
+  DescribeSubscribedWorkteamCommandOutput
 } from "./commands/DescribeSubscribedWorkteamCommand";
 import {
   DescribeTrainingJobCommand,
   DescribeTrainingJobCommandInput,
-  DescribeTrainingJobCommandOutput,
+  DescribeTrainingJobCommandOutput
 } from "./commands/DescribeTrainingJobCommand";
 import {
   DescribeTransformJobCommand,
   DescribeTransformJobCommandInput,
-  DescribeTransformJobCommandOutput,
+  DescribeTransformJobCommandOutput
 } from "./commands/DescribeTransformJobCommand";
 import {
   DescribeTrialCommand,
   DescribeTrialCommandInput,
-  DescribeTrialCommandOutput,
+  DescribeTrialCommandOutput
 } from "./commands/DescribeTrialCommand";
 import {
   DescribeTrialComponentCommand,
   DescribeTrialComponentCommandInput,
-  DescribeTrialComponentCommandOutput,
+  DescribeTrialComponentCommandOutput
 } from "./commands/DescribeTrialComponentCommand";
 import {
   DescribeUserProfileCommand,
   DescribeUserProfileCommandInput,
-  DescribeUserProfileCommandOutput,
+  DescribeUserProfileCommandOutput
 } from "./commands/DescribeUserProfileCommand";
 import {
   DescribeWorkteamCommand,
   DescribeWorkteamCommandInput,
-  DescribeWorkteamCommandOutput,
+  DescribeWorkteamCommandOutput
 } from "./commands/DescribeWorkteamCommand";
 import {
   DisassociateTrialComponentCommand,
   DisassociateTrialComponentCommandInput,
-  DisassociateTrialComponentCommandOutput,
+  DisassociateTrialComponentCommandOutput
 } from "./commands/DisassociateTrialComponentCommand";
 import {
   GetSearchSuggestionsCommand,
   GetSearchSuggestionsCommandInput,
-  GetSearchSuggestionsCommandOutput,
+  GetSearchSuggestionsCommandOutput
 } from "./commands/GetSearchSuggestionsCommand";
 import {
   ListAlgorithmsCommand,
   ListAlgorithmsCommandInput,
-  ListAlgorithmsCommandOutput,
+  ListAlgorithmsCommandOutput
 } from "./commands/ListAlgorithmsCommand";
 import {
   ListAppsCommand,
   ListAppsCommandInput,
-  ListAppsCommandOutput,
+  ListAppsCommandOutput
 } from "./commands/ListAppsCommand";
 import {
   ListAutoMLJobsCommand,
   ListAutoMLJobsCommandInput,
-  ListAutoMLJobsCommandOutput,
+  ListAutoMLJobsCommandOutput
 } from "./commands/ListAutoMLJobsCommand";
 import {
   ListCandidatesForAutoMLJobCommand,
   ListCandidatesForAutoMLJobCommandInput,
-  ListCandidatesForAutoMLJobCommandOutput,
+  ListCandidatesForAutoMLJobCommandOutput
 } from "./commands/ListCandidatesForAutoMLJobCommand";
 import {
   ListCodeRepositoriesCommand,
   ListCodeRepositoriesCommandInput,
-  ListCodeRepositoriesCommandOutput,
+  ListCodeRepositoriesCommandOutput
 } from "./commands/ListCodeRepositoriesCommand";
 import {
   ListCompilationJobsCommand,
   ListCompilationJobsCommandInput,
-  ListCompilationJobsCommandOutput,
+  ListCompilationJobsCommandOutput
 } from "./commands/ListCompilationJobsCommand";
 import {
   ListDomainsCommand,
   ListDomainsCommandInput,
-  ListDomainsCommandOutput,
+  ListDomainsCommandOutput
 } from "./commands/ListDomainsCommand";
 import {
   ListEndpointConfigsCommand,
   ListEndpointConfigsCommandInput,
-  ListEndpointConfigsCommandOutput,
+  ListEndpointConfigsCommandOutput
 } from "./commands/ListEndpointConfigsCommand";
 import {
   ListEndpointsCommand,
   ListEndpointsCommandInput,
-  ListEndpointsCommandOutput,
+  ListEndpointsCommandOutput
 } from "./commands/ListEndpointsCommand";
 import {
   ListExperimentsCommand,
   ListExperimentsCommandInput,
-  ListExperimentsCommandOutput,
+  ListExperimentsCommandOutput
 } from "./commands/ListExperimentsCommand";
 import {
   ListFlowDefinitionsCommand,
   ListFlowDefinitionsCommandInput,
-  ListFlowDefinitionsCommandOutput,
+  ListFlowDefinitionsCommandOutput
 } from "./commands/ListFlowDefinitionsCommand";
 import {
   ListHumanTaskUisCommand,
   ListHumanTaskUisCommandInput,
-  ListHumanTaskUisCommandOutput,
+  ListHumanTaskUisCommandOutput
 } from "./commands/ListHumanTaskUisCommand";
 import {
   ListHyperParameterTuningJobsCommand,
   ListHyperParameterTuningJobsCommandInput,
-  ListHyperParameterTuningJobsCommandOutput,
+  ListHyperParameterTuningJobsCommandOutput
 } from "./commands/ListHyperParameterTuningJobsCommand";
 import {
   ListLabelingJobsCommand,
   ListLabelingJobsCommandInput,
-  ListLabelingJobsCommandOutput,
+  ListLabelingJobsCommandOutput
 } from "./commands/ListLabelingJobsCommand";
 import {
   ListLabelingJobsForWorkteamCommand,
   ListLabelingJobsForWorkteamCommandInput,
-  ListLabelingJobsForWorkteamCommandOutput,
+  ListLabelingJobsForWorkteamCommandOutput
 } from "./commands/ListLabelingJobsForWorkteamCommand";
 import {
   ListModelPackagesCommand,
   ListModelPackagesCommandInput,
-  ListModelPackagesCommandOutput,
+  ListModelPackagesCommandOutput
 } from "./commands/ListModelPackagesCommand";
 import {
   ListModelsCommand,
   ListModelsCommandInput,
-  ListModelsCommandOutput,
+  ListModelsCommandOutput
 } from "./commands/ListModelsCommand";
 import {
   ListMonitoringExecutionsCommand,
   ListMonitoringExecutionsCommandInput,
-  ListMonitoringExecutionsCommandOutput,
+  ListMonitoringExecutionsCommandOutput
 } from "./commands/ListMonitoringExecutionsCommand";
 import {
   ListMonitoringSchedulesCommand,
   ListMonitoringSchedulesCommandInput,
-  ListMonitoringSchedulesCommandOutput,
+  ListMonitoringSchedulesCommandOutput
 } from "./commands/ListMonitoringSchedulesCommand";
 import {
   ListNotebookInstanceLifecycleConfigsCommand,
   ListNotebookInstanceLifecycleConfigsCommandInput,
-  ListNotebookInstanceLifecycleConfigsCommandOutput,
+  ListNotebookInstanceLifecycleConfigsCommandOutput
 } from "./commands/ListNotebookInstanceLifecycleConfigsCommand";
 import {
   ListNotebookInstancesCommand,
   ListNotebookInstancesCommandInput,
-  ListNotebookInstancesCommandOutput,
+  ListNotebookInstancesCommandOutput
 } from "./commands/ListNotebookInstancesCommand";
 import {
   ListProcessingJobsCommand,
   ListProcessingJobsCommandInput,
-  ListProcessingJobsCommandOutput,
+  ListProcessingJobsCommandOutput
 } from "./commands/ListProcessingJobsCommand";
 import {
   ListSubscribedWorkteamsCommand,
   ListSubscribedWorkteamsCommandInput,
-  ListSubscribedWorkteamsCommandOutput,
+  ListSubscribedWorkteamsCommandOutput
 } from "./commands/ListSubscribedWorkteamsCommand";
 import {
   ListTagsCommand,
   ListTagsCommandInput,
-  ListTagsCommandOutput,
+  ListTagsCommandOutput
 } from "./commands/ListTagsCommand";
 import {
   ListTrainingJobsCommand,
   ListTrainingJobsCommandInput,
-  ListTrainingJobsCommandOutput,
+  ListTrainingJobsCommandOutput
 } from "./commands/ListTrainingJobsCommand";
 import {
   ListTrainingJobsForHyperParameterTuningJobCommand,
   ListTrainingJobsForHyperParameterTuningJobCommandInput,
-  ListTrainingJobsForHyperParameterTuningJobCommandOutput,
+  ListTrainingJobsForHyperParameterTuningJobCommandOutput
 } from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand";
 import {
   ListTransformJobsCommand,
   ListTransformJobsCommandInput,
-  ListTransformJobsCommandOutput,
+  ListTransformJobsCommandOutput
 } from "./commands/ListTransformJobsCommand";
 import {
   ListTrialComponentsCommand,
   ListTrialComponentsCommandInput,
-  ListTrialComponentsCommandOutput,
+  ListTrialComponentsCommandOutput
 } from "./commands/ListTrialComponentsCommand";
 import {
   ListTrialsCommand,
   ListTrialsCommandInput,
-  ListTrialsCommandOutput,
+  ListTrialsCommandOutput
 } from "./commands/ListTrialsCommand";
 import {
   ListUserProfilesCommand,
   ListUserProfilesCommandInput,
-  ListUserProfilesCommandOutput,
+  ListUserProfilesCommandOutput
 } from "./commands/ListUserProfilesCommand";
 import {
   ListWorkteamsCommand,
   ListWorkteamsCommandInput,
-  ListWorkteamsCommandOutput,
+  ListWorkteamsCommandOutput
 } from "./commands/ListWorkteamsCommand";
 import {
   RenderUiTemplateCommand,
   RenderUiTemplateCommandInput,
-  RenderUiTemplateCommandOutput,
+  RenderUiTemplateCommandOutput
 } from "./commands/RenderUiTemplateCommand";
 import {
   SearchCommand,
   SearchCommandInput,
-  SearchCommandOutput,
+  SearchCommandOutput
 } from "./commands/SearchCommand";
 import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
-  StartMonitoringScheduleCommandOutput,
+  StartMonitoringScheduleCommandOutput
 } from "./commands/StartMonitoringScheduleCommand";
 import {
   StartNotebookInstanceCommand,
   StartNotebookInstanceCommandInput,
-  StartNotebookInstanceCommandOutput,
+  StartNotebookInstanceCommandOutput
 } from "./commands/StartNotebookInstanceCommand";
 import {
   StopAutoMLJobCommand,
   StopAutoMLJobCommandInput,
-  StopAutoMLJobCommandOutput,
+  StopAutoMLJobCommandOutput
 } from "./commands/StopAutoMLJobCommand";
 import {
   StopCompilationJobCommand,
   StopCompilationJobCommandInput,
-  StopCompilationJobCommandOutput,
+  StopCompilationJobCommandOutput
 } from "./commands/StopCompilationJobCommand";
 import {
   StopHyperParameterTuningJobCommand,
   StopHyperParameterTuningJobCommandInput,
-  StopHyperParameterTuningJobCommandOutput,
+  StopHyperParameterTuningJobCommandOutput
 } from "./commands/StopHyperParameterTuningJobCommand";
 import {
   StopLabelingJobCommand,
   StopLabelingJobCommandInput,
-  StopLabelingJobCommandOutput,
+  StopLabelingJobCommandOutput
 } from "./commands/StopLabelingJobCommand";
 import {
   StopMonitoringScheduleCommand,
   StopMonitoringScheduleCommandInput,
-  StopMonitoringScheduleCommandOutput,
+  StopMonitoringScheduleCommandOutput
 } from "./commands/StopMonitoringScheduleCommand";
 import {
   StopNotebookInstanceCommand,
   StopNotebookInstanceCommandInput,
-  StopNotebookInstanceCommandOutput,
+  StopNotebookInstanceCommandOutput
 } from "./commands/StopNotebookInstanceCommand";
 import {
   StopProcessingJobCommand,
   StopProcessingJobCommandInput,
-  StopProcessingJobCommandOutput,
+  StopProcessingJobCommandOutput
 } from "./commands/StopProcessingJobCommand";
 import {
   StopTrainingJobCommand,
   StopTrainingJobCommandInput,
-  StopTrainingJobCommandOutput,
+  StopTrainingJobCommandOutput
 } from "./commands/StopTrainingJobCommand";
 import {
   StopTransformJobCommand,
   StopTransformJobCommandInput,
-  StopTransformJobCommandOutput,
+  StopTransformJobCommandOutput
 } from "./commands/StopTransformJobCommand";
 import {
   UpdateCodeRepositoryCommand,
   UpdateCodeRepositoryCommandInput,
-  UpdateCodeRepositoryCommandOutput,
+  UpdateCodeRepositoryCommandOutput
 } from "./commands/UpdateCodeRepositoryCommand";
 import {
   UpdateDomainCommand,
   UpdateDomainCommandInput,
-  UpdateDomainCommandOutput,
+  UpdateDomainCommandOutput
 } from "./commands/UpdateDomainCommand";
 import {
   UpdateEndpointCommand,
   UpdateEndpointCommandInput,
-  UpdateEndpointCommandOutput,
+  UpdateEndpointCommandOutput
 } from "./commands/UpdateEndpointCommand";
 import {
   UpdateEndpointWeightsAndCapacitiesCommand,
   UpdateEndpointWeightsAndCapacitiesCommandInput,
-  UpdateEndpointWeightsAndCapacitiesCommandOutput,
+  UpdateEndpointWeightsAndCapacitiesCommandOutput
 } from "./commands/UpdateEndpointWeightsAndCapacitiesCommand";
 import {
   UpdateExperimentCommand,
   UpdateExperimentCommandInput,
-  UpdateExperimentCommandOutput,
+  UpdateExperimentCommandOutput
 } from "./commands/UpdateExperimentCommand";
 import {
   UpdateMonitoringScheduleCommand,
   UpdateMonitoringScheduleCommandInput,
-  UpdateMonitoringScheduleCommandOutput,
+  UpdateMonitoringScheduleCommandOutput
 } from "./commands/UpdateMonitoringScheduleCommand";
 import {
   UpdateNotebookInstanceCommand,
   UpdateNotebookInstanceCommandInput,
-  UpdateNotebookInstanceCommandOutput,
+  UpdateNotebookInstanceCommandOutput
 } from "./commands/UpdateNotebookInstanceCommand";
 import {
   UpdateNotebookInstanceLifecycleConfigCommand,
   UpdateNotebookInstanceLifecycleConfigCommandInput,
-  UpdateNotebookInstanceLifecycleConfigCommandOutput,
+  UpdateNotebookInstanceLifecycleConfigCommandOutput
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
 import {
   UpdateTrialCommand,
   UpdateTrialCommandInput,
-  UpdateTrialCommandOutput,
+  UpdateTrialCommandOutput
 } from "./commands/UpdateTrialCommand";
 import {
   UpdateTrialComponentCommand,
   UpdateTrialComponentCommandInput,
-  UpdateTrialComponentCommandOutput,
+  UpdateTrialComponentCommandOutput
 } from "./commands/UpdateTrialComponentCommand";
 import {
   UpdateUserProfileCommand,
   UpdateUserProfileCommandInput,
-  UpdateUserProfileCommandOutput,
+  UpdateUserProfileCommandOutput
 } from "./commands/UpdateUserProfileCommand";
 import {
   UpdateWorkteamCommand,
   UpdateWorkteamCommandInput,
-  UpdateWorkteamCommandOutput,
+  UpdateWorkteamCommandOutput
 } from "./commands/UpdateWorkteamCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -685,7 +685,7 @@ export class SageMaker extends SageMakerClient {
    */
   public addTags(
     args: AddTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsCommandOutput>;
   public addTags(
     args: AddTagsCommandInput,
@@ -698,16 +698,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public addTags(
     args: AddTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsCommandOutput) => void),
     cb?: (err: any, data?: AddTagsCommandOutput) => void
   ): Promise<AddTagsCommandOutput> | void {
     const command = new AddTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -722,7 +724,7 @@ export class SageMaker extends SageMakerClient {
    */
   public associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AssociateTrialComponentCommandOutput>;
   public associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
@@ -735,16 +737,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public associateTrialComponent(
     args: AssociateTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: AssociateTrialComponentCommandOutput) => void
   ): Promise<AssociateTrialComponentCommandOutput> | void {
     const command = new AssociateTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -758,7 +762,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAlgorithmCommandOutput>;
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
@@ -771,16 +775,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createAlgorithm(
     args: CreateAlgorithmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAlgorithmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: CreateAlgorithmCommandOutput) => void
   ): Promise<CreateAlgorithmCommandOutput> | void {
     const command = new CreateAlgorithmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -798,7 +804,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createApp(
     args: CreateAppCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAppCommandOutput>;
   public createApp(
     args: CreateAppCommandInput,
@@ -811,16 +817,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createApp(
     args: CreateAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAppCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAppCommandOutput) => void),
     cb?: (err: any, data?: CreateAppCommandOutput) => void
   ): Promise<CreateAppCommandOutput> | void {
     const command = new CreateAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -833,7 +841,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAutoMLJobCommandOutput>;
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
@@ -846,16 +854,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createAutoMLJob(
     args: CreateAutoMLJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAutoMLJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: CreateAutoMLJobCommandOutput) => void
   ): Promise<CreateAutoMLJobCommandOutput> | void {
     const command = new CreateAutoMLJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -874,7 +884,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCodeRepositoryCommandOutput>;
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
@@ -887,16 +897,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createCodeRepository(
     args: CreateCodeRepositoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCodeRepositoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCodeRepositoryCommandOutput) => void),
     cb?: (err: any, data?: CreateCodeRepositoryCommandOutput) => void
   ): Promise<CreateCodeRepositoryCommandOutput> | void {
     const command = new CreateCodeRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -942,7 +954,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createCompilationJob(
     args: CreateCompilationJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCompilationJobCommandOutput>;
   public createCompilationJob(
     args: CreateCompilationJobCommandInput,
@@ -955,16 +967,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createCompilationJob(
     args: CreateCompilationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCompilationJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCompilationJobCommandOutput) => void),
     cb?: (err: any, data?: CreateCompilationJobCommandOutput) => void
   ): Promise<CreateCompilationJobCommandOutput> | void {
     const command = new CreateCompilationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -983,7 +997,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createDomain(
     args: CreateDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDomainCommandOutput>;
   public createDomain(
     args: CreateDomainCommandInput,
@@ -996,16 +1010,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createDomain(
     args: CreateDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDomainCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainCommandOutput) => void
   ): Promise<CreateDomainCommandOutput> | void {
     const command = new CreateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1044,7 +1060,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateEndpointCommandOutput>;
   public createEndpoint(
     args: CreateEndpointCommandInput,
@@ -1057,16 +1073,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createEndpoint(
     args: CreateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateEndpointCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointCommandOutput) => void
   ): Promise<CreateEndpointCommandOutput> | void {
     const command = new CreateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1096,7 +1114,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateEndpointConfigCommandOutput>;
   public createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
@@ -1109,16 +1127,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createEndpointConfig(
     args: CreateEndpointConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEndpointConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateEndpointConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateEndpointConfigCommandOutput) => void
   ): Promise<CreateEndpointConfigCommandOutput> | void {
     const command = new CreateEndpointConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1150,7 +1170,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createExperiment(
     args: CreateExperimentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateExperimentCommandOutput>;
   public createExperiment(
     args: CreateExperimentCommandInput,
@@ -1163,16 +1183,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createExperiment(
     args: CreateExperimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateExperimentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateExperimentCommandOutput) => void),
     cb?: (err: any, data?: CreateExperimentCommandOutput) => void
   ): Promise<CreateExperimentCommandOutput> | void {
     const command = new CreateExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1185,7 +1207,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateFlowDefinitionCommandOutput>;
   public createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
@@ -1198,16 +1220,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createFlowDefinition(
     args: CreateFlowDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFlowDefinitionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateFlowDefinitionCommandOutput) => void),
     cb?: (err: any, data?: CreateFlowDefinitionCommandOutput) => void
   ): Promise<CreateFlowDefinitionCommandOutput> | void {
     const command = new CreateFlowDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1220,7 +1244,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateHumanTaskUiCommandOutput>;
   public createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
@@ -1233,16 +1257,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createHumanTaskUi(
     args: CreateHumanTaskUiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHumanTaskUiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateHumanTaskUiCommandOutput) => void),
     cb?: (err: any, data?: CreateHumanTaskUiCommandOutput) => void
   ): Promise<CreateHumanTaskUiCommandOutput> | void {
     const command = new CreateHumanTaskUiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1259,7 +1285,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateHyperParameterTuningJobCommandOutput>;
   public createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
@@ -1272,16 +1298,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createHyperParameterTuningJob(
     args: CreateHyperParameterTuningJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateHyperParameterTuningJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateHyperParameterTuningJobCommandOutput) => void),
     cb?: (err: any, data?: CreateHyperParameterTuningJobCommandOutput) => void
   ): Promise<CreateHyperParameterTuningJobCommandOutput> | void {
     const command = new CreateHyperParameterTuningJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1322,7 +1350,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createLabelingJob(
     args: CreateLabelingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateLabelingJobCommandOutput>;
   public createLabelingJob(
     args: CreateLabelingJobCommandInput,
@@ -1335,16 +1363,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createLabelingJob(
     args: CreateLabelingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateLabelingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateLabelingJobCommandOutput) => void),
     cb?: (err: any, data?: CreateLabelingJobCommandOutput) => void
   ): Promise<CreateLabelingJobCommandOutput> | void {
     const command = new CreateLabelingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1378,7 +1408,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createModel(
     args: CreateModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateModelCommandOutput>;
   public createModel(
     args: CreateModelCommandInput,
@@ -1391,16 +1421,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createModel(
     args: CreateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateModelCommandOutput) => void),
     cb?: (err: any, data?: CreateModelCommandOutput) => void
   ): Promise<CreateModelCommandOutput> | void {
     const command = new CreateModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1420,7 +1452,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createModelPackage(
     args: CreateModelPackageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateModelPackageCommandOutput>;
   public createModelPackage(
     args: CreateModelPackageCommandInput,
@@ -1433,16 +1465,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createModelPackage(
     args: CreateModelPackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelPackageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateModelPackageCommandOutput) => void),
     cb?: (err: any, data?: CreateModelPackageCommandOutput) => void
   ): Promise<CreateModelPackageCommandOutput> | void {
     const command = new CreateModelPackageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1456,7 +1490,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateMonitoringScheduleCommandOutput>;
   public createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
@@ -1469,16 +1503,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createMonitoringSchedule(
     args: CreateMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: CreateMonitoringScheduleCommandOutput) => void
   ): Promise<CreateMonitoringScheduleCommandOutput> | void {
     const command = new CreateMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1527,7 +1563,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateNotebookInstanceCommandOutput>;
   public createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
@@ -1540,16 +1576,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createNotebookInstance(
     args: CreateNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: CreateNotebookInstanceCommandOutput) => void
   ): Promise<CreateNotebookInstanceCommandOutput> | void {
     const command = new CreateNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1575,29 +1613,43 @@ export class SageMaker extends SageMakerClient {
    */
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput>;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    cb: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public createNotebookInstanceLifecycleConfig(
     args: CreateNotebookInstanceLifecycleConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void),
-    cb?: (err: any, data?: CreateNotebookInstanceLifecycleConfigCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CreateNotebookInstanceLifecycleConfigCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CreateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): Promise<CreateNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new CreateNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1615,7 +1667,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreatePresignedDomainUrlCommandOutput>;
   public createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
@@ -1628,16 +1680,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createPresignedDomainUrl(
     args: CreatePresignedDomainUrlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedDomainUrlCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePresignedDomainUrlCommandOutput) => void),
     cb?: (err: any, data?: CreatePresignedDomainUrlCommandOutput) => void
   ): Promise<CreatePresignedDomainUrlCommandOutput> | void {
     const command = new CreatePresignedDomainUrlCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1665,29 +1719,43 @@ export class SageMaker extends SageMakerClient {
    */
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput>;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    cb: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreatePresignedNotebookInstanceUrlCommandOutput
+    ) => void
   ): void;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
+    cb: (
+      err: any,
+      data?: CreatePresignedNotebookInstanceUrlCommandOutput
+    ) => void
   ): void;
   public createPresignedNotebookInstanceUrl(
     args: CreatePresignedNotebookInstanceUrlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void),
-    cb?: (err: any, data?: CreatePresignedNotebookInstanceUrlCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: CreatePresignedNotebookInstanceUrlCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: CreatePresignedNotebookInstanceUrlCommandOutput
+    ) => void
   ): Promise<CreatePresignedNotebookInstanceUrlCommandOutput> | void {
     const command = new CreatePresignedNotebookInstanceUrlCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1700,7 +1768,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createProcessingJob(
     args: CreateProcessingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateProcessingJobCommandOutput>;
   public createProcessingJob(
     args: CreateProcessingJobCommandInput,
@@ -1713,16 +1781,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createProcessingJob(
     args: CreateProcessingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProcessingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateProcessingJobCommandOutput) => void),
     cb?: (err: any, data?: CreateProcessingJobCommandOutput) => void
   ): Promise<CreateProcessingJobCommandOutput> | void {
     const command = new CreateProcessingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1799,7 +1869,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTrainingJobCommandOutput>;
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
@@ -1812,16 +1882,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createTrainingJob(
     args: CreateTrainingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrainingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTrainingJobCommandOutput) => void),
     cb?: (err: any, data?: CreateTrainingJobCommandOutput) => void
   ): Promise<CreateTrainingJobCommandOutput> | void {
     const command = new CreateTrainingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1868,7 +1940,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createTransformJob(
     args: CreateTransformJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTransformJobCommandOutput>;
   public createTransformJob(
     args: CreateTransformJobCommandInput,
@@ -1881,16 +1953,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createTransformJob(
     args: CreateTransformJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTransformJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTransformJobCommandOutput) => void),
     cb?: (err: any, data?: CreateTransformJobCommandOutput) => void
   ): Promise<CreateTransformJobCommandOutput> | void {
     const command = new CreateTransformJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1915,7 +1989,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createTrial(
     args: CreateTrialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTrialCommandOutput>;
   public createTrial(
     args: CreateTrialCommandInput,
@@ -1928,16 +2002,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createTrial(
     args: CreateTrialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTrialCommandOutput) => void),
     cb?: (err: any, data?: CreateTrialCommandOutput) => void
   ): Promise<CreateTrialCommandOutput> | void {
     const command = new CreateTrialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1968,7 +2044,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createTrialComponent(
     args: CreateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTrialComponentCommandOutput>;
   public createTrialComponent(
     args: CreateTrialComponentCommandInput,
@@ -1981,16 +2057,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createTrialComponent(
     args: CreateTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: CreateTrialComponentCommandOutput) => void
   ): Promise<CreateTrialComponentCommandOutput> | void {
     const command = new CreateTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2007,7 +2085,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createUserProfile(
     args: CreateUserProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateUserProfileCommandOutput>;
   public createUserProfile(
     args: CreateUserProfileCommandInput,
@@ -2020,16 +2098,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createUserProfile(
     args: CreateUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUserProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateUserProfileCommandOutput) => void
   ): Promise<CreateUserProfileCommandOutput> | void {
     const command = new CreateUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2046,7 +2126,7 @@ export class SageMaker extends SageMakerClient {
    */
   public createWorkteam(
     args: CreateWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateWorkteamCommandOutput>;
   public createWorkteam(
     args: CreateWorkteamCommandInput,
@@ -2059,16 +2139,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public createWorkteam(
     args: CreateWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateWorkteamCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkteamCommandOutput) => void
   ): Promise<CreateWorkteamCommandOutput> | void {
     const command = new CreateWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2081,7 +2163,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteAlgorithmCommandOutput>;
   public deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
@@ -2094,16 +2176,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteAlgorithm(
     args: DeleteAlgorithmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAlgorithmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: DeleteAlgorithmCommandOutput) => void
   ): Promise<DeleteAlgorithmCommandOutput> | void {
     const command = new DeleteAlgorithmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2116,7 +2200,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteApp(
     args: DeleteAppCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteAppCommandOutput>;
   public deleteApp(
     args: DeleteAppCommandInput,
@@ -2129,16 +2213,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteApp(
     args: DeleteAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAppCommandOutput) => void),
     cb?: (err: any, data?: DeleteAppCommandOutput) => void
   ): Promise<DeleteAppCommandOutput> | void {
     const command = new DeleteAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2151,7 +2237,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteCodeRepositoryCommandOutput>;
   public deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
@@ -2164,16 +2250,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteCodeRepository(
     args: DeleteCodeRepositoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCodeRepositoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCodeRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteCodeRepositoryCommandOutput) => void
   ): Promise<DeleteCodeRepositoryCommandOutput> | void {
     const command = new DeleteCodeRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2189,7 +2277,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDomainCommandOutput>;
   public deleteDomain(
     args: DeleteDomainCommandInput,
@@ -2202,16 +2290,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteDomain(
     args: DeleteDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDomainCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainCommandOutput) => void
   ): Promise<DeleteDomainCommandOutput> | void {
     const command = new DeleteDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2227,7 +2317,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointCommandOutput>;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
@@ -2240,16 +2330,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteEndpoint(
     args: DeleteEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEndpointCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointCommandOutput) => void
   ): Promise<DeleteEndpointCommandOutput> | void {
     const command = new DeleteEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2264,7 +2356,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEndpointConfigCommandOutput>;
   public deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
@@ -2277,16 +2369,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteEndpointConfig(
     args: DeleteEndpointConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEndpointConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEndpointConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteEndpointConfigCommandOutput) => void
   ): Promise<DeleteEndpointConfigCommandOutput> | void {
     const command = new DeleteEndpointConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2301,7 +2395,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteExperiment(
     args: DeleteExperimentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteExperimentCommandOutput>;
   public deleteExperiment(
     args: DeleteExperimentCommandInput,
@@ -2314,16 +2408,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteExperiment(
     args: DeleteExperimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteExperimentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteExperimentCommandOutput) => void),
     cb?: (err: any, data?: DeleteExperimentCommandOutput) => void
   ): Promise<DeleteExperimentCommandOutput> | void {
     const command = new DeleteExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2336,7 +2432,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFlowDefinitionCommandOutput>;
   public deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
@@ -2349,16 +2445,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteFlowDefinition(
     args: DeleteFlowDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFlowDefinitionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFlowDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DeleteFlowDefinitionCommandOutput) => void
   ): Promise<DeleteFlowDefinitionCommandOutput> | void {
     const command = new DeleteFlowDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2374,7 +2472,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteModel(
     args: DeleteModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteModelCommandOutput>;
   public deleteModel(
     args: DeleteModelCommandInput,
@@ -2387,16 +2485,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteModel(
     args: DeleteModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelCommandOutput) => void
   ): Promise<DeleteModelCommandOutput> | void {
     const command = new DeleteModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2411,7 +2511,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteModelPackage(
     args: DeleteModelPackageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteModelPackageCommandOutput>;
   public deleteModelPackage(
     args: DeleteModelPackageCommandInput,
@@ -2424,16 +2524,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteModelPackage(
     args: DeleteModelPackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelPackageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteModelPackageCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelPackageCommandOutput) => void
   ): Promise<DeleteModelPackageCommandOutput> | void {
     const command = new DeleteModelPackageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2447,7 +2549,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteMonitoringScheduleCommandOutput>;
   public deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
@@ -2460,16 +2562,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteMonitoringSchedule(
     args: DeleteMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: DeleteMonitoringScheduleCommandOutput) => void
   ): Promise<DeleteMonitoringScheduleCommandOutput> | void {
     const command = new DeleteMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2488,7 +2592,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteNotebookInstanceCommandOutput>;
   public deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
@@ -2501,16 +2605,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteNotebookInstance(
     args: DeleteNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeleteNotebookInstanceCommandOutput) => void
   ): Promise<DeleteNotebookInstanceCommandOutput> | void {
     const command = new DeleteNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2523,29 +2629,43 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput>;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public deleteNotebookInstanceLifecycleConfig(
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void),
-    cb?: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DeleteNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): Promise<DeleteNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new DeleteNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2564,7 +2684,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTagsCommandOutput>;
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -2577,16 +2697,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2601,7 +2723,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteTrial(
     args: DeleteTrialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTrialCommandOutput>;
   public deleteTrial(
     args: DeleteTrialCommandInput,
@@ -2614,16 +2736,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteTrial(
     args: DeleteTrialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTrialCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrialCommandOutput) => void
   ): Promise<DeleteTrialCommandOutput> | void {
     const command = new DeleteTrialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2638,7 +2762,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTrialComponentCommandOutput>;
   public deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
@@ -2651,16 +2775,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteTrialComponent(
     args: DeleteTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: DeleteTrialComponentCommandOutput) => void
   ): Promise<DeleteTrialComponentCommandOutput> | void {
     const command = new DeleteTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2673,7 +2799,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteUserProfileCommandOutput>;
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
@@ -2686,16 +2812,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteUserProfile(
     args: DeleteUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteUserProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserProfileCommandOutput) => void
   ): Promise<DeleteUserProfileCommandOutput> | void {
     const command = new DeleteUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2708,7 +2836,7 @@ export class SageMaker extends SageMakerClient {
    */
   public deleteWorkteam(
     args: DeleteWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteWorkteamCommandOutput>;
   public deleteWorkteam(
     args: DeleteWorkteamCommandInput,
@@ -2721,16 +2849,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public deleteWorkteam(
     args: DeleteWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteWorkteamCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkteamCommandOutput) => void
   ): Promise<DeleteWorkteamCommandOutput> | void {
     const command = new DeleteWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2743,7 +2873,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAlgorithmCommandOutput>;
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
@@ -2756,16 +2886,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlgorithmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlgorithmCommandOutput) => void
   ): Promise<DescribeAlgorithmCommandOutput> | void {
     const command = new DescribeAlgorithmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2778,7 +2910,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeApp(
     args: DescribeAppCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAppCommandOutput>;
   public describeApp(
     args: DescribeAppCommandInput,
@@ -2791,16 +2923,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeApp(
     args: DescribeAppCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAppCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAppCommandOutput) => void),
     cb?: (err: any, data?: DescribeAppCommandOutput) => void
   ): Promise<DescribeAppCommandOutput> | void {
     const command = new DescribeAppCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2813,7 +2947,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAutoMLJobCommandOutput>;
   public describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
@@ -2826,16 +2960,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeAutoMLJob(
     args: DescribeAutoMLJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAutoMLJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeAutoMLJobCommandOutput) => void
   ): Promise<DescribeAutoMLJobCommandOutput> | void {
     const command = new DescribeAutoMLJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2848,7 +2984,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCodeRepositoryCommandOutput>;
   public describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
@@ -2861,16 +2997,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeCodeRepository(
     args: DescribeCodeRepositoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCodeRepositoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCodeRepositoryCommandOutput) => void),
     cb?: (err: any, data?: DescribeCodeRepositoryCommandOutput) => void
   ): Promise<DescribeCodeRepositoryCommandOutput> | void {
     const command = new DescribeCodeRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2885,7 +3023,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCompilationJobCommandOutput>;
   public describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
@@ -2898,16 +3036,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeCompilationJob(
     args: DescribeCompilationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCompilationJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCompilationJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeCompilationJobCommandOutput) => void
   ): Promise<DescribeCompilationJobCommandOutput> | void {
     const command = new DescribeCompilationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2920,7 +3060,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeDomain(
     args: DescribeDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDomainCommandOutput>;
   public describeDomain(
     args: DescribeDomainCommandInput,
@@ -2933,16 +3073,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeDomain(
     args: DescribeDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDomainCommandOutput) => void),
     cb?: (err: any, data?: DescribeDomainCommandOutput) => void
   ): Promise<DescribeDomainCommandOutput> | void {
     const command = new DescribeDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2955,7 +3097,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEndpointCommandOutput>;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
@@ -2968,16 +3110,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeEndpoint(
     args: DescribeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEndpointCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointCommandOutput) => void
   ): Promise<DescribeEndpointCommandOutput> | void {
     const command = new DescribeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2991,7 +3135,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEndpointConfigCommandOutput>;
   public describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
@@ -3004,16 +3148,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeEndpointConfig(
     args: DescribeEndpointConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEndpointConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEndpointConfigCommandOutput) => void),
     cb?: (err: any, data?: DescribeEndpointConfigCommandOutput) => void
   ): Promise<DescribeEndpointConfigCommandOutput> | void {
     const command = new DescribeEndpointConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3026,7 +3172,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeExperiment(
     args: DescribeExperimentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeExperimentCommandOutput>;
   public describeExperiment(
     args: DescribeExperimentCommandInput,
@@ -3039,16 +3185,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeExperiment(
     args: DescribeExperimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExperimentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeExperimentCommandOutput) => void),
     cb?: (err: any, data?: DescribeExperimentCommandOutput) => void
   ): Promise<DescribeExperimentCommandOutput> | void {
     const command = new DescribeExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3061,7 +3209,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeFlowDefinitionCommandOutput>;
   public describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
@@ -3074,16 +3222,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeFlowDefinition(
     args: DescribeFlowDefinitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFlowDefinitionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFlowDefinitionCommandOutput) => void),
     cb?: (err: any, data?: DescribeFlowDefinitionCommandOutput) => void
   ): Promise<DescribeFlowDefinitionCommandOutput> | void {
     const command = new DescribeFlowDefinitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3096,7 +3246,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHumanTaskUiCommandOutput>;
   public describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
@@ -3109,16 +3259,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeHumanTaskUi(
     args: DescribeHumanTaskUiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHumanTaskUiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHumanTaskUiCommandOutput) => void),
     cb?: (err: any, data?: DescribeHumanTaskUiCommandOutput) => void
   ): Promise<DescribeHumanTaskUiCommandOutput> | void {
     const command = new DescribeHumanTaskUiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3132,7 +3284,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHyperParameterTuningJobCommandOutput>;
   public describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
@@ -3145,16 +3297,21 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeHyperParameterTuningJob(
     args: DescribeHyperParameterTuningJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeHyperParameterTuningJobCommandOutput
+        ) => void),
     cb?: (err: any, data?: DescribeHyperParameterTuningJobCommandOutput) => void
   ): Promise<DescribeHyperParameterTuningJobCommandOutput> | void {
     const command = new DescribeHyperParameterTuningJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3167,7 +3324,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeLabelingJobCommandOutput>;
   public describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
@@ -3180,16 +3337,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeLabelingJob(
     args: DescribeLabelingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeLabelingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeLabelingJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeLabelingJobCommandOutput) => void
   ): Promise<DescribeLabelingJobCommandOutput> | void {
     const command = new DescribeLabelingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3203,7 +3362,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeModel(
     args: DescribeModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeModelCommandOutput>;
   public describeModel(
     args: DescribeModelCommandInput,
@@ -3216,16 +3375,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeModel(
     args: DescribeModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeModelCommandOutput) => void),
     cb?: (err: any, data?: DescribeModelCommandOutput) => void
   ): Promise<DescribeModelCommandOutput> | void {
     const command = new DescribeModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3241,7 +3402,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeModelPackage(
     args: DescribeModelPackageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeModelPackageCommandOutput>;
   public describeModelPackage(
     args: DescribeModelPackageCommandInput,
@@ -3254,16 +3415,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeModelPackage(
     args: DescribeModelPackageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeModelPackageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeModelPackageCommandOutput) => void),
     cb?: (err: any, data?: DescribeModelPackageCommandOutput) => void
   ): Promise<DescribeModelPackageCommandOutput> | void {
     const command = new DescribeModelPackageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3276,7 +3439,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeMonitoringScheduleCommandOutput>;
   public describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
@@ -3289,16 +3452,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeMonitoringSchedule(
     args: DescribeMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: DescribeMonitoringScheduleCommandOutput) => void
   ): Promise<DescribeMonitoringScheduleCommandOutput> | void {
     const command = new DescribeMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3311,7 +3476,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeNotebookInstanceCommandOutput>;
   public describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
@@ -3324,16 +3489,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeNotebookInstance(
     args: DescribeNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: DescribeNotebookInstanceCommandOutput) => void
   ): Promise<DescribeNotebookInstanceCommandOutput> | void {
     const command = new DescribeNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3348,29 +3515,43 @@ export class SageMaker extends SageMakerClient {
    */
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput>;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    cb: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public describeNotebookInstanceLifecycleConfig(
     args: DescribeNotebookInstanceLifecycleConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void),
-    cb?: (err: any, data?: DescribeNotebookInstanceLifecycleConfigCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: DescribeNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): Promise<DescribeNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new DescribeNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3383,7 +3564,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProcessingJobCommandOutput>;
   public describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
@@ -3396,16 +3577,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeProcessingJob(
     args: DescribeProcessingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProcessingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProcessingJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeProcessingJobCommandOutput) => void
   ): Promise<DescribeProcessingJobCommandOutput> | void {
     const command = new DescribeProcessingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3419,7 +3602,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSubscribedWorkteamCommandOutput>;
   public describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
@@ -3432,16 +3615,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeSubscribedWorkteam(
     args: DescribeSubscribedWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSubscribedWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSubscribedWorkteamCommandOutput) => void),
     cb?: (err: any, data?: DescribeSubscribedWorkteamCommandOutput) => void
   ): Promise<DescribeSubscribedWorkteamCommandOutput> | void {
     const command = new DescribeSubscribedWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3454,7 +3639,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTrainingJobCommandOutput>;
   public describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
@@ -3467,16 +3652,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeTrainingJob(
     args: DescribeTrainingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrainingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTrainingJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrainingJobCommandOutput) => void
   ): Promise<DescribeTrainingJobCommandOutput> | void {
     const command = new DescribeTrainingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3489,7 +3676,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeTransformJob(
     args: DescribeTransformJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTransformJobCommandOutput>;
   public describeTransformJob(
     args: DescribeTransformJobCommandInput,
@@ -3502,16 +3689,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeTransformJob(
     args: DescribeTransformJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTransformJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTransformJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeTransformJobCommandOutput) => void
   ): Promise<DescribeTransformJobCommandOutput> | void {
     const command = new DescribeTransformJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3524,7 +3713,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeTrial(
     args: DescribeTrialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTrialCommandOutput>;
   public describeTrial(
     args: DescribeTrialCommandInput,
@@ -3537,16 +3726,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeTrial(
     args: DescribeTrialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTrialCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrialCommandOutput) => void
   ): Promise<DescribeTrialCommandOutput> | void {
     const command = new DescribeTrialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3559,7 +3750,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeTrialComponentCommandOutput>;
   public describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
@@ -3572,16 +3763,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeTrialComponent(
     args: DescribeTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: DescribeTrialComponentCommandOutput) => void
   ): Promise<DescribeTrialComponentCommandOutput> | void {
     const command = new DescribeTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3594,7 +3787,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeUserProfile(
     args: DescribeUserProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeUserProfileCommandOutput>;
   public describeUserProfile(
     args: DescribeUserProfileCommandInput,
@@ -3607,16 +3800,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeUserProfile(
     args: DescribeUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUserProfileCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserProfileCommandOutput) => void
   ): Promise<DescribeUserProfileCommandOutput> | void {
     const command = new DescribeUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3631,7 +3826,7 @@ export class SageMaker extends SageMakerClient {
    */
   public describeWorkteam(
     args: DescribeWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeWorkteamCommandOutput>;
   public describeWorkteam(
     args: DescribeWorkteamCommandInput,
@@ -3644,16 +3839,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public describeWorkteam(
     args: DescribeWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeWorkteamCommandOutput) => void),
     cb?: (err: any, data?: DescribeWorkteamCommandOutput) => void
   ): Promise<DescribeWorkteamCommandOutput> | void {
     const command = new DescribeWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3669,7 +3866,7 @@ export class SageMaker extends SageMakerClient {
    */
   public disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateTrialComponentCommandOutput>;
   public disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
@@ -3682,16 +3879,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public disassociateTrialComponent(
     args: DisassociateTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: DisassociateTrialComponentCommandOutput) => void
   ): Promise<DisassociateTrialComponentCommandOutput> | void {
     const command = new DisassociateTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3707,7 +3906,7 @@ export class SageMaker extends SageMakerClient {
    */
   public getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSearchSuggestionsCommandOutput>;
   public getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
@@ -3720,16 +3919,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public getSearchSuggestions(
     args: GetSearchSuggestionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSearchSuggestionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSearchSuggestionsCommandOutput) => void),
     cb?: (err: any, data?: GetSearchSuggestionsCommandOutput) => void
   ): Promise<GetSearchSuggestionsCommandOutput> | void {
     const command = new GetSearchSuggestionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3742,7 +3943,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listAlgorithms(
     args: ListAlgorithmsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAlgorithmsCommandOutput>;
   public listAlgorithms(
     args: ListAlgorithmsCommandInput,
@@ -3755,16 +3956,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listAlgorithms(
     args: ListAlgorithmsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAlgorithmsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAlgorithmsCommandOutput) => void),
     cb?: (err: any, data?: ListAlgorithmsCommandOutput) => void
   ): Promise<ListAlgorithmsCommandOutput> | void {
     const command = new ListAlgorithmsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3777,7 +3980,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listApps(
     args: ListAppsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAppsCommandOutput>;
   public listApps(
     args: ListAppsCommandInput,
@@ -3790,16 +3993,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listApps(
     args: ListAppsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAppsCommandOutput) => void),
     cb?: (err: any, data?: ListAppsCommandOutput) => void
   ): Promise<ListAppsCommandOutput> | void {
     const command = new ListAppsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3812,7 +4017,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAutoMLJobsCommandOutput>;
   public listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
@@ -3825,16 +4030,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAutoMLJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAutoMLJobsCommandOutput) => void),
     cb?: (err: any, data?: ListAutoMLJobsCommandOutput) => void
   ): Promise<ListAutoMLJobsCommandOutput> | void {
     const command = new ListAutoMLJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3847,7 +4054,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCandidatesForAutoMLJobCommandOutput>;
   public listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
@@ -3860,16 +4067,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listCandidatesForAutoMLJob(
     args: ListCandidatesForAutoMLJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: ListCandidatesForAutoMLJobCommandOutput) => void
   ): Promise<ListCandidatesForAutoMLJobCommandOutput> | void {
     const command = new ListCandidatesForAutoMLJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3882,7 +4091,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCodeRepositoriesCommandOutput>;
   public listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
@@ -3895,16 +4104,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCodeRepositoriesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCodeRepositoriesCommandOutput) => void),
     cb?: (err: any, data?: ListCodeRepositoriesCommandOutput) => void
   ): Promise<ListCodeRepositoriesCommandOutput> | void {
     const command = new ListCodeRepositoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3919,7 +4130,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listCompilationJobs(
     args: ListCompilationJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCompilationJobsCommandOutput>;
   public listCompilationJobs(
     args: ListCompilationJobsCommandInput,
@@ -3932,16 +4143,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listCompilationJobs(
     args: ListCompilationJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCompilationJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCompilationJobsCommandOutput) => void),
     cb?: (err: any, data?: ListCompilationJobsCommandOutput) => void
   ): Promise<ListCompilationJobsCommandOutput> | void {
     const command = new ListCompilationJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3954,7 +4167,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listDomains(
     args: ListDomainsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDomainsCommandOutput>;
   public listDomains(
     args: ListDomainsCommandInput,
@@ -3967,16 +4180,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listDomains(
     args: ListDomainsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDomainsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDomainsCommandOutput) => void),
     cb?: (err: any, data?: ListDomainsCommandOutput) => void
   ): Promise<ListDomainsCommandOutput> | void {
     const command = new ListDomainsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -3989,7 +4204,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListEndpointConfigsCommandOutput>;
   public listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
@@ -4002,16 +4217,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointConfigsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListEndpointConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointConfigsCommandOutput) => void
   ): Promise<ListEndpointConfigsCommandOutput> | void {
     const command = new ListEndpointConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4024,7 +4241,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listEndpoints(
     args: ListEndpointsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListEndpointsCommandOutput>;
   public listEndpoints(
     args: ListEndpointsCommandInput,
@@ -4037,16 +4254,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listEndpoints(
     args: ListEndpointsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEndpointsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListEndpointsCommandOutput) => void),
     cb?: (err: any, data?: ListEndpointsCommandOutput) => void
   ): Promise<ListEndpointsCommandOutput> | void {
     const command = new ListEndpointsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4061,7 +4280,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listExperiments(
     args: ListExperimentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListExperimentsCommandOutput>;
   public listExperiments(
     args: ListExperimentsCommandInput,
@@ -4074,16 +4293,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listExperiments(
     args: ListExperimentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExperimentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListExperimentsCommandOutput) => void),
     cb?: (err: any, data?: ListExperimentsCommandOutput) => void
   ): Promise<ListExperimentsCommandOutput> | void {
     const command = new ListExperimentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4096,7 +4317,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFlowDefinitionsCommandOutput>;
   public listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
@@ -4109,16 +4330,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFlowDefinitionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFlowDefinitionsCommandOutput) => void),
     cb?: (err: any, data?: ListFlowDefinitionsCommandOutput) => void
   ): Promise<ListFlowDefinitionsCommandOutput> | void {
     const command = new ListFlowDefinitionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4131,7 +4354,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHumanTaskUisCommandOutput>;
   public listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
@@ -4144,16 +4367,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHumanTaskUisCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHumanTaskUisCommandOutput) => void),
     cb?: (err: any, data?: ListHumanTaskUisCommandOutput) => void
   ): Promise<ListHumanTaskUisCommandOutput> | void {
     const command = new ListHumanTaskUisCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4168,7 +4393,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHyperParameterTuningJobsCommandOutput>;
   public listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
@@ -4181,16 +4406,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHyperParameterTuningJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHyperParameterTuningJobsCommandOutput) => void),
     cb?: (err: any, data?: ListHyperParameterTuningJobsCommandOutput) => void
   ): Promise<ListHyperParameterTuningJobsCommandOutput> | void {
     const command = new ListHyperParameterTuningJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4203,7 +4430,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listLabelingJobs(
     args: ListLabelingJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLabelingJobsCommandOutput>;
   public listLabelingJobs(
     args: ListLabelingJobsCommandInput,
@@ -4216,16 +4443,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listLabelingJobs(
     args: ListLabelingJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLabelingJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLabelingJobsCommandOutput) => void),
     cb?: (err: any, data?: ListLabelingJobsCommandOutput) => void
   ): Promise<ListLabelingJobsCommandOutput> | void {
     const command = new ListLabelingJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4238,7 +4467,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListLabelingJobsForWorkteamCommandOutput>;
   public listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
@@ -4251,16 +4480,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listLabelingJobsForWorkteam(
     args: ListLabelingJobsForWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListLabelingJobsForWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListLabelingJobsForWorkteamCommandOutput) => void),
     cb?: (err: any, data?: ListLabelingJobsForWorkteamCommandOutput) => void
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> | void {
     const command = new ListLabelingJobsForWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4273,7 +4504,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listModelPackages(
     args: ListModelPackagesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListModelPackagesCommandOutput>;
   public listModelPackages(
     args: ListModelPackagesCommandInput,
@@ -4286,16 +4517,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listModelPackages(
     args: ListModelPackagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelPackagesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListModelPackagesCommandOutput) => void),
     cb?: (err: any, data?: ListModelPackagesCommandOutput) => void
   ): Promise<ListModelPackagesCommandOutput> | void {
     const command = new ListModelPackagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4308,7 +4541,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listModels(
     args: ListModelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListModelsCommandOutput>;
   public listModels(
     args: ListModelsCommandInput,
@@ -4321,16 +4554,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listModels(
     args: ListModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListModelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListModelsCommandOutput) => void),
     cb?: (err: any, data?: ListModelsCommandOutput) => void
   ): Promise<ListModelsCommandOutput> | void {
     const command = new ListModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4343,7 +4578,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListMonitoringExecutionsCommandOutput>;
   public listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
@@ -4356,16 +4591,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitoringExecutionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMonitoringExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListMonitoringExecutionsCommandOutput) => void
   ): Promise<ListMonitoringExecutionsCommandOutput> | void {
     const command = new ListMonitoringExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4378,7 +4615,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListMonitoringSchedulesCommandOutput>;
   public listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
@@ -4391,16 +4628,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMonitoringSchedulesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMonitoringSchedulesCommandOutput) => void),
     cb?: (err: any, data?: ListMonitoringSchedulesCommandOutput) => void
   ): Promise<ListMonitoringSchedulesCommandOutput> | void {
     const command = new ListMonitoringSchedulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4413,29 +4652,43 @@ export class SageMaker extends SageMakerClient {
    */
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput>;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    cb: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
+    ) => void
   ): void;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
+    ) => void
   ): void;
   public listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void),
-    cb?: (err: any, data?: ListNotebookInstanceLifecycleConfigsCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListNotebookInstanceLifecycleConfigsCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListNotebookInstanceLifecycleConfigsCommandOutput
+    ) => void
   ): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput> | void {
     const command = new ListNotebookInstanceLifecycleConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4449,7 +4702,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListNotebookInstancesCommandOutput>;
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
@@ -4462,16 +4715,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNotebookInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListNotebookInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListNotebookInstancesCommandOutput) => void
   ): Promise<ListNotebookInstancesCommandOutput> | void {
     const command = new ListNotebookInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4484,7 +4739,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listProcessingJobs(
     args: ListProcessingJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListProcessingJobsCommandOutput>;
   public listProcessingJobs(
     args: ListProcessingJobsCommandInput,
@@ -4497,16 +4752,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listProcessingJobs(
     args: ListProcessingJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProcessingJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProcessingJobsCommandOutput) => void),
     cb?: (err: any, data?: ListProcessingJobsCommandOutput) => void
   ): Promise<ListProcessingJobsCommandOutput> | void {
     const command = new ListProcessingJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4521,7 +4778,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSubscribedWorkteamsCommandOutput>;
   public listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
@@ -4534,16 +4791,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSubscribedWorkteamsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSubscribedWorkteamsCommandOutput) => void),
     cb?: (err: any, data?: ListSubscribedWorkteamsCommandOutput) => void
   ): Promise<ListSubscribedWorkteamsCommandOutput> | void {
     const command = new ListSubscribedWorkteamsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4556,7 +4815,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsCommandOutput>;
   public listTags(
     args: ListTagsCommandInput,
@@ -4569,16 +4828,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4591,7 +4852,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTrainingJobsCommandOutput>;
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
@@ -4604,16 +4865,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTrainingJobs(
     args: ListTrainingJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrainingJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTrainingJobsCommandOutput) => void),
     cb?: (err: any, data?: ListTrainingJobsCommandOutput) => void
   ): Promise<ListTrainingJobsCommandOutput> | void {
     const command = new ListTrainingJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4627,29 +4890,43 @@ export class SageMaker extends SageMakerClient {
    */
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput>;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    cb: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
+    ) => void
   ): void;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
+    ) => void
   ): void;
   public listTrainingJobsForHyperParameterTuningJob(
     args: ListTrainingJobsForHyperParameterTuningJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void),
-    cb?: (err: any, data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListTrainingJobsForHyperParameterTuningJobCommandOutput
+    ) => void
   ): Promise<ListTrainingJobsForHyperParameterTuningJobCommandOutput> | void {
     const command = new ListTrainingJobsForHyperParameterTuningJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4662,7 +4939,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listTransformJobs(
     args: ListTransformJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTransformJobsCommandOutput>;
   public listTransformJobs(
     args: ListTransformJobsCommandInput,
@@ -4675,16 +4952,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTransformJobs(
     args: ListTransformJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTransformJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTransformJobsCommandOutput) => void),
     cb?: (err: any, data?: ListTransformJobsCommandOutput) => void
   ): Promise<ListTransformJobsCommandOutput> | void {
     const command = new ListTransformJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4699,7 +4978,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listTrialComponents(
     args: ListTrialComponentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTrialComponentsCommandOutput>;
   public listTrialComponents(
     args: ListTrialComponentsCommandInput,
@@ -4712,16 +4991,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTrialComponents(
     args: ListTrialComponentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrialComponentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTrialComponentsCommandOutput) => void),
     cb?: (err: any, data?: ListTrialComponentsCommandOutput) => void
   ): Promise<ListTrialComponentsCommandOutput> | void {
     const command = new ListTrialComponentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4737,7 +5018,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listTrials(
     args: ListTrialsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTrialsCommandOutput>;
   public listTrials(
     args: ListTrialsCommandInput,
@@ -4750,16 +5031,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listTrials(
     args: ListTrialsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTrialsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTrialsCommandOutput) => void),
     cb?: (err: any, data?: ListTrialsCommandOutput) => void
   ): Promise<ListTrialsCommandOutput> | void {
     const command = new ListTrialsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4772,7 +5055,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListUserProfilesCommandOutput>;
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
@@ -4785,16 +5068,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listUserProfiles(
     args: ListUserProfilesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUserProfilesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUserProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListUserProfilesCommandOutput) => void
   ): Promise<ListUserProfilesCommandOutput> | void {
     const command = new ListUserProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4809,7 +5094,7 @@ export class SageMaker extends SageMakerClient {
    */
   public listWorkteams(
     args: ListWorkteamsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListWorkteamsCommandOutput>;
   public listWorkteams(
     args: ListWorkteamsCommandInput,
@@ -4822,16 +5107,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public listWorkteams(
     args: ListWorkteamsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkteamsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListWorkteamsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkteamsCommandOutput) => void
   ): Promise<ListWorkteamsCommandOutput> | void {
     const command = new ListWorkteamsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4844,7 +5131,7 @@ export class SageMaker extends SageMakerClient {
    */
   public renderUiTemplate(
     args: RenderUiTemplateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RenderUiTemplateCommandOutput>;
   public renderUiTemplate(
     args: RenderUiTemplateCommandInput,
@@ -4857,16 +5144,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public renderUiTemplate(
     args: RenderUiTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RenderUiTemplateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RenderUiTemplateCommandOutput) => void),
     cb?: (err: any, data?: RenderUiTemplateCommandOutput) => void
   ): Promise<RenderUiTemplateCommandOutput> | void {
     const command = new RenderUiTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4883,7 +5172,7 @@ export class SageMaker extends SageMakerClient {
    */
   public search(
     args: SearchCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SearchCommandOutput>;
   public search(
     args: SearchCommandInput,
@@ -4896,16 +5185,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public search(
     args: SearchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchCommandOutput) => void),
     cb?: (err: any, data?: SearchCommandOutput) => void
   ): Promise<SearchCommandOutput> | void {
     const command = new SearchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4921,7 +5212,7 @@ export class SageMaker extends SageMakerClient {
    */
   public startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartMonitoringScheduleCommandOutput>;
   public startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
@@ -4934,16 +5225,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public startMonitoringSchedule(
     args: StartMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: StartMonitoringScheduleCommandOutput) => void
   ): Promise<StartMonitoringScheduleCommandOutput> | void {
     const command = new StartMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4959,7 +5252,7 @@ export class SageMaker extends SageMakerClient {
    */
   public startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartNotebookInstanceCommandOutput>;
   public startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
@@ -4972,16 +5265,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public startNotebookInstance(
     args: StartNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: StartNotebookInstanceCommandOutput) => void
   ): Promise<StartNotebookInstanceCommandOutput> | void {
     const command = new StartNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -4994,7 +5289,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopAutoMLJobCommandOutput>;
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
@@ -5007,16 +5302,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopAutoMLJob(
     args: StopAutoMLJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopAutoMLJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopAutoMLJobCommandOutput) => void),
     cb?: (err: any, data?: StopAutoMLJobCommandOutput) => void
   ): Promise<StopAutoMLJobCommandOutput> | void {
     const command = new StopAutoMLJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5034,7 +5331,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopCompilationJob(
     args: StopCompilationJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopCompilationJobCommandOutput>;
   public stopCompilationJob(
     args: StopCompilationJobCommandInput,
@@ -5047,16 +5344,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopCompilationJob(
     args: StopCompilationJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopCompilationJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopCompilationJobCommandOutput) => void),
     cb?: (err: any, data?: StopCompilationJobCommandOutput) => void
   ): Promise<StopCompilationJobCommandOutput> | void {
     const command = new StopCompilationJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5075,7 +5374,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopHyperParameterTuningJobCommandOutput>;
   public stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
@@ -5088,16 +5387,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopHyperParameterTuningJob(
     args: StopHyperParameterTuningJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopHyperParameterTuningJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopHyperParameterTuningJobCommandOutput) => void),
     cb?: (err: any, data?: StopHyperParameterTuningJobCommandOutput) => void
   ): Promise<StopHyperParameterTuningJobCommandOutput> | void {
     const command = new StopHyperParameterTuningJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5111,7 +5412,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopLabelingJob(
     args: StopLabelingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopLabelingJobCommandOutput>;
   public stopLabelingJob(
     args: StopLabelingJobCommandInput,
@@ -5124,16 +5425,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopLabelingJob(
     args: StopLabelingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopLabelingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopLabelingJobCommandOutput) => void),
     cb?: (err: any, data?: StopLabelingJobCommandOutput) => void
   ): Promise<StopLabelingJobCommandOutput> | void {
     const command = new StopLabelingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5146,7 +5449,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopMonitoringScheduleCommandOutput>;
   public stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
@@ -5159,16 +5462,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopMonitoringSchedule(
     args: StopMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: StopMonitoringScheduleCommandOutput) => void
   ): Promise<StopMonitoringScheduleCommandOutput> | void {
     const command = new StopMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5189,7 +5494,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopNotebookInstanceCommandOutput>;
   public stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
@@ -5202,16 +5507,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopNotebookInstance(
     args: StopNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: StopNotebookInstanceCommandOutput) => void
   ): Promise<StopNotebookInstanceCommandOutput> | void {
     const command = new StopNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5224,7 +5531,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopProcessingJob(
     args: StopProcessingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopProcessingJobCommandOutput>;
   public stopProcessingJob(
     args: StopProcessingJobCommandInput,
@@ -5237,16 +5544,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopProcessingJob(
     args: StopProcessingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopProcessingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopProcessingJobCommandOutput) => void),
     cb?: (err: any, data?: StopProcessingJobCommandOutput) => void
   ): Promise<StopProcessingJobCommandOutput> | void {
     const command = new StopProcessingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5265,7 +5574,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopTrainingJob(
     args: StopTrainingJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopTrainingJobCommandOutput>;
   public stopTrainingJob(
     args: StopTrainingJobCommandInput,
@@ -5278,16 +5587,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopTrainingJob(
     args: StopTrainingJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTrainingJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopTrainingJobCommandOutput) => void),
     cb?: (err: any, data?: StopTrainingJobCommandOutput) => void
   ): Promise<StopTrainingJobCommandOutput> | void {
     const command = new StopTrainingJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5305,7 +5616,7 @@ export class SageMaker extends SageMakerClient {
    */
   public stopTransformJob(
     args: StopTransformJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopTransformJobCommandOutput>;
   public stopTransformJob(
     args: StopTransformJobCommandInput,
@@ -5318,16 +5629,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public stopTransformJob(
     args: StopTransformJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopTransformJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopTransformJobCommandOutput) => void),
     cb?: (err: any, data?: StopTransformJobCommandOutput) => void
   ): Promise<StopTransformJobCommandOutput> | void {
     const command = new StopTransformJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5340,7 +5653,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateCodeRepositoryCommandOutput>;
   public updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
@@ -5353,16 +5666,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateCodeRepository(
     args: UpdateCodeRepositoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCodeRepositoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCodeRepositoryCommandOutput) => void),
     cb?: (err: any, data?: UpdateCodeRepositoryCommandOutput) => void
   ): Promise<UpdateCodeRepositoryCommandOutput> | void {
     const command = new UpdateCodeRepositoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5375,7 +5690,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateDomain(
     args: UpdateDomainCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDomainCommandOutput>;
   public updateDomain(
     args: UpdateDomainCommandInput,
@@ -5388,16 +5703,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateDomain(
     args: UpdateDomainCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDomainCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainCommandOutput) => void
   ): Promise<UpdateDomainCommandOutput> | void {
     const command = new UpdateDomainCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5423,7 +5740,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointCommandOutput>;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
@@ -5436,16 +5753,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateEndpoint(
     args: UpdateEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateEndpointCommandOutput) => void),
     cb?: (err: any, data?: UpdateEndpointCommandOutput) => void
   ): Promise<UpdateEndpointCommandOutput> | void {
     const command = new UpdateEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5463,29 +5782,43 @@ export class SageMaker extends SageMakerClient {
    */
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput>;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    cb: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
+    ) => void
   ): void;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
+    ) => void
   ): void;
   public updateEndpointWeightsAndCapacities(
     args: UpdateEndpointWeightsAndCapacitiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void),
-    cb?: (err: any, data?: UpdateEndpointWeightsAndCapacitiesCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: UpdateEndpointWeightsAndCapacitiesCommandOutput
+    ) => void
   ): Promise<UpdateEndpointWeightsAndCapacitiesCommandOutput> | void {
     const command = new UpdateEndpointWeightsAndCapacitiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5499,7 +5832,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateExperiment(
     args: UpdateExperimentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateExperimentCommandOutput>;
   public updateExperiment(
     args: UpdateExperimentCommandInput,
@@ -5512,16 +5845,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateExperiment(
     args: UpdateExperimentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateExperimentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateExperimentCommandOutput) => void),
     cb?: (err: any, data?: UpdateExperimentCommandOutput) => void
   ): Promise<UpdateExperimentCommandOutput> | void {
     const command = new UpdateExperimentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5534,7 +5869,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateMonitoringScheduleCommandOutput>;
   public updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
@@ -5547,16 +5882,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateMonitoringSchedule(
     args: UpdateMonitoringScheduleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMonitoringScheduleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateMonitoringScheduleCommandOutput) => void),
     cb?: (err: any, data?: UpdateMonitoringScheduleCommandOutput) => void
   ): Promise<UpdateMonitoringScheduleCommandOutput> | void {
     const command = new UpdateMonitoringScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5571,7 +5908,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateNotebookInstanceCommandOutput>;
   public updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
@@ -5584,16 +5921,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateNotebookInstance(
     args: UpdateNotebookInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotebookInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateNotebookInstanceCommandOutput) => void),
     cb?: (err: any, data?: UpdateNotebookInstanceCommandOutput) => void
   ): Promise<UpdateNotebookInstanceCommandOutput> | void {
     const command = new UpdateNotebookInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5606,29 +5945,43 @@ export class SageMaker extends SageMakerClient {
    */
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput>;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
+    cb: (
+      err: any,
+      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): void;
   public updateNotebookInstanceLifecycleConfig(
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void),
-    cb?: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: UpdateNotebookInstanceLifecycleConfigCommandOutput
+    ) => void
   ): Promise<UpdateNotebookInstanceLifecycleConfigCommandOutput> | void {
     const command = new UpdateNotebookInstanceLifecycleConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5641,7 +5994,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateTrial(
     args: UpdateTrialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateTrialCommandOutput>;
   public updateTrial(
     args: UpdateTrialCommandInput,
@@ -5654,16 +6007,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateTrial(
     args: UpdateTrialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTrialCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrialCommandOutput) => void
   ): Promise<UpdateTrialCommandOutput> | void {
     const command = new UpdateTrialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5677,7 +6032,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateTrialComponentCommandOutput>;
   public updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
@@ -5690,16 +6045,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateTrialComponent(
     args: UpdateTrialComponentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTrialComponentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTrialComponentCommandOutput) => void),
     cb?: (err: any, data?: UpdateTrialComponentCommandOutput) => void
   ): Promise<UpdateTrialComponentCommandOutput> | void {
     const command = new UpdateTrialComponentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5712,7 +6069,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateUserProfileCommandOutput>;
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
@@ -5725,16 +6082,18 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateUserProfile(
     args: UpdateUserProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateUserProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserProfileCommandOutput) => void
   ): Promise<UpdateUserProfileCommandOutput> | void {
     const command = new UpdateUserProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -5747,7 +6106,7 @@ export class SageMaker extends SageMakerClient {
    */
   public updateWorkteam(
     args: UpdateWorkteamCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateWorkteamCommandOutput>;
   public updateWorkteam(
     args: UpdateWorkteamCommandInput,
@@ -5760,19 +6119,20 @@ export class SageMaker extends SageMakerClient {
   ): void;
   public updateWorkteam(
     args: UpdateWorkteamCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkteamCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateWorkteamCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkteamCommandOutput) => void
   ): Promise<UpdateWorkteamCommandOutput> | void {
     const command = new UpdateWorkteamCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

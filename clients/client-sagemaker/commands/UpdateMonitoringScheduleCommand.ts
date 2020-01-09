@@ -1,20 +1,20 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerClient";
 import {
   UpdateMonitoringScheduleRequest,
-  UpdateMonitoringScheduleResponse,
+  UpdateMonitoringScheduleResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateMonitoringScheduleCommand,
-  serializeAws_json1_1UpdateMonitoringScheduleCommand,
+  serializeAws_json1_1UpdateMonitoringScheduleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateMonitoringScheduleCommandInput = UpdateMonitoringScheduleRequest;
 export type UpdateMonitoringScheduleCommandOutput = UpdateMonitoringScheduleResponse;
 
-export class UpdateMonitoringScheduleCommand extends $Command<UpdateMonitoringScheduleCommandInput, UpdateMonitoringScheduleCommandOutput, SageMakerClientResolvedConfig> {
+export class UpdateMonitoringScheduleCommand extends $Command<
+  UpdateMonitoringScheduleCommandInput,
+  UpdateMonitoringScheduleCommandOutput,
+  SageMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateMonitoringScheduleCommand extends $Command<UpdateMonitoringSc
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateMonitoringScheduleCommandInput, UpdateMonitoringScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateMonitoringScheduleCommandInput,
+    UpdateMonitoringScheduleCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateMonitoringScheduleCommand extends $Command<UpdateMonitoringSc
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateMonitoringScheduleCommandOutput> {
-    return deserializeAws_json1_1UpdateMonitoringScheduleCommand(output, context);
+    return deserializeAws_json1_1UpdateMonitoringScheduleCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

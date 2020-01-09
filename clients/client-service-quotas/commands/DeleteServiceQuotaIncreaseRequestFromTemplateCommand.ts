@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  ServiceQuotasClientResolvedConfig,
+  ServiceQuotasClientResolvedConfig
 } from "../ServiceQuotasClient";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
-  DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
+  DeleteServiceQuotaIncreaseRequestFromTemplateResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
-  serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
+  serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput = DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
 export type DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput = DeleteServiceQuotaIncreaseRequestFromTemplateResponse;
 
-export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput, DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput, ServiceQuotasClientResolvedConfig> {
+export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command<
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
+  DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
+  ServiceQuotasClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput) {
+  constructor(
+    readonly input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput, DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
+    DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(input, context);
+    return serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(output, context);
+    return deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

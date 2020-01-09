@@ -39,7 +39,9 @@ export namespace AcceptInvitationResponse {
  *          <p>You don't have permission to perform the action specified in the request.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -229,7 +231,7 @@ export namespace AwsIamAccessKeyDetails {
 
 export enum AwsIamAccessKeyStatus {
   ACTIVE = "Active",
-  INACTIVE = "Inactive",
+  INACTIVE = "Inactive"
 }
 
 /**
@@ -1183,7 +1185,9 @@ export interface BatchEnableStandardsRequest {
    *          </important>
    *
    */
-  StandardsSubscriptionRequests: Array<StandardsSubscriptionRequest> | undefined;
+  StandardsSubscriptionRequests:
+    | Array<StandardsSubscriptionRequest>
+    | undefined;
 }
 
 export namespace BatchEnableStandardsRequest {
@@ -1282,7 +1286,7 @@ export enum ComplianceStatus {
   FAILED = "FAILED",
   NOT_AVAILABLE = "NOT_AVAILABLE",
   PASSED = "PASSED",
-  WARNING = "WARNING",
+  WARNING = "WARNING"
 }
 
 /**
@@ -1518,7 +1522,7 @@ export namespace DateRange {
 }
 
 export enum DateRangeUnit {
-  DAYS = "DAYS",
+  DAYS = "DAYS"
 }
 
 export interface DeclineInvitationsRequest {
@@ -1841,7 +1845,8 @@ export namespace DisableImportFindingsForProductRequest {
   }
 }
 
-export interface DisableImportFindingsForProductResponse extends $MetadataBearer {
+export interface DisableImportFindingsForProductResponse
+  extends $MetadataBearer {
   __type?: "DisableImportFindingsForProductResponse";
 }
 
@@ -1933,7 +1938,8 @@ export namespace EnableImportFindingsForProductRequest {
   }
 }
 
-export interface EnableImportFindingsForProductResponse extends $MetadataBearer {
+export interface EnableImportFindingsForProductResponse
+  extends $MetadataBearer {
   __type?: "EnableImportFindingsForProductResponse";
   /**
    *
@@ -2430,7 +2436,9 @@ export namespace InsightResults {
  *          <p>Internal server error.</p>
  *
  */
-export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   Code?: string;
@@ -2448,7 +2456,9 @@ export namespace InternalException {
  *          <p>AWS Security Hub isn't enabled for the account used to make this request.</p>
  *
  */
-export interface InvalidAccessException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAccessException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAccessException";
   $fault: "client";
   Code?: string;
@@ -2467,7 +2477,9 @@ export namespace InvalidAccessException {
  *          input parameter.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Code?: string;
@@ -2604,7 +2616,9 @@ export namespace KeywordFilter {
  *          account limits. The error code describes the limit exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -2853,7 +2867,7 @@ export namespace Malware {
 export enum MalwareState {
   OBSERVED = "OBSERVED",
   REMOVAL_FAILED = "REMOVAL_FAILED",
-  REMOVED = "REMOVED",
+  REMOVED = "REMOVED"
 }
 
 export enum MalwareType {
@@ -2871,7 +2885,7 @@ export enum MalwareType {
   SPYWARE = "SPYWARE",
   TROJAN = "TROJAN",
   VIRUS = "VIRUS",
-  WORM = "WORM",
+  WORM = "WORM"
 }
 
 /**
@@ -2911,7 +2925,7 @@ export namespace MapFilter {
 }
 
 export enum MapFilterComparison {
-  EQUALS = "EQUALS",
+  EQUALS = "EQUALS"
 }
 
 /**
@@ -3066,7 +3080,7 @@ export namespace Network {
 
 export enum NetworkDirection {
   IN = "IN",
-  OUT = "OUT",
+  OUT = "OUT"
 }
 
 /**
@@ -3173,7 +3187,7 @@ export namespace NumberFilter {
 export enum Partition {
   AWS = "aws",
   AWS_CN = "aws-cn",
-  AWS_US_GOV = "aws-us-gov",
+  AWS_US_GOV = "aws-us-gov"
 }
 
 /**
@@ -3332,7 +3346,7 @@ export namespace Recommendation {
 
 export enum RecordState {
   ACTIVE = "ACTIVE",
-  ARCHIVED = "ARCHIVED",
+  ARCHIVED = "ARCHIVED"
 }
 
 /**
@@ -3446,7 +3460,9 @@ export namespace Resource {
  *          <p>The resource specified in the request conflicts with an existing resource.</p>
  *
  */
-export interface ResourceConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceConflictException";
   $fault: "client";
   Code?: string;
@@ -3514,7 +3530,9 @@ export namespace ResourceDetails {
  *          <p>The request was rejected because we can't find the specified resource.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -3614,7 +3632,7 @@ export namespace SortCriterion {
 
 export enum SortOrder {
   ASCENDING = "asc",
-  DESCENDING = "desc",
+  DESCENDING = "desc"
 }
 
 export enum StandardsStatus {
@@ -3622,7 +3640,7 @@ export enum StandardsStatus {
   FAILED = "FAILED",
   INCOMPLETE = "INCOMPLETE",
   PENDING = "PENDING",
-  READY = "READY",
+  READY = "READY"
 }
 
 /**
@@ -3734,7 +3752,7 @@ export namespace StringFilter {
 
 export enum StringFilterComparison {
   EQUALS = "EQUALS",
-  PREFIX = "PREFIX",
+  PREFIX = "PREFIX"
 }
 
 export interface TagResourceRequest {
@@ -3834,7 +3852,7 @@ export enum ThreatIntelIndicatorCategory {
   COMMAND_AND_CONTROL = "COMMAND_AND_CONTROL",
   DROP_SITE = "DROP_SITE",
   EXPLOIT_SITE = "EXPLOIT_SITE",
-  KEYLOGGER = "KEYLOGGER",
+  KEYLOGGER = "KEYLOGGER"
 }
 
 export enum ThreatIntelIndicatorType {
@@ -3848,7 +3866,7 @@ export enum ThreatIntelIndicatorType {
   IPV6_ADDRESS = "IPV6_ADDRESS",
   MUTEX = "MUTEX",
   PROCESS = "PROCESS",
-  URL = "URL",
+  URL = "URL"
 }
 
 export interface UntagResourceRequest {
@@ -4015,7 +4033,7 @@ export enum VerificationState {
   BENIGN_POSITIVE = "BENIGN_POSITIVE",
   FALSE_POSITIVE = "FALSE_POSITIVE",
   TRUE_POSITIVE = "TRUE_POSITIVE",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export enum WorkflowState {
@@ -4023,5 +4041,5 @@ export enum WorkflowState {
   DEFERRED = "DEFERRED",
   IN_PROGRESS = "IN_PROGRESS",
   NEW = "NEW",
-  RESOLVED = "RESOLVED",
+  RESOLVED = "RESOLVED"
 }

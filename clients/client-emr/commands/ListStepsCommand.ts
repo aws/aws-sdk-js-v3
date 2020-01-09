@@ -1,20 +1,17 @@
 import {
   EMRClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EMRClient";
-import {
-  ListStepsInput,
-  ListStepsOutput,
-} from "../models/index";
+import { ListStepsInput, ListStepsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListStepsCommand,
-  serializeAws_json1_1ListStepsCommand,
+  serializeAws_json1_1ListStepsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListStepsCommandInput = ListStepsInput;
 export type ListStepsCommandOutput = ListStepsOutput;
 
-export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsCommandOutput, EMRClientResolvedConfig> {
+export class ListStepsCommand extends $Command<
+  ListStepsCommandInput,
+  ListStepsCommandOutput,
+  EMRClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListStepsCommand extends $Command<ListStepsCommandInput, ListStepsC
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListStepsCommandInput, ListStepsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

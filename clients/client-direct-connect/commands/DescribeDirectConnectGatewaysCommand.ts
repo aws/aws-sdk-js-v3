@@ -1,20 +1,20 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewaysRequest,
-  DescribeDirectConnectGatewaysResult,
+  DescribeDirectConnectGatewaysResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewaysCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewaysCommand,
+  serializeAws_json1_1DescribeDirectConnectGatewaysCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeDirectConnectGatewaysCommandInput = DescribeDirectConnectGatewaysRequest;
 export type DescribeDirectConnectGatewaysCommandOutput = DescribeDirectConnectGatewaysResult;
 
-export class DescribeDirectConnectGatewaysCommand extends $Command<DescribeDirectConnectGatewaysCommandInput, DescribeDirectConnectGatewaysCommandOutput, DirectConnectClientResolvedConfig> {
+export class DescribeDirectConnectGatewaysCommand extends $Command<
+  DescribeDirectConnectGatewaysCommandInput,
+  DescribeDirectConnectGatewaysCommandOutput,
+  DirectConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<DescribeDirec
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDirectConnectGatewaysCommandInput, DescribeDirectConnectGatewaysCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeDirectConnectGatewaysCommandInput,
+    DescribeDirectConnectGatewaysCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeDirectConnectGatewaysCommand extends $Command<DescribeDirec
     input: DescribeDirectConnectGatewaysCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(input, context);
+    return serializeAws_json1_1DescribeDirectConnectGatewaysCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeDirectConnectGatewaysCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(output, context);
+    return deserializeAws_json1_1DescribeDirectConnectGatewaysCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

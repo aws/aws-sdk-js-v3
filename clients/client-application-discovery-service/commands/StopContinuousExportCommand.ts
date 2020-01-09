@@ -1,20 +1,20 @@
 import {
   ApplicationDiscoveryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ApplicationDiscoveryServiceClient";
 import {
   StopContinuousExportRequest,
-  StopContinuousExportResponse,
+  StopContinuousExportResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1StopContinuousExportCommand,
-  serializeAws_json1_1StopContinuousExportCommand,
+  serializeAws_json1_1StopContinuousExportCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type StopContinuousExportCommandInput = StopContinuousExportRequest;
 export type StopContinuousExportCommandOutput = StopContinuousExportResponse;
 
-export class StopContinuousExportCommand extends $Command<StopContinuousExportCommandInput, StopContinuousExportCommandOutput, ApplicationDiscoveryServiceClientResolvedConfig> {
+export class StopContinuousExportCommand extends $Command<
+  StopContinuousExportCommandInput,
+  StopContinuousExportCommandOutput,
+  ApplicationDiscoveryServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class StopContinuousExportCommand extends $Command<StopContinuousExportCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ApplicationDiscoveryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopContinuousExportCommandInput, StopContinuousExportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    StopContinuousExportCommandInput,
+    StopContinuousExportCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

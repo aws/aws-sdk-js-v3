@@ -4,24 +4,24 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum EntityStatusCode {
   IMPAIRED = "IMPAIRED",
   UNIMPAIRED = "UNIMPAIRED",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export enum EventAggregateField {
-  EventTypeCategory = "eventTypeCategory",
+  EventTypeCategory = "eventTypeCategory"
 }
 
 export enum EventStatusCode {
   CLOSED = "closed",
   OPEN = "open",
-  UPCOMING = "upcoming",
+  UPCOMING = "upcoming"
 }
 
 export enum EventTypeCategory {
   ACCOUNT_NOTIFICATION = "accountNotification",
   INVESTIGATION = "investigation",
   ISSUE = "issue",
-  SCHEDULED_CHANGE = "scheduledChange",
+  SCHEDULED_CHANGE = "scheduledChange"
 }
 
 /**
@@ -29,7 +29,9 @@ export enum EventTypeCategory {
  *          <p>The specified pagination token (<code>nextToken</code>) is not valid.</p>
  *
  */
-export interface InvalidPaginationToken extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPaginationToken
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPaginationToken";
   $fault: "client";
   message?: string;
@@ -46,7 +48,9 @@ export namespace InvalidPaginationToken {
  *          <p>The specified locale is not supported.</p>
  *
  */
-export interface UnsupportedLocale extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedLocale
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedLocale";
   $fault: "client";
   message?: string;

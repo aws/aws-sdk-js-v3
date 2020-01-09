@@ -877,7 +877,9 @@ export namespace DescribeRepositoriesResponse {
  *         <p>The specified layer upload does not contain any layer parts.</p>
  *
  */
-export interface EmptyUploadException extends _smithy.SmithyException, $MetadataBearer {
+export interface EmptyUploadException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EmptyUploadException";
   $fault: "client";
   /**
@@ -900,7 +902,7 @@ export enum FindingSeverity {
   INFORMATIONAL = "INFORMATIONAL",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
-  UNDEFINED = "UNDEFINED",
+  UNDEFINED = "UNDEFINED"
 }
 
 export interface GetAuthorizationTokenRequest {
@@ -1012,7 +1014,7 @@ export interface GetLifecyclePolicyPreviewRequest {
    *
    *         <p>The maximum number of repository results returned by
    *                 <code>GetLifecyclePolicyPreviewRequest</code> in  paginated output. When this
-   *             parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns 
+   *             parameter is used, <code>GetLifecyclePolicyPreviewRequest</code> only returns
    *                 <code>maxResults</code> results in a single page along with a
    *             <code>nextToken</code>  response element. The remaining results of the initial request
    *             can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code> request
@@ -1027,7 +1029,7 @@ export interface GetLifecyclePolicyPreviewRequest {
 
   /**
    *
-   *         <p>The <code>nextToken</code> value returned from a previous paginated 
+   *         <p>The <code>nextToken</code> value returned from a previous paginated
    *                 <code>GetLifecyclePolicyPreviewRequest</code> request where <code>maxResults</code>
    *             was used and the  results exceeded the value of that parameter. Pagination continues
    *             from the end of the  previous results that returned the <code>nextToken</code> value.
@@ -1279,7 +1281,7 @@ export namespace Image {
 }
 
 export enum ImageActionType {
-  EXPIRE = "EXPIRE",
+  EXPIRE = "EXPIRE"
 }
 
 /**
@@ -1288,7 +1290,9 @@ export enum ImageActionType {
  *             or image tag after the last push.</p>
  *
  */
-export interface ImageAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ImageAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ImageAlreadyExistsException";
   $fault: "client";
   /**
@@ -1423,7 +1427,7 @@ export enum ImageFailureCode {
   ImageTagDoesNotMatchDigest = "ImageTagDoesNotMatchDigest",
   InvalidImageDigest = "InvalidImageDigest",
   InvalidImageTag = "InvalidImageTag",
-  MissingDigestAndTag = "MissingDigestAndTag",
+  MissingDigestAndTag = "MissingDigestAndTag"
 }
 
 /**
@@ -1459,7 +1463,9 @@ export namespace ImageIdentifier {
  *         <p>The image requested does not exist in the specified repository.</p>
  *
  */
-export interface ImageNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ImageNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ImageNotFoundException";
   $fault: "client";
   message?: string;
@@ -1655,7 +1661,9 @@ export namespace ImageScanningConfiguration {
  *             configured for tag immutability.</p>
  *
  */
-export interface ImageTagAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ImageTagAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ImageTagAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1669,7 +1677,7 @@ export namespace ImageTagAlreadyExistsException {
 
 export enum ImageTagMutability {
   IMMUTABLE = "IMMUTABLE",
-  MUTABLE = "MUTABLE",
+  MUTABLE = "MUTABLE"
 }
 
 export interface InitiateLayerUploadRequest {
@@ -1726,7 +1734,9 @@ export namespace InitiateLayerUploadResponse {
  *             not match the digest specified.</p>
  *
  */
-export interface InvalidLayerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidLayerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidLayerException";
   $fault: "client";
   /**
@@ -1749,7 +1759,9 @@ export namespace InvalidLayerException {
  *             the last byte of a previous layer part upload.</p>
  *
  */
-export interface InvalidLayerPartException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidLayerPartException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidLayerPartException";
   $fault: "client";
   /**
@@ -1801,7 +1813,9 @@ export namespace InvalidLayerPartException {
  *             request.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -1824,7 +1838,9 @@ export namespace InvalidParameterException {
  *             a maximum length of 256 characters.</p>
  *
  */
-export interface InvalidTagParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTagParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTagParameterException";
   $fault: "client";
   message?: string;
@@ -1885,7 +1901,9 @@ export namespace Layer {
  *         <p>The image layer already exists in the associated repository.</p>
  *
  */
-export interface LayerAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface LayerAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LayerAlreadyExistsException";
   $fault: "client";
   /**
@@ -1904,7 +1922,7 @@ export namespace LayerAlreadyExistsException {
 
 export enum LayerAvailability {
   AVAILABLE = "AVAILABLE",
-  UNAVAILABLE = "UNAVAILABLE",
+  UNAVAILABLE = "UNAVAILABLE"
 }
 
 /**
@@ -1944,7 +1962,7 @@ export namespace LayerFailure {
 
 export enum LayerFailureCode {
   InvalidLayerDigest = "InvalidLayerDigest",
-  MissingLayerDigest = "MissingLayerDigest",
+  MissingLayerDigest = "MissingLayerDigest"
 }
 
 /**
@@ -1953,7 +1971,9 @@ export enum LayerFailureCode {
  *             Unassociated image layers may be cleaned up at any time.</p>
  *
  */
-export interface LayerInaccessibleException extends _smithy.SmithyException, $MetadataBearer {
+export interface LayerInaccessibleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LayerInaccessibleException";
   $fault: "client";
   /**
@@ -1975,7 +1995,9 @@ export namespace LayerInaccessibleException {
  *         <p>Layer parts must be at least 5 MiB in size.</p>
  *
  */
-export interface LayerPartTooSmallException extends _smithy.SmithyException, $MetadataBearer {
+export interface LayerPartTooSmallException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LayerPartTooSmallException";
   $fault: "client";
   /**
@@ -1998,7 +2020,9 @@ export namespace LayerPartTooSmallException {
  *             repository.</p>
  *
  */
-export interface LayersNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface LayersNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LayersNotFoundException";
   $fault: "client";
   /**
@@ -2021,7 +2045,9 @@ export namespace LayersNotFoundException {
  *             repository.</p>
  *
  */
-export interface LifecyclePolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface LifecyclePolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LifecyclePolicyNotFoundException";
   $fault: "client";
   message?: string;
@@ -2060,7 +2086,9 @@ export namespace LifecyclePolicyPreviewFilter {
  *             later.</p>
  *
  */
-export interface LifecyclePolicyPreviewInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface LifecyclePolicyPreviewInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LifecyclePolicyPreviewInProgressException";
   $fault: "client";
   message?: string;
@@ -2077,7 +2105,9 @@ export namespace LifecyclePolicyPreviewInProgressException {
  *         <p>There is no dry run for this repository.</p>
  *
  */
-export interface LifecyclePolicyPreviewNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface LifecyclePolicyPreviewNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LifecyclePolicyPreviewNotFoundException";
   $fault: "client";
   message?: string;
@@ -2143,7 +2173,7 @@ export enum LifecyclePolicyPreviewStatus {
   COMPLETE = "COMPLETE",
   EXPIRED = "EXPIRED",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -2195,7 +2225,9 @@ export namespace LifecyclePolicyRuleAction {
  *                 Limits</a> in the Amazon Elastic Container Registry User Guide.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -2673,7 +2705,9 @@ export namespace Repository {
  *         <p>The specified repository already exists in the specified registry.</p>
  *
  */
-export interface RepositoryAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface RepositoryAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RepositoryAlreadyExistsException";
   $fault: "client";
   /**
@@ -2696,7 +2730,9 @@ export namespace RepositoryAlreadyExistsException {
  *             you must force the deletion with the <code>force</code> parameter.</p>
  *
  */
-export interface RepositoryNotEmptyException extends _smithy.SmithyException, $MetadataBearer {
+export interface RepositoryNotEmptyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RepositoryNotEmptyException";
   $fault: "client";
   /**
@@ -2719,7 +2755,9 @@ export namespace RepositoryNotEmptyException {
  *             repository and ensure that you are performing operations on the correct registry.</p>
  *
  */
-export interface RepositoryNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface RepositoryNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RepositoryNotFoundException";
   $fault: "client";
   /**
@@ -2742,7 +2780,9 @@ export namespace RepositoryNotFoundException {
  *             repository policy.</p>
  *
  */
-export interface RepositoryPolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface RepositoryPolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RepositoryPolicyNotFoundException";
   $fault: "client";
   /**
@@ -2765,7 +2805,9 @@ export namespace RepositoryPolicyNotFoundException {
  *             the repository and try again.</p>
  *
  */
-export interface ScanNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ScanNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ScanNotFoundException";
   $fault: "client";
   message?: string;
@@ -2780,7 +2822,7 @@ export namespace ScanNotFoundException {
 export enum ScanStatus {
   COMPLETE = "COMPLETE",
   FAILED = "FAILED",
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -2788,7 +2830,9 @@ export enum ScanStatus {
  *         <p>These errors are usually caused by a server-side issue.</p>
  *
  */
-export interface ServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServerException";
   $fault: "server";
   /**
@@ -3087,7 +3131,7 @@ export namespace TagResourceResponse {
 export enum TagStatus {
   ANY = "ANY",
   TAGGED = "TAGGED",
-  UNTAGGED = "UNTAGGED",
+  UNTAGGED = "UNTAGGED"
 }
 
 /**
@@ -3096,7 +3140,9 @@ export enum TagStatus {
  *             can be applied to a repository is 50.</p>
  *
  */
-export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -3238,7 +3284,9 @@ export namespace UploadLayerPartResponse {
  *             repository.</p>
  *
  */
-export interface UploadNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface UploadNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UploadNotFoundException";
   $fault: "client";
   /**

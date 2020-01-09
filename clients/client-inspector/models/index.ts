@@ -9,7 +9,7 @@ export enum AccessDeniedErrorCode {
   ACCESS_DENIED_TO_IAM_ROLE = "ACCESS_DENIED_TO_IAM_ROLE",
   ACCESS_DENIED_TO_RESOURCE_GROUP = "ACCESS_DENIED_TO_RESOURCE_GROUP",
   ACCESS_DENIED_TO_RULES_PACKAGE = "ACCESS_DENIED_TO_RULES_PACKAGE",
-  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC",
+  ACCESS_DENIED_TO_SNS_TOPIC = "ACCESS_DENIED_TO_SNS_TOPIC"
 }
 
 /**
@@ -17,7 +17,9 @@ export enum AccessDeniedErrorCode {
  *          <p>You do not have required permissions to access the requested resource.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   /**
@@ -151,7 +153,7 @@ export namespace AgentFilter {
 export enum AgentHealth {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export enum AgentHealthCode {
@@ -160,7 +162,7 @@ export enum AgentHealthCode {
   SHUTDOWN = "SHUTDOWN",
   THROTTLED = "THROTTLED",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 /**
@@ -243,7 +245,9 @@ export namespace AgentPreview {
  *          another assessment run.</p>
  *
  */
-export interface AgentsAlreadyRunningAssessmentException extends _smithy.SmithyException, $MetadataBearer {
+export interface AgentsAlreadyRunningAssessmentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AgentsAlreadyRunningAssessmentException";
   $fault: "client";
   /**
@@ -557,7 +561,9 @@ export namespace AssessmentRunFilter {
  *          progress.</p>
  *
  */
-export interface AssessmentRunInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface AssessmentRunInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssessmentRunInProgressException";
   $fault: "client";
   /**
@@ -658,7 +664,7 @@ export enum AssessmentRunNotificationSnsStatusCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   SUCCESS = "SUCCESS",
-  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST",
+  TOPIC_DOES_NOT_EXIST = "TOPIC_DOES_NOT_EXIST"
 }
 
 export enum AssessmentRunState {
@@ -674,7 +680,7 @@ export enum AssessmentRunState {
   START_DATA_COLLECTION_IN_PROGRESS = "START_DATA_COLLECTION_IN_PROGRESS",
   START_DATA_COLLECTION_PENDING = "START_DATA_COLLECTION_PENDING",
   START_EVALUATING_RULES_PENDING = "START_EVALUATING_RULES_PENDING",
-  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING",
+  STOP_DATA_COLLECTION_PENDING = "STOP_DATA_COLLECTION_PENDING"
 }
 
 /**
@@ -983,7 +989,7 @@ export namespace AssetAttributes {
 }
 
 export enum AssetType {
-  EC2_INSTANCE = "ec2-instance",
+  EC2_INSTANCE = "ec2-instance"
 }
 
 /**
@@ -1357,7 +1363,8 @@ export namespace DescribeAssessmentTemplatesResponse {
   }
 }
 
-export interface DescribeCrossAccountAccessRoleResponse extends $MetadataBearer {
+export interface DescribeCrossAccountAccessRoleResponse
+  extends $MetadataBearer {
   __type?: "DescribeCrossAccountAccessRoleResponse";
   /**
    *
@@ -1772,7 +1779,7 @@ export enum FailedItemErrorCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   INVALID_ARN = "INVALID_ARN",
   ITEM_DOES_NOT_EXIST = "ITEM_DOES_NOT_EXIST",
-  LIMIT_EXCEEDED = "LIMIT_EXCEEDED",
+  LIMIT_EXCEEDED = "LIMIT_EXCEEDED"
 }
 
 /**
@@ -2179,7 +2186,7 @@ export enum InspectorEvent {
   ASSESSMENT_RUN_STARTED = "ASSESSMENT_RUN_STARTED",
   ASSESSMENT_RUN_STATE_CHANGED = "ASSESSMENT_RUN_STATE_CHANGED",
   FINDING_REPORTED = "FINDING_REPORTED",
-  OTHER = "OTHER",
+  OTHER = "OTHER"
 }
 
 /**
@@ -2222,7 +2229,9 @@ export namespace InspectorServiceAttributes {
  *          <p>Internal server error.</p>
  *
  */
-export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   /**
@@ -2248,7 +2257,7 @@ export namespace InternalException {
 
 export enum InvalidCrossAccountRoleErrorCode {
   ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP = "ROLE_DOES_NOT_EXIST_OR_INVALID_TRUST_RELATIONSHIP",
-  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY",
+  ROLE_DOES_NOT_HAVE_CORRECT_POLICY = "ROLE_DOES_NOT_HAVE_CORRECT_POLICY"
 }
 
 /**
@@ -2257,7 +2266,9 @@ export enum InvalidCrossAccountRoleErrorCode {
  *          instances during the assessment run.</p>
  *
  */
-export interface InvalidCrossAccountRoleException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCrossAccountRoleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCrossAccountRoleException";
   $fault: "client";
   /**
@@ -2342,7 +2353,7 @@ export enum InvalidInputErrorCode {
   INVALID_TAG_VALUE = "INVALID_TAG_VALUE",
   INVALID_USER_ATTRIBUTE = "INVALID_USER_ATTRIBUTE",
   INVALID_USER_ATTRIBUTE_KEY = "INVALID_USER_ATTRIBUTE_KEY",
-  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE",
+  INVALID_USER_ATTRIBUTE_VALUE = "INVALID_USER_ATTRIBUTE_VALUE"
 }
 
 /**
@@ -2351,7 +2362,9 @@ export enum InvalidInputErrorCode {
  *          input parameter.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   /**
@@ -2387,7 +2400,7 @@ export enum LimitExceededErrorCode {
   ASSESSMENT_TARGET_LIMIT_EXCEEDED = "ASSESSMENT_TARGET_LIMIT_EXCEEDED",
   ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED = "ASSESSMENT_TEMPLATE_LIMIT_EXCEEDED",
   EVENT_SUBSCRIPTION_LIMIT_EXCEEDED = "EVENT_SUBSCRIPTION_LIMIT_EXCEEDED",
-  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED",
+  RESOURCE_GROUP_LIMIT_EXCEEDED = "RESOURCE_GROUP_LIMIT_EXCEEDED"
 }
 
 /**
@@ -2396,7 +2409,9 @@ export enum LimitExceededErrorCode {
  *          AWS account limits. The error code describes the limit exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -2989,7 +3004,7 @@ export namespace ListTagsForResourceResponse {
 }
 
 export enum Locale {
-  EN_US = "EN_US",
+  EN_US = "EN_US"
 }
 
 /**
@@ -3088,7 +3103,7 @@ export enum NoSuchEntityErrorCode {
   IAM_ROLE_DOES_NOT_EXIST = "IAM_ROLE_DOES_NOT_EXIST",
   RESOURCE_GROUP_DOES_NOT_EXIST = "RESOURCE_GROUP_DOES_NOT_EXIST",
   RULES_PACKAGE_DOES_NOT_EXIST = "RULES_PACKAGE_DOES_NOT_EXIST",
-  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST",
+  SNS_TOPIC_DOES_NOT_EXIST = "SNS_TOPIC_DOES_NOT_EXIST"
 }
 
 /**
@@ -3097,7 +3112,9 @@ export enum NoSuchEntityErrorCode {
  *          error code describes the entity.</p>
  *
  */
-export interface NoSuchEntityException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoSuchEntityException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoSuchEntityException";
   $fault: "client";
   /**
@@ -3194,7 +3211,9 @@ export namespace PreviewAgentsResponse {
  *          exclusions preview.</p>
  *
  */
-export interface PreviewGenerationInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface PreviewGenerationInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PreviewGenerationInProgressException";
   $fault: "client";
   message: string | undefined;
@@ -3208,7 +3227,7 @@ export namespace PreviewGenerationInProgressException {
 
 export enum PreviewStatus {
   COMPLETED = "COMPLETED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
+  WORK_IN_PROGRESS = "WORK_IN_PROGRESS"
 }
 
 /**
@@ -3301,18 +3320,18 @@ export namespace RemoveAttributesFromFindingsResponse {
 
 export enum ReportFileFormat {
   HTML = "HTML",
-  PDF = "PDF",
+  PDF = "PDF"
 }
 
 export enum ReportStatus {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
-  WORK_IN_PROGRESS = "WORK_IN_PROGRESS",
+  WORK_IN_PROGRESS = "WORK_IN_PROGRESS"
 }
 
 export enum ReportType {
   FINDING = "FINDING",
-  FULL = "FULL",
+  FULL = "FULL"
 }
 
 /**
@@ -3464,7 +3483,7 @@ export namespace Scope {
 
 export enum ScopeType {
   INSTANCE_ID = "INSTANCE_ID",
-  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN",
+  RULES_PACKAGE_ARN = "RULES_PACKAGE_ARN"
 }
 
 /**
@@ -3502,7 +3521,9 @@ export namespace SecurityGroup {
  *          <p>The serice is temporary unavailable.</p>
  *
  */
-export interface ServiceTemporarilyUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceTemporarilyUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceTemporarilyUnavailableException";
   $fault: "server";
   /**
@@ -3555,7 +3576,7 @@ export enum Severity {
   INFORMATIONAL = "Informational",
   LOW = "Low",
   MEDIUM = "Medium",
-  UNDEFINED = "Undefined",
+  UNDEFINED = "Undefined"
 }
 
 export interface StartAssessmentRunRequest {
@@ -3601,7 +3622,7 @@ export namespace StartAssessmentRunResponse {
 
 export enum StopAction {
   SKIP_EVALUATION = "SKIP_EVALUATION",
-  START_EVALUATION = "START_EVALUATION",
+  START_EVALUATION = "START_EVALUATION"
 }
 
 export interface StopAssessmentRunRequest {
@@ -3832,7 +3853,9 @@ export namespace UnsubscribeFromEventRequest {
  *          available.</p>
  *
  */
-export interface UnsupportedFeatureException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedFeatureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedFeatureException";
   $fault: "client";
   canRetry: boolean | undefined;

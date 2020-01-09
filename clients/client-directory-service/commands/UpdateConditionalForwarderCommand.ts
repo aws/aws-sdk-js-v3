@@ -1,20 +1,20 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectoryServiceClient";
 import {
   UpdateConditionalForwarderRequest,
-  UpdateConditionalForwarderResult,
+  UpdateConditionalForwarderResult
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateConditionalForwarderCommand,
-  serializeAws_json1_1UpdateConditionalForwarderCommand,
+  serializeAws_json1_1UpdateConditionalForwarderCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateConditionalForwarderCommandInput = UpdateConditionalForwarderRequest;
 export type UpdateConditionalForwarderCommandOutput = UpdateConditionalForwarderResult;
 
-export class UpdateConditionalForwarderCommand extends $Command<UpdateConditionalForwarderCommandInput, UpdateConditionalForwarderCommandOutput, DirectoryServiceClientResolvedConfig> {
+export class UpdateConditionalForwarderCommand extends $Command<
+  UpdateConditionalForwarderCommandInput,
+  UpdateConditionalForwarderCommandOutput,
+  DirectoryServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateConditionalForwarderCommand extends $Command<UpdateConditiona
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateConditionalForwarderCommandInput, UpdateConditionalForwarderCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateConditionalForwarderCommandInput,
+    UpdateConditionalForwarderCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateConditionalForwarderCommand extends $Command<UpdateConditiona
     input: UpdateConditionalForwarderCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateConditionalForwarderCommand(input, context);
+    return serializeAws_json1_1UpdateConditionalForwarderCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateConditionalForwarderCommandOutput> {
-    return deserializeAws_json1_1UpdateConditionalForwarderCommand(output, context);
+    return deserializeAws_json1_1UpdateConditionalForwarderCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

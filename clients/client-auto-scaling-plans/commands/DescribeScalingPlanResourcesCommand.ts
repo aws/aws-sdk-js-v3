@@ -1,20 +1,20 @@
 import {
   AutoScalingPlansClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AutoScalingPlansClient";
 import {
   DescribeScalingPlanResourcesRequest,
-  DescribeScalingPlanResourcesResponse,
+  DescribeScalingPlanResourcesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeScalingPlanResourcesCommand,
-  serializeAws_json1_1DescribeScalingPlanResourcesCommand,
+  serializeAws_json1_1DescribeScalingPlanResourcesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeScalingPlanResourcesCommandInput = DescribeScalingPlanResourcesRequest;
 export type DescribeScalingPlanResourcesCommandOutput = DescribeScalingPlanResourcesResponse;
 
-export class DescribeScalingPlanResourcesCommand extends $Command<DescribeScalingPlanResourcesCommandInput, DescribeScalingPlanResourcesCommandOutput, AutoScalingPlansClientResolvedConfig> {
+export class DescribeScalingPlanResourcesCommand extends $Command<
+  DescribeScalingPlanResourcesCommandInput,
+  DescribeScalingPlanResourcesCommandOutput,
+  AutoScalingPlansClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeScalingPlanResourcesCommand extends $Command<DescribeScalin
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingPlansClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeScalingPlanResourcesCommandInput, DescribeScalingPlanResourcesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeScalingPlanResourcesCommandInput,
+    DescribeScalingPlanResourcesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeScalingPlanResourcesCommand extends $Command<DescribeScalin
     input: DescribeScalingPlanResourcesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeScalingPlanResourcesCommand(input, context);
+    return serializeAws_json1_1DescribeScalingPlanResourcesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeScalingPlanResourcesCommandOutput> {
-    return deserializeAws_json1_1DescribeScalingPlanResourcesCommand(output, context);
+    return deserializeAws_json1_1DescribeScalingPlanResourcesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

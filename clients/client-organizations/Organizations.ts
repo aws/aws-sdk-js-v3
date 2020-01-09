@@ -2,237 +2,237 @@ import { OrganizationsClient } from "./OrganizationsClient";
 import {
   AcceptHandshakeCommand,
   AcceptHandshakeCommandInput,
-  AcceptHandshakeCommandOutput,
+  AcceptHandshakeCommandOutput
 } from "./commands/AcceptHandshakeCommand";
 import {
   AttachPolicyCommand,
   AttachPolicyCommandInput,
-  AttachPolicyCommandOutput,
+  AttachPolicyCommandOutput
 } from "./commands/AttachPolicyCommand";
 import {
   CancelHandshakeCommand,
   CancelHandshakeCommandInput,
-  CancelHandshakeCommandOutput,
+  CancelHandshakeCommandOutput
 } from "./commands/CancelHandshakeCommand";
 import {
   CreateAccountCommand,
   CreateAccountCommandInput,
-  CreateAccountCommandOutput,
+  CreateAccountCommandOutput
 } from "./commands/CreateAccountCommand";
 import {
   CreateGovCloudAccountCommand,
   CreateGovCloudAccountCommandInput,
-  CreateGovCloudAccountCommandOutput,
+  CreateGovCloudAccountCommandOutput
 } from "./commands/CreateGovCloudAccountCommand";
 import {
   CreateOrganizationCommand,
   CreateOrganizationCommandInput,
-  CreateOrganizationCommandOutput,
+  CreateOrganizationCommandOutput
 } from "./commands/CreateOrganizationCommand";
 import {
   CreateOrganizationalUnitCommand,
   CreateOrganizationalUnitCommandInput,
-  CreateOrganizationalUnitCommandOutput,
+  CreateOrganizationalUnitCommandOutput
 } from "./commands/CreateOrganizationalUnitCommand";
 import {
   CreatePolicyCommand,
   CreatePolicyCommandInput,
-  CreatePolicyCommandOutput,
+  CreatePolicyCommandOutput
 } from "./commands/CreatePolicyCommand";
 import {
   DeclineHandshakeCommand,
   DeclineHandshakeCommandInput,
-  DeclineHandshakeCommandOutput,
+  DeclineHandshakeCommandOutput
 } from "./commands/DeclineHandshakeCommand";
 import {
   DeleteOrganizationCommand,
   DeleteOrganizationCommandInput,
-  DeleteOrganizationCommandOutput,
+  DeleteOrganizationCommandOutput
 } from "./commands/DeleteOrganizationCommand";
 import {
   DeleteOrganizationalUnitCommand,
   DeleteOrganizationalUnitCommandInput,
-  DeleteOrganizationalUnitCommandOutput,
+  DeleteOrganizationalUnitCommandOutput
 } from "./commands/DeleteOrganizationalUnitCommand";
 import {
   DeletePolicyCommand,
   DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
+  DeletePolicyCommandOutput
 } from "./commands/DeletePolicyCommand";
 import {
   DescribeAccountCommand,
   DescribeAccountCommandInput,
-  DescribeAccountCommandOutput,
+  DescribeAccountCommandOutput
 } from "./commands/DescribeAccountCommand";
 import {
   DescribeCreateAccountStatusCommand,
   DescribeCreateAccountStatusCommandInput,
-  DescribeCreateAccountStatusCommandOutput,
+  DescribeCreateAccountStatusCommandOutput
 } from "./commands/DescribeCreateAccountStatusCommand";
 import {
   DescribeEffectivePolicyCommand,
   DescribeEffectivePolicyCommandInput,
-  DescribeEffectivePolicyCommandOutput,
+  DescribeEffectivePolicyCommandOutput
 } from "./commands/DescribeEffectivePolicyCommand";
 import {
   DescribeHandshakeCommand,
   DescribeHandshakeCommandInput,
-  DescribeHandshakeCommandOutput,
+  DescribeHandshakeCommandOutput
 } from "./commands/DescribeHandshakeCommand";
 import {
   DescribeOrganizationCommand,
   DescribeOrganizationCommandInput,
-  DescribeOrganizationCommandOutput,
+  DescribeOrganizationCommandOutput
 } from "./commands/DescribeOrganizationCommand";
 import {
   DescribeOrganizationalUnitCommand,
   DescribeOrganizationalUnitCommandInput,
-  DescribeOrganizationalUnitCommandOutput,
+  DescribeOrganizationalUnitCommandOutput
 } from "./commands/DescribeOrganizationalUnitCommand";
 import {
   DescribePolicyCommand,
   DescribePolicyCommandInput,
-  DescribePolicyCommandOutput,
+  DescribePolicyCommandOutput
 } from "./commands/DescribePolicyCommand";
 import {
   DetachPolicyCommand,
   DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
+  DetachPolicyCommandOutput
 } from "./commands/DetachPolicyCommand";
 import {
   DisableAWSServiceAccessCommand,
   DisableAWSServiceAccessCommandInput,
-  DisableAWSServiceAccessCommandOutput,
+  DisableAWSServiceAccessCommandOutput
 } from "./commands/DisableAWSServiceAccessCommand";
 import {
   DisablePolicyTypeCommand,
   DisablePolicyTypeCommandInput,
-  DisablePolicyTypeCommandOutput,
+  DisablePolicyTypeCommandOutput
 } from "./commands/DisablePolicyTypeCommand";
 import {
   EnableAWSServiceAccessCommand,
   EnableAWSServiceAccessCommandInput,
-  EnableAWSServiceAccessCommandOutput,
+  EnableAWSServiceAccessCommandOutput
 } from "./commands/EnableAWSServiceAccessCommand";
 import {
   EnableAllFeaturesCommand,
   EnableAllFeaturesCommandInput,
-  EnableAllFeaturesCommandOutput,
+  EnableAllFeaturesCommandOutput
 } from "./commands/EnableAllFeaturesCommand";
 import {
   EnablePolicyTypeCommand,
   EnablePolicyTypeCommandInput,
-  EnablePolicyTypeCommandOutput,
+  EnablePolicyTypeCommandOutput
 } from "./commands/EnablePolicyTypeCommand";
 import {
   InviteAccountToOrganizationCommand,
   InviteAccountToOrganizationCommandInput,
-  InviteAccountToOrganizationCommandOutput,
+  InviteAccountToOrganizationCommandOutput
 } from "./commands/InviteAccountToOrganizationCommand";
 import {
   LeaveOrganizationCommand,
   LeaveOrganizationCommandInput,
-  LeaveOrganizationCommandOutput,
+  LeaveOrganizationCommandOutput
 } from "./commands/LeaveOrganizationCommand";
 import {
   ListAWSServiceAccessForOrganizationCommand,
   ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput,
+  ListAWSServiceAccessForOrganizationCommandOutput
 } from "./commands/ListAWSServiceAccessForOrganizationCommand";
 import {
   ListAccountsCommand,
   ListAccountsCommandInput,
-  ListAccountsCommandOutput,
+  ListAccountsCommandOutput
 } from "./commands/ListAccountsCommand";
 import {
   ListAccountsForParentCommand,
   ListAccountsForParentCommandInput,
-  ListAccountsForParentCommandOutput,
+  ListAccountsForParentCommandOutput
 } from "./commands/ListAccountsForParentCommand";
 import {
   ListChildrenCommand,
   ListChildrenCommandInput,
-  ListChildrenCommandOutput,
+  ListChildrenCommandOutput
 } from "./commands/ListChildrenCommand";
 import {
   ListCreateAccountStatusCommand,
   ListCreateAccountStatusCommandInput,
-  ListCreateAccountStatusCommandOutput,
+  ListCreateAccountStatusCommandOutput
 } from "./commands/ListCreateAccountStatusCommand";
 import {
   ListHandshakesForAccountCommand,
   ListHandshakesForAccountCommandInput,
-  ListHandshakesForAccountCommandOutput,
+  ListHandshakesForAccountCommandOutput
 } from "./commands/ListHandshakesForAccountCommand";
 import {
   ListHandshakesForOrganizationCommand,
   ListHandshakesForOrganizationCommandInput,
-  ListHandshakesForOrganizationCommandOutput,
+  ListHandshakesForOrganizationCommandOutput
 } from "./commands/ListHandshakesForOrganizationCommand";
 import {
   ListOrganizationalUnitsForParentCommand,
   ListOrganizationalUnitsForParentCommandInput,
-  ListOrganizationalUnitsForParentCommandOutput,
+  ListOrganizationalUnitsForParentCommandOutput
 } from "./commands/ListOrganizationalUnitsForParentCommand";
 import {
   ListParentsCommand,
   ListParentsCommandInput,
-  ListParentsCommandOutput,
+  ListParentsCommandOutput
 } from "./commands/ListParentsCommand";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
+  ListPoliciesCommandOutput
 } from "./commands/ListPoliciesCommand";
 import {
   ListPoliciesForTargetCommand,
   ListPoliciesForTargetCommandInput,
-  ListPoliciesForTargetCommandOutput,
+  ListPoliciesForTargetCommandOutput
 } from "./commands/ListPoliciesForTargetCommand";
 import {
   ListRootsCommand,
   ListRootsCommandInput,
-  ListRootsCommandOutput,
+  ListRootsCommandOutput
 } from "./commands/ListRootsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTargetsForPolicyCommand,
   ListTargetsForPolicyCommandInput,
-  ListTargetsForPolicyCommandOutput,
+  ListTargetsForPolicyCommandOutput
 } from "./commands/ListTargetsForPolicyCommand";
 import {
   MoveAccountCommand,
   MoveAccountCommandInput,
-  MoveAccountCommandOutput,
+  MoveAccountCommandOutput
 } from "./commands/MoveAccountCommand";
 import {
   RemoveAccountFromOrganizationCommand,
   RemoveAccountFromOrganizationCommandInput,
-  RemoveAccountFromOrganizationCommandOutput,
+  RemoveAccountFromOrganizationCommandOutput
 } from "./commands/RemoveAccountFromOrganizationCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateOrganizationalUnitCommand,
   UpdateOrganizationalUnitCommandInput,
-  UpdateOrganizationalUnitCommandOutput,
+  UpdateOrganizationalUnitCommandOutput
 } from "./commands/UpdateOrganizationalUnitCommand";
 import {
   UpdatePolicyCommand,
   UpdatePolicyCommandInput,
-  UpdatePolicyCommandOutput,
+  UpdatePolicyCommandOutput
 } from "./commands/UpdatePolicyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -279,7 +279,7 @@ export class Organizations extends OrganizationsClient {
    */
   public acceptHandshake(
     args: AcceptHandshakeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AcceptHandshakeCommandOutput>;
   public acceptHandshake(
     args: AcceptHandshakeCommandInput,
@@ -292,16 +292,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public acceptHandshake(
     args: AcceptHandshakeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptHandshakeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AcceptHandshakeCommandOutput) => void),
     cb?: (err: any, data?: AcceptHandshakeCommandOutput) => void
   ): Promise<AcceptHandshakeCommandOutput> | void {
     const command = new AcceptHandshakeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -329,7 +331,7 @@ export class Organizations extends OrganizationsClient {
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AttachPolicyCommandOutput>;
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -342,16 +344,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachPolicyCommandOutput) => void
   ): Promise<AttachPolicyCommandOutput> | void {
     const command = new AttachPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -370,7 +374,7 @@ export class Organizations extends OrganizationsClient {
    */
   public cancelHandshake(
     args: CancelHandshakeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelHandshakeCommandOutput>;
   public cancelHandshake(
     args: CancelHandshakeCommandInput,
@@ -383,16 +387,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public cancelHandshake(
     args: CancelHandshakeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelHandshakeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelHandshakeCommandOutput) => void),
     cb?: (err: any, data?: CancelHandshakeCommandOutput) => void
   ): Promise<CancelHandshakeCommandOutput> | void {
     const command = new CancelHandshakeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -480,7 +486,7 @@ export class Organizations extends OrganizationsClient {
    */
   public createAccount(
     args: CreateAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAccountCommandOutput>;
   public createAccount(
     args: CreateAccountCommandInput,
@@ -493,16 +499,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createAccount(
     args: CreateAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAccountCommandOutput) => void),
     cb?: (err: any, data?: CreateAccountCommandOutput) => void
   ): Promise<CreateAccountCommandOutput> | void {
     const command = new CreateAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -637,7 +645,7 @@ export class Organizations extends OrganizationsClient {
    */
   public createGovCloudAccount(
     args: CreateGovCloudAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateGovCloudAccountCommandOutput>;
   public createGovCloudAccount(
     args: CreateGovCloudAccountCommandInput,
@@ -650,16 +658,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createGovCloudAccount(
     args: CreateGovCloudAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGovCloudAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGovCloudAccountCommandOutput) => void),
     cb?: (err: any, data?: CreateGovCloudAccountCommandOutput) => void
   ): Promise<CreateGovCloudAccountCommandOutput> | void {
     const command = new CreateGovCloudAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -683,7 +693,7 @@ export class Organizations extends OrganizationsClient {
    */
   public createOrganization(
     args: CreateOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateOrganizationCommandOutput>;
   public createOrganization(
     args: CreateOrganizationCommandInput,
@@ -696,16 +706,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createOrganization(
     args: CreateOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateOrganizationCommandOutput) => void),
     cb?: (err: any, data?: CreateOrganizationCommandOutput) => void
   ): Promise<CreateOrganizationCommandOutput> | void {
     const command = new CreateOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -726,7 +738,7 @@ export class Organizations extends OrganizationsClient {
    */
   public createOrganizationalUnit(
     args: CreateOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateOrganizationalUnitCommandOutput>;
   public createOrganizationalUnit(
     args: CreateOrganizationalUnitCommandInput,
@@ -739,16 +751,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createOrganizationalUnit(
     args: CreateOrganizationalUnitCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateOrganizationalUnitCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateOrganizationalUnitCommandOutput) => void),
     cb?: (err: any, data?: CreateOrganizationalUnitCommandOutput) => void
   ): Promise<CreateOrganizationalUnitCommandOutput> | void {
     const command = new CreateOrganizationalUnitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -766,7 +780,7 @@ export class Organizations extends OrganizationsClient {
    */
   public createPolicy(
     args: CreatePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreatePolicyCommandOutput>;
   public createPolicy(
     args: CreatePolicyCommandInput,
@@ -779,16 +793,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public createPolicy(
     args: CreatePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreatePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreatePolicyCommandOutput) => void),
     cb?: (err: any, data?: CreatePolicyCommandOutput) => void
   ): Promise<CreatePolicyCommandOutput> | void {
     const command = new CreatePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -808,7 +824,7 @@ export class Organizations extends OrganizationsClient {
    */
   public declineHandshake(
     args: DeclineHandshakeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeclineHandshakeCommandOutput>;
   public declineHandshake(
     args: DeclineHandshakeCommandInput,
@@ -821,16 +837,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public declineHandshake(
     args: DeclineHandshakeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeclineHandshakeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeclineHandshakeCommandOutput) => void),
     cb?: (err: any, data?: DeclineHandshakeCommandOutput) => void
   ): Promise<DeclineHandshakeCommandOutput> | void {
     const command = new DeclineHandshakeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -845,7 +863,7 @@ export class Organizations extends OrganizationsClient {
    */
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteOrganizationCommandOutput>;
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
@@ -858,16 +876,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public deleteOrganization(
     args: DeleteOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteOrganizationCommandOutput) => void),
     cb?: (err: any, data?: DeleteOrganizationCommandOutput) => void
   ): Promise<DeleteOrganizationCommandOutput> | void {
     const command = new DeleteOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -883,7 +903,7 @@ export class Organizations extends OrganizationsClient {
    */
   public deleteOrganizationalUnit(
     args: DeleteOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteOrganizationalUnitCommandOutput>;
   public deleteOrganizationalUnit(
     args: DeleteOrganizationalUnitCommandInput,
@@ -896,16 +916,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public deleteOrganizationalUnit(
     args: DeleteOrganizationalUnitCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteOrganizationalUnitCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteOrganizationalUnitCommandOutput) => void),
     cb?: (err: any, data?: DeleteOrganizationalUnitCommandOutput) => void
   ): Promise<DeleteOrganizationalUnitCommandOutput> | void {
     const command = new DeleteOrganizationalUnitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -922,7 +944,7 @@ export class Organizations extends OrganizationsClient {
    */
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeletePolicyCommandOutput>;
   public deletePolicy(
     args: DeletePolicyCommandInput,
@@ -935,16 +957,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public deletePolicy(
     args: DeletePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeletePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeletePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeletePolicyCommandOutput) => void
   ): Promise<DeletePolicyCommandOutput> | void {
     const command = new DeletePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -959,7 +983,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeAccount(
     args: DescribeAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAccountCommandOutput>;
   public describeAccount(
     args: DescribeAccountCommandInput,
@@ -972,16 +996,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeAccount(
     args: DescribeAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAccountCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountCommandOutput) => void
   ): Promise<DescribeAccountCommandOutput> | void {
     const command = new DescribeAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -996,7 +1022,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeCreateAccountStatus(
     args: DescribeCreateAccountStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCreateAccountStatusCommandOutput>;
   public describeCreateAccountStatus(
     args: DescribeCreateAccountStatusCommandInput,
@@ -1009,16 +1035,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeCreateAccountStatus(
     args: DescribeCreateAccountStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCreateAccountStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCreateAccountStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeCreateAccountStatusCommandOutput) => void
   ): Promise<DescribeCreateAccountStatusCommandOutput> | void {
     const command = new DescribeCreateAccountStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1038,7 +1066,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeEffectivePolicy(
     args: DescribeEffectivePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEffectivePolicyCommandOutput>;
   public describeEffectivePolicy(
     args: DescribeEffectivePolicyCommandInput,
@@ -1051,16 +1079,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeEffectivePolicy(
     args: DescribeEffectivePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEffectivePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEffectivePolicyCommandOutput) => void),
     cb?: (err: any, data?: DescribeEffectivePolicyCommandOutput) => void
   ): Promise<DescribeEffectivePolicyCommandOutput> | void {
     const command = new DescribeEffectivePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1080,7 +1110,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeHandshake(
     args: DescribeHandshakeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHandshakeCommandOutput>;
   public describeHandshake(
     args: DescribeHandshakeCommandInput,
@@ -1093,16 +1123,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeHandshake(
     args: DescribeHandshakeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHandshakeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHandshakeCommandOutput) => void),
     cb?: (err: any, data?: DescribeHandshakeCommandOutput) => void
   ): Promise<DescribeHandshakeCommandOutput> | void {
     const command = new DescribeHandshakeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1121,7 +1153,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeOrganization(
     args: DescribeOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeOrganizationCommandOutput>;
   public describeOrganization(
     args: DescribeOrganizationCommandInput,
@@ -1134,16 +1166,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeOrganization(
     args: DescribeOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeOrganizationCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrganizationCommandOutput) => void
   ): Promise<DescribeOrganizationCommandOutput> | void {
     const command = new DescribeOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1158,7 +1192,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describeOrganizationalUnit(
     args: DescribeOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeOrganizationalUnitCommandOutput>;
   public describeOrganizationalUnit(
     args: DescribeOrganizationalUnitCommandInput,
@@ -1171,16 +1205,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describeOrganizationalUnit(
     args: DescribeOrganizationalUnitCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeOrganizationalUnitCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeOrganizationalUnitCommandOutput) => void),
     cb?: (err: any, data?: DescribeOrganizationalUnitCommandOutput) => void
   ): Promise<DescribeOrganizationalUnitCommandOutput> | void {
     const command = new DescribeOrganizationalUnitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1195,7 +1231,7 @@ export class Organizations extends OrganizationsClient {
    */
   public describePolicy(
     args: DescribePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribePolicyCommandOutput>;
   public describePolicy(
     args: DescribePolicyCommandInput,
@@ -1208,16 +1244,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public describePolicy(
     args: DescribePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribePolicyCommandOutput) => void),
     cb?: (err: any, data?: DescribePolicyCommandOutput) => void
   ): Promise<DescribePolicyCommandOutput> | void {
     const command = new DescribePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1244,7 +1282,7 @@ export class Organizations extends OrganizationsClient {
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetachPolicyCommandOutput>;
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -1257,16 +1295,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachPolicyCommandOutput) => void
   ): Promise<DetachPolicyCommandOutput> | void {
     const command = new DetachPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1303,7 +1343,7 @@ export class Organizations extends OrganizationsClient {
    */
   public disableAWSServiceAccess(
     args: DisableAWSServiceAccessCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableAWSServiceAccessCommandOutput>;
   public disableAWSServiceAccess(
     args: DisableAWSServiceAccessCommandInput,
@@ -1316,16 +1356,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public disableAWSServiceAccess(
     args: DisableAWSServiceAccessCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableAWSServiceAccessCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableAWSServiceAccessCommandOutput) => void),
     cb?: (err: any, data?: DisableAWSServiceAccessCommandOutput) => void
   ): Promise<DisableAWSServiceAccessCommandOutput> | void {
     const command = new DisableAWSServiceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1349,7 +1391,7 @@ export class Organizations extends OrganizationsClient {
    */
   public disablePolicyType(
     args: DisablePolicyTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisablePolicyTypeCommandOutput>;
   public disablePolicyType(
     args: DisablePolicyTypeCommandInput,
@@ -1362,16 +1404,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public disablePolicyType(
     args: DisablePolicyTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisablePolicyTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisablePolicyTypeCommandOutput) => void),
     cb?: (err: any, data?: DisablePolicyTypeCommandOutput) => void
   ): Promise<DisablePolicyTypeCommandOutput> | void {
     const command = new DisablePolicyTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1402,7 +1446,7 @@ export class Organizations extends OrganizationsClient {
    */
   public enableAWSServiceAccess(
     args: EnableAWSServiceAccessCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableAWSServiceAccessCommandOutput>;
   public enableAWSServiceAccess(
     args: EnableAWSServiceAccessCommandInput,
@@ -1415,16 +1459,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public enableAWSServiceAccess(
     args: EnableAWSServiceAccessCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAWSServiceAccessCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableAWSServiceAccessCommandOutput) => void),
     cb?: (err: any, data?: EnableAWSServiceAccessCommandOutput) => void
   ): Promise<EnableAWSServiceAccessCommandOutput> | void {
     const command = new EnableAWSServiceAccessCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1462,7 +1508,7 @@ export class Organizations extends OrganizationsClient {
    */
   public enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableAllFeaturesCommandOutput>;
   public enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
@@ -1475,16 +1521,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableAllFeaturesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableAllFeaturesCommandOutput) => void),
     cb?: (err: any, data?: EnableAllFeaturesCommandOutput) => void
   ): Promise<EnableAllFeaturesCommandOutput> | void {
     const command = new EnableAllFeaturesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1506,7 +1554,7 @@ export class Organizations extends OrganizationsClient {
    */
   public enablePolicyType(
     args: EnablePolicyTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnablePolicyTypeCommandOutput>;
   public enablePolicyType(
     args: EnablePolicyTypeCommandInput,
@@ -1519,16 +1567,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public enablePolicyType(
     args: EnablePolicyTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnablePolicyTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnablePolicyTypeCommandOutput) => void),
     cb?: (err: any, data?: EnablePolicyTypeCommandOutput) => void
   ): Promise<EnablePolicyTypeCommandOutput> | void {
     const command = new EnablePolicyTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1564,7 +1614,7 @@ export class Organizations extends OrganizationsClient {
    */
   public inviteAccountToOrganization(
     args: InviteAccountToOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InviteAccountToOrganizationCommandOutput>;
   public inviteAccountToOrganization(
     args: InviteAccountToOrganizationCommandInput,
@@ -1577,16 +1627,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public inviteAccountToOrganization(
     args: InviteAccountToOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteAccountToOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InviteAccountToOrganizationCommandOutput) => void),
     cb?: (err: any, data?: InviteAccountToOrganizationCommandOutput) => void
   ): Promise<InviteAccountToOrganizationCommandOutput> | void {
     const command = new InviteAccountToOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1634,7 +1686,7 @@ export class Organizations extends OrganizationsClient {
    */
   public leaveOrganization(
     args: LeaveOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<LeaveOrganizationCommandOutput>;
   public leaveOrganization(
     args: LeaveOrganizationCommandInput,
@@ -1647,16 +1699,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public leaveOrganization(
     args: LeaveOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LeaveOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: LeaveOrganizationCommandOutput) => void),
     cb?: (err: any, data?: LeaveOrganizationCommandOutput) => void
   ): Promise<LeaveOrganizationCommandOutput> | void {
     const command = new LeaveOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1677,29 +1731,43 @@ export class Organizations extends OrganizationsClient {
    */
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
-    cb: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
   ): void;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
   ): void;
   public listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void),
-    cb?: (err: any, data?: ListAWSServiceAccessForOrganizationCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListAWSServiceAccessForOrganizationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListAWSServiceAccessForOrganizationCommandOutput
+    ) => void
   ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> | void {
     const command = new ListAWSServiceAccessForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1724,7 +1792,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listAccounts(
     args: ListAccountsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAccountsCommandOutput>;
   public listAccounts(
     args: ListAccountsCommandInput,
@@ -1737,16 +1805,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listAccounts(
     args: ListAccountsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAccountsCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsCommandOutput) => void
   ): Promise<ListAccountsCommandOutput> | void {
     const command = new ListAccountsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1772,7 +1842,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listAccountsForParent(
     args: ListAccountsForParentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAccountsForParentCommandOutput>;
   public listAccountsForParent(
     args: ListAccountsForParentCommandInput,
@@ -1785,16 +1855,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listAccountsForParent(
     args: ListAccountsForParentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAccountsForParentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAccountsForParentCommandOutput) => void),
     cb?: (err: any, data?: ListAccountsForParentCommandOutput) => void
   ): Promise<ListAccountsForParentCommandOutput> | void {
     const command = new ListAccountsForParentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1819,7 +1891,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listChildren(
     args: ListChildrenCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListChildrenCommandOutput>;
   public listChildren(
     args: ListChildrenCommandInput,
@@ -1832,16 +1904,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listChildren(
     args: ListChildrenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListChildrenCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListChildrenCommandOutput) => void),
     cb?: (err: any, data?: ListChildrenCommandOutput) => void
   ): Promise<ListChildrenCommandOutput> | void {
     const command = new ListChildrenCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1865,7 +1939,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCreateAccountStatusCommandOutput>;
   public listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
@@ -1878,16 +1952,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCreateAccountStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCreateAccountStatusCommandOutput) => void),
     cb?: (err: any, data?: ListCreateAccountStatusCommandOutput) => void
   ): Promise<ListCreateAccountStatusCommandOutput> | void {
     const command = new ListCreateAccountStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1914,7 +1990,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHandshakesForAccountCommandOutput>;
   public listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
@@ -1927,16 +2003,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHandshakesForAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHandshakesForAccountCommandOutput) => void),
     cb?: (err: any, data?: ListHandshakesForAccountCommandOutput) => void
   ): Promise<ListHandshakesForAccountCommandOutput> | void {
     const command = new ListHandshakesForAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1964,7 +2042,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListHandshakesForOrganizationCommandOutput>;
   public listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
@@ -1977,16 +2055,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListHandshakesForOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListHandshakesForOrganizationCommandOutput) => void),
     cb?: (err: any, data?: ListHandshakesForOrganizationCommandOutput) => void
   ): Promise<ListHandshakesForOrganizationCommandOutput> | void {
     const command = new ListHandshakesForOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2009,7 +2089,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listOrganizationalUnitsForParent(
     args: ListOrganizationalUnitsForParentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListOrganizationalUnitsForParentCommandOutput>;
   public listOrganizationalUnitsForParent(
     args: ListOrganizationalUnitsForParentCommandInput,
@@ -2022,16 +2102,24 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listOrganizationalUnitsForParent(
     args: ListOrganizationalUnitsForParentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOrganizationalUnitsForParentCommandOutput) => void),
-    cb?: (err: any, data?: ListOrganizationalUnitsForParentCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: ListOrganizationalUnitsForParentCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: ListOrganizationalUnitsForParentCommandOutput
+    ) => void
   ): Promise<ListOrganizationalUnitsForParentCommandOutput> | void {
     const command = new ListOrganizationalUnitsForParentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2059,7 +2147,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listParents(
     args: ListParentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListParentsCommandOutput>;
   public listParents(
     args: ListParentsCommandInput,
@@ -2072,16 +2160,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listParents(
     args: ListParentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListParentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListParentsCommandOutput) => void),
     cb?: (err: any, data?: ListParentsCommandOutput) => void
   ): Promise<ListParentsCommandOutput> | void {
     const command = new ListParentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2104,7 +2194,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listPolicies(
     args: ListPoliciesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPoliciesCommandOutput>;
   public listPolicies(
     args: ListPoliciesCommandInput,
@@ -2117,16 +2207,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listPolicies(
     args: ListPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesCommandOutput) => void
   ): Promise<ListPoliciesCommandOutput> | void {
     const command = new ListPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2151,7 +2243,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listPoliciesForTarget(
     args: ListPoliciesForTargetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPoliciesForTargetCommandOutput>;
   public listPoliciesForTarget(
     args: ListPoliciesForTargetCommandInput,
@@ -2164,16 +2256,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listPoliciesForTarget(
     args: ListPoliciesForTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPoliciesForTargetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPoliciesForTargetCommandOutput) => void),
     cb?: (err: any, data?: ListPoliciesForTargetCommandOutput) => void
   ): Promise<ListPoliciesForTargetCommandOutput> | void {
     const command = new ListPoliciesForTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2202,7 +2296,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listRoots(
     args: ListRootsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRootsCommandOutput>;
   public listRoots(
     args: ListRootsCommandInput,
@@ -2215,16 +2309,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listRoots(
     args: ListRootsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRootsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRootsCommandOutput) => void),
     cb?: (err: any, data?: ListRootsCommandOutput) => void
   ): Promise<ListRootsCommandOutput> | void {
     const command = new ListRootsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2241,7 +2337,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2254,16 +2350,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2287,7 +2385,7 @@ export class Organizations extends OrganizationsClient {
    */
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTargetsForPolicyCommandOutput>;
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
@@ -2300,16 +2398,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public listTargetsForPolicy(
     args: ListTargetsForPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTargetsForPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTargetsForPolicyCommandOutput) => void),
     cb?: (err: any, data?: ListTargetsForPolicyCommandOutput) => void
   ): Promise<ListTargetsForPolicyCommandOutput> | void {
     const command = new ListTargetsForPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2325,7 +2425,7 @@ export class Organizations extends OrganizationsClient {
    */
   public moveAccount(
     args: MoveAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<MoveAccountCommandOutput>;
   public moveAccount(
     args: MoveAccountCommandInput,
@@ -2338,16 +2438,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public moveAccount(
     args: MoveAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: MoveAccountCommandOutput) => void),
     cb?: (err: any, data?: MoveAccountCommandOutput) => void
   ): Promise<MoveAccountCommandOutput> | void {
     const command = new MoveAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2381,7 +2483,7 @@ export class Organizations extends OrganizationsClient {
    */
   public removeAccountFromOrganization(
     args: RemoveAccountFromOrganizationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveAccountFromOrganizationCommandOutput>;
   public removeAccountFromOrganization(
     args: RemoveAccountFromOrganizationCommandInput,
@@ -2394,16 +2496,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public removeAccountFromOrganization(
     args: RemoveAccountFromOrganizationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveAccountFromOrganizationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveAccountFromOrganizationCommandOutput) => void),
     cb?: (err: any, data?: RemoveAccountFromOrganizationCommandOutput) => void
   ): Promise<RemoveAccountFromOrganizationCommandOutput> | void {
     const command = new RemoveAccountFromOrganizationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2420,7 +2524,7 @@ export class Organizations extends OrganizationsClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -2433,16 +2537,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2459,7 +2565,7 @@ export class Organizations extends OrganizationsClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2472,16 +2578,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2497,7 +2605,7 @@ export class Organizations extends OrganizationsClient {
    */
   public updateOrganizationalUnit(
     args: UpdateOrganizationalUnitCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateOrganizationalUnitCommandOutput>;
   public updateOrganizationalUnit(
     args: UpdateOrganizationalUnitCommandInput,
@@ -2510,16 +2618,18 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public updateOrganizationalUnit(
     args: UpdateOrganizationalUnitCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateOrganizationalUnitCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateOrganizationalUnitCommandOutput) => void),
     cb?: (err: any, data?: UpdateOrganizationalUnitCommandOutput) => void
   ): Promise<UpdateOrganizationalUnitCommandOutput> | void {
     const command = new UpdateOrganizationalUnitCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2535,7 +2645,7 @@ export class Organizations extends OrganizationsClient {
    */
   public updatePolicy(
     args: UpdatePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdatePolicyCommandOutput>;
   public updatePolicy(
     args: UpdatePolicyCommandInput,
@@ -2548,19 +2658,20 @@ export class Organizations extends OrganizationsClient {
   ): void;
   public updatePolicy(
     args: UpdatePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdatePolicyCommandOutput) => void),
     cb?: (err: any, data?: UpdatePolicyCommandOutput) => void
   ): Promise<UpdatePolicyCommandOutput> | void {
     const command = new UpdatePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

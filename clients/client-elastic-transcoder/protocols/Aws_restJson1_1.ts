@@ -1,70 +1,70 @@
 import {
   CancelJobCommandInput,
-  CancelJobCommandOutput,
+  CancelJobCommandOutput
 } from "../commands/CancelJobCommand";
 import {
   CreateJobCommandInput,
-  CreateJobCommandOutput,
+  CreateJobCommandOutput
 } from "../commands/CreateJobCommand";
 import {
   CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
+  CreatePipelineCommandOutput
 } from "../commands/CreatePipelineCommand";
 import {
   CreatePresetCommandInput,
-  CreatePresetCommandOutput,
+  CreatePresetCommandOutput
 } from "../commands/CreatePresetCommand";
 import {
   DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
+  DeletePipelineCommandOutput
 } from "../commands/DeletePipelineCommand";
 import {
   DeletePresetCommandInput,
-  DeletePresetCommandOutput,
+  DeletePresetCommandOutput
 } from "../commands/DeletePresetCommand";
 import {
   ListJobsByPipelineCommandInput,
-  ListJobsByPipelineCommandOutput,
+  ListJobsByPipelineCommandOutput
 } from "../commands/ListJobsByPipelineCommand";
 import {
   ListJobsByStatusCommandInput,
-  ListJobsByStatusCommandOutput,
+  ListJobsByStatusCommandOutput
 } from "../commands/ListJobsByStatusCommand";
 import {
   ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
+  ListPipelinesCommandOutput
 } from "../commands/ListPipelinesCommand";
 import {
   ListPresetsCommandInput,
-  ListPresetsCommandOutput,
+  ListPresetsCommandOutput
 } from "../commands/ListPresetsCommand";
 import {
   ReadJobCommandInput,
-  ReadJobCommandOutput,
+  ReadJobCommandOutput
 } from "../commands/ReadJobCommand";
 import {
   ReadPipelineCommandInput,
-  ReadPipelineCommandOutput,
+  ReadPipelineCommandOutput
 } from "../commands/ReadPipelineCommand";
 import {
   ReadPresetCommandInput,
-  ReadPresetCommandOutput,
+  ReadPresetCommandOutput
 } from "../commands/ReadPresetCommand";
 import {
   TestRoleCommandInput,
-  TestRoleCommandOutput,
+  TestRoleCommandOutput
 } from "../commands/TestRoleCommand";
 import {
   UpdatePipelineCommandInput,
-  UpdatePipelineCommandOutput,
+  UpdatePipelineCommandOutput
 } from "../commands/UpdatePipelineCommand";
 import {
   UpdatePipelineNotificationsCommandInput,
-  UpdatePipelineNotificationsCommandOutput,
+  UpdatePipelineNotificationsCommandOutput
 } from "../commands/UpdatePipelineNotificationsCommand";
 import {
   UpdatePipelineStatusCommandInput,
-  UpdatePipelineStatusCommandOutput,
+  UpdatePipelineStatusCommandOutput
 } from "../commands/UpdatePipelineStatusCommand";
 import {
   AccessDeniedException,
@@ -104,18 +104,18 @@ import {
   Timing,
   ValidationException,
   VideoParameters,
-  Warning,
+  Warning
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CancelJobCommand(
@@ -123,23 +123,23 @@ export async function serializeAws_restJson1_1CancelJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -148,33 +148,51 @@ export async function serializeAws_restJson1_1CreateJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/jobs";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Input !== undefined) {
-    bodyParams['Input'] = serializeAws_restJson1_1JobInput(input.Input, context);
+    bodyParams["Input"] = serializeAws_restJson1_1JobInput(
+      input.Input,
+      context
+    );
   }
   if (input.Inputs !== undefined) {
-    bodyParams['Inputs'] = serializeAws_restJson1_1JobInputs(input.Inputs, context);
+    bodyParams["Inputs"] = serializeAws_restJson1_1JobInputs(
+      input.Inputs,
+      context
+    );
   }
   if (input.Output !== undefined) {
-    bodyParams['Output'] = serializeAws_restJson1_1CreateJobOutput(input.Output, context);
+    bodyParams["Output"] = serializeAws_restJson1_1CreateJobOutput(
+      input.Output,
+      context
+    );
   }
   if (input.OutputKeyPrefix !== undefined) {
-    bodyParams['OutputKeyPrefix'] = input.OutputKeyPrefix;
+    bodyParams["OutputKeyPrefix"] = input.OutputKeyPrefix;
   }
   if (input.Outputs !== undefined) {
-    bodyParams['Outputs'] = serializeAws_restJson1_1CreateJobOutputs(input.Outputs, context);
+    bodyParams["Outputs"] = serializeAws_restJson1_1CreateJobOutputs(
+      input.Outputs,
+      context
+    );
   }
   if (input.PipelineId !== undefined) {
-    bodyParams['PipelineId'] = input.PipelineId;
+    bodyParams["PipelineId"] = input.PipelineId;
   }
   if (input.Playlists !== undefined) {
-    bodyParams['Playlists'] = serializeAws_restJson1_1CreateJobPlaylists(input.Playlists, context);
+    bodyParams["Playlists"] = serializeAws_restJson1_1CreateJobPlaylists(
+      input.Playlists,
+      context
+    );
   }
   if (input.UserMetadata !== undefined) {
-    bodyParams['UserMetadata'] = serializeAws_restJson1_1UserMetadata(input.UserMetadata, context);
+    bodyParams["UserMetadata"] = serializeAws_restJson1_1UserMetadata(
+      input.UserMetadata,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -183,7 +201,7 @@ export async function serializeAws_restJson1_1CreateJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -192,33 +210,44 @@ export async function serializeAws_restJson1_1CreatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/pipelines";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AwsKmsKeyArn !== undefined) {
-    bodyParams['AwsKmsKeyArn'] = input.AwsKmsKeyArn;
+    bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
   }
   if (input.ContentConfig !== undefined) {
-    bodyParams['ContentConfig'] = serializeAws_restJson1_1PipelineOutputConfig(input.ContentConfig, context);
+    bodyParams["ContentConfig"] = serializeAws_restJson1_1PipelineOutputConfig(
+      input.ContentConfig,
+      context
+    );
   }
   if (input.InputBucket !== undefined) {
-    bodyParams['InputBucket'] = input.InputBucket;
+    bodyParams["InputBucket"] = input.InputBucket;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Notifications !== undefined) {
-    bodyParams['Notifications'] = serializeAws_restJson1_1Notifications(input.Notifications, context);
+    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
+      input.Notifications,
+      context
+    );
   }
   if (input.OutputBucket !== undefined) {
-    bodyParams['OutputBucket'] = input.OutputBucket;
+    bodyParams["OutputBucket"] = input.OutputBucket;
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.ThumbnailConfig !== undefined) {
-    bodyParams['ThumbnailConfig'] = serializeAws_restJson1_1PipelineOutputConfig(input.ThumbnailConfig, context);
+    bodyParams[
+      "ThumbnailConfig"
+    ] = serializeAws_restJson1_1PipelineOutputConfig(
+      input.ThumbnailConfig,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -227,7 +256,7 @@ export async function serializeAws_restJson1_1CreatePipelineCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -236,27 +265,36 @@ export async function serializeAws_restJson1_1CreatePresetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/presets";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Audio !== undefined) {
-    bodyParams['Audio'] = serializeAws_restJson1_1AudioParameters(input.Audio, context);
+    bodyParams["Audio"] = serializeAws_restJson1_1AudioParameters(
+      input.Audio,
+      context
+    );
   }
   if (input.Container !== undefined) {
-    bodyParams['Container'] = input.Container;
+    bodyParams["Container"] = input.Container;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Thumbnails !== undefined) {
-    bodyParams['Thumbnails'] = serializeAws_restJson1_1Thumbnails(input.Thumbnails, context);
+    bodyParams["Thumbnails"] = serializeAws_restJson1_1Thumbnails(
+      input.Thumbnails,
+      context
+    );
   }
   if (input.Video !== undefined) {
-    bodyParams['Video'] = serializeAws_restJson1_1VideoParameters(input.Video, context);
+    bodyParams["Video"] = serializeAws_restJson1_1VideoParameters(
+      input.Video,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -265,7 +303,7 @@ export async function serializeAws_restJson1_1CreatePresetCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -274,23 +312,23 @@ export async function serializeAws_restJson1_1DeletePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/pipelines/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -299,23 +337,23 @@ export async function serializeAws_restJson1_1DeletePresetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/presets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -324,23 +362,23 @@ export async function serializeAws_restJson1_1ListJobsByPipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/jobsByPipeline/{PipelineId}";
   if (input.PipelineId !== undefined) {
     const labelValue: any = input.PipelineId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: PipelineId.');
+      throw new Error("Empty value provided for input HTTP label: PipelineId.");
     }
-    resolvedPath = resolvedPath.replace('{PipelineId}', labelValue);
+    resolvedPath = resolvedPath.replace("{PipelineId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: PipelineId.');
+    throw new Error("No value provided for input HTTP label: PipelineId.");
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query['Ascending'] = input.Ascending.toString();
+    query["Ascending"] = input.Ascending.toString();
   }
   if (input.PageToken !== undefined) {
-    query['PageToken'] = input.PageToken.toString();
+    query["PageToken"] = input.PageToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -348,7 +386,7 @@ export async function serializeAws_restJson1_1ListJobsByPipelineCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -357,23 +395,23 @@ export async function serializeAws_restJson1_1ListJobsByStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/jobsByStatus/{Status}";
   if (input.Status !== undefined) {
     const labelValue: any = input.Status.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Status.');
+      throw new Error("Empty value provided for input HTTP label: Status.");
     }
-    resolvedPath = resolvedPath.replace('{Status}', labelValue);
+    resolvedPath = resolvedPath.replace("{Status}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Status.');
+    throw new Error("No value provided for input HTTP label: Status.");
   }
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query['Ascending'] = input.Ascending.toString();
+    query["Ascending"] = input.Ascending.toString();
   }
   if (input.PageToken !== undefined) {
-    query['PageToken'] = input.PageToken.toString();
+    query["PageToken"] = input.PageToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -381,7 +419,7 @@ export async function serializeAws_restJson1_1ListJobsByStatusCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -390,14 +428,14 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/pipelines";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query['Ascending'] = input.Ascending.toString();
+    query["Ascending"] = input.Ascending.toString();
   }
   if (input.PageToken !== undefined) {
-    query['PageToken'] = input.PageToken.toString();
+    query["PageToken"] = input.PageToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -405,7 +443,7 @@ export async function serializeAws_restJson1_1ListPipelinesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -414,14 +452,14 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/presets";
   const query: any = {};
   if (input.Ascending !== undefined) {
-    query['Ascending'] = input.Ascending.toString();
+    query["Ascending"] = input.Ascending.toString();
   }
   if (input.PageToken !== undefined) {
-    query['PageToken'] = input.PageToken.toString();
+    query["PageToken"] = input.PageToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -429,7 +467,7 @@ export async function serializeAws_restJson1_1ListPresetsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -438,23 +476,23 @@ export async function serializeAws_restJson1_1ReadJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -463,23 +501,23 @@ export async function serializeAws_restJson1_1ReadPipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/pipelines/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -488,23 +526,23 @@ export async function serializeAws_restJson1_1ReadPresetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2012-09-25/presets/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -513,21 +551,24 @@ export async function serializeAws_restJson1_1TestRoleCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/roleTests";
   let body: any = {};
   const bodyParams: any = {};
   if (input.InputBucket !== undefined) {
-    bodyParams['InputBucket'] = input.InputBucket;
+    bodyParams["InputBucket"] = input.InputBucket;
   }
   if (input.OutputBucket !== undefined) {
-    bodyParams['OutputBucket'] = input.OutputBucket;
+    bodyParams["OutputBucket"] = input.OutputBucket;
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.Topics !== undefined) {
-    bodyParams['Topics'] = serializeAws_restJson1_1SnsTopics(input.Topics, context);
+    bodyParams["Topics"] = serializeAws_restJson1_1SnsTopics(
+      input.Topics,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -536,7 +577,7 @@ export async function serializeAws_restJson1_1TestRoleCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -545,39 +586,50 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/pipelines/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.AwsKmsKeyArn !== undefined) {
-    bodyParams['AwsKmsKeyArn'] = input.AwsKmsKeyArn;
+    bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
   }
   if (input.ContentConfig !== undefined) {
-    bodyParams['ContentConfig'] = serializeAws_restJson1_1PipelineOutputConfig(input.ContentConfig, context);
+    bodyParams["ContentConfig"] = serializeAws_restJson1_1PipelineOutputConfig(
+      input.ContentConfig,
+      context
+    );
   }
   if (input.InputBucket !== undefined) {
-    bodyParams['InputBucket'] = input.InputBucket;
+    bodyParams["InputBucket"] = input.InputBucket;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Notifications !== undefined) {
-    bodyParams['Notifications'] = serializeAws_restJson1_1Notifications(input.Notifications, context);
+    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
+      input.Notifications,
+      context
+    );
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.ThumbnailConfig !== undefined) {
-    bodyParams['ThumbnailConfig'] = serializeAws_restJson1_1PipelineOutputConfig(input.ThumbnailConfig, context);
+    bodyParams[
+      "ThumbnailConfig"
+    ] = serializeAws_restJson1_1PipelineOutputConfig(
+      input.ThumbnailConfig,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -586,7 +638,7 @@ export async function serializeAws_restJson1_1UpdatePipelineCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -595,21 +647,24 @@ export async function serializeAws_restJson1_1UpdatePipelineNotificationsCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/pipelines/{Id}/notifications";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Notifications !== undefined) {
-    bodyParams['Notifications'] = serializeAws_restJson1_1Notifications(input.Notifications, context);
+    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
+      input.Notifications,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -618,7 +673,7 @@ export async function serializeAws_restJson1_1UpdatePipelineNotificationsCommand
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -627,21 +682,21 @@ export async function serializeAws_restJson1_1UpdatePipelineStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/2012-09-25/pipelines/{Id}/status";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Status !== undefined) {
-    bodyParams['Status'] = input.Status;
+    bodyParams["Status"] = input.Status;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -650,7 +705,7 @@ export async function serializeAws_restJson1_1UpdatePipelineStatusCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -663,55 +718,73 @@ export async function deserializeAws_restJson1_1CancelJobCommand(
   }
   const contents: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResponse",
+    __type: "CancelJobResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CancelJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CancelJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -727,7 +800,7 @@ export async function deserializeAws_restJson1_1CreateJobCommand(
   const contents: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateJobResponse",
-    Job: undefined,
+    Job: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Job !== undefined) {
@@ -738,48 +811,66 @@ export async function deserializeAws_restJson1_1CreateJobCommand(
 
 async function deserializeAws_restJson1_1CreateJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -790,68 +881,95 @@ export async function deserializeAws_restJson1_1CreatePipelineCommand(
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1CreatePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1CreatePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineResponse",
     Pipeline: undefined,
-    Warnings: undefined,
+    Warnings: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Pipeline !== undefined) {
-    contents.Pipeline = deserializeAws_restJson1_1Pipeline(data.Pipeline, context);
+    contents.Pipeline = deserializeAws_restJson1_1Pipeline(
+      data.Pipeline,
+      context
+    );
   }
   if (data.Warnings !== undefined) {
-    contents.Warnings = deserializeAws_restJson1_1Warnings(data.Warnings, context);
+    contents.Warnings = deserializeAws_restJson1_1Warnings(
+      data.Warnings,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -868,7 +986,7 @@ export async function deserializeAws_restJson1_1CreatePresetCommand(
     $metadata: deserializeMetadata(output),
     __type: "CreatePresetResponse",
     Preset: undefined,
-    Warning: undefined,
+    Warning: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Preset !== undefined) {
@@ -882,44 +1000,59 @@ export async function deserializeAws_restJson1_1CreatePresetCommand(
 
 async function deserializeAws_restJson1_1CreatePresetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePresetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.etscustomer#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -930,59 +1063,80 @@ export async function deserializeAws_restJson1_1DeletePipelineCommand(
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
   if (output.statusCode !== 202) {
-    return deserializeAws_restJson1_1DeletePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1DeletePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePipelineResponse",
+    __type: "DeletePipelineResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeletePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -997,51 +1151,66 @@ export async function deserializeAws_restJson1_1DeletePresetCommand(
   }
   const contents: DeletePresetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePresetResponse",
+    __type: "DeletePresetResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeletePresetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePresetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1052,13 +1221,16 @@ export async function deserializeAws_restJson1_1ListJobsByPipelineCommand(
   context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListJobsByPipelineCommandError(output, context);
+    return deserializeAws_restJson1_1ListJobsByPipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: ListJobsByPipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJobsByPipelineResponse",
     Jobs: undefined,
-    NextPageToken: undefined,
+    NextPageToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Jobs !== undefined) {
@@ -1072,44 +1244,59 @@ export async function deserializeAws_restJson1_1ListJobsByPipelineCommand(
 
 async function deserializeAws_restJson1_1ListJobsByPipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListJobsByPipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1120,13 +1307,16 @@ export async function deserializeAws_restJson1_1ListJobsByStatusCommand(
   context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListJobsByStatusCommandError(output, context);
+    return deserializeAws_restJson1_1ListJobsByStatusCommandError(
+      output,
+      context
+    );
   }
   const contents: ListJobsByStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListJobsByStatusResponse",
     Jobs: undefined,
-    NextPageToken: undefined,
+    NextPageToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Jobs !== undefined) {
@@ -1140,44 +1330,59 @@ export async function deserializeAws_restJson1_1ListJobsByStatusCommand(
 
 async function deserializeAws_restJson1_1ListJobsByStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListJobsByStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1194,54 +1399,69 @@ export async function deserializeAws_restJson1_1ListPipelinesCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesResponse",
     NextPageToken: undefined,
-    Pipelines: undefined,
+    Pipelines: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextPageToken !== undefined) {
     contents.NextPageToken = data.NextPageToken;
   }
   if (data.Pipelines !== undefined) {
-    contents.Pipelines = deserializeAws_restJson1_1Pipelines(data.Pipelines, context);
+    contents.Pipelines = deserializeAws_restJson1_1Pipelines(
+      data.Pipelines,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListPipelinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1258,7 +1478,7 @@ export async function deserializeAws_restJson1_1ListPresetsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListPresetsResponse",
     NextPageToken: undefined,
-    Presets: undefined,
+    Presets: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextPageToken !== undefined) {
@@ -1272,40 +1492,52 @@ export async function deserializeAws_restJson1_1ListPresetsCommand(
 
 async function deserializeAws_restJson1_1ListPresetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPresetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1321,7 +1553,7 @@ export async function deserializeAws_restJson1_1ReadJobCommand(
   const contents: ReadJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReadJobResponse",
-    Job: undefined,
+    Job: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Job !== undefined) {
@@ -1332,44 +1564,59 @@ export async function deserializeAws_restJson1_1ReadJobCommand(
 
 async function deserializeAws_restJson1_1ReadJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ReadJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1386,58 +1633,79 @@ export async function deserializeAws_restJson1_1ReadPipelineCommand(
     $metadata: deserializeMetadata(output),
     __type: "ReadPipelineResponse",
     Pipeline: undefined,
-    Warnings: undefined,
+    Warnings: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Pipeline !== undefined) {
-    contents.Pipeline = deserializeAws_restJson1_1Pipeline(data.Pipeline, context);
+    contents.Pipeline = deserializeAws_restJson1_1Pipeline(
+      data.Pipeline,
+      context
+    );
   }
   if (data.Warnings !== undefined) {
-    contents.Warnings = deserializeAws_restJson1_1Warnings(data.Warnings, context);
+    contents.Warnings = deserializeAws_restJson1_1Warnings(
+      data.Warnings,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ReadPipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ReadPipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1453,7 +1721,7 @@ export async function deserializeAws_restJson1_1ReadPresetCommand(
   const contents: ReadPresetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReadPresetResponse",
-    Preset: undefined,
+    Preset: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Preset !== undefined) {
@@ -1464,44 +1732,59 @@ export async function deserializeAws_restJson1_1ReadPresetCommand(
 
 async function deserializeAws_restJson1_1ReadPresetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ReadPresetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1518,11 +1801,14 @@ export async function deserializeAws_restJson1_1TestRoleCommand(
     $metadata: deserializeMetadata(output),
     __type: "TestRoleResponse",
     Messages: undefined,
-    Success: undefined,
+    Success: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Messages !== undefined) {
-    contents.Messages = deserializeAws_restJson1_1ExceptionMessages(data.Messages, context);
+    contents.Messages = deserializeAws_restJson1_1ExceptionMessages(
+      data.Messages,
+      context
+    );
   }
   if (data.Success !== undefined) {
     contents.Success = data.Success;
@@ -1532,44 +1818,59 @@ export async function deserializeAws_restJson1_1TestRoleCommand(
 
 async function deserializeAws_restJson1_1TestRoleCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TestRoleCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1580,68 +1881,95 @@ export async function deserializeAws_restJson1_1UpdatePipelineCommand(
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdatePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1UpdatePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePipelineResponse",
     Pipeline: undefined,
-    Warnings: undefined,
+    Warnings: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Pipeline !== undefined) {
-    contents.Pipeline = deserializeAws_restJson1_1Pipeline(data.Pipeline, context);
+    contents.Pipeline = deserializeAws_restJson1_1Pipeline(
+      data.Pipeline,
+      context
+    );
   }
   if (data.Warnings !== undefined) {
-    contents.Warnings = deserializeAws_restJson1_1Warnings(data.Warnings, context);
+    contents.Warnings = deserializeAws_restJson1_1Warnings(
+      data.Warnings,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1652,64 +1980,88 @@ export async function deserializeAws_restJson1_1UpdatePipelineNotificationsComma
   context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError(output, context);
+    return deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdatePipelineNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePipelineNotificationsResponse",
-    Pipeline: undefined,
+    Pipeline: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Pipeline !== undefined) {
-    contents.Pipeline = deserializeAws_restJson1_1Pipeline(data.Pipeline, context);
+    contents.Pipeline = deserializeAws_restJson1_1Pipeline(
+      data.Pipeline,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdatePipelineNotificationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdatePipelineNotificationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1720,64 +2072,88 @@ export async function deserializeAws_restJson1_1UpdatePipelineStatusCommand(
   context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdatePipelineStatusCommandError(output, context);
+    return deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdatePipelineStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdatePipelineStatusResponse",
-    Pipeline: undefined,
+    Pipeline: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Pipeline !== undefined) {
-    contents.Pipeline = deserializeAws_restJson1_1Pipeline(data.Pipeline, context);
+    contents.Pipeline = deserializeAws_restJson1_1Pipeline(
+      data.Pipeline,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdatePipelineStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdatePipelineStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.etscustomer#AccessDeniedException":
-      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1AccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IncompatibleVersionException":
     case "com.amazonaws.etscustomer#IncompatibleVersionException":
-      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IncompatibleVersionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServiceException":
     case "com.amazonaws.etscustomer#InternalServiceException":
-      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.etscustomer#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.etscustomer#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ValidationException":
     case "com.amazonaws.etscustomer#ValidationException":
-      response = await deserializeAws_restJson1_1ValidationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ValidationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.etscustomer.v20120925#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1791,7 +2167,7 @@ const deserializeAws_restJson1_1AccessDeniedExceptionResponse = async (
     __type: "AccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1808,7 +2184,7 @@ const deserializeAws_restJson1_1IncompatibleVersionExceptionResponse = async (
     __type: "IncompatibleVersionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1825,7 +2201,7 @@ const deserializeAws_restJson1_1InternalServiceExceptionResponse = async (
     __type: "InternalServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1842,7 +2218,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1859,7 +2235,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1876,7 +2252,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1893,7 +2269,7 @@ const deserializeAws_restJson1_1ValidationExceptionResponse = async (
     __type: "ValidationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -1906,10 +2282,8 @@ const serializeAws_restJson1_1AccessControls = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1Artwork = (
   input: Artwork,
@@ -1917,28 +2291,31 @@ const serializeAws_restJson1_1Artwork = (
 ): any => {
   let bodyParams: any = {};
   if (input.AlbumArtFormat !== undefined) {
-    bodyParams['AlbumArtFormat'] = input.AlbumArtFormat;
+    bodyParams["AlbumArtFormat"] = input.AlbumArtFormat;
   }
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.InputKey !== undefined) {
-    bodyParams['InputKey'] = input.InputKey;
+    bodyParams["InputKey"] = input.InputKey;
   }
   if (input.MaxHeight !== undefined) {
-    bodyParams['MaxHeight'] = input.MaxHeight;
+    bodyParams["MaxHeight"] = input.MaxHeight;
   }
   if (input.MaxWidth !== undefined) {
-    bodyParams['MaxWidth'] = input.MaxWidth;
+    bodyParams["MaxWidth"] = input.MaxWidth;
   }
   if (input.PaddingPolicy !== undefined) {
-    bodyParams['PaddingPolicy'] = input.PaddingPolicy;
+    bodyParams["PaddingPolicy"] = input.PaddingPolicy;
   }
   if (input.SizingPolicy !== undefined) {
-    bodyParams['SizingPolicy'] = input.SizingPolicy;
+    bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Artworks = (
   input: Array<Artwork>,
@@ -1947,7 +2324,7 @@ const serializeAws_restJson1_1Artworks = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Artwork(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1AudioCodecOptions = (
   input: AudioCodecOptions,
@@ -1955,19 +2332,19 @@ const serializeAws_restJson1_1AudioCodecOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.BitDepth !== undefined) {
-    bodyParams['BitDepth'] = input.BitDepth;
+    bodyParams["BitDepth"] = input.BitDepth;
   }
   if (input.BitOrder !== undefined) {
-    bodyParams['BitOrder'] = input.BitOrder;
+    bodyParams["BitOrder"] = input.BitOrder;
   }
   if (input.Profile !== undefined) {
-    bodyParams['Profile'] = input.Profile;
+    bodyParams["Profile"] = input.Profile;
   }
   if (input.Signed !== undefined) {
-    bodyParams['Signed'] = input.Signed;
+    bodyParams["Signed"] = input.Signed;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1AudioParameters = (
   input: AudioParameters,
@@ -1975,25 +2352,28 @@ const serializeAws_restJson1_1AudioParameters = (
 ): any => {
   let bodyParams: any = {};
   if (input.AudioPackingMode !== undefined) {
-    bodyParams['AudioPackingMode'] = input.AudioPackingMode;
+    bodyParams["AudioPackingMode"] = input.AudioPackingMode;
   }
   if (input.BitRate !== undefined) {
-    bodyParams['BitRate'] = input.BitRate;
+    bodyParams["BitRate"] = input.BitRate;
   }
   if (input.Channels !== undefined) {
-    bodyParams['Channels'] = input.Channels;
+    bodyParams["Channels"] = input.Channels;
   }
   if (input.Codec !== undefined) {
-    bodyParams['Codec'] = input.Codec;
+    bodyParams["Codec"] = input.Codec;
   }
   if (input.CodecOptions !== undefined) {
-    bodyParams['CodecOptions'] = serializeAws_restJson1_1AudioCodecOptions(input.CodecOptions, context);
+    bodyParams["CodecOptions"] = serializeAws_restJson1_1AudioCodecOptions(
+      input.CodecOptions,
+      context
+    );
   }
   if (input.SampleRate !== undefined) {
-    bodyParams['SampleRate'] = input.SampleRate;
+    bodyParams["SampleRate"] = input.SampleRate;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CaptionFormat = (
   input: CaptionFormat,
@@ -2001,16 +2381,19 @@ const serializeAws_restJson1_1CaptionFormat = (
 ): any => {
   let bodyParams: any = {};
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.Format !== undefined) {
-    bodyParams['Format'] = input.Format;
+    bodyParams["Format"] = input.Format;
   }
   if (input.Pattern !== undefined) {
-    bodyParams['Pattern'] = input.Pattern;
+    bodyParams["Pattern"] = input.Pattern;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CaptionFormats = (
   input: Array<CaptionFormat>,
@@ -2019,7 +2402,7 @@ const serializeAws_restJson1_1CaptionFormats = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1CaptionFormat(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1CaptionSource = (
   input: CaptionSource,
@@ -2027,22 +2410,25 @@ const serializeAws_restJson1_1CaptionSource = (
 ): any => {
   let bodyParams: any = {};
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Label !== undefined) {
-    bodyParams['Label'] = input.Label;
+    bodyParams["Label"] = input.Label;
   }
   if (input.Language !== undefined) {
-    bodyParams['Language'] = input.Language;
+    bodyParams["Language"] = input.Language;
   }
   if (input.TimeOffset !== undefined) {
-    bodyParams['TimeOffset'] = input.TimeOffset;
+    bodyParams["TimeOffset"] = input.TimeOffset;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CaptionSources = (
   input: Array<CaptionSource>,
@@ -2051,7 +2437,7 @@ const serializeAws_restJson1_1CaptionSources = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1CaptionSource(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1Captions = (
   input: Captions,
@@ -2059,16 +2445,22 @@ const serializeAws_restJson1_1Captions = (
 ): any => {
   let bodyParams: any = {};
   if (input.CaptionFormats !== undefined) {
-    bodyParams['CaptionFormats'] = serializeAws_restJson1_1CaptionFormats(input.CaptionFormats, context);
+    bodyParams["CaptionFormats"] = serializeAws_restJson1_1CaptionFormats(
+      input.CaptionFormats,
+      context
+    );
   }
   if (input.CaptionSources !== undefined) {
-    bodyParams['CaptionSources'] = serializeAws_restJson1_1CaptionSources(input.CaptionSources, context);
+    bodyParams["CaptionSources"] = serializeAws_restJson1_1CaptionSources(
+      input.CaptionSources,
+      context
+    );
   }
   if (input.MergePolicy !== undefined) {
-    bodyParams['MergePolicy'] = input.MergePolicy;
+    bodyParams["MergePolicy"] = input.MergePolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Clip = (
   input: Clip,
@@ -2076,10 +2468,13 @@ const serializeAws_restJson1_1Clip = (
 ): any => {
   let bodyParams: any = {};
   if (input.TimeSpan !== undefined) {
-    bodyParams['TimeSpan'] = serializeAws_restJson1_1TimeSpan(input.TimeSpan, context);
+    bodyParams["TimeSpan"] = serializeAws_restJson1_1TimeSpan(
+      input.TimeSpan,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CodecOptions = (
   input: { [key: string]: string },
@@ -2090,7 +2485,7 @@ const serializeAws_restJson1_1CodecOptions = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1Composition = (
   input: Array<Clip>,
@@ -2099,7 +2494,7 @@ const serializeAws_restJson1_1Composition = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Clip(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1CreateJobOutput = (
   input: CreateJobOutput,
@@ -2107,40 +2502,58 @@ const serializeAws_restJson1_1CreateJobOutput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AlbumArt !== undefined) {
-    bodyParams['AlbumArt'] = serializeAws_restJson1_1JobAlbumArt(input.AlbumArt, context);
+    bodyParams["AlbumArt"] = serializeAws_restJson1_1JobAlbumArt(
+      input.AlbumArt,
+      context
+    );
   }
   if (input.Captions !== undefined) {
-    bodyParams['Captions'] = serializeAws_restJson1_1Captions(input.Captions, context);
+    bodyParams["Captions"] = serializeAws_restJson1_1Captions(
+      input.Captions,
+      context
+    );
   }
   if (input.Composition !== undefined) {
-    bodyParams['Composition'] = serializeAws_restJson1_1Composition(input.Composition, context);
+    bodyParams["Composition"] = serializeAws_restJson1_1Composition(
+      input.Composition,
+      context
+    );
   }
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.PresetId !== undefined) {
-    bodyParams['PresetId'] = input.PresetId;
+    bodyParams["PresetId"] = input.PresetId;
   }
   if (input.Rotate !== undefined) {
-    bodyParams['Rotate'] = input.Rotate;
+    bodyParams["Rotate"] = input.Rotate;
   }
   if (input.SegmentDuration !== undefined) {
-    bodyParams['SegmentDuration'] = input.SegmentDuration;
+    bodyParams["SegmentDuration"] = input.SegmentDuration;
   }
   if (input.ThumbnailEncryption !== undefined) {
-    bodyParams['ThumbnailEncryption'] = serializeAws_restJson1_1Encryption(input.ThumbnailEncryption, context);
+    bodyParams["ThumbnailEncryption"] = serializeAws_restJson1_1Encryption(
+      input.ThumbnailEncryption,
+      context
+    );
   }
   if (input.ThumbnailPattern !== undefined) {
-    bodyParams['ThumbnailPattern'] = input.ThumbnailPattern;
+    bodyParams["ThumbnailPattern"] = input.ThumbnailPattern;
   }
   if (input.Watermarks !== undefined) {
-    bodyParams['Watermarks'] = serializeAws_restJson1_1JobWatermarks(input.Watermarks, context);
+    bodyParams["Watermarks"] = serializeAws_restJson1_1JobWatermarks(
+      input.Watermarks,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CreateJobOutputs = (
   input: Array<CreateJobOutput>,
@@ -2149,7 +2562,7 @@ const serializeAws_restJson1_1CreateJobOutputs = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1CreateJobOutput(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1CreateJobPlaylist = (
   input: CreateJobPlaylist,
@@ -2157,22 +2570,33 @@ const serializeAws_restJson1_1CreateJobPlaylist = (
 ): any => {
   let bodyParams: any = {};
   if (input.Format !== undefined) {
-    bodyParams['Format'] = input.Format;
+    bodyParams["Format"] = input.Format;
   }
   if (input.HlsContentProtection !== undefined) {
-    bodyParams['HlsContentProtection'] = serializeAws_restJson1_1HlsContentProtection(input.HlsContentProtection, context);
+    bodyParams[
+      "HlsContentProtection"
+    ] = serializeAws_restJson1_1HlsContentProtection(
+      input.HlsContentProtection,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.OutputKeys !== undefined) {
-    bodyParams['OutputKeys'] = serializeAws_restJson1_1OutputKeys(input.OutputKeys, context);
+    bodyParams["OutputKeys"] = serializeAws_restJson1_1OutputKeys(
+      input.OutputKeys,
+      context
+    );
   }
   if (input.PlayReadyDrm !== undefined) {
-    bodyParams['PlayReadyDrm'] = serializeAws_restJson1_1PlayReadyDrm(input.PlayReadyDrm, context);
+    bodyParams["PlayReadyDrm"] = serializeAws_restJson1_1PlayReadyDrm(
+      input.PlayReadyDrm,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CreateJobPlaylists = (
   input: Array<CreateJobPlaylist>,
@@ -2181,7 +2605,7 @@ const serializeAws_restJson1_1CreateJobPlaylists = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1CreateJobPlaylist(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1DetectedProperties = (
   input: DetectedProperties,
@@ -2189,22 +2613,22 @@ const serializeAws_restJson1_1DetectedProperties = (
 ): any => {
   let bodyParams: any = {};
   if (input.DurationMillis !== undefined) {
-    bodyParams['DurationMillis'] = input.DurationMillis;
+    bodyParams["DurationMillis"] = input.DurationMillis;
   }
   if (input.FileSize !== undefined) {
-    bodyParams['FileSize'] = input.FileSize;
+    bodyParams["FileSize"] = input.FileSize;
   }
   if (input.FrameRate !== undefined) {
-    bodyParams['FrameRate'] = input.FrameRate;
+    bodyParams["FrameRate"] = input.FrameRate;
   }
   if (input.Height !== undefined) {
-    bodyParams['Height'] = input.Height;
+    bodyParams["Height"] = input.Height;
   }
   if (input.Width !== undefined) {
-    bodyParams['Width'] = input.Width;
+    bodyParams["Width"] = input.Width;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Encryption = (
   input: Encryption,
@@ -2212,19 +2636,19 @@ const serializeAws_restJson1_1Encryption = (
 ): any => {
   let bodyParams: any = {};
   if (input.InitializationVector !== undefined) {
-    bodyParams['InitializationVector'] = input.InitializationVector;
+    bodyParams["InitializationVector"] = input.InitializationVector;
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.KeyMd5 !== undefined) {
-    bodyParams['KeyMd5'] = input.KeyMd5;
+    bodyParams["KeyMd5"] = input.KeyMd5;
   }
   if (input.Mode !== undefined) {
-    bodyParams['Mode'] = input.Mode;
+    bodyParams["Mode"] = input.Mode;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1HlsContentProtection = (
   input: HlsContentProtection,
@@ -2232,25 +2656,25 @@ const serializeAws_restJson1_1HlsContentProtection = (
 ): any => {
   let bodyParams: any = {};
   if (input.InitializationVector !== undefined) {
-    bodyParams['InitializationVector'] = input.InitializationVector;
+    bodyParams["InitializationVector"] = input.InitializationVector;
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.KeyMd5 !== undefined) {
-    bodyParams['KeyMd5'] = input.KeyMd5;
+    bodyParams["KeyMd5"] = input.KeyMd5;
   }
   if (input.KeyStoragePolicy !== undefined) {
-    bodyParams['KeyStoragePolicy'] = input.KeyStoragePolicy;
+    bodyParams["KeyStoragePolicy"] = input.KeyStoragePolicy;
   }
   if (input.LicenseAcquisitionUrl !== undefined) {
-    bodyParams['LicenseAcquisitionUrl'] = input.LicenseAcquisitionUrl;
+    bodyParams["LicenseAcquisitionUrl"] = input.LicenseAcquisitionUrl;
   }
   if (input.Method !== undefined) {
-    bodyParams['Method'] = input.Method;
+    bodyParams["Method"] = input.Method;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1InputCaptions = (
   input: InputCaptions,
@@ -2258,13 +2682,16 @@ const serializeAws_restJson1_1InputCaptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.CaptionSources !== undefined) {
-    bodyParams['CaptionSources'] = serializeAws_restJson1_1CaptionSources(input.CaptionSources, context);
+    bodyParams["CaptionSources"] = serializeAws_restJson1_1CaptionSources(
+      input.CaptionSources,
+      context
+    );
   }
   if (input.MergePolicy !== undefined) {
-    bodyParams['MergePolicy'] = input.MergePolicy;
+    bodyParams["MergePolicy"] = input.MergePolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1JobAlbumArt = (
   input: JobAlbumArt,
@@ -2272,13 +2699,16 @@ const serializeAws_restJson1_1JobAlbumArt = (
 ): any => {
   let bodyParams: any = {};
   if (input.Artwork !== undefined) {
-    bodyParams['Artwork'] = serializeAws_restJson1_1Artworks(input.Artwork, context);
+    bodyParams["Artwork"] = serializeAws_restJson1_1Artworks(
+      input.Artwork,
+      context
+    );
   }
   if (input.MergePolicy !== undefined) {
-    bodyParams['MergePolicy'] = input.MergePolicy;
+    bodyParams["MergePolicy"] = input.MergePolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1JobInput = (
   input: JobInput,
@@ -2286,37 +2716,51 @@ const serializeAws_restJson1_1JobInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AspectRatio !== undefined) {
-    bodyParams['AspectRatio'] = input.AspectRatio;
+    bodyParams["AspectRatio"] = input.AspectRatio;
   }
   if (input.Container !== undefined) {
-    bodyParams['Container'] = input.Container;
+    bodyParams["Container"] = input.Container;
   }
   if (input.DetectedProperties !== undefined) {
-    bodyParams['DetectedProperties'] = serializeAws_restJson1_1DetectedProperties(input.DetectedProperties, context);
+    bodyParams[
+      "DetectedProperties"
+    ] = serializeAws_restJson1_1DetectedProperties(
+      input.DetectedProperties,
+      context
+    );
   }
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.FrameRate !== undefined) {
-    bodyParams['FrameRate'] = input.FrameRate;
+    bodyParams["FrameRate"] = input.FrameRate;
   }
   if (input.InputCaptions !== undefined) {
-    bodyParams['InputCaptions'] = serializeAws_restJson1_1InputCaptions(input.InputCaptions, context);
+    bodyParams["InputCaptions"] = serializeAws_restJson1_1InputCaptions(
+      input.InputCaptions,
+      context
+    );
   }
   if (input.Interlaced !== undefined) {
-    bodyParams['Interlaced'] = input.Interlaced;
+    bodyParams["Interlaced"] = input.Interlaced;
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Resolution !== undefined) {
-    bodyParams['Resolution'] = input.Resolution;
+    bodyParams["Resolution"] = input.Resolution;
   }
   if (input.TimeSpan !== undefined) {
-    bodyParams['TimeSpan'] = serializeAws_restJson1_1TimeSpan(input.TimeSpan, context);
+    bodyParams["TimeSpan"] = serializeAws_restJson1_1TimeSpan(
+      input.TimeSpan,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1JobInputs = (
   input: Array<JobInput>,
@@ -2325,7 +2769,7 @@ const serializeAws_restJson1_1JobInputs = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1JobInput(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1JobWatermark = (
   input: JobWatermark,
@@ -2333,16 +2777,19 @@ const serializeAws_restJson1_1JobWatermark = (
 ): any => {
   let bodyParams: any = {};
   if (input.Encryption !== undefined) {
-    bodyParams['Encryption'] = serializeAws_restJson1_1Encryption(input.Encryption, context);
+    bodyParams["Encryption"] = serializeAws_restJson1_1Encryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.InputKey !== undefined) {
-    bodyParams['InputKey'] = input.InputKey;
+    bodyParams["InputKey"] = input.InputKey;
   }
   if (input.PresetWatermarkId !== undefined) {
-    bodyParams['PresetWatermarkId'] = input.PresetWatermarkId;
+    bodyParams["PresetWatermarkId"] = input.PresetWatermarkId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1JobWatermarks = (
   input: Array<JobWatermark>,
@@ -2351,7 +2798,7 @@ const serializeAws_restJson1_1JobWatermarks = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1JobWatermark(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1Notifications = (
   input: Notifications,
@@ -2359,28 +2806,26 @@ const serializeAws_restJson1_1Notifications = (
 ): any => {
   let bodyParams: any = {};
   if (input.Completed !== undefined) {
-    bodyParams['Completed'] = input.Completed;
+    bodyParams["Completed"] = input.Completed;
   }
   if (input.Error !== undefined) {
-    bodyParams['Error'] = input.Error;
+    bodyParams["Error"] = input.Error;
   }
   if (input.Progressing !== undefined) {
-    bodyParams['Progressing'] = input.Progressing;
+    bodyParams["Progressing"] = input.Progressing;
   }
   if (input.Warning !== undefined) {
-    bodyParams['Warning'] = input.Warning;
+    bodyParams["Warning"] = input.Warning;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1OutputKeys = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1Permission = (
   input: Permission,
@@ -2388,16 +2833,19 @@ const serializeAws_restJson1_1Permission = (
 ): any => {
   let bodyParams: any = {};
   if (input.Access !== undefined) {
-    bodyParams['Access'] = serializeAws_restJson1_1AccessControls(input.Access, context);
+    bodyParams["Access"] = serializeAws_restJson1_1AccessControls(
+      input.Access,
+      context
+    );
   }
   if (input.Grantee !== undefined) {
-    bodyParams['Grantee'] = input.Grantee;
+    bodyParams["Grantee"] = input.Grantee;
   }
   if (input.GranteeType !== undefined) {
-    bodyParams['GranteeType'] = input.GranteeType;
+    bodyParams["GranteeType"] = input.GranteeType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Permissions = (
   input: Array<Permission>,
@@ -2406,7 +2854,7 @@ const serializeAws_restJson1_1Permissions = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Permission(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1PipelineOutputConfig = (
   input: PipelineOutputConfig,
@@ -2414,16 +2862,19 @@ const serializeAws_restJson1_1PipelineOutputConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Bucket !== undefined) {
-    bodyParams['Bucket'] = input.Bucket;
+    bodyParams["Bucket"] = input.Bucket;
   }
   if (input.Permissions !== undefined) {
-    bodyParams['Permissions'] = serializeAws_restJson1_1Permissions(input.Permissions, context);
+    bodyParams["Permissions"] = serializeAws_restJson1_1Permissions(
+      input.Permissions,
+      context
+    );
   }
   if (input.StorageClass !== undefined) {
-    bodyParams['StorageClass'] = input.StorageClass;
+    bodyParams["StorageClass"] = input.StorageClass;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1PlayReadyDrm = (
   input: PlayReadyDrm,
@@ -2431,25 +2882,25 @@ const serializeAws_restJson1_1PlayReadyDrm = (
 ): any => {
   let bodyParams: any = {};
   if (input.Format !== undefined) {
-    bodyParams['Format'] = input.Format;
+    bodyParams["Format"] = input.Format;
   }
   if (input.InitializationVector !== undefined) {
-    bodyParams['InitializationVector'] = input.InitializationVector;
+    bodyParams["InitializationVector"] = input.InitializationVector;
   }
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.KeyId !== undefined) {
-    bodyParams['KeyId'] = input.KeyId;
+    bodyParams["KeyId"] = input.KeyId;
   }
   if (input.KeyMd5 !== undefined) {
-    bodyParams['KeyMd5'] = input.KeyMd5;
+    bodyParams["KeyMd5"] = input.KeyMd5;
   }
   if (input.LicenseAcquisitionUrl !== undefined) {
-    bodyParams['LicenseAcquisitionUrl'] = input.LicenseAcquisitionUrl;
+    bodyParams["LicenseAcquisitionUrl"] = input.LicenseAcquisitionUrl;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1PresetWatermark = (
   input: PresetWatermark,
@@ -2457,37 +2908,37 @@ const serializeAws_restJson1_1PresetWatermark = (
 ): any => {
   let bodyParams: any = {};
   if (input.HorizontalAlign !== undefined) {
-    bodyParams['HorizontalAlign'] = input.HorizontalAlign;
+    bodyParams["HorizontalAlign"] = input.HorizontalAlign;
   }
   if (input.HorizontalOffset !== undefined) {
-    bodyParams['HorizontalOffset'] = input.HorizontalOffset;
+    bodyParams["HorizontalOffset"] = input.HorizontalOffset;
   }
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   if (input.MaxHeight !== undefined) {
-    bodyParams['MaxHeight'] = input.MaxHeight;
+    bodyParams["MaxHeight"] = input.MaxHeight;
   }
   if (input.MaxWidth !== undefined) {
-    bodyParams['MaxWidth'] = input.MaxWidth;
+    bodyParams["MaxWidth"] = input.MaxWidth;
   }
   if (input.Opacity !== undefined) {
-    bodyParams['Opacity'] = input.Opacity;
+    bodyParams["Opacity"] = input.Opacity;
   }
   if (input.SizingPolicy !== undefined) {
-    bodyParams['SizingPolicy'] = input.SizingPolicy;
+    bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
   if (input.Target !== undefined) {
-    bodyParams['Target'] = input.Target;
+    bodyParams["Target"] = input.Target;
   }
   if (input.VerticalAlign !== undefined) {
-    bodyParams['VerticalAlign'] = input.VerticalAlign;
+    bodyParams["VerticalAlign"] = input.VerticalAlign;
   }
   if (input.VerticalOffset !== undefined) {
-    bodyParams['VerticalOffset'] = input.VerticalOffset;
+    bodyParams["VerticalOffset"] = input.VerticalOffset;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1PresetWatermarks = (
   input: Array<PresetWatermark>,
@@ -2496,16 +2947,14 @@ const serializeAws_restJson1_1PresetWatermarks = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1PresetWatermark(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1SnsTopics = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1Thumbnails = (
   input: Thumbnails,
@@ -2513,31 +2962,31 @@ const serializeAws_restJson1_1Thumbnails = (
 ): any => {
   let bodyParams: any = {};
   if (input.AspectRatio !== undefined) {
-    bodyParams['AspectRatio'] = input.AspectRatio;
+    bodyParams["AspectRatio"] = input.AspectRatio;
   }
   if (input.Format !== undefined) {
-    bodyParams['Format'] = input.Format;
+    bodyParams["Format"] = input.Format;
   }
   if (input.Interval !== undefined) {
-    bodyParams['Interval'] = input.Interval;
+    bodyParams["Interval"] = input.Interval;
   }
   if (input.MaxHeight !== undefined) {
-    bodyParams['MaxHeight'] = input.MaxHeight;
+    bodyParams["MaxHeight"] = input.MaxHeight;
   }
   if (input.MaxWidth !== undefined) {
-    bodyParams['MaxWidth'] = input.MaxWidth;
+    bodyParams["MaxWidth"] = input.MaxWidth;
   }
   if (input.PaddingPolicy !== undefined) {
-    bodyParams['PaddingPolicy'] = input.PaddingPolicy;
+    bodyParams["PaddingPolicy"] = input.PaddingPolicy;
   }
   if (input.Resolution !== undefined) {
-    bodyParams['Resolution'] = input.Resolution;
+    bodyParams["Resolution"] = input.Resolution;
   }
   if (input.SizingPolicy !== undefined) {
-    bodyParams['SizingPolicy'] = input.SizingPolicy;
+    bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1TimeSpan = (
   input: TimeSpan,
@@ -2545,13 +2994,13 @@ const serializeAws_restJson1_1TimeSpan = (
 ): any => {
   let bodyParams: any = {};
   if (input.Duration !== undefined) {
-    bodyParams['Duration'] = input.Duration;
+    bodyParams["Duration"] = input.Duration;
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = input.StartTime;
+    bodyParams["StartTime"] = input.StartTime;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1UserMetadata = (
   input: { [key: string]: string },
@@ -2562,7 +3011,7 @@ const serializeAws_restJson1_1UserMetadata = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1VideoParameters = (
   input: VideoParameters,
@@ -2570,61 +3019,65 @@ const serializeAws_restJson1_1VideoParameters = (
 ): any => {
   let bodyParams: any = {};
   if (input.AspectRatio !== undefined) {
-    bodyParams['AspectRatio'] = input.AspectRatio;
+    bodyParams["AspectRatio"] = input.AspectRatio;
   }
   if (input.BitRate !== undefined) {
-    bodyParams['BitRate'] = input.BitRate;
+    bodyParams["BitRate"] = input.BitRate;
   }
   if (input.Codec !== undefined) {
-    bodyParams['Codec'] = input.Codec;
+    bodyParams["Codec"] = input.Codec;
   }
   if (input.CodecOptions !== undefined) {
-    bodyParams['CodecOptions'] = serializeAws_restJson1_1CodecOptions(input.CodecOptions, context);
+    bodyParams["CodecOptions"] = serializeAws_restJson1_1CodecOptions(
+      input.CodecOptions,
+      context
+    );
   }
   if (input.DisplayAspectRatio !== undefined) {
-    bodyParams['DisplayAspectRatio'] = input.DisplayAspectRatio;
+    bodyParams["DisplayAspectRatio"] = input.DisplayAspectRatio;
   }
   if (input.FixedGOP !== undefined) {
-    bodyParams['FixedGOP'] = input.FixedGOP;
+    bodyParams["FixedGOP"] = input.FixedGOP;
   }
   if (input.FrameRate !== undefined) {
-    bodyParams['FrameRate'] = input.FrameRate;
+    bodyParams["FrameRate"] = input.FrameRate;
   }
   if (input.KeyframesMaxDist !== undefined) {
-    bodyParams['KeyframesMaxDist'] = input.KeyframesMaxDist;
+    bodyParams["KeyframesMaxDist"] = input.KeyframesMaxDist;
   }
   if (input.MaxFrameRate !== undefined) {
-    bodyParams['MaxFrameRate'] = input.MaxFrameRate;
+    bodyParams["MaxFrameRate"] = input.MaxFrameRate;
   }
   if (input.MaxHeight !== undefined) {
-    bodyParams['MaxHeight'] = input.MaxHeight;
+    bodyParams["MaxHeight"] = input.MaxHeight;
   }
   if (input.MaxWidth !== undefined) {
-    bodyParams['MaxWidth'] = input.MaxWidth;
+    bodyParams["MaxWidth"] = input.MaxWidth;
   }
   if (input.PaddingPolicy !== undefined) {
-    bodyParams['PaddingPolicy'] = input.PaddingPolicy;
+    bodyParams["PaddingPolicy"] = input.PaddingPolicy;
   }
   if (input.Resolution !== undefined) {
-    bodyParams['Resolution'] = input.Resolution;
+    bodyParams["Resolution"] = input.Resolution;
   }
   if (input.SizingPolicy !== undefined) {
-    bodyParams['SizingPolicy'] = input.SizingPolicy;
+    bodyParams["SizingPolicy"] = input.SizingPolicy;
   }
   if (input.Watermarks !== undefined) {
-    bodyParams['Watermarks'] = serializeAws_restJson1_1PresetWatermarks(input.Watermarks, context);
+    bodyParams["Watermarks"] = serializeAws_restJson1_1PresetWatermarks(
+      input.Watermarks,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_restJson1_1AccessControls = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Artwork = (
   output: any,
@@ -2638,13 +3091,16 @@ const deserializeAws_restJson1_1Artwork = (
     MaxHeight: undefined,
     MaxWidth: undefined,
     PaddingPolicy: undefined,
-    SizingPolicy: undefined,
+    SizingPolicy: undefined
   };
   if (output.AlbumArtFormat !== undefined) {
     contents.AlbumArtFormat = output.AlbumArtFormat;
   }
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.InputKey !== undefined) {
     contents.InputKey = output.InputKey;
@@ -2662,7 +3118,7 @@ const deserializeAws_restJson1_1Artwork = (
     contents.SizingPolicy = output.SizingPolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Artworks = (
   output: any,
@@ -2671,7 +3127,7 @@ const deserializeAws_restJson1_1Artworks = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Artwork(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1AudioCodecOptions = (
   output: any,
@@ -2682,7 +3138,7 @@ const deserializeAws_restJson1_1AudioCodecOptions = (
     BitDepth: undefined,
     BitOrder: undefined,
     Profile: undefined,
-    Signed: undefined,
+    Signed: undefined
   };
   if (output.BitDepth !== undefined) {
     contents.BitDepth = output.BitDepth;
@@ -2697,7 +3153,7 @@ const deserializeAws_restJson1_1AudioCodecOptions = (
     contents.Signed = output.Signed;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1AudioParameters = (
   output: any,
@@ -2710,7 +3166,7 @@ const deserializeAws_restJson1_1AudioParameters = (
     Channels: undefined,
     Codec: undefined,
     CodecOptions: undefined,
-    SampleRate: undefined,
+    SampleRate: undefined
   };
   if (output.AudioPackingMode !== undefined) {
     contents.AudioPackingMode = output.AudioPackingMode;
@@ -2725,13 +3181,16 @@ const deserializeAws_restJson1_1AudioParameters = (
     contents.Codec = output.Codec;
   }
   if (output.CodecOptions !== undefined) {
-    contents.CodecOptions = deserializeAws_restJson1_1AudioCodecOptions(output.CodecOptions, context);
+    contents.CodecOptions = deserializeAws_restJson1_1AudioCodecOptions(
+      output.CodecOptions,
+      context
+    );
   }
   if (output.SampleRate !== undefined) {
     contents.SampleRate = output.SampleRate;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CaptionFormat = (
   output: any,
@@ -2741,10 +3200,13 @@ const deserializeAws_restJson1_1CaptionFormat = (
     __type: "CaptionFormat",
     Encryption: undefined,
     Format: undefined,
-    Pattern: undefined,
+    Pattern: undefined
   };
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.Format !== undefined) {
     contents.Format = output.Format;
@@ -2753,7 +3215,7 @@ const deserializeAws_restJson1_1CaptionFormat = (
     contents.Pattern = output.Pattern;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CaptionFormats = (
   output: any,
@@ -2762,7 +3224,7 @@ const deserializeAws_restJson1_1CaptionFormats = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionFormat(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1CaptionSource = (
   output: any,
@@ -2774,10 +3236,13 @@ const deserializeAws_restJson1_1CaptionSource = (
     Key: undefined,
     Label: undefined,
     Language: undefined,
-    TimeOffset: undefined,
+    TimeOffset: undefined
   };
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -2792,7 +3257,7 @@ const deserializeAws_restJson1_1CaptionSource = (
     contents.TimeOffset = output.TimeOffset;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CaptionSources = (
   output: any,
@@ -2801,7 +3266,7 @@ const deserializeAws_restJson1_1CaptionSources = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1CaptionSource(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Captions = (
   output: any,
@@ -2811,19 +3276,25 @@ const deserializeAws_restJson1_1Captions = (
     __type: "Captions",
     CaptionFormats: undefined,
     CaptionSources: undefined,
-    MergePolicy: undefined,
+    MergePolicy: undefined
   };
   if (output.CaptionFormats !== undefined) {
-    contents.CaptionFormats = deserializeAws_restJson1_1CaptionFormats(output.CaptionFormats, context);
+    contents.CaptionFormats = deserializeAws_restJson1_1CaptionFormats(
+      output.CaptionFormats,
+      context
+    );
   }
   if (output.CaptionSources !== undefined) {
-    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(output.CaptionSources, context);
+    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(
+      output.CaptionSources,
+      context
+    );
   }
   if (output.MergePolicy !== undefined) {
     contents.MergePolicy = output.MergePolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Clip = (
   output: any,
@@ -2831,13 +3302,16 @@ const deserializeAws_restJson1_1Clip = (
 ): Clip => {
   let contents: any = {
     __type: "Clip",
-    TimeSpan: undefined,
+    TimeSpan: undefined
   };
   if (output.TimeSpan !== undefined) {
-    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(output.TimeSpan, context);
+    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(
+      output.TimeSpan,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CodecOptions = (
   output: any,
@@ -2848,7 +3322,7 @@ const deserializeAws_restJson1_1CodecOptions = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1Composition = (
   output: any,
@@ -2857,7 +3331,7 @@ const deserializeAws_restJson1_1Composition = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Clip(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1DetectedProperties = (
   output: any,
@@ -2869,7 +3343,7 @@ const deserializeAws_restJson1_1DetectedProperties = (
     FileSize: undefined,
     FrameRate: undefined,
     Height: undefined,
-    Width: undefined,
+    Width: undefined
   };
   if (output.DurationMillis !== undefined) {
     contents.DurationMillis = output.DurationMillis;
@@ -2887,7 +3361,7 @@ const deserializeAws_restJson1_1DetectedProperties = (
     contents.Width = output.Width;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Encryption = (
   output: any,
@@ -2898,7 +3372,7 @@ const deserializeAws_restJson1_1Encryption = (
     InitializationVector: undefined,
     Key: undefined,
     KeyMd5: undefined,
-    Mode: undefined,
+    Mode: undefined
   };
   if (output.InitializationVector !== undefined) {
     contents.InitializationVector = output.InitializationVector;
@@ -2913,16 +3387,14 @@ const deserializeAws_restJson1_1Encryption = (
     contents.Mode = output.Mode;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ExceptionMessages = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1HlsContentProtection = (
   output: any,
@@ -2935,7 +3407,7 @@ const deserializeAws_restJson1_1HlsContentProtection = (
     KeyMd5: undefined,
     KeyStoragePolicy: undefined,
     LicenseAcquisitionUrl: undefined,
-    Method: undefined,
+    Method: undefined
   };
   if (output.InitializationVector !== undefined) {
     contents.InitializationVector = output.InitializationVector;
@@ -2956,7 +3428,7 @@ const deserializeAws_restJson1_1HlsContentProtection = (
     contents.Method = output.Method;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InputCaptions = (
   output: any,
@@ -2965,16 +3437,19 @@ const deserializeAws_restJson1_1InputCaptions = (
   let contents: any = {
     __type: "InputCaptions",
     CaptionSources: undefined,
-    MergePolicy: undefined,
+    MergePolicy: undefined
   };
   if (output.CaptionSources !== undefined) {
-    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(output.CaptionSources, context);
+    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(
+      output.CaptionSources,
+      context
+    );
   }
   if (output.MergePolicy !== undefined) {
     contents.MergePolicy = output.MergePolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Job = (
   output: any,
@@ -2993,7 +3468,7 @@ const deserializeAws_restJson1_1Job = (
     Playlists: undefined,
     Status: undefined,
     Timing: undefined,
-    UserMetadata: undefined,
+    UserMetadata: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3005,22 +3480,34 @@ const deserializeAws_restJson1_1Job = (
     contents.Input = deserializeAws_restJson1_1JobInput(output.Input, context);
   }
   if (output.Inputs !== undefined) {
-    contents.Inputs = deserializeAws_restJson1_1JobInputs(output.Inputs, context);
+    contents.Inputs = deserializeAws_restJson1_1JobInputs(
+      output.Inputs,
+      context
+    );
   }
   if (output.Output !== undefined) {
-    contents.Output = deserializeAws_restJson1_1JobOutput(output.Output, context);
+    contents.Output = deserializeAws_restJson1_1JobOutput(
+      output.Output,
+      context
+    );
   }
   if (output.OutputKeyPrefix !== undefined) {
     contents.OutputKeyPrefix = output.OutputKeyPrefix;
   }
   if (output.Outputs !== undefined) {
-    contents.Outputs = deserializeAws_restJson1_1JobOutputs(output.Outputs, context);
+    contents.Outputs = deserializeAws_restJson1_1JobOutputs(
+      output.Outputs,
+      context
+    );
   }
   if (output.PipelineId !== undefined) {
     contents.PipelineId = output.PipelineId;
   }
   if (output.Playlists !== undefined) {
-    contents.Playlists = deserializeAws_restJson1_1Playlists(output.Playlists, context);
+    contents.Playlists = deserializeAws_restJson1_1Playlists(
+      output.Playlists,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3029,10 +3516,13 @@ const deserializeAws_restJson1_1Job = (
     contents.Timing = deserializeAws_restJson1_1Timing(output.Timing, context);
   }
   if (output.UserMetadata !== undefined) {
-    contents.UserMetadata = deserializeAws_restJson1_1UserMetadata(output.UserMetadata, context);
+    contents.UserMetadata = deserializeAws_restJson1_1UserMetadata(
+      output.UserMetadata,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JobAlbumArt = (
   output: any,
@@ -3041,16 +3531,19 @@ const deserializeAws_restJson1_1JobAlbumArt = (
   let contents: any = {
     __type: "JobAlbumArt",
     Artwork: undefined,
-    MergePolicy: undefined,
+    MergePolicy: undefined
   };
   if (output.Artwork !== undefined) {
-    contents.Artwork = deserializeAws_restJson1_1Artworks(output.Artwork, context);
+    contents.Artwork = deserializeAws_restJson1_1Artworks(
+      output.Artwork,
+      context
+    );
   }
   if (output.MergePolicy !== undefined) {
     contents.MergePolicy = output.MergePolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JobInput = (
   output: any,
@@ -3067,7 +3560,7 @@ const deserializeAws_restJson1_1JobInput = (
     Interlaced: undefined,
     Key: undefined,
     Resolution: undefined,
-    TimeSpan: undefined,
+    TimeSpan: undefined
   };
   if (output.AspectRatio !== undefined) {
     contents.AspectRatio = output.AspectRatio;
@@ -3076,16 +3569,25 @@ const deserializeAws_restJson1_1JobInput = (
     contents.Container = output.Container;
   }
   if (output.DetectedProperties !== undefined) {
-    contents.DetectedProperties = deserializeAws_restJson1_1DetectedProperties(output.DetectedProperties, context);
+    contents.DetectedProperties = deserializeAws_restJson1_1DetectedProperties(
+      output.DetectedProperties,
+      context
+    );
   }
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.FrameRate !== undefined) {
     contents.FrameRate = output.FrameRate;
   }
   if (output.InputCaptions !== undefined) {
-    contents.InputCaptions = deserializeAws_restJson1_1InputCaptions(output.InputCaptions, context);
+    contents.InputCaptions = deserializeAws_restJson1_1InputCaptions(
+      output.InputCaptions,
+      context
+    );
   }
   if (output.Interlaced !== undefined) {
     contents.Interlaced = output.Interlaced;
@@ -3097,10 +3599,13 @@ const deserializeAws_restJson1_1JobInput = (
     contents.Resolution = output.Resolution;
   }
   if (output.TimeSpan !== undefined) {
-    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(output.TimeSpan, context);
+    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(
+      output.TimeSpan,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JobInputs = (
   output: any,
@@ -3109,7 +3614,7 @@ const deserializeAws_restJson1_1JobInputs = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobInput(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1JobOutput = (
   output: any,
@@ -3137,19 +3642,28 @@ const deserializeAws_restJson1_1JobOutput = (
     ThumbnailEncryption: undefined,
     ThumbnailPattern: undefined,
     Watermarks: undefined,
-    Width: undefined,
+    Width: undefined
   };
   if (output.AlbumArt !== undefined) {
-    contents.AlbumArt = deserializeAws_restJson1_1JobAlbumArt(output.AlbumArt, context);
+    contents.AlbumArt = deserializeAws_restJson1_1JobAlbumArt(
+      output.AlbumArt,
+      context
+    );
   }
   if (output.AppliedColorSpaceConversion !== undefined) {
     contents.AppliedColorSpaceConversion = output.AppliedColorSpaceConversion;
   }
   if (output.Captions !== undefined) {
-    contents.Captions = deserializeAws_restJson1_1Captions(output.Captions, context);
+    contents.Captions = deserializeAws_restJson1_1Captions(
+      output.Captions,
+      context
+    );
   }
   if (output.Composition !== undefined) {
-    contents.Composition = deserializeAws_restJson1_1Composition(output.Composition, context);
+    contents.Composition = deserializeAws_restJson1_1Composition(
+      output.Composition,
+      context
+    );
   }
   if (output.Duration !== undefined) {
     contents.Duration = output.Duration;
@@ -3158,7 +3672,10 @@ const deserializeAws_restJson1_1JobOutput = (
     contents.DurationMillis = output.DurationMillis;
   }
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.FileSize !== undefined) {
     contents.FileSize = output.FileSize;
@@ -3191,19 +3708,25 @@ const deserializeAws_restJson1_1JobOutput = (
     contents.StatusDetail = output.StatusDetail;
   }
   if (output.ThumbnailEncryption !== undefined) {
-    contents.ThumbnailEncryption = deserializeAws_restJson1_1Encryption(output.ThumbnailEncryption, context);
+    contents.ThumbnailEncryption = deserializeAws_restJson1_1Encryption(
+      output.ThumbnailEncryption,
+      context
+    );
   }
   if (output.ThumbnailPattern !== undefined) {
     contents.ThumbnailPattern = output.ThumbnailPattern;
   }
   if (output.Watermarks !== undefined) {
-    contents.Watermarks = deserializeAws_restJson1_1JobWatermarks(output.Watermarks, context);
+    contents.Watermarks = deserializeAws_restJson1_1JobWatermarks(
+      output.Watermarks,
+      context
+    );
   }
   if (output.Width !== undefined) {
     contents.Width = output.Width;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JobOutputs = (
   output: any,
@@ -3212,7 +3735,7 @@ const deserializeAws_restJson1_1JobOutputs = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobOutput(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1JobWatermark = (
   output: any,
@@ -3222,10 +3745,13 @@ const deserializeAws_restJson1_1JobWatermark = (
     __type: "JobWatermark",
     Encryption: undefined,
     InputKey: undefined,
-    PresetWatermarkId: undefined,
+    PresetWatermarkId: undefined
   };
   if (output.Encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(output.Encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1Encryption(
+      output.Encryption,
+      context
+    );
   }
   if (output.InputKey !== undefined) {
     contents.InputKey = output.InputKey;
@@ -3234,7 +3760,7 @@ const deserializeAws_restJson1_1JobWatermark = (
     contents.PresetWatermarkId = output.PresetWatermarkId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1JobWatermarks = (
   output: any,
@@ -3243,7 +3769,7 @@ const deserializeAws_restJson1_1JobWatermarks = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1JobWatermark(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Jobs = (
   output: any,
@@ -3252,7 +3778,7 @@ const deserializeAws_restJson1_1Jobs = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Job(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Notifications = (
   output: any,
@@ -3263,7 +3789,7 @@ const deserializeAws_restJson1_1Notifications = (
     Completed: undefined,
     Error: undefined,
     Progressing: undefined,
-    Warning: undefined,
+    Warning: undefined
   };
   if (output.Completed !== undefined) {
     contents.Completed = output.Completed;
@@ -3278,16 +3804,14 @@ const deserializeAws_restJson1_1Notifications = (
     contents.Warning = output.Warning;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1OutputKeys = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Permission = (
   output: any,
@@ -3297,10 +3821,13 @@ const deserializeAws_restJson1_1Permission = (
     __type: "Permission",
     Access: undefined,
     Grantee: undefined,
-    GranteeType: undefined,
+    GranteeType: undefined
   };
   if (output.Access !== undefined) {
-    contents.Access = deserializeAws_restJson1_1AccessControls(output.Access, context);
+    contents.Access = deserializeAws_restJson1_1AccessControls(
+      output.Access,
+      context
+    );
   }
   if (output.Grantee !== undefined) {
     contents.Grantee = output.Grantee;
@@ -3309,7 +3836,7 @@ const deserializeAws_restJson1_1Permission = (
     contents.GranteeType = output.GranteeType;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Permissions = (
   output: any,
@@ -3318,7 +3845,7 @@ const deserializeAws_restJson1_1Permissions = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Permission(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Pipeline = (
   output: any,
@@ -3336,7 +3863,7 @@ const deserializeAws_restJson1_1Pipeline = (
     OutputBucket: undefined,
     Role: undefined,
     Status: undefined,
-    ThumbnailConfig: undefined,
+    ThumbnailConfig: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
@@ -3345,7 +3872,10 @@ const deserializeAws_restJson1_1Pipeline = (
     contents.AwsKmsKeyArn = output.AwsKmsKeyArn;
   }
   if (output.ContentConfig !== undefined) {
-    contents.ContentConfig = deserializeAws_restJson1_1PipelineOutputConfig(output.ContentConfig, context);
+    contents.ContentConfig = deserializeAws_restJson1_1PipelineOutputConfig(
+      output.ContentConfig,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -3357,7 +3887,10 @@ const deserializeAws_restJson1_1Pipeline = (
     contents.Name = output.Name;
   }
   if (output.Notifications !== undefined) {
-    contents.Notifications = deserializeAws_restJson1_1Notifications(output.Notifications, context);
+    contents.Notifications = deserializeAws_restJson1_1Notifications(
+      output.Notifications,
+      context
+    );
   }
   if (output.OutputBucket !== undefined) {
     contents.OutputBucket = output.OutputBucket;
@@ -3369,10 +3902,13 @@ const deserializeAws_restJson1_1Pipeline = (
     contents.Status = output.Status;
   }
   if (output.ThumbnailConfig !== undefined) {
-    contents.ThumbnailConfig = deserializeAws_restJson1_1PipelineOutputConfig(output.ThumbnailConfig, context);
+    contents.ThumbnailConfig = deserializeAws_restJson1_1PipelineOutputConfig(
+      output.ThumbnailConfig,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PipelineOutputConfig = (
   output: any,
@@ -3382,19 +3918,22 @@ const deserializeAws_restJson1_1PipelineOutputConfig = (
     __type: "PipelineOutputConfig",
     Bucket: undefined,
     Permissions: undefined,
-    StorageClass: undefined,
+    StorageClass: undefined
   };
   if (output.Bucket !== undefined) {
     contents.Bucket = output.Bucket;
   }
   if (output.Permissions !== undefined) {
-    contents.Permissions = deserializeAws_restJson1_1Permissions(output.Permissions, context);
+    contents.Permissions = deserializeAws_restJson1_1Permissions(
+      output.Permissions,
+      context
+    );
   }
   if (output.StorageClass !== undefined) {
     contents.StorageClass = output.StorageClass;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Pipelines = (
   output: any,
@@ -3403,7 +3942,7 @@ const deserializeAws_restJson1_1Pipelines = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Pipeline(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1PlayReadyDrm = (
   output: any,
@@ -3416,7 +3955,7 @@ const deserializeAws_restJson1_1PlayReadyDrm = (
     Key: undefined,
     KeyId: undefined,
     KeyMd5: undefined,
-    LicenseAcquisitionUrl: undefined,
+    LicenseAcquisitionUrl: undefined
   };
   if (output.Format !== undefined) {
     contents.Format = output.Format;
@@ -3437,7 +3976,7 @@ const deserializeAws_restJson1_1PlayReadyDrm = (
     contents.LicenseAcquisitionUrl = output.LicenseAcquisitionUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Playlist = (
   output: any,
@@ -3451,22 +3990,31 @@ const deserializeAws_restJson1_1Playlist = (
     OutputKeys: undefined,
     PlayReadyDrm: undefined,
     Status: undefined,
-    StatusDetail: undefined,
+    StatusDetail: undefined
   };
   if (output.Format !== undefined) {
     contents.Format = output.Format;
   }
   if (output.HlsContentProtection !== undefined) {
-    contents.HlsContentProtection = deserializeAws_restJson1_1HlsContentProtection(output.HlsContentProtection, context);
+    contents.HlsContentProtection = deserializeAws_restJson1_1HlsContentProtection(
+      output.HlsContentProtection,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.OutputKeys !== undefined) {
-    contents.OutputKeys = deserializeAws_restJson1_1OutputKeys(output.OutputKeys, context);
+    contents.OutputKeys = deserializeAws_restJson1_1OutputKeys(
+      output.OutputKeys,
+      context
+    );
   }
   if (output.PlayReadyDrm !== undefined) {
-    contents.PlayReadyDrm = deserializeAws_restJson1_1PlayReadyDrm(output.PlayReadyDrm, context);
+    contents.PlayReadyDrm = deserializeAws_restJson1_1PlayReadyDrm(
+      output.PlayReadyDrm,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3475,7 +4023,7 @@ const deserializeAws_restJson1_1Playlist = (
     contents.StatusDetail = output.StatusDetail;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Playlists = (
   output: any,
@@ -3484,7 +4032,7 @@ const deserializeAws_restJson1_1Playlists = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Playlist(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Preset = (
   output: any,
@@ -3500,13 +4048,16 @@ const deserializeAws_restJson1_1Preset = (
     Name: undefined,
     Thumbnails: undefined,
     Type: undefined,
-    Video: undefined,
+    Video: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.Audio !== undefined) {
-    contents.Audio = deserializeAws_restJson1_1AudioParameters(output.Audio, context);
+    contents.Audio = deserializeAws_restJson1_1AudioParameters(
+      output.Audio,
+      context
+    );
   }
   if (output.Container !== undefined) {
     contents.Container = output.Container;
@@ -3521,16 +4072,22 @@ const deserializeAws_restJson1_1Preset = (
     contents.Name = output.Name;
   }
   if (output.Thumbnails !== undefined) {
-    contents.Thumbnails = deserializeAws_restJson1_1Thumbnails(output.Thumbnails, context);
+    contents.Thumbnails = deserializeAws_restJson1_1Thumbnails(
+      output.Thumbnails,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   if (output.Video !== undefined) {
-    contents.Video = deserializeAws_restJson1_1VideoParameters(output.Video, context);
+    contents.Video = deserializeAws_restJson1_1VideoParameters(
+      output.Video,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PresetWatermark = (
   output: any,
@@ -3547,7 +4104,7 @@ const deserializeAws_restJson1_1PresetWatermark = (
     SizingPolicy: undefined,
     Target: undefined,
     VerticalAlign: undefined,
-    VerticalOffset: undefined,
+    VerticalOffset: undefined
   };
   if (output.HorizontalAlign !== undefined) {
     contents.HorizontalAlign = output.HorizontalAlign;
@@ -3580,7 +4137,7 @@ const deserializeAws_restJson1_1PresetWatermark = (
     contents.VerticalOffset = output.VerticalOffset;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PresetWatermarks = (
   output: any,
@@ -3589,7 +4146,7 @@ const deserializeAws_restJson1_1PresetWatermarks = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PresetWatermark(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Presets = (
   output: any,
@@ -3598,7 +4155,7 @@ const deserializeAws_restJson1_1Presets = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Preset(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Thumbnails = (
   output: any,
@@ -3613,7 +4170,7 @@ const deserializeAws_restJson1_1Thumbnails = (
     MaxWidth: undefined,
     PaddingPolicy: undefined,
     Resolution: undefined,
-    SizingPolicy: undefined,
+    SizingPolicy: undefined
   };
   if (output.AspectRatio !== undefined) {
     contents.AspectRatio = output.AspectRatio;
@@ -3640,7 +4197,7 @@ const deserializeAws_restJson1_1Thumbnails = (
     contents.SizingPolicy = output.SizingPolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1TimeSpan = (
   output: any,
@@ -3649,7 +4206,7 @@ const deserializeAws_restJson1_1TimeSpan = (
   let contents: any = {
     __type: "TimeSpan",
     Duration: undefined,
-    StartTime: undefined,
+    StartTime: undefined
   };
   if (output.Duration !== undefined) {
     contents.Duration = output.Duration;
@@ -3658,7 +4215,7 @@ const deserializeAws_restJson1_1TimeSpan = (
     contents.StartTime = output.StartTime;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Timing = (
   output: any,
@@ -3668,7 +4225,7 @@ const deserializeAws_restJson1_1Timing = (
     __type: "Timing",
     FinishTimeMillis: undefined,
     StartTimeMillis: undefined,
-    SubmitTimeMillis: undefined,
+    SubmitTimeMillis: undefined
   };
   if (output.FinishTimeMillis !== undefined) {
     contents.FinishTimeMillis = output.FinishTimeMillis;
@@ -3680,7 +4237,7 @@ const deserializeAws_restJson1_1Timing = (
     contents.SubmitTimeMillis = output.SubmitTimeMillis;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UserMetadata = (
   output: any,
@@ -3691,7 +4248,7 @@ const deserializeAws_restJson1_1UserMetadata = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1VideoParameters = (
   output: any,
@@ -3713,7 +4270,7 @@ const deserializeAws_restJson1_1VideoParameters = (
     PaddingPolicy: undefined,
     Resolution: undefined,
     SizingPolicy: undefined,
-    Watermarks: undefined,
+    Watermarks: undefined
   };
   if (output.AspectRatio !== undefined) {
     contents.AspectRatio = output.AspectRatio;
@@ -3725,7 +4282,10 @@ const deserializeAws_restJson1_1VideoParameters = (
     contents.Codec = output.Codec;
   }
   if (output.CodecOptions !== undefined) {
-    contents.CodecOptions = deserializeAws_restJson1_1CodecOptions(output.CodecOptions, context);
+    contents.CodecOptions = deserializeAws_restJson1_1CodecOptions(
+      output.CodecOptions,
+      context
+    );
   }
   if (output.DisplayAspectRatio !== undefined) {
     contents.DisplayAspectRatio = output.DisplayAspectRatio;
@@ -3758,10 +4318,13 @@ const deserializeAws_restJson1_1VideoParameters = (
     contents.SizingPolicy = output.SizingPolicy;
   }
   if (output.Watermarks !== undefined) {
-    contents.Watermarks = deserializeAws_restJson1_1PresetWatermarks(output.Watermarks, context);
+    contents.Watermarks = deserializeAws_restJson1_1PresetWatermarks(
+      output.Watermarks,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Warning = (
   output: any,
@@ -3770,7 +4333,7 @@ const deserializeAws_restJson1_1Warning = (
   let contents: any = {
     __type: "Warning",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -3779,7 +4342,7 @@ const deserializeAws_restJson1_1Warning = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Warnings = (
   output: any,
@@ -3788,7 +4351,7 @@ const deserializeAws_restJson1_1Warnings = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Warning(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

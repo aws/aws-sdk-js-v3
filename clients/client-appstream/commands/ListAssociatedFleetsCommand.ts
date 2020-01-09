@@ -1,20 +1,20 @@
 import {
   AppStreamClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppStreamClient";
 import {
   ListAssociatedFleetsRequest,
-  ListAssociatedFleetsResult,
+  ListAssociatedFleetsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1ListAssociatedFleetsCommand,
-  serializeAws_json1_1ListAssociatedFleetsCommand,
+  serializeAws_json1_1ListAssociatedFleetsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListAssociatedFleetsCommandInput = ListAssociatedFleetsRequest;
 export type ListAssociatedFleetsCommandOutput = ListAssociatedFleetsResult;
 
-export class ListAssociatedFleetsCommand extends $Command<ListAssociatedFleetsCommandInput, ListAssociatedFleetsCommandOutput, AppStreamClientResolvedConfig> {
+export class ListAssociatedFleetsCommand extends $Command<
+  ListAssociatedFleetsCommandInput,
+  ListAssociatedFleetsCommandOutput,
+  AppStreamClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListAssociatedFleetsCommand extends $Command<ListAssociatedFleetsCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAssociatedFleetsCommandInput, ListAssociatedFleetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListAssociatedFleetsCommandInput,
+    ListAssociatedFleetsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

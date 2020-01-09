@@ -1,20 +1,20 @@
 import {
   KinesisVideoArchivedMediaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KinesisVideoArchivedMediaClient";
 import {
   GetHLSStreamingSessionURLInput,
-  GetHLSStreamingSessionURLOutput,
+  GetHLSStreamingSessionURLOutput
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand,
-  serializeAws_restJson1_1GetHLSStreamingSessionURLCommand,
+  serializeAws_restJson1_1GetHLSStreamingSessionURLCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetHLSStreamingSessionURLCommandInput = GetHLSStreamingSessionURLInput;
 export type GetHLSStreamingSessionURLCommandOutput = GetHLSStreamingSessionURLOutput;
 
-export class GetHLSStreamingSessionURLCommand extends $Command<GetHLSStreamingSessionURLCommandInput, GetHLSStreamingSessionURLCommandOutput, KinesisVideoArchivedMediaClientResolvedConfig> {
+export class GetHLSStreamingSessionURLCommand extends $Command<
+  GetHLSStreamingSessionURLCommandInput,
+  GetHLSStreamingSessionURLCommandOutput,
+  KinesisVideoArchivedMediaClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetHLSStreamingSessionURLCommand extends $Command<GetHLSStreamingSe
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoArchivedMediaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetHLSStreamingSessionURLCommandInput, GetHLSStreamingSessionURLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetHLSStreamingSessionURLCommandInput,
+    GetHLSStreamingSessionURLCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetHLSStreamingSessionURLCommand extends $Command<GetHLSStreamingSe
     input: GetHLSStreamingSessionURLCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(input, context);
+    return serializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(output, context);
+    return deserializeAws_restJson1_1GetHLSStreamingSessionURLCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

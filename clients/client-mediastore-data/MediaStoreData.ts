@@ -2,27 +2,27 @@ import { MediaStoreDataClient } from "./MediaStoreDataClient";
 import {
   DeleteObjectCommand,
   DeleteObjectCommandInput,
-  DeleteObjectCommandOutput,
+  DeleteObjectCommandOutput
 } from "./commands/DeleteObjectCommand";
 import {
   DescribeObjectCommand,
   DescribeObjectCommandInput,
-  DescribeObjectCommandOutput,
+  DescribeObjectCommandOutput
 } from "./commands/DescribeObjectCommand";
 import {
   GetObjectCommand,
   GetObjectCommandInput,
-  GetObjectCommandOutput,
+  GetObjectCommandOutput
 } from "./commands/GetObjectCommand";
 import {
   ListItemsCommand,
   ListItemsCommandInput,
-  ListItemsCommandOutput,
+  ListItemsCommandOutput
 } from "./commands/ListItemsCommand";
 import {
   PutObjectCommand,
   PutObjectCommandInput,
-  PutObjectCommandOutput,
+  PutObjectCommandOutput
 } from "./commands/PutObjectCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -42,7 +42,7 @@ export class MediaStoreData extends MediaStoreDataClient {
    */
   public deleteObject(
     args: DeleteObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteObjectCommandOutput>;
   public deleteObject(
     args: DeleteObjectCommandInput,
@@ -55,16 +55,18 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -78,7 +80,7 @@ export class MediaStoreData extends MediaStoreDataClient {
    */
   public describeObject(
     args: DescribeObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeObjectCommandOutput>;
   public describeObject(
     args: DescribeObjectCommandInput,
@@ -91,16 +93,18 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public describeObject(
     args: DescribeObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeObjectCommandOutput) => void),
     cb?: (err: any, data?: DescribeObjectCommandOutput) => void
   ): Promise<DescribeObjectCommandOutput> | void {
     const command = new DescribeObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -114,7 +118,7 @@ export class MediaStoreData extends MediaStoreDataClient {
    */
   public getObject(
     args: GetObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetObjectCommandOutput>;
   public getObject(
     args: GetObjectCommandInput,
@@ -127,16 +131,18 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public getObject(
     args: GetObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetObjectCommandOutput) => void),
     cb?: (err: any, data?: GetObjectCommandOutput) => void
   ): Promise<GetObjectCommandOutput> | void {
     const command = new GetObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -150,7 +156,7 @@ export class MediaStoreData extends MediaStoreDataClient {
    */
   public listItems(
     args: ListItemsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListItemsCommandOutput>;
   public listItems(
     args: ListItemsCommandInput,
@@ -163,16 +169,18 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public listItems(
     args: ListItemsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListItemsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListItemsCommandOutput) => void),
     cb?: (err: any, data?: ListItemsCommandOutput) => void
   ): Promise<ListItemsCommandOutput> | void {
     const command = new ListItemsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -186,7 +194,7 @@ export class MediaStoreData extends MediaStoreDataClient {
    */
   public putObject(
     args: PutObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutObjectCommandOutput>;
   public putObject(
     args: PutObjectCommandInput,
@@ -199,19 +207,20 @@ export class MediaStoreData extends MediaStoreDataClient {
   ): void;
   public putObject(
     args: PutObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutObjectCommandOutput) => void),
     cb?: (err: any, data?: PutObjectCommandOutput) => void
   ): Promise<PutObjectCommandOutput> | void {
     const command = new PutObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

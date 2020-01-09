@@ -1,20 +1,20 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeCommitClient";
 import {
   DeleteApprovalRuleTemplateInput,
-  DeleteApprovalRuleTemplateOutput,
+  DeleteApprovalRuleTemplateOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteApprovalRuleTemplateCommand,
-  serializeAws_json1_1DeleteApprovalRuleTemplateCommand,
+  serializeAws_json1_1DeleteApprovalRuleTemplateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteApprovalRuleTemplateCommandInput = DeleteApprovalRuleTemplateInput;
 export type DeleteApprovalRuleTemplateCommandOutput = DeleteApprovalRuleTemplateOutput;
 
-export class DeleteApprovalRuleTemplateCommand extends $Command<DeleteApprovalRuleTemplateCommandInput, DeleteApprovalRuleTemplateCommandOutput, CodeCommitClientResolvedConfig> {
+export class DeleteApprovalRuleTemplateCommand extends $Command<
+  DeleteApprovalRuleTemplateCommandInput,
+  DeleteApprovalRuleTemplateCommandOutput,
+  CodeCommitClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<DeleteApprovalRu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteApprovalRuleTemplateCommandInput, DeleteApprovalRuleTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteApprovalRuleTemplateCommandInput,
+    DeleteApprovalRuleTemplateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DeleteApprovalRuleTemplateCommand extends $Command<DeleteApprovalRu
     input: DeleteApprovalRuleTemplateCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteApprovalRuleTemplateCommand(input, context);
+    return serializeAws_json1_1DeleteApprovalRuleTemplateCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteApprovalRuleTemplateCommandOutput> {
-    return deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(output, context);
+    return deserializeAws_json1_1DeleteApprovalRuleTemplateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

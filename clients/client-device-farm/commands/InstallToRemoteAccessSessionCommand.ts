@@ -1,20 +1,20 @@
 import {
   DeviceFarmClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DeviceFarmClient";
 import {
   InstallToRemoteAccessSessionRequest,
-  InstallToRemoteAccessSessionResult,
+  InstallToRemoteAccessSessionResult
 } from "../models/index";
 import {
   deserializeAws_json1_1InstallToRemoteAccessSessionCommand,
-  serializeAws_json1_1InstallToRemoteAccessSessionCommand,
+  serializeAws_json1_1InstallToRemoteAccessSessionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type InstallToRemoteAccessSessionCommandInput = InstallToRemoteAccessSessionRequest;
 export type InstallToRemoteAccessSessionCommandOutput = InstallToRemoteAccessSessionResult;
 
-export class InstallToRemoteAccessSessionCommand extends $Command<InstallToRemoteAccessSessionCommandInput, InstallToRemoteAccessSessionCommandOutput, DeviceFarmClientResolvedConfig> {
+export class InstallToRemoteAccessSessionCommand extends $Command<
+  InstallToRemoteAccessSessionCommandInput,
+  InstallToRemoteAccessSessionCommandOutput,
+  DeviceFarmClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class InstallToRemoteAccessSessionCommand extends $Command<InstallToRemot
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<InstallToRemoteAccessSessionCommandInput, InstallToRemoteAccessSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    InstallToRemoteAccessSessionCommandInput,
+    InstallToRemoteAccessSessionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class InstallToRemoteAccessSessionCommand extends $Command<InstallToRemot
     input: InstallToRemoteAccessSessionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(input, context);
+    return serializeAws_json1_1InstallToRemoteAccessSessionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<InstallToRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(output, context);
+    return deserializeAws_json1_1InstallToRemoteAccessSessionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

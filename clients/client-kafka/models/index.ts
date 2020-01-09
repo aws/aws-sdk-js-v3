@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *             <p>Returns information about an error.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -31,7 +33,7 @@ export namespace BadRequestException {
 }
 
 export enum BrokerAZDistribution {
-  DEFAULT = "DEFAULT",
+  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -228,7 +230,7 @@ export namespace ClientAuthentication {
 export enum ClientBroker {
   PLAINTEXT = "PLAINTEXT",
   TLS = "TLS",
-  TLS_PLAINTEXT = "TLS_PLAINTEXT",
+  TLS_PLAINTEXT = "TLS_PLAINTEXT"
 }
 
 /**
@@ -432,7 +434,7 @@ export enum ClusterState {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -559,7 +561,9 @@ export namespace ConfigurationRevision {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -1114,7 +1118,7 @@ export namespace EncryptionInfo {
 export enum EnhancedMonitoring {
   DEFAULT = "DEFAULT",
   PER_BROKER = "PER_BROKER",
-  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER",
+  PER_TOPIC_PER_BROKER = "PER_TOPIC_PER_BROKER"
 }
 
 /**
@@ -1150,7 +1154,9 @@ export namespace ErrorInfo {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -1218,7 +1224,9 @@ export namespace GetBootstrapBrokersResponse {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -1632,7 +1640,7 @@ export namespace NodeInfo {
 }
 
 export enum NodeType {
-  BROKER = "BROKER",
+  BROKER = "BROKER"
 }
 
 /**
@@ -1640,7 +1648,9 @@ export enum NodeType {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -1669,7 +1679,9 @@ export namespace NotFoundException {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**
@@ -1763,7 +1775,9 @@ export namespace Tls {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**
@@ -1792,7 +1806,9 @@ export namespace TooManyRequestsException {
  *             <p>Returns information about an error.</p>
  *
  */
-export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   /**

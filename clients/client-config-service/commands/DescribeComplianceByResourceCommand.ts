@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConfigServiceClient";
 import {
   DescribeComplianceByResourceRequest,
-  DescribeComplianceByResourceResponse,
+  DescribeComplianceByResourceResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeComplianceByResourceCommand,
-  serializeAws_json1_1DescribeComplianceByResourceCommand,
+  serializeAws_json1_1DescribeComplianceByResourceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeComplianceByResourceCommandInput = DescribeComplianceByResourceRequest;
 export type DescribeComplianceByResourceCommandOutput = DescribeComplianceByResourceResponse;
 
-export class DescribeComplianceByResourceCommand extends $Command<DescribeComplianceByResourceCommandInput, DescribeComplianceByResourceCommandOutput, ConfigServiceClientResolvedConfig> {
+export class DescribeComplianceByResourceCommand extends $Command<
+  DescribeComplianceByResourceCommandInput,
+  DescribeComplianceByResourceCommandOutput,
+  ConfigServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeComplianceByResourceCommand extends $Command<DescribeCompli
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeComplianceByResourceCommandInput, DescribeComplianceByResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeComplianceByResourceCommandInput,
+    DescribeComplianceByResourceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeComplianceByResourceCommand extends $Command<DescribeCompli
     input: DescribeComplianceByResourceCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeComplianceByResourceCommand(input, context);
+    return serializeAws_json1_1DescribeComplianceByResourceCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeComplianceByResourceCommandOutput> {
-    return deserializeAws_json1_1DescribeComplianceByResourceCommand(output, context);
+    return deserializeAws_json1_1DescribeComplianceByResourceCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -2,82 +2,82 @@ import { OpsWorksCMClient } from "./OpsWorksCMClient";
 import {
   AssociateNodeCommand,
   AssociateNodeCommandInput,
-  AssociateNodeCommandOutput,
+  AssociateNodeCommandOutput
 } from "./commands/AssociateNodeCommand";
 import {
   CreateBackupCommand,
   CreateBackupCommandInput,
-  CreateBackupCommandOutput,
+  CreateBackupCommandOutput
 } from "./commands/CreateBackupCommand";
 import {
   CreateServerCommand,
   CreateServerCommandInput,
-  CreateServerCommandOutput,
+  CreateServerCommandOutput
 } from "./commands/CreateServerCommand";
 import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
-  DeleteBackupCommandOutput,
+  DeleteBackupCommandOutput
 } from "./commands/DeleteBackupCommand";
 import {
   DeleteServerCommand,
   DeleteServerCommandInput,
-  DeleteServerCommandOutput,
+  DeleteServerCommandOutput
 } from "./commands/DeleteServerCommand";
 import {
   DescribeAccountAttributesCommand,
   DescribeAccountAttributesCommandInput,
-  DescribeAccountAttributesCommandOutput,
+  DescribeAccountAttributesCommandOutput
 } from "./commands/DescribeAccountAttributesCommand";
 import {
   DescribeBackupsCommand,
   DescribeBackupsCommandInput,
-  DescribeBackupsCommandOutput,
+  DescribeBackupsCommandOutput
 } from "./commands/DescribeBackupsCommand";
 import {
   DescribeEventsCommand,
   DescribeEventsCommandInput,
-  DescribeEventsCommandOutput,
+  DescribeEventsCommandOutput
 } from "./commands/DescribeEventsCommand";
 import {
   DescribeNodeAssociationStatusCommand,
   DescribeNodeAssociationStatusCommandInput,
-  DescribeNodeAssociationStatusCommandOutput,
+  DescribeNodeAssociationStatusCommandOutput
 } from "./commands/DescribeNodeAssociationStatusCommand";
 import {
   DescribeServersCommand,
   DescribeServersCommandInput,
-  DescribeServersCommandOutput,
+  DescribeServersCommandOutput
 } from "./commands/DescribeServersCommand";
 import {
   DisassociateNodeCommand,
   DisassociateNodeCommandInput,
-  DisassociateNodeCommandOutput,
+  DisassociateNodeCommandOutput
 } from "./commands/DisassociateNodeCommand";
 import {
   ExportServerEngineAttributeCommand,
   ExportServerEngineAttributeCommandInput,
-  ExportServerEngineAttributeCommandOutput,
+  ExportServerEngineAttributeCommandOutput
 } from "./commands/ExportServerEngineAttributeCommand";
 import {
   RestoreServerCommand,
   RestoreServerCommandInput,
-  RestoreServerCommandOutput,
+  RestoreServerCommandOutput
 } from "./commands/RestoreServerCommand";
 import {
   StartMaintenanceCommand,
   StartMaintenanceCommandInput,
-  StartMaintenanceCommandOutput,
+  StartMaintenanceCommandOutput
 } from "./commands/StartMaintenanceCommand";
 import {
   UpdateServerCommand,
   UpdateServerCommandInput,
-  UpdateServerCommandOutput,
+  UpdateServerCommandOutput
 } from "./commands/UpdateServerCommand";
 import {
   UpdateServerEngineAttributesCommand,
   UpdateServerEngineAttributesCommandInput,
-  UpdateServerEngineAttributesCommandOutput,
+  UpdateServerEngineAttributesCommandOutput
 } from "./commands/UpdateServerEngineAttributesCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -197,7 +197,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public associateNode(
     args: AssociateNodeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AssociateNodeCommandOutput>;
   public associateNode(
     args: AssociateNodeCommandInput,
@@ -210,16 +210,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public associateNode(
     args: AssociateNodeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateNodeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AssociateNodeCommandOutput) => void),
     cb?: (err: any, data?: AssociateNodeCommandOutput) => void
   ): Promise<AssociateNodeCommandOutput> | void {
     const command = new AssociateNodeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -249,7 +251,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public createBackup(
     args: CreateBackupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateBackupCommandOutput>;
   public createBackup(
     args: CreateBackupCommandInput,
@@ -262,16 +264,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public createBackup(
     args: CreateBackupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBackupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBackupCommandOutput) => void),
     cb?: (err: any, data?: CreateBackupCommandOutput) => void
   ): Promise<CreateBackupCommandOutput> | void {
     const command = new CreateBackupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -311,7 +315,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public createServer(
     args: CreateServerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateServerCommandOutput>;
   public createServer(
     args: CreateServerCommandInput,
@@ -324,16 +328,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public createServer(
     args: CreateServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateServerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateServerCommandOutput) => void),
     cb?: (err: any, data?: CreateServerCommandOutput) => void
   ): Promise<CreateServerCommandOutput> | void {
     const command = new CreateServerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -353,7 +359,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteBackupCommandOutput>;
   public deleteBackup(
     args: DeleteBackupCommandInput,
@@ -366,16 +372,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public deleteBackup(
     args: DeleteBackupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBackupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteBackupCommandOutput) => void),
     cb?: (err: any, data?: DeleteBackupCommandOutput) => void
   ): Promise<DeleteBackupCommandOutput> | void {
     const command = new DeleteBackupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -403,7 +411,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public deleteServer(
     args: DeleteServerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteServerCommandOutput>;
   public deleteServer(
     args: DeleteServerCommandInput,
@@ -416,16 +424,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public deleteServer(
     args: DeleteServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteServerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteServerCommandOutput) => void),
     cb?: (err: any, data?: DeleteServerCommandOutput) => void
   ): Promise<DeleteServerCommandOutput> | void {
     const command = new DeleteServerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -443,7 +453,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAccountAttributesCommandOutput>;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
@@ -456,16 +466,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAccountAttributesCommandOutput) => void),
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -488,7 +500,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBackupsCommandOutput>;
   public describeBackups(
     args: DescribeBackupsCommandInput,
@@ -501,16 +513,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeBackups(
     args: DescribeBackupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBackupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBackupsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBackupsCommandOutput) => void
   ): Promise<DescribeBackupsCommandOutput> | void {
     const command = new DescribeBackupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -532,7 +546,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public describeEvents(
     args: DescribeEventsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventsCommandOutput>;
   public describeEvents(
     args: DescribeEventsCommandInput,
@@ -545,16 +559,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeEvents(
     args: DescribeEventsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventsCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventsCommandOutput) => void
   ): Promise<DescribeEventsCommandOutput> | void {
     const command = new DescribeEventsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -573,7 +589,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public describeNodeAssociationStatus(
     args: DescribeNodeAssociationStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeNodeAssociationStatusCommandOutput>;
   public describeNodeAssociationStatus(
     args: DescribeNodeAssociationStatusCommandInput,
@@ -586,16 +602,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeNodeAssociationStatus(
     args: DescribeNodeAssociationStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeNodeAssociationStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeNodeAssociationStatusCommandOutput) => void),
     cb?: (err: any, data?: DescribeNodeAssociationStatusCommandOutput) => void
   ): Promise<DescribeNodeAssociationStatusCommandOutput> | void {
     const command = new DescribeNodeAssociationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -619,7 +637,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public describeServers(
     args: DescribeServersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeServersCommandOutput>;
   public describeServers(
     args: DescribeServersCommandInput,
@@ -632,16 +650,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public describeServers(
     args: DescribeServersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeServersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeServersCommandOutput) => void),
     cb?: (err: any, data?: DescribeServersCommandOutput) => void
   ): Promise<DescribeServersCommandOutput> | void {
     const command = new DescribeServersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -661,7 +681,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public disassociateNode(
     args: DisassociateNodeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateNodeCommandOutput>;
   public disassociateNode(
     args: DisassociateNodeCommandInput,
@@ -674,16 +694,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public disassociateNode(
     args: DisassociateNodeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateNodeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateNodeCommandOutput) => void),
     cb?: (err: any, data?: DisassociateNodeCommandOutput) => void
   ): Promise<DisassociateNodeCommandOutput> | void {
     const command = new DisassociateNodeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -707,7 +729,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public exportServerEngineAttribute(
     args: ExportServerEngineAttributeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ExportServerEngineAttributeCommandOutput>;
   public exportServerEngineAttribute(
     args: ExportServerEngineAttributeCommandInput,
@@ -720,16 +742,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public exportServerEngineAttribute(
     args: ExportServerEngineAttributeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportServerEngineAttributeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ExportServerEngineAttributeCommandOutput) => void),
     cb?: (err: any, data?: ExportServerEngineAttributeCommandOutput) => void
   ): Promise<ExportServerEngineAttributeCommandOutput> | void {
     const command = new ExportServerEngineAttributeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -753,7 +777,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public restoreServer(
     args: RestoreServerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RestoreServerCommandOutput>;
   public restoreServer(
     args: RestoreServerCommandInput,
@@ -766,16 +790,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public restoreServer(
     args: RestoreServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreServerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RestoreServerCommandOutput) => void),
     cb?: (err: any, data?: RestoreServerCommandOutput) => void
   ): Promise<RestoreServerCommandOutput> | void {
     const command = new RestoreServerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -796,7 +822,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public startMaintenance(
     args: StartMaintenanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartMaintenanceCommandOutput>;
   public startMaintenance(
     args: StartMaintenanceCommandInput,
@@ -809,16 +835,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public startMaintenance(
     args: StartMaintenanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartMaintenanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartMaintenanceCommandOutput) => void),
     cb?: (err: any, data?: StartMaintenanceCommandOutput) => void
   ): Promise<StartMaintenanceCommandOutput> | void {
     const command = new StartMaintenanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -836,7 +864,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public updateServer(
     args: UpdateServerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateServerCommandOutput>;
   public updateServer(
     args: UpdateServerCommandInput,
@@ -849,16 +877,18 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public updateServer(
     args: UpdateServerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateServerCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerCommandOutput) => void
   ): Promise<UpdateServerCommandOutput> | void {
     const command = new UpdateServerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -884,7 +914,7 @@ export class OpsWorksCM extends OpsWorksCMClient {
    */
   public updateServerEngineAttributes(
     args: UpdateServerEngineAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateServerEngineAttributesCommandOutput>;
   public updateServerEngineAttributes(
     args: UpdateServerEngineAttributesCommandInput,
@@ -897,19 +927,20 @@ export class OpsWorksCM extends OpsWorksCMClient {
   ): void;
   public updateServerEngineAttributes(
     args: UpdateServerEngineAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateServerEngineAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateServerEngineAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateServerEngineAttributesCommandOutput) => void
   ): Promise<UpdateServerEngineAttributesCommandOutput> | void {
     const command = new UpdateServerEngineAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

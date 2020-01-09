@@ -110,7 +110,7 @@ export namespace EntitlementValue {
 
 export enum GetEntitlementFilterName {
   CUSTOMER_IDENTIFIER = "CUSTOMER_IDENTIFIER",
-  DIMENSION = "DIMENSION",
+  DIMENSION = "DIMENSION"
 }
 
 /**
@@ -200,7 +200,9 @@ export namespace GetEntitlementsResult {
  *    message with details on the AWS forums.</p>
  *
  */
-export interface InternalServiceErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceErrorException";
   $fault: "server";
   message?: string;
@@ -217,7 +219,9 @@ export namespace InternalServiceErrorException {
  *          <p>One or more parameters in your request was invalid.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -234,7 +238,9 @@ export namespace InvalidParameterException {
  *          <p>The calls to the GetEntitlements API are throttled.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message?: string;

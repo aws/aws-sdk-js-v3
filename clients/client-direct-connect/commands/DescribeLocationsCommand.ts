@@ -1,17 +1,17 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectConnectClient";
 import { Locations } from "../models/index";
 import {
   deserializeAws_json1_1DescribeLocationsCommand,
-  serializeAws_json1_1DescribeLocationsCommand,
+  serializeAws_json1_1DescribeLocationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -20,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
-export type DescribeLocationsCommandInput = {}
+export type DescribeLocationsCommandInput = {};
 export type DescribeLocationsCommandOutput = Locations;
 
-export class DescribeLocationsCommand extends $Command<DescribeLocationsCommandInput, DescribeLocationsCommandOutput, DirectConnectClientResolvedConfig> {
+export class DescribeLocationsCommand extends $Command<
+  DescribeLocationsCommandInput,
+  DescribeLocationsCommandOutput,
+  DirectConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,13 +45,15 @@ export class DescribeLocationsCommand extends $Command<DescribeLocationsCommandI
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeLocationsCommandInput, DescribeLocationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

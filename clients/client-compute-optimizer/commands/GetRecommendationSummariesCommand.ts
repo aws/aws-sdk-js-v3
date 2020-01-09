@@ -1,20 +1,20 @@
 import {
   ComputeOptimizerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ComputeOptimizerClient";
 import {
   GetRecommendationSummariesRequest,
-  GetRecommendationSummariesResponse,
+  GetRecommendationSummariesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_0GetRecommendationSummariesCommand,
-  serializeAws_json1_0GetRecommendationSummariesCommand,
+  serializeAws_json1_0GetRecommendationSummariesCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetRecommendationSummariesCommandInput = GetRecommendationSummariesRequest;
 export type GetRecommendationSummariesCommandOutput = GetRecommendationSummariesResponse;
 
-export class GetRecommendationSummariesCommand extends $Command<GetRecommendationSummariesCommandInput, GetRecommendationSummariesCommandOutput, ComputeOptimizerClientResolvedConfig> {
+export class GetRecommendationSummariesCommand extends $Command<
+  GetRecommendationSummariesCommandInput,
+  GetRecommendationSummariesCommandOutput,
+  ComputeOptimizerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetRecommendationSummariesCommand extends $Command<GetRecommendatio
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComputeOptimizerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRecommendationSummariesCommandInput, GetRecommendationSummariesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetRecommendationSummariesCommandInput,
+    GetRecommendationSummariesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetRecommendationSummariesCommand extends $Command<GetRecommendatio
     input: GetRecommendationSummariesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0GetRecommendationSummariesCommand(input, context);
+    return serializeAws_json1_0GetRecommendationSummariesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetRecommendationSummariesCommandOutput> {
-    return deserializeAws_json1_0GetRecommendationSummariesCommand(output, context);
+    return deserializeAws_json1_0GetRecommendationSummariesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

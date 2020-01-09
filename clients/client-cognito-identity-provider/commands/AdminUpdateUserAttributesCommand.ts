@@ -1,20 +1,20 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
 import {
   AdminUpdateUserAttributesRequest,
-  AdminUpdateUserAttributesResponse,
+  AdminUpdateUserAttributesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1AdminUpdateUserAttributesCommand,
-  serializeAws_json1_1AdminUpdateUserAttributesCommand,
+  serializeAws_json1_1AdminUpdateUserAttributesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type AdminUpdateUserAttributesCommandInput = AdminUpdateUserAttributesRequest;
 export type AdminUpdateUserAttributesCommandOutput = AdminUpdateUserAttributesResponse;
 
-export class AdminUpdateUserAttributesCommand extends $Command<AdminUpdateUserAttributesCommandInput, AdminUpdateUserAttributesCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
+export class AdminUpdateUserAttributesCommand extends $Command<
+  AdminUpdateUserAttributesCommandInput,
+  AdminUpdateUserAttributesCommandOutput,
+  CognitoIdentityProviderClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class AdminUpdateUserAttributesCommand extends $Command<AdminUpdateUserAt
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AdminUpdateUserAttributesCommandInput, AdminUpdateUserAttributesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AdminUpdateUserAttributesCommandInput,
+    AdminUpdateUserAttributesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class AdminUpdateUserAttributesCommand extends $Command<AdminUpdateUserAt
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AdminUpdateUserAttributesCommandOutput> {
-    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(output, context);
+    return deserializeAws_json1_1AdminUpdateUserAttributesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

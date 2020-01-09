@@ -1,20 +1,20 @@
 import {
   IoTThingsGraphClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../IoTThingsGraphClient";
 import {
   UndeploySystemInstanceRequest,
-  UndeploySystemInstanceResponse,
+  UndeploySystemInstanceResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UndeploySystemInstanceCommand,
-  serializeAws_json1_1UndeploySystemInstanceCommand,
+  serializeAws_json1_1UndeploySystemInstanceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UndeploySystemInstanceCommandInput = UndeploySystemInstanceRequest;
 export type UndeploySystemInstanceCommandOutput = UndeploySystemInstanceResponse;
 
-export class UndeploySystemInstanceCommand extends $Command<UndeploySystemInstanceCommandInput, UndeploySystemInstanceCommandOutput, IoTThingsGraphClientResolvedConfig> {
+export class UndeploySystemInstanceCommand extends $Command<
+  UndeploySystemInstanceCommandInput,
+  UndeploySystemInstanceCommandOutput,
+  IoTThingsGraphClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UndeploySystemInstanceCommand extends $Command<UndeploySystemInstan
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UndeploySystemInstanceCommandInput, UndeploySystemInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UndeploySystemInstanceCommandInput,
+    UndeploySystemInstanceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

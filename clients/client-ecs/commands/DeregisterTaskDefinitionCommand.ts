@@ -1,20 +1,20 @@
 import {
   ECSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ECSClient";
 import {
   DeregisterTaskDefinitionRequest,
-  DeregisterTaskDefinitionResponse,
+  DeregisterTaskDefinitionResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeregisterTaskDefinitionCommand,
-  serializeAws_json1_1DeregisterTaskDefinitionCommand,
+  serializeAws_json1_1DeregisterTaskDefinitionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeregisterTaskDefinitionCommandInput = DeregisterTaskDefinitionRequest;
 export type DeregisterTaskDefinitionCommandOutput = DeregisterTaskDefinitionResponse;
 
-export class DeregisterTaskDefinitionCommand extends $Command<DeregisterTaskDefinitionCommandInput, DeregisterTaskDefinitionCommandOutput, ECSClientResolvedConfig> {
+export class DeregisterTaskDefinitionCommand extends $Command<
+  DeregisterTaskDefinitionCommandInput,
+  DeregisterTaskDefinitionCommandOutput,
+  ECSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeregisterTaskDefinitionCommand extends $Command<DeregisterTaskDefi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeregisterTaskDefinitionCommandInput, DeregisterTaskDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeregisterTaskDefinitionCommandInput,
+    DeregisterTaskDefinitionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DeregisterTaskDefinitionCommand extends $Command<DeregisterTaskDefi
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeregisterTaskDefinitionCommandOutput> {
-    return deserializeAws_json1_1DeregisterTaskDefinitionCommand(output, context);
+    return deserializeAws_json1_1DeregisterTaskDefinitionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

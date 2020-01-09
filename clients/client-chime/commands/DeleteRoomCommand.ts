@@ -1,17 +1,17 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
 import { DeleteRoomRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteRoomCommand,
-  serializeAws_restJson1_1DeleteRoomCommand,
+  serializeAws_restJson1_1DeleteRoomCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteRoomCommandInput = DeleteRoomRequest;
-export type DeleteRoomCommandOutput = __MetadataBearer
+export type DeleteRoomCommandOutput = __MetadataBearer;
 
-export class DeleteRoomCommand extends $Command<DeleteRoomCommandInput, DeleteRoomCommandOutput, ChimeClientResolvedConfig> {
+export class DeleteRoomCommand extends $Command<
+  DeleteRoomCommandInput,
+  DeleteRoomCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class DeleteRoomCommand extends $Command<DeleteRoomCommandInput, DeleteRo
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteRoomCommandInput, DeleteRoomCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -2,7 +2,7 @@ import {
   DeleteConnectionRequest,
   GetConnectionRequest,
   GetConnectionResponse,
-  PostToConnectionRequest,
+  PostToConnectionRequest
 } from "./models/index";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig";
 import {
@@ -11,38 +11,38 @@ import {
   RegionInputConfig,
   RegionResolvedConfig,
   resolveEndpointsConfig,
-  resolveRegionConfig,
+  resolveRegionConfig
 } from "@aws-sdk/config-resolver";
 import { getContentLengthPlugin } from "@aws-sdk/middleware-content-length";
 import {
   HostHeaderInputConfig,
   HostHeaderResolvedConfig,
   getHostHeaderPlugin,
-  resolveHostHeaderConfig,
+  resolveHostHeaderConfig
 } from "@aws-sdk/middleware-host-header";
 import {
   RetryInputConfig,
   RetryResolvedConfig,
   getRetryPlugin,
-  resolveRetryConfig,
+  resolveRetryConfig
 } from "@aws-sdk/middleware-retry";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
   getAwsAuthPlugin,
-  resolveAwsAuthConfig,
+  resolveAwsAuthConfig
 } from "@aws-sdk/middleware-signing";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
-  resolveUserAgentConfig,
+  resolveUserAgentConfig
 } from "@aws-sdk/middleware-user-agent";
 import { HttpHandler as __HttpHandler } from "@aws-sdk/protocol-http";
 import {
   Client as __Client,
   SmithyConfiguration as __SmithyConfiguration,
-  SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
+  SmithyResolvedConfiguration as __SmithyResolvedConfiguration
 } from "@aws-sdk/smithy-client";
 import {
   RegionInfoProvider,
@@ -54,7 +54,7 @@ import {
   MetadataBearer as __MetadataBearer,
   Provider as __Provider,
   StreamCollector as __StreamCollector,
-  UrlParser as __UrlParser,
+  UrlParser as __UrlParser
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
@@ -62,9 +62,7 @@ export type ServiceInputTypes =
   | GetConnectionRequest
   | PostToConnectionRequest;
 
-export type ServiceOutputTypes =
-  | __MetadataBearer
-  | GetConnectionResponse;
+export type ServiceOutputTypes = __MetadataBearer | GetConnectionResponse;
 
 export interface ClientDefaults
   extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -145,23 +143,27 @@ export interface ClientDefaults
   regionInfoProvider?: RegionInfoProvider;
 }
 
-export type ApiGatewayManagementApiClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>>
-  & ClientDefaults
-  & RegionInputConfig
-  & EndpointsInputConfig
-  & AwsAuthInputConfig
-  & RetryInputConfig
-  & UserAgentInputConfig
-  & HostHeaderInputConfig
+export type ApiGatewayManagementApiClientConfig = Partial<
+  __SmithyConfiguration<__HttpHandlerOptions>
+> &
+  ClientDefaults &
+  RegionInputConfig &
+  EndpointsInputConfig &
+  AwsAuthInputConfig &
+  RetryInputConfig &
+  UserAgentInputConfig &
+  HostHeaderInputConfig;
 
-export type ApiGatewayManagementApiClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions>
-  & Required<ClientDefaults>
-  & RegionResolvedConfig
-  & EndpointsResolvedConfig
-  & AwsAuthResolvedConfig
-  & RetryResolvedConfig
-  & UserAgentResolvedConfig
-  & HostHeaderResolvedConfig
+export type ApiGatewayManagementApiClientResolvedConfig = __SmithyResolvedConfiguration<
+  __HttpHandlerOptions
+> &
+  Required<ClientDefaults> &
+  RegionResolvedConfig &
+  EndpointsResolvedConfig &
+  AwsAuthResolvedConfig &
+  RetryResolvedConfig &
+  UserAgentResolvedConfig &
+  HostHeaderResolvedConfig;
 
 /**
  * <p>The Amazon API Gateway Management API allows you to directly manage runtime aspects of your deployed APIs. To use it, you must explicitly set the SDK's endpoint to point to the endpoint of your deployed API. The endpoint will be of the form https://{api-id}.execute-api.{region}.amazonaws.com/{stage}, or will be the endpoint corresponding to your API's custom domain and base path, if applicable.</p>
@@ -194,6 +196,5 @@ export class ApiGatewayManagementApiClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
   }
 
-  destroy(): void {
-  }
+  destroy(): void {}
 }

@@ -1,20 +1,20 @@
 import {
   PinpointSMSVoiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointSMSVoiceClient";
 import {
   CreateConfigurationSetRequest,
-  CreateConfigurationSetResponse,
+  CreateConfigurationSetResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateConfigurationSetCommand,
-  serializeAws_restJson1_1CreateConfigurationSetCommand,
+  serializeAws_restJson1_1CreateConfigurationSetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateConfigurationSetCommandInput = CreateConfigurationSetRequest;
 export type CreateConfigurationSetCommandOutput = CreateConfigurationSetResponse;
 
-export class CreateConfigurationSetCommand extends $Command<CreateConfigurationSetCommandInput, CreateConfigurationSetCommandOutput, PinpointSMSVoiceClientResolvedConfig> {
+export class CreateConfigurationSetCommand extends $Command<
+  CreateConfigurationSetCommandInput,
+  CreateConfigurationSetCommandOutput,
+  PinpointSMSVoiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateConfigurationSetCommand extends $Command<CreateConfigurationS
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointSMSVoiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateConfigurationSetCommandInput, CreateConfigurationSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateConfigurationSetCommandInput,
+    CreateConfigurationSetCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class CreateConfigurationSetCommand extends $Command<CreateConfigurationS
     input: CreateConfigurationSetCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1CreateConfigurationSetCommand(input, context);
+    return serializeAws_restJson1_1CreateConfigurationSetCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateConfigurationSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateConfigurationSetCommand(output, context);
+    return deserializeAws_restJson1_1CreateConfigurationSetCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

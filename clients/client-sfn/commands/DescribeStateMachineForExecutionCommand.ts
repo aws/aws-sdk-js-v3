@@ -1,20 +1,20 @@
 import {
   SFNClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SFNClient";
 import {
   DescribeStateMachineForExecutionInput,
-  DescribeStateMachineForExecutionOutput,
+  DescribeStateMachineForExecutionOutput
 } from "../models/index";
 import {
   deserializeAws_json1_0DescribeStateMachineForExecutionCommand,
-  serializeAws_json1_0DescribeStateMachineForExecutionCommand,
+  serializeAws_json1_0DescribeStateMachineForExecutionCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeStateMachineForExecutionCommandInput = DescribeStateMachineForExecutionInput;
 export type DescribeStateMachineForExecutionCommandOutput = DescribeStateMachineForExecutionOutput;
 
-export class DescribeStateMachineForExecutionCommand extends $Command<DescribeStateMachineForExecutionCommandInput, DescribeStateMachineForExecutionCommandOutput, SFNClientResolvedConfig> {
+export class DescribeStateMachineForExecutionCommand extends $Command<
+  DescribeStateMachineForExecutionCommandInput,
+  DescribeStateMachineForExecutionCommandOutput,
+  SFNClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeStateMachineForExecutionCommand extends $Command<DescribeSt
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeStateMachineForExecutionCommandInput, DescribeStateMachineForExecutionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeStateMachineForExecutionCommandInput,
+    DescribeStateMachineForExecutionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeStateMachineForExecutionCommand extends $Command<DescribeSt
     input: DescribeStateMachineForExecutionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(input, context);
+    return serializeAws_json1_0DescribeStateMachineForExecutionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeStateMachineForExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(output, context);
+    return deserializeAws_json1_0DescribeStateMachineForExecutionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

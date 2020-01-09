@@ -547,7 +547,9 @@ export namespace InstanceIdentity {
  *         <p>An internal service error occurred.</p>
  *
  */
-export interface InternalServiceError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceError";
   $fault: "server";
   /**
@@ -569,7 +571,9 @@ export namespace InternalServiceError {
  *         <p>The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -733,7 +737,7 @@ export enum OperatorType {
   Equal = "EQ",
   GreaterThanOrEqual = "GE",
   LessThanOrEqual = "LE",
-  ReferenceEqual = "REF_EQ",
+  ReferenceEqual = "REF_EQ"
 }
 
 /**
@@ -825,7 +829,9 @@ export namespace ParameterValue {
  *         <p>The specified pipeline has been deleted.</p>
  *
  */
-export interface PipelineDeletedException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineDeletedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineDeletedException";
   $fault: "client";
   /**
@@ -925,7 +931,9 @@ export namespace PipelineIdName {
  *         <p>The specified pipeline was not found. Verify that you used the correct user and account identifiers.</p>
  *
  */
-export interface PipelineNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -1177,7 +1185,7 @@ export interface QueryObjectsInput {
 
   /**
    *
-   *         <p>Indicates whether the query applies to components or instances. The possible values are:	
+   *         <p>Indicates whether the query applies to components or instances. The possible values are:
    *             <code>COMPONENT</code>, <code>INSTANCE</code>, and <code>ATTEMPT</code>.</p>
    *
    */
@@ -1540,7 +1548,9 @@ export namespace Tag {
  *         <p>The specified task was not found.</p>
  *
  */
-export interface TaskNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface TaskNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TaskNotFoundException";
   $fault: "client";
   /**
@@ -1602,7 +1612,7 @@ export namespace TaskObject {
 export enum TaskStatus {
   FAILED = "FAILED",
   FALSE = "FALSE",
-  FINISHED = "FINISHED",
+  FINISHED = "FINISHED"
 }
 
 /**

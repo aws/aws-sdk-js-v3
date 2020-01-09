@@ -1,20 +1,17 @@
 import {
   NetworkManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  UpdateLinkRequest,
-  UpdateLinkResponse,
-} from "../models/index";
+import { UpdateLinkRequest, UpdateLinkResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateLinkCommand,
-  serializeAws_restJson1_1UpdateLinkCommand,
+  serializeAws_restJson1_1UpdateLinkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateLinkCommandInput = UpdateLinkRequest;
 export type UpdateLinkCommandOutput = UpdateLinkResponse;
 
-export class UpdateLinkCommand extends $Command<UpdateLinkCommandInput, UpdateLinkCommandOutput, NetworkManagerClientResolvedConfig> {
+export class UpdateLinkCommand extends $Command<
+  UpdateLinkCommandInput,
+  UpdateLinkCommandOutput,
+  NetworkManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateLinkCommand extends $Command<UpdateLinkCommandInput, UpdateLi
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateLinkCommandInput, UpdateLinkCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

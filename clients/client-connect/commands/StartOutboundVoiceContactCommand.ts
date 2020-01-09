@@ -1,20 +1,20 @@
 import {
   ConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConnectClient";
 import {
   StartOutboundVoiceContactRequest,
-  StartOutboundVoiceContactResponse,
+  StartOutboundVoiceContactResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1StartOutboundVoiceContactCommand,
-  serializeAws_restJson1_1StartOutboundVoiceContactCommand,
+  serializeAws_restJson1_1StartOutboundVoiceContactCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type StartOutboundVoiceContactCommandInput = StartOutboundVoiceContactRequest;
 export type StartOutboundVoiceContactCommandOutput = StartOutboundVoiceContactResponse;
 
-export class StartOutboundVoiceContactCommand extends $Command<StartOutboundVoiceContactCommandInput, StartOutboundVoiceContactCommandOutput, ConnectClientResolvedConfig> {
+export class StartOutboundVoiceContactCommand extends $Command<
+  StartOutboundVoiceContactCommandInput,
+  StartOutboundVoiceContactCommandOutput,
+  ConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class StartOutboundVoiceContactCommand extends $Command<StartOutboundVoic
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartOutboundVoiceContactCommandInput, StartOutboundVoiceContactCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    StartOutboundVoiceContactCommandInput,
+    StartOutboundVoiceContactCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class StartOutboundVoiceContactCommand extends $Command<StartOutboundVoic
     input: StartOutboundVoiceContactCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1StartOutboundVoiceContactCommand(input, context);
+    return serializeAws_restJson1_1StartOutboundVoiceContactCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<StartOutboundVoiceContactCommandOutput> {
-    return deserializeAws_restJson1_1StartOutboundVoiceContactCommand(output, context);
+    return deserializeAws_restJson1_1StartOutboundVoiceContactCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

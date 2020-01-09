@@ -1,20 +1,20 @@
 import {
   DynamoDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DynamoDBClient";
 import {
   DescribeTableReplicaAutoScalingInput,
-  DescribeTableReplicaAutoScalingOutput,
+  DescribeTableReplicaAutoScalingOutput
 } from "../models/index";
 import {
   deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
-  serializeAws_json1_0DescribeTableReplicaAutoScalingCommand,
+  serializeAws_json1_0DescribeTableReplicaAutoScalingCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeTableReplicaAutoScalingCommandInput = DescribeTableReplicaAutoScalingInput;
 export type DescribeTableReplicaAutoScalingCommandOutput = DescribeTableReplicaAutoScalingOutput;
 
-export class DescribeTableReplicaAutoScalingCommand extends $Command<DescribeTableReplicaAutoScalingCommandInput, DescribeTableReplicaAutoScalingCommandOutput, DynamoDBClientResolvedConfig> {
+export class DescribeTableReplicaAutoScalingCommand extends $Command<
+  DescribeTableReplicaAutoScalingCommandInput,
+  DescribeTableReplicaAutoScalingCommandOutput,
+  DynamoDBClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<DescribeTab
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeTableReplicaAutoScalingCommandInput, DescribeTableReplicaAutoScalingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeTableReplicaAutoScalingCommandInput,
+    DescribeTableReplicaAutoScalingCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeTableReplicaAutoScalingCommand extends $Command<DescribeTab
     input: DescribeTableReplicaAutoScalingCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(input, context);
+    return serializeAws_json1_0DescribeTableReplicaAutoScalingCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeTableReplicaAutoScalingCommandOutput> {
-    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand(output, context);
+    return deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

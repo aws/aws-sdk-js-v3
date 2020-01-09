@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  codestarnotificationsClientResolvedConfig,
+  codestarnotificationsClientResolvedConfig
 } from "../codestarnotificationsClient";
 import {
   UpdateNotificationRuleRequest,
-  UpdateNotificationRuleResult,
+  UpdateNotificationRuleResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateNotificationRuleCommand,
-  serializeAws_restJson1_1UpdateNotificationRuleCommand,
+  serializeAws_restJson1_1UpdateNotificationRuleCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateNotificationRuleCommandInput = UpdateNotificationRuleRequest;
 export type UpdateNotificationRuleCommandOutput = UpdateNotificationRuleResult;
 
-export class UpdateNotificationRuleCommand extends $Command<UpdateNotificationRuleCommandInput, UpdateNotificationRuleCommandOutput, codestarnotificationsClientResolvedConfig> {
+export class UpdateNotificationRuleCommand extends $Command<
+  UpdateNotificationRuleCommandInput,
+  UpdateNotificationRuleCommandOutput,
+  codestarnotificationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateNotificationRuleCommand extends $Command<UpdateNotificationRu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: codestarnotificationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateNotificationRuleCommandInput, UpdateNotificationRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateNotificationRuleCommandInput,
+    UpdateNotificationRuleCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateNotificationRuleCommand extends $Command<UpdateNotificationRu
     input: UpdateNotificationRuleCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateNotificationRuleCommand(input, context);
+    return serializeAws_restJson1_1UpdateNotificationRuleCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateNotificationRuleCommandOutput> {
-    return deserializeAws_restJson1_1UpdateNotificationRuleCommand(output, context);
+    return deserializeAws_restJson1_1UpdateNotificationRuleCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

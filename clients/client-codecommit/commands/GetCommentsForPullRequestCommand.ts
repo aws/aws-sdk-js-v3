@@ -1,20 +1,20 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeCommitClient";
 import {
   GetCommentsForPullRequestInput,
-  GetCommentsForPullRequestOutput,
+  GetCommentsForPullRequestOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1GetCommentsForPullRequestCommand,
-  serializeAws_json1_1GetCommentsForPullRequestCommand,
+  serializeAws_json1_1GetCommentsForPullRequestCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetCommentsForPullRequestCommandInput = GetCommentsForPullRequestInput;
 export type GetCommentsForPullRequestCommandOutput = GetCommentsForPullRequestOutput;
 
-export class GetCommentsForPullRequestCommand extends $Command<GetCommentsForPullRequestCommandInput, GetCommentsForPullRequestCommandOutput, CodeCommitClientResolvedConfig> {
+export class GetCommentsForPullRequestCommand extends $Command<
+  GetCommentsForPullRequestCommandInput,
+  GetCommentsForPullRequestCommandOutput,
+  CodeCommitClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetCommentsForPullRequestCommand extends $Command<GetCommentsForPul
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetCommentsForPullRequestCommandInput, GetCommentsForPullRequestCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetCommentsForPullRequestCommandInput,
+    GetCommentsForPullRequestCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class GetCommentsForPullRequestCommand extends $Command<GetCommentsForPul
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetCommentsForPullRequestCommandOutput> {
-    return deserializeAws_json1_1GetCommentsForPullRequestCommand(output, context);
+    return deserializeAws_json1_1GetCommentsForPullRequestCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

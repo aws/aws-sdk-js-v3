@@ -7,7 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       enabled in your organization. To enable, call <a>AssociateServiceQuotaTemplate</a>.</p>
  *
  */
-export interface AWSServiceAccessNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface AWSServiceAccessNotEnabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AWSServiceAccessNotEnabledException";
   $fault: "client";
   Message?: string;
@@ -24,7 +26,9 @@ export namespace AWSServiceAccessNotEnabledException {
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -81,18 +85,29 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-  export function isa(o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
-    return _smithy.isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateRequest");
+  export function isa(
+    o: any
+  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateRequest {
+    return _smithy.isa(
+      o,
+      "DeleteServiceQuotaIncreaseRequestFromTemplateRequest"
+    );
   }
 }
 
-export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse extends $MetadataBearer {
+export interface DeleteServiceQuotaIncreaseRequestFromTemplateResponse
+  extends $MetadataBearer {
   __type?: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse";
 }
 
 export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-  export function isa(o: any): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
-    return _smithy.isa(o, "DeleteServiceQuotaIncreaseRequestFromTemplateResponse");
+  export function isa(
+    o: any
+  ): o is DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
+    return _smithy.isa(
+      o,
+      "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
+    );
   }
 }
 
@@ -101,7 +116,9 @@ export namespace DeleteServiceQuotaIncreaseRequestFromTemplateResponse {
  *          <p>You can't perform this action because a dependency does not have access.</p>
  *
  */
-export interface DependencyAccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface DependencyAccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DependencyAccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -123,7 +140,8 @@ export namespace DisassociateServiceQuotaTemplateRequest {
   }
 }
 
-export interface DisassociateServiceQuotaTemplateResponse extends $MetadataBearer {
+export interface DisassociateServiceQuotaTemplateResponse
+  extends $MetadataBearer {
   __type?: "DisassociateServiceQuotaTemplateResponse";
 }
 
@@ -137,7 +155,7 @@ export enum ErrorCode {
   DEPENDENCY_ACCESS_DENIED_ERROR = "DEPENDENCY_ACCESS_DENIED_ERROR",
   DEPENDENCY_SERVICE_ERROR = "DEPENDENCY_SERVICE_ERROR",
   DEPENDENCY_THROTTLING_ERROR = "DEPENDENCY_THROTTLING_ERROR",
-  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR",
+  SERVICE_QUOTA_NOT_AVAILABLE_ERROR = "SERVICE_QUOTA_NOT_AVAILABLE_ERROR"
 }
 
 /**
@@ -227,12 +245,15 @@ export interface GetAssociationForServiceQuotaTemplateRequest {
 }
 
 export namespace GetAssociationForServiceQuotaTemplateRequest {
-  export function isa(o: any): o is GetAssociationForServiceQuotaTemplateRequest {
+  export function isa(
+    o: any
+  ): o is GetAssociationForServiceQuotaTemplateRequest {
     return _smithy.isa(o, "GetAssociationForServiceQuotaTemplateRequest");
   }
 }
 
-export interface GetAssociationForServiceQuotaTemplateResponse extends $MetadataBearer {
+export interface GetAssociationForServiceQuotaTemplateResponse
+  extends $MetadataBearer {
   __type?: "GetAssociationForServiceQuotaTemplateResponse";
   /**
    *
@@ -241,11 +262,15 @@ export interface GetAssociationForServiceQuotaTemplateResponse extends $Metadata
    *       new accounts created in your organization. </p>
    *
    */
-  ServiceQuotaTemplateAssociationStatus?: ServiceQuotaTemplateAssociationStatus | string;
+  ServiceQuotaTemplateAssociationStatus?:
+    | ServiceQuotaTemplateAssociationStatus
+    | string;
 }
 
 export namespace GetAssociationForServiceQuotaTemplateResponse {
-  export function isa(o: any): o is GetAssociationForServiceQuotaTemplateResponse {
+  export function isa(
+    o: any
+  ): o is GetAssociationForServiceQuotaTemplateResponse {
     return _smithy.isa(o, "GetAssociationForServiceQuotaTemplateResponse");
   }
 }
@@ -266,7 +291,8 @@ export namespace GetRequestedServiceQuotaChangeRequest {
   }
 }
 
-export interface GetRequestedServiceQuotaChangeResponse extends $MetadataBearer {
+export interface GetRequestedServiceQuotaChangeResponse
+  extends $MetadataBearer {
   __type?: "GetRequestedServiceQuotaChangeResponse";
   /**
    *
@@ -308,12 +334,15 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateRequest {
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateRequest {
-  export function isa(o: any): o is GetServiceQuotaIncreaseRequestFromTemplateRequest {
+  export function isa(
+    o: any
+  ): o is GetServiceQuotaIncreaseRequestFromTemplateRequest {
     return _smithy.isa(o, "GetServiceQuotaIncreaseRequestFromTemplateRequest");
   }
 }
 
-export interface GetServiceQuotaIncreaseRequestFromTemplateResponse extends $MetadataBearer {
+export interface GetServiceQuotaIncreaseRequestFromTemplateResponse
+  extends $MetadataBearer {
   __type?: "GetServiceQuotaIncreaseRequestFromTemplateResponse";
   /**
    *
@@ -324,7 +353,9 @@ export interface GetServiceQuotaIncreaseRequestFromTemplateResponse extends $Met
 }
 
 export namespace GetServiceQuotaIncreaseRequestFromTemplateResponse {
-  export function isa(o: any): o is GetServiceQuotaIncreaseRequestFromTemplateResponse {
+  export function isa(
+    o: any
+  ): o is GetServiceQuotaIncreaseRequestFromTemplateResponse {
     return _smithy.isa(o, "GetServiceQuotaIncreaseRequestFromTemplateResponse");
   }
 }
@@ -374,7 +405,9 @@ export namespace GetServiceQuotaResponse {
  *          <p>Invalid input was provided. </p>
  *
  */
-export interface IllegalArgumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface IllegalArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IllegalArgumentException";
   $fault: "client";
   Message?: string;
@@ -391,7 +424,9 @@ export namespace IllegalArgumentException {
  *          <p>Invalid input was provided.</p>
  *
  */
-export interface InvalidPaginationTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPaginationTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPaginationTokenException";
   $fault: "client";
   Message?: string;
@@ -408,7 +443,9 @@ export namespace InvalidPaginationTokenException {
  *          <p>Invalid input was provided for the . </p>
  *
  */
-export interface InvalidResourceStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceStateException";
   $fault: "client";
   Message?: string;
@@ -537,12 +574,18 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-  export function isa(o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
-    return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaRequest");
+  export function isa(
+    o: any
+  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaRequest {
+    return _smithy.isa(
+      o,
+      "ListRequestedServiceQuotaChangeHistoryByQuotaRequest"
+    );
   }
 }
 
-export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse extends $MetadataBearer {
+export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse
+  extends $MetadataBearer {
   __type?: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse";
   /**
    *
@@ -565,8 +608,13 @@ export interface ListRequestedServiceQuotaChangeHistoryByQuotaResponse extends $
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-  export function isa(o: any): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
-    return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryByQuotaResponse");
+  export function isa(
+    o: any
+  ): o is ListRequestedServiceQuotaChangeHistoryByQuotaResponse {
+    return _smithy.isa(
+      o,
+      "ListRequestedServiceQuotaChangeHistoryByQuotaResponse"
+    );
   }
 }
 
@@ -611,12 +659,15 @@ export interface ListRequestedServiceQuotaChangeHistoryRequest {
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryRequest {
-  export function isa(o: any): o is ListRequestedServiceQuotaChangeHistoryRequest {
+  export function isa(
+    o: any
+  ): o is ListRequestedServiceQuotaChangeHistoryRequest {
     return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryRequest");
   }
 }
 
-export interface ListRequestedServiceQuotaChangeHistoryResponse extends $MetadataBearer {
+export interface ListRequestedServiceQuotaChangeHistoryResponse
+  extends $MetadataBearer {
   __type?: "ListRequestedServiceQuotaChangeHistoryResponse";
   /**
    *
@@ -639,7 +690,9 @@ export interface ListRequestedServiceQuotaChangeHistoryResponse extends $Metadat
 }
 
 export namespace ListRequestedServiceQuotaChangeHistoryResponse {
-  export function isa(o: any): o is ListRequestedServiceQuotaChangeHistoryResponse {
+  export function isa(
+    o: any
+  ): o is ListRequestedServiceQuotaChangeHistoryResponse {
     return _smithy.isa(o, "ListRequestedServiceQuotaChangeHistoryResponse");
   }
 }
@@ -686,12 +739,15 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateRequest {
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateRequest {
-  export function isa(o: any): o is ListServiceQuotaIncreaseRequestsInTemplateRequest {
+  export function isa(
+    o: any
+  ): o is ListServiceQuotaIncreaseRequestsInTemplateRequest {
     return _smithy.isa(o, "ListServiceQuotaIncreaseRequestsInTemplateRequest");
   }
 }
 
-export interface ListServiceQuotaIncreaseRequestsInTemplateResponse extends $MetadataBearer {
+export interface ListServiceQuotaIncreaseRequestsInTemplateResponse
+  extends $MetadataBearer {
   __type?: "ListServiceQuotaIncreaseRequestsInTemplateResponse";
   /**
    *
@@ -710,11 +766,15 @@ export interface ListServiceQuotaIncreaseRequestsInTemplateResponse extends $Met
    *          <p>Returns the list of values of the quota increase request in the template.</p>
    *
    */
-  ServiceQuotaIncreaseRequestInTemplateList?: Array<ServiceQuotaIncreaseRequestInTemplate>;
+  ServiceQuotaIncreaseRequestInTemplateList?: Array<
+    ServiceQuotaIncreaseRequestInTemplate
+  >;
 }
 
 export namespace ListServiceQuotaIncreaseRequestsInTemplateResponse {
-  export function isa(o: any): o is ListServiceQuotaIncreaseRequestsInTemplateResponse {
+  export function isa(
+    o: any
+  ): o is ListServiceQuotaIncreaseRequestsInTemplateResponse {
     return _smithy.isa(o, "ListServiceQuotaIncreaseRequestsInTemplateResponse");
   }
 }
@@ -902,7 +962,9 @@ export namespace MetricInfo {
  *          <p>The account making this call is not a member of an organization.</p>
  *
  */
-export interface NoAvailableOrganizationException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoAvailableOrganizationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoAvailableOrganizationException";
   $fault: "client";
   Message?: string;
@@ -919,7 +981,9 @@ export namespace NoAvailableOrganizationException {
  *          <p>The specified resource does not exist.</p>
  *
  */
-export interface NoSuchResourceException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoSuchResourceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoSuchResourceException";
   $fault: "client";
   Message?: string;
@@ -937,7 +1001,9 @@ export namespace NoSuchResourceException {
  *       features mode, see <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAllFeatures.html">EnableAllFeatures</a>.</p>
  *
  */
-export interface OrganizationNotInAllFeaturesModeException extends _smithy.SmithyException, $MetadataBearer {
+export interface OrganizationNotInAllFeaturesModeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OrganizationNotInAllFeaturesModeException";
   $fault: "client";
   Message?: string;
@@ -956,7 +1022,7 @@ export enum PeriodUnit {
   MILLISECOND = "MILLISECOND",
   MINUTE = "MINUTE",
   SECOND = "SECOND",
-  WEEK = "WEEK",
+  WEEK = "WEEK"
 }
 
 export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
@@ -991,12 +1057,15 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateRequest {
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateRequest {
-  export function isa(o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest {
+  export function isa(
+    o: any
+  ): o is PutServiceQuotaIncreaseRequestIntoTemplateRequest {
     return _smithy.isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateRequest");
   }
 }
 
-export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse extends $MetadataBearer {
+export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse
+  extends $MetadataBearer {
   __type?: "PutServiceQuotaIncreaseRequestIntoTemplateResponse";
   /**
    *
@@ -1007,7 +1076,9 @@ export interface PutServiceQuotaIncreaseRequestIntoTemplateResponse extends $Met
 }
 
 export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
-  export function isa(o: any): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse {
+  export function isa(
+    o: any
+  ): o is PutServiceQuotaIncreaseRequestIntoTemplateResponse {
     return _smithy.isa(o, "PutServiceQuotaIncreaseRequestIntoTemplateResponse");
   }
 }
@@ -1018,7 +1089,9 @@ export namespace PutServiceQuotaIncreaseRequestIntoTemplateResponse {
  *       relevant resources, or use Service Quotas to request a service quota increase.</p>
  *
  */
-export interface QuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface QuotaExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "QuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -1109,7 +1182,7 @@ export enum RequestStatus {
   CASE_CLOSED = "CASE_CLOSED",
   CASE_OPENED = "CASE_OPENED",
   DENIED = "DENIED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -1230,7 +1303,9 @@ export namespace RequestedServiceQuotaChange {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -1247,7 +1322,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>Something went wrong. </p>
  *
  */
-export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -1459,7 +1536,7 @@ export namespace ServiceQuotaIncreaseRequestInTemplate {
 
 export enum ServiceQuotaTemplateAssociationStatus {
   ASSOCIATED = "ASSOCIATED",
-  DISASSOCIATED = "DISASSOCIATED",
+  DISASSOCIATED = "DISASSOCIATED"
 }
 
 /**
@@ -1468,7 +1545,9 @@ export enum ServiceQuotaTemplateAssociationStatus {
  *          <p>To use the template, call <a>AssociateServiceQuotaTemplate</a>. </p>
  *
  */
-export interface ServiceQuotaTemplateNotInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceQuotaTemplateNotInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceQuotaTemplateNotInUseException";
   $fault: "client";
   Message?: string;
@@ -1486,7 +1565,9 @@ export namespace ServiceQuotaTemplateNotInUseException {
  *       request. Please make the request in us-east-1. </p>
  *
  */
-export interface TemplatesNotAvailableInRegionException extends _smithy.SmithyException, $MetadataBearer {
+export interface TemplatesNotAvailableInRegionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TemplatesNotAvailableInRegionException";
   $fault: "client";
   Message?: string;
@@ -1504,7 +1585,9 @@ export namespace TemplatesNotAvailableInRegionException {
  *       an increase for this quota. </p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;

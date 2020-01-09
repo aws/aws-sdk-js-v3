@@ -3,17 +3,17 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ContainerFormat {
   FRAGMENTED_MP4 = "FRAGMENTED_MP4",
-  MPEG_TS = "MPEG_TS",
+  MPEG_TS = "MPEG_TS"
 }
 
 export enum DASHDisplayFragmentNumber {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
+  NEVER = "NEVER"
 }
 
 export enum DASHDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
+  NEVER = "NEVER"
 }
 
 /**
@@ -69,13 +69,13 @@ export namespace DASHFragmentSelector {
 
 export enum DASHFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
 }
 
 export enum DASHPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
+  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -236,7 +236,7 @@ export namespace FragmentSelector {
 
 export enum FragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
 }
 
 export interface GetDASHStreamingSessionURLInput {
@@ -751,12 +751,12 @@ export namespace GetMediaForFragmentListOutput {
 export enum HLSDiscontinuityMode {
   ALWAYS = "ALWAYS",
   NEVER = "NEVER",
-  ON_DISCONTINUITY = "ON_DISCONTINUITY",
+  ON_DISCONTINUITY = "ON_DISCONTINUITY"
 }
 
 export enum HLSDisplayFragmentTimestamp {
   ALWAYS = "ALWAYS",
-  NEVER = "NEVER",
+  NEVER = "NEVER"
 }
 
 /**
@@ -812,13 +812,13 @@ export namespace HLSFragmentSelector {
 
 export enum HLSFragmentSelectorType {
   PRODUCER_TIMESTAMP = "PRODUCER_TIMESTAMP",
-  SERVER_TIMESTAMP = "SERVER_TIMESTAMP",
+  SERVER_TIMESTAMP = "SERVER_TIMESTAMP"
 }
 
 export enum HLSPlaybackMode {
   LIVE = "LIVE",
   LIVE_REPLAY = "LIVE_REPLAY",
-  ON_DEMAND = "ON_DEMAND",
+  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -981,7 +981,9 @@ export namespace TimestampRange {
  *             allowed client calls. Try making the call later.</p>
  *
  */
-export interface ClientLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClientLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClientLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -999,7 +1001,9 @@ export namespace ClientLimitExceededException {
  *             used.</p>
  *
  */
-export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -1017,7 +1021,9 @@ export namespace InvalidArgumentException {
  *             for this operation.</p>
  *
  */
-export interface InvalidCodecPrivateDataException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCodecPrivateDataException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -1034,7 +1040,9 @@ export namespace InvalidCodecPrivateDataException {
  *         <p>No codec private data was found in at least one of tracks of the video stream.</p>
  *
  */
-export interface MissingCodecPrivateDataException extends _smithy.SmithyException, $MetadataBearer {
+export interface MissingCodecPrivateDataException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MissingCodecPrivateDataException";
   $fault: "client";
   Message?: string;
@@ -1052,7 +1060,9 @@ export namespace MissingCodecPrivateDataException {
  *             a <code>DataRetentionInHours</code> of 0). </p>
  *
  */
-export interface NoDataRetentionException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoDataRetentionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoDataRetentionException";
   $fault: "client";
   Message?: string;
@@ -1070,7 +1080,9 @@ export namespace NoDataRetentionException {
  *             stream, or the token has expired.</p>
  *
  */
-export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   Message?: string;
@@ -1096,7 +1108,9 @@ export namespace NotAuthorizedException {
  *             seconds.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1116,7 +1130,9 @@ export namespace ResourceNotFoundException {
  *             the codec ID for track 2 should be <code>A_AAC</code>.</p>
  *
  */
-export interface UnsupportedStreamMediaTypeException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedStreamMediaTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedStreamMediaTypeException";
   $fault: "client";
   Message?: string;

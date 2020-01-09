@@ -1,17 +1,17 @@
 import { TagResourceRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1TagResourceCommand,
-  serializeAws_restJson1_1TagResourceCommand,
+  serializeAws_restJson1_1TagResourceCommand
 } from "../protocols/Aws_restJson1_1";
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  schemasClientResolvedConfig,
+  schemasClientResolvedConfig
 } from "../schemasClient";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type TagResourceCommandInput = TagResourceRequest;
-export type TagResourceCommandOutput = __MetadataBearer
+export type TagResourceCommandOutput = __MetadataBearer;
 
-export class TagResourceCommand extends $Command<TagResourceCommandInput, TagResourceCommandOutput, schemasClientResolvedConfig> {
+export class TagResourceCommand extends $Command<
+  TagResourceCommandInput,
+  TagResourceCommandOutput,
+  schemasClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class TagResourceCommand extends $Command<TagResourceCommandInput, TagRes
     configuration: schemasClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

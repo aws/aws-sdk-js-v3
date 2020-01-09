@@ -324,7 +324,8 @@ export namespace DisassociateDeviceFromPlacementRequest {
   }
 }
 
-export interface DisassociateDeviceFromPlacementResponse extends $MetadataBearer {
+export interface DisassociateDeviceFromPlacementResponse
+  extends $MetadataBearer {
   __type?: "DisassociateDeviceFromPlacementResponse";
 }
 
@@ -378,7 +379,9 @@ export namespace GetDevicesInPlacementResponse {
  *          <p></p>
  *
  */
-export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   code: string | undefined;
@@ -396,7 +399,9 @@ export namespace InternalFailureException {
  *          <p></p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   code: string | undefined;
@@ -732,7 +737,9 @@ export namespace ProjectSummary {
  *          <p></p>
  *
  */
-export interface ResourceConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceConflictException";
   $fault: "client";
   code: string | undefined;
@@ -750,7 +757,9 @@ export namespace ResourceConflictException {
  *          <p></p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   code: string | undefined;
@@ -768,7 +777,9 @@ export namespace ResourceNotFoundException {
  *          <p></p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   code: string | undefined;

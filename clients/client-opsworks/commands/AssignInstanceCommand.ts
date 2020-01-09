@@ -1,17 +1,17 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksClient";
 import { AssignInstanceRequest } from "../models/index";
 import {
   deserializeAws_json1_1AssignInstanceCommand,
-  serializeAws_json1_1AssignInstanceCommand,
+  serializeAws_json1_1AssignInstanceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type AssignInstanceCommandInput = AssignInstanceRequest;
-export type AssignInstanceCommandOutput = __MetadataBearer
+export type AssignInstanceCommandOutput = __MetadataBearer;
 
-export class AssignInstanceCommand extends $Command<AssignInstanceCommandInput, AssignInstanceCommandOutput, OpsWorksClientResolvedConfig> {
+export class AssignInstanceCommand extends $Command<
+  AssignInstanceCommandInput,
+  AssignInstanceCommandOutput,
+  OpsWorksClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class AssignInstanceCommand extends $Command<AssignInstanceCommandInput, 
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<AssignInstanceCommandInput, AssignInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

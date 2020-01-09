@@ -1,17 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import { DeprecateActivityTypeInput } from "../models/index";
 import {
   deserializeAws_json1_0DeprecateActivityTypeCommand,
-  serializeAws_json1_0DeprecateActivityTypeCommand,
+  serializeAws_json1_0DeprecateActivityTypeCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeprecateActivityTypeCommandInput = DeprecateActivityTypeInput;
-export type DeprecateActivityTypeCommandOutput = __MetadataBearer
+export type DeprecateActivityTypeCommandOutput = __MetadataBearer;
 
-export class DeprecateActivityTypeCommand extends $Command<DeprecateActivityTypeCommandInput, DeprecateActivityTypeCommandOutput, SWFClientResolvedConfig> {
+export class DeprecateActivityTypeCommand extends $Command<
+  DeprecateActivityTypeCommandInput,
+  DeprecateActivityTypeCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeprecateActivityTypeCommand extends $Command<DeprecateActivityType
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeprecateActivityTypeCommandInput, DeprecateActivityTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeprecateActivityTypeCommandInput,
+    DeprecateActivityTypeCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

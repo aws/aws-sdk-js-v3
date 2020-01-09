@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You do not have sufficient access to perform this action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -145,7 +147,9 @@ export namespace DescribeHomeRegionControlsResult {
  *         <code>DryRun</code> flag is set to true.</p>
  *
  */
-export interface DryRunOperation extends _smithy.SmithyException, $MetadataBearer {
+export interface DryRunOperation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DryRunOperation";
   $fault: "client";
   Message?: string;
@@ -238,7 +242,9 @@ export namespace HomeRegionControl {
  *       encountered.</p>
  *
  */
-export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -256,7 +262,9 @@ export namespace InternalServerError {
  *       wrong format or data type.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -273,7 +281,9 @@ export namespace InvalidInputException {
  *          <p>Exception raised when a request fails due to temporary unavailability of the service.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -316,5 +326,5 @@ export namespace Target {
 }
 
 export enum TargetType {
-  ACCOUNT = "ACCOUNT",
+  ACCOUNT = "ACCOUNT"
 }

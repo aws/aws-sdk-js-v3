@@ -1,20 +1,20 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AlexaForBusinessClient";
 import {
   ListConferenceProvidersRequest,
-  ListConferenceProvidersResponse,
+  ListConferenceProvidersResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListConferenceProvidersCommand,
-  serializeAws_json1_1ListConferenceProvidersCommand,
+  serializeAws_json1_1ListConferenceProvidersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListConferenceProvidersCommandInput = ListConferenceProvidersRequest;
 export type ListConferenceProvidersCommandOutput = ListConferenceProvidersResponse;
 
-export class ListConferenceProvidersCommand extends $Command<ListConferenceProvidersCommandInput, ListConferenceProvidersCommandOutput, AlexaForBusinessClientResolvedConfig> {
+export class ListConferenceProvidersCommand extends $Command<
+  ListConferenceProvidersCommandInput,
+  ListConferenceProvidersCommandOutput,
+  AlexaForBusinessClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListConferenceProvidersCommand extends $Command<ListConferenceProvi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListConferenceProvidersCommandInput, ListConferenceProvidersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListConferenceProvidersCommandInput,
+    ListConferenceProvidersCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class ListConferenceProvidersCommand extends $Command<ListConferenceProvi
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListConferenceProvidersCommandOutput> {
-    return deserializeAws_json1_1ListConferenceProvidersCommand(output, context);
+    return deserializeAws_json1_1ListConferenceProvidersCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

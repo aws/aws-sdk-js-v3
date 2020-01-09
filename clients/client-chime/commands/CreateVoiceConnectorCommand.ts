@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
 import {
   CreateVoiceConnectorRequest,
-  CreateVoiceConnectorResponse,
+  CreateVoiceConnectorResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateVoiceConnectorCommand,
-  serializeAws_restJson1_1CreateVoiceConnectorCommand,
+  serializeAws_restJson1_1CreateVoiceConnectorCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateVoiceConnectorCommandInput = CreateVoiceConnectorRequest;
 export type CreateVoiceConnectorCommandOutput = CreateVoiceConnectorResponse;
 
-export class CreateVoiceConnectorCommand extends $Command<CreateVoiceConnectorCommandInput, CreateVoiceConnectorCommandOutput, ChimeClientResolvedConfig> {
+export class CreateVoiceConnectorCommand extends $Command<
+  CreateVoiceConnectorCommandInput,
+  CreateVoiceConnectorCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateVoiceConnectorCommand extends $Command<CreateVoiceConnectorCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateVoiceConnectorCommandInput, CreateVoiceConnectorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateVoiceConnectorCommandInput,
+    CreateVoiceConnectorCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class CreateVoiceConnectorCommand extends $Command<CreateVoiceConnectorCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateVoiceConnectorCommandOutput> {
-    return deserializeAws_restJson1_1CreateVoiceConnectorCommand(output, context);
+    return deserializeAws_restJson1_1CreateVoiceConnectorCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

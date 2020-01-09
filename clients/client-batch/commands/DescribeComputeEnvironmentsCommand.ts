@@ -1,20 +1,20 @@
 import {
   BatchClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../BatchClient";
 import {
   DescribeComputeEnvironmentsRequest,
-  DescribeComputeEnvironmentsResponse,
+  DescribeComputeEnvironmentsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand,
-  serializeAws_restJson1_1DescribeComputeEnvironmentsCommand,
+  serializeAws_restJson1_1DescribeComputeEnvironmentsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeComputeEnvironmentsCommandInput = DescribeComputeEnvironmentsRequest;
 export type DescribeComputeEnvironmentsCommandOutput = DescribeComputeEnvironmentsResponse;
 
-export class DescribeComputeEnvironmentsCommand extends $Command<DescribeComputeEnvironmentsCommandInput, DescribeComputeEnvironmentsCommandOutput, BatchClientResolvedConfig> {
+export class DescribeComputeEnvironmentsCommand extends $Command<
+  DescribeComputeEnvironmentsCommandInput,
+  DescribeComputeEnvironmentsCommandOutput,
+  BatchClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeComputeEnvironmentsCommand extends $Command<DescribeCompute
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BatchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeComputeEnvironmentsCommandInput, DescribeComputeEnvironmentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeComputeEnvironmentsCommandInput,
+    DescribeComputeEnvironmentsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeComputeEnvironmentsCommand extends $Command<DescribeCompute
     input: DescribeComputeEnvironmentsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DescribeComputeEnvironmentsCommand(input, context);
+    return serializeAws_restJson1_1DescribeComputeEnvironmentsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeComputeEnvironmentsCommandOutput> {
-    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand(output, context);
+    return deserializeAws_restJson1_1DescribeComputeEnvironmentsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

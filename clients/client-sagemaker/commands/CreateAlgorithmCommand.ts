@@ -1,20 +1,17 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerClient";
-import {
-  CreateAlgorithmInput,
-  CreateAlgorithmOutput,
-} from "../models/index";
+import { CreateAlgorithmInput, CreateAlgorithmOutput } from "../models/index";
 import {
   deserializeAws_json1_1CreateAlgorithmCommand,
-  serializeAws_json1_1CreateAlgorithmCommand,
+  serializeAws_json1_1CreateAlgorithmCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateAlgorithmCommandInput = CreateAlgorithmInput;
 export type CreateAlgorithmCommandOutput = CreateAlgorithmOutput;
 
-export class CreateAlgorithmCommand extends $Command<CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput, SageMakerClientResolvedConfig> {
+export class CreateAlgorithmCommand extends $Command<
+  CreateAlgorithmCommandInput,
+  CreateAlgorithmCommandOutput,
+  SageMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateAlgorithmCommand extends $Command<CreateAlgorithmCommandInput
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAlgorithmCommandInput, CreateAlgorithmCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

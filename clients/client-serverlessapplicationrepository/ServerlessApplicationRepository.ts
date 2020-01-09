@@ -2,67 +2,67 @@ import { ServerlessApplicationRepositoryClient } from "./ServerlessApplicationRe
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+  CreateApplicationCommandOutput
 } from "./commands/CreateApplicationCommand";
 import {
   CreateApplicationVersionCommand,
   CreateApplicationVersionCommandInput,
-  CreateApplicationVersionCommandOutput,
+  CreateApplicationVersionCommandOutput
 } from "./commands/CreateApplicationVersionCommand";
 import {
   CreateCloudFormationChangeSetCommand,
   CreateCloudFormationChangeSetCommandInput,
-  CreateCloudFormationChangeSetCommandOutput,
+  CreateCloudFormationChangeSetCommandOutput
 } from "./commands/CreateCloudFormationChangeSetCommand";
 import {
   CreateCloudFormationTemplateCommand,
   CreateCloudFormationTemplateCommandInput,
-  CreateCloudFormationTemplateCommandOutput,
+  CreateCloudFormationTemplateCommandOutput
 } from "./commands/CreateCloudFormationTemplateCommand";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
+  DeleteApplicationCommandOutput
 } from "./commands/DeleteApplicationCommand";
 import {
   GetApplicationCommand,
   GetApplicationCommandInput,
-  GetApplicationCommandOutput,
+  GetApplicationCommandOutput
 } from "./commands/GetApplicationCommand";
 import {
   GetApplicationPolicyCommand,
   GetApplicationPolicyCommandInput,
-  GetApplicationPolicyCommandOutput,
+  GetApplicationPolicyCommandOutput
 } from "./commands/GetApplicationPolicyCommand";
 import {
   GetCloudFormationTemplateCommand,
   GetCloudFormationTemplateCommandInput,
-  GetCloudFormationTemplateCommandOutput,
+  GetCloudFormationTemplateCommandOutput
 } from "./commands/GetCloudFormationTemplateCommand";
 import {
   ListApplicationDependenciesCommand,
   ListApplicationDependenciesCommandInput,
-  ListApplicationDependenciesCommandOutput,
+  ListApplicationDependenciesCommandOutput
 } from "./commands/ListApplicationDependenciesCommand";
 import {
   ListApplicationVersionsCommand,
   ListApplicationVersionsCommandInput,
-  ListApplicationVersionsCommandOutput,
+  ListApplicationVersionsCommandOutput
 } from "./commands/ListApplicationVersionsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
+  ListApplicationsCommandOutput
 } from "./commands/ListApplicationsCommand";
 import {
   PutApplicationPolicyCommand,
   PutApplicationPolicyCommandInput,
-  PutApplicationPolicyCommandOutput,
+  PutApplicationPolicyCommandOutput
 } from "./commands/PutApplicationPolicyCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+  UpdateApplicationCommandOutput
 } from "./commands/UpdateApplicationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -94,7 +94,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApplicationCommandOutput>;
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -107,16 +107,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -127,7 +129,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApplicationVersionCommandOutput>;
   public createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
@@ -140,16 +142,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public createApplicationVersion(
     args: CreateApplicationVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApplicationVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationVersionCommandOutput) => void
   ): Promise<CreateApplicationVersionCommandOutput> | void {
     const command = new CreateApplicationVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -160,7 +164,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCloudFormationChangeSetCommandOutput>;
   public createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
@@ -173,16 +177,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public createCloudFormationChangeSet(
     args: CreateCloudFormationChangeSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCloudFormationChangeSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCloudFormationChangeSetCommandOutput) => void),
     cb?: (err: any, data?: CreateCloudFormationChangeSetCommandOutput) => void
   ): Promise<CreateCloudFormationChangeSetCommandOutput> | void {
     const command = new CreateCloudFormationChangeSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -193,7 +199,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCloudFormationTemplateCommandOutput>;
   public createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
@@ -206,16 +212,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public createCloudFormationTemplate(
     args: CreateCloudFormationTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCloudFormationTemplateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCloudFormationTemplateCommandOutput) => void),
     cb?: (err: any, data?: CreateCloudFormationTemplateCommandOutput) => void
   ): Promise<CreateCloudFormationTemplateCommandOutput> | void {
     const command = new CreateCloudFormationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -226,7 +234,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApplicationCommandOutput>;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -239,16 +247,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -259,7 +269,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
   public getApplication(
     args: GetApplicationCommandInput,
@@ -272,16 +282,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public getApplication(
     args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApplicationCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -292,7 +304,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApplicationPolicyCommandOutput>;
   public getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
@@ -305,16 +317,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public getApplicationPolicy(
     args: GetApplicationPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApplicationPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationPolicyCommandOutput) => void
   ): Promise<GetApplicationPolicyCommandOutput> | void {
     const command = new GetApplicationPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -325,7 +339,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCloudFormationTemplateCommandOutput>;
   public getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
@@ -338,16 +352,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public getCloudFormationTemplate(
     args: GetCloudFormationTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCloudFormationTemplateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCloudFormationTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetCloudFormationTemplateCommandOutput) => void
   ): Promise<GetCloudFormationTemplateCommandOutput> | void {
     const command = new GetCloudFormationTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -358,7 +374,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationDependenciesCommandOutput>;
   public listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
@@ -371,16 +387,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public listApplicationDependencies(
     args: ListApplicationDependenciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationDependenciesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationDependenciesCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationDependenciesCommandOutput) => void
   ): Promise<ListApplicationDependenciesCommandOutput> | void {
     const command = new ListApplicationDependenciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -391,7 +409,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationVersionsCommandOutput>;
   public listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
@@ -404,16 +422,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public listApplicationVersions(
     args: ListApplicationVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationVersionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationVersionsCommandOutput) => void
   ): Promise<ListApplicationVersionsCommandOutput> | void {
     const command = new ListApplicationVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -424,7 +444,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationsCommandOutput>;
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -437,16 +457,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -460,7 +482,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutApplicationPolicyCommandOutput>;
   public putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
@@ -473,16 +495,18 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public putApplicationPolicy(
     args: PutApplicationPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutApplicationPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutApplicationPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutApplicationPolicyCommandOutput) => void
   ): Promise<PutApplicationPolicyCommandOutput> | void {
     const command = new PutApplicationPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -493,7 +517,7 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApplicationCommandOutput>;
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -506,19 +530,20 @@ export class ServerlessApplicationRepository extends ServerlessApplicationReposi
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

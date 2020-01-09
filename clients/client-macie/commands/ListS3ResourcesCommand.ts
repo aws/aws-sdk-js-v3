@@ -1,20 +1,17 @@
 import {
   MacieClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MacieClient";
-import {
-  ListS3ResourcesRequest,
-  ListS3ResourcesResult,
-} from "../models/index";
+import { ListS3ResourcesRequest, ListS3ResourcesResult } from "../models/index";
 import {
   deserializeAws_json1_1ListS3ResourcesCommand,
-  serializeAws_json1_1ListS3ResourcesCommand,
+  serializeAws_json1_1ListS3ResourcesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListS3ResourcesCommandInput = ListS3ResourcesRequest;
 export type ListS3ResourcesCommandOutput = ListS3ResourcesResult;
 
-export class ListS3ResourcesCommand extends $Command<ListS3ResourcesCommandInput, ListS3ResourcesCommandOutput, MacieClientResolvedConfig> {
+export class ListS3ResourcesCommand extends $Command<
+  ListS3ResourcesCommandInput,
+  ListS3ResourcesCommandOutput,
+  MacieClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListS3ResourcesCommand extends $Command<ListS3ResourcesCommandInput
     configuration: MacieClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListS3ResourcesCommandInput, ListS3ResourcesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

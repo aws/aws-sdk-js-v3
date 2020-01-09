@@ -1,20 +1,17 @@
 import {
   NetworkManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../NetworkManagerClient";
-import {
-  GetDevicesRequest,
-  GetDevicesResponse,
-} from "../models/index";
+import { GetDevicesRequest, GetDevicesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetDevicesCommand,
-  serializeAws_restJson1_1GetDevicesCommand,
+  serializeAws_restJson1_1GetDevicesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetDevicesCommandInput = GetDevicesRequest;
 export type GetDevicesCommandOutput = GetDevicesResponse;
 
-export class GetDevicesCommand extends $Command<GetDevicesCommandInput, GetDevicesCommandOutput, NetworkManagerClientResolvedConfig> {
+export class GetDevicesCommand extends $Command<
+  GetDevicesCommandInput,
+  GetDevicesCommandOutput,
+  NetworkManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetDevicesCommand extends $Command<GetDevicesCommandInput, GetDevic
     configuration: NetworkManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDevicesCommandInput, GetDevicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

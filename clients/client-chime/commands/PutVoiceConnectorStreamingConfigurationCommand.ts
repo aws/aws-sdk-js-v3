@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
 import {
   PutVoiceConnectorStreamingConfigurationRequest,
-  PutVoiceConnectorStreamingConfigurationResponse,
+  PutVoiceConnectorStreamingConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand,
-  serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand,
+  serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PutVoiceConnectorStreamingConfigurationCommandInput = PutVoiceConnectorStreamingConfigurationRequest;
 export type PutVoiceConnectorStreamingConfigurationCommandOutput = PutVoiceConnectorStreamingConfigurationResponse;
 
-export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<PutVoiceConnectorStreamingConfigurationCommandInput, PutVoiceConnectorStreamingConfigurationCommandOutput, ChimeClientResolvedConfig> {
+export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<
+  PutVoiceConnectorStreamingConfigurationCommandInput,
+  PutVoiceConnectorStreamingConfigurationCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: PutVoiceConnectorStreamingConfigurationCommandInput) {
+  constructor(
+    readonly input: PutVoiceConnectorStreamingConfigurationCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<Put
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutVoiceConnectorStreamingConfigurationCommandInput, PutVoiceConnectorStreamingConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PutVoiceConnectorStreamingConfigurationCommandInput,
+    PutVoiceConnectorStreamingConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class PutVoiceConnectorStreamingConfigurationCommand extends $Command<Put
     input: PutVoiceConnectorStreamingConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand(input, context);
+    return serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutVoiceConnectorStreamingConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

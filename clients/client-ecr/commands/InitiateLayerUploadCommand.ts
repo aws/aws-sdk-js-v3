@@ -1,20 +1,20 @@
 import {
   ECRClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ECRClient";
 import {
   InitiateLayerUploadRequest,
-  InitiateLayerUploadResponse,
+  InitiateLayerUploadResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1InitiateLayerUploadCommand,
-  serializeAws_json1_1InitiateLayerUploadCommand,
+  serializeAws_json1_1InitiateLayerUploadCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type InitiateLayerUploadCommandInput = InitiateLayerUploadRequest;
 export type InitiateLayerUploadCommandOutput = InitiateLayerUploadResponse;
 
-export class InitiateLayerUploadCommand extends $Command<InitiateLayerUploadCommandInput, InitiateLayerUploadCommandOutput, ECRClientResolvedConfig> {
+export class InitiateLayerUploadCommand extends $Command<
+  InitiateLayerUploadCommandInput,
+  InitiateLayerUploadCommandOutput,
+  ECRClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class InitiateLayerUploadCommand extends $Command<InitiateLayerUploadComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<InitiateLayerUploadCommandInput, InitiateLayerUploadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    InitiateLayerUploadCommandInput,
+    InitiateLayerUploadCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

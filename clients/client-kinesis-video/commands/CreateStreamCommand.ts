@@ -1,20 +1,17 @@
 import {
   KinesisVideoClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KinesisVideoClient";
-import {
-  CreateStreamInput,
-  CreateStreamOutput,
-} from "../models/index";
+import { CreateStreamInput, CreateStreamOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateStreamCommand,
-  serializeAws_restJson1_1CreateStreamCommand,
+  serializeAws_restJson1_1CreateStreamCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateStreamCommandInput = CreateStreamInput;
 export type CreateStreamCommandOutput = CreateStreamOutput;
 
-export class CreateStreamCommand extends $Command<CreateStreamCommandInput, CreateStreamCommandOutput, KinesisVideoClientResolvedConfig> {
+export class CreateStreamCommand extends $Command<
+  CreateStreamCommandInput,
+  CreateStreamCommandOutput,
+  KinesisVideoClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateStreamCommand extends $Command<CreateStreamCommandInput, Crea
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateStreamCommandInput, CreateStreamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

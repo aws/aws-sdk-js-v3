@@ -2,197 +2,197 @@ import { PersonalizeClient } from "./PersonalizeClient";
 import {
   CreateBatchInferenceJobCommand,
   CreateBatchInferenceJobCommandInput,
-  CreateBatchInferenceJobCommandOutput,
+  CreateBatchInferenceJobCommandOutput
 } from "./commands/CreateBatchInferenceJobCommand";
 import {
   CreateCampaignCommand,
   CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
+  CreateCampaignCommandOutput
 } from "./commands/CreateCampaignCommand";
 import {
   CreateDatasetCommand,
   CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
+  CreateDatasetCommandOutput
 } from "./commands/CreateDatasetCommand";
 import {
   CreateDatasetGroupCommand,
   CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput,
+  CreateDatasetGroupCommandOutput
 } from "./commands/CreateDatasetGroupCommand";
 import {
   CreateDatasetImportJobCommand,
   CreateDatasetImportJobCommandInput,
-  CreateDatasetImportJobCommandOutput,
+  CreateDatasetImportJobCommandOutput
 } from "./commands/CreateDatasetImportJobCommand";
 import {
   CreateEventTrackerCommand,
   CreateEventTrackerCommandInput,
-  CreateEventTrackerCommandOutput,
+  CreateEventTrackerCommandOutput
 } from "./commands/CreateEventTrackerCommand";
 import {
   CreateSchemaCommand,
   CreateSchemaCommandInput,
-  CreateSchemaCommandOutput,
+  CreateSchemaCommandOutput
 } from "./commands/CreateSchemaCommand";
 import {
   CreateSolutionCommand,
   CreateSolutionCommandInput,
-  CreateSolutionCommandOutput,
+  CreateSolutionCommandOutput
 } from "./commands/CreateSolutionCommand";
 import {
   CreateSolutionVersionCommand,
   CreateSolutionVersionCommandInput,
-  CreateSolutionVersionCommandOutput,
+  CreateSolutionVersionCommandOutput
 } from "./commands/CreateSolutionVersionCommand";
 import {
   DeleteCampaignCommand,
   DeleteCampaignCommandInput,
-  DeleteCampaignCommandOutput,
+  DeleteCampaignCommandOutput
 } from "./commands/DeleteCampaignCommand";
 import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
+  DeleteDatasetCommandOutput
 } from "./commands/DeleteDatasetCommand";
 import {
   DeleteDatasetGroupCommand,
   DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput,
+  DeleteDatasetGroupCommandOutput
 } from "./commands/DeleteDatasetGroupCommand";
 import {
   DeleteEventTrackerCommand,
   DeleteEventTrackerCommandInput,
-  DeleteEventTrackerCommandOutput,
+  DeleteEventTrackerCommandOutput
 } from "./commands/DeleteEventTrackerCommand";
 import {
   DeleteSchemaCommand,
   DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
+  DeleteSchemaCommandOutput
 } from "./commands/DeleteSchemaCommand";
 import {
   DeleteSolutionCommand,
   DeleteSolutionCommandInput,
-  DeleteSolutionCommandOutput,
+  DeleteSolutionCommandOutput
 } from "./commands/DeleteSolutionCommand";
 import {
   DescribeAlgorithmCommand,
   DescribeAlgorithmCommandInput,
-  DescribeAlgorithmCommandOutput,
+  DescribeAlgorithmCommandOutput
 } from "./commands/DescribeAlgorithmCommand";
 import {
   DescribeBatchInferenceJobCommand,
   DescribeBatchInferenceJobCommandInput,
-  DescribeBatchInferenceJobCommandOutput,
+  DescribeBatchInferenceJobCommandOutput
 } from "./commands/DescribeBatchInferenceJobCommand";
 import {
   DescribeCampaignCommand,
   DescribeCampaignCommandInput,
-  DescribeCampaignCommandOutput,
+  DescribeCampaignCommandOutput
 } from "./commands/DescribeCampaignCommand";
 import {
   DescribeDatasetCommand,
   DescribeDatasetCommandInput,
-  DescribeDatasetCommandOutput,
+  DescribeDatasetCommandOutput
 } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDatasetGroupCommand,
   DescribeDatasetGroupCommandInput,
-  DescribeDatasetGroupCommandOutput,
+  DescribeDatasetGroupCommandOutput
 } from "./commands/DescribeDatasetGroupCommand";
 import {
   DescribeDatasetImportJobCommand,
   DescribeDatasetImportJobCommandInput,
-  DescribeDatasetImportJobCommandOutput,
+  DescribeDatasetImportJobCommandOutput
 } from "./commands/DescribeDatasetImportJobCommand";
 import {
   DescribeEventTrackerCommand,
   DescribeEventTrackerCommandInput,
-  DescribeEventTrackerCommandOutput,
+  DescribeEventTrackerCommandOutput
 } from "./commands/DescribeEventTrackerCommand";
 import {
   DescribeFeatureTransformationCommand,
   DescribeFeatureTransformationCommandInput,
-  DescribeFeatureTransformationCommandOutput,
+  DescribeFeatureTransformationCommandOutput
 } from "./commands/DescribeFeatureTransformationCommand";
 import {
   DescribeRecipeCommand,
   DescribeRecipeCommandInput,
-  DescribeRecipeCommandOutput,
+  DescribeRecipeCommandOutput
 } from "./commands/DescribeRecipeCommand";
 import {
   DescribeSchemaCommand,
   DescribeSchemaCommandInput,
-  DescribeSchemaCommandOutput,
+  DescribeSchemaCommandOutput
 } from "./commands/DescribeSchemaCommand";
 import {
   DescribeSolutionCommand,
   DescribeSolutionCommandInput,
-  DescribeSolutionCommandOutput,
+  DescribeSolutionCommandOutput
 } from "./commands/DescribeSolutionCommand";
 import {
   DescribeSolutionVersionCommand,
   DescribeSolutionVersionCommandInput,
-  DescribeSolutionVersionCommandOutput,
+  DescribeSolutionVersionCommandOutput
 } from "./commands/DescribeSolutionVersionCommand";
 import {
   GetSolutionMetricsCommand,
   GetSolutionMetricsCommandInput,
-  GetSolutionMetricsCommandOutput,
+  GetSolutionMetricsCommandOutput
 } from "./commands/GetSolutionMetricsCommand";
 import {
   ListBatchInferenceJobsCommand,
   ListBatchInferenceJobsCommandInput,
-  ListBatchInferenceJobsCommandOutput,
+  ListBatchInferenceJobsCommandOutput
 } from "./commands/ListBatchInferenceJobsCommand";
 import {
   ListCampaignsCommand,
   ListCampaignsCommandInput,
-  ListCampaignsCommandOutput,
+  ListCampaignsCommandOutput
 } from "./commands/ListCampaignsCommand";
 import {
   ListDatasetGroupsCommand,
   ListDatasetGroupsCommandInput,
-  ListDatasetGroupsCommandOutput,
+  ListDatasetGroupsCommandOutput
 } from "./commands/ListDatasetGroupsCommand";
 import {
   ListDatasetImportJobsCommand,
   ListDatasetImportJobsCommandInput,
-  ListDatasetImportJobsCommandOutput,
+  ListDatasetImportJobsCommandOutput
 } from "./commands/ListDatasetImportJobsCommand";
 import {
   ListDatasetsCommand,
   ListDatasetsCommandInput,
-  ListDatasetsCommandOutput,
+  ListDatasetsCommandOutput
 } from "./commands/ListDatasetsCommand";
 import {
   ListEventTrackersCommand,
   ListEventTrackersCommandInput,
-  ListEventTrackersCommandOutput,
+  ListEventTrackersCommandOutput
 } from "./commands/ListEventTrackersCommand";
 import {
   ListRecipesCommand,
   ListRecipesCommandInput,
-  ListRecipesCommandOutput,
+  ListRecipesCommandOutput
 } from "./commands/ListRecipesCommand";
 import {
   ListSchemasCommand,
   ListSchemasCommandInput,
-  ListSchemasCommandOutput,
+  ListSchemasCommandOutput
 } from "./commands/ListSchemasCommand";
 import {
   ListSolutionVersionsCommand,
   ListSolutionVersionsCommandInput,
-  ListSolutionVersionsCommandOutput,
+  ListSolutionVersionsCommandOutput
 } from "./commands/ListSolutionVersionsCommand";
 import {
   ListSolutionsCommand,
   ListSolutionsCommandInput,
-  ListSolutionsCommandOutput,
+  ListSolutionsCommandOutput
 } from "./commands/ListSolutionsCommand";
 import {
   UpdateCampaignCommand,
   UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput,
+  UpdateCampaignCommandOutput
 } from "./commands/UpdateCampaignCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -211,7 +211,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createBatchInferenceJob(
     args: CreateBatchInferenceJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateBatchInferenceJobCommandOutput>;
   public createBatchInferenceJob(
     args: CreateBatchInferenceJobCommandInput,
@@ -224,16 +224,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createBatchInferenceJob(
     args: CreateBatchInferenceJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBatchInferenceJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBatchInferenceJobCommandOutput) => void),
     cb?: (err: any, data?: CreateBatchInferenceJobCommandOutput) => void
   ): Promise<CreateBatchInferenceJobCommandOutput> | void {
     const command = new CreateBatchInferenceJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -309,7 +311,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createCampaign(
     args: CreateCampaignCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCampaignCommandOutput>;
   public createCampaign(
     args: CreateCampaignCommandInput,
@@ -322,16 +324,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createCampaign(
     args: CreateCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCampaignCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCampaignCommandOutput) => void),
     cb?: (err: any, data?: CreateCampaignCommandOutput) => void
   ): Promise<CreateCampaignCommandOutput> | void {
     const command = new CreateCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -395,7 +399,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createDataset(
     args: CreateDatasetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDatasetCommandOutput>;
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -408,16 +412,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createDataset(
     args: CreateDatasetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDatasetCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetCommandOutput) => void
   ): Promise<CreateDatasetCommandOutput> | void {
     const command = new CreateDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -505,7 +511,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDatasetGroupCommandOutput>;
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
@@ -518,16 +524,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createDatasetGroup(
     args: CreateDatasetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetGroupCommandOutput) => void
   ): Promise<CreateDatasetGroupCommandOutput> | void {
     const command = new CreateDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -579,7 +587,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDatasetImportJobCommandOutput>;
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
@@ -592,16 +600,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createDatasetImportJob(
     args: CreateDatasetImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDatasetImportJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDatasetImportJobCommandOutput) => void),
     cb?: (err: any, data?: CreateDatasetImportJobCommandOutput) => void
   ): Promise<CreateDatasetImportJobCommandOutput> | void {
     const command = new CreateDatasetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -661,7 +671,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createEventTracker(
     args: CreateEventTrackerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateEventTrackerCommandOutput>;
   public createEventTracker(
     args: CreateEventTrackerCommandInput,
@@ -674,16 +684,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createEventTracker(
     args: CreateEventTrackerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEventTrackerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateEventTrackerCommandOutput) => void),
     cb?: (err: any, data?: CreateEventTrackerCommandOutput) => void
   ): Promise<CreateEventTrackerCommandOutput> | void {
     const command = new CreateEventTrackerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -721,7 +733,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createSchema(
     args: CreateSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSchemaCommandOutput>;
   public createSchema(
     args: CreateSchemaCommandInput,
@@ -734,16 +746,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createSchema(
     args: CreateSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSchemaCommandOutput) => void),
     cb?: (err: any, data?: CreateSchemaCommandOutput) => void
   ): Promise<CreateSchemaCommandOutput> | void {
     const command = new CreateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -824,7 +838,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createSolution(
     args: CreateSolutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSolutionCommandOutput>;
   public createSolution(
     args: CreateSolutionCommandInput,
@@ -837,16 +851,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createSolution(
     args: CreateSolutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSolutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSolutionCommandOutput) => void),
     cb?: (err: any, data?: CreateSolutionCommandOutput) => void
   ): Promise<CreateSolutionCommandOutput> | void {
     const command = new CreateSolutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -911,7 +927,7 @@ export class Personalize extends PersonalizeClient {
    */
   public createSolutionVersion(
     args: CreateSolutionVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSolutionVersionCommandOutput>;
   public createSolutionVersion(
     args: CreateSolutionVersionCommandInput,
@@ -924,16 +940,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public createSolutionVersion(
     args: CreateSolutionVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSolutionVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSolutionVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateSolutionVersionCommandOutput) => void
   ): Promise<CreateSolutionVersionCommandOutput> | void {
     const command = new CreateSolutionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -952,7 +970,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteCampaignCommandOutput>;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
@@ -965,16 +983,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteCampaign(
     args: DeleteCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCampaignCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCampaignCommandOutput) => void),
     cb?: (err: any, data?: DeleteCampaignCommandOutput) => void
   ): Promise<DeleteCampaignCommandOutput> | void {
     const command = new DeleteCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -990,7 +1010,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDatasetCommandOutput>;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -1003,16 +1023,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteDataset(
     args: DeleteDatasetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDatasetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): Promise<DeleteDatasetCommandOutput> | void {
     const command = new DeleteDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1038,7 +1060,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDatasetGroupCommandOutput>;
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
@@ -1051,16 +1073,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteDatasetGroup(
     args: DeleteDatasetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDatasetGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDatasetGroupCommandOutput) => void
   ): Promise<DeleteDatasetGroupCommandOutput> | void {
     const command = new DeleteDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1075,7 +1099,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteEventTracker(
     args: DeleteEventTrackerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEventTrackerCommandOutput>;
   public deleteEventTracker(
     args: DeleteEventTrackerCommandInput,
@@ -1088,16 +1112,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteEventTracker(
     args: DeleteEventTrackerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEventTrackerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEventTrackerCommandOutput) => void),
     cb?: (err: any, data?: DeleteEventTrackerCommandOutput) => void
   ): Promise<DeleteEventTrackerCommandOutput> | void {
     const command = new DeleteEventTrackerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1112,7 +1138,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSchemaCommandOutput>;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
@@ -1125,16 +1151,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSchemaCommandOutput) => void),
     cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
   ): Promise<DeleteSchemaCommandOutput> | void {
     const command = new DeleteSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1153,7 +1181,7 @@ export class Personalize extends PersonalizeClient {
    */
   public deleteSolution(
     args: DeleteSolutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSolutionCommandOutput>;
   public deleteSolution(
     args: DeleteSolutionCommandInput,
@@ -1166,16 +1194,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public deleteSolution(
     args: DeleteSolutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSolutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSolutionCommandOutput) => void),
     cb?: (err: any, data?: DeleteSolutionCommandOutput) => void
   ): Promise<DeleteSolutionCommandOutput> | void {
     const command = new DeleteSolutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1188,7 +1218,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeAlgorithmCommandOutput>;
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
@@ -1201,16 +1231,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeAlgorithm(
     args: DescribeAlgorithmCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAlgorithmCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAlgorithmCommandOutput) => void),
     cb?: (err: any, data?: DescribeAlgorithmCommandOutput) => void
   ): Promise<DescribeAlgorithmCommandOutput> | void {
     const command = new DescribeAlgorithmCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1225,7 +1257,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeBatchInferenceJob(
     args: DescribeBatchInferenceJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBatchInferenceJobCommandOutput>;
   public describeBatchInferenceJob(
     args: DescribeBatchInferenceJobCommandInput,
@@ -1238,16 +1270,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeBatchInferenceJob(
     args: DescribeBatchInferenceJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBatchInferenceJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBatchInferenceJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeBatchInferenceJobCommandOutput) => void
   ): Promise<DescribeBatchInferenceJobCommandOutput> | void {
     const command = new DescribeBatchInferenceJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1272,7 +1306,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeCampaign(
     args: DescribeCampaignCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCampaignCommandOutput>;
   public describeCampaign(
     args: DescribeCampaignCommandInput,
@@ -1285,16 +1319,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeCampaign(
     args: DescribeCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCampaignCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCampaignCommandOutput) => void),
     cb?: (err: any, data?: DescribeCampaignCommandOutput) => void
   ): Promise<DescribeCampaignCommandOutput> | void {
     const command = new DescribeCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1308,7 +1344,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetCommandOutput>;
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -1321,16 +1357,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeDataset(
     args: DescribeDatasetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDatasetCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): Promise<DescribeDatasetCommandOutput> | void {
     const command = new DescribeDatasetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1344,7 +1382,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetGroupCommandOutput>;
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
@@ -1357,16 +1395,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeDatasetGroup(
     args: DescribeDatasetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDatasetGroupCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetGroupCommandOutput) => void
   ): Promise<DescribeDatasetGroupCommandOutput> | void {
     const command = new DescribeDatasetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1380,7 +1420,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDatasetImportJobCommandOutput>;
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
@@ -1393,16 +1433,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeDatasetImportJob(
     args: DescribeDatasetImportJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDatasetImportJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDatasetImportJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeDatasetImportJobCommandOutput) => void
   ): Promise<DescribeDatasetImportJobCommandOutput> | void {
     const command = new DescribeDatasetImportJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1418,7 +1460,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeEventTracker(
     args: DescribeEventTrackerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeEventTrackerCommandOutput>;
   public describeEventTracker(
     args: DescribeEventTrackerCommandInput,
@@ -1431,16 +1473,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeEventTracker(
     args: DescribeEventTrackerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeEventTrackerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeEventTrackerCommandOutput) => void),
     cb?: (err: any, data?: DescribeEventTrackerCommandOutput) => void
   ): Promise<DescribeEventTrackerCommandOutput> | void {
     const command = new DescribeEventTrackerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1453,7 +1497,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeFeatureTransformation(
     args: DescribeFeatureTransformationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeFeatureTransformationCommandOutput>;
   public describeFeatureTransformation(
     args: DescribeFeatureTransformationCommandInput,
@@ -1466,16 +1510,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeFeatureTransformation(
     args: DescribeFeatureTransformationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFeatureTransformationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFeatureTransformationCommandOutput) => void),
     cb?: (err: any, data?: DescribeFeatureTransformationCommandOutput) => void
   ): Promise<DescribeFeatureTransformationCommandOutput> | void {
     const command = new DescribeFeatureTransformationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1506,7 +1552,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeRecipe(
     args: DescribeRecipeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeRecipeCommandOutput>;
   public describeRecipe(
     args: DescribeRecipeCommandInput,
@@ -1519,16 +1565,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeRecipe(
     args: DescribeRecipeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRecipeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeRecipeCommandOutput) => void),
     cb?: (err: any, data?: DescribeRecipeCommandOutput) => void
   ): Promise<DescribeRecipeCommandOutput> | void {
     const command = new DescribeRecipeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1542,7 +1590,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeSchema(
     args: DescribeSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSchemaCommandOutput>;
   public describeSchema(
     args: DescribeSchemaCommandInput,
@@ -1555,16 +1603,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeSchema(
     args: DescribeSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSchemaCommandOutput) => void),
     cb?: (err: any, data?: DescribeSchemaCommandOutput) => void
   ): Promise<DescribeSchemaCommandOutput> | void {
     const command = new DescribeSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1578,7 +1628,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeSolution(
     args: DescribeSolutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSolutionCommandOutput>;
   public describeSolution(
     args: DescribeSolutionCommandInput,
@@ -1591,16 +1641,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeSolution(
     args: DescribeSolutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSolutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSolutionCommandOutput) => void),
     cb?: (err: any, data?: DescribeSolutionCommandOutput) => void
   ): Promise<DescribeSolutionCommandOutput> | void {
     const command = new DescribeSolutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1613,7 +1665,7 @@ export class Personalize extends PersonalizeClient {
    */
   public describeSolutionVersion(
     args: DescribeSolutionVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSolutionVersionCommandOutput>;
   public describeSolutionVersion(
     args: DescribeSolutionVersionCommandInput,
@@ -1626,16 +1678,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public describeSolutionVersion(
     args: DescribeSolutionVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSolutionVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSolutionVersionCommandOutput) => void),
     cb?: (err: any, data?: DescribeSolutionVersionCommandOutput) => void
   ): Promise<DescribeSolutionVersionCommandOutput> | void {
     const command = new DescribeSolutionVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1648,7 +1702,7 @@ export class Personalize extends PersonalizeClient {
    */
   public getSolutionMetrics(
     args: GetSolutionMetricsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSolutionMetricsCommandOutput>;
   public getSolutionMetrics(
     args: GetSolutionMetricsCommandInput,
@@ -1661,16 +1715,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public getSolutionMetrics(
     args: GetSolutionMetricsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSolutionMetricsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSolutionMetricsCommandOutput) => void),
     cb?: (err: any, data?: GetSolutionMetricsCommandOutput) => void
   ): Promise<GetSolutionMetricsCommandOutput> | void {
     const command = new GetSolutionMetricsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1684,7 +1740,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listBatchInferenceJobs(
     args: ListBatchInferenceJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListBatchInferenceJobsCommandOutput>;
   public listBatchInferenceJobs(
     args: ListBatchInferenceJobsCommandInput,
@@ -1697,16 +1753,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listBatchInferenceJobs(
     args: ListBatchInferenceJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBatchInferenceJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBatchInferenceJobsCommandOutput) => void),
     cb?: (err: any, data?: ListBatchInferenceJobsCommandOutput) => void
   ): Promise<ListBatchInferenceJobsCommandOutput> | void {
     const command = new ListBatchInferenceJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1722,7 +1780,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listCampaigns(
     args: ListCampaignsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCampaignsCommandOutput>;
   public listCampaigns(
     args: ListCampaignsCommandInput,
@@ -1735,16 +1793,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listCampaigns(
     args: ListCampaignsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCampaignsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCampaignsCommandOutput) => void),
     cb?: (err: any, data?: ListCampaignsCommandOutput) => void
   ): Promise<ListCampaignsCommandOutput> | void {
     const command = new ListCampaignsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1759,7 +1819,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDatasetGroupsCommandOutput>;
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
@@ -1772,16 +1832,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDatasetGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetGroupsCommandOutput) => void
   ): Promise<ListDatasetGroupsCommandOutput> | void {
     const command = new ListDatasetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1798,7 +1860,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDatasetImportJobsCommandOutput>;
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
@@ -1811,16 +1873,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetImportJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDatasetImportJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetImportJobsCommandOutput) => void
   ): Promise<ListDatasetImportJobsCommandOutput> | void {
     const command = new ListDatasetImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1836,7 +1900,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listDatasets(
     args: ListDatasetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDatasetsCommandOutput>;
   public listDatasets(
     args: ListDatasetsCommandInput,
@@ -1849,16 +1913,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listDatasets(
     args: ListDatasetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDatasetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDatasetsCommandOutput) => void),
     cb?: (err: any, data?: ListDatasetsCommandOutput) => void
   ): Promise<ListDatasetsCommandOutput> | void {
     const command = new ListDatasetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1874,7 +1940,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listEventTrackers(
     args: ListEventTrackersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListEventTrackersCommandOutput>;
   public listEventTrackers(
     args: ListEventTrackersCommandInput,
@@ -1887,16 +1953,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listEventTrackers(
     args: ListEventTrackersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEventTrackersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListEventTrackersCommandOutput) => void),
     cb?: (err: any, data?: ListEventTrackersCommandOutput) => void
   ): Promise<ListEventTrackersCommandOutput> | void {
     const command = new ListEventTrackersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1911,7 +1979,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listRecipes(
     args: ListRecipesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRecipesCommandOutput>;
   public listRecipes(
     args: ListRecipesCommandInput,
@@ -1924,16 +1992,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listRecipes(
     args: ListRecipesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRecipesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRecipesCommandOutput) => void),
     cb?: (err: any, data?: ListRecipesCommandOutput) => void
   ): Promise<ListRecipesCommandOutput> | void {
     const command = new ListRecipesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1948,7 +2018,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listSchemas(
     args: ListSchemasCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSchemasCommandOutput>;
   public listSchemas(
     args: ListSchemasCommandInput,
@@ -1961,16 +2031,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listSchemas(
     args: ListSchemasCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSchemasCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSchemasCommandOutput) => void),
     cb?: (err: any, data?: ListSchemasCommandOutput) => void
   ): Promise<ListSchemasCommandOutput> | void {
     const command = new ListSchemasCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1986,7 +2058,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSolutionVersionsCommandOutput>;
   public listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
@@ -1999,16 +2071,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSolutionVersionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSolutionVersionsCommandOutput) => void),
     cb?: (err: any, data?: ListSolutionVersionsCommandOutput) => void
   ): Promise<ListSolutionVersionsCommandOutput> | void {
     const command = new ListSolutionVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2024,7 +2098,7 @@ export class Personalize extends PersonalizeClient {
    */
   public listSolutions(
     args: ListSolutionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSolutionsCommandOutput>;
   public listSolutions(
     args: ListSolutionsCommandInput,
@@ -2037,16 +2111,18 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public listSolutions(
     args: ListSolutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSolutionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSolutionsCommandOutput) => void),
     cb?: (err: any, data?: ListSolutionsCommandOutput) => void
   ): Promise<ListSolutionsCommandOutput> | void {
     const command = new ListSolutionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2067,7 +2143,7 @@ export class Personalize extends PersonalizeClient {
    */
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateCampaignCommandOutput>;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
@@ -2080,19 +2156,20 @@ export class Personalize extends PersonalizeClient {
   ): void;
   public updateCampaign(
     args: UpdateCampaignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCampaignCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCampaignCommandOutput) => void),
     cb?: (err: any, data?: UpdateCampaignCommandOutput) => void
   ): Promise<UpdateCampaignCommandOutput> | void {
     const command = new UpdateCampaignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

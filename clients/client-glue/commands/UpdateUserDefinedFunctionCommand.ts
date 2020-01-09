@@ -1,20 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GlueClient";
 import {
   UpdateUserDefinedFunctionRequest,
-  UpdateUserDefinedFunctionResponse,
+  UpdateUserDefinedFunctionResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateUserDefinedFunctionCommand,
-  serializeAws_json1_1UpdateUserDefinedFunctionCommand,
+  serializeAws_json1_1UpdateUserDefinedFunctionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateUserDefinedFunctionCommandInput = UpdateUserDefinedFunctionRequest;
 export type UpdateUserDefinedFunctionCommandOutput = UpdateUserDefinedFunctionResponse;
 
-export class UpdateUserDefinedFunctionCommand extends $Command<UpdateUserDefinedFunctionCommandInput, UpdateUserDefinedFunctionCommandOutput, GlueClientResolvedConfig> {
+export class UpdateUserDefinedFunctionCommand extends $Command<
+  UpdateUserDefinedFunctionCommandInput,
+  UpdateUserDefinedFunctionCommandOutput,
+  GlueClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateUserDefinedFunctionCommand extends $Command<UpdateUserDefined
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateUserDefinedFunctionCommandInput, UpdateUserDefinedFunctionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateUserDefinedFunctionCommandInput,
+    UpdateUserDefinedFunctionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateUserDefinedFunctionCommand extends $Command<UpdateUserDefined
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateUserDefinedFunctionCommandOutput> {
-    return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(output, context);
+    return deserializeAws_json1_1UpdateUserDefinedFunctionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

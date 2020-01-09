@@ -1,20 +1,17 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectConnectClient";
-import {
-  CreateInterconnectRequest,
-  Interconnect,
-} from "../models/index";
+import { CreateInterconnectRequest, Interconnect } from "../models/index";
 import {
   deserializeAws_json1_1CreateInterconnectCommand,
-  serializeAws_json1_1CreateInterconnectCommand,
+  serializeAws_json1_1CreateInterconnectCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateInterconnectCommandInput = CreateInterconnectRequest;
 export type CreateInterconnectCommandOutput = Interconnect;
 
-export class CreateInterconnectCommand extends $Command<CreateInterconnectCommandInput, CreateInterconnectCommandOutput, DirectConnectClientResolvedConfig> {
+export class CreateInterconnectCommand extends $Command<
+  CreateInterconnectCommandInput,
+  CreateInterconnectCommandOutput,
+  DirectConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateInterconnectCommand extends $Command<CreateInterconnectComman
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateInterconnectCommandInput, CreateInterconnectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

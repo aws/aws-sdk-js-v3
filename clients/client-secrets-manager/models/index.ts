@@ -292,7 +292,9 @@ export namespace CreateSecretResponse {
  *          <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
  *
  */
-export interface DecryptionFailure extends _smithy.SmithyException, $MetadataBearer {
+export interface DecryptionFailure
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DecryptionFailure";
   $fault: "client";
   Message?: string;
@@ -602,7 +604,9 @@ export namespace DescribeSecretResponse {
  *         Customer Master Key</a>.</p>
  *
  */
-export interface EncryptionFailure extends _smithy.SmithyException, $MetadataBearer {
+export interface EncryptionFailure
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EncryptionFailure";
   $fault: "client";
   Message?: string;
@@ -908,7 +912,9 @@ export namespace GetSecretValueResponse {
  *          <p>An error occurred on the server side.</p>
  *
  */
-export interface InternalServiceError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceError";
   $fault: "server";
   Message?: string;
@@ -925,7 +931,9 @@ export namespace InternalServiceError {
  *          <p>You provided an invalid <code>NextToken</code> value.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -942,7 +950,9 @@ export namespace InvalidNextTokenException {
  *          <p>You provided an invalid value for a parameter.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -970,7 +980,9 @@ export namespace InvalidParameterException {
  *          </ul>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -987,7 +999,9 @@ export namespace InvalidRequestException {
  *          <p>The request failed because it would exceed one of the Secrets Manager internal limits.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1177,7 +1191,9 @@ export namespace ListSecretsResponse {
  *          <p>The policy document that you provided isn't valid.</p>
  *
  */
-export interface MalformedPolicyDocumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface MalformedPolicyDocumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
@@ -1194,7 +1210,9 @@ export namespace MalformedPolicyDocumentException {
  *          <p>The request failed because you did not complete all the prerequisite steps.</p>
  *
  */
-export interface PreconditionNotMetException extends _smithy.SmithyException, $MetadataBearer {
+export interface PreconditionNotMetException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PreconditionNotMetException";
   $fault: "client";
   Message?: string;
@@ -1429,7 +1447,9 @@ export namespace PutSecretValueResponse {
  *          <p>A resource with the ID you requested already exists.</p>
  *
  */
-export interface ResourceExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceExistsException";
   $fault: "client";
   Message?: string;
@@ -1446,7 +1466,9 @@ export namespace ResourceExistsException {
  *          <p>We can't find the resource that you asked for.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;

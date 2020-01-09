@@ -1,20 +1,20 @@
 import {
   MigrationHubClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MigrationHubClient";
 import {
   NotifyMigrationTaskStateRequest,
-  NotifyMigrationTaskStateResult,
+  NotifyMigrationTaskStateResult
 } from "../models/index";
 import {
   deserializeAws_json1_1NotifyMigrationTaskStateCommand,
-  serializeAws_json1_1NotifyMigrationTaskStateCommand,
+  serializeAws_json1_1NotifyMigrationTaskStateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type NotifyMigrationTaskStateCommandInput = NotifyMigrationTaskStateRequest;
 export type NotifyMigrationTaskStateCommandOutput = NotifyMigrationTaskStateResult;
 
-export class NotifyMigrationTaskStateCommand extends $Command<NotifyMigrationTaskStateCommandInput, NotifyMigrationTaskStateCommandOutput, MigrationHubClientResolvedConfig> {
+export class NotifyMigrationTaskStateCommand extends $Command<
+  NotifyMigrationTaskStateCommandInput,
+  NotifyMigrationTaskStateCommandOutput,
+  MigrationHubClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class NotifyMigrationTaskStateCommand extends $Command<NotifyMigrationTas
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<NotifyMigrationTaskStateCommandInput, NotifyMigrationTaskStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    NotifyMigrationTaskStateCommandInput,
+    NotifyMigrationTaskStateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class NotifyMigrationTaskStateCommand extends $Command<NotifyMigrationTas
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<NotifyMigrationTaskStateCommandOutput> {
-    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(output, context);
+    return deserializeAws_json1_1NotifyMigrationTaskStateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

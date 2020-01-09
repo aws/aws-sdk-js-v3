@@ -1,20 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig,
+  WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
-import {
-  CreateIpGroupRequest,
-  CreateIpGroupResult,
-} from "../models/index";
+import { CreateIpGroupRequest, CreateIpGroupResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateIpGroupCommand,
-  serializeAws_json1_1CreateIpGroupCommand,
+  serializeAws_json1_1CreateIpGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateIpGroupCommandInput = CreateIpGroupRequest;
 export type CreateIpGroupCommandOutput = CreateIpGroupResult;
 
-export class CreateIpGroupCommand extends $Command<CreateIpGroupCommandInput, CreateIpGroupCommandOutput, WorkSpacesClientResolvedConfig> {
+export class CreateIpGroupCommand extends $Command<
+  CreateIpGroupCommandInput,
+  CreateIpGroupCommandOutput,
+  WorkSpacesClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateIpGroupCommand extends $Command<CreateIpGroupCommandInput, Cr
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateIpGroupCommandInput, CreateIpGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

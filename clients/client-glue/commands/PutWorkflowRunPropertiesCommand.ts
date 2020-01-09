@@ -1,20 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GlueClient";
 import {
   PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesResponse,
+  PutWorkflowRunPropertiesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
-  serializeAws_json1_1PutWorkflowRunPropertiesCommand,
+  serializeAws_json1_1PutWorkflowRunPropertiesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PutWorkflowRunPropertiesCommandInput = PutWorkflowRunPropertiesRequest;
 export type PutWorkflowRunPropertiesCommandOutput = PutWorkflowRunPropertiesResponse;
 
-export class PutWorkflowRunPropertiesCommand extends $Command<PutWorkflowRunPropertiesCommandInput, PutWorkflowRunPropertiesCommandOutput, GlueClientResolvedConfig> {
+export class PutWorkflowRunPropertiesCommand extends $Command<
+  PutWorkflowRunPropertiesCommandInput,
+  PutWorkflowRunPropertiesCommandOutput,
+  GlueClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class PutWorkflowRunPropertiesCommand extends $Command<PutWorkflowRunProp
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutWorkflowRunPropertiesCommandInput, PutWorkflowRunPropertiesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PutWorkflowRunPropertiesCommandInput,
+    PutWorkflowRunPropertiesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class PutWorkflowRunPropertiesCommand extends $Command<PutWorkflowRunProp
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutWorkflowRunPropertiesCommandOutput> {
-    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(output, context);
+    return deserializeAws_json1_1PutWorkflowRunPropertiesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

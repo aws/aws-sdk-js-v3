@@ -1,20 +1,20 @@
 import {
   SESv2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SESv2Client";
 import {
   CreateEmailIdentityRequest,
-  CreateEmailIdentityResponse,
+  CreateEmailIdentityResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateEmailIdentityCommand,
-  serializeAws_restJson1_1CreateEmailIdentityCommand,
+  serializeAws_restJson1_1CreateEmailIdentityCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateEmailIdentityCommandInput = CreateEmailIdentityRequest;
 export type CreateEmailIdentityCommandOutput = CreateEmailIdentityResponse;
 
-export class CreateEmailIdentityCommand extends $Command<CreateEmailIdentityCommandInput, CreateEmailIdentityCommandOutput, SESv2ClientResolvedConfig> {
+export class CreateEmailIdentityCommand extends $Command<
+  CreateEmailIdentityCommandInput,
+  CreateEmailIdentityCommandOutput,
+  SESv2ClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateEmailIdentityCommand extends $Command<CreateEmailIdentityComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SESv2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateEmailIdentityCommandInput, CreateEmailIdentityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateEmailIdentityCommandInput,
+    CreateEmailIdentityCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class CreateEmailIdentityCommand extends $Command<CreateEmailIdentityComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateEmailIdentityCommandOutput> {
-    return deserializeAws_restJson1_1CreateEmailIdentityCommand(output, context);
+    return deserializeAws_restJson1_1CreateEmailIdentityCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

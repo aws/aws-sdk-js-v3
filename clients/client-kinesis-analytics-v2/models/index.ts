@@ -26,12 +26,15 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionRequest {
-  export function isa(o: any): o is AddApplicationCloudWatchLoggingOptionRequest {
+  export function isa(
+    o: any
+  ): o is AddApplicationCloudWatchLoggingOptionRequest {
     return _smithy.isa(o, "AddApplicationCloudWatchLoggingOptionRequest");
   }
 }
 
-export interface AddApplicationCloudWatchLoggingOptionResponse extends $MetadataBearer {
+export interface AddApplicationCloudWatchLoggingOptionResponse
+  extends $MetadataBearer {
   __type?: "AddApplicationCloudWatchLoggingOptionResponse";
   /**
    *
@@ -54,11 +57,15 @@ export interface AddApplicationCloudWatchLoggingOptionResponse extends $Metadata
    *          <p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>
    *
    */
-  CloudWatchLoggingOptionDescriptions?: Array<CloudWatchLoggingOptionDescription>;
+  CloudWatchLoggingOptionDescriptions?: Array<
+    CloudWatchLoggingOptionDescription
+  >;
 }
 
 export namespace AddApplicationCloudWatchLoggingOptionResponse {
-  export function isa(o: any): o is AddApplicationCloudWatchLoggingOptionResponse {
+  export function isa(
+    o: any
+  ): o is AddApplicationCloudWatchLoggingOptionResponse {
     return _smithy.isa(o, "AddApplicationCloudWatchLoggingOptionResponse");
   }
 }
@@ -100,12 +107,15 @@ export interface AddApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace AddApplicationInputProcessingConfigurationRequest {
-  export function isa(o: any): o is AddApplicationInputProcessingConfigurationRequest {
+  export function isa(
+    o: any
+  ): o is AddApplicationInputProcessingConfigurationRequest {
     return _smithy.isa(o, "AddApplicationInputProcessingConfigurationRequest");
   }
 }
 
-export interface AddApplicationInputProcessingConfigurationResponse extends $MetadataBearer {
+export interface AddApplicationInputProcessingConfigurationResponse
+  extends $MetadataBearer {
   __type?: "AddApplicationInputProcessingConfigurationResponse";
   /**
    *
@@ -139,7 +149,9 @@ export interface AddApplicationInputProcessingConfigurationResponse extends $Met
 }
 
 export namespace AddApplicationInputProcessingConfigurationResponse {
-  export function isa(o: any): o is AddApplicationInputProcessingConfigurationResponse {
+  export function isa(
+    o: any
+  ): o is AddApplicationInputProcessingConfigurationResponse {
     return _smithy.isa(o, "AddApplicationInputProcessingConfigurationResponse");
   }
 }
@@ -315,7 +327,8 @@ export namespace AddApplicationReferenceDataSourceRequest {
   }
 }
 
-export interface AddApplicationReferenceDataSourceResponse extends $MetadataBearer {
+export interface AddApplicationReferenceDataSourceResponse
+  extends $MetadataBearer {
   __type?: "AddApplicationReferenceDataSourceResponse";
   /**
    *
@@ -383,7 +396,8 @@ export namespace AddApplicationVpcConfigurationRequest {
   }
 }
 
-export interface AddApplicationVpcConfigurationResponse extends $MetadataBearer {
+export interface AddApplicationVpcConfigurationResponse
+  extends $MetadataBearer {
   __type?: "AddApplicationVpcConfigurationResponse";
   /**
    *
@@ -740,7 +754,9 @@ export interface ApplicationDetail {
    *          <p>Describes the application Amazon CloudWatch logging options.</p>
    *
    */
-  CloudWatchLoggingOptionDescriptions?: Array<CloudWatchLoggingOptionDescription>;
+  CloudWatchLoggingOptionDescriptions?: Array<
+    CloudWatchLoggingOptionDescription
+  >;
 
   /**
    *
@@ -809,7 +825,7 @@ export namespace ApplicationRestoreConfiguration {
 export enum ApplicationRestoreType {
   RESTORE_FROM_CUSTOM_SNAPSHOT = "RESTORE_FROM_CUSTOM_SNAPSHOT",
   RESTORE_FROM_LATEST_SNAPSHOT = "RESTORE_FROM_LATEST_SNAPSHOT",
-  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT",
+  SKIP_RESTORE_FROM_SNAPSHOT = "SKIP_RESTORE_FROM_SNAPSHOT"
 }
 
 /**
@@ -849,7 +865,9 @@ export interface ApplicationSnapshotConfigurationDescription {
 }
 
 export namespace ApplicationSnapshotConfigurationDescription {
-  export function isa(o: any): o is ApplicationSnapshotConfigurationDescription {
+  export function isa(
+    o: any
+  ): o is ApplicationSnapshotConfigurationDescription {
     return _smithy.isa(o, "ApplicationSnapshotConfigurationDescription");
   }
 }
@@ -881,7 +899,7 @@ export enum ApplicationStatus {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPING = "STOPPING",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -1386,7 +1404,7 @@ export namespace CodeContentDescription {
 
 export enum CodeContentType {
   PLAINTEXT = "PLAINTEXT",
-  ZIPFILE = "ZIPFILE",
+  ZIPFILE = "ZIPFILE"
 }
 
 /**
@@ -1431,7 +1449,9 @@ export namespace CodeContentUpdate {
  *       error.</p>
  *
  */
-export interface CodeValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface CodeValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CodeValidationException";
   $fault: "client";
   Message?: string;
@@ -1450,7 +1470,9 @@ export namespace CodeValidationException {
  *       ID.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -1464,7 +1486,7 @@ export namespace ConcurrentModificationException {
 
 export enum ConfigurationType {
   CUSTOM = "CUSTOM",
-  DEFAULT = "DEFAULT",
+  DEFAULT = "DEFAULT"
 }
 
 export interface CreateApplicationRequest {
@@ -1606,12 +1628,15 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionRequest {
-  export function isa(o: any): o is DeleteApplicationCloudWatchLoggingOptionRequest {
+  export function isa(
+    o: any
+  ): o is DeleteApplicationCloudWatchLoggingOptionRequest {
     return _smithy.isa(o, "DeleteApplicationCloudWatchLoggingOptionRequest");
   }
 }
 
-export interface DeleteApplicationCloudWatchLoggingOptionResponse extends $MetadataBearer {
+export interface DeleteApplicationCloudWatchLoggingOptionResponse
+  extends $MetadataBearer {
   __type?: "DeleteApplicationCloudWatchLoggingOptionResponse";
   /**
    *
@@ -1634,11 +1659,15 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse extends $Metad
    *          <p>The descriptions of the remaining CloudWatch logging options for the application.</p>
    *
    */
-  CloudWatchLoggingOptionDescriptions?: Array<CloudWatchLoggingOptionDescription>;
+  CloudWatchLoggingOptionDescriptions?: Array<
+    CloudWatchLoggingOptionDescription
+  >;
 }
 
 export namespace DeleteApplicationCloudWatchLoggingOptionResponse {
-  export function isa(o: any): o is DeleteApplicationCloudWatchLoggingOptionResponse {
+  export function isa(
+    o: any
+  ): o is DeleteApplicationCloudWatchLoggingOptionResponse {
     return _smithy.isa(o, "DeleteApplicationCloudWatchLoggingOptionResponse");
   }
 }
@@ -1673,12 +1702,18 @@ export interface DeleteApplicationInputProcessingConfigurationRequest {
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationRequest {
-  export function isa(o: any): o is DeleteApplicationInputProcessingConfigurationRequest {
-    return _smithy.isa(o, "DeleteApplicationInputProcessingConfigurationRequest");
+  export function isa(
+    o: any
+  ): o is DeleteApplicationInputProcessingConfigurationRequest {
+    return _smithy.isa(
+      o,
+      "DeleteApplicationInputProcessingConfigurationRequest"
+    );
   }
 }
 
-export interface DeleteApplicationInputProcessingConfigurationResponse extends $MetadataBearer {
+export interface DeleteApplicationInputProcessingConfigurationResponse
+  extends $MetadataBearer {
   __type?: "DeleteApplicationInputProcessingConfigurationResponse";
   /**
    *
@@ -1696,8 +1731,13 @@ export interface DeleteApplicationInputProcessingConfigurationResponse extends $
 }
 
 export namespace DeleteApplicationInputProcessingConfigurationResponse {
-  export function isa(o: any): o is DeleteApplicationInputProcessingConfigurationResponse {
-    return _smithy.isa(o, "DeleteApplicationInputProcessingConfigurationResponse");
+  export function isa(
+    o: any
+  ): o is DeleteApplicationInputProcessingConfigurationResponse {
+    return _smithy.isa(
+      o,
+      "DeleteApplicationInputProcessingConfigurationResponse"
+    );
   }
 }
 
@@ -1793,12 +1833,15 @@ export interface DeleteApplicationReferenceDataSourceRequest {
 }
 
 export namespace DeleteApplicationReferenceDataSourceRequest {
-  export function isa(o: any): o is DeleteApplicationReferenceDataSourceRequest {
+  export function isa(
+    o: any
+  ): o is DeleteApplicationReferenceDataSourceRequest {
     return _smithy.isa(o, "DeleteApplicationReferenceDataSourceRequest");
   }
 }
 
-export interface DeleteApplicationReferenceDataSourceResponse extends $MetadataBearer {
+export interface DeleteApplicationReferenceDataSourceResponse
+  extends $MetadataBearer {
   __type?: "DeleteApplicationReferenceDataSourceResponse";
   /**
    *
@@ -1816,7 +1859,9 @@ export interface DeleteApplicationReferenceDataSourceResponse extends $MetadataB
 }
 
 export namespace DeleteApplicationReferenceDataSourceResponse {
-  export function isa(o: any): o is DeleteApplicationReferenceDataSourceResponse {
+  export function isa(
+    o: any
+  ): o is DeleteApplicationReferenceDataSourceResponse {
     return _smithy.isa(o, "DeleteApplicationReferenceDataSourceResponse");
   }
 }
@@ -1925,7 +1970,8 @@ export namespace DeleteApplicationVpcConfigurationRequest {
   }
 }
 
-export interface DeleteApplicationVpcConfigurationResponse extends $MetadataBearer {
+export interface DeleteApplicationVpcConfigurationResponse
+  extends $MetadataBearer {
   __type?: "DeleteApplicationVpcConfigurationResponse";
   /**
    *
@@ -2744,7 +2790,7 @@ export namespace InputSchemaUpdate {
 export enum InputStartingPosition {
   LAST_STOPPED_POINT = "LAST_STOPPED_POINT",
   NOW = "NOW",
-  TRIM_HORIZON = "TRIM_HORIZON",
+  TRIM_HORIZON = "TRIM_HORIZON"
 }
 
 /**
@@ -2862,7 +2908,9 @@ export namespace InputUpdate {
  *          <p>The user-provided application configuration is not valid.</p>
  *
  */
-export interface InvalidApplicationConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidApplicationConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidApplicationConfigurationException";
   $fault: "client";
   Message?: string;
@@ -2879,7 +2927,9 @@ export namespace InvalidApplicationConfigurationException {
  *          <p>The specified input parameter value is not valid.</p>
  *
  */
-export interface InvalidArgumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArgumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArgumentException";
   $fault: "client";
   Message?: string;
@@ -2896,7 +2946,9 @@ export namespace InvalidArgumentException {
  *          <p>The request JSON is not valid for the operation.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -3347,7 +3399,9 @@ export namespace LambdaOutputUpdate {
  *          <p>The number of allowed resources has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3501,7 +3555,7 @@ export enum LogLevel {
   DEBUG = "DEBUG",
   ERROR = "ERROR",
   INFO = "INFO",
-  WARN = "WARN",
+  WARN = "WARN"
 }
 
 /**
@@ -3540,7 +3594,7 @@ export enum MetricsLevel {
   APPLICATION = "APPLICATION",
   OPERATOR = "OPERATOR",
   PARALLELISM = "PARALLELISM",
-  TASK = "TASK",
+  TASK = "TASK"
 }
 
 /**
@@ -4101,7 +4155,7 @@ export namespace RecordFormat {
 
 export enum RecordFormatType {
   CSV = "CSV",
-  JSON = "JSON",
+  JSON = "JSON"
 }
 
 /**
@@ -4172,7 +4226,9 @@ export interface ReferenceDataSourceDescription {
    *          <p>Provides the Amazon S3 bucket name, the object key name that contains the reference data. </p>
    *
    */
-  S3ReferenceDataSourceDescription: S3ReferenceDataSourceDescription | undefined;
+  S3ReferenceDataSourceDescription:
+    | S3ReferenceDataSourceDescription
+    | undefined;
 
   /**
    *
@@ -4239,7 +4295,9 @@ export namespace ReferenceDataSourceUpdate {
  *          <p>The application is not available for this operation.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -4256,7 +4314,9 @@ export namespace ResourceInUseException {
  *          <p>Specified application can't be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4274,14 +4334,18 @@ export namespace ResourceNotFoundException {
  *       Streams <code>ProvisionedThroughputExceededException</code>. For more information, see <a href="http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html">GetRecords</a> in the Amazon Kinesis Streams API Reference.</p>
  *
  */
-export interface ResourceProvisionedThroughputExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceProvisionedThroughputExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceProvisionedThroughputExceededException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceProvisionedThroughputExceededException {
-  export function isa(o: any): o is ResourceProvisionedThroughputExceededException {
+  export function isa(
+    o: any
+  ): o is ResourceProvisionedThroughputExceededException {
     return _smithy.isa(o, "ResourceProvisionedThroughputExceededException");
   }
 }
@@ -4374,7 +4438,7 @@ export namespace RunConfigurationUpdate {
 
 export enum RuntimeEnvironment {
   FLINK_1_6 = "FLINK-1_6",
-  SQL_1_0 = "SQL-1_0",
+  SQL_1_0 = "SQL-1_0"
 }
 
 /**
@@ -4624,7 +4688,9 @@ export namespace S3ReferenceDataSourceUpdate {
  *          <p>The service cannot complete the request.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -4682,7 +4748,7 @@ export enum SnapshotStatus {
   CREATING = "CREATING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  READY = "READY",
+  READY = "READY"
 }
 
 /**
@@ -4860,7 +4926,9 @@ export interface SqlRunConfiguration {
    *       source. </p>
    *
    */
-  InputStartingPositionConfiguration: InputStartingPositionConfiguration | undefined;
+  InputStartingPositionConfiguration:
+    | InputStartingPositionConfiguration
+    | undefined;
 }
 
 export namespace SqlRunConfiguration {
@@ -4996,7 +5064,9 @@ export namespace TagResourceResponse {
  *          <p>Application created with too many tags, or too many tags added to an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50.</p>
  *
  */
-export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -5014,7 +5084,9 @@ export namespace TooManyTagsException {
  *       the given streaming source.</p>
  *
  */
-export interface UnableToDetectSchemaException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnableToDetectSchemaException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnableToDetectSchemaException";
   $fault: "client";
   Message?: string;
@@ -5044,7 +5116,9 @@ export namespace UnableToDetectSchemaException {
  *          <p>The request was rejected because a specified parameter is not supported or a specified resource is not valid for this operation. </p>
  *
  */
-export interface UnsupportedOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedOperationException";
   $fault: "client";
   Message?: string;

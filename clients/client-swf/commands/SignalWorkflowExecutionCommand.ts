@@ -1,17 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import { SignalWorkflowExecutionInput } from "../models/index";
 import {
   deserializeAws_json1_0SignalWorkflowExecutionCommand,
-  serializeAws_json1_0SignalWorkflowExecutionCommand,
+  serializeAws_json1_0SignalWorkflowExecutionCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type SignalWorkflowExecutionCommandInput = SignalWorkflowExecutionInput;
-export type SignalWorkflowExecutionCommandOutput = __MetadataBearer
+export type SignalWorkflowExecutionCommandOutput = __MetadataBearer;
 
-export class SignalWorkflowExecutionCommand extends $Command<SignalWorkflowExecutionCommandInput, SignalWorkflowExecutionCommandOutput, SWFClientResolvedConfig> {
+export class SignalWorkflowExecutionCommand extends $Command<
+  SignalWorkflowExecutionCommandInput,
+  SignalWorkflowExecutionCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class SignalWorkflowExecutionCommand extends $Command<SignalWorkflowExecu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SignalWorkflowExecutionCommandInput, SignalWorkflowExecutionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    SignalWorkflowExecutionCommandInput,
+    SignalWorkflowExecutionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class SignalWorkflowExecutionCommand extends $Command<SignalWorkflowExecu
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<SignalWorkflowExecutionCommandOutput> {
-    return deserializeAws_json1_0SignalWorkflowExecutionCommand(output, context);
+    return deserializeAws_json1_0SignalWorkflowExecutionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

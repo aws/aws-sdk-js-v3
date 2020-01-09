@@ -1,20 +1,17 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
-import {
-  CreateAccountRequest,
-  CreateAccountResponse,
-} from "../models/index";
+import { CreateAccountRequest, CreateAccountResponse } from "../models/index";
 import {
   deserializeAws_json1_1CreateAccountCommand,
-  serializeAws_json1_1CreateAccountCommand,
+  serializeAws_json1_1CreateAccountCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateAccountCommandInput = CreateAccountRequest;
 export type CreateAccountCommandOutput = CreateAccountResponse;
 
-export class CreateAccountCommand extends $Command<CreateAccountCommandInput, CreateAccountCommandOutput, OrganizationsClientResolvedConfig> {
+export class CreateAccountCommand extends $Command<
+  CreateAccountCommandInput,
+  CreateAccountCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateAccountCommand extends $Command<CreateAccountCommandInput, Cr
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateAccountCommandInput, CreateAccountCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

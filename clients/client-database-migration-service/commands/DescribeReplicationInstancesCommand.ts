@@ -1,20 +1,20 @@
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DatabaseMigrationServiceClient";
 import {
   DescribeReplicationInstancesMessage,
-  DescribeReplicationInstancesResponse,
+  DescribeReplicationInstancesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeReplicationInstancesCommand,
-  serializeAws_json1_1DescribeReplicationInstancesCommand,
+  serializeAws_json1_1DescribeReplicationInstancesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeReplicationInstancesCommandInput = DescribeReplicationInstancesMessage;
 export type DescribeReplicationInstancesCommandOutput = DescribeReplicationInstancesResponse;
 
-export class DescribeReplicationInstancesCommand extends $Command<DescribeReplicationInstancesCommandInput, DescribeReplicationInstancesCommandOutput, DatabaseMigrationServiceClientResolvedConfig> {
+export class DescribeReplicationInstancesCommand extends $Command<
+  DescribeReplicationInstancesCommandInput,
+  DescribeReplicationInstancesCommandOutput,
+  DatabaseMigrationServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeReplicationInstancesCommand extends $Command<DescribeReplic
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DatabaseMigrationServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeReplicationInstancesCommandInput, DescribeReplicationInstancesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeReplicationInstancesCommandInput,
+    DescribeReplicationInstancesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeReplicationInstancesCommand extends $Command<DescribeReplic
     input: DescribeReplicationInstancesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeReplicationInstancesCommand(input, context);
+    return serializeAws_json1_1DescribeReplicationInstancesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeReplicationInstancesCommandOutput> {
-    return deserializeAws_json1_1DescribeReplicationInstancesCommand(output, context);
+    return deserializeAws_json1_1DescribeReplicationInstancesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

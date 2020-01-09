@@ -1,122 +1,122 @@
 import {
   AddInstanceFleetCommandInput,
-  AddInstanceFleetCommandOutput,
+  AddInstanceFleetCommandOutput
 } from "../commands/AddInstanceFleetCommand";
 import {
   AddInstanceGroupsCommandInput,
-  AddInstanceGroupsCommandOutput,
+  AddInstanceGroupsCommandOutput
 } from "../commands/AddInstanceGroupsCommand";
 import {
   AddJobFlowStepsCommandInput,
-  AddJobFlowStepsCommandOutput,
+  AddJobFlowStepsCommandOutput
 } from "../commands/AddJobFlowStepsCommand";
 import {
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "../commands/AddTagsCommand";
 import {
   CancelStepsCommandInput,
-  CancelStepsCommandOutput,
+  CancelStepsCommandOutput
 } from "../commands/CancelStepsCommand";
 import {
   CreateSecurityConfigurationCommandInput,
-  CreateSecurityConfigurationCommandOutput,
+  CreateSecurityConfigurationCommandOutput
 } from "../commands/CreateSecurityConfigurationCommand";
 import {
   DeleteSecurityConfigurationCommandInput,
-  DeleteSecurityConfigurationCommandOutput,
+  DeleteSecurityConfigurationCommandOutput
 } from "../commands/DeleteSecurityConfigurationCommand";
 import {
   DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
+  DescribeClusterCommandOutput
 } from "../commands/DescribeClusterCommand";
 import {
   DescribeJobFlowsCommandInput,
-  DescribeJobFlowsCommandOutput,
+  DescribeJobFlowsCommandOutput
 } from "../commands/DescribeJobFlowsCommand";
 import {
   DescribeSecurityConfigurationCommandInput,
-  DescribeSecurityConfigurationCommandOutput,
+  DescribeSecurityConfigurationCommandOutput
 } from "../commands/DescribeSecurityConfigurationCommand";
 import {
   DescribeStepCommandInput,
-  DescribeStepCommandOutput,
+  DescribeStepCommandOutput
 } from "../commands/DescribeStepCommand";
 import {
   GetBlockPublicAccessConfigurationCommandInput,
-  GetBlockPublicAccessConfigurationCommandOutput,
+  GetBlockPublicAccessConfigurationCommandOutput
 } from "../commands/GetBlockPublicAccessConfigurationCommand";
 import {
   ListBootstrapActionsCommandInput,
-  ListBootstrapActionsCommandOutput,
+  ListBootstrapActionsCommandOutput
 } from "../commands/ListBootstrapActionsCommand";
 import {
   ListClustersCommandInput,
-  ListClustersCommandOutput,
+  ListClustersCommandOutput
 } from "../commands/ListClustersCommand";
 import {
   ListInstanceFleetsCommandInput,
-  ListInstanceFleetsCommandOutput,
+  ListInstanceFleetsCommandOutput
 } from "../commands/ListInstanceFleetsCommand";
 import {
   ListInstanceGroupsCommandInput,
-  ListInstanceGroupsCommandOutput,
+  ListInstanceGroupsCommandOutput
 } from "../commands/ListInstanceGroupsCommand";
 import {
   ListInstancesCommandInput,
-  ListInstancesCommandOutput,
+  ListInstancesCommandOutput
 } from "../commands/ListInstancesCommand";
 import {
   ListSecurityConfigurationsCommandInput,
-  ListSecurityConfigurationsCommandOutput,
+  ListSecurityConfigurationsCommandOutput
 } from "../commands/ListSecurityConfigurationsCommand";
 import {
   ListStepsCommandInput,
-  ListStepsCommandOutput,
+  ListStepsCommandOutput
 } from "../commands/ListStepsCommand";
 import {
   ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
+  ModifyClusterCommandOutput
 } from "../commands/ModifyClusterCommand";
 import {
   ModifyInstanceFleetCommandInput,
-  ModifyInstanceFleetCommandOutput,
+  ModifyInstanceFleetCommandOutput
 } from "../commands/ModifyInstanceFleetCommand";
 import {
   ModifyInstanceGroupsCommandInput,
-  ModifyInstanceGroupsCommandOutput,
+  ModifyInstanceGroupsCommandOutput
 } from "../commands/ModifyInstanceGroupsCommand";
 import {
   PutAutoScalingPolicyCommandInput,
-  PutAutoScalingPolicyCommandOutput,
+  PutAutoScalingPolicyCommandOutput
 } from "../commands/PutAutoScalingPolicyCommand";
 import {
   PutBlockPublicAccessConfigurationCommandInput,
-  PutBlockPublicAccessConfigurationCommandOutput,
+  PutBlockPublicAccessConfigurationCommandOutput
 } from "../commands/PutBlockPublicAccessConfigurationCommand";
 import {
   RemoveAutoScalingPolicyCommandInput,
-  RemoveAutoScalingPolicyCommandOutput,
+  RemoveAutoScalingPolicyCommandOutput
 } from "../commands/RemoveAutoScalingPolicyCommand";
 import {
   RemoveTagsCommandInput,
-  RemoveTagsCommandOutput,
+  RemoveTagsCommandOutput
 } from "../commands/RemoveTagsCommand";
 import {
   RunJobFlowCommandInput,
-  RunJobFlowCommandOutput,
+  RunJobFlowCommandOutput
 } from "../commands/RunJobFlowCommand";
 import {
   SetTerminationProtectionCommandInput,
-  SetTerminationProtectionCommandOutput,
+  SetTerminationProtectionCommandOutput
 } from "../commands/SetTerminationProtectionCommand";
 import {
   SetVisibleToAllUsersCommandInput,
-  SetVisibleToAllUsersCommandOutput,
+  SetVisibleToAllUsersCommandOutput
 } from "../commands/SetVisibleToAllUsersCommand";
 import {
   TerminateJobFlowsCommandInput,
-  TerminateJobFlowsCommandOutput,
+  TerminateJobFlowsCommandOutput
 } from "../commands/TerminateJobFlowsCommand";
 import {
   AddInstanceFleetInput,
@@ -257,18 +257,18 @@ import {
   SupportedProductConfig,
   Tag,
   TerminateJobFlowsInput,
-  VolumeSpecification,
+  VolumeSpecification
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddInstanceFleetCommand(
@@ -276,11 +276,14 @@ export async function serializeAws_json1_1AddInstanceFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.AddInstanceFleet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceFleet";
   let body: any = {};
   const wrappedBody: any = {
-    AddInstanceFleetInput: serializeAws_json1_1AddInstanceFleetInput(input, context),
+    AddInstanceFleetInput: serializeAws_json1_1AddInstanceFleetInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -289,7 +292,7 @@ export async function serializeAws_json1_1AddInstanceFleetCommand(
     method: "POST",
     path: "/AddInstanceFleet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -298,11 +301,14 @@ export async function serializeAws_json1_1AddInstanceGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.AddInstanceGroups";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.AddInstanceGroups";
   let body: any = {};
   const wrappedBody: any = {
-    AddInstanceGroupsInput: serializeAws_json1_1AddInstanceGroupsInput(input, context),
+    AddInstanceGroupsInput: serializeAws_json1_1AddInstanceGroupsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -311,7 +317,7 @@ export async function serializeAws_json1_1AddInstanceGroupsCommand(
     method: "POST",
     path: "/AddInstanceGroups",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -320,11 +326,14 @@ export async function serializeAws_json1_1AddJobFlowStepsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.AddJobFlowSteps";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.AddJobFlowSteps";
   let body: any = {};
   const wrappedBody: any = {
-    AddJobFlowStepsInput: serializeAws_json1_1AddJobFlowStepsInput(input, context),
+    AddJobFlowStepsInput: serializeAws_json1_1AddJobFlowStepsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -333,7 +342,7 @@ export async function serializeAws_json1_1AddJobFlowStepsCommand(
     method: "POST",
     path: "/AddJobFlowSteps",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -342,11 +351,11 @@ export async function serializeAws_json1_1AddTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.AddTags";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.AddTags";
   let body: any = {};
   const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context),
+    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -355,7 +364,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     method: "POST",
     path: "/AddTags",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -364,11 +373,11 @@ export async function serializeAws_json1_1CancelStepsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.CancelSteps";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.CancelSteps";
   let body: any = {};
   const wrappedBody: any = {
-    CancelStepsInput: serializeAws_json1_1CancelStepsInput(input, context),
+    CancelStepsInput: serializeAws_json1_1CancelStepsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -377,7 +386,7 @@ export async function serializeAws_json1_1CancelStepsCommand(
     method: "POST",
     path: "/CancelSteps",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -386,11 +395,14 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.CreateSecurityConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.CreateSecurityConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    CreateSecurityConfigurationInput: serializeAws_json1_1CreateSecurityConfigurationInput(input, context),
+    CreateSecurityConfigurationInput: serializeAws_json1_1CreateSecurityConfigurationInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -399,7 +411,7 @@ export async function serializeAws_json1_1CreateSecurityConfigurationCommand(
     method: "POST",
     path: "/CreateSecurityConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -408,11 +420,14 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.DeleteSecurityConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.DeleteSecurityConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteSecurityConfigurationInput: serializeAws_json1_1DeleteSecurityConfigurationInput(input, context),
+    DeleteSecurityConfigurationInput: serializeAws_json1_1DeleteSecurityConfigurationInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -421,7 +436,7 @@ export async function serializeAws_json1_1DeleteSecurityConfigurationCommand(
     method: "POST",
     path: "/DeleteSecurityConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -430,11 +445,14 @@ export async function serializeAws_json1_1DescribeClusterCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.DescribeCluster";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.DescribeCluster";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeClusterInput: serializeAws_json1_1DescribeClusterInput(input, context),
+    DescribeClusterInput: serializeAws_json1_1DescribeClusterInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -443,7 +461,7 @@ export async function serializeAws_json1_1DescribeClusterCommand(
     method: "POST",
     path: "/DescribeCluster",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -452,11 +470,14 @@ export async function serializeAws_json1_1DescribeJobFlowsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.DescribeJobFlows";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.DescribeJobFlows";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeJobFlowsInput: serializeAws_json1_1DescribeJobFlowsInput(input, context),
+    DescribeJobFlowsInput: serializeAws_json1_1DescribeJobFlowsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -465,7 +486,7 @@ export async function serializeAws_json1_1DescribeJobFlowsCommand(
     method: "POST",
     path: "/DescribeJobFlows",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -474,11 +495,14 @@ export async function serializeAws_json1_1DescribeSecurityConfigurationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.DescribeSecurityConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.DescribeSecurityConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeSecurityConfigurationInput: serializeAws_json1_1DescribeSecurityConfigurationInput(input, context),
+    DescribeSecurityConfigurationInput: serializeAws_json1_1DescribeSecurityConfigurationInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -487,7 +511,7 @@ export async function serializeAws_json1_1DescribeSecurityConfigurationCommand(
     method: "POST",
     path: "/DescribeSecurityConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -496,11 +520,11 @@ export async function serializeAws_json1_1DescribeStepCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.DescribeStep";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.DescribeStep";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStepInput: serializeAws_json1_1DescribeStepInput(input, context),
+    DescribeStepInput: serializeAws_json1_1DescribeStepInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -509,7 +533,7 @@ export async function serializeAws_json1_1DescribeStepCommand(
     method: "POST",
     path: "/DescribeStep",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -518,11 +542,15 @@ export async function serializeAws_json1_1GetBlockPublicAccessConfigurationComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.GetBlockPublicAccessConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "ElasticMapReduce.GetBlockPublicAccessConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    GetBlockPublicAccessConfigurationInput: serializeAws_json1_1GetBlockPublicAccessConfigurationInput(input, context),
+    GetBlockPublicAccessConfigurationInput: serializeAws_json1_1GetBlockPublicAccessConfigurationInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -531,7 +559,7 @@ export async function serializeAws_json1_1GetBlockPublicAccessConfigurationComma
     method: "POST",
     path: "/GetBlockPublicAccessConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -540,11 +568,14 @@ export async function serializeAws_json1_1ListBootstrapActionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListBootstrapActions";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListBootstrapActions";
   let body: any = {};
   const wrappedBody: any = {
-    ListBootstrapActionsInput: serializeAws_json1_1ListBootstrapActionsInput(input, context),
+    ListBootstrapActionsInput: serializeAws_json1_1ListBootstrapActionsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -553,7 +584,7 @@ export async function serializeAws_json1_1ListBootstrapActionsCommand(
     method: "POST",
     path: "/ListBootstrapActions",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -562,11 +593,11 @@ export async function serializeAws_json1_1ListClustersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListClusters";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListClusters";
   let body: any = {};
   const wrappedBody: any = {
-    ListClustersInput: serializeAws_json1_1ListClustersInput(input, context),
+    ListClustersInput: serializeAws_json1_1ListClustersInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -575,7 +606,7 @@ export async function serializeAws_json1_1ListClustersCommand(
     method: "POST",
     path: "/ListClusters",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -584,11 +615,14 @@ export async function serializeAws_json1_1ListInstanceFleetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListInstanceFleets";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceFleets";
   let body: any = {};
   const wrappedBody: any = {
-    ListInstanceFleetsInput: serializeAws_json1_1ListInstanceFleetsInput(input, context),
+    ListInstanceFleetsInput: serializeAws_json1_1ListInstanceFleetsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -597,7 +631,7 @@ export async function serializeAws_json1_1ListInstanceFleetsCommand(
     method: "POST",
     path: "/ListInstanceFleets",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -606,11 +640,14 @@ export async function serializeAws_json1_1ListInstanceGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListInstanceGroups";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListInstanceGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ListInstanceGroupsInput: serializeAws_json1_1ListInstanceGroupsInput(input, context),
+    ListInstanceGroupsInput: serializeAws_json1_1ListInstanceGroupsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -619,7 +656,7 @@ export async function serializeAws_json1_1ListInstanceGroupsCommand(
     method: "POST",
     path: "/ListInstanceGroups",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -628,11 +665,11 @@ export async function serializeAws_json1_1ListInstancesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListInstances";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListInstances";
   let body: any = {};
   const wrappedBody: any = {
-    ListInstancesInput: serializeAws_json1_1ListInstancesInput(input, context),
+    ListInstancesInput: serializeAws_json1_1ListInstancesInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -641,7 +678,7 @@ export async function serializeAws_json1_1ListInstancesCommand(
     method: "POST",
     path: "/ListInstances",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -650,11 +687,14 @@ export async function serializeAws_json1_1ListSecurityConfigurationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListSecurityConfigurations";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListSecurityConfigurations";
   let body: any = {};
   const wrappedBody: any = {
-    ListSecurityConfigurationsInput: serializeAws_json1_1ListSecurityConfigurationsInput(input, context),
+    ListSecurityConfigurationsInput: serializeAws_json1_1ListSecurityConfigurationsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -663,7 +703,7 @@ export async function serializeAws_json1_1ListSecurityConfigurationsCommand(
     method: "POST",
     path: "/ListSecurityConfigurations",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -672,11 +712,11 @@ export async function serializeAws_json1_1ListStepsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ListSteps";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ListSteps";
   let body: any = {};
   const wrappedBody: any = {
-    ListStepsInput: serializeAws_json1_1ListStepsInput(input, context),
+    ListStepsInput: serializeAws_json1_1ListStepsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -685,7 +725,7 @@ export async function serializeAws_json1_1ListStepsCommand(
     method: "POST",
     path: "/ListSteps",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -694,11 +734,11 @@ export async function serializeAws_json1_1ModifyClusterCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ModifyCluster";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ModifyCluster";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyClusterInput: serializeAws_json1_1ModifyClusterInput(input, context),
+    ModifyClusterInput: serializeAws_json1_1ModifyClusterInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -707,7 +747,7 @@ export async function serializeAws_json1_1ModifyClusterCommand(
     method: "POST",
     path: "/ModifyCluster",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -716,11 +756,14 @@ export async function serializeAws_json1_1ModifyInstanceFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ModifyInstanceFleet";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceFleet";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyInstanceFleetInput: serializeAws_json1_1ModifyInstanceFleetInput(input, context),
+    ModifyInstanceFleetInput: serializeAws_json1_1ModifyInstanceFleetInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -729,7 +772,7 @@ export async function serializeAws_json1_1ModifyInstanceFleetCommand(
     method: "POST",
     path: "/ModifyInstanceFleet",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -738,11 +781,14 @@ export async function serializeAws_json1_1ModifyInstanceGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.ModifyInstanceGroups";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.ModifyInstanceGroups";
   let body: any = {};
   const wrappedBody: any = {
-    ModifyInstanceGroupsInput: serializeAws_json1_1ModifyInstanceGroupsInput(input, context),
+    ModifyInstanceGroupsInput: serializeAws_json1_1ModifyInstanceGroupsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -751,7 +797,7 @@ export async function serializeAws_json1_1ModifyInstanceGroupsCommand(
     method: "POST",
     path: "/ModifyInstanceGroups",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -760,11 +806,14 @@ export async function serializeAws_json1_1PutAutoScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.PutAutoScalingPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.PutAutoScalingPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    PutAutoScalingPolicyInput: serializeAws_json1_1PutAutoScalingPolicyInput(input, context),
+    PutAutoScalingPolicyInput: serializeAws_json1_1PutAutoScalingPolicyInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -773,7 +822,7 @@ export async function serializeAws_json1_1PutAutoScalingPolicyCommand(
     method: "POST",
     path: "/PutAutoScalingPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -782,11 +831,15 @@ export async function serializeAws_json1_1PutBlockPublicAccessConfigurationComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.PutBlockPublicAccessConfiguration";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "ElasticMapReduce.PutBlockPublicAccessConfiguration";
   let body: any = {};
   const wrappedBody: any = {
-    PutBlockPublicAccessConfigurationInput: serializeAws_json1_1PutBlockPublicAccessConfigurationInput(input, context),
+    PutBlockPublicAccessConfigurationInput: serializeAws_json1_1PutBlockPublicAccessConfigurationInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -795,7 +848,7 @@ export async function serializeAws_json1_1PutBlockPublicAccessConfigurationComma
     method: "POST",
     path: "/PutBlockPublicAccessConfiguration",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -804,11 +857,14 @@ export async function serializeAws_json1_1RemoveAutoScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.RemoveAutoScalingPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.RemoveAutoScalingPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveAutoScalingPolicyInput: serializeAws_json1_1RemoveAutoScalingPolicyInput(input, context),
+    RemoveAutoScalingPolicyInput: serializeAws_json1_1RemoveAutoScalingPolicyInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -817,7 +873,7 @@ export async function serializeAws_json1_1RemoveAutoScalingPolicyCommand(
     method: "POST",
     path: "/RemoveAutoScalingPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -826,11 +882,11 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.RemoveTags";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.RemoveTags";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveTagsInput: serializeAws_json1_1RemoveTagsInput(input, context),
+    RemoveTagsInput: serializeAws_json1_1RemoveTagsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -839,7 +895,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
     method: "POST",
     path: "/RemoveTags",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -848,11 +904,11 @@ export async function serializeAws_json1_1RunJobFlowCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.RunJobFlow";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.RunJobFlow";
   let body: any = {};
   const wrappedBody: any = {
-    RunJobFlowInput: serializeAws_json1_1RunJobFlowInput(input, context),
+    RunJobFlowInput: serializeAws_json1_1RunJobFlowInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -861,7 +917,7 @@ export async function serializeAws_json1_1RunJobFlowCommand(
     method: "POST",
     path: "/RunJobFlow",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -870,11 +926,14 @@ export async function serializeAws_json1_1SetTerminationProtectionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.SetTerminationProtection";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.SetTerminationProtection";
   let body: any = {};
   const wrappedBody: any = {
-    SetTerminationProtectionInput: serializeAws_json1_1SetTerminationProtectionInput(input, context),
+    SetTerminationProtectionInput: serializeAws_json1_1SetTerminationProtectionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -883,7 +942,7 @@ export async function serializeAws_json1_1SetTerminationProtectionCommand(
     method: "POST",
     path: "/SetTerminationProtection",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -892,11 +951,14 @@ export async function serializeAws_json1_1SetVisibleToAllUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.SetVisibleToAllUsers";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.SetVisibleToAllUsers";
   let body: any = {};
   const wrappedBody: any = {
-    SetVisibleToAllUsersInput: serializeAws_json1_1SetVisibleToAllUsersInput(input, context),
+    SetVisibleToAllUsersInput: serializeAws_json1_1SetVisibleToAllUsersInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -905,7 +967,7 @@ export async function serializeAws_json1_1SetVisibleToAllUsersCommand(
     method: "POST",
     path: "/SetVisibleToAllUsers",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -914,11 +976,14 @@ export async function serializeAws_json1_1TerminateJobFlowsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "ElasticMapReduce.TerminateJobFlows";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "ElasticMapReduce.TerminateJobFlows";
   let body: any = {};
   const wrappedBody: any = {
-    TerminateJobFlowsInput: serializeAws_json1_1TerminateJobFlowsInput(input, context),
+    TerminateJobFlowsInput: serializeAws_json1_1TerminateJobFlowsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -927,7 +992,7 @@ export async function serializeAws_json1_1TerminateJobFlowsCommand(
     method: "POST",
     path: "/TerminateJobFlows",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -938,44 +1003,51 @@ export async function deserializeAws_json1_1AddInstanceFleetCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddInstanceFleetCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddInstanceFleetOutput(data, context);
   const response: AddInstanceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddInstanceFleetOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddInstanceFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddInstanceFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -988,40 +1060,44 @@ export async function deserializeAws_json1_1AddInstanceGroupsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddInstanceGroupsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddInstanceGroupsOutput(data, context);
   const response: AddInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddInstanceGroupsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddInstanceGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddInstanceGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1034,40 +1110,44 @@ export async function deserializeAws_json1_1AddJobFlowStepsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddJobFlowStepsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddJobFlowStepsOutput(data, context);
   const response: AddJobFlowStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddJobFlowStepsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddJobFlowStepsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddJobFlowStepsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1080,44 +1160,51 @@ export async function deserializeAws_json1_1AddTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1130,44 +1217,51 @@ export async function deserializeAws_json1_1CancelStepsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CancelStepsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CancelStepsOutput(data, context);
   const response: CancelStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelStepsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CancelStepsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CancelStepsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1178,46 +1272,59 @@ export async function deserializeAws_json1_1CreateSecurityConfigurationCommand(
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(output, context);
+    return deserializeAws_json1_1CreateSecurityConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(data, context);
+  contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(
+    data,
+    context
+  );
   const response: CreateSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateSecurityConfigurationOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateSecurityConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1228,46 +1335,59 @@ export async function deserializeAws_json1_1DeleteSecurityConfigurationCommand(
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(output, context);
+    return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(data, context);
+  contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(
+    data,
+    context
+  );
   const response: DeleteSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteSecurityConfigurationOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteSecurityConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1280,44 +1400,51 @@ export async function deserializeAws_json1_1DescribeClusterCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeClusterCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeClusterOutput(data, context);
   const response: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeClusterOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeClusterCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1330,40 +1457,44 @@ export async function deserializeAws_json1_1DescribeJobFlowsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeJobFlowsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeJobFlowsOutput(data, context);
   const response: DescribeJobFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeJobFlowsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeJobFlowsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeJobFlowsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1374,46 +1505,59 @@ export async function deserializeAws_json1_1DescribeSecurityConfigurationCommand
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(output, context);
+    return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(data, context);
+  contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(
+    data,
+    context
+  );
   const response: DescribeSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeSecurityConfigurationOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeSecurityConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1426,44 +1570,51 @@ export async function deserializeAws_json1_1DescribeStepCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeStepCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStepOutput(data, context);
   const response: DescribeStepCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStepOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeStepCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStepCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1474,46 +1625,59 @@ export async function deserializeAws_json1_1GetBlockPublicAccessConfigurationCom
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(output, context);
+    return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(data, context);
+  contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(
+    data,
+    context
+  );
   const response: GetBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetBlockPublicAccessConfigurationOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1524,46 +1688,56 @@ export async function deserializeAws_json1_1ListBootstrapActionsCommand(
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListBootstrapActionsCommandError(output, context);
+    return deserializeAws_json1_1ListBootstrapActionsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListBootstrapActionsOutput(data, context);
   const response: ListBootstrapActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBootstrapActionsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListBootstrapActionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1576,44 +1750,51 @@ export async function deserializeAws_json1_1ListClustersCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListClustersCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListClustersOutput(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListClustersOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListClustersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListClustersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1624,46 +1805,56 @@ export async function deserializeAws_json1_1ListInstanceFleetsCommand(
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListInstanceFleetsCommandError(output, context);
+    return deserializeAws_json1_1ListInstanceFleetsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListInstanceFleetsOutput(data, context);
   const response: ListInstanceFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstanceFleetsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListInstanceFleetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1674,46 +1865,56 @@ export async function deserializeAws_json1_1ListInstanceGroupsCommand(
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListInstanceGroupsCommandError(output, context);
+    return deserializeAws_json1_1ListInstanceGroupsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListInstanceGroupsOutput(data, context);
   const response: ListInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstanceGroupsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListInstanceGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1726,44 +1927,51 @@ export async function deserializeAws_json1_1ListInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListInstancesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListInstancesOutput(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstancesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListInstancesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1774,46 +1982,59 @@ export async function deserializeAws_json1_1ListSecurityConfigurationsCommand(
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListSecurityConfigurationsCommandError(output, context);
+    return deserializeAws_json1_1ListSecurityConfigurationsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(data, context);
+  contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(
+    data,
+    context
+  );
   const response: ListSecurityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListSecurityConfigurationsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListSecurityConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1826,44 +2047,51 @@ export async function deserializeAws_json1_1ListStepsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListStepsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListStepsOutput(data, context);
   const response: ListStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStepsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListStepsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListStepsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1876,44 +2104,51 @@ export async function deserializeAws_json1_1ModifyClusterCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ModifyClusterCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ModifyClusterOutput(data, context);
   const response: ModifyClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ModifyClusterOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyClusterCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1924,41 +2159,51 @@ export async function deserializeAws_json1_1ModifyInstanceFleetCommand(
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyInstanceFleetCommandError(output, context);
+    return deserializeAws_json1_1ModifyInstanceFleetCommandError(
+      output,
+      context
+    );
   }
   const response: ModifyInstanceFleetCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyInstanceFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1969,37 +2214,44 @@ export async function deserializeAws_json1_1ModifyInstanceGroupsCommand(
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ModifyInstanceGroupsCommandError(output, context);
+    return deserializeAws_json1_1ModifyInstanceGroupsCommandError(
+      output,
+      context
+    );
   }
   const response: ModifyInstanceGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ModifyInstanceGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2010,34 +2262,38 @@ export async function deserializeAws_json1_1PutAutoScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutAutoScalingPolicyCommandError(output, context);
+    return deserializeAws_json1_1PutAutoScalingPolicyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutAutoScalingPolicyOutput(data, context);
   const response: PutAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutAutoScalingPolicyOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutAutoScalingPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2048,46 +2304,59 @@ export async function deserializeAws_json1_1PutBlockPublicAccessConfigurationCom
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(output, context);
+    return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(data, context);
+  contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(
+    data,
+    context
+  );
   const response: PutBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutBlockPublicAccessConfigurationOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2098,34 +2367,38 @@ export async function deserializeAws_json1_1RemoveAutoScalingPolicyCommand(
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(output, context);
+    return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RemoveAutoScalingPolicyOutput(data, context);
   const response: RemoveAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveAutoScalingPolicyOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2138,44 +2411,51 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RemoveTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerException":
     case "elasticmapreduce.webservice#InternalServerException":
-      response = await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "elasticmapreduce.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2188,40 +2468,44 @@ export async function deserializeAws_json1_1RunJobFlowCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RunJobFlowCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RunJobFlowOutput(data, context);
   const response: RunJobFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RunJobFlowOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RunJobFlowCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RunJobFlowCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2232,37 +2516,44 @@ export async function deserializeAws_json1_1SetTerminationProtectionCommand(
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetTerminationProtectionCommandError(output, context);
+    return deserializeAws_json1_1SetTerminationProtectionCommandError(
+      output,
+      context
+    );
   }
   const response: SetTerminationProtectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetTerminationProtectionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2273,37 +2564,44 @@ export async function deserializeAws_json1_1SetVisibleToAllUsersCommand(
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1SetVisibleToAllUsersCommandError(output, context);
+    return deserializeAws_json1_1SetVisibleToAllUsersCommandError(
+      output,
+      context
+    );
   }
   const response: SetVisibleToAllUsersCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetVisibleToAllUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2317,34 +2615,38 @@ export async function deserializeAws_json1_1TerminateJobFlowsCommand(
     return deserializeAws_json1_1TerminateJobFlowsCommandError(output, context);
   }
   const response: TerminateJobFlowsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TerminateJobFlowsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TerminateJobFlowsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServerError":
     case "elasticmapreduce.webservice#InternalServerError":
-      response = await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServerErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `elasticmapreduce.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2354,12 +2656,15 @@ const deserializeAws_json1_1InternalServerErrorResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerError> => {
-  const deserialized: any = deserializeAws_json1_1InternalServerError(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalServerError(
+    output.body,
+    context
+  );
   const contents: InternalServerError = {
     __type: "InternalServerError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2368,12 +2673,15 @@ const deserializeAws_json1_1InternalServerExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const deserialized: any = deserializeAws_json1_1InternalServerException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalServerException(
+    output.body,
+    context
+  );
   const contents: InternalServerException = {
     __type: "InternalServerException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2382,12 +2690,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
+    output.body,
+    context
+  );
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2398,13 +2709,16 @@ const serializeAws_json1_1AddInstanceFleetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceFleet !== undefined) {
-    bodyParams['InstanceFleet'] = serializeAws_json1_1InstanceFleetConfig(input.InstanceFleet, context);
+    bodyParams["InstanceFleet"] = serializeAws_json1_1InstanceFleetConfig(
+      input.InstanceFleet,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1AddInstanceGroupsInput = (
   input: AddInstanceGroupsInput,
@@ -2412,13 +2726,16 @@ const serializeAws_json1_1AddInstanceGroupsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceGroups !== undefined) {
-    bodyParams['InstanceGroups'] = serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context);
+    bodyParams["InstanceGroups"] = serializeAws_json1_1InstanceGroupConfigList(
+      input.InstanceGroups,
+      context
+    );
   }
   if (input.JobFlowId !== undefined) {
-    bodyParams['JobFlowId'] = input.JobFlowId;
+    bodyParams["JobFlowId"] = input.JobFlowId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1AddJobFlowStepsInput = (
   input: AddJobFlowStepsInput,
@@ -2426,13 +2743,16 @@ const serializeAws_json1_1AddJobFlowStepsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobFlowId !== undefined) {
-    bodyParams['JobFlowId'] = input.JobFlowId;
+    bodyParams["JobFlowId"] = input.JobFlowId;
   }
   if (input.Steps !== undefined) {
-    bodyParams['Steps'] = serializeAws_json1_1StepConfigList(input.Steps, context);
+    bodyParams["Steps"] = serializeAws_json1_1StepConfigList(
+      input.Steps,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1AddTagsInput = (
   input: AddTagsInput,
@@ -2440,13 +2760,13 @@ const serializeAws_json1_1AddTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceId !== undefined) {
-    bodyParams['ResourceId'] = input.ResourceId;
+    bodyParams["ResourceId"] = input.ResourceId;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Application = (
   input: Application,
@@ -2454,19 +2774,22 @@ const serializeAws_json1_1Application = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdditionalInfo !== undefined) {
-    bodyParams['AdditionalInfo'] = serializeAws_json1_1StringMap(input.AdditionalInfo, context);
+    bodyParams["AdditionalInfo"] = serializeAws_json1_1StringMap(
+      input.AdditionalInfo,
+      context
+    );
   }
   if (input.Args !== undefined) {
-    bodyParams['Args'] = serializeAws_json1_1StringList(input.Args, context);
+    bodyParams["Args"] = serializeAws_json1_1StringList(input.Args, context);
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Version !== undefined) {
-    bodyParams['Version'] = input.Version;
+    bodyParams["Version"] = input.Version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ApplicationList = (
   input: Array<Application>,
@@ -2475,7 +2798,7 @@ const serializeAws_json1_1ApplicationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Application(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1AutoScalingPolicy = (
   input: AutoScalingPolicy,
@@ -2483,13 +2806,19 @@ const serializeAws_json1_1AutoScalingPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.Constraints !== undefined) {
-    bodyParams['Constraints'] = serializeAws_json1_1ScalingConstraints(input.Constraints, context);
+    bodyParams["Constraints"] = serializeAws_json1_1ScalingConstraints(
+      input.Constraints,
+      context
+    );
   }
   if (input.Rules !== undefined) {
-    bodyParams['Rules'] = serializeAws_json1_1ScalingRuleList(input.Rules, context);
+    bodyParams["Rules"] = serializeAws_json1_1ScalingRuleList(
+      input.Rules,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1BlockPublicAccessConfiguration = (
   input: BlockPublicAccessConfiguration,
@@ -2497,22 +2826,34 @@ const serializeAws_json1_1BlockPublicAccessConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockPublicSecurityGroupRules !== undefined) {
-    bodyParams['BlockPublicSecurityGroupRules'] = input.BlockPublicSecurityGroupRules;
+    bodyParams["BlockPublicSecurityGroupRules"] =
+      input.BlockPublicSecurityGroupRules;
   }
   if (input.Classification !== undefined) {
-    bodyParams['Classification'] = input.Classification;
+    bodyParams["Classification"] = input.Classification;
   }
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.PermittedPublicSecurityGroupRuleRanges !== undefined) {
-    bodyParams['PermittedPublicSecurityGroupRuleRanges'] = serializeAws_json1_1PortRanges(input.PermittedPublicSecurityGroupRuleRanges, context);
+    bodyParams[
+      "PermittedPublicSecurityGroupRuleRanges"
+    ] = serializeAws_json1_1PortRanges(
+      input.PermittedPublicSecurityGroupRuleRanges,
+      context
+    );
   }
   if (input.Properties !== undefined) {
-    bodyParams['Properties'] = serializeAws_json1_1StringMap(input.Properties, context);
+    bodyParams["Properties"] = serializeAws_json1_1StringMap(
+      input.Properties,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1BootstrapActionConfig = (
   input: BootstrapActionConfig,
@@ -2520,13 +2861,18 @@ const serializeAws_json1_1BootstrapActionConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.ScriptBootstrapAction !== undefined) {
-    bodyParams['ScriptBootstrapAction'] = serializeAws_json1_1ScriptBootstrapActionConfig(input.ScriptBootstrapAction, context);
+    bodyParams[
+      "ScriptBootstrapAction"
+    ] = serializeAws_json1_1ScriptBootstrapActionConfig(
+      input.ScriptBootstrapAction,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1BootstrapActionConfigList = (
   input: Array<BootstrapActionConfig>,
@@ -2535,7 +2881,7 @@ const serializeAws_json1_1BootstrapActionConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1BootstrapActionConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1CancelStepsInput = (
   input: CancelStepsInput,
@@ -2543,16 +2889,19 @@ const serializeAws_json1_1CancelStepsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.StepCancellationOption !== undefined) {
-    bodyParams['StepCancellationOption'] = input.StepCancellationOption;
+    bodyParams["StepCancellationOption"] = input.StepCancellationOption;
   }
   if (input.StepIds !== undefined) {
-    bodyParams['StepIds'] = serializeAws_json1_1StepIdsList(input.StepIds, context);
+    bodyParams["StepIds"] = serializeAws_json1_1StepIdsList(
+      input.StepIds,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CloudWatchAlarmDefinition = (
   input: CloudWatchAlarmDefinition,
@@ -2560,43 +2909,44 @@ const serializeAws_json1_1CloudWatchAlarmDefinition = (
 ): any => {
   let bodyParams: any = {};
   if (input.ComparisonOperator !== undefined) {
-    bodyParams['ComparisonOperator'] = input.ComparisonOperator;
+    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
   }
   if (input.Dimensions !== undefined) {
-    bodyParams['Dimensions'] = serializeAws_json1_1MetricDimensionList(input.Dimensions, context);
+    bodyParams["Dimensions"] = serializeAws_json1_1MetricDimensionList(
+      input.Dimensions,
+      context
+    );
   }
   if (input.EvaluationPeriods !== undefined) {
-    bodyParams['EvaluationPeriods'] = input.EvaluationPeriods;
+    bodyParams["EvaluationPeriods"] = input.EvaluationPeriods;
   }
   if (input.MetricName !== undefined) {
-    bodyParams['MetricName'] = input.MetricName;
+    bodyParams["MetricName"] = input.MetricName;
   }
   if (input.Namespace !== undefined) {
-    bodyParams['Namespace'] = input.Namespace;
+    bodyParams["Namespace"] = input.Namespace;
   }
   if (input.Period !== undefined) {
-    bodyParams['Period'] = input.Period;
+    bodyParams["Period"] = input.Period;
   }
   if (input.Statistic !== undefined) {
-    bodyParams['Statistic'] = input.Statistic;
+    bodyParams["Statistic"] = input.Statistic;
   }
   if (input.Threshold !== undefined) {
-    bodyParams['Threshold'] = input.Threshold;
+    bodyParams["Threshold"] = input.Threshold;
   }
   if (input.Unit !== undefined) {
-    bodyParams['Unit'] = input.Unit;
+    bodyParams["Unit"] = input.Unit;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ClusterStateList = (
   input: Array<ClusterState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1Configuration = (
   input: Configuration,
@@ -2604,16 +2954,22 @@ const serializeAws_json1_1Configuration = (
 ): any => {
   let bodyParams: any = {};
   if (input.Classification !== undefined) {
-    bodyParams['Classification'] = input.Classification;
+    bodyParams["Classification"] = input.Classification;
   }
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.Properties !== undefined) {
-    bodyParams['Properties'] = serializeAws_json1_1StringMap(input.Properties, context);
+    bodyParams["Properties"] = serializeAws_json1_1StringMap(
+      input.Properties,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ConfigurationList = (
   input: Array<Configuration>,
@@ -2622,7 +2978,7 @@ const serializeAws_json1_1ConfigurationList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Configuration(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1CreateSecurityConfigurationInput = (
   input: CreateSecurityConfigurationInput,
@@ -2630,13 +2986,13 @@ const serializeAws_json1_1CreateSecurityConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.SecurityConfiguration !== undefined) {
-    bodyParams['SecurityConfiguration'] = input.SecurityConfiguration;
+    bodyParams["SecurityConfiguration"] = input.SecurityConfiguration;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteSecurityConfigurationInput = (
   input: DeleteSecurityConfigurationInput,
@@ -2644,10 +3000,10 @@ const serializeAws_json1_1DeleteSecurityConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeClusterInput = (
   input: DescribeClusterInput,
@@ -2655,10 +3011,10 @@ const serializeAws_json1_1DescribeClusterInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeJobFlowsInput = (
   input: DescribeJobFlowsInput,
@@ -2666,19 +3022,29 @@ const serializeAws_json1_1DescribeJobFlowsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreatedAfter !== undefined) {
-    bodyParams['CreatedAfter'] = Math.round(input.CreatedAfter.getTime() / 1000);
+    bodyParams["CreatedAfter"] = Math.round(
+      input.CreatedAfter.getTime() / 1000
+    );
   }
   if (input.CreatedBefore !== undefined) {
-    bodyParams['CreatedBefore'] = Math.round(input.CreatedBefore.getTime() / 1000);
+    bodyParams["CreatedBefore"] = Math.round(
+      input.CreatedBefore.getTime() / 1000
+    );
   }
   if (input.JobFlowIds !== undefined) {
-    bodyParams['JobFlowIds'] = serializeAws_json1_1XmlStringList(input.JobFlowIds, context);
+    bodyParams["JobFlowIds"] = serializeAws_json1_1XmlStringList(
+      input.JobFlowIds,
+      context
+    );
   }
   if (input.JobFlowStates !== undefined) {
-    bodyParams['JobFlowStates'] = serializeAws_json1_1JobFlowExecutionStateList(input.JobFlowStates, context);
+    bodyParams["JobFlowStates"] = serializeAws_json1_1JobFlowExecutionStateList(
+      input.JobFlowStates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeSecurityConfigurationInput = (
   input: DescribeSecurityConfigurationInput,
@@ -2686,10 +3052,10 @@ const serializeAws_json1_1DescribeSecurityConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeStepInput = (
   input: DescribeStepInput,
@@ -2697,31 +3063,27 @@ const serializeAws_json1_1DescribeStepInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.StepId !== undefined) {
-    bodyParams['StepId'] = input.StepId;
+    bodyParams["StepId"] = input.StepId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EC2InstanceIdsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1EC2InstanceIdsToTerminateList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1EbsBlockDeviceConfig = (
   input: EbsBlockDeviceConfig,
@@ -2729,13 +3091,16 @@ const serializeAws_json1_1EbsBlockDeviceConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.VolumeSpecification !== undefined) {
-    bodyParams['VolumeSpecification'] = serializeAws_json1_1VolumeSpecification(input.VolumeSpecification, context);
+    bodyParams["VolumeSpecification"] = serializeAws_json1_1VolumeSpecification(
+      input.VolumeSpecification,
+      context
+    );
   }
   if (input.VolumesPerInstance !== undefined) {
-    bodyParams['VolumesPerInstance'] = input.VolumesPerInstance;
+    bodyParams["VolumesPerInstance"] = input.VolumesPerInstance;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EbsBlockDeviceConfigList = (
   input: Array<EbsBlockDeviceConfig>,
@@ -2744,7 +3109,7 @@ const serializeAws_json1_1EbsBlockDeviceConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1EbsBlockDeviceConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1EbsConfiguration = (
   input: EbsConfiguration,
@@ -2752,13 +3117,18 @@ const serializeAws_json1_1EbsConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.EbsBlockDeviceConfigs !== undefined) {
-    bodyParams['EbsBlockDeviceConfigs'] = serializeAws_json1_1EbsBlockDeviceConfigList(input.EbsBlockDeviceConfigs, context);
+    bodyParams[
+      "EbsBlockDeviceConfigs"
+    ] = serializeAws_json1_1EbsBlockDeviceConfigList(
+      input.EbsBlockDeviceConfigs,
+      context
+    );
   }
   if (input.EbsOptimized !== undefined) {
-    bodyParams['EbsOptimized'] = input.EbsOptimized;
+    bodyParams["EbsOptimized"] = input.EbsOptimized;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
   input: GetBlockPublicAccessConfigurationInput,
@@ -2766,7 +3136,7 @@ const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1HadoopJarStepConfig = (
   input: HadoopJarStepConfig,
@@ -2774,19 +3144,22 @@ const serializeAws_json1_1HadoopJarStepConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Args !== undefined) {
-    bodyParams['Args'] = serializeAws_json1_1XmlStringList(input.Args, context);
+    bodyParams["Args"] = serializeAws_json1_1XmlStringList(input.Args, context);
   }
   if (input.Jar !== undefined) {
-    bodyParams['Jar'] = input.Jar;
+    bodyParams["Jar"] = input.Jar;
   }
   if (input.MainClass !== undefined) {
-    bodyParams['MainClass'] = input.MainClass;
+    bodyParams["MainClass"] = input.MainClass;
   }
   if (input.Properties !== undefined) {
-    bodyParams['Properties'] = serializeAws_json1_1KeyValueList(input.Properties, context);
+    bodyParams["Properties"] = serializeAws_json1_1KeyValueList(
+      input.Properties,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceFleetConfig = (
   input: InstanceFleetConfig,
@@ -2794,25 +3167,35 @@ const serializeAws_json1_1InstanceFleetConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceFleetType !== undefined) {
-    bodyParams['InstanceFleetType'] = input.InstanceFleetType;
+    bodyParams["InstanceFleetType"] = input.InstanceFleetType;
   }
   if (input.InstanceTypeConfigs !== undefined) {
-    bodyParams['InstanceTypeConfigs'] = serializeAws_json1_1InstanceTypeConfigList(input.InstanceTypeConfigs, context);
+    bodyParams[
+      "InstanceTypeConfigs"
+    ] = serializeAws_json1_1InstanceTypeConfigList(
+      input.InstanceTypeConfigs,
+      context
+    );
   }
   if (input.LaunchSpecifications !== undefined) {
-    bodyParams['LaunchSpecifications'] = serializeAws_json1_1InstanceFleetProvisioningSpecifications(input.LaunchSpecifications, context);
+    bodyParams[
+      "LaunchSpecifications"
+    ] = serializeAws_json1_1InstanceFleetProvisioningSpecifications(
+      input.LaunchSpecifications,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.TargetOnDemandCapacity !== undefined) {
-    bodyParams['TargetOnDemandCapacity'] = input.TargetOnDemandCapacity;
+    bodyParams["TargetOnDemandCapacity"] = input.TargetOnDemandCapacity;
   }
   if (input.TargetSpotCapacity !== undefined) {
-    bodyParams['TargetSpotCapacity'] = input.TargetSpotCapacity;
+    bodyParams["TargetSpotCapacity"] = input.TargetSpotCapacity;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceFleetConfigList = (
   input: Array<InstanceFleetConfig>,
@@ -2821,7 +3204,7 @@ const serializeAws_json1_1InstanceFleetConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1InstanceFleetConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1InstanceFleetModifyConfig = (
   input: InstanceFleetModifyConfig,
@@ -2829,16 +3212,16 @@ const serializeAws_json1_1InstanceFleetModifyConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceFleetId !== undefined) {
-    bodyParams['InstanceFleetId'] = input.InstanceFleetId;
+    bodyParams["InstanceFleetId"] = input.InstanceFleetId;
   }
   if (input.TargetOnDemandCapacity !== undefined) {
-    bodyParams['TargetOnDemandCapacity'] = input.TargetOnDemandCapacity;
+    bodyParams["TargetOnDemandCapacity"] = input.TargetOnDemandCapacity;
   }
   if (input.TargetSpotCapacity !== undefined) {
-    bodyParams['TargetSpotCapacity'] = input.TargetSpotCapacity;
+    bodyParams["TargetSpotCapacity"] = input.TargetSpotCapacity;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   input: InstanceFleetProvisioningSpecifications,
@@ -2846,10 +3229,15 @@ const serializeAws_json1_1InstanceFleetProvisioningSpecifications = (
 ): any => {
   let bodyParams: any = {};
   if (input.SpotSpecification !== undefined) {
-    bodyParams['SpotSpecification'] = serializeAws_json1_1SpotProvisioningSpecification(input.SpotSpecification, context);
+    bodyParams[
+      "SpotSpecification"
+    ] = serializeAws_json1_1SpotProvisioningSpecification(
+      input.SpotSpecification,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceGroupConfig = (
   input: InstanceGroupConfig,
@@ -2857,34 +3245,43 @@ const serializeAws_json1_1InstanceGroupConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.AutoScalingPolicy !== undefined) {
-    bodyParams['AutoScalingPolicy'] = serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context);
+    bodyParams["AutoScalingPolicy"] = serializeAws_json1_1AutoScalingPolicy(
+      input.AutoScalingPolicy,
+      context
+    );
   }
   if (input.BidPrice !== undefined) {
-    bodyParams['BidPrice'] = input.BidPrice;
+    bodyParams["BidPrice"] = input.BidPrice;
   }
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.EbsConfiguration !== undefined) {
-    bodyParams['EbsConfiguration'] = serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context);
+    bodyParams["EbsConfiguration"] = serializeAws_json1_1EbsConfiguration(
+      input.EbsConfiguration,
+      context
+    );
   }
   if (input.InstanceCount !== undefined) {
-    bodyParams['InstanceCount'] = input.InstanceCount;
+    bodyParams["InstanceCount"] = input.InstanceCount;
   }
   if (input.InstanceRole !== undefined) {
-    bodyParams['InstanceRole'] = input.InstanceRole;
+    bodyParams["InstanceRole"] = input.InstanceRole;
   }
   if (input.InstanceType !== undefined) {
-    bodyParams['InstanceType'] = input.InstanceType;
+    bodyParams["InstanceType"] = input.InstanceType;
   }
   if (input.Market !== undefined) {
-    bodyParams['Market'] = input.Market;
+    bodyParams["Market"] = input.Market;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceGroupConfigList = (
   input: Array<InstanceGroupConfig>,
@@ -2893,7 +3290,7 @@ const serializeAws_json1_1InstanceGroupConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1InstanceGroupConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1InstanceGroupModifyConfig = (
   input: InstanceGroupModifyConfig,
@@ -2901,22 +3298,33 @@ const serializeAws_json1_1InstanceGroupModifyConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.EC2InstanceIdsToTerminate !== undefined) {
-    bodyParams['EC2InstanceIdsToTerminate'] = serializeAws_json1_1EC2InstanceIdsToTerminateList(input.EC2InstanceIdsToTerminate, context);
+    bodyParams[
+      "EC2InstanceIdsToTerminate"
+    ] = serializeAws_json1_1EC2InstanceIdsToTerminateList(
+      input.EC2InstanceIdsToTerminate,
+      context
+    );
   }
   if (input.InstanceCount !== undefined) {
-    bodyParams['InstanceCount'] = input.InstanceCount;
+    bodyParams["InstanceCount"] = input.InstanceCount;
   }
   if (input.InstanceGroupId !== undefined) {
-    bodyParams['InstanceGroupId'] = input.InstanceGroupId;
+    bodyParams["InstanceGroupId"] = input.InstanceGroupId;
   }
   if (input.ShrinkPolicy !== undefined) {
-    bodyParams['ShrinkPolicy'] = serializeAws_json1_1ShrinkPolicy(input.ShrinkPolicy, context);
+    bodyParams["ShrinkPolicy"] = serializeAws_json1_1ShrinkPolicy(
+      input.ShrinkPolicy,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceGroupModifyConfigList = (
   input: Array<InstanceGroupModifyConfig>,
@@ -2925,16 +3333,14 @@ const serializeAws_json1_1InstanceGroupModifyConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1InstanceGroupModifyConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1InstanceGroupTypeList = (
   input: Array<InstanceGroupType | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1InstanceResizePolicy = (
   input: InstanceResizePolicy,
@@ -2942,25 +3348,29 @@ const serializeAws_json1_1InstanceResizePolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceTerminationTimeout !== undefined) {
-    bodyParams['InstanceTerminationTimeout'] = input.InstanceTerminationTimeout;
+    bodyParams["InstanceTerminationTimeout"] = input.InstanceTerminationTimeout;
   }
   if (input.InstancesToProtect !== undefined) {
-    bodyParams['InstancesToProtect'] = serializeAws_json1_1EC2InstanceIdsList(input.InstancesToProtect, context);
+    bodyParams["InstancesToProtect"] = serializeAws_json1_1EC2InstanceIdsList(
+      input.InstancesToProtect,
+      context
+    );
   }
   if (input.InstancesToTerminate !== undefined) {
-    bodyParams['InstancesToTerminate'] = serializeAws_json1_1EC2InstanceIdsList(input.InstancesToTerminate, context);
+    bodyParams["InstancesToTerminate"] = serializeAws_json1_1EC2InstanceIdsList(
+      input.InstancesToTerminate,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceStateList = (
   input: Array<InstanceState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1InstanceTypeConfig = (
   input: InstanceTypeConfig,
@@ -2968,25 +3378,32 @@ const serializeAws_json1_1InstanceTypeConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.BidPrice !== undefined) {
-    bodyParams['BidPrice'] = input.BidPrice;
+    bodyParams["BidPrice"] = input.BidPrice;
   }
   if (input.BidPriceAsPercentageOfOnDemandPrice !== undefined) {
-    bodyParams['BidPriceAsPercentageOfOnDemandPrice'] = input.BidPriceAsPercentageOfOnDemandPrice;
+    bodyParams["BidPriceAsPercentageOfOnDemandPrice"] =
+      input.BidPriceAsPercentageOfOnDemandPrice;
   }
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.EbsConfiguration !== undefined) {
-    bodyParams['EbsConfiguration'] = serializeAws_json1_1EbsConfiguration(input.EbsConfiguration, context);
+    bodyParams["EbsConfiguration"] = serializeAws_json1_1EbsConfiguration(
+      input.EbsConfiguration,
+      context
+    );
   }
   if (input.InstanceType !== undefined) {
-    bodyParams['InstanceType'] = input.InstanceType;
+    bodyParams["InstanceType"] = input.InstanceType;
   }
   if (input.WeightedCapacity !== undefined) {
-    bodyParams['WeightedCapacity'] = input.WeightedCapacity;
+    bodyParams["WeightedCapacity"] = input.WeightedCapacity;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceTypeConfigList = (
   input: Array<InstanceTypeConfig>,
@@ -2995,16 +3412,14 @@ const serializeAws_json1_1InstanceTypeConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1InstanceTypeConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1JobFlowExecutionStateList = (
   input: Array<JobFlowExecutionState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1JobFlowInstancesConfig = (
   input: JobFlowInstancesConfig,
@@ -3012,58 +3427,83 @@ const serializeAws_json1_1JobFlowInstancesConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdditionalMasterSecurityGroups !== undefined) {
-    bodyParams['AdditionalMasterSecurityGroups'] = serializeAws_json1_1SecurityGroupsList(input.AdditionalMasterSecurityGroups, context);
+    bodyParams[
+      "AdditionalMasterSecurityGroups"
+    ] = serializeAws_json1_1SecurityGroupsList(
+      input.AdditionalMasterSecurityGroups,
+      context
+    );
   }
   if (input.AdditionalSlaveSecurityGroups !== undefined) {
-    bodyParams['AdditionalSlaveSecurityGroups'] = serializeAws_json1_1SecurityGroupsList(input.AdditionalSlaveSecurityGroups, context);
+    bodyParams[
+      "AdditionalSlaveSecurityGroups"
+    ] = serializeAws_json1_1SecurityGroupsList(
+      input.AdditionalSlaveSecurityGroups,
+      context
+    );
   }
   if (input.Ec2KeyName !== undefined) {
-    bodyParams['Ec2KeyName'] = input.Ec2KeyName;
+    bodyParams["Ec2KeyName"] = input.Ec2KeyName;
   }
   if (input.Ec2SubnetId !== undefined) {
-    bodyParams['Ec2SubnetId'] = input.Ec2SubnetId;
+    bodyParams["Ec2SubnetId"] = input.Ec2SubnetId;
   }
   if (input.Ec2SubnetIds !== undefined) {
-    bodyParams['Ec2SubnetIds'] = serializeAws_json1_1XmlStringMaxLen256List(input.Ec2SubnetIds, context);
+    bodyParams["Ec2SubnetIds"] = serializeAws_json1_1XmlStringMaxLen256List(
+      input.Ec2SubnetIds,
+      context
+    );
   }
   if (input.EmrManagedMasterSecurityGroup !== undefined) {
-    bodyParams['EmrManagedMasterSecurityGroup'] = input.EmrManagedMasterSecurityGroup;
+    bodyParams["EmrManagedMasterSecurityGroup"] =
+      input.EmrManagedMasterSecurityGroup;
   }
   if (input.EmrManagedSlaveSecurityGroup !== undefined) {
-    bodyParams['EmrManagedSlaveSecurityGroup'] = input.EmrManagedSlaveSecurityGroup;
+    bodyParams["EmrManagedSlaveSecurityGroup"] =
+      input.EmrManagedSlaveSecurityGroup;
   }
   if (input.HadoopVersion !== undefined) {
-    bodyParams['HadoopVersion'] = input.HadoopVersion;
+    bodyParams["HadoopVersion"] = input.HadoopVersion;
   }
   if (input.InstanceCount !== undefined) {
-    bodyParams['InstanceCount'] = input.InstanceCount;
+    bodyParams["InstanceCount"] = input.InstanceCount;
   }
   if (input.InstanceFleets !== undefined) {
-    bodyParams['InstanceFleets'] = serializeAws_json1_1InstanceFleetConfigList(input.InstanceFleets, context);
+    bodyParams["InstanceFleets"] = serializeAws_json1_1InstanceFleetConfigList(
+      input.InstanceFleets,
+      context
+    );
   }
   if (input.InstanceGroups !== undefined) {
-    bodyParams['InstanceGroups'] = serializeAws_json1_1InstanceGroupConfigList(input.InstanceGroups, context);
+    bodyParams["InstanceGroups"] = serializeAws_json1_1InstanceGroupConfigList(
+      input.InstanceGroups,
+      context
+    );
   }
   if (input.KeepJobFlowAliveWhenNoSteps !== undefined) {
-    bodyParams['KeepJobFlowAliveWhenNoSteps'] = input.KeepJobFlowAliveWhenNoSteps;
+    bodyParams["KeepJobFlowAliveWhenNoSteps"] =
+      input.KeepJobFlowAliveWhenNoSteps;
   }
   if (input.MasterInstanceType !== undefined) {
-    bodyParams['MasterInstanceType'] = input.MasterInstanceType;
+    bodyParams["MasterInstanceType"] = input.MasterInstanceType;
   }
   if (input.Placement !== undefined) {
-    bodyParams['Placement'] = serializeAws_json1_1PlacementType(input.Placement, context);
+    bodyParams["Placement"] = serializeAws_json1_1PlacementType(
+      input.Placement,
+      context
+    );
   }
   if (input.ServiceAccessSecurityGroup !== undefined) {
-    bodyParams['ServiceAccessSecurityGroup'] = input.ServiceAccessSecurityGroup;
+    bodyParams["ServiceAccessSecurityGroup"] = input.ServiceAccessSecurityGroup;
   }
   if (input.SlaveInstanceType !== undefined) {
-    bodyParams['SlaveInstanceType'] = input.SlaveInstanceType;
+    bodyParams["SlaveInstanceType"] = input.SlaveInstanceType;
   }
   if (input.TerminationProtected !== undefined) {
-    bodyParams['TerminationProtected'] = input.TerminationProtected;
+    bodyParams["TerminationProtected"] = input.TerminationProtected;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1KerberosAttributes = (
   input: KerberosAttributes,
@@ -3071,22 +3511,23 @@ const serializeAws_json1_1KerberosAttributes = (
 ): any => {
   let bodyParams: any = {};
   if (input.ADDomainJoinPassword !== undefined) {
-    bodyParams['ADDomainJoinPassword'] = input.ADDomainJoinPassword;
+    bodyParams["ADDomainJoinPassword"] = input.ADDomainJoinPassword;
   }
   if (input.ADDomainJoinUser !== undefined) {
-    bodyParams['ADDomainJoinUser'] = input.ADDomainJoinUser;
+    bodyParams["ADDomainJoinUser"] = input.ADDomainJoinUser;
   }
   if (input.CrossRealmTrustPrincipalPassword !== undefined) {
-    bodyParams['CrossRealmTrustPrincipalPassword'] = input.CrossRealmTrustPrincipalPassword;
+    bodyParams["CrossRealmTrustPrincipalPassword"] =
+      input.CrossRealmTrustPrincipalPassword;
   }
   if (input.KdcAdminPassword !== undefined) {
-    bodyParams['KdcAdminPassword'] = input.KdcAdminPassword;
+    bodyParams["KdcAdminPassword"] = input.KdcAdminPassword;
   }
   if (input.Realm !== undefined) {
-    bodyParams['Realm'] = input.Realm;
+    bodyParams["Realm"] = input.Realm;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1KeyValue = (
   input: KeyValue,
@@ -3094,13 +3535,13 @@ const serializeAws_json1_1KeyValue = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1KeyValueList = (
   input: Array<KeyValue>,
@@ -3109,7 +3550,7 @@ const serializeAws_json1_1KeyValueList = (
   return (input || []).map(entry =>
     serializeAws_json1_1KeyValue(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ListBootstrapActionsInput = (
   input: ListBootstrapActionsInput,
@@ -3117,13 +3558,13 @@ const serializeAws_json1_1ListBootstrapActionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListClustersInput = (
   input: ListClustersInput,
@@ -3131,19 +3572,26 @@ const serializeAws_json1_1ListClustersInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterStates !== undefined) {
-    bodyParams['ClusterStates'] = serializeAws_json1_1ClusterStateList(input.ClusterStates, context);
+    bodyParams["ClusterStates"] = serializeAws_json1_1ClusterStateList(
+      input.ClusterStates,
+      context
+    );
   }
   if (input.CreatedAfter !== undefined) {
-    bodyParams['CreatedAfter'] = Math.round(input.CreatedAfter.getTime() / 1000);
+    bodyParams["CreatedAfter"] = Math.round(
+      input.CreatedAfter.getTime() / 1000
+    );
   }
   if (input.CreatedBefore !== undefined) {
-    bodyParams['CreatedBefore'] = Math.round(input.CreatedBefore.getTime() / 1000);
+    bodyParams["CreatedBefore"] = Math.round(
+      input.CreatedBefore.getTime() / 1000
+    );
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListInstanceFleetsInput = (
   input: ListInstanceFleetsInput,
@@ -3151,13 +3599,13 @@ const serializeAws_json1_1ListInstanceFleetsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListInstanceGroupsInput = (
   input: ListInstanceGroupsInput,
@@ -3165,13 +3613,13 @@ const serializeAws_json1_1ListInstanceGroupsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListInstancesInput = (
   input: ListInstancesInput,
@@ -3179,28 +3627,36 @@ const serializeAws_json1_1ListInstancesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceFleetId !== undefined) {
-    bodyParams['InstanceFleetId'] = input.InstanceFleetId;
+    bodyParams["InstanceFleetId"] = input.InstanceFleetId;
   }
   if (input.InstanceFleetType !== undefined) {
-    bodyParams['InstanceFleetType'] = input.InstanceFleetType;
+    bodyParams["InstanceFleetType"] = input.InstanceFleetType;
   }
   if (input.InstanceGroupId !== undefined) {
-    bodyParams['InstanceGroupId'] = input.InstanceGroupId;
+    bodyParams["InstanceGroupId"] = input.InstanceGroupId;
   }
   if (input.InstanceGroupTypes !== undefined) {
-    bodyParams['InstanceGroupTypes'] = serializeAws_json1_1InstanceGroupTypeList(input.InstanceGroupTypes, context);
+    bodyParams[
+      "InstanceGroupTypes"
+    ] = serializeAws_json1_1InstanceGroupTypeList(
+      input.InstanceGroupTypes,
+      context
+    );
   }
   if (input.InstanceStates !== undefined) {
-    bodyParams['InstanceStates'] = serializeAws_json1_1InstanceStateList(input.InstanceStates, context);
+    bodyParams["InstanceStates"] = serializeAws_json1_1InstanceStateList(
+      input.InstanceStates,
+      context
+    );
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListSecurityConfigurationsInput = (
   input: ListSecurityConfigurationsInput,
@@ -3208,10 +3664,10 @@ const serializeAws_json1_1ListSecurityConfigurationsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListStepsInput = (
   input: ListStepsInput,
@@ -3219,19 +3675,25 @@ const serializeAws_json1_1ListStepsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.Marker !== undefined) {
-    bodyParams['Marker'] = input.Marker;
+    bodyParams["Marker"] = input.Marker;
   }
   if (input.StepIds !== undefined) {
-    bodyParams['StepIds'] = serializeAws_json1_1XmlStringList(input.StepIds, context);
+    bodyParams["StepIds"] = serializeAws_json1_1XmlStringList(
+      input.StepIds,
+      context
+    );
   }
   if (input.StepStates !== undefined) {
-    bodyParams['StepStates'] = serializeAws_json1_1StepStateList(input.StepStates, context);
+    bodyParams["StepStates"] = serializeAws_json1_1StepStateList(
+      input.StepStates,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1MetricDimension = (
   input: MetricDimension,
@@ -3239,13 +3701,13 @@ const serializeAws_json1_1MetricDimension = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1MetricDimensionList = (
   input: Array<MetricDimension>,
@@ -3254,7 +3716,7 @@ const serializeAws_json1_1MetricDimensionList = (
   return (input || []).map(entry =>
     serializeAws_json1_1MetricDimension(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ModifyClusterInput = (
   input: ModifyClusterInput,
@@ -3262,13 +3724,13 @@ const serializeAws_json1_1ModifyClusterInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.StepConcurrencyLevel !== undefined) {
-    bodyParams['StepConcurrencyLevel'] = input.StepConcurrencyLevel;
+    bodyParams["StepConcurrencyLevel"] = input.StepConcurrencyLevel;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ModifyInstanceFleetInput = (
   input: ModifyInstanceFleetInput,
@@ -3276,13 +3738,16 @@ const serializeAws_json1_1ModifyInstanceFleetInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceFleet !== undefined) {
-    bodyParams['InstanceFleet'] = serializeAws_json1_1InstanceFleetModifyConfig(input.InstanceFleet, context);
+    bodyParams["InstanceFleet"] = serializeAws_json1_1InstanceFleetModifyConfig(
+      input.InstanceFleet,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ModifyInstanceGroupsInput = (
   input: ModifyInstanceGroupsInput,
@@ -3290,13 +3755,18 @@ const serializeAws_json1_1ModifyInstanceGroupsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceGroups !== undefined) {
-    bodyParams['InstanceGroups'] = serializeAws_json1_1InstanceGroupModifyConfigList(input.InstanceGroups, context);
+    bodyParams[
+      "InstanceGroups"
+    ] = serializeAws_json1_1InstanceGroupModifyConfigList(
+      input.InstanceGroups,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1NewSupportedProductsList = (
   input: Array<SupportedProductConfig>,
@@ -3305,7 +3775,7 @@ const serializeAws_json1_1NewSupportedProductsList = (
   return (input || []).map(entry =>
     serializeAws_json1_1SupportedProductConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PlacementType = (
   input: PlacementType,
@@ -3313,13 +3783,18 @@ const serializeAws_json1_1PlacementType = (
 ): any => {
   let bodyParams: any = {};
   if (input.AvailabilityZone !== undefined) {
-    bodyParams['AvailabilityZone'] = input.AvailabilityZone;
+    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
   }
   if (input.AvailabilityZones !== undefined) {
-    bodyParams['AvailabilityZones'] = serializeAws_json1_1XmlStringMaxLen256List(input.AvailabilityZones, context);
+    bodyParams[
+      "AvailabilityZones"
+    ] = serializeAws_json1_1XmlStringMaxLen256List(
+      input.AvailabilityZones,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PortRange = (
   input: PortRange,
@@ -3327,13 +3802,13 @@ const serializeAws_json1_1PortRange = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxRange !== undefined) {
-    bodyParams['MaxRange'] = input.MaxRange;
+    bodyParams["MaxRange"] = input.MaxRange;
   }
   if (input.MinRange !== undefined) {
-    bodyParams['MinRange'] = input.MinRange;
+    bodyParams["MinRange"] = input.MinRange;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PortRanges = (
   input: Array<PortRange>,
@@ -3342,7 +3817,7 @@ const serializeAws_json1_1PortRanges = (
   return (input || []).map(entry =>
     serializeAws_json1_1PortRange(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PutAutoScalingPolicyInput = (
   input: PutAutoScalingPolicyInput,
@@ -3350,16 +3825,19 @@ const serializeAws_json1_1PutAutoScalingPolicyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AutoScalingPolicy !== undefined) {
-    bodyParams['AutoScalingPolicy'] = serializeAws_json1_1AutoScalingPolicy(input.AutoScalingPolicy, context);
+    bodyParams["AutoScalingPolicy"] = serializeAws_json1_1AutoScalingPolicy(
+      input.AutoScalingPolicy,
+      context
+    );
   }
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceGroupId !== undefined) {
-    bodyParams['InstanceGroupId'] = input.InstanceGroupId;
+    bodyParams["InstanceGroupId"] = input.InstanceGroupId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutBlockPublicAccessConfigurationInput = (
   input: PutBlockPublicAccessConfigurationInput,
@@ -3367,10 +3845,15 @@ const serializeAws_json1_1PutBlockPublicAccessConfigurationInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockPublicAccessConfiguration !== undefined) {
-    bodyParams['BlockPublicAccessConfiguration'] = serializeAws_json1_1BlockPublicAccessConfiguration(input.BlockPublicAccessConfiguration, context);
+    bodyParams[
+      "BlockPublicAccessConfiguration"
+    ] = serializeAws_json1_1BlockPublicAccessConfiguration(
+      input.BlockPublicAccessConfiguration,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
   input: RemoveAutoScalingPolicyInput,
@@ -3378,13 +3861,13 @@ const serializeAws_json1_1RemoveAutoScalingPolicyInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ClusterId !== undefined) {
-    bodyParams['ClusterId'] = input.ClusterId;
+    bodyParams["ClusterId"] = input.ClusterId;
   }
   if (input.InstanceGroupId !== undefined) {
-    bodyParams['InstanceGroupId'] = input.InstanceGroupId;
+    bodyParams["InstanceGroupId"] = input.InstanceGroupId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RemoveTagsInput = (
   input: RemoveTagsInput,
@@ -3392,13 +3875,16 @@ const serializeAws_json1_1RemoveTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceId !== undefined) {
-    bodyParams['ResourceId'] = input.ResourceId;
+    bodyParams["ResourceId"] = input.ResourceId;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams['TagKeys'] = serializeAws_json1_1StringList(input.TagKeys, context);
+    bodyParams["TagKeys"] = serializeAws_json1_1StringList(
+      input.TagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RunJobFlowInput = (
   input: RunJobFlowInput,
@@ -3406,79 +3892,107 @@ const serializeAws_json1_1RunJobFlowInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdditionalInfo !== undefined) {
-    bodyParams['AdditionalInfo'] = input.AdditionalInfo;
+    bodyParams["AdditionalInfo"] = input.AdditionalInfo;
   }
   if (input.AmiVersion !== undefined) {
-    bodyParams['AmiVersion'] = input.AmiVersion;
+    bodyParams["AmiVersion"] = input.AmiVersion;
   }
   if (input.Applications !== undefined) {
-    bodyParams['Applications'] = serializeAws_json1_1ApplicationList(input.Applications, context);
+    bodyParams["Applications"] = serializeAws_json1_1ApplicationList(
+      input.Applications,
+      context
+    );
   }
   if (input.AutoScalingRole !== undefined) {
-    bodyParams['AutoScalingRole'] = input.AutoScalingRole;
+    bodyParams["AutoScalingRole"] = input.AutoScalingRole;
   }
   if (input.BootstrapActions !== undefined) {
-    bodyParams['BootstrapActions'] = serializeAws_json1_1BootstrapActionConfigList(input.BootstrapActions, context);
+    bodyParams[
+      "BootstrapActions"
+    ] = serializeAws_json1_1BootstrapActionConfigList(
+      input.BootstrapActions,
+      context
+    );
   }
   if (input.Configurations !== undefined) {
-    bodyParams['Configurations'] = serializeAws_json1_1ConfigurationList(input.Configurations, context);
+    bodyParams["Configurations"] = serializeAws_json1_1ConfigurationList(
+      input.Configurations,
+      context
+    );
   }
   if (input.CustomAmiId !== undefined) {
-    bodyParams['CustomAmiId'] = input.CustomAmiId;
+    bodyParams["CustomAmiId"] = input.CustomAmiId;
   }
   if (input.EbsRootVolumeSize !== undefined) {
-    bodyParams['EbsRootVolumeSize'] = input.EbsRootVolumeSize;
+    bodyParams["EbsRootVolumeSize"] = input.EbsRootVolumeSize;
   }
   if (input.Instances !== undefined) {
-    bodyParams['Instances'] = serializeAws_json1_1JobFlowInstancesConfig(input.Instances, context);
+    bodyParams["Instances"] = serializeAws_json1_1JobFlowInstancesConfig(
+      input.Instances,
+      context
+    );
   }
   if (input.JobFlowRole !== undefined) {
-    bodyParams['JobFlowRole'] = input.JobFlowRole;
+    bodyParams["JobFlowRole"] = input.JobFlowRole;
   }
   if (input.KerberosAttributes !== undefined) {
-    bodyParams['KerberosAttributes'] = serializeAws_json1_1KerberosAttributes(input.KerberosAttributes, context);
+    bodyParams["KerberosAttributes"] = serializeAws_json1_1KerberosAttributes(
+      input.KerberosAttributes,
+      context
+    );
   }
   if (input.LogUri !== undefined) {
-    bodyParams['LogUri'] = input.LogUri;
+    bodyParams["LogUri"] = input.LogUri;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.NewSupportedProducts !== undefined) {
-    bodyParams['NewSupportedProducts'] = serializeAws_json1_1NewSupportedProductsList(input.NewSupportedProducts, context);
+    bodyParams[
+      "NewSupportedProducts"
+    ] = serializeAws_json1_1NewSupportedProductsList(
+      input.NewSupportedProducts,
+      context
+    );
   }
   if (input.ReleaseLabel !== undefined) {
-    bodyParams['ReleaseLabel'] = input.ReleaseLabel;
+    bodyParams["ReleaseLabel"] = input.ReleaseLabel;
   }
   if (input.RepoUpgradeOnBoot !== undefined) {
-    bodyParams['RepoUpgradeOnBoot'] = input.RepoUpgradeOnBoot;
+    bodyParams["RepoUpgradeOnBoot"] = input.RepoUpgradeOnBoot;
   }
   if (input.ScaleDownBehavior !== undefined) {
-    bodyParams['ScaleDownBehavior'] = input.ScaleDownBehavior;
+    bodyParams["ScaleDownBehavior"] = input.ScaleDownBehavior;
   }
   if (input.SecurityConfiguration !== undefined) {
-    bodyParams['SecurityConfiguration'] = input.SecurityConfiguration;
+    bodyParams["SecurityConfiguration"] = input.SecurityConfiguration;
   }
   if (input.ServiceRole !== undefined) {
-    bodyParams['ServiceRole'] = input.ServiceRole;
+    bodyParams["ServiceRole"] = input.ServiceRole;
   }
   if (input.StepConcurrencyLevel !== undefined) {
-    bodyParams['StepConcurrencyLevel'] = input.StepConcurrencyLevel;
+    bodyParams["StepConcurrencyLevel"] = input.StepConcurrencyLevel;
   }
   if (input.Steps !== undefined) {
-    bodyParams['Steps'] = serializeAws_json1_1StepConfigList(input.Steps, context);
+    bodyParams["Steps"] = serializeAws_json1_1StepConfigList(
+      input.Steps,
+      context
+    );
   }
   if (input.SupportedProducts !== undefined) {
-    bodyParams['SupportedProducts'] = serializeAws_json1_1SupportedProductsList(input.SupportedProducts, context);
+    bodyParams["SupportedProducts"] = serializeAws_json1_1SupportedProductsList(
+      input.SupportedProducts,
+      context
+    );
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.VisibleToAllUsers !== undefined) {
-    bodyParams['VisibleToAllUsers'] = input.VisibleToAllUsers;
+    bodyParams["VisibleToAllUsers"] = input.VisibleToAllUsers;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ScalingAction = (
   input: ScalingAction,
@@ -3486,13 +4000,18 @@ const serializeAws_json1_1ScalingAction = (
 ): any => {
   let bodyParams: any = {};
   if (input.Market !== undefined) {
-    bodyParams['Market'] = input.Market;
+    bodyParams["Market"] = input.Market;
   }
   if (input.SimpleScalingPolicyConfiguration !== undefined) {
-    bodyParams['SimpleScalingPolicyConfiguration'] = serializeAws_json1_1SimpleScalingPolicyConfiguration(input.SimpleScalingPolicyConfiguration, context);
+    bodyParams[
+      "SimpleScalingPolicyConfiguration"
+    ] = serializeAws_json1_1SimpleScalingPolicyConfiguration(
+      input.SimpleScalingPolicyConfiguration,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ScalingConstraints = (
   input: ScalingConstraints,
@@ -3500,13 +4019,13 @@ const serializeAws_json1_1ScalingConstraints = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxCapacity !== undefined) {
-    bodyParams['MaxCapacity'] = input.MaxCapacity;
+    bodyParams["MaxCapacity"] = input.MaxCapacity;
   }
   if (input.MinCapacity !== undefined) {
-    bodyParams['MinCapacity'] = input.MinCapacity;
+    bodyParams["MinCapacity"] = input.MinCapacity;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ScalingRule = (
   input: ScalingRule,
@@ -3514,19 +4033,25 @@ const serializeAws_json1_1ScalingRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.Action !== undefined) {
-    bodyParams['Action'] = serializeAws_json1_1ScalingAction(input.Action, context);
+    bodyParams["Action"] = serializeAws_json1_1ScalingAction(
+      input.Action,
+      context
+    );
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Trigger !== undefined) {
-    bodyParams['Trigger'] = serializeAws_json1_1ScalingTrigger(input.Trigger, context);
+    bodyParams["Trigger"] = serializeAws_json1_1ScalingTrigger(
+      input.Trigger,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ScalingRuleList = (
   input: Array<ScalingRule>,
@@ -3535,7 +4060,7 @@ const serializeAws_json1_1ScalingRuleList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ScalingRule(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ScalingTrigger = (
   input: ScalingTrigger,
@@ -3543,10 +4068,15 @@ const serializeAws_json1_1ScalingTrigger = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchAlarmDefinition !== undefined) {
-    bodyParams['CloudWatchAlarmDefinition'] = serializeAws_json1_1CloudWatchAlarmDefinition(input.CloudWatchAlarmDefinition, context);
+    bodyParams[
+      "CloudWatchAlarmDefinition"
+    ] = serializeAws_json1_1CloudWatchAlarmDefinition(
+      input.CloudWatchAlarmDefinition,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ScriptBootstrapActionConfig = (
   input: ScriptBootstrapActionConfig,
@@ -3554,22 +4084,20 @@ const serializeAws_json1_1ScriptBootstrapActionConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Args !== undefined) {
-    bodyParams['Args'] = serializeAws_json1_1XmlStringList(input.Args, context);
+    bodyParams["Args"] = serializeAws_json1_1XmlStringList(input.Args, context);
   }
   if (input.Path !== undefined) {
-    bodyParams['Path'] = input.Path;
+    bodyParams["Path"] = input.Path;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SecurityGroupsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1SetTerminationProtectionInput = (
   input: SetTerminationProtectionInput,
@@ -3577,13 +4105,16 @@ const serializeAws_json1_1SetTerminationProtectionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobFlowIds !== undefined) {
-    bodyParams['JobFlowIds'] = serializeAws_json1_1XmlStringList(input.JobFlowIds, context);
+    bodyParams["JobFlowIds"] = serializeAws_json1_1XmlStringList(
+      input.JobFlowIds,
+      context
+    );
   }
   if (input.TerminationProtected !== undefined) {
-    bodyParams['TerminationProtected'] = input.TerminationProtected;
+    bodyParams["TerminationProtected"] = input.TerminationProtected;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SetVisibleToAllUsersInput = (
   input: SetVisibleToAllUsersInput,
@@ -3591,13 +4122,16 @@ const serializeAws_json1_1SetVisibleToAllUsersInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobFlowIds !== undefined) {
-    bodyParams['JobFlowIds'] = serializeAws_json1_1XmlStringList(input.JobFlowIds, context);
+    bodyParams["JobFlowIds"] = serializeAws_json1_1XmlStringList(
+      input.JobFlowIds,
+      context
+    );
   }
   if (input.VisibleToAllUsers !== undefined) {
-    bodyParams['VisibleToAllUsers'] = input.VisibleToAllUsers;
+    bodyParams["VisibleToAllUsers"] = input.VisibleToAllUsers;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ShrinkPolicy = (
   input: ShrinkPolicy,
@@ -3605,13 +4139,18 @@ const serializeAws_json1_1ShrinkPolicy = (
 ): any => {
   let bodyParams: any = {};
   if (input.DecommissionTimeout !== undefined) {
-    bodyParams['DecommissionTimeout'] = input.DecommissionTimeout;
+    bodyParams["DecommissionTimeout"] = input.DecommissionTimeout;
   }
   if (input.InstanceResizePolicy !== undefined) {
-    bodyParams['InstanceResizePolicy'] = serializeAws_json1_1InstanceResizePolicy(input.InstanceResizePolicy, context);
+    bodyParams[
+      "InstanceResizePolicy"
+    ] = serializeAws_json1_1InstanceResizePolicy(
+      input.InstanceResizePolicy,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SimpleScalingPolicyConfiguration = (
   input: SimpleScalingPolicyConfiguration,
@@ -3619,16 +4158,16 @@ const serializeAws_json1_1SimpleScalingPolicyConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdjustmentType !== undefined) {
-    bodyParams['AdjustmentType'] = input.AdjustmentType;
+    bodyParams["AdjustmentType"] = input.AdjustmentType;
   }
   if (input.CoolDown !== undefined) {
-    bodyParams['CoolDown'] = input.CoolDown;
+    bodyParams["CoolDown"] = input.CoolDown;
   }
   if (input.ScalingAdjustment !== undefined) {
-    bodyParams['ScalingAdjustment'] = input.ScalingAdjustment;
+    bodyParams["ScalingAdjustment"] = input.ScalingAdjustment;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SpotProvisioningSpecification = (
   input: SpotProvisioningSpecification,
@@ -3636,16 +4175,16 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
 ): any => {
   let bodyParams: any = {};
   if (input.BlockDurationMinutes !== undefined) {
-    bodyParams['BlockDurationMinutes'] = input.BlockDurationMinutes;
+    bodyParams["BlockDurationMinutes"] = input.BlockDurationMinutes;
   }
   if (input.TimeoutAction !== undefined) {
-    bodyParams['TimeoutAction'] = input.TimeoutAction;
+    bodyParams["TimeoutAction"] = input.TimeoutAction;
   }
   if (input.TimeoutDurationMinutes !== undefined) {
-    bodyParams['TimeoutDurationMinutes'] = input.TimeoutDurationMinutes;
+    bodyParams["TimeoutDurationMinutes"] = input.TimeoutDurationMinutes;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StepConfig = (
   input: StepConfig,
@@ -3653,16 +4192,19 @@ const serializeAws_json1_1StepConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.ActionOnFailure !== undefined) {
-    bodyParams['ActionOnFailure'] = input.ActionOnFailure;
+    bodyParams["ActionOnFailure"] = input.ActionOnFailure;
   }
   if (input.HadoopJarStep !== undefined) {
-    bodyParams['HadoopJarStep'] = serializeAws_json1_1HadoopJarStepConfig(input.HadoopJarStep, context);
+    bodyParams["HadoopJarStep"] = serializeAws_json1_1HadoopJarStepConfig(
+      input.HadoopJarStep,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StepConfigList = (
   input: Array<StepConfig>,
@@ -3671,34 +4213,28 @@ const serializeAws_json1_1StepConfigList = (
   return (input || []).map(entry =>
     serializeAws_json1_1StepConfig(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1StepIdsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1StepStateList = (
   input: Array<StepState | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1StringMap = (
   input: { [key: string]: string },
@@ -3709,7 +4245,7 @@ const serializeAws_json1_1StringMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1SupportedProductConfig = (
   input: SupportedProductConfig,
@@ -3717,45 +4253,38 @@ const serializeAws_json1_1SupportedProductConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.Args !== undefined) {
-    bodyParams['Args'] = serializeAws_json1_1XmlStringList(input.Args, context);
+    bodyParams["Args"] = serializeAws_json1_1XmlStringList(input.Args, context);
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SupportedProductsList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
-const serializeAws_json1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
 
 const serializeAws_json1_1TerminateJobFlowsInput = (
   input: TerminateJobFlowsInput,
@@ -3763,10 +4292,13 @@ const serializeAws_json1_1TerminateJobFlowsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.JobFlowIds !== undefined) {
-    bodyParams['JobFlowIds'] = serializeAws_json1_1XmlStringList(input.JobFlowIds, context);
+    bodyParams["JobFlowIds"] = serializeAws_json1_1XmlStringList(
+      input.JobFlowIds,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1VolumeSpecification = (
   input: VolumeSpecification,
@@ -3774,34 +4306,30 @@ const serializeAws_json1_1VolumeSpecification = (
 ): any => {
   let bodyParams: any = {};
   if (input.Iops !== undefined) {
-    bodyParams['Iops'] = input.Iops;
+    bodyParams["Iops"] = input.Iops;
   }
   if (input.SizeInGB !== undefined) {
-    bodyParams['SizeInGB'] = input.SizeInGB;
+    bodyParams["SizeInGB"] = input.SizeInGB;
   }
   if (input.VolumeType !== undefined) {
-    bodyParams['VolumeType'] = input.VolumeType;
+    bodyParams["VolumeType"] = input.VolumeType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1XmlStringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1XmlStringMaxLen256List = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const deserializeAws_json1_1AddInstanceFleetOutput = (
   output: any,
@@ -3811,7 +4339,7 @@ const deserializeAws_json1_1AddInstanceFleetOutput = (
     __type: "AddInstanceFleetOutput",
     ClusterArn: undefined,
     ClusterId: undefined,
-    InstanceFleetId: undefined,
+    InstanceFleetId: undefined
   };
   if (output.ClusterArn !== undefined) {
     contents.ClusterArn = output.ClusterArn;
@@ -3823,7 +4351,7 @@ const deserializeAws_json1_1AddInstanceFleetOutput = (
     contents.InstanceFleetId = output.InstanceFleetId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AddInstanceGroupsOutput = (
   output: any,
@@ -3833,19 +4361,22 @@ const deserializeAws_json1_1AddInstanceGroupsOutput = (
     __type: "AddInstanceGroupsOutput",
     ClusterArn: undefined,
     InstanceGroupIds: undefined,
-    JobFlowId: undefined,
+    JobFlowId: undefined
   };
   if (output.ClusterArn !== undefined) {
     contents.ClusterArn = output.ClusterArn;
   }
   if (output.InstanceGroupIds !== undefined) {
-    contents.InstanceGroupIds = deserializeAws_json1_1InstanceGroupIdsList(output.InstanceGroupIds, context);
+    contents.InstanceGroupIds = deserializeAws_json1_1InstanceGroupIdsList(
+      output.InstanceGroupIds,
+      context
+    );
   }
   if (output.JobFlowId !== undefined) {
     contents.JobFlowId = output.JobFlowId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AddJobFlowStepsOutput = (
   output: any,
@@ -3853,23 +4384,26 @@ const deserializeAws_json1_1AddJobFlowStepsOutput = (
 ): AddJobFlowStepsOutput => {
   let contents: any = {
     __type: "AddJobFlowStepsOutput",
-    StepIds: undefined,
+    StepIds: undefined
   };
   if (output.StepIds !== undefined) {
-    contents.StepIds = deserializeAws_json1_1StepIdsList(output.StepIds, context);
+    contents.StepIds = deserializeAws_json1_1StepIdsList(
+      output.StepIds,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsOutput => {
   let contents: any = {
-    __type: "AddTagsOutput",
+    __type: "AddTagsOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1Application = (
   output: any,
@@ -3880,10 +4414,13 @@ const deserializeAws_json1_1Application = (
     AdditionalInfo: undefined,
     Args: undefined,
     Name: undefined,
-    Version: undefined,
+    Version: undefined
   };
   if (output.AdditionalInfo !== undefined) {
-    contents.AdditionalInfo = deserializeAws_json1_1StringMap(output.AdditionalInfo, context);
+    contents.AdditionalInfo = deserializeAws_json1_1StringMap(
+      output.AdditionalInfo,
+      context
+    );
   }
   if (output.Args !== undefined) {
     contents.Args = deserializeAws_json1_1StringList(output.Args, context);
@@ -3895,7 +4432,7 @@ const deserializeAws_json1_1Application = (
     contents.Version = output.Version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ApplicationList = (
   output: any,
@@ -3904,7 +4441,7 @@ const deserializeAws_json1_1ApplicationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Application(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1AutoScalingPolicyDescription = (
   output: any,
@@ -3914,19 +4451,28 @@ const deserializeAws_json1_1AutoScalingPolicyDescription = (
     __type: "AutoScalingPolicyDescription",
     Constraints: undefined,
     Rules: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.Constraints !== undefined) {
-    contents.Constraints = deserializeAws_json1_1ScalingConstraints(output.Constraints, context);
+    contents.Constraints = deserializeAws_json1_1ScalingConstraints(
+      output.Constraints,
+      context
+    );
   }
   if (output.Rules !== undefined) {
-    contents.Rules = deserializeAws_json1_1ScalingRuleList(output.Rules, context);
+    contents.Rules = deserializeAws_json1_1ScalingRuleList(
+      output.Rules,
+      context
+    );
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1AutoScalingPolicyStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1AutoScalingPolicyStatus(
+      output.Status,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
   output: any,
@@ -3935,7 +4481,7 @@ const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
   let contents: any = {
     __type: "AutoScalingPolicyStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -3944,7 +4490,7 @@ const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1AutoScalingPolicyStatus = (
   output: any,
@@ -3953,16 +4499,19 @@ const deserializeAws_json1_1AutoScalingPolicyStatus = (
   let contents: any = {
     __type: "AutoScalingPolicyStatus",
     State: undefined,
-    StateChangeReason: undefined,
+    StateChangeReason: undefined
   };
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1AutoScalingPolicyStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1AutoScalingPolicyStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1BlockPublicAccessConfiguration = (
   output: any,
@@ -3974,25 +4523,35 @@ const deserializeAws_json1_1BlockPublicAccessConfiguration = (
     Classification: undefined,
     Configurations: undefined,
     PermittedPublicSecurityGroupRuleRanges: undefined,
-    Properties: undefined,
+    Properties: undefined
   };
   if (output.BlockPublicSecurityGroupRules !== undefined) {
-    contents.BlockPublicSecurityGroupRules = output.BlockPublicSecurityGroupRules;
+    contents.BlockPublicSecurityGroupRules =
+      output.BlockPublicSecurityGroupRules;
   }
   if (output.Classification !== undefined) {
     contents.Classification = output.Classification;
   }
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(output.Configurations, context);
+    contents.Configurations = deserializeAws_json1_1ConfigurationList(
+      output.Configurations,
+      context
+    );
   }
   if (output.PermittedPublicSecurityGroupRuleRanges !== undefined) {
-    contents.PermittedPublicSecurityGroupRuleRanges = deserializeAws_json1_1PortRanges(output.PermittedPublicSecurityGroupRuleRanges, context);
+    contents.PermittedPublicSecurityGroupRuleRanges = deserializeAws_json1_1PortRanges(
+      output.PermittedPublicSecurityGroupRuleRanges,
+      context
+    );
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1StringMap(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1StringMap(
+      output.Properties,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   output: any,
@@ -4001,16 +4560,20 @@ const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   let contents: any = {
     __type: "BlockPublicAccessConfigurationMetadata",
     CreatedByArn: undefined,
-    CreationDateTime: undefined,
+    CreationDateTime: undefined
   };
   if (output.CreatedByArn !== undefined) {
     contents.CreatedByArn = output.CreatedByArn;
   }
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1BootstrapActionConfig = (
   output: any,
@@ -4019,16 +4582,19 @@ const deserializeAws_json1_1BootstrapActionConfig = (
   let contents: any = {
     __type: "BootstrapActionConfig",
     Name: undefined,
-    ScriptBootstrapAction: undefined,
+    ScriptBootstrapAction: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.ScriptBootstrapAction !== undefined) {
-    contents.ScriptBootstrapAction = deserializeAws_json1_1ScriptBootstrapActionConfig(output.ScriptBootstrapAction, context);
+    contents.ScriptBootstrapAction = deserializeAws_json1_1ScriptBootstrapActionConfig(
+      output.ScriptBootstrapAction,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1BootstrapActionDetail = (
   output: any,
@@ -4036,13 +4602,16 @@ const deserializeAws_json1_1BootstrapActionDetail = (
 ): BootstrapActionDetail => {
   let contents: any = {
     __type: "BootstrapActionDetail",
-    BootstrapActionConfig: undefined,
+    BootstrapActionConfig: undefined
   };
   if (output.BootstrapActionConfig !== undefined) {
-    contents.BootstrapActionConfig = deserializeAws_json1_1BootstrapActionConfig(output.BootstrapActionConfig, context);
+    contents.BootstrapActionConfig = deserializeAws_json1_1BootstrapActionConfig(
+      output.BootstrapActionConfig,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1BootstrapActionDetailList = (
   output: any,
@@ -4051,7 +4620,7 @@ const deserializeAws_json1_1BootstrapActionDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1BootstrapActionDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1CancelStepsInfo = (
   output: any,
@@ -4061,7 +4630,7 @@ const deserializeAws_json1_1CancelStepsInfo = (
     __type: "CancelStepsInfo",
     Reason: undefined,
     Status: undefined,
-    StepId: undefined,
+    StepId: undefined
   };
   if (output.Reason !== undefined) {
     contents.Reason = output.Reason;
@@ -4073,7 +4642,7 @@ const deserializeAws_json1_1CancelStepsInfo = (
     contents.StepId = output.StepId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CancelStepsInfoList = (
   output: any,
@@ -4082,7 +4651,7 @@ const deserializeAws_json1_1CancelStepsInfoList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1CancelStepsInfo(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1CancelStepsOutput = (
   output: any,
@@ -4090,13 +4659,16 @@ const deserializeAws_json1_1CancelStepsOutput = (
 ): CancelStepsOutput => {
   let contents: any = {
     __type: "CancelStepsOutput",
-    CancelStepsInfoList: undefined,
+    CancelStepsInfoList: undefined
   };
   if (output.CancelStepsInfoList !== undefined) {
-    contents.CancelStepsInfoList = deserializeAws_json1_1CancelStepsInfoList(output.CancelStepsInfoList, context);
+    contents.CancelStepsInfoList = deserializeAws_json1_1CancelStepsInfoList(
+      output.CancelStepsInfoList,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CloudWatchAlarmDefinition = (
   output: any,
@@ -4112,13 +4684,16 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
     Period: undefined,
     Statistic: undefined,
     Threshold: undefined,
-    Unit: undefined,
+    Unit: undefined
   };
   if (output.ComparisonOperator !== undefined) {
     contents.ComparisonOperator = output.ComparisonOperator;
   }
   if (output.Dimensions !== undefined) {
-    contents.Dimensions = deserializeAws_json1_1MetricDimensionList(output.Dimensions, context);
+    contents.Dimensions = deserializeAws_json1_1MetricDimensionList(
+      output.Dimensions,
+      context
+    );
   }
   if (output.EvaluationPeriods !== undefined) {
     contents.EvaluationPeriods = output.EvaluationPeriods;
@@ -4142,7 +4717,7 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
     contents.Unit = output.Unit;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Cluster = (
   output: any,
@@ -4177,10 +4752,13 @@ const deserializeAws_json1_1Cluster = (
     StepConcurrencyLevel: undefined,
     Tags: undefined,
     TerminationProtected: undefined,
-    VisibleToAllUsers: undefined,
+    VisibleToAllUsers: undefined
   };
   if (output.Applications !== undefined) {
-    contents.Applications = deserializeAws_json1_1ApplicationList(output.Applications, context);
+    contents.Applications = deserializeAws_json1_1ApplicationList(
+      output.Applications,
+      context
+    );
   }
   if (output.AutoScalingRole !== undefined) {
     contents.AutoScalingRole = output.AutoScalingRole;
@@ -4192,7 +4770,10 @@ const deserializeAws_json1_1Cluster = (
     contents.ClusterArn = output.ClusterArn;
   }
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(output.Configurations, context);
+    contents.Configurations = deserializeAws_json1_1ConfigurationList(
+      output.Configurations,
+      context
+    );
   }
   if (output.CustomAmiId !== undefined) {
     contents.CustomAmiId = output.CustomAmiId;
@@ -4201,7 +4782,10 @@ const deserializeAws_json1_1Cluster = (
     contents.EbsRootVolumeSize = output.EbsRootVolumeSize;
   }
   if (output.Ec2InstanceAttributes !== undefined) {
-    contents.Ec2InstanceAttributes = deserializeAws_json1_1Ec2InstanceAttributes(output.Ec2InstanceAttributes, context);
+    contents.Ec2InstanceAttributes = deserializeAws_json1_1Ec2InstanceAttributes(
+      output.Ec2InstanceAttributes,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4210,7 +4794,10 @@ const deserializeAws_json1_1Cluster = (
     contents.InstanceCollectionType = output.InstanceCollectionType;
   }
   if (output.KerberosAttributes !== undefined) {
-    contents.KerberosAttributes = deserializeAws_json1_1KerberosAttributes(output.KerberosAttributes, context);
+    contents.KerberosAttributes = deserializeAws_json1_1KerberosAttributes(
+      output.KerberosAttributes,
+      context
+    );
   }
   if (output.LogUri !== undefined) {
     contents.LogUri = output.LogUri;
@@ -4249,7 +4836,10 @@ const deserializeAws_json1_1Cluster = (
     contents.ServiceRole = output.ServiceRole;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1ClusterStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1ClusterStatus(
+      output.Status,
+      context
+    );
   }
   if (output.StepConcurrencyLevel !== undefined) {
     contents.StepConcurrencyLevel = output.StepConcurrencyLevel;
@@ -4264,7 +4854,7 @@ const deserializeAws_json1_1Cluster = (
     contents.VisibleToAllUsers = output.VisibleToAllUsers;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ClusterStateChangeReason = (
   output: any,
@@ -4273,7 +4863,7 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
   let contents: any = {
     __type: "ClusterStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -4282,7 +4872,7 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ClusterStatus = (
   output: any,
@@ -4292,19 +4882,25 @@ const deserializeAws_json1_1ClusterStatus = (
     __type: "ClusterStatus",
     State: undefined,
     StateChangeReason: undefined,
-    Timeline: undefined,
+    Timeline: undefined
   };
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1ClusterStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1ClusterStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   if (output.Timeline !== undefined) {
-    contents.Timeline = deserializeAws_json1_1ClusterTimeline(output.Timeline, context);
+    contents.Timeline = deserializeAws_json1_1ClusterTimeline(
+      output.Timeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ClusterSummary = (
   output: any,
@@ -4317,7 +4913,7 @@ const deserializeAws_json1_1ClusterSummary = (
     Name: undefined,
     NormalizedInstanceHours: undefined,
     OutpostArn: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.ClusterArn !== undefined) {
     contents.ClusterArn = output.ClusterArn;
@@ -4335,10 +4931,13 @@ const deserializeAws_json1_1ClusterSummary = (
     contents.OutpostArn = output.OutpostArn;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1ClusterStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1ClusterStatus(
+      output.Status,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ClusterSummaryList = (
   output: any,
@@ -4347,7 +4946,7 @@ const deserializeAws_json1_1ClusterSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ClusterSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ClusterTimeline = (
   output: any,
@@ -4357,19 +4956,31 @@ const deserializeAws_json1_1ClusterTimeline = (
     __type: "ClusterTimeline",
     CreationDateTime: undefined,
     EndDateTime: undefined,
-    ReadyDateTime: undefined,
+    ReadyDateTime: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Command = (
   output: any,
@@ -4379,7 +4990,7 @@ const deserializeAws_json1_1Command = (
     __type: "Command",
     Args: undefined,
     Name: undefined,
-    ScriptPath: undefined,
+    ScriptPath: undefined
   };
   if (output.Args !== undefined) {
     contents.Args = deserializeAws_json1_1StringList(output.Args, context);
@@ -4391,7 +5002,7 @@ const deserializeAws_json1_1Command = (
     contents.ScriptPath = output.ScriptPath;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CommandList = (
   output: any,
@@ -4400,7 +5011,7 @@ const deserializeAws_json1_1CommandList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Command(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1Configuration = (
   output: any,
@@ -4410,19 +5021,25 @@ const deserializeAws_json1_1Configuration = (
     __type: "Configuration",
     Classification: undefined,
     Configurations: undefined,
-    Properties: undefined,
+    Properties: undefined
   };
   if (output.Classification !== undefined) {
     contents.Classification = output.Classification;
   }
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(output.Configurations, context);
+    contents.Configurations = deserializeAws_json1_1ConfigurationList(
+      output.Configurations,
+      context
+    );
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1StringMap(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1StringMap(
+      output.Properties,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ConfigurationList = (
   output: any,
@@ -4431,7 +5048,7 @@ const deserializeAws_json1_1ConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Configuration(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   output: any,
@@ -4440,26 +5057,30 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   let contents: any = {
     __type: "CreateSecurityConfigurationOutput",
     CreationDateTime: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteSecurityConfigurationOutput => {
   let contents: any = {
-    __type: "DeleteSecurityConfigurationOutput",
+    __type: "DeleteSecurityConfigurationOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeClusterOutput = (
   output: any,
@@ -4467,13 +5088,13 @@ const deserializeAws_json1_1DescribeClusterOutput = (
 ): DescribeClusterOutput => {
   let contents: any = {
     __type: "DescribeClusterOutput",
-    Cluster: undefined,
+    Cluster: undefined
   };
   if (output.Cluster !== undefined) {
     contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeJobFlowsOutput = (
   output: any,
@@ -4481,13 +5102,16 @@ const deserializeAws_json1_1DescribeJobFlowsOutput = (
 ): DescribeJobFlowsOutput => {
   let contents: any = {
     __type: "DescribeJobFlowsOutput",
-    JobFlows: undefined,
+    JobFlows: undefined
   };
   if (output.JobFlows !== undefined) {
-    contents.JobFlows = deserializeAws_json1_1JobFlowDetailList(output.JobFlows, context);
+    contents.JobFlows = deserializeAws_json1_1JobFlowDetailList(
+      output.JobFlows,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   output: any,
@@ -4497,10 +5121,14 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
     __type: "DescribeSecurityConfigurationOutput",
     CreationDateTime: undefined,
     Name: undefined,
-    SecurityConfiguration: undefined,
+    SecurityConfiguration: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -4509,7 +5137,7 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
     contents.SecurityConfiguration = output.SecurityConfiguration;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeStepOutput = (
   output: any,
@@ -4517,22 +5145,20 @@ const deserializeAws_json1_1DescribeStepOutput = (
 ): DescribeStepOutput => {
   let contents: any = {
     __type: "DescribeStepOutput",
-    Step: undefined,
+    Step: undefined
   };
   if (output.Step !== undefined) {
     contents.Step = deserializeAws_json1_1Step(output.Step, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EC2InstanceIdsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1EbsBlockDevice = (
   output: any,
@@ -4541,16 +5167,19 @@ const deserializeAws_json1_1EbsBlockDevice = (
   let contents: any = {
     __type: "EbsBlockDevice",
     Device: undefined,
-    VolumeSpecification: undefined,
+    VolumeSpecification: undefined
   };
   if (output.Device !== undefined) {
     contents.Device = output.Device;
   }
   if (output.VolumeSpecification !== undefined) {
-    contents.VolumeSpecification = deserializeAws_json1_1VolumeSpecification(output.VolumeSpecification, context);
+    contents.VolumeSpecification = deserializeAws_json1_1VolumeSpecification(
+      output.VolumeSpecification,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EbsBlockDeviceList = (
   output: any,
@@ -4559,7 +5188,7 @@ const deserializeAws_json1_1EbsBlockDeviceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EbsBlockDevice(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1EbsVolume = (
   output: any,
@@ -4568,7 +5197,7 @@ const deserializeAws_json1_1EbsVolume = (
   let contents: any = {
     __type: "EbsVolume",
     Device: undefined,
-    VolumeId: undefined,
+    VolumeId: undefined
   };
   if (output.Device !== undefined) {
     contents.Device = output.Device;
@@ -4577,7 +5206,7 @@ const deserializeAws_json1_1EbsVolume = (
     contents.VolumeId = output.VolumeId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EbsVolumeList = (
   output: any,
@@ -4586,7 +5215,7 @@ const deserializeAws_json1_1EbsVolumeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EbsVolume(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1Ec2InstanceAttributes = (
   output: any,
@@ -4604,13 +5233,19 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
     IamInstanceProfile: undefined,
     RequestedEc2AvailabilityZones: undefined,
     RequestedEc2SubnetIds: undefined,
-    ServiceAccessSecurityGroup: undefined,
+    ServiceAccessSecurityGroup: undefined
   };
   if (output.AdditionalMasterSecurityGroups !== undefined) {
-    contents.AdditionalMasterSecurityGroups = deserializeAws_json1_1StringList(output.AdditionalMasterSecurityGroups, context);
+    contents.AdditionalMasterSecurityGroups = deserializeAws_json1_1StringList(
+      output.AdditionalMasterSecurityGroups,
+      context
+    );
   }
   if (output.AdditionalSlaveSecurityGroups !== undefined) {
-    contents.AdditionalSlaveSecurityGroups = deserializeAws_json1_1StringList(output.AdditionalSlaveSecurityGroups, context);
+    contents.AdditionalSlaveSecurityGroups = deserializeAws_json1_1StringList(
+      output.AdditionalSlaveSecurityGroups,
+      context
+    );
   }
   if (output.Ec2AvailabilityZone !== undefined) {
     contents.Ec2AvailabilityZone = output.Ec2AvailabilityZone;
@@ -4622,7 +5257,8 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
     contents.Ec2SubnetId = output.Ec2SubnetId;
   }
   if (output.EmrManagedMasterSecurityGroup !== undefined) {
-    contents.EmrManagedMasterSecurityGroup = output.EmrManagedMasterSecurityGroup;
+    contents.EmrManagedMasterSecurityGroup =
+      output.EmrManagedMasterSecurityGroup;
   }
   if (output.EmrManagedSlaveSecurityGroup !== undefined) {
     contents.EmrManagedSlaveSecurityGroup = output.EmrManagedSlaveSecurityGroup;
@@ -4631,16 +5267,22 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
     contents.IamInstanceProfile = output.IamInstanceProfile;
   }
   if (output.RequestedEc2AvailabilityZones !== undefined) {
-    contents.RequestedEc2AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(output.RequestedEc2AvailabilityZones, context);
+    contents.RequestedEc2AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(
+      output.RequestedEc2AvailabilityZones,
+      context
+    );
   }
   if (output.RequestedEc2SubnetIds !== undefined) {
-    contents.RequestedEc2SubnetIds = deserializeAws_json1_1XmlStringMaxLen256List(output.RequestedEc2SubnetIds, context);
+    contents.RequestedEc2SubnetIds = deserializeAws_json1_1XmlStringMaxLen256List(
+      output.RequestedEc2SubnetIds,
+      context
+    );
   }
   if (output.ServiceAccessSecurityGroup !== undefined) {
     contents.ServiceAccessSecurityGroup = output.ServiceAccessSecurityGroup;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1FailureDetails = (
   output: any,
@@ -4650,7 +5292,7 @@ const deserializeAws_json1_1FailureDetails = (
     __type: "FailureDetails",
     LogFile: undefined,
     Message: undefined,
-    Reason: undefined,
+    Reason: undefined
   };
   if (output.LogFile !== undefined) {
     contents.LogFile = output.LogFile;
@@ -4662,7 +5304,7 @@ const deserializeAws_json1_1FailureDetails = (
     contents.Reason = output.Reason;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
   output: any,
@@ -4671,16 +5313,22 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
   let contents: any = {
     __type: "GetBlockPublicAccessConfigurationOutput",
     BlockPublicAccessConfiguration: undefined,
-    BlockPublicAccessConfigurationMetadata: undefined,
+    BlockPublicAccessConfigurationMetadata: undefined
   };
   if (output.BlockPublicAccessConfiguration !== undefined) {
-    contents.BlockPublicAccessConfiguration = deserializeAws_json1_1BlockPublicAccessConfiguration(output.BlockPublicAccessConfiguration, context);
+    contents.BlockPublicAccessConfiguration = deserializeAws_json1_1BlockPublicAccessConfiguration(
+      output.BlockPublicAccessConfiguration,
+      context
+    );
   }
   if (output.BlockPublicAccessConfigurationMetadata !== undefined) {
-    contents.BlockPublicAccessConfigurationMetadata = deserializeAws_json1_1BlockPublicAccessConfigurationMetadata(output.BlockPublicAccessConfigurationMetadata, context);
+    contents.BlockPublicAccessConfigurationMetadata = deserializeAws_json1_1BlockPublicAccessConfigurationMetadata(
+      output.BlockPublicAccessConfigurationMetadata,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HadoopJarStepConfig = (
   output: any,
@@ -4691,7 +5339,7 @@ const deserializeAws_json1_1HadoopJarStepConfig = (
     Args: undefined,
     Jar: undefined,
     MainClass: undefined,
-    Properties: undefined,
+    Properties: undefined
   };
   if (output.Args !== undefined) {
     contents.Args = deserializeAws_json1_1XmlStringList(output.Args, context);
@@ -4703,10 +5351,13 @@ const deserializeAws_json1_1HadoopJarStepConfig = (
     contents.MainClass = output.MainClass;
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1KeyValueList(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1KeyValueList(
+      output.Properties,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HadoopStepConfig = (
   output: any,
@@ -4717,7 +5368,7 @@ const deserializeAws_json1_1HadoopStepConfig = (
     Args: undefined,
     Jar: undefined,
     MainClass: undefined,
-    Properties: undefined,
+    Properties: undefined
   };
   if (output.Args !== undefined) {
     contents.Args = deserializeAws_json1_1StringList(output.Args, context);
@@ -4729,10 +5380,13 @@ const deserializeAws_json1_1HadoopStepConfig = (
     contents.MainClass = output.MainClass;
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1StringMap(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1StringMap(
+      output.Properties,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Instance = (
   output: any,
@@ -4751,10 +5405,13 @@ const deserializeAws_json1_1Instance = (
     PrivateIpAddress: undefined,
     PublicDnsName: undefined,
     PublicIpAddress: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.EbsVolumes !== undefined) {
-    contents.EbsVolumes = deserializeAws_json1_1EbsVolumeList(output.EbsVolumes, context);
+    contents.EbsVolumes = deserializeAws_json1_1EbsVolumeList(
+      output.EbsVolumes,
+      context
+    );
   }
   if (output.Ec2InstanceId !== undefined) {
     contents.Ec2InstanceId = output.Ec2InstanceId;
@@ -4787,10 +5444,13 @@ const deserializeAws_json1_1Instance = (
     contents.PublicIpAddress = output.PublicIpAddress;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1InstanceStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1InstanceStatus(
+      output.Status,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceFleet = (
   output: any,
@@ -4807,7 +5467,7 @@ const deserializeAws_json1_1InstanceFleet = (
     ProvisionedSpotCapacity: undefined,
     Status: undefined,
     TargetOnDemandCapacity: undefined,
-    TargetSpotCapacity: undefined,
+    TargetSpotCapacity: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -4816,10 +5476,16 @@ const deserializeAws_json1_1InstanceFleet = (
     contents.InstanceFleetType = output.InstanceFleetType;
   }
   if (output.InstanceTypeSpecifications !== undefined) {
-    contents.InstanceTypeSpecifications = deserializeAws_json1_1InstanceTypeSpecificationList(output.InstanceTypeSpecifications, context);
+    contents.InstanceTypeSpecifications = deserializeAws_json1_1InstanceTypeSpecificationList(
+      output.InstanceTypeSpecifications,
+      context
+    );
   }
   if (output.LaunchSpecifications !== undefined) {
-    contents.LaunchSpecifications = deserializeAws_json1_1InstanceFleetProvisioningSpecifications(output.LaunchSpecifications, context);
+    contents.LaunchSpecifications = deserializeAws_json1_1InstanceFleetProvisioningSpecifications(
+      output.LaunchSpecifications,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -4831,7 +5497,10 @@ const deserializeAws_json1_1InstanceFleet = (
     contents.ProvisionedSpotCapacity = output.ProvisionedSpotCapacity;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1InstanceFleetStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1InstanceFleetStatus(
+      output.Status,
+      context
+    );
   }
   if (output.TargetOnDemandCapacity !== undefined) {
     contents.TargetOnDemandCapacity = output.TargetOnDemandCapacity;
@@ -4840,7 +5509,7 @@ const deserializeAws_json1_1InstanceFleet = (
     contents.TargetSpotCapacity = output.TargetSpotCapacity;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceFleetList = (
   output: any,
@@ -4849,7 +5518,7 @@ const deserializeAws_json1_1InstanceFleetList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceFleet(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   output: any,
@@ -4857,13 +5526,16 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
 ): InstanceFleetProvisioningSpecifications => {
   let contents: any = {
     __type: "InstanceFleetProvisioningSpecifications",
-    SpotSpecification: undefined,
+    SpotSpecification: undefined
   };
   if (output.SpotSpecification !== undefined) {
-    contents.SpotSpecification = deserializeAws_json1_1SpotProvisioningSpecification(output.SpotSpecification, context);
+    contents.SpotSpecification = deserializeAws_json1_1SpotProvisioningSpecification(
+      output.SpotSpecification,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceFleetStateChangeReason = (
   output: any,
@@ -4872,7 +5544,7 @@ const deserializeAws_json1_1InstanceFleetStateChangeReason = (
   let contents: any = {
     __type: "InstanceFleetStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -4881,7 +5553,7 @@ const deserializeAws_json1_1InstanceFleetStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceFleetStatus = (
   output: any,
@@ -4891,19 +5563,25 @@ const deserializeAws_json1_1InstanceFleetStatus = (
     __type: "InstanceFleetStatus",
     State: undefined,
     StateChangeReason: undefined,
-    Timeline: undefined,
+    Timeline: undefined
   };
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceFleetStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1InstanceFleetStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   if (output.Timeline !== undefined) {
-    contents.Timeline = deserializeAws_json1_1InstanceFleetTimeline(output.Timeline, context);
+    contents.Timeline = deserializeAws_json1_1InstanceFleetTimeline(
+      output.Timeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceFleetTimeline = (
   output: any,
@@ -4913,19 +5591,31 @@ const deserializeAws_json1_1InstanceFleetTimeline = (
     __type: "InstanceFleetTimeline",
     CreationDateTime: undefined,
     EndDateTime: undefined,
-    ReadyDateTime: undefined,
+    ReadyDateTime: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceGroup = (
   output: any,
@@ -4949,22 +5639,31 @@ const deserializeAws_json1_1InstanceGroup = (
     RequestedInstanceCount: undefined,
     RunningInstanceCount: undefined,
     ShrinkPolicy: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.AutoScalingPolicy !== undefined) {
-    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context);
+    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(
+      output.AutoScalingPolicy,
+      context
+    );
   }
   if (output.BidPrice !== undefined) {
     contents.BidPrice = output.BidPrice;
   }
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(output.Configurations, context);
+    contents.Configurations = deserializeAws_json1_1ConfigurationList(
+      output.Configurations,
+      context
+    );
   }
   if (output.ConfigurationsVersion !== undefined) {
     contents.ConfigurationsVersion = output.ConfigurationsVersion;
   }
   if (output.EbsBlockDevices !== undefined) {
-    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context);
+    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(
+      output.EbsBlockDevices,
+      context
+    );
   }
   if (output.EbsOptimized !== undefined) {
     contents.EbsOptimized = output.EbsOptimized;
@@ -4979,10 +5678,14 @@ const deserializeAws_json1_1InstanceGroup = (
     contents.InstanceType = output.InstanceType;
   }
   if (output.LastSuccessfullyAppliedConfigurations !== undefined) {
-    contents.LastSuccessfullyAppliedConfigurations = deserializeAws_json1_1ConfigurationList(output.LastSuccessfullyAppliedConfigurations, context);
+    contents.LastSuccessfullyAppliedConfigurations = deserializeAws_json1_1ConfigurationList(
+      output.LastSuccessfullyAppliedConfigurations,
+      context
+    );
   }
   if (output.LastSuccessfullyAppliedConfigurationsVersion !== undefined) {
-    contents.LastSuccessfullyAppliedConfigurationsVersion = output.LastSuccessfullyAppliedConfigurationsVersion;
+    contents.LastSuccessfullyAppliedConfigurationsVersion =
+      output.LastSuccessfullyAppliedConfigurationsVersion;
   }
   if (output.Market !== undefined) {
     contents.Market = output.Market;
@@ -4997,13 +5700,19 @@ const deserializeAws_json1_1InstanceGroup = (
     contents.RunningInstanceCount = output.RunningInstanceCount;
   }
   if (output.ShrinkPolicy !== undefined) {
-    contents.ShrinkPolicy = deserializeAws_json1_1ShrinkPolicy(output.ShrinkPolicy, context);
+    contents.ShrinkPolicy = deserializeAws_json1_1ShrinkPolicy(
+      output.ShrinkPolicy,
+      context
+    );
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1InstanceGroupStatus(output.Status, context);
+    contents.Status = deserializeAws_json1_1InstanceGroupStatus(
+      output.Status,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceGroupDetail = (
   output: any,
@@ -5024,16 +5733,24 @@ const deserializeAws_json1_1InstanceGroupDetail = (
     Name: undefined,
     ReadyDateTime: undefined,
     StartDateTime: undefined,
-    State: undefined,
+    State: undefined
   };
   if (output.BidPrice !== undefined) {
     contents.BidPrice = output.BidPrice;
   }
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.InstanceGroupId !== undefined) {
     contents.InstanceGroupId = output.InstanceGroupId;
@@ -5060,16 +5777,24 @@ const deserializeAws_json1_1InstanceGroupDetail = (
     contents.Name = output.Name;
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(output.StartDateTime % 1 != 0 ? Math.round(output.StartDateTime * 1000) : output.StartDateTime);
+    contents.StartDateTime = new Date(
+      output.StartDateTime % 1 != 0
+        ? Math.round(output.StartDateTime * 1000)
+        : output.StartDateTime
+    );
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceGroupDetailList = (
   output: any,
@@ -5078,16 +5803,14 @@ const deserializeAws_json1_1InstanceGroupDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceGroupDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InstanceGroupIdsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1InstanceGroupList = (
   output: any,
@@ -5096,7 +5819,7 @@ const deserializeAws_json1_1InstanceGroupList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceGroup(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InstanceGroupStateChangeReason = (
   output: any,
@@ -5105,7 +5828,7 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
   let contents: any = {
     __type: "InstanceGroupStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -5114,7 +5837,7 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceGroupStatus = (
   output: any,
@@ -5124,19 +5847,25 @@ const deserializeAws_json1_1InstanceGroupStatus = (
     __type: "InstanceGroupStatus",
     State: undefined,
     StateChangeReason: undefined,
-    Timeline: undefined,
+    Timeline: undefined
   };
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceGroupStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1InstanceGroupStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   if (output.Timeline !== undefined) {
-    contents.Timeline = deserializeAws_json1_1InstanceGroupTimeline(output.Timeline, context);
+    contents.Timeline = deserializeAws_json1_1InstanceGroupTimeline(
+      output.Timeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceGroupTimeline = (
   output: any,
@@ -5146,19 +5875,31 @@ const deserializeAws_json1_1InstanceGroupTimeline = (
     __type: "InstanceGroupTimeline",
     CreationDateTime: undefined,
     EndDateTime: undefined,
-    ReadyDateTime: undefined,
+    ReadyDateTime: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceList = (
   output: any,
@@ -5167,7 +5908,7 @@ const deserializeAws_json1_1InstanceList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Instance(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InstanceResizePolicy = (
   output: any,
@@ -5177,19 +5918,25 @@ const deserializeAws_json1_1InstanceResizePolicy = (
     __type: "InstanceResizePolicy",
     InstanceTerminationTimeout: undefined,
     InstancesToProtect: undefined,
-    InstancesToTerminate: undefined,
+    InstancesToTerminate: undefined
   };
   if (output.InstanceTerminationTimeout !== undefined) {
     contents.InstanceTerminationTimeout = output.InstanceTerminationTimeout;
   }
   if (output.InstancesToProtect !== undefined) {
-    contents.InstancesToProtect = deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToProtect, context);
+    contents.InstancesToProtect = deserializeAws_json1_1EC2InstanceIdsList(
+      output.InstancesToProtect,
+      context
+    );
   }
   if (output.InstancesToTerminate !== undefined) {
-    contents.InstancesToTerminate = deserializeAws_json1_1EC2InstanceIdsList(output.InstancesToTerminate, context);
+    contents.InstancesToTerminate = deserializeAws_json1_1EC2InstanceIdsList(
+      output.InstancesToTerminate,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceStateChangeReason = (
   output: any,
@@ -5198,7 +5945,7 @@ const deserializeAws_json1_1InstanceStateChangeReason = (
   let contents: any = {
     __type: "InstanceStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -5207,7 +5954,7 @@ const deserializeAws_json1_1InstanceStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceStatus = (
   output: any,
@@ -5217,19 +5964,25 @@ const deserializeAws_json1_1InstanceStatus = (
     __type: "InstanceStatus",
     State: undefined,
     StateChangeReason: undefined,
-    Timeline: undefined,
+    Timeline: undefined
   };
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1InstanceStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   if (output.Timeline !== undefined) {
-    contents.Timeline = deserializeAws_json1_1InstanceTimeline(output.Timeline, context);
+    contents.Timeline = deserializeAws_json1_1InstanceTimeline(
+      output.Timeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceTimeline = (
   output: any,
@@ -5239,19 +5992,31 @@ const deserializeAws_json1_1InstanceTimeline = (
     __type: "InstanceTimeline",
     CreationDateTime: undefined,
     EndDateTime: undefined,
-    ReadyDateTime: undefined,
+    ReadyDateTime: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceTypeSpecification = (
   output: any,
@@ -5265,19 +6030,26 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
     EbsBlockDevices: undefined,
     EbsOptimized: undefined,
     InstanceType: undefined,
-    WeightedCapacity: undefined,
+    WeightedCapacity: undefined
   };
   if (output.BidPrice !== undefined) {
     contents.BidPrice = output.BidPrice;
   }
   if (output.BidPriceAsPercentageOfOnDemandPrice !== undefined) {
-    contents.BidPriceAsPercentageOfOnDemandPrice = output.BidPriceAsPercentageOfOnDemandPrice;
+    contents.BidPriceAsPercentageOfOnDemandPrice =
+      output.BidPriceAsPercentageOfOnDemandPrice;
   }
   if (output.Configurations !== undefined) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(output.Configurations, context);
+    contents.Configurations = deserializeAws_json1_1ConfigurationList(
+      output.Configurations,
+      context
+    );
   }
   if (output.EbsBlockDevices !== undefined) {
-    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(output.EbsBlockDevices, context);
+    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(
+      output.EbsBlockDevices,
+      context
+    );
   }
   if (output.EbsOptimized !== undefined) {
     contents.EbsOptimized = output.EbsOptimized;
@@ -5289,7 +6061,7 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
     contents.WeightedCapacity = output.WeightedCapacity;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceTypeSpecificationList = (
   output: any,
@@ -5298,17 +6070,17 @@ const deserializeAws_json1_1InstanceTypeSpecificationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceTypeSpecification(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
   let contents: any = {
-    __type: "InternalServerError",
+    __type: "InternalServerError"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
@@ -5316,13 +6088,13 @@ const deserializeAws_json1_1InternalServerException = (
 ): InternalServerException => {
   let contents: any = {
     __type: "InternalServerException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -5331,7 +6103,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   let contents: any = {
     __type: "InvalidRequestException",
     ErrorCode: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -5340,7 +6112,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobFlowDetail = (
   output: any,
@@ -5361,7 +6133,7 @@ const deserializeAws_json1_1JobFlowDetail = (
     ServiceRole: undefined,
     Steps: undefined,
     SupportedProducts: undefined,
-    VisibleToAllUsers: undefined,
+    VisibleToAllUsers: undefined
   };
   if (output.AmiVersion !== undefined) {
     contents.AmiVersion = output.AmiVersion;
@@ -5370,13 +6142,22 @@ const deserializeAws_json1_1JobFlowDetail = (
     contents.AutoScalingRole = output.AutoScalingRole;
   }
   if (output.BootstrapActions !== undefined) {
-    contents.BootstrapActions = deserializeAws_json1_1BootstrapActionDetailList(output.BootstrapActions, context);
+    contents.BootstrapActions = deserializeAws_json1_1BootstrapActionDetailList(
+      output.BootstrapActions,
+      context
+    );
   }
   if (output.ExecutionStatusDetail !== undefined) {
-    contents.ExecutionStatusDetail = deserializeAws_json1_1JobFlowExecutionStatusDetail(output.ExecutionStatusDetail, context);
+    contents.ExecutionStatusDetail = deserializeAws_json1_1JobFlowExecutionStatusDetail(
+      output.ExecutionStatusDetail,
+      context
+    );
   }
   if (output.Instances !== undefined) {
-    contents.Instances = deserializeAws_json1_1JobFlowInstancesDetail(output.Instances, context);
+    contents.Instances = deserializeAws_json1_1JobFlowInstancesDetail(
+      output.Instances,
+      context
+    );
   }
   if (output.JobFlowId !== undefined) {
     contents.JobFlowId = output.JobFlowId;
@@ -5397,16 +6178,22 @@ const deserializeAws_json1_1JobFlowDetail = (
     contents.ServiceRole = output.ServiceRole;
   }
   if (output.Steps !== undefined) {
-    contents.Steps = deserializeAws_json1_1StepDetailList(output.Steps, context);
+    contents.Steps = deserializeAws_json1_1StepDetailList(
+      output.Steps,
+      context
+    );
   }
   if (output.SupportedProducts !== undefined) {
-    contents.SupportedProducts = deserializeAws_json1_1SupportedProductsList(output.SupportedProducts, context);
+    contents.SupportedProducts = deserializeAws_json1_1SupportedProductsList(
+      output.SupportedProducts,
+      context
+    );
   }
   if (output.VisibleToAllUsers !== undefined) {
     contents.VisibleToAllUsers = output.VisibleToAllUsers;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobFlowDetailList = (
   output: any,
@@ -5415,7 +6202,7 @@ const deserializeAws_json1_1JobFlowDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1JobFlowDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
   output: any,
@@ -5428,28 +6215,44 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
     LastStateChangeReason: undefined,
     ReadyDateTime: undefined,
     StartDateTime: undefined,
-    State: undefined,
+    State: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.LastStateChangeReason !== undefined) {
     contents.LastStateChangeReason = output.LastStateChangeReason;
   }
   if (output.ReadyDateTime !== undefined) {
-    contents.ReadyDateTime = new Date(output.ReadyDateTime % 1 != 0 ? Math.round(output.ReadyDateTime * 1000) : output.ReadyDateTime);
+    contents.ReadyDateTime = new Date(
+      output.ReadyDateTime % 1 != 0
+        ? Math.round(output.ReadyDateTime * 1000)
+        : output.ReadyDateTime
+    );
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(output.StartDateTime % 1 != 0 ? Math.round(output.StartDateTime * 1000) : output.StartDateTime);
+    contents.StartDateTime = new Date(
+      output.StartDateTime % 1 != 0
+        ? Math.round(output.StartDateTime * 1000)
+        : output.StartDateTime
+    );
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1JobFlowInstancesDetail = (
   output: any,
@@ -5469,7 +6272,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
     NormalizedInstanceHours: undefined,
     Placement: undefined,
     SlaveInstanceType: undefined,
-    TerminationProtected: undefined,
+    TerminationProtected: undefined
   };
   if (output.Ec2KeyName !== undefined) {
     contents.Ec2KeyName = output.Ec2KeyName;
@@ -5484,7 +6287,10 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
     contents.InstanceCount = output.InstanceCount;
   }
   if (output.InstanceGroups !== undefined) {
-    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupDetailList(output.InstanceGroups, context);
+    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupDetailList(
+      output.InstanceGroups,
+      context
+    );
   }
   if (output.KeepJobFlowAliveWhenNoSteps !== undefined) {
     contents.KeepJobFlowAliveWhenNoSteps = output.KeepJobFlowAliveWhenNoSteps;
@@ -5502,7 +6308,10 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
     contents.NormalizedInstanceHours = output.NormalizedInstanceHours;
   }
   if (output.Placement !== undefined) {
-    contents.Placement = deserializeAws_json1_1PlacementType(output.Placement, context);
+    contents.Placement = deserializeAws_json1_1PlacementType(
+      output.Placement,
+      context
+    );
   }
   if (output.SlaveInstanceType !== undefined) {
     contents.SlaveInstanceType = output.SlaveInstanceType;
@@ -5511,7 +6320,7 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (
     contents.TerminationProtected = output.TerminationProtected;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KerberosAttributes = (
   output: any,
@@ -5523,7 +6332,7 @@ const deserializeAws_json1_1KerberosAttributes = (
     ADDomainJoinUser: undefined,
     CrossRealmTrustPrincipalPassword: undefined,
     KdcAdminPassword: undefined,
-    Realm: undefined,
+    Realm: undefined
   };
   if (output.ADDomainJoinPassword !== undefined) {
     contents.ADDomainJoinPassword = output.ADDomainJoinPassword;
@@ -5532,7 +6341,8 @@ const deserializeAws_json1_1KerberosAttributes = (
     contents.ADDomainJoinUser = output.ADDomainJoinUser;
   }
   if (output.CrossRealmTrustPrincipalPassword !== undefined) {
-    contents.CrossRealmTrustPrincipalPassword = output.CrossRealmTrustPrincipalPassword;
+    contents.CrossRealmTrustPrincipalPassword =
+      output.CrossRealmTrustPrincipalPassword;
   }
   if (output.KdcAdminPassword !== undefined) {
     contents.KdcAdminPassword = output.KdcAdminPassword;
@@ -5541,7 +6351,7 @@ const deserializeAws_json1_1KerberosAttributes = (
     contents.Realm = output.Realm;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KeyValue = (
   output: any,
@@ -5550,7 +6360,7 @@ const deserializeAws_json1_1KeyValue = (
   let contents: any = {
     __type: "KeyValue",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -5559,7 +6369,7 @@ const deserializeAws_json1_1KeyValue = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KeyValueList = (
   output: any,
@@ -5568,7 +6378,7 @@ const deserializeAws_json1_1KeyValueList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1KeyValue(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ListBootstrapActionsOutput = (
   output: any,
@@ -5577,16 +6387,19 @@ const deserializeAws_json1_1ListBootstrapActionsOutput = (
   let contents: any = {
     __type: "ListBootstrapActionsOutput",
     BootstrapActions: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   if (output.BootstrapActions !== undefined) {
-    contents.BootstrapActions = deserializeAws_json1_1CommandList(output.BootstrapActions, context);
+    contents.BootstrapActions = deserializeAws_json1_1CommandList(
+      output.BootstrapActions,
+      context
+    );
   }
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListClustersOutput = (
   output: any,
@@ -5595,16 +6408,19 @@ const deserializeAws_json1_1ListClustersOutput = (
   let contents: any = {
     __type: "ListClustersOutput",
     Clusters: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   if (output.Clusters !== undefined) {
-    contents.Clusters = deserializeAws_json1_1ClusterSummaryList(output.Clusters, context);
+    contents.Clusters = deserializeAws_json1_1ClusterSummaryList(
+      output.Clusters,
+      context
+    );
   }
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListInstanceFleetsOutput = (
   output: any,
@@ -5613,16 +6429,19 @@ const deserializeAws_json1_1ListInstanceFleetsOutput = (
   let contents: any = {
     __type: "ListInstanceFleetsOutput",
     InstanceFleets: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   if (output.InstanceFleets !== undefined) {
-    contents.InstanceFleets = deserializeAws_json1_1InstanceFleetList(output.InstanceFleets, context);
+    contents.InstanceFleets = deserializeAws_json1_1InstanceFleetList(
+      output.InstanceFleets,
+      context
+    );
   }
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListInstanceGroupsOutput = (
   output: any,
@@ -5631,16 +6450,19 @@ const deserializeAws_json1_1ListInstanceGroupsOutput = (
   let contents: any = {
     __type: "ListInstanceGroupsOutput",
     InstanceGroups: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   if (output.InstanceGroups !== undefined) {
-    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupList(output.InstanceGroups, context);
+    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupList(
+      output.InstanceGroups,
+      context
+    );
   }
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListInstancesOutput = (
   output: any,
@@ -5649,16 +6471,19 @@ const deserializeAws_json1_1ListInstancesOutput = (
   let contents: any = {
     __type: "ListInstancesOutput",
     Instances: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   if (output.Instances !== undefined) {
-    contents.Instances = deserializeAws_json1_1InstanceList(output.Instances, context);
+    contents.Instances = deserializeAws_json1_1InstanceList(
+      output.Instances,
+      context
+    );
   }
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   output: any,
@@ -5667,16 +6492,19 @@ const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   let contents: any = {
     __type: "ListSecurityConfigurationsOutput",
     Marker: undefined,
-    SecurityConfigurations: undefined,
+    SecurityConfigurations: undefined
   };
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   if (output.SecurityConfigurations !== undefined) {
-    contents.SecurityConfigurations = deserializeAws_json1_1SecurityConfigurationList(output.SecurityConfigurations, context);
+    contents.SecurityConfigurations = deserializeAws_json1_1SecurityConfigurationList(
+      output.SecurityConfigurations,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListStepsOutput = (
   output: any,
@@ -5685,16 +6513,19 @@ const deserializeAws_json1_1ListStepsOutput = (
   let contents: any = {
     __type: "ListStepsOutput",
     Marker: undefined,
-    Steps: undefined,
+    Steps: undefined
   };
   if (output.Marker !== undefined) {
     contents.Marker = output.Marker;
   }
   if (output.Steps !== undefined) {
-    contents.Steps = deserializeAws_json1_1StepSummaryList(output.Steps, context);
+    contents.Steps = deserializeAws_json1_1StepSummaryList(
+      output.Steps,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1MetricDimension = (
   output: any,
@@ -5703,7 +6534,7 @@ const deserializeAws_json1_1MetricDimension = (
   let contents: any = {
     __type: "MetricDimension",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -5712,7 +6543,7 @@ const deserializeAws_json1_1MetricDimension = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1MetricDimensionList = (
   output: any,
@@ -5721,7 +6552,7 @@ const deserializeAws_json1_1MetricDimensionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1MetricDimension(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ModifyClusterOutput = (
   output: any,
@@ -5729,13 +6560,13 @@ const deserializeAws_json1_1ModifyClusterOutput = (
 ): ModifyClusterOutput => {
   let contents: any = {
     __type: "ModifyClusterOutput",
-    StepConcurrencyLevel: undefined,
+    StepConcurrencyLevel: undefined
   };
   if (output.StepConcurrencyLevel !== undefined) {
     contents.StepConcurrencyLevel = output.StepConcurrencyLevel;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PlacementType = (
   output: any,
@@ -5744,16 +6575,19 @@ const deserializeAws_json1_1PlacementType = (
   let contents: any = {
     __type: "PlacementType",
     AvailabilityZone: undefined,
-    AvailabilityZones: undefined,
+    AvailabilityZones: undefined
   };
   if (output.AvailabilityZone !== undefined) {
     contents.AvailabilityZone = output.AvailabilityZone;
   }
   if (output.AvailabilityZones !== undefined) {
-    contents.AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(output.AvailabilityZones, context);
+    contents.AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(
+      output.AvailabilityZones,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PortRange = (
   output: any,
@@ -5762,7 +6596,7 @@ const deserializeAws_json1_1PortRange = (
   let contents: any = {
     __type: "PortRange",
     MaxRange: undefined,
-    MinRange: undefined,
+    MinRange: undefined
   };
   if (output.MaxRange !== undefined) {
     contents.MaxRange = output.MaxRange;
@@ -5771,7 +6605,7 @@ const deserializeAws_json1_1PortRange = (
     contents.MinRange = output.MinRange;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PortRanges = (
   output: any,
@@ -5780,7 +6614,7 @@ const deserializeAws_json1_1PortRanges = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PortRange(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
   output: any,
@@ -5791,10 +6625,13 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
     AutoScalingPolicy: undefined,
     ClusterArn: undefined,
     ClusterId: undefined,
-    InstanceGroupId: undefined,
+    InstanceGroupId: undefined
   };
   if (output.AutoScalingPolicy !== undefined) {
-    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context);
+    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(
+      output.AutoScalingPolicy,
+      context
+    );
   }
   if (output.ClusterArn !== undefined) {
     contents.ClusterArn = output.ClusterArn;
@@ -5806,37 +6643,37 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
     contents.InstanceGroupId = output.InstanceGroupId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): PutBlockPublicAccessConfigurationOutput => {
   let contents: any = {
-    __type: "PutBlockPublicAccessConfigurationOutput",
+    __type: "PutBlockPublicAccessConfigurationOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoScalingPolicyOutput => {
   let contents: any = {
-    __type: "RemoveAutoScalingPolicyOutput",
+    __type: "RemoveAutoScalingPolicyOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1RemoveTagsOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsOutput => {
   let contents: any = {
-    __type: "RemoveTagsOutput",
+    __type: "RemoveTagsOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1RunJobFlowOutput = (
   output: any,
@@ -5845,7 +6682,7 @@ const deserializeAws_json1_1RunJobFlowOutput = (
   let contents: any = {
     __type: "RunJobFlowOutput",
     ClusterArn: undefined,
-    JobFlowId: undefined,
+    JobFlowId: undefined
   };
   if (output.ClusterArn !== undefined) {
     contents.ClusterArn = output.ClusterArn;
@@ -5854,7 +6691,7 @@ const deserializeAws_json1_1RunJobFlowOutput = (
     contents.JobFlowId = output.JobFlowId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ScalingAction = (
   output: any,
@@ -5863,16 +6700,19 @@ const deserializeAws_json1_1ScalingAction = (
   let contents: any = {
     __type: "ScalingAction",
     Market: undefined,
-    SimpleScalingPolicyConfiguration: undefined,
+    SimpleScalingPolicyConfiguration: undefined
   };
   if (output.Market !== undefined) {
     contents.Market = output.Market;
   }
   if (output.SimpleScalingPolicyConfiguration !== undefined) {
-    contents.SimpleScalingPolicyConfiguration = deserializeAws_json1_1SimpleScalingPolicyConfiguration(output.SimpleScalingPolicyConfiguration, context);
+    contents.SimpleScalingPolicyConfiguration = deserializeAws_json1_1SimpleScalingPolicyConfiguration(
+      output.SimpleScalingPolicyConfiguration,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ScalingConstraints = (
   output: any,
@@ -5881,7 +6721,7 @@ const deserializeAws_json1_1ScalingConstraints = (
   let contents: any = {
     __type: "ScalingConstraints",
     MaxCapacity: undefined,
-    MinCapacity: undefined,
+    MinCapacity: undefined
   };
   if (output.MaxCapacity !== undefined) {
     contents.MaxCapacity = output.MaxCapacity;
@@ -5890,7 +6730,7 @@ const deserializeAws_json1_1ScalingConstraints = (
     contents.MinCapacity = output.MinCapacity;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ScalingRule = (
   output: any,
@@ -5901,10 +6741,13 @@ const deserializeAws_json1_1ScalingRule = (
     Action: undefined,
     Description: undefined,
     Name: undefined,
-    Trigger: undefined,
+    Trigger: undefined
   };
   if (output.Action !== undefined) {
-    contents.Action = deserializeAws_json1_1ScalingAction(output.Action, context);
+    contents.Action = deserializeAws_json1_1ScalingAction(
+      output.Action,
+      context
+    );
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -5913,10 +6756,13 @@ const deserializeAws_json1_1ScalingRule = (
     contents.Name = output.Name;
   }
   if (output.Trigger !== undefined) {
-    contents.Trigger = deserializeAws_json1_1ScalingTrigger(output.Trigger, context);
+    contents.Trigger = deserializeAws_json1_1ScalingTrigger(
+      output.Trigger,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ScalingRuleList = (
   output: any,
@@ -5925,7 +6771,7 @@ const deserializeAws_json1_1ScalingRuleList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ScalingRule(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ScalingTrigger = (
   output: any,
@@ -5933,13 +6779,16 @@ const deserializeAws_json1_1ScalingTrigger = (
 ): ScalingTrigger => {
   let contents: any = {
     __type: "ScalingTrigger",
-    CloudWatchAlarmDefinition: undefined,
+    CloudWatchAlarmDefinition: undefined
   };
   if (output.CloudWatchAlarmDefinition !== undefined) {
-    contents.CloudWatchAlarmDefinition = deserializeAws_json1_1CloudWatchAlarmDefinition(output.CloudWatchAlarmDefinition, context);
+    contents.CloudWatchAlarmDefinition = deserializeAws_json1_1CloudWatchAlarmDefinition(
+      output.CloudWatchAlarmDefinition,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ScriptBootstrapActionConfig = (
   output: any,
@@ -5948,7 +6797,7 @@ const deserializeAws_json1_1ScriptBootstrapActionConfig = (
   let contents: any = {
     __type: "ScriptBootstrapActionConfig",
     Args: undefined,
-    Path: undefined,
+    Path: undefined
   };
   if (output.Args !== undefined) {
     contents.Args = deserializeAws_json1_1XmlStringList(output.Args, context);
@@ -5957,7 +6806,7 @@ const deserializeAws_json1_1ScriptBootstrapActionConfig = (
     contents.Path = output.Path;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SecurityConfigurationList = (
   output: any,
@@ -5966,7 +6815,7 @@ const deserializeAws_json1_1SecurityConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1SecurityConfigurationSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1SecurityConfigurationSummary = (
   output: any,
@@ -5975,16 +6824,20 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   let contents: any = {
     __type: "SecurityConfigurationSummary",
     CreationDateTime: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ShrinkPolicy = (
   output: any,
@@ -5993,16 +6846,19 @@ const deserializeAws_json1_1ShrinkPolicy = (
   let contents: any = {
     __type: "ShrinkPolicy",
     DecommissionTimeout: undefined,
-    InstanceResizePolicy: undefined,
+    InstanceResizePolicy: undefined
   };
   if (output.DecommissionTimeout !== undefined) {
     contents.DecommissionTimeout = output.DecommissionTimeout;
   }
   if (output.InstanceResizePolicy !== undefined) {
-    contents.InstanceResizePolicy = deserializeAws_json1_1InstanceResizePolicy(output.InstanceResizePolicy, context);
+    contents.InstanceResizePolicy = deserializeAws_json1_1InstanceResizePolicy(
+      output.InstanceResizePolicy,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
   output: any,
@@ -6012,7 +6868,7 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
     __type: "SimpleScalingPolicyConfiguration",
     AdjustmentType: undefined,
     CoolDown: undefined,
-    ScalingAdjustment: undefined,
+    ScalingAdjustment: undefined
   };
   if (output.AdjustmentType !== undefined) {
     contents.AdjustmentType = output.AdjustmentType;
@@ -6024,7 +6880,7 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
     contents.ScalingAdjustment = output.ScalingAdjustment;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SpotProvisioningSpecification = (
   output: any,
@@ -6034,7 +6890,7 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
     __type: "SpotProvisioningSpecification",
     BlockDurationMinutes: undefined,
     TimeoutAction: undefined,
-    TimeoutDurationMinutes: undefined,
+    TimeoutDurationMinutes: undefined
   };
   if (output.BlockDurationMinutes !== undefined) {
     contents.BlockDurationMinutes = output.BlockDurationMinutes;
@@ -6046,7 +6902,7 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
     contents.TimeoutDurationMinutes = output.TimeoutDurationMinutes;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Step = (
   output: any,
@@ -6058,13 +6914,16 @@ const deserializeAws_json1_1Step = (
     Config: undefined,
     Id: undefined,
     Name: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.ActionOnFailure !== undefined) {
     contents.ActionOnFailure = output.ActionOnFailure;
   }
   if (output.Config !== undefined) {
-    contents.Config = deserializeAws_json1_1HadoopStepConfig(output.Config, context);
+    contents.Config = deserializeAws_json1_1HadoopStepConfig(
+      output.Config,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -6076,7 +6935,7 @@ const deserializeAws_json1_1Step = (
     contents.Status = deserializeAws_json1_1StepStatus(output.Status, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepConfig = (
   output: any,
@@ -6086,19 +6945,22 @@ const deserializeAws_json1_1StepConfig = (
     __type: "StepConfig",
     ActionOnFailure: undefined,
     HadoopJarStep: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.ActionOnFailure !== undefined) {
     contents.ActionOnFailure = output.ActionOnFailure;
   }
   if (output.HadoopJarStep !== undefined) {
-    contents.HadoopJarStep = deserializeAws_json1_1HadoopJarStepConfig(output.HadoopJarStep, context);
+    contents.HadoopJarStep = deserializeAws_json1_1HadoopJarStepConfig(
+      output.HadoopJarStep,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepDetail = (
   output: any,
@@ -6107,16 +6969,22 @@ const deserializeAws_json1_1StepDetail = (
   let contents: any = {
     __type: "StepDetail",
     ExecutionStatusDetail: undefined,
-    StepConfig: undefined,
+    StepConfig: undefined
   };
   if (output.ExecutionStatusDetail !== undefined) {
-    contents.ExecutionStatusDetail = deserializeAws_json1_1StepExecutionStatusDetail(output.ExecutionStatusDetail, context);
+    contents.ExecutionStatusDetail = deserializeAws_json1_1StepExecutionStatusDetail(
+      output.ExecutionStatusDetail,
+      context
+    );
   }
   if (output.StepConfig !== undefined) {
-    contents.StepConfig = deserializeAws_json1_1StepConfig(output.StepConfig, context);
+    contents.StepConfig = deserializeAws_json1_1StepConfig(
+      output.StepConfig,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepDetailList = (
   output: any,
@@ -6125,7 +6993,7 @@ const deserializeAws_json1_1StepDetailList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StepDetail(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StepExecutionStatusDetail = (
   output: any,
@@ -6137,34 +7005,44 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
     EndDateTime: undefined,
     LastStateChangeReason: undefined,
     StartDateTime: undefined,
-    State: undefined,
+    State: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.LastStateChangeReason !== undefined) {
     contents.LastStateChangeReason = output.LastStateChangeReason;
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(output.StartDateTime % 1 != 0 ? Math.round(output.StartDateTime * 1000) : output.StartDateTime);
+    contents.StartDateTime = new Date(
+      output.StartDateTime % 1 != 0
+        ? Math.round(output.StartDateTime * 1000)
+        : output.StartDateTime
+    );
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepIdsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1StepStateChangeReason = (
   output: any,
@@ -6173,7 +7051,7 @@ const deserializeAws_json1_1StepStateChangeReason = (
   let contents: any = {
     __type: "StepStateChangeReason",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -6182,7 +7060,7 @@ const deserializeAws_json1_1StepStateChangeReason = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepStatus = (
   output: any,
@@ -6193,22 +7071,31 @@ const deserializeAws_json1_1StepStatus = (
     FailureDetails: undefined,
     State: undefined,
     StateChangeReason: undefined,
-    Timeline: undefined,
+    Timeline: undefined
   };
   if (output.FailureDetails !== undefined) {
-    contents.FailureDetails = deserializeAws_json1_1FailureDetails(output.FailureDetails, context);
+    contents.FailureDetails = deserializeAws_json1_1FailureDetails(
+      output.FailureDetails,
+      context
+    );
   }
   if (output.State !== undefined) {
     contents.State = output.State;
   }
   if (output.StateChangeReason !== undefined) {
-    contents.StateChangeReason = deserializeAws_json1_1StepStateChangeReason(output.StateChangeReason, context);
+    contents.StateChangeReason = deserializeAws_json1_1StepStateChangeReason(
+      output.StateChangeReason,
+      context
+    );
   }
   if (output.Timeline !== undefined) {
-    contents.Timeline = deserializeAws_json1_1StepTimeline(output.Timeline, context);
+    contents.Timeline = deserializeAws_json1_1StepTimeline(
+      output.Timeline,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepSummary = (
   output: any,
@@ -6220,13 +7107,16 @@ const deserializeAws_json1_1StepSummary = (
     Config: undefined,
     Id: undefined,
     Name: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.ActionOnFailure !== undefined) {
     contents.ActionOnFailure = output.ActionOnFailure;
   }
   if (output.Config !== undefined) {
-    contents.Config = deserializeAws_json1_1HadoopStepConfig(output.Config, context);
+    contents.Config = deserializeAws_json1_1HadoopStepConfig(
+      output.Config,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -6238,7 +7128,7 @@ const deserializeAws_json1_1StepSummary = (
     contents.Status = deserializeAws_json1_1StepStatus(output.Status, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StepSummaryList = (
   output: any,
@@ -6247,7 +7137,7 @@ const deserializeAws_json1_1StepSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1StepSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StepTimeline = (
   output: any,
@@ -6257,28 +7147,38 @@ const deserializeAws_json1_1StepTimeline = (
     __type: "StepTimeline",
     CreationDateTime: undefined,
     EndDateTime: undefined,
-    StartDateTime: undefined,
+    StartDateTime: undefined
   };
   if (output.CreationDateTime !== undefined) {
-    contents.CreationDateTime = new Date(output.CreationDateTime % 1 != 0 ? Math.round(output.CreationDateTime * 1000) : output.CreationDateTime);
+    contents.CreationDateTime = new Date(
+      output.CreationDateTime % 1 != 0
+        ? Math.round(output.CreationDateTime * 1000)
+        : output.CreationDateTime
+    );
   }
   if (output.EndDateTime !== undefined) {
-    contents.EndDateTime = new Date(output.EndDateTime % 1 != 0 ? Math.round(output.EndDateTime * 1000) : output.EndDateTime);
+    contents.EndDateTime = new Date(
+      output.EndDateTime % 1 != 0
+        ? Math.round(output.EndDateTime * 1000)
+        : output.EndDateTime
+    );
   }
   if (output.StartDateTime !== undefined) {
-    contents.StartDateTime = new Date(output.StartDateTime % 1 != 0 ? Math.round(output.StartDateTime * 1000) : output.StartDateTime);
+    contents.StartDateTime = new Date(
+      output.StartDateTime % 1 != 0
+        ? Math.round(output.StartDateTime * 1000)
+        : output.StartDateTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1StringMap = (
   output: any,
@@ -6289,16 +7189,14 @@ const deserializeAws_json1_1StringMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1SupportedProductsList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -6307,7 +7205,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -6316,7 +7214,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -6325,7 +7223,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1VolumeSpecification = (
   output: any,
@@ -6335,7 +7233,7 @@ const deserializeAws_json1_1VolumeSpecification = (
     __type: "VolumeSpecification",
     Iops: undefined,
     SizeInGB: undefined,
-    VolumeType: undefined,
+    VolumeType: undefined
   };
   if (output.Iops !== undefined) {
     contents.Iops = output.Iops;
@@ -6347,25 +7245,21 @@ const deserializeAws_json1_1VolumeSpecification = (
     contents.VolumeType = output.VolumeType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1XmlStringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1XmlStringMaxLen256List = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

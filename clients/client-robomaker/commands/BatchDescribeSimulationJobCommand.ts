@@ -1,20 +1,20 @@
 import {
   RoboMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RoboMakerClient";
 import {
   BatchDescribeSimulationJobRequest,
-  BatchDescribeSimulationJobResponse,
+  BatchDescribeSimulationJobResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1BatchDescribeSimulationJobCommand,
-  serializeAws_restJson1_1BatchDescribeSimulationJobCommand,
+  serializeAws_restJson1_1BatchDescribeSimulationJobCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type BatchDescribeSimulationJobCommandInput = BatchDescribeSimulationJobRequest;
 export type BatchDescribeSimulationJobCommandOutput = BatchDescribeSimulationJobResponse;
 
-export class BatchDescribeSimulationJobCommand extends $Command<BatchDescribeSimulationJobCommandInput, BatchDescribeSimulationJobCommandOutput, RoboMakerClientResolvedConfig> {
+export class BatchDescribeSimulationJobCommand extends $Command<
+  BatchDescribeSimulationJobCommandInput,
+  BatchDescribeSimulationJobCommandOutput,
+  RoboMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class BatchDescribeSimulationJobCommand extends $Command<BatchDescribeSim
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RoboMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchDescribeSimulationJobCommandInput, BatchDescribeSimulationJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    BatchDescribeSimulationJobCommandInput,
+    BatchDescribeSimulationJobCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class BatchDescribeSimulationJobCommand extends $Command<BatchDescribeSim
     input: BatchDescribeSimulationJobCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1BatchDescribeSimulationJobCommand(input, context);
+    return serializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<BatchDescribeSimulationJobCommandOutput> {
-    return deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(output, context);
+    return deserializeAws_restJson1_1BatchDescribeSimulationJobCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -414,14 +414,14 @@ export namespace CreateVariableResult {
 export enum DataSource {
   EVENT = "EVENT",
   EXTERNAL_MODEL_SCORE = "EXTERNAL_MODEL_SCORE",
-  MODEL_SCORE = "MODEL_SCORE",
+  MODEL_SCORE = "MODEL_SCORE"
 }
 
 export enum DataType {
   BOOLEAN = "BOOLEAN",
   FLOAT = "FLOAT",
   INTEGER = "INTEGER",
-  STRING = "STRING",
+  STRING = "STRING"
 }
 
 export interface DeleteDetectorVersionRequest {
@@ -655,7 +655,7 @@ export namespace Detector {
 export enum DetectorVersionStatus {
   ACTIVE = "ACTIVE",
   DRAFT = "DRAFT",
-  INACTIVE = "INACTIVE",
+  INACTIVE = "INACTIVE"
 }
 
 /**
@@ -1380,7 +1380,7 @@ export namespace LabelSchema {
 }
 
 export enum Language {
-  DETECTORPL = "DETECTORPL",
+  DETECTORPL = "DETECTORPL"
 }
 
 /**
@@ -1483,7 +1483,7 @@ export namespace ModelEndpointDataBlob {
 
 export enum ModelEndpointStatus {
   ASSOCIATED = "ASSOCIATED",
-  DISSOCIATED = "DISSOCIATED",
+  DISSOCIATED = "DISSOCIATED"
 }
 
 /**
@@ -1537,7 +1537,7 @@ export namespace ModelInputConfiguration {
 
 export enum ModelInputDataFormat {
   CSV = "TEXT_CSV",
-  JSON = "APPLICATION_JSON",
+  JSON = "APPLICATION_JSON"
 }
 
 /**
@@ -1577,7 +1577,7 @@ export namespace ModelOutputConfiguration {
 
 export enum ModelOutputDataFormat {
   CSV = "TEXT_CSV",
-  JSONLINES = "APPLICATION_JSONLINES",
+  JSONLINES = "APPLICATION_JSONLINES"
 }
 
 /**
@@ -1609,11 +1609,11 @@ export namespace ModelScores {
 }
 
 export enum ModelSource {
-  SAGEMAKER = "SAGEMAKER",
+  SAGEMAKER = "SAGEMAKER"
 }
 
 export enum ModelTypeEnum {
-  ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS",
+  ONLINE_FRAUD_INSIGHTS = "ONLINE_FRAUD_INSIGHTS"
 }
 
 /**
@@ -1785,7 +1785,7 @@ export enum ModelVersionStatus {
   INACTIVATE_IN_PROGRESS = "INACTIVATE_IN_PROGRESS",
   INACTIVE = "INACTIVE",
   TRAINING_COMPLETE = "TRAINING_COMPLETE",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
+  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
 }
 
 /**
@@ -2581,7 +2581,7 @@ export interface Variable {
   /**
    *
    *          <p>The variable type of the variable.</p>
-   * 	
+   *
    */
   variableType?: string;
 }
@@ -2653,7 +2653,9 @@ export namespace VariableEntry {
  *          <p>An exception indicating an internal server error.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   message: string | undefined;
@@ -2670,7 +2672,9 @@ export namespace InternalServerException {
  *          <p>An exception indicating the specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -2687,7 +2691,9 @@ export namespace ResourceNotFoundException {
  *          <p>An exception indicating a throttling error.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   message: string | undefined;
@@ -2704,7 +2710,9 @@ export namespace ThrottlingException {
  *          <p>An exception indicating a specified value is not allowed.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   message: string | undefined;

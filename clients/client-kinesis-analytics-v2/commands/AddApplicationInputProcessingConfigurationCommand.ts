@@ -1,20 +1,20 @@
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KinesisAnalyticsV2Client";
 import {
   AddApplicationInputProcessingConfigurationRequest,
-  AddApplicationInputProcessingConfigurationResponse,
+  AddApplicationInputProcessingConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
-  serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
+  serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type AddApplicationInputProcessingConfigurationCommandInput = AddApplicationInputProcessingConfigurationRequest;
 export type AddApplicationInputProcessingConfigurationCommandOutput = AddApplicationInputProcessingConfigurationResponse;
 
-export class AddApplicationInputProcessingConfigurationCommand extends $Command<AddApplicationInputProcessingConfigurationCommandInput, AddApplicationInputProcessingConfigurationCommandOutput, KinesisAnalyticsV2ClientResolvedConfig> {
+export class AddApplicationInputProcessingConfigurationCommand extends $Command<
+  AddApplicationInputProcessingConfigurationCommandInput,
+  AddApplicationInputProcessingConfigurationCommandOutput,
+  KinesisAnalyticsV2ClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: AddApplicationInputProcessingConfigurationCommandInput) {
+  constructor(
+    readonly input: AddApplicationInputProcessingConfigurationCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisAnalyticsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AddApplicationInputProcessingConfigurationCommandInput, AddApplicationInputProcessingConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AddApplicationInputProcessingConfigurationCommandInput,
+    AddApplicationInputProcessingConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class AddApplicationInputProcessingConfigurationCommand extends $Command<
     input: AddApplicationInputProcessingConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(input, context);
+    return serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> {
-    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(output, context);
+    return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -2,192 +2,192 @@ import { SecurityHubClient } from "./SecurityHubClient";
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
-  AcceptInvitationCommandOutput,
+  AcceptInvitationCommandOutput
 } from "./commands/AcceptInvitationCommand";
 import {
   BatchDisableStandardsCommand,
   BatchDisableStandardsCommandInput,
-  BatchDisableStandardsCommandOutput,
+  BatchDisableStandardsCommandOutput
 } from "./commands/BatchDisableStandardsCommand";
 import {
   BatchEnableStandardsCommand,
   BatchEnableStandardsCommandInput,
-  BatchEnableStandardsCommandOutput,
+  BatchEnableStandardsCommandOutput
 } from "./commands/BatchEnableStandardsCommand";
 import {
   BatchImportFindingsCommand,
   BatchImportFindingsCommandInput,
-  BatchImportFindingsCommandOutput,
+  BatchImportFindingsCommandOutput
 } from "./commands/BatchImportFindingsCommand";
 import {
   CreateActionTargetCommand,
   CreateActionTargetCommandInput,
-  CreateActionTargetCommandOutput,
+  CreateActionTargetCommandOutput
 } from "./commands/CreateActionTargetCommand";
 import {
   CreateInsightCommand,
   CreateInsightCommandInput,
-  CreateInsightCommandOutput,
+  CreateInsightCommandOutput
 } from "./commands/CreateInsightCommand";
 import {
   CreateMembersCommand,
   CreateMembersCommandInput,
-  CreateMembersCommandOutput,
+  CreateMembersCommandOutput
 } from "./commands/CreateMembersCommand";
 import {
   DeclineInvitationsCommand,
   DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput,
+  DeclineInvitationsCommandOutput
 } from "./commands/DeclineInvitationsCommand";
 import {
   DeleteActionTargetCommand,
   DeleteActionTargetCommandInput,
-  DeleteActionTargetCommandOutput,
+  DeleteActionTargetCommandOutput
 } from "./commands/DeleteActionTargetCommand";
 import {
   DeleteInsightCommand,
   DeleteInsightCommandInput,
-  DeleteInsightCommandOutput,
+  DeleteInsightCommandOutput
 } from "./commands/DeleteInsightCommand";
 import {
   DeleteInvitationsCommand,
   DeleteInvitationsCommandInput,
-  DeleteInvitationsCommandOutput,
+  DeleteInvitationsCommandOutput
 } from "./commands/DeleteInvitationsCommand";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
-  DeleteMembersCommandOutput,
+  DeleteMembersCommandOutput
 } from "./commands/DeleteMembersCommand";
 import {
   DescribeActionTargetsCommand,
   DescribeActionTargetsCommandInput,
-  DescribeActionTargetsCommandOutput,
+  DescribeActionTargetsCommandOutput
 } from "./commands/DescribeActionTargetsCommand";
 import {
   DescribeHubCommand,
   DescribeHubCommandInput,
-  DescribeHubCommandOutput,
+  DescribeHubCommandOutput
 } from "./commands/DescribeHubCommand";
 import {
   DescribeProductsCommand,
   DescribeProductsCommandInput,
-  DescribeProductsCommandOutput,
+  DescribeProductsCommandOutput
 } from "./commands/DescribeProductsCommand";
 import {
   DisableImportFindingsForProductCommand,
   DisableImportFindingsForProductCommandInput,
-  DisableImportFindingsForProductCommandOutput,
+  DisableImportFindingsForProductCommandOutput
 } from "./commands/DisableImportFindingsForProductCommand";
 import {
   DisableSecurityHubCommand,
   DisableSecurityHubCommandInput,
-  DisableSecurityHubCommandOutput,
+  DisableSecurityHubCommandOutput
 } from "./commands/DisableSecurityHubCommand";
 import {
   DisassociateFromMasterAccountCommand,
   DisassociateFromMasterAccountCommandInput,
-  DisassociateFromMasterAccountCommandOutput,
+  DisassociateFromMasterAccountCommandOutput
 } from "./commands/DisassociateFromMasterAccountCommand";
 import {
   DisassociateMembersCommand,
   DisassociateMembersCommandInput,
-  DisassociateMembersCommandOutput,
+  DisassociateMembersCommandOutput
 } from "./commands/DisassociateMembersCommand";
 import {
   EnableImportFindingsForProductCommand,
   EnableImportFindingsForProductCommandInput,
-  EnableImportFindingsForProductCommandOutput,
+  EnableImportFindingsForProductCommandOutput
 } from "./commands/EnableImportFindingsForProductCommand";
 import {
   EnableSecurityHubCommand,
   EnableSecurityHubCommandInput,
-  EnableSecurityHubCommandOutput,
+  EnableSecurityHubCommandOutput
 } from "./commands/EnableSecurityHubCommand";
 import {
   GetEnabledStandardsCommand,
   GetEnabledStandardsCommandInput,
-  GetEnabledStandardsCommandOutput,
+  GetEnabledStandardsCommandOutput
 } from "./commands/GetEnabledStandardsCommand";
 import {
   GetFindingsCommand,
   GetFindingsCommandInput,
-  GetFindingsCommandOutput,
+  GetFindingsCommandOutput
 } from "./commands/GetFindingsCommand";
 import {
   GetInsightResultsCommand,
   GetInsightResultsCommandInput,
-  GetInsightResultsCommandOutput,
+  GetInsightResultsCommandOutput
 } from "./commands/GetInsightResultsCommand";
 import {
   GetInsightsCommand,
   GetInsightsCommandInput,
-  GetInsightsCommandOutput,
+  GetInsightsCommandOutput
 } from "./commands/GetInsightsCommand";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
-  GetInvitationsCountCommandOutput,
+  GetInvitationsCountCommandOutput
 } from "./commands/GetInvitationsCountCommand";
 import {
   GetMasterAccountCommand,
   GetMasterAccountCommandInput,
-  GetMasterAccountCommandOutput,
+  GetMasterAccountCommandOutput
 } from "./commands/GetMasterAccountCommand";
 import {
   GetMembersCommand,
   GetMembersCommandInput,
-  GetMembersCommandOutput,
+  GetMembersCommandOutput
 } from "./commands/GetMembersCommand";
 import {
   InviteMembersCommand,
   InviteMembersCommandInput,
-  InviteMembersCommandOutput,
+  InviteMembersCommandOutput
 } from "./commands/InviteMembersCommand";
 import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
-  ListEnabledProductsForImportCommandOutput,
+  ListEnabledProductsForImportCommandOutput
 } from "./commands/ListEnabledProductsForImportCommand";
 import {
   ListInvitationsCommand,
   ListInvitationsCommandInput,
-  ListInvitationsCommandOutput,
+  ListInvitationsCommandOutput
 } from "./commands/ListInvitationsCommand";
 import {
   ListMembersCommand,
   ListMembersCommandInput,
-  ListMembersCommandOutput,
+  ListMembersCommandOutput
 } from "./commands/ListMembersCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateActionTargetCommand,
   UpdateActionTargetCommandInput,
-  UpdateActionTargetCommandOutput,
+  UpdateActionTargetCommandOutput
 } from "./commands/UpdateActionTargetCommand";
 import {
   UpdateFindingsCommand,
   UpdateFindingsCommandInput,
-  UpdateFindingsCommandOutput,
+  UpdateFindingsCommandOutput
 } from "./commands/UpdateFindingsCommand";
 import {
   UpdateInsightCommand,
   UpdateInsightCommandInput,
-  UpdateInsightCommandOutput,
+  UpdateInsightCommandOutput
 } from "./commands/UpdateInsightCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -224,7 +224,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AcceptInvitationCommandOutput>;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
@@ -237,16 +237,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public acceptInvitation(
     args: AcceptInvitationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AcceptInvitationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AcceptInvitationCommandOutput) => void),
     cb?: (err: any, data?: AcceptInvitationCommandOutput) => void
   ): Promise<AcceptInvitationCommandOutput> | void {
     const command = new AcceptInvitationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -260,7 +262,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchDisableStandardsCommandOutput>;
   public batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
@@ -273,16 +275,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public batchDisableStandards(
     args: BatchDisableStandardsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisableStandardsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchDisableStandardsCommandOutput) => void),
     cb?: (err: any, data?: BatchDisableStandardsCommandOutput) => void
   ): Promise<BatchDisableStandardsCommandOutput> | void {
     const command = new BatchDisableStandardsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -296,7 +300,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchEnableStandardsCommandOutput>;
   public batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
@@ -309,16 +313,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public batchEnableStandards(
     args: BatchEnableStandardsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchEnableStandardsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchEnableStandardsCommandOutput) => void),
     cb?: (err: any, data?: BatchEnableStandardsCommandOutput) => void
   ): Promise<BatchEnableStandardsCommandOutput> | void {
     const command = new BatchEnableStandardsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -334,7 +340,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public batchImportFindings(
     args: BatchImportFindingsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchImportFindingsCommandOutput>;
   public batchImportFindings(
     args: BatchImportFindingsCommandInput,
@@ -347,16 +353,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public batchImportFindings(
     args: BatchImportFindingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchImportFindingsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchImportFindingsCommandOutput) => void),
     cb?: (err: any, data?: BatchImportFindingsCommandOutput) => void
   ): Promise<BatchImportFindingsCommandOutput> | void {
     const command = new BatchImportFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -370,7 +378,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public createActionTarget(
     args: CreateActionTargetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateActionTargetCommandOutput>;
   public createActionTarget(
     args: CreateActionTargetCommandInput,
@@ -383,16 +391,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public createActionTarget(
     args: CreateActionTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateActionTargetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateActionTargetCommandOutput) => void),
     cb?: (err: any, data?: CreateActionTargetCommandOutput) => void
   ): Promise<CreateActionTargetCommandOutput> | void {
     const command = new CreateActionTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -407,7 +417,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public createInsight(
     args: CreateInsightCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateInsightCommandOutput>;
   public createInsight(
     args: CreateInsightCommandInput,
@@ -420,16 +430,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public createInsight(
     args: CreateInsightCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateInsightCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateInsightCommandOutput) => void),
     cb?: (err: any, data?: CreateInsightCommandOutput) => void
   ): Promise<CreateInsightCommandOutput> | void {
     const command = new CreateInsightCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -453,7 +465,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public createMembers(
     args: CreateMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateMembersCommandOutput>;
   public createMembers(
     args: CreateMembersCommandInput,
@@ -466,16 +478,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public createMembers(
     args: CreateMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateMembersCommandOutput) => void),
     cb?: (err: any, data?: CreateMembersCommandOutput) => void
   ): Promise<CreateMembersCommandOutput> | void {
     const command = new CreateMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -488,7 +502,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeclineInvitationsCommandOutput>;
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
@@ -501,16 +515,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public declineInvitations(
     args: DeclineInvitationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeclineInvitationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeclineInvitationsCommandOutput) => void),
     cb?: (err: any, data?: DeclineInvitationsCommandOutput) => void
   ): Promise<DeclineInvitationsCommandOutput> | void {
     const command = new DeclineInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -524,7 +540,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public deleteActionTarget(
     args: DeleteActionTargetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteActionTargetCommandOutput>;
   public deleteActionTarget(
     args: DeleteActionTargetCommandInput,
@@ -537,16 +553,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteActionTarget(
     args: DeleteActionTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteActionTargetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteActionTargetCommandOutput) => void),
     cb?: (err: any, data?: DeleteActionTargetCommandOutput) => void
   ): Promise<DeleteActionTargetCommandOutput> | void {
     const command = new DeleteActionTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -559,7 +577,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public deleteInsight(
     args: DeleteInsightCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteInsightCommandOutput>;
   public deleteInsight(
     args: DeleteInsightCommandInput,
@@ -572,16 +590,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteInsight(
     args: DeleteInsightCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInsightCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteInsightCommandOutput) => void),
     cb?: (err: any, data?: DeleteInsightCommandOutput) => void
   ): Promise<DeleteInsightCommandOutput> | void {
     const command = new DeleteInsightCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -594,7 +614,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteInvitationsCommandOutput>;
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
@@ -607,16 +627,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteInvitations(
     args: DeleteInvitationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteInvitationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteInvitationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteInvitationsCommandOutput) => void
   ): Promise<DeleteInvitationsCommandOutput> | void {
     const command = new DeleteInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -629,7 +651,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteMembersCommandOutput>;
   public deleteMembers(
     args: DeleteMembersCommandInput,
@@ -642,16 +664,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public deleteMembers(
     args: DeleteMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteMembersCommandOutput) => void),
     cb?: (err: any, data?: DeleteMembersCommandOutput) => void
   ): Promise<DeleteMembersCommandOutput> | void {
     const command = new DeleteMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -664,7 +688,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public describeActionTargets(
     args: DescribeActionTargetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeActionTargetsCommandOutput>;
   public describeActionTargets(
     args: DescribeActionTargetsCommandInput,
@@ -677,16 +701,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public describeActionTargets(
     args: DescribeActionTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeActionTargetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeActionTargetsCommandOutput) => void),
     cb?: (err: any, data?: DescribeActionTargetsCommandOutput) => void
   ): Promise<DescribeActionTargetsCommandOutput> | void {
     const command = new DescribeActionTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -700,7 +726,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public describeHub(
     args: DescribeHubCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeHubCommandOutput>;
   public describeHub(
     args: DescribeHubCommandInput,
@@ -713,16 +739,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public describeHub(
     args: DescribeHubCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeHubCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeHubCommandOutput) => void),
     cb?: (err: any, data?: DescribeHubCommandOutput) => void
   ): Promise<DescribeHubCommandOutput> | void {
     const command = new DescribeHubCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -736,7 +764,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public describeProducts(
     args: DescribeProductsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProductsCommandOutput>;
   public describeProducts(
     args: DescribeProductsCommandInput,
@@ -749,16 +777,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public describeProducts(
     args: DescribeProductsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProductsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProductsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProductsCommandOutput) => void
   ): Promise<DescribeProductsCommandOutput> | void {
     const command = new DescribeProductsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -772,7 +802,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableImportFindingsForProductCommandOutput>;
   public disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
@@ -785,16 +815,21 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public disableImportFindingsForProduct(
     args: DisableImportFindingsForProductCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableImportFindingsForProductCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: DisableImportFindingsForProductCommandOutput
+        ) => void),
     cb?: (err: any, data?: DisableImportFindingsForProductCommandOutput) => void
   ): Promise<DisableImportFindingsForProductCommandOutput> | void {
     const command = new DisableImportFindingsForProductCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -814,7 +849,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public disableSecurityHub(
     args: DisableSecurityHubCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableSecurityHubCommandOutput>;
   public disableSecurityHub(
     args: DisableSecurityHubCommandInput,
@@ -827,16 +862,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public disableSecurityHub(
     args: DisableSecurityHubCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableSecurityHubCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableSecurityHubCommandOutput) => void),
     cb?: (err: any, data?: DisableSecurityHubCommandOutput) => void
   ): Promise<DisableSecurityHubCommandOutput> | void {
     const command = new DisableSecurityHubCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -850,7 +887,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateFromMasterAccountCommandOutput>;
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
@@ -863,16 +900,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateFromMasterAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateFromMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: DisassociateFromMasterAccountCommandOutput) => void
   ): Promise<DisassociateFromMasterAccountCommandOutput> | void {
     const command = new DisassociateFromMasterAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -885,7 +924,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisassociateMembersCommandOutput>;
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
@@ -898,16 +937,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public disassociateMembers(
     args: DisassociateMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisassociateMembersCommandOutput) => void),
     cb?: (err: any, data?: DisassociateMembersCommandOutput) => void
   ): Promise<DisassociateMembersCommandOutput> | void {
     const command = new DisassociateMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -922,7 +963,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableImportFindingsForProductCommandOutput>;
   public enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
@@ -935,16 +976,21 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public enableImportFindingsForProduct(
     args: EnableImportFindingsForProductCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableImportFindingsForProductCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: EnableImportFindingsForProductCommandOutput
+        ) => void),
     cb?: (err: any, data?: EnableImportFindingsForProductCommandOutput) => void
   ): Promise<EnableImportFindingsForProductCommandOutput> | void {
     const command = new EnableImportFindingsForProductCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -959,7 +1005,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public enableSecurityHub(
     args: EnableSecurityHubCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableSecurityHubCommandOutput>;
   public enableSecurityHub(
     args: EnableSecurityHubCommandInput,
@@ -972,16 +1018,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public enableSecurityHub(
     args: EnableSecurityHubCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableSecurityHubCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableSecurityHubCommandOutput) => void),
     cb?: (err: any, data?: EnableSecurityHubCommandOutput) => void
   ): Promise<EnableSecurityHubCommandOutput> | void {
     const command = new EnableSecurityHubCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -994,7 +1042,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetEnabledStandardsCommandOutput>;
   public getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
@@ -1007,16 +1055,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getEnabledStandards(
     args: GetEnabledStandardsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnabledStandardsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEnabledStandardsCommandOutput) => void),
     cb?: (err: any, data?: GetEnabledStandardsCommandOutput) => void
   ): Promise<GetEnabledStandardsCommandOutput> | void {
     const command = new GetEnabledStandardsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1029,7 +1079,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getFindings(
     args: GetFindingsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetFindingsCommandOutput>;
   public getFindings(
     args: GetFindingsCommandInput,
@@ -1042,16 +1092,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getFindings(
     args: GetFindingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFindingsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetFindingsCommandOutput) => void),
     cb?: (err: any, data?: GetFindingsCommandOutput) => void
   ): Promise<GetFindingsCommandOutput> | void {
     const command = new GetFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1064,7 +1116,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getInsightResults(
     args: GetInsightResultsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetInsightResultsCommandOutput>;
   public getInsightResults(
     args: GetInsightResultsCommandInput,
@@ -1077,16 +1129,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getInsightResults(
     args: GetInsightResultsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightResultsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInsightResultsCommandOutput) => void),
     cb?: (err: any, data?: GetInsightResultsCommandOutput) => void
   ): Promise<GetInsightResultsCommandOutput> | void {
     const command = new GetInsightResultsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1099,7 +1153,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getInsights(
     args: GetInsightsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetInsightsCommandOutput>;
   public getInsights(
     args: GetInsightsCommandInput,
@@ -1112,16 +1166,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getInsights(
     args: GetInsightsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInsightsCommandOutput) => void),
     cb?: (err: any, data?: GetInsightsCommandOutput) => void
   ): Promise<GetInsightsCommandOutput> | void {
     const command = new GetInsightsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1135,7 +1191,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetInvitationsCountCommandOutput>;
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
@@ -1148,16 +1204,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getInvitationsCount(
     args: GetInvitationsCountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInvitationsCountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetInvitationsCountCommandOutput) => void),
     cb?: (err: any, data?: GetInvitationsCountCommandOutput) => void
   ): Promise<GetInvitationsCountCommandOutput> | void {
     const command = new GetInvitationsCountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1171,7 +1229,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetMasterAccountCommandOutput>;
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
@@ -1184,16 +1242,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getMasterAccount(
     args: GetMasterAccountCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMasterAccountCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetMasterAccountCommandOutput) => void),
     cb?: (err: any, data?: GetMasterAccountCommandOutput) => void
   ): Promise<GetMasterAccountCommandOutput> | void {
     const command = new GetMasterAccountCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1207,7 +1267,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public getMembers(
     args: GetMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetMembersCommandOutput>;
   public getMembers(
     args: GetMembersCommandInput,
@@ -1220,16 +1280,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public getMembers(
     args: GetMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetMembersCommandOutput) => void),
     cb?: (err: any, data?: GetMembersCommandOutput) => void
   ): Promise<GetMembersCommandOutput> | void {
     const command = new GetMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1247,7 +1309,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public inviteMembers(
     args: InviteMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InviteMembersCommandOutput>;
   public inviteMembers(
     args: InviteMembersCommandInput,
@@ -1260,16 +1322,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public inviteMembers(
     args: InviteMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InviteMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InviteMembersCommandOutput) => void),
     cb?: (err: any, data?: InviteMembersCommandOutput) => void
   ): Promise<InviteMembersCommandOutput> | void {
     const command = new InviteMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1283,7 +1347,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListEnabledProductsForImportCommandOutput>;
   public listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
@@ -1296,16 +1360,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listEnabledProductsForImport(
     args: ListEnabledProductsForImportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnabledProductsForImportCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListEnabledProductsForImportCommandOutput) => void),
     cb?: (err: any, data?: ListEnabledProductsForImportCommandOutput) => void
   ): Promise<ListEnabledProductsForImportCommandOutput> | void {
     const command = new ListEnabledProductsForImportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1319,7 +1385,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public listInvitations(
     args: ListInvitationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListInvitationsCommandOutput>;
   public listInvitations(
     args: ListInvitationsCommandInput,
@@ -1332,16 +1398,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listInvitations(
     args: ListInvitationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListInvitationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListInvitationsCommandOutput) => void),
     cb?: (err: any, data?: ListInvitationsCommandOutput) => void
   ): Promise<ListInvitationsCommandOutput> | void {
     const command = new ListInvitationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1355,7 +1423,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public listMembers(
     args: ListMembersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListMembersCommandOutput>;
   public listMembers(
     args: ListMembersCommandInput,
@@ -1368,16 +1436,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listMembers(
     args: ListMembersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMembersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMembersCommandOutput) => void),
     cb?: (err: any, data?: ListMembersCommandOutput) => void
   ): Promise<ListMembersCommandOutput> | void {
     const command = new ListMembersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1390,7 +1460,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1403,16 +1473,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1425,7 +1497,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1438,16 +1510,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1460,7 +1534,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1473,16 +1547,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1495,7 +1571,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public updateActionTarget(
     args: UpdateActionTargetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateActionTargetCommandOutput>;
   public updateActionTarget(
     args: UpdateActionTargetCommandInput,
@@ -1508,16 +1584,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public updateActionTarget(
     args: UpdateActionTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateActionTargetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateActionTargetCommandOutput) => void),
     cb?: (err: any, data?: UpdateActionTargetCommandOutput) => void
   ): Promise<UpdateActionTargetCommandOutput> | void {
     const command = new UpdateActionTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1532,7 +1610,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public updateFindings(
     args: UpdateFindingsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateFindingsCommandOutput>;
   public updateFindings(
     args: UpdateFindingsCommandInput,
@@ -1545,16 +1623,18 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public updateFindings(
     args: UpdateFindingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFindingsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateFindingsCommandOutput) => void),
     cb?: (err: any, data?: UpdateFindingsCommandOutput) => void
   ): Promise<UpdateFindingsCommandOutput> | void {
     const command = new UpdateFindingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1567,7 +1647,7 @@ export class SecurityHub extends SecurityHubClient {
    */
   public updateInsight(
     args: UpdateInsightCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateInsightCommandOutput>;
   public updateInsight(
     args: UpdateInsightCommandInput,
@@ -1580,19 +1660,20 @@ export class SecurityHub extends SecurityHubClient {
   ): void;
   public updateInsight(
     args: UpdateInsightCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateInsightCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateInsightCommandOutput) => void),
     cb?: (err: any, data?: UpdateInsightCommandOutput) => void
   ): Promise<UpdateInsightCommandOutput> | void {
     const command = new UpdateInsightCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

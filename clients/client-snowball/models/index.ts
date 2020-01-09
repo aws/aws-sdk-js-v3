@@ -195,7 +195,9 @@ export namespace CancelJobResult {
  *       create jobs until your cluster has exactly five notes.</p>
  *
  */
-export interface ClusterLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -392,7 +394,7 @@ export enum ClusterState {
   CANCELLED = "Cancelled",
   COMPLETE = "Complete",
   IN_USE = "InUse",
-  PENDING = "Pending",
+  PENDING = "Pending"
 }
 
 /**
@@ -987,7 +989,9 @@ export namespace Ec2AmiResource {
  *       action.</p>
  *
  */
-export interface Ec2RequestFailedException extends _smithy.SmithyException, $MetadataBearer {
+export interface Ec2RequestFailedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "Ec2RequestFailedException";
   $fault: "client";
   Message?: string;
@@ -1164,7 +1168,9 @@ export namespace GetSoftwareUpdatesResult {
  *       again.</p>
  *
  */
-export interface InvalidAddressException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAddressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAddressException";
   $fault: "client";
   Message?: string;
@@ -1182,7 +1188,9 @@ export namespace InvalidAddressException {
  *         <a>CreateClusterRequest$SnowballType</a> value supports your <a>CreateJobRequest$JobType</a>, and try again.</p>
  *
  */
-export interface InvalidInputCombinationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputCombinationException";
   $fault: "client";
   Message?: string;
@@ -1200,7 +1208,9 @@ export namespace InvalidInputCombinationException {
  *       to be performed.</p>
  *
  */
-export interface InvalidJobStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidJobStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidJobStateException";
   $fault: "client";
   Message?: string;
@@ -1219,7 +1229,9 @@ export namespace InvalidJobStateException {
  *       again.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -1237,7 +1249,9 @@ export namespace InvalidNextTokenException {
  *       request, and try again.</p>
  *
  */
-export interface InvalidResourceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceException";
   $fault: "client";
   Message?: string;
@@ -1585,13 +1599,13 @@ export enum JobState {
   PREPARING_SHIPMENT = "PreparingShipment",
   WITH_AWS = "WithAWS",
   WITH_AWS_SORTING_FACILITY = "WithAWSSortingFacility",
-  WITH_CUSTOMER = "WithCustomer",
+  WITH_CUSTOMER = "WithCustomer"
 }
 
 export enum JobType {
   EXPORT = "EXPORT",
   IMPORT = "IMPORT",
-  LOCAL_USE = "LOCAL_USE",
+  LOCAL_USE = "LOCAL_USE"
 }
 
 /**
@@ -1600,7 +1614,9 @@ export enum JobType {
  *       specified <a>CreateJob</a> or <a>UpdateJob</a> action.</p>
  *
  */
-export interface KMSRequestFailedException extends _smithy.SmithyException, $MetadataBearer {
+export interface KMSRequestFailedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "KMSRequestFailedException";
   $fault: "client";
   Message?: string;
@@ -2069,7 +2085,7 @@ export enum ShippingOption {
   EXPRESS = "EXPRESS",
   NEXT_DAY = "NEXT_DAY",
   SECOND_DAY = "SECOND_DAY",
-  STANDARD = "STANDARD",
+  STANDARD = "STANDARD"
 }
 
 export enum SnowballCapacity {
@@ -2077,14 +2093,14 @@ export enum SnowballCapacity {
   T100 = "T100",
   T42 = "T42",
   T50 = "T50",
-  T80 = "T80",
+  T80 = "T80"
 }
 
 export enum SnowballType {
   EDGE = "EDGE",
   EDGE_C = "EDGE_C",
   EDGE_CG = "EDGE_CG",
-  STANDARD = "STANDARD",
+  STANDARD = "STANDARD"
 }
 
 /**
@@ -2094,7 +2110,9 @@ export enum SnowballType {
  *       contact AWS Support.</p>
  *
  */
-export interface UnsupportedAddressException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedAddressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedAddressException";
   $fault: "client";
   Message?: string;

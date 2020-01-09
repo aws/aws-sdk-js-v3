@@ -1,20 +1,20 @@
 import {
   GuardDutyClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GuardDutyClient";
 import {
   CreateThreatIntelSetRequest,
-  CreateThreatIntelSetResponse,
+  CreateThreatIntelSetResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateThreatIntelSetCommand,
-  serializeAws_restJson1_1CreateThreatIntelSetCommand,
+  serializeAws_restJson1_1CreateThreatIntelSetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateThreatIntelSetCommandInput = CreateThreatIntelSetRequest;
 export type CreateThreatIntelSetCommandOutput = CreateThreatIntelSetResponse;
 
-export class CreateThreatIntelSetCommand extends $Command<CreateThreatIntelSetCommandInput, CreateThreatIntelSetCommandOutput, GuardDutyClientResolvedConfig> {
+export class CreateThreatIntelSetCommand extends $Command<
+  CreateThreatIntelSetCommandInput,
+  CreateThreatIntelSetCommandOutput,
+  GuardDutyClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateThreatIntelSetCommand extends $Command<CreateThreatIntelSetCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GuardDutyClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateThreatIntelSetCommandInput, CreateThreatIntelSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateThreatIntelSetCommandInput,
+    CreateThreatIntelSetCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class CreateThreatIntelSetCommand extends $Command<CreateThreatIntelSetCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateThreatIntelSetCommandOutput> {
-    return deserializeAws_restJson1_1CreateThreatIntelSetCommand(output, context);
+    return deserializeAws_restJson1_1CreateThreatIntelSetCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

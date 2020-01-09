@@ -1,20 +1,17 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
-import {
-  GlobalSignOutRequest,
-  GlobalSignOutResponse,
-} from "../models/index";
+import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/index";
 import {
   deserializeAws_json1_1GlobalSignOutCommand,
-  serializeAws_json1_1GlobalSignOutCommand,
+  serializeAws_json1_1GlobalSignOutCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GlobalSignOutCommandInput = GlobalSignOutRequest;
 export type GlobalSignOutCommandOutput = GlobalSignOutResponse;
 
-export class GlobalSignOutCommand extends $Command<GlobalSignOutCommandInput, GlobalSignOutCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
+export class GlobalSignOutCommand extends $Command<
+  GlobalSignOutCommandInput,
+  GlobalSignOutCommandOutput,
+  CognitoIdentityProviderClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GlobalSignOutCommand extends $Command<GlobalSignOutCommandInput, Gl
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GlobalSignOutCommandInput, GlobalSignOutCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

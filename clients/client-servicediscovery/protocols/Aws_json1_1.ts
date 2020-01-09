@@ -1,82 +1,82 @@
 import {
   CreateHttpNamespaceCommandInput,
-  CreateHttpNamespaceCommandOutput,
+  CreateHttpNamespaceCommandOutput
 } from "../commands/CreateHttpNamespaceCommand";
 import {
   CreatePrivateDnsNamespaceCommandInput,
-  CreatePrivateDnsNamespaceCommandOutput,
+  CreatePrivateDnsNamespaceCommandOutput
 } from "../commands/CreatePrivateDnsNamespaceCommand";
 import {
   CreatePublicDnsNamespaceCommandInput,
-  CreatePublicDnsNamespaceCommandOutput,
+  CreatePublicDnsNamespaceCommandOutput
 } from "../commands/CreatePublicDnsNamespaceCommand";
 import {
   CreateServiceCommandInput,
-  CreateServiceCommandOutput,
+  CreateServiceCommandOutput
 } from "../commands/CreateServiceCommand";
 import {
   DeleteNamespaceCommandInput,
-  DeleteNamespaceCommandOutput,
+  DeleteNamespaceCommandOutput
 } from "../commands/DeleteNamespaceCommand";
 import {
   DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
+  DeleteServiceCommandOutput
 } from "../commands/DeleteServiceCommand";
 import {
   DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput,
+  DeregisterInstanceCommandOutput
 } from "../commands/DeregisterInstanceCommand";
 import {
   DiscoverInstancesCommandInput,
-  DiscoverInstancesCommandOutput,
+  DiscoverInstancesCommandOutput
 } from "../commands/DiscoverInstancesCommand";
 import {
   GetInstanceCommandInput,
-  GetInstanceCommandOutput,
+  GetInstanceCommandOutput
 } from "../commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommandInput,
-  GetInstancesHealthStatusCommandOutput,
+  GetInstancesHealthStatusCommandOutput
 } from "../commands/GetInstancesHealthStatusCommand";
 import {
   GetNamespaceCommandInput,
-  GetNamespaceCommandOutput,
+  GetNamespaceCommandOutput
 } from "../commands/GetNamespaceCommand";
 import {
   GetOperationCommandInput,
-  GetOperationCommandOutput,
+  GetOperationCommandOutput
 } from "../commands/GetOperationCommand";
 import {
   GetServiceCommandInput,
-  GetServiceCommandOutput,
+  GetServiceCommandOutput
 } from "../commands/GetServiceCommand";
 import {
   ListInstancesCommandInput,
-  ListInstancesCommandOutput,
+  ListInstancesCommandOutput
 } from "../commands/ListInstancesCommand";
 import {
   ListNamespacesCommandInput,
-  ListNamespacesCommandOutput,
+  ListNamespacesCommandOutput
 } from "../commands/ListNamespacesCommand";
 import {
   ListOperationsCommandInput,
-  ListOperationsCommandOutput,
+  ListOperationsCommandOutput
 } from "../commands/ListOperationsCommand";
 import {
   ListServicesCommandInput,
-  ListServicesCommandOutput,
+  ListServicesCommandOutput
 } from "../commands/ListServicesCommand";
 import {
   RegisterInstanceCommandInput,
-  RegisterInstanceCommandOutput,
+  RegisterInstanceCommandOutput
 } from "../commands/RegisterInstanceCommand";
 import {
   UpdateInstanceCustomHealthStatusCommandInput,
-  UpdateInstanceCustomHealthStatusCommandOutput,
+  UpdateInstanceCustomHealthStatusCommandOutput
 } from "../commands/UpdateInstanceCustomHealthStatusCommand";
 import {
   UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
+  UpdateServiceCommandOutput
 } from "../commands/UpdateServiceCommand";
 import {
   CreateHttpNamespaceRequest,
@@ -150,18 +150,18 @@ import {
   ServiceSummary,
   UpdateInstanceCustomHealthStatusRequest,
   UpdateServiceRequest,
-  UpdateServiceResponse,
+  UpdateServiceResponse
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CreateHttpNamespaceCommand(
@@ -169,11 +169,14 @@ export async function serializeAws_json1_1CreateHttpNamespaceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateHttpNamespace";
   let body: any = {};
   const wrappedBody: any = {
-    CreateHttpNamespaceRequest: serializeAws_json1_1CreateHttpNamespaceRequest(input, context),
+    CreateHttpNamespaceRequest: serializeAws_json1_1CreateHttpNamespaceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -182,7 +185,7 @@ export async function serializeAws_json1_1CreateHttpNamespaceCommand(
     method: "POST",
     path: "/CreateHttpNamespace",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -191,11 +194,15 @@ export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "Route53AutoNaming_v20170314.CreatePrivateDnsNamespace";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePrivateDnsNamespaceRequest: serializeAws_json1_1CreatePrivateDnsNamespaceRequest(input, context),
+    CreatePrivateDnsNamespaceRequest: serializeAws_json1_1CreatePrivateDnsNamespaceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -204,7 +211,7 @@ export async function serializeAws_json1_1CreatePrivateDnsNamespaceCommand(
     method: "POST",
     path: "/CreatePrivateDnsNamespace",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -213,11 +220,15 @@ export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.CreatePublicDnsNamespace";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "Route53AutoNaming_v20170314.CreatePublicDnsNamespace";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePublicDnsNamespaceRequest: serializeAws_json1_1CreatePublicDnsNamespaceRequest(input, context),
+    CreatePublicDnsNamespaceRequest: serializeAws_json1_1CreatePublicDnsNamespaceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -226,7 +237,7 @@ export async function serializeAws_json1_1CreatePublicDnsNamespaceCommand(
     method: "POST",
     path: "/CreatePublicDnsNamespace",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -235,11 +246,14 @@ export async function serializeAws_json1_1CreateServiceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.CreateService";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.CreateService";
   let body: any = {};
   const wrappedBody: any = {
-    CreateServiceRequest: serializeAws_json1_1CreateServiceRequest(input, context),
+    CreateServiceRequest: serializeAws_json1_1CreateServiceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -248,7 +262,7 @@ export async function serializeAws_json1_1CreateServiceCommand(
     method: "POST",
     path: "/CreateService",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -257,11 +271,14 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.DeleteNamespace";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteNamespace";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteNamespaceRequest: serializeAws_json1_1DeleteNamespaceRequest(input, context),
+    DeleteNamespaceRequest: serializeAws_json1_1DeleteNamespaceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -270,7 +287,7 @@ export async function serializeAws_json1_1DeleteNamespaceCommand(
     method: "POST",
     path: "/DeleteNamespace",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -279,11 +296,14 @@ export async function serializeAws_json1_1DeleteServiceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.DeleteService";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeleteService";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteServiceRequest: serializeAws_json1_1DeleteServiceRequest(input, context),
+    DeleteServiceRequest: serializeAws_json1_1DeleteServiceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -292,7 +312,7 @@ export async function serializeAws_json1_1DeleteServiceCommand(
     method: "POST",
     path: "/DeleteService",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -301,11 +321,14 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.DeregisterInstance";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DeregisterInstance";
   let body: any = {};
   const wrappedBody: any = {
-    DeregisterInstanceRequest: serializeAws_json1_1DeregisterInstanceRequest(input, context),
+    DeregisterInstanceRequest: serializeAws_json1_1DeregisterInstanceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -314,7 +337,7 @@ export async function serializeAws_json1_1DeregisterInstanceCommand(
     method: "POST",
     path: "/DeregisterInstance",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -323,11 +346,14 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.DiscoverInstances";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.DiscoverInstances";
   let body: any = {};
   const wrappedBody: any = {
-    DiscoverInstancesRequest: serializeAws_json1_1DiscoverInstancesRequest(input, context),
+    DiscoverInstancesRequest: serializeAws_json1_1DiscoverInstancesRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -336,7 +362,7 @@ export async function serializeAws_json1_1DiscoverInstancesCommand(
     method: "POST",
     path: "/DiscoverInstances",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -345,11 +371,11 @@ export async function serializeAws_json1_1GetInstanceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.GetInstance";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetInstance";
   let body: any = {};
   const wrappedBody: any = {
-    GetInstanceRequest: serializeAws_json1_1GetInstanceRequest(input, context),
+    GetInstanceRequest: serializeAws_json1_1GetInstanceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -358,7 +384,7 @@ export async function serializeAws_json1_1GetInstanceCommand(
     method: "POST",
     path: "/GetInstance",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -367,11 +393,15 @@ export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.GetInstancesHealthStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "Route53AutoNaming_v20170314.GetInstancesHealthStatus";
   let body: any = {};
   const wrappedBody: any = {
-    GetInstancesHealthStatusRequest: serializeAws_json1_1GetInstancesHealthStatusRequest(input, context),
+    GetInstancesHealthStatusRequest: serializeAws_json1_1GetInstancesHealthStatusRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -380,7 +410,7 @@ export async function serializeAws_json1_1GetInstancesHealthStatusCommand(
     method: "POST",
     path: "/GetInstancesHealthStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -389,11 +419,11 @@ export async function serializeAws_json1_1GetNamespaceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.GetNamespace";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetNamespace";
   let body: any = {};
   const wrappedBody: any = {
-    GetNamespaceRequest: serializeAws_json1_1GetNamespaceRequest(input, context),
+    GetNamespaceRequest: serializeAws_json1_1GetNamespaceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -402,7 +432,7 @@ export async function serializeAws_json1_1GetNamespaceCommand(
     method: "POST",
     path: "/GetNamespace",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -411,11 +441,11 @@ export async function serializeAws_json1_1GetOperationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.GetOperation";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetOperation";
   let body: any = {};
   const wrappedBody: any = {
-    GetOperationRequest: serializeAws_json1_1GetOperationRequest(input, context),
+    GetOperationRequest: serializeAws_json1_1GetOperationRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -424,7 +454,7 @@ export async function serializeAws_json1_1GetOperationCommand(
     method: "POST",
     path: "/GetOperation",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -433,11 +463,11 @@ export async function serializeAws_json1_1GetServiceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.GetService";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.GetService";
   let body: any = {};
   const wrappedBody: any = {
-    GetServiceRequest: serializeAws_json1_1GetServiceRequest(input, context),
+    GetServiceRequest: serializeAws_json1_1GetServiceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -446,7 +476,7 @@ export async function serializeAws_json1_1GetServiceCommand(
     method: "POST",
     path: "/GetService",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -455,11 +485,14 @@ export async function serializeAws_json1_1ListInstancesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.ListInstances";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListInstances";
   let body: any = {};
   const wrappedBody: any = {
-    ListInstancesRequest: serializeAws_json1_1ListInstancesRequest(input, context),
+    ListInstancesRequest: serializeAws_json1_1ListInstancesRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -468,7 +501,7 @@ export async function serializeAws_json1_1ListInstancesCommand(
     method: "POST",
     path: "/ListInstances",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -477,11 +510,14 @@ export async function serializeAws_json1_1ListNamespacesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.ListNamespaces";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListNamespaces";
   let body: any = {};
   const wrappedBody: any = {
-    ListNamespacesRequest: serializeAws_json1_1ListNamespacesRequest(input, context),
+    ListNamespacesRequest: serializeAws_json1_1ListNamespacesRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -490,7 +526,7 @@ export async function serializeAws_json1_1ListNamespacesCommand(
     method: "POST",
     path: "/ListNamespaces",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -499,11 +535,14 @@ export async function serializeAws_json1_1ListOperationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.ListOperations";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListOperations";
   let body: any = {};
   const wrappedBody: any = {
-    ListOperationsRequest: serializeAws_json1_1ListOperationsRequest(input, context),
+    ListOperationsRequest: serializeAws_json1_1ListOperationsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -512,7 +551,7 @@ export async function serializeAws_json1_1ListOperationsCommand(
     method: "POST",
     path: "/ListOperations",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -521,11 +560,11 @@ export async function serializeAws_json1_1ListServicesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.ListServices";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.ListServices";
   let body: any = {};
   const wrappedBody: any = {
-    ListServicesRequest: serializeAws_json1_1ListServicesRequest(input, context),
+    ListServicesRequest: serializeAws_json1_1ListServicesRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -534,7 +573,7 @@ export async function serializeAws_json1_1ListServicesCommand(
     method: "POST",
     path: "/ListServices",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -543,11 +582,14 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.RegisterInstance";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.RegisterInstance";
   let body: any = {};
   const wrappedBody: any = {
-    RegisterInstanceRequest: serializeAws_json1_1RegisterInstanceRequest(input, context),
+    RegisterInstanceRequest: serializeAws_json1_1RegisterInstanceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -556,7 +598,7 @@ export async function serializeAws_json1_1RegisterInstanceCommand(
     method: "POST",
     path: "/RegisterInstance",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -565,11 +607,15 @@ export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] =
+    "Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateInstanceCustomHealthStatusRequest: serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(input, context),
+    UpdateInstanceCustomHealthStatusRequest: serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -578,7 +624,7 @@ export async function serializeAws_json1_1UpdateInstanceCustomHealthStatusComman
     method: "POST",
     path: "/UpdateInstanceCustomHealthStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -587,11 +633,14 @@ export async function serializeAws_json1_1UpdateServiceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Route53AutoNaming_v20170314.UpdateService";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Route53AutoNaming_v20170314.UpdateService";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateServiceRequest: serializeAws_json1_1UpdateServiceRequest(input, context),
+    UpdateServiceRequest: serializeAws_json1_1UpdateServiceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -600,7 +649,7 @@ export async function serializeAws_json1_1UpdateServiceCommand(
     method: "POST",
     path: "/UpdateService",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -609,54 +658,70 @@ export async function deserializeAws_json1_1CreateHttpNamespaceCommand(
   context: __SerdeContext
 ): Promise<CreateHttpNamespaceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreateHttpNamespaceCommandError(output, context);
+    return deserializeAws_json1_1CreateHttpNamespaceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateHttpNamespaceResponse(data, context);
   const response: CreateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateHttpNamespaceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateHttpNamespaceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateHttpNamespaceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -667,54 +732,73 @@ export async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommand(
   context: __SerdeContext
 ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(output, context);
+    return deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePrivateDnsNamespaceResponse(data, context);
+  contents = deserializeAws_json1_1CreatePrivateDnsNamespaceResponse(
+    data,
+    context
+  );
   const response: CreatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePrivateDnsNamespaceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePrivateDnsNamespaceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePrivateDnsNamespaceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -725,54 +809,73 @@ export async function deserializeAws_json1_1CreatePublicDnsNamespaceCommand(
   context: __SerdeContext
 ): Promise<CreatePublicDnsNamespaceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(output, context);
+    return deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1CreatePublicDnsNamespaceResponse(data, context);
+  contents = deserializeAws_json1_1CreatePublicDnsNamespaceResponse(
+    data,
+    context
+  );
   const response: CreatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePublicDnsNamespaceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePublicDnsNamespaceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePublicDnsNamespaceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceAlreadyExists":
-      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -785,52 +888,65 @@ export async function deserializeAws_json1_1CreateServiceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateServiceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateServiceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateServiceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceAlreadyExists":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceAlreadyExists":
-      response = await deserializeAws_json1_1ServiceAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -843,52 +959,65 @@ export async function deserializeAws_json1_1DeleteNamespaceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteNamespaceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteNamespaceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteNamespaceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -901,48 +1030,58 @@ export async function deserializeAws_json1_1DeleteServiceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteServiceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteServiceResponse(data, context);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteServiceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteServiceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteServiceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -953,58 +1092,77 @@ export async function deserializeAws_json1_1DeregisterInstanceCommand(
   context: __SerdeContext
 ): Promise<DeregisterInstanceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeregisterInstanceCommandError(output, context);
+    return deserializeAws_json1_1DeregisterInstanceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeregisterInstanceResponse(data, context);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeregisterInstanceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeregisterInstanceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeregisterInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InstanceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1017,48 +1175,58 @@ export async function deserializeAws_json1_1DiscoverInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DiscoverInstancesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DiscoverInstancesResponse(data, context);
   const response: DiscoverInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DiscoverInstancesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DiscoverInstancesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DiscoverInstancesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1071,48 +1239,58 @@ export async function deserializeAws_json1_1GetInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetInstanceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetInstanceResponse(data, context);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstanceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetInstanceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InstanceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1123,50 +1301,66 @@ export async function deserializeAws_json1_1GetInstancesHealthStatusCommand(
   context: __SerdeContext
 ): Promise<GetInstancesHealthStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetInstancesHealthStatusCommandError(output, context);
+    return deserializeAws_json1_1GetInstancesHealthStatusCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetInstancesHealthStatusResponse(data, context);
+  contents = deserializeAws_json1_1GetInstancesHealthStatusResponse(
+    data,
+    context
+  );
   const response: GetInstancesHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInstancesHealthStatusResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetInstancesHealthStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetInstancesHealthStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InstanceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1179,44 +1373,51 @@ export async function deserializeAws_json1_1GetNamespaceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetNamespaceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetNamespaceResponse(data, context);
   const response: GetNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNamespaceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetNamespaceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NamespaceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#NamespaceNotFound":
-      response = await deserializeAws_json1_1NamespaceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1NamespaceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1229,44 +1430,51 @@ export async function deserializeAws_json1_1GetOperationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetOperationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetOperationResponse(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetOperationResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetOperationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetOperationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "OperationNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#OperationNotFound":
-      response = await deserializeAws_json1_1OperationNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1OperationNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1279,44 +1487,51 @@ export async function deserializeAws_json1_1GetServiceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetServiceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetServiceResponse(data, context);
   const response: GetServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetServiceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetServiceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetServiceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1329,44 +1544,51 @@ export async function deserializeAws_json1_1ListInstancesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListInstancesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListInstancesResponse(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInstancesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListInstancesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1379,40 +1601,44 @@ export async function deserializeAws_json1_1ListNamespacesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListNamespacesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListNamespacesResponse(data, context);
   const response: ListNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListNamespacesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListNamespacesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1425,40 +1651,44 @@ export async function deserializeAws_json1_1ListOperationsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListOperationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListOperationsResponse(data, context);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOperationsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListOperationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1471,40 +1701,44 @@ export async function deserializeAws_json1_1ListServicesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListServicesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListServicesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListServicesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListServicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1517,56 +1751,72 @@ export async function deserializeAws_json1_1RegisterInstanceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RegisterInstanceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterInstanceResponse(data, context);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterInstanceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RegisterInstanceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RegisterInstanceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUse":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceInUse":
-      response = await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceLimitExceeded":
     case "com.amazonaws.route53.autonaming.v20170314#ResourceLimitExceeded":
-      response = await deserializeAws_json1_1ResourceLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1577,49 +1827,65 @@ export async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusComm
   context: __SerdeContext
 ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(output, context);
+    return deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(
+      output,
+      context
+    );
   }
   const response: UpdateInstanceCustomHealthStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateInstanceCustomHealthStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "CustomHealthNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#CustomHealthNotFound":
-      response = await deserializeAws_json1_1CustomHealthNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1CustomHealthNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InstanceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#InstanceNotFound":
-      response = await deserializeAws_json1_1InstanceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InstanceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1632,48 +1898,58 @@ export async function deserializeAws_json1_1UpdateServiceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateServiceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateServiceResponse(data, context);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateServiceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateServiceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateServiceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "DuplicateRequest":
     case "com.amazonaws.route53.autonaming.v20170314#DuplicateRequest":
-      response = await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1DuplicateRequestResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInput":
     case "com.amazonaws.route53.autonaming.v20170314#InvalidInput":
-      response = await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceNotFound":
     case "com.amazonaws.route53.autonaming.v20170314#ServiceNotFound":
-      response = await deserializeAws_json1_1ServiceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ServiceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.route53.autonaming.v20170314#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1683,12 +1959,15 @@ const deserializeAws_json1_1CustomHealthNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<CustomHealthNotFound> => {
-  const deserialized: any = deserializeAws_json1_1CustomHealthNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_1CustomHealthNotFound(
+    output.body,
+    context
+  );
   const contents: CustomHealthNotFound = {
     __type: "CustomHealthNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1697,12 +1976,15 @@ const deserializeAws_json1_1DuplicateRequestResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<DuplicateRequest> => {
-  const deserialized: any = deserializeAws_json1_1DuplicateRequest(output.body, context);
+  const deserialized: any = deserializeAws_json1_1DuplicateRequest(
+    output.body,
+    context
+  );
   const contents: DuplicateRequest = {
     __type: "DuplicateRequest",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1711,12 +1993,15 @@ const deserializeAws_json1_1InstanceNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InstanceNotFound> => {
-  const deserialized: any = deserializeAws_json1_1InstanceNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InstanceNotFound(
+    output.body,
+    context
+  );
   const contents: InstanceNotFound = {
     __type: "InstanceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1725,12 +2010,15 @@ const deserializeAws_json1_1InvalidInputResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidInput> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInput(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidInput(
+    output.body,
+    context
+  );
   const contents: InvalidInput = {
     __type: "InvalidInput",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1739,12 +2027,15 @@ const deserializeAws_json1_1NamespaceAlreadyExistsResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<NamespaceAlreadyExists> => {
-  const deserialized: any = deserializeAws_json1_1NamespaceAlreadyExists(output.body, context);
+  const deserialized: any = deserializeAws_json1_1NamespaceAlreadyExists(
+    output.body,
+    context
+  );
   const contents: NamespaceAlreadyExists = {
     __type: "NamespaceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1753,12 +2044,15 @@ const deserializeAws_json1_1NamespaceNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<NamespaceNotFound> => {
-  const deserialized: any = deserializeAws_json1_1NamespaceNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_1NamespaceNotFound(
+    output.body,
+    context
+  );
   const contents: NamespaceNotFound = {
     __type: "NamespaceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1767,12 +2061,15 @@ const deserializeAws_json1_1OperationNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<OperationNotFound> => {
-  const deserialized: any = deserializeAws_json1_1OperationNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_1OperationNotFound(
+    output.body,
+    context
+  );
   const contents: OperationNotFound = {
     __type: "OperationNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1781,12 +2078,15 @@ const deserializeAws_json1_1ResourceInUseResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceInUse> => {
-  const deserialized: any = deserializeAws_json1_1ResourceInUse(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceInUse(
+    output.body,
+    context
+  );
   const contents: ResourceInUse = {
     __type: "ResourceInUse",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1795,12 +2095,15 @@ const deserializeAws_json1_1ResourceLimitExceededResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceLimitExceeded> => {
-  const deserialized: any = deserializeAws_json1_1ResourceLimitExceeded(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceLimitExceeded(
+    output.body,
+    context
+  );
   const contents: ResourceLimitExceeded = {
     __type: "ResourceLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1809,12 +2112,15 @@ const deserializeAws_json1_1ServiceAlreadyExistsResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceAlreadyExists> => {
-  const deserialized: any = deserializeAws_json1_1ServiceAlreadyExists(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ServiceAlreadyExists(
+    output.body,
+    context
+  );
   const contents: ServiceAlreadyExists = {
     __type: "ServiceAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1823,12 +2129,15 @@ const deserializeAws_json1_1ServiceNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ServiceNotFound> => {
-  const deserialized: any = deserializeAws_json1_1ServiceNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ServiceNotFound(
+    output.body,
+    context
+  );
   const contents: ServiceNotFound = {
     __type: "ServiceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1842,7 +2151,7 @@ const serializeAws_json1_1Attributes = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1CreateHttpNamespaceRequest = (
   input: CreateHttpNamespaceRequest,
@@ -1850,16 +2159,16 @@ const serializeAws_json1_1CreateHttpNamespaceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
-    bodyParams['CreatorRequestId'] = input.CreatorRequestId;
+    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
   input: CreatePrivateDnsNamespaceRequest,
@@ -1867,19 +2176,19 @@ const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
-    bodyParams['CreatorRequestId'] = input.CreatorRequestId;
+    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Vpc !== undefined) {
-    bodyParams['Vpc'] = input.Vpc;
+    bodyParams["Vpc"] = input.Vpc;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
   input: CreatePublicDnsNamespaceRequest,
@@ -1887,16 +2196,16 @@ const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
-    bodyParams['CreatorRequestId'] = input.CreatorRequestId;
+    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateServiceRequest = (
   input: CreateServiceRequest,
@@ -1904,28 +2213,39 @@ const serializeAws_json1_1CreateServiceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CreatorRequestId !== undefined) {
-    bodyParams['CreatorRequestId'] = input.CreatorRequestId;
+    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.DnsConfig !== undefined) {
-    bodyParams['DnsConfig'] = serializeAws_json1_1DnsConfig(input.DnsConfig, context);
+    bodyParams["DnsConfig"] = serializeAws_json1_1DnsConfig(
+      input.DnsConfig,
+      context
+    );
   }
   if (input.HealthCheckConfig !== undefined) {
-    bodyParams['HealthCheckConfig'] = serializeAws_json1_1HealthCheckConfig(input.HealthCheckConfig, context);
+    bodyParams["HealthCheckConfig"] = serializeAws_json1_1HealthCheckConfig(
+      input.HealthCheckConfig,
+      context
+    );
   }
   if (input.HealthCheckCustomConfig !== undefined) {
-    bodyParams['HealthCheckCustomConfig'] = serializeAws_json1_1HealthCheckCustomConfig(input.HealthCheckCustomConfig, context);
+    bodyParams[
+      "HealthCheckCustomConfig"
+    ] = serializeAws_json1_1HealthCheckCustomConfig(
+      input.HealthCheckCustomConfig,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.NamespaceId !== undefined) {
-    bodyParams['NamespaceId'] = input.NamespaceId;
+    bodyParams["NamespaceId"] = input.NamespaceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteNamespaceRequest = (
   input: DeleteNamespaceRequest,
@@ -1933,10 +2253,10 @@ const serializeAws_json1_1DeleteNamespaceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteServiceRequest = (
   input: DeleteServiceRequest,
@@ -1944,10 +2264,10 @@ const serializeAws_json1_1DeleteServiceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeregisterInstanceRequest = (
   input: DeregisterInstanceRequest,
@@ -1955,13 +2275,13 @@ const serializeAws_json1_1DeregisterInstanceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceId !== undefined) {
-    bodyParams['InstanceId'] = input.InstanceId;
+    bodyParams["InstanceId"] = input.InstanceId;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DiscoverInstancesRequest = (
   input: DiscoverInstancesRequest,
@@ -1969,22 +2289,25 @@ const serializeAws_json1_1DiscoverInstancesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.HealthStatus !== undefined) {
-    bodyParams['HealthStatus'] = input.HealthStatus;
+    bodyParams["HealthStatus"] = input.HealthStatus;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NamespaceName !== undefined) {
-    bodyParams['NamespaceName'] = input.NamespaceName;
+    bodyParams["NamespaceName"] = input.NamespaceName;
   }
   if (input.QueryParameters !== undefined) {
-    bodyParams['QueryParameters'] = serializeAws_json1_1Attributes(input.QueryParameters, context);
+    bodyParams["QueryParameters"] = serializeAws_json1_1Attributes(
+      input.QueryParameters,
+      context
+    );
   }
   if (input.ServiceName !== undefined) {
-    bodyParams['ServiceName'] = input.ServiceName;
+    bodyParams["ServiceName"] = input.ServiceName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DnsConfig = (
   input: DnsConfig,
@@ -1992,16 +2315,19 @@ const serializeAws_json1_1DnsConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.DnsRecords !== undefined) {
-    bodyParams['DnsRecords'] = serializeAws_json1_1DnsRecordList(input.DnsRecords, context);
+    bodyParams["DnsRecords"] = serializeAws_json1_1DnsRecordList(
+      input.DnsRecords,
+      context
+    );
   }
   if (input.NamespaceId !== undefined) {
-    bodyParams['NamespaceId'] = input.NamespaceId;
+    bodyParams["NamespaceId"] = input.NamespaceId;
   }
   if (input.RoutingPolicy !== undefined) {
-    bodyParams['RoutingPolicy'] = input.RoutingPolicy;
+    bodyParams["RoutingPolicy"] = input.RoutingPolicy;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DnsConfigChange = (
   input: DnsConfigChange,
@@ -2009,10 +2335,13 @@ const serializeAws_json1_1DnsConfigChange = (
 ): any => {
   let bodyParams: any = {};
   if (input.DnsRecords !== undefined) {
-    bodyParams['DnsRecords'] = serializeAws_json1_1DnsRecordList(input.DnsRecords, context);
+    bodyParams["DnsRecords"] = serializeAws_json1_1DnsRecordList(
+      input.DnsRecords,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DnsRecord = (
   input: DnsRecord,
@@ -2020,13 +2349,13 @@ const serializeAws_json1_1DnsRecord = (
 ): any => {
   let bodyParams: any = {};
   if (input.TTL !== undefined) {
-    bodyParams['TTL'] = input.TTL;
+    bodyParams["TTL"] = input.TTL;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DnsRecordList = (
   input: Array<DnsRecord>,
@@ -2035,16 +2364,14 @@ const serializeAws_json1_1DnsRecordList = (
   return (input || []).map(entry =>
     serializeAws_json1_1DnsRecord(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1FilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1GetInstanceRequest = (
   input: GetInstanceRequest,
@@ -2052,13 +2379,13 @@ const serializeAws_json1_1GetInstanceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceId !== undefined) {
-    bodyParams['InstanceId'] = input.InstanceId;
+    bodyParams["InstanceId"] = input.InstanceId;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetInstancesHealthStatusRequest = (
   input: GetInstancesHealthStatusRequest,
@@ -2066,19 +2393,22 @@ const serializeAws_json1_1GetInstancesHealthStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Instances !== undefined) {
-    bodyParams['Instances'] = serializeAws_json1_1InstanceIdList(input.Instances, context);
+    bodyParams["Instances"] = serializeAws_json1_1InstanceIdList(
+      input.Instances,
+      context
+    );
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetNamespaceRequest = (
   input: GetNamespaceRequest,
@@ -2086,10 +2416,10 @@ const serializeAws_json1_1GetNamespaceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetOperationRequest = (
   input: GetOperationRequest,
@@ -2097,10 +2427,10 @@ const serializeAws_json1_1GetOperationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.OperationId !== undefined) {
-    bodyParams['OperationId'] = input.OperationId;
+    bodyParams["OperationId"] = input.OperationId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetServiceRequest = (
   input: GetServiceRequest,
@@ -2108,10 +2438,10 @@ const serializeAws_json1_1GetServiceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1HealthCheckConfig = (
   input: HealthCheckConfig,
@@ -2119,16 +2449,16 @@ const serializeAws_json1_1HealthCheckConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.FailureThreshold !== undefined) {
-    bodyParams['FailureThreshold'] = input.FailureThreshold;
+    bodyParams["FailureThreshold"] = input.FailureThreshold;
   }
   if (input.ResourcePath !== undefined) {
-    bodyParams['ResourcePath'] = input.ResourcePath;
+    bodyParams["ResourcePath"] = input.ResourcePath;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1HealthCheckCustomConfig = (
   input: HealthCheckCustomConfig,
@@ -2136,19 +2466,17 @@ const serializeAws_json1_1HealthCheckCustomConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.FailureThreshold !== undefined) {
-    bodyParams['FailureThreshold'] = input.FailureThreshold;
+    bodyParams["FailureThreshold"] = input.FailureThreshold;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1ListInstancesRequest = (
   input: ListInstancesRequest,
@@ -2156,16 +2484,16 @@ const serializeAws_json1_1ListInstancesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListNamespacesRequest = (
   input: ListNamespacesRequest,
@@ -2173,16 +2501,19 @@ const serializeAws_json1_1ListNamespacesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Filters !== undefined) {
-    bodyParams['Filters'] = serializeAws_json1_1NamespaceFilters(input.Filters, context);
+    bodyParams["Filters"] = serializeAws_json1_1NamespaceFilters(
+      input.Filters,
+      context
+    );
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListOperationsRequest = (
   input: ListOperationsRequest,
@@ -2190,16 +2521,19 @@ const serializeAws_json1_1ListOperationsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Filters !== undefined) {
-    bodyParams['Filters'] = serializeAws_json1_1OperationFilters(input.Filters, context);
+    bodyParams["Filters"] = serializeAws_json1_1OperationFilters(
+      input.Filters,
+      context
+    );
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListServicesRequest = (
   input: ListServicesRequest,
@@ -2207,16 +2541,19 @@ const serializeAws_json1_1ListServicesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Filters !== undefined) {
-    bodyParams['Filters'] = serializeAws_json1_1ServiceFilters(input.Filters, context);
+    bodyParams["Filters"] = serializeAws_json1_1ServiceFilters(
+      input.Filters,
+      context
+    );
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1NamespaceFilter = (
   input: NamespaceFilter,
@@ -2224,16 +2561,19 @@ const serializeAws_json1_1NamespaceFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.Condition !== undefined) {
-    bodyParams['Condition'] = input.Condition;
+    bodyParams["Condition"] = input.Condition;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Values !== undefined) {
-    bodyParams['Values'] = serializeAws_json1_1FilterValues(input.Values, context);
+    bodyParams["Values"] = serializeAws_json1_1FilterValues(
+      input.Values,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1NamespaceFilters = (
   input: Array<NamespaceFilter>,
@@ -2242,7 +2582,7 @@ const serializeAws_json1_1NamespaceFilters = (
   return (input || []).map(entry =>
     serializeAws_json1_1NamespaceFilter(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1OperationFilter = (
   input: OperationFilter,
@@ -2250,16 +2590,19 @@ const serializeAws_json1_1OperationFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.Condition !== undefined) {
-    bodyParams['Condition'] = input.Condition;
+    bodyParams["Condition"] = input.Condition;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Values !== undefined) {
-    bodyParams['Values'] = serializeAws_json1_1FilterValues(input.Values, context);
+    bodyParams["Values"] = serializeAws_json1_1FilterValues(
+      input.Values,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1OperationFilters = (
   input: Array<OperationFilter>,
@@ -2268,7 +2611,7 @@ const serializeAws_json1_1OperationFilters = (
   return (input || []).map(entry =>
     serializeAws_json1_1OperationFilter(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RegisterInstanceRequest = (
   input: RegisterInstanceRequest,
@@ -2276,19 +2619,22 @@ const serializeAws_json1_1RegisterInstanceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Attributes !== undefined) {
-    bodyParams['Attributes'] = serializeAws_json1_1Attributes(input.Attributes, context);
+    bodyParams["Attributes"] = serializeAws_json1_1Attributes(
+      input.Attributes,
+      context
+    );
   }
   if (input.CreatorRequestId !== undefined) {
-    bodyParams['CreatorRequestId'] = input.CreatorRequestId;
+    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
   }
   if (input.InstanceId !== undefined) {
-    bodyParams['InstanceId'] = input.InstanceId;
+    bodyParams["InstanceId"] = input.InstanceId;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ServiceChange = (
   input: ServiceChange,
@@ -2296,16 +2642,22 @@ const serializeAws_json1_1ServiceChange = (
 ): any => {
   let bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams['Description'] = input.Description;
+    bodyParams["Description"] = input.Description;
   }
   if (input.DnsConfig !== undefined) {
-    bodyParams['DnsConfig'] = serializeAws_json1_1DnsConfigChange(input.DnsConfig, context);
+    bodyParams["DnsConfig"] = serializeAws_json1_1DnsConfigChange(
+      input.DnsConfig,
+      context
+    );
   }
   if (input.HealthCheckConfig !== undefined) {
-    bodyParams['HealthCheckConfig'] = serializeAws_json1_1HealthCheckConfig(input.HealthCheckConfig, context);
+    bodyParams["HealthCheckConfig"] = serializeAws_json1_1HealthCheckConfig(
+      input.HealthCheckConfig,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ServiceFilter = (
   input: ServiceFilter,
@@ -2313,16 +2665,19 @@ const serializeAws_json1_1ServiceFilter = (
 ): any => {
   let bodyParams: any = {};
   if (input.Condition !== undefined) {
-    bodyParams['Condition'] = input.Condition;
+    bodyParams["Condition"] = input.Condition;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Values !== undefined) {
-    bodyParams['Values'] = serializeAws_json1_1FilterValues(input.Values, context);
+    bodyParams["Values"] = serializeAws_json1_1FilterValues(
+      input.Values,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ServiceFilters = (
   input: Array<ServiceFilter>,
@@ -2331,7 +2686,7 @@ const serializeAws_json1_1ServiceFilters = (
   return (input || []).map(entry =>
     serializeAws_json1_1ServiceFilter(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
   input: UpdateInstanceCustomHealthStatusRequest,
@@ -2339,16 +2694,16 @@ const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.InstanceId !== undefined) {
-    bodyParams['InstanceId'] = input.InstanceId;
+    bodyParams["InstanceId"] = input.InstanceId;
   }
   if (input.ServiceId !== undefined) {
-    bodyParams['ServiceId'] = input.ServiceId;
+    bodyParams["ServiceId"] = input.ServiceId;
   }
   if (input.Status !== undefined) {
-    bodyParams['Status'] = input.Status;
+    bodyParams["Status"] = input.Status;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateServiceRequest = (
   input: UpdateServiceRequest,
@@ -2356,13 +2711,16 @@ const serializeAws_json1_1UpdateServiceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   if (input.Service !== undefined) {
-    bodyParams['Service'] = serializeAws_json1_1ServiceChange(input.Service, context);
+    bodyParams["Service"] = serializeAws_json1_1ServiceChange(
+      input.Service,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1Attributes = (
   output: any,
@@ -2373,7 +2731,7 @@ const deserializeAws_json1_1Attributes = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1CreateHttpNamespaceResponse = (
   output: any,
@@ -2381,13 +2739,13 @@ const deserializeAws_json1_1CreateHttpNamespaceResponse = (
 ): CreateHttpNamespaceResponse => {
   let contents: any = {
     __type: "CreateHttpNamespaceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
   output: any,
@@ -2395,13 +2753,13 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
 ): CreatePrivateDnsNamespaceResponse => {
   let contents: any = {
     __type: "CreatePrivateDnsNamespaceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
   output: any,
@@ -2409,13 +2767,13 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
 ): CreatePublicDnsNamespaceResponse => {
   let contents: any = {
     __type: "CreatePublicDnsNamespaceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateServiceResponse = (
   output: any,
@@ -2423,13 +2781,13 @@ const deserializeAws_json1_1CreateServiceResponse = (
 ): CreateServiceResponse => {
   let contents: any = {
     __type: "CreateServiceResponse",
-    Service: undefined,
+    Service: undefined
   };
   if (output.Service !== undefined) {
     contents.Service = deserializeAws_json1_1Service(output.Service, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CustomHealthNotFound = (
   output: any,
@@ -2437,13 +2795,13 @@ const deserializeAws_json1_1CustomHealthNotFound = (
 ): CustomHealthNotFound => {
   let contents: any = {
     __type: "CustomHealthNotFound",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteNamespaceResponse = (
   output: any,
@@ -2451,23 +2809,23 @@ const deserializeAws_json1_1DeleteNamespaceResponse = (
 ): DeleteNamespaceResponse => {
   let contents: any = {
     __type: "DeleteNamespaceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteServiceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceResponse => {
   let contents: any = {
-    __type: "DeleteServiceResponse",
+    __type: "DeleteServiceResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeregisterInstanceResponse = (
   output: any,
@@ -2475,13 +2833,13 @@ const deserializeAws_json1_1DeregisterInstanceResponse = (
 ): DeregisterInstanceResponse => {
   let contents: any = {
     __type: "DeregisterInstanceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DiscoverInstancesResponse = (
   output: any,
@@ -2489,13 +2847,16 @@ const deserializeAws_json1_1DiscoverInstancesResponse = (
 ): DiscoverInstancesResponse => {
   let contents: any = {
     __type: "DiscoverInstancesResponse",
-    Instances: undefined,
+    Instances: undefined
   };
   if (output.Instances !== undefined) {
-    contents.Instances = deserializeAws_json1_1HttpInstanceSummaryList(output.Instances, context);
+    contents.Instances = deserializeAws_json1_1HttpInstanceSummaryList(
+      output.Instances,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DnsConfig = (
   output: any,
@@ -2505,10 +2866,13 @@ const deserializeAws_json1_1DnsConfig = (
     __type: "DnsConfig",
     DnsRecords: undefined,
     NamespaceId: undefined,
-    RoutingPolicy: undefined,
+    RoutingPolicy: undefined
   };
   if (output.DnsRecords !== undefined) {
-    contents.DnsRecords = deserializeAws_json1_1DnsRecordList(output.DnsRecords, context);
+    contents.DnsRecords = deserializeAws_json1_1DnsRecordList(
+      output.DnsRecords,
+      context
+    );
   }
   if (output.NamespaceId !== undefined) {
     contents.NamespaceId = output.NamespaceId;
@@ -2517,7 +2881,7 @@ const deserializeAws_json1_1DnsConfig = (
     contents.RoutingPolicy = output.RoutingPolicy;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DnsProperties = (
   output: any,
@@ -2525,13 +2889,13 @@ const deserializeAws_json1_1DnsProperties = (
 ): DnsProperties => {
   let contents: any = {
     __type: "DnsProperties",
-    HostedZoneId: undefined,
+    HostedZoneId: undefined
   };
   if (output.HostedZoneId !== undefined) {
     contents.HostedZoneId = output.HostedZoneId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DnsRecord = (
   output: any,
@@ -2540,7 +2904,7 @@ const deserializeAws_json1_1DnsRecord = (
   let contents: any = {
     __type: "DnsRecord",
     TTL: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.TTL !== undefined) {
     contents.TTL = output.TTL;
@@ -2549,7 +2913,7 @@ const deserializeAws_json1_1DnsRecord = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DnsRecordList = (
   output: any,
@@ -2558,7 +2922,7 @@ const deserializeAws_json1_1DnsRecordList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1DnsRecord(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1DuplicateRequest = (
   output: any,
@@ -2567,7 +2931,7 @@ const deserializeAws_json1_1DuplicateRequest = (
   let contents: any = {
     __type: "DuplicateRequest",
     DuplicateOperationId: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.DuplicateOperationId !== undefined) {
     contents.DuplicateOperationId = output.DuplicateOperationId;
@@ -2576,7 +2940,7 @@ const deserializeAws_json1_1DuplicateRequest = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetInstanceResponse = (
   output: any,
@@ -2584,13 +2948,16 @@ const deserializeAws_json1_1GetInstanceResponse = (
 ): GetInstanceResponse => {
   let contents: any = {
     __type: "GetInstanceResponse",
-    Instance: undefined,
+    Instance: undefined
   };
   if (output.Instance !== undefined) {
-    contents.Instance = deserializeAws_json1_1Instance(output.Instance, context);
+    contents.Instance = deserializeAws_json1_1Instance(
+      output.Instance,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
   output: any,
@@ -2599,16 +2966,19 @@ const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
   let contents: any = {
     __type: "GetInstancesHealthStatusResponse",
     NextToken: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Status !== undefined) {
-    contents.Status = deserializeAws_json1_1InstanceHealthStatusMap(output.Status, context);
+    contents.Status = deserializeAws_json1_1InstanceHealthStatusMap(
+      output.Status,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetNamespaceResponse = (
   output: any,
@@ -2616,13 +2986,16 @@ const deserializeAws_json1_1GetNamespaceResponse = (
 ): GetNamespaceResponse => {
   let contents: any = {
     __type: "GetNamespaceResponse",
-    Namespace: undefined,
+    Namespace: undefined
   };
   if (output.Namespace !== undefined) {
-    contents.Namespace = deserializeAws_json1_1Namespace(output.Namespace, context);
+    contents.Namespace = deserializeAws_json1_1Namespace(
+      output.Namespace,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetOperationResponse = (
   output: any,
@@ -2630,13 +3003,16 @@ const deserializeAws_json1_1GetOperationResponse = (
 ): GetOperationResponse => {
   let contents: any = {
     __type: "GetOperationResponse",
-    Operation: undefined,
+    Operation: undefined
   };
   if (output.Operation !== undefined) {
-    contents.Operation = deserializeAws_json1_1Operation(output.Operation, context);
+    contents.Operation = deserializeAws_json1_1Operation(
+      output.Operation,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetServiceResponse = (
   output: any,
@@ -2644,13 +3020,13 @@ const deserializeAws_json1_1GetServiceResponse = (
 ): GetServiceResponse => {
   let contents: any = {
     __type: "GetServiceResponse",
-    Service: undefined,
+    Service: undefined
   };
   if (output.Service !== undefined) {
     contents.Service = deserializeAws_json1_1Service(output.Service, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HealthCheckConfig = (
   output: any,
@@ -2660,7 +3036,7 @@ const deserializeAws_json1_1HealthCheckConfig = (
     __type: "HealthCheckConfig",
     FailureThreshold: undefined,
     ResourcePath: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.FailureThreshold !== undefined) {
     contents.FailureThreshold = output.FailureThreshold;
@@ -2672,7 +3048,7 @@ const deserializeAws_json1_1HealthCheckConfig = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HealthCheckCustomConfig = (
   output: any,
@@ -2680,13 +3056,13 @@ const deserializeAws_json1_1HealthCheckCustomConfig = (
 ): HealthCheckCustomConfig => {
   let contents: any = {
     __type: "HealthCheckCustomConfig",
-    FailureThreshold: undefined,
+    FailureThreshold: undefined
   };
   if (output.FailureThreshold !== undefined) {
     contents.FailureThreshold = output.FailureThreshold;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HttpInstanceSummary = (
   output: any,
@@ -2698,10 +3074,13 @@ const deserializeAws_json1_1HttpInstanceSummary = (
     HealthStatus: undefined,
     InstanceId: undefined,
     NamespaceName: undefined,
-    ServiceName: undefined,
+    ServiceName: undefined
   };
   if (output.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_json1_1Attributes(output.Attributes, context);
+    contents.Attributes = deserializeAws_json1_1Attributes(
+      output.Attributes,
+      context
+    );
   }
   if (output.HealthStatus !== undefined) {
     contents.HealthStatus = output.HealthStatus;
@@ -2716,7 +3095,7 @@ const deserializeAws_json1_1HttpInstanceSummary = (
     contents.ServiceName = output.ServiceName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HttpInstanceSummaryList = (
   output: any,
@@ -2725,7 +3104,7 @@ const deserializeAws_json1_1HttpInstanceSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1HttpInstanceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1HttpProperties = (
   output: any,
@@ -2733,13 +3112,13 @@ const deserializeAws_json1_1HttpProperties = (
 ): HttpProperties => {
   let contents: any = {
     __type: "HttpProperties",
-    HttpName: undefined,
+    HttpName: undefined
   };
   if (output.HttpName !== undefined) {
     contents.HttpName = output.HttpName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Instance = (
   output: any,
@@ -2749,10 +3128,13 @@ const deserializeAws_json1_1Instance = (
     __type: "Instance",
     Attributes: undefined,
     CreatorRequestId: undefined,
-    Id: undefined,
+    Id: undefined
   };
   if (output.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_json1_1Attributes(output.Attributes, context);
+    contents.Attributes = deserializeAws_json1_1Attributes(
+      output.Attributes,
+      context
+    );
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -2761,7 +3143,7 @@ const deserializeAws_json1_1Instance = (
     contents.Id = output.Id;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceHealthStatusMap = (
   output: any,
@@ -2772,7 +3154,7 @@ const deserializeAws_json1_1InstanceHealthStatusMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1InstanceNotFound = (
   output: any,
@@ -2780,13 +3162,13 @@ const deserializeAws_json1_1InstanceNotFound = (
 ): InstanceNotFound => {
   let contents: any = {
     __type: "InstanceNotFound",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceSummary = (
   output: any,
@@ -2795,16 +3177,19 @@ const deserializeAws_json1_1InstanceSummary = (
   let contents: any = {
     __type: "InstanceSummary",
     Attributes: undefined,
-    Id: undefined,
+    Id: undefined
   };
   if (output.Attributes !== undefined) {
-    contents.Attributes = deserializeAws_json1_1Attributes(output.Attributes, context);
+    contents.Attributes = deserializeAws_json1_1Attributes(
+      output.Attributes,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InstanceSummaryList = (
   output: any,
@@ -2813,7 +3198,7 @@ const deserializeAws_json1_1InstanceSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1InstanceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1InvalidInput = (
   output: any,
@@ -2821,13 +3206,13 @@ const deserializeAws_json1_1InvalidInput = (
 ): InvalidInput => {
   let contents: any = {
     __type: "InvalidInput",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListInstancesResponse = (
   output: any,
@@ -2836,16 +3221,19 @@ const deserializeAws_json1_1ListInstancesResponse = (
   let contents: any = {
     __type: "ListInstancesResponse",
     Instances: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.Instances !== undefined) {
-    contents.Instances = deserializeAws_json1_1InstanceSummaryList(output.Instances, context);
+    contents.Instances = deserializeAws_json1_1InstanceSummaryList(
+      output.Instances,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListNamespacesResponse = (
   output: any,
@@ -2854,16 +3242,19 @@ const deserializeAws_json1_1ListNamespacesResponse = (
   let contents: any = {
     __type: "ListNamespacesResponse",
     Namespaces: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.Namespaces !== undefined) {
-    contents.Namespaces = deserializeAws_json1_1NamespaceSummariesList(output.Namespaces, context);
+    contents.Namespaces = deserializeAws_json1_1NamespaceSummariesList(
+      output.Namespaces,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListOperationsResponse = (
   output: any,
@@ -2872,16 +3263,19 @@ const deserializeAws_json1_1ListOperationsResponse = (
   let contents: any = {
     __type: "ListOperationsResponse",
     NextToken: undefined,
-    Operations: undefined,
+    Operations: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Operations !== undefined) {
-    contents.Operations = deserializeAws_json1_1OperationSummaryList(output.Operations, context);
+    contents.Operations = deserializeAws_json1_1OperationSummaryList(
+      output.Operations,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListServicesResponse = (
   output: any,
@@ -2890,16 +3284,19 @@ const deserializeAws_json1_1ListServicesResponse = (
   let contents: any = {
     __type: "ListServicesResponse",
     NextToken: undefined,
-    Services: undefined,
+    Services: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.Services !== undefined) {
-    contents.Services = deserializeAws_json1_1ServiceSummariesList(output.Services, context);
+    contents.Services = deserializeAws_json1_1ServiceSummariesList(
+      output.Services,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Namespace = (
   output: any,
@@ -2915,13 +3312,17 @@ const deserializeAws_json1_1Namespace = (
     Name: undefined,
     Properties: undefined,
     ServiceCount: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(output.CreateDate % 1 != 0 ? Math.round(output.CreateDate * 1000) : output.CreateDate);
+    contents.CreateDate = new Date(
+      output.CreateDate % 1 != 0
+        ? Math.round(output.CreateDate * 1000)
+        : output.CreateDate
+    );
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -2936,7 +3337,10 @@ const deserializeAws_json1_1Namespace = (
     contents.Name = output.Name;
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1NamespaceProperties(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1NamespaceProperties(
+      output.Properties,
+      context
+    );
   }
   if (output.ServiceCount !== undefined) {
     contents.ServiceCount = output.ServiceCount;
@@ -2945,7 +3349,7 @@ const deserializeAws_json1_1Namespace = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NamespaceAlreadyExists = (
   output: any,
@@ -2955,7 +3359,7 @@ const deserializeAws_json1_1NamespaceAlreadyExists = (
     __type: "NamespaceAlreadyExists",
     CreatorRequestId: undefined,
     Message: undefined,
-    NamespaceId: undefined,
+    NamespaceId: undefined
   };
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -2967,7 +3371,7 @@ const deserializeAws_json1_1NamespaceAlreadyExists = (
     contents.NamespaceId = output.NamespaceId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NamespaceNotFound = (
   output: any,
@@ -2975,13 +3379,13 @@ const deserializeAws_json1_1NamespaceNotFound = (
 ): NamespaceNotFound => {
   let contents: any = {
     __type: "NamespaceNotFound",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NamespaceProperties = (
   output: any,
@@ -2990,16 +3394,22 @@ const deserializeAws_json1_1NamespaceProperties = (
   let contents: any = {
     __type: "NamespaceProperties",
     DnsProperties: undefined,
-    HttpProperties: undefined,
+    HttpProperties: undefined
   };
   if (output.DnsProperties !== undefined) {
-    contents.DnsProperties = deserializeAws_json1_1DnsProperties(output.DnsProperties, context);
+    contents.DnsProperties = deserializeAws_json1_1DnsProperties(
+      output.DnsProperties,
+      context
+    );
   }
   if (output.HttpProperties !== undefined) {
-    contents.HttpProperties = deserializeAws_json1_1HttpProperties(output.HttpProperties, context);
+    contents.HttpProperties = deserializeAws_json1_1HttpProperties(
+      output.HttpProperties,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NamespaceSummariesList = (
   output: any,
@@ -3008,7 +3418,7 @@ const deserializeAws_json1_1NamespaceSummariesList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1NamespaceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1NamespaceSummary = (
   output: any,
@@ -3023,13 +3433,17 @@ const deserializeAws_json1_1NamespaceSummary = (
     Name: undefined,
     Properties: undefined,
     ServiceCount: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(output.CreateDate % 1 != 0 ? Math.round(output.CreateDate * 1000) : output.CreateDate);
+    contents.CreateDate = new Date(
+      output.CreateDate % 1 != 0
+        ? Math.round(output.CreateDate * 1000)
+        : output.CreateDate
+    );
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
@@ -3041,7 +3455,10 @@ const deserializeAws_json1_1NamespaceSummary = (
     contents.Name = output.Name;
   }
   if (output.Properties !== undefined) {
-    contents.Properties = deserializeAws_json1_1NamespaceProperties(output.Properties, context);
+    contents.Properties = deserializeAws_json1_1NamespaceProperties(
+      output.Properties,
+      context
+    );
   }
   if (output.ServiceCount !== undefined) {
     contents.ServiceCount = output.ServiceCount;
@@ -3050,7 +3467,7 @@ const deserializeAws_json1_1NamespaceSummary = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Operation = (
   output: any,
@@ -3065,10 +3482,14 @@ const deserializeAws_json1_1Operation = (
     Status: undefined,
     Targets: undefined,
     Type: undefined,
-    UpdateDate: undefined,
+    UpdateDate: undefined
   };
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(output.CreateDate % 1 != 0 ? Math.round(output.CreateDate * 1000) : output.CreateDate);
+    contents.CreateDate = new Date(
+      output.CreateDate % 1 != 0
+        ? Math.round(output.CreateDate * 1000)
+        : output.CreateDate
+    );
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3083,16 +3504,23 @@ const deserializeAws_json1_1Operation = (
     contents.Status = output.Status;
   }
   if (output.Targets !== undefined) {
-    contents.Targets = deserializeAws_json1_1OperationTargetsMap(output.Targets, context);
+    contents.Targets = deserializeAws_json1_1OperationTargetsMap(
+      output.Targets,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   if (output.UpdateDate !== undefined) {
-    contents.UpdateDate = new Date(output.UpdateDate % 1 != 0 ? Math.round(output.UpdateDate * 1000) : output.UpdateDate);
+    contents.UpdateDate = new Date(
+      output.UpdateDate % 1 != 0
+        ? Math.round(output.UpdateDate * 1000)
+        : output.UpdateDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OperationNotFound = (
   output: any,
@@ -3100,13 +3528,13 @@ const deserializeAws_json1_1OperationNotFound = (
 ): OperationNotFound => {
   let contents: any = {
     __type: "OperationNotFound",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OperationSummary = (
   output: any,
@@ -3115,7 +3543,7 @@ const deserializeAws_json1_1OperationSummary = (
   let contents: any = {
     __type: "OperationSummary",
     Id: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -3124,7 +3552,7 @@ const deserializeAws_json1_1OperationSummary = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OperationSummaryList = (
   output: any,
@@ -3133,7 +3561,7 @@ const deserializeAws_json1_1OperationSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1OperationSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1OperationTargetsMap = (
   output: any,
@@ -3144,7 +3572,7 @@ const deserializeAws_json1_1OperationTargetsMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1RegisterInstanceResponse = (
   output: any,
@@ -3152,13 +3580,13 @@ const deserializeAws_json1_1RegisterInstanceResponse = (
 ): RegisterInstanceResponse => {
   let contents: any = {
     __type: "RegisterInstanceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceInUse = (
   output: any,
@@ -3166,13 +3594,13 @@ const deserializeAws_json1_1ResourceInUse = (
 ): ResourceInUse => {
   let contents: any = {
     __type: "ResourceInUse",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceLimitExceeded = (
   output: any,
@@ -3180,13 +3608,13 @@ const deserializeAws_json1_1ResourceLimitExceeded = (
 ): ResourceLimitExceeded => {
   let contents: any = {
     __type: "ResourceLimitExceeded",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Service = (
   output: any,
@@ -3204,13 +3632,17 @@ const deserializeAws_json1_1Service = (
     Id: undefined,
     InstanceCount: undefined,
     Name: undefined,
-    NamespaceId: undefined,
+    NamespaceId: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(output.CreateDate % 1 != 0 ? Math.round(output.CreateDate * 1000) : output.CreateDate);
+    contents.CreateDate = new Date(
+      output.CreateDate % 1 != 0
+        ? Math.round(output.CreateDate * 1000)
+        : output.CreateDate
+    );
   }
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -3219,13 +3651,22 @@ const deserializeAws_json1_1Service = (
     contents.Description = output.Description;
   }
   if (output.DnsConfig !== undefined) {
-    contents.DnsConfig = deserializeAws_json1_1DnsConfig(output.DnsConfig, context);
+    contents.DnsConfig = deserializeAws_json1_1DnsConfig(
+      output.DnsConfig,
+      context
+    );
   }
   if (output.HealthCheckConfig !== undefined) {
-    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(output.HealthCheckConfig, context);
+    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
+      output.HealthCheckConfig,
+      context
+    );
   }
   if (output.HealthCheckCustomConfig !== undefined) {
-    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context);
+    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
+      output.HealthCheckCustomConfig,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -3240,7 +3681,7 @@ const deserializeAws_json1_1Service = (
     contents.NamespaceId = output.NamespaceId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ServiceAlreadyExists = (
   output: any,
@@ -3250,7 +3691,7 @@ const deserializeAws_json1_1ServiceAlreadyExists = (
     __type: "ServiceAlreadyExists",
     CreatorRequestId: undefined,
     Message: undefined,
-    ServiceId: undefined,
+    ServiceId: undefined
   };
   if (output.CreatorRequestId !== undefined) {
     contents.CreatorRequestId = output.CreatorRequestId;
@@ -3262,7 +3703,7 @@ const deserializeAws_json1_1ServiceAlreadyExists = (
     contents.ServiceId = output.ServiceId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ServiceNotFound = (
   output: any,
@@ -3270,13 +3711,13 @@ const deserializeAws_json1_1ServiceNotFound = (
 ): ServiceNotFound => {
   let contents: any = {
     __type: "ServiceNotFound",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ServiceSummariesList = (
   output: any,
@@ -3285,7 +3726,7 @@ const deserializeAws_json1_1ServiceSummariesList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ServiceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ServiceSummary = (
   output: any,
@@ -3301,25 +3742,38 @@ const deserializeAws_json1_1ServiceSummary = (
     HealthCheckCustomConfig: undefined,
     Id: undefined,
     InstanceCount: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.Arn !== undefined) {
     contents.Arn = output.Arn;
   }
   if (output.CreateDate !== undefined) {
-    contents.CreateDate = new Date(output.CreateDate % 1 != 0 ? Math.round(output.CreateDate * 1000) : output.CreateDate);
+    contents.CreateDate = new Date(
+      output.CreateDate % 1 != 0
+        ? Math.round(output.CreateDate * 1000)
+        : output.CreateDate
+    );
   }
   if (output.Description !== undefined) {
     contents.Description = output.Description;
   }
   if (output.DnsConfig !== undefined) {
-    contents.DnsConfig = deserializeAws_json1_1DnsConfig(output.DnsConfig, context);
+    contents.DnsConfig = deserializeAws_json1_1DnsConfig(
+      output.DnsConfig,
+      context
+    );
   }
   if (output.HealthCheckConfig !== undefined) {
-    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(output.HealthCheckConfig, context);
+    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
+      output.HealthCheckConfig,
+      context
+    );
   }
   if (output.HealthCheckCustomConfig !== undefined) {
-    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(output.HealthCheckCustomConfig, context);
+    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
+      output.HealthCheckCustomConfig,
+      context
+    );
   }
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -3331,7 +3785,7 @@ const deserializeAws_json1_1ServiceSummary = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateServiceResponse = (
   output: any,
@@ -3339,13 +3793,13 @@ const deserializeAws_json1_1UpdateServiceResponse = (
 ): UpdateServiceResponse => {
   let contents: any = {
     __type: "UpdateServiceResponse",
-    OperationId: undefined,
+    OperationId: undefined
   };
   if (output.OperationId !== undefined) {
     contents.OperationId = output.OperationId;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

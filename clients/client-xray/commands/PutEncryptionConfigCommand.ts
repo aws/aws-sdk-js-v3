@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  XRayClientResolvedConfig,
+  XRayClientResolvedConfig
 } from "../XRayClient";
 import {
   PutEncryptionConfigRequest,
-  PutEncryptionConfigResult,
+  PutEncryptionConfigResult
 } from "../models/index";
 import {
   deserializeAws_restJson1_1PutEncryptionConfigCommand,
-  serializeAws_restJson1_1PutEncryptionConfigCommand,
+  serializeAws_restJson1_1PutEncryptionConfigCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PutEncryptionConfigCommandInput = PutEncryptionConfigRequest;
 export type PutEncryptionConfigCommandOutput = PutEncryptionConfigResult;
 
-export class PutEncryptionConfigCommand extends $Command<PutEncryptionConfigCommandInput, PutEncryptionConfigCommandOutput, XRayClientResolvedConfig> {
+export class PutEncryptionConfigCommand extends $Command<
+  PutEncryptionConfigCommandInput,
+  PutEncryptionConfigCommandOutput,
+  XRayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class PutEncryptionConfigCommand extends $Command<PutEncryptionConfigComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: XRayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutEncryptionConfigCommandInput, PutEncryptionConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PutEncryptionConfigCommandInput,
+    PutEncryptionConfigCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class PutEncryptionConfigCommand extends $Command<PutEncryptionConfigComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutEncryptionConfigCommandOutput> {
-    return deserializeAws_restJson1_1PutEncryptionConfigCommand(output, context);
+    return deserializeAws_restJson1_1PutEncryptionConfigCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

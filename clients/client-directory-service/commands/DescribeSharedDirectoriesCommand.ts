@@ -1,20 +1,20 @@
 import {
   DirectoryServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectoryServiceClient";
 import {
   DescribeSharedDirectoriesRequest,
-  DescribeSharedDirectoriesResult,
+  DescribeSharedDirectoriesResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeSharedDirectoriesCommand,
-  serializeAws_json1_1DescribeSharedDirectoriesCommand,
+  serializeAws_json1_1DescribeSharedDirectoriesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeSharedDirectoriesCommandInput = DescribeSharedDirectoriesRequest;
 export type DescribeSharedDirectoriesCommandOutput = DescribeSharedDirectoriesResult;
 
-export class DescribeSharedDirectoriesCommand extends $Command<DescribeSharedDirectoriesCommandInput, DescribeSharedDirectoriesCommandOutput, DirectoryServiceClientResolvedConfig> {
+export class DescribeSharedDirectoriesCommand extends $Command<
+  DescribeSharedDirectoriesCommandInput,
+  DescribeSharedDirectoriesCommandOutput,
+  DirectoryServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeSharedDirectoriesCommand extends $Command<DescribeSharedDir
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectoryServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeSharedDirectoriesCommandInput, DescribeSharedDirectoriesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeSharedDirectoriesCommandInput,
+    DescribeSharedDirectoriesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeSharedDirectoriesCommand extends $Command<DescribeSharedDir
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeSharedDirectoriesCommandOutput> {
-    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(output, context);
+    return deserializeAws_json1_1DescribeSharedDirectoriesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

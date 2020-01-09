@@ -136,7 +136,9 @@ export namespace PredictedItem {
  *          <p>Provide a valid value for the field or parameter.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -153,7 +155,9 @@ export namespace InvalidInputException {
  *          <p>The specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

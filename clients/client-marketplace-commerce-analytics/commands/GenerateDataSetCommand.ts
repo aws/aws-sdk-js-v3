@@ -1,20 +1,17 @@
 import {
   MarketplaceCommerceAnalyticsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MarketplaceCommerceAnalyticsClient";
-import {
-  GenerateDataSetRequest,
-  GenerateDataSetResult,
-} from "../models/index";
+import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/index";
 import {
   deserializeAws_json1_1GenerateDataSetCommand,
-  serializeAws_json1_1GenerateDataSetCommand,
+  serializeAws_json1_1GenerateDataSetCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GenerateDataSetCommandInput = GenerateDataSetRequest;
 export type GenerateDataSetCommandOutput = GenerateDataSetResult;
 
-export class GenerateDataSetCommand extends $Command<GenerateDataSetCommandInput, GenerateDataSetCommandOutput, MarketplaceCommerceAnalyticsClientResolvedConfig> {
+export class GenerateDataSetCommand extends $Command<
+  GenerateDataSetCommandInput,
+  GenerateDataSetCommandOutput,
+  MarketplaceCommerceAnalyticsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GenerateDataSetCommand extends $Command<GenerateDataSetCommandInput
     configuration: MarketplaceCommerceAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GenerateDataSetCommandInput, GenerateDataSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

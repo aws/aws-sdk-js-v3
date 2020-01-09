@@ -15,7 +15,7 @@ export enum AppLaunchStatus {
   TerminateFailed = "TERMINATE_FAILED",
   TerminateInProgress = "TERMINATE_IN_PROGRESS",
   Terminated = "TERMINATED",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
+  ValidationInProgress = "VALIDATION_IN_PROGRESS"
 }
 
 export enum AppReplicationStatus {
@@ -33,7 +33,7 @@ export enum AppReplicationStatus {
   ReplicationStopFailed = "REPLICATION_STOP_FAILED",
   ReplicationStopped = "REPLICATION_STOPPED",
   ReplicationStopping = "REPLICATION_STOPPING",
-  ValidationInProgress = "VALIDATION_IN_PROGRESS",
+  ValidationInProgress = "VALIDATION_IN_PROGRESS"
 }
 
 export enum AppStatus {
@@ -42,7 +42,7 @@ export enum AppStatus {
   DELETE_FAILED = "DELETE_FAILED",
   Deleted = "DELETED",
   Deleting = "DELETING",
-  Updating = "UPDATING",
+  Updating = "UPDATING"
 }
 
 /**
@@ -259,12 +259,12 @@ export enum ConnectorCapability {
   hyperVManager = "HYPERV-MANAGER",
   scvmm = "SCVMM",
   snapshotBatching = "SNAPSHOT_BATCHING",
-  vSphere = "VSPHERE",
+  vSphere = "VSPHERE"
 }
 
 export enum ConnectorStatus {
   Healthy = "HEALTHY",
-  Unhealthy = "UNHEALTHY",
+  Unhealthy = "UNHEALTHY"
 }
 
 export interface CreateAppRequest {
@@ -506,7 +506,8 @@ export namespace DeleteAppReplicationConfigurationRequest {
   }
 }
 
-export interface DeleteAppReplicationConfigurationResponse extends $MetadataBearer {
+export interface DeleteAppReplicationConfigurationResponse
+  extends $MetadataBearer {
   __type?: "DeleteAppReplicationConfigurationResponse";
 }
 
@@ -771,14 +772,17 @@ export namespace GetAppReplicationConfigurationRequest {
   }
 }
 
-export interface GetAppReplicationConfigurationResponse extends $MetadataBearer {
+export interface GetAppReplicationConfigurationResponse
+  extends $MetadataBearer {
   __type?: "GetAppReplicationConfigurationResponse";
   /**
    *
    *         <p>Replication configurations associated with server groups in this application.</p>
    *
    */
-  serverGroupReplicationConfigurations?: Array<ServerGroupReplicationConfiguration>;
+  serverGroupReplicationConfigurations?: Array<
+    ServerGroupReplicationConfiguration
+  >;
 }
 
 export namespace GetAppReplicationConfigurationResponse {
@@ -1096,7 +1100,9 @@ export namespace ImportServerCatalogResponse {
  *         <p>An internal error occurred.</p>
  *
  */
-export interface InternalError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalError";
   $fault: "server";
   message?: string;
@@ -1113,7 +1119,9 @@ export namespace InternalError {
  *         <p>A specified parameter is not valid.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1188,7 +1196,7 @@ export namespace LaunchDetails {
 
 export enum LicenseType {
   AWS = "AWS",
-  BYOL = "BYOL",
+  BYOL = "BYOL"
 }
 
 export interface ListAppsRequest {
@@ -1253,7 +1261,9 @@ export namespace ListAppsResponse {
  *         <p>A required parameter is missing.</p>
  *
  */
-export interface MissingRequiredParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface MissingRequiredParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MissingRequiredParameterException";
   $fault: "client";
   message?: string;
@@ -1270,7 +1280,9 @@ export namespace MissingRequiredParameterException {
  *         <p>There are no connectors available.</p>
  *
  */
-export interface NoConnectorsAvailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoConnectorsAvailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoConnectorsAvailableException";
   $fault: "client";
   message?: string;
@@ -1287,7 +1299,9 @@ export namespace NoConnectorsAvailableException {
  *         <p>This operation is not allowed.</p>
  *
  */
-export interface OperationNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationNotPermittedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
@@ -1301,7 +1315,7 @@ export namespace OperationNotPermittedException {
 
 export enum OutputFormat {
   JSON = "JSON",
-  YAML = "YAML",
+  YAML = "YAML"
 }
 
 export interface PutAppLaunchConfigurationRequest {
@@ -1359,7 +1373,9 @@ export interface PutAppReplicationConfigurationRequest {
    *         <p>Replication configurations for server groups in the application.</p>
    *
    */
-  serverGroupReplicationConfigurations?: Array<ServerGroupReplicationConfiguration>;
+  serverGroupReplicationConfigurations?: Array<
+    ServerGroupReplicationConfiguration
+  >;
 }
 
 export namespace PutAppReplicationConfigurationRequest {
@@ -1368,7 +1384,8 @@ export namespace PutAppReplicationConfigurationRequest {
   }
 }
 
-export interface PutAppReplicationConfigurationResponse extends $MetadataBearer {
+export interface PutAppReplicationConfigurationResponse
+  extends $MetadataBearer {
   __type?: "PutAppReplicationConfigurationResponse";
 }
 
@@ -1543,7 +1560,9 @@ export namespace ReplicationJob {
  *         <p>The specified replication job already exists.</p>
  *
  */
-export interface ReplicationJobAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ReplicationJobAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ReplicationJobAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1560,7 +1579,9 @@ export namespace ReplicationJobAlreadyExistsException {
  *         <p>The specified replication job does not exist.</p>
  *
  */
-export interface ReplicationJobNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ReplicationJobNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ReplicationJobNotFoundException";
   $fault: "client";
   message?: string;
@@ -1580,7 +1601,7 @@ export enum ReplicationJobState {
   Failed = "FAILED",
   Failing = "FAILING",
   PausedOnFailure = "PAUSED_ON_FAILURE",
-  Pending = "PENDING",
+  Pending = "PENDING"
 }
 
 /**
@@ -1699,7 +1720,9 @@ export namespace ReplicationRun {
  *             24-hour period.</p>
  *
  */
-export interface ReplicationRunLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ReplicationRunLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ReplicationRunLimitExceededException";
   $fault: "client";
   message?: string;
@@ -1746,12 +1769,12 @@ export enum ReplicationRunState {
   Deleting = "DELETING",
   Failed = "FAILED",
   Missed = "MISSED",
-  Pending = "PENDING",
+  Pending = "PENDING"
 }
 
 export enum ReplicationRunType {
   Automatic = "AUTOMATIC",
-  OnDemand = "ON_DEMAND",
+  OnDemand = "ON_DEMAND"
 }
 
 /**
@@ -1836,7 +1859,9 @@ export namespace Server {
  *         <p>The specified server cannot be replicated.</p>
  *
  */
-export interface ServerCannotBeReplicatedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServerCannotBeReplicatedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServerCannotBeReplicatedException";
   $fault: "client";
   message?: string;
@@ -1853,7 +1878,7 @@ export enum ServerCatalogStatus {
   Deleted = "DELETED",
   Expired = "EXPIRED",
   Importing = "IMPORTING",
-  NotImported = "NOT_IMPORTED",
+  NotImported = "NOT_IMPORTED"
 }
 
 /**
@@ -2143,7 +2168,7 @@ export namespace ServerReplicationParameters {
 }
 
 export enum ServerType {
-  VirtualMachine = "VIRTUAL_MACHINE",
+  VirtualMachine = "VIRTUAL_MACHINE"
 }
 
 export interface StartAppReplicationRequest {
@@ -2270,7 +2295,9 @@ export namespace Tag {
  *         <p>The service is temporarily unavailable.</p>
  *
  */
-export interface TemporarilyUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface TemporarilyUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TemporarilyUnavailableException";
   $fault: "server";
 }
@@ -2313,7 +2340,9 @@ export namespace TerminateAppResponse {
  *             ensure that you are using the correct access keys.</p>
  *
  */
-export interface UnauthorizedOperationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedOperationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedOperationException";
   $fault: "client";
   message?: string;
@@ -2534,7 +2563,7 @@ export namespace UserData {
 export enum VmManagerType {
   hyperVManager = "HYPERV-MANAGER",
   scvmm = "SCVMM",
-  vSphere = "VSPHERE",
+  vSphere = "VSPHERE"
 }
 
 /**

@@ -1,20 +1,20 @@
 import {
   ComprehendClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ComprehendClient";
 import {
   ListTopicsDetectionJobsRequest,
-  ListTopicsDetectionJobsResponse,
+  ListTopicsDetectionJobsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListTopicsDetectionJobsCommand,
-  serializeAws_json1_1ListTopicsDetectionJobsCommand,
+  serializeAws_json1_1ListTopicsDetectionJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListTopicsDetectionJobsCommandInput = ListTopicsDetectionJobsRequest;
 export type ListTopicsDetectionJobsCommandOutput = ListTopicsDetectionJobsResponse;
 
-export class ListTopicsDetectionJobsCommand extends $Command<ListTopicsDetectionJobsCommandInput, ListTopicsDetectionJobsCommandOutput, ComprehendClientResolvedConfig> {
+export class ListTopicsDetectionJobsCommand extends $Command<
+  ListTopicsDetectionJobsCommandInput,
+  ListTopicsDetectionJobsCommandOutput,
+  ComprehendClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListTopicsDetectionJobsCommand extends $Command<ListTopicsDetection
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTopicsDetectionJobsCommandInput, ListTopicsDetectionJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListTopicsDetectionJobsCommandInput,
+    ListTopicsDetectionJobsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class ListTopicsDetectionJobsCommand extends $Command<ListTopicsDetection
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListTopicsDetectionJobsCommandOutput> {
-    return deserializeAws_json1_1ListTopicsDetectionJobsCommand(output, context);
+    return deserializeAws_json1_1ListTopicsDetectionJobsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

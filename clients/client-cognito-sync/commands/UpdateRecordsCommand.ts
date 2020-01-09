@@ -1,20 +1,17 @@
 import {
   CognitoSyncClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoSyncClient";
-import {
-  UpdateRecordsRequest,
-  UpdateRecordsResponse,
-} from "../models/index";
+import { UpdateRecordsRequest, UpdateRecordsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateRecordsCommand,
-  serializeAws_restJson1_1UpdateRecordsCommand,
+  serializeAws_restJson1_1UpdateRecordsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateRecordsCommandInput = UpdateRecordsRequest;
 export type UpdateRecordsCommandOutput = UpdateRecordsResponse;
 
-export class UpdateRecordsCommand extends $Command<UpdateRecordsCommandInput, UpdateRecordsCommandOutput, CognitoSyncClientResolvedConfig> {
+export class UpdateRecordsCommand extends $Command<
+  UpdateRecordsCommandInput,
+  UpdateRecordsCommandOutput,
+  CognitoSyncClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateRecordsCommand extends $Command<UpdateRecordsCommandInput, Up
     configuration: CognitoSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateRecordsCommandInput, UpdateRecordsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -106,7 +106,9 @@ export namespace ApplicationSummary {
 /**
  * <p>One of the parameters in the request is invalid.</p>
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   /**
@@ -130,13 +132,15 @@ export enum Capability {
   CAPABILITY_AUTO_EXPAND = "CAPABILITY_AUTO_EXPAND",
   CAPABILITY_IAM = "CAPABILITY_IAM",
   CAPABILITY_NAMED_IAM = "CAPABILITY_NAMED_IAM",
-  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY",
+  CAPABILITY_RESOURCE_POLICY = "CAPABILITY_RESOURCE_POLICY"
 }
 
 /**
  * <p>The resource already exists.</p>
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   /**
@@ -661,7 +665,9 @@ export namespace DeleteApplicationRequest {
 /**
  * <p>The client is not authenticated.</p>
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
   /**
@@ -873,7 +879,9 @@ export namespace GetCloudFormationTemplateResponse {
 /**
  * <p>The AWS Serverless Application Repository service encountered an internal error.</p>
  */
-export interface InternalServerErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerErrorException";
   $fault: "server";
   /**
@@ -1025,7 +1033,9 @@ export namespace ListApplicationsResponse {
 /**
  * <p>The resource (for example, an access policy statement) specified in the request doesn't exist.</p>
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   /**
@@ -1248,7 +1258,7 @@ export namespace RollbackTrigger {
 export enum Status {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
-  PREPARING = "PREPARING",
+  PREPARING = "PREPARING"
 }
 
 /**
@@ -1281,7 +1291,9 @@ export namespace Tag {
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time.</p>
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**

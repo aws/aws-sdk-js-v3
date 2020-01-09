@@ -1,20 +1,20 @@
 import {
   LicenseManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LicenseManagerClient";
 import {
   ListFailuresForLicenseConfigurationOperationsRequest,
-  ListFailuresForLicenseConfigurationOperationsResponse,
+  ListFailuresForLicenseConfigurationOperationsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
-  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand,
+  serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListFailuresForLicenseConfigurationOperationsCommandInput = ListFailuresForLicenseConfigurationOperationsRequest;
 export type ListFailuresForLicenseConfigurationOperationsCommandOutput = ListFailuresForLicenseConfigurationOperationsResponse;
 
-export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<ListFailuresForLicenseConfigurationOperationsCommandInput, ListFailuresForLicenseConfigurationOperationsCommandOutput, LicenseManagerClientResolvedConfig> {
+export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command<
+  ListFailuresForLicenseConfigurationOperationsCommandInput,
+  ListFailuresForLicenseConfigurationOperationsCommandOutput,
+  LicenseManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput) {
+  constructor(
+    readonly input: ListFailuresForLicenseConfigurationOperationsCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListFailuresForLicenseConfigurationOperationsCommandInput, ListFailuresForLicenseConfigurationOperationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListFailuresForLicenseConfigurationOperationsCommandInput,
+    ListFailuresForLicenseConfigurationOperationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     input: ListFailuresForLicenseConfigurationOperationsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(input, context);
+    return serializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListFailuresForLicenseConfigurationOperationsCommandOutput> {
-    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(output, context);
+    return deserializeAws_json1_1ListFailuresForLicenseConfigurationOperationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   SMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SMSClient";
 import {
   PutAppLaunchConfigurationRequest,
-  PutAppLaunchConfigurationResponse,
+  PutAppLaunchConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1PutAppLaunchConfigurationCommand,
-  serializeAws_json1_1PutAppLaunchConfigurationCommand,
+  serializeAws_json1_1PutAppLaunchConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PutAppLaunchConfigurationCommandInput = PutAppLaunchConfigurationRequest;
 export type PutAppLaunchConfigurationCommandOutput = PutAppLaunchConfigurationResponse;
 
-export class PutAppLaunchConfigurationCommand extends $Command<PutAppLaunchConfigurationCommandInput, PutAppLaunchConfigurationCommandOutput, SMSClientResolvedConfig> {
+export class PutAppLaunchConfigurationCommand extends $Command<
+  PutAppLaunchConfigurationCommandInput,
+  PutAppLaunchConfigurationCommandOutput,
+  SMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class PutAppLaunchConfigurationCommand extends $Command<PutAppLaunchConfi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutAppLaunchConfigurationCommandInput, PutAppLaunchConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PutAppLaunchConfigurationCommandInput,
+    PutAppLaunchConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class PutAppLaunchConfigurationCommand extends $Command<PutAppLaunchConfi
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutAppLaunchConfigurationCommandOutput> {
-    return deserializeAws_json1_1PutAppLaunchConfigurationCommand(output, context);
+    return deserializeAws_json1_1PutAppLaunchConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

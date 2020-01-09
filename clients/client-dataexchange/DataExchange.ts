@@ -2,112 +2,112 @@ import { DataExchangeClient } from "./DataExchangeClient";
 import {
   CancelJobCommand,
   CancelJobCommandInput,
-  CancelJobCommandOutput,
+  CancelJobCommandOutput
 } from "./commands/CancelJobCommand";
 import {
   CreateDataSetCommand,
   CreateDataSetCommandInput,
-  CreateDataSetCommandOutput,
+  CreateDataSetCommandOutput
 } from "./commands/CreateDataSetCommand";
 import {
   CreateJobCommand,
   CreateJobCommandInput,
-  CreateJobCommandOutput,
+  CreateJobCommandOutput
 } from "./commands/CreateJobCommand";
 import {
   CreateRevisionCommand,
   CreateRevisionCommandInput,
-  CreateRevisionCommandOutput,
+  CreateRevisionCommandOutput
 } from "./commands/CreateRevisionCommand";
 import {
   DeleteAssetCommand,
   DeleteAssetCommandInput,
-  DeleteAssetCommandOutput,
+  DeleteAssetCommandOutput
 } from "./commands/DeleteAssetCommand";
 import {
   DeleteDataSetCommand,
   DeleteDataSetCommandInput,
-  DeleteDataSetCommandOutput,
+  DeleteDataSetCommandOutput
 } from "./commands/DeleteDataSetCommand";
 import {
   DeleteRevisionCommand,
   DeleteRevisionCommandInput,
-  DeleteRevisionCommandOutput,
+  DeleteRevisionCommandOutput
 } from "./commands/DeleteRevisionCommand";
 import {
   GetAssetCommand,
   GetAssetCommandInput,
-  GetAssetCommandOutput,
+  GetAssetCommandOutput
 } from "./commands/GetAssetCommand";
 import {
   GetDataSetCommand,
   GetDataSetCommandInput,
-  GetDataSetCommandOutput,
+  GetDataSetCommandOutput
 } from "./commands/GetDataSetCommand";
 import {
   GetJobCommand,
   GetJobCommandInput,
-  GetJobCommandOutput,
+  GetJobCommandOutput
 } from "./commands/GetJobCommand";
 import {
   GetRevisionCommand,
   GetRevisionCommandInput,
-  GetRevisionCommandOutput,
+  GetRevisionCommandOutput
 } from "./commands/GetRevisionCommand";
 import {
   ListDataSetRevisionsCommand,
   ListDataSetRevisionsCommandInput,
-  ListDataSetRevisionsCommandOutput,
+  ListDataSetRevisionsCommandOutput
 } from "./commands/ListDataSetRevisionsCommand";
 import {
   ListDataSetsCommand,
   ListDataSetsCommandInput,
-  ListDataSetsCommandOutput,
+  ListDataSetsCommandOutput
 } from "./commands/ListDataSetsCommand";
 import {
   ListJobsCommand,
   ListJobsCommandInput,
-  ListJobsCommandOutput,
+  ListJobsCommandOutput
 } from "./commands/ListJobsCommand";
 import {
   ListRevisionAssetsCommand,
   ListRevisionAssetsCommandInput,
-  ListRevisionAssetsCommandOutput,
+  ListRevisionAssetsCommandOutput
 } from "./commands/ListRevisionAssetsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   StartJobCommand,
   StartJobCommandInput,
-  StartJobCommandOutput,
+  StartJobCommandOutput
 } from "./commands/StartJobCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateAssetCommand,
   UpdateAssetCommandInput,
-  UpdateAssetCommandOutput,
+  UpdateAssetCommandOutput
 } from "./commands/UpdateAssetCommand";
 import {
   UpdateDataSetCommand,
   UpdateDataSetCommandInput,
-  UpdateDataSetCommandOutput,
+  UpdateDataSetCommandOutput
 } from "./commands/UpdateDataSetCommand";
 import {
   UpdateRevisionCommand,
   UpdateRevisionCommandInput,
-  UpdateRevisionCommandOutput,
+  UpdateRevisionCommandOutput
 } from "./commands/UpdateRevisionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -120,7 +120,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public cancelJob(
     args: CancelJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelJobCommandOutput>;
   public cancelJob(
     args: CancelJobCommandInput,
@@ -133,16 +133,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public cancelJob(
     args: CancelJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelJobCommandOutput) => void),
     cb?: (err: any, data?: CancelJobCommandOutput) => void
   ): Promise<CancelJobCommandOutput> | void {
     const command = new CancelJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -153,7 +155,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public createDataSet(
     args: CreateDataSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSetCommandOutput>;
   public createDataSet(
     args: CreateDataSetCommandInput,
@@ -166,16 +168,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createDataSet(
     args: CreateDataSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSetCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSetCommandOutput) => void
   ): Promise<CreateDataSetCommandOutput> | void {
     const command = new CreateDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -186,7 +190,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public createJob(
     args: CreateJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateJobCommandOutput>;
   public createJob(
     args: CreateJobCommandInput,
@@ -199,16 +203,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createJob(
     args: CreateJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateJobCommandOutput) => void),
     cb?: (err: any, data?: CreateJobCommandOutput) => void
   ): Promise<CreateJobCommandOutput> | void {
     const command = new CreateJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -219,7 +225,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public createRevision(
     args: CreateRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRevisionCommandOutput>;
   public createRevision(
     args: CreateRevisionCommandInput,
@@ -232,16 +238,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public createRevision(
     args: CreateRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRevisionCommandOutput) => void),
     cb?: (err: any, data?: CreateRevisionCommandOutput) => void
   ): Promise<CreateRevisionCommandOutput> | void {
     const command = new CreateRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -252,7 +260,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteAssetCommandOutput>;
   public deleteAsset(
     args: DeleteAssetCommandInput,
@@ -265,16 +273,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteAsset(
     args: DeleteAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAssetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAssetCommandOutput) => void),
     cb?: (err: any, data?: DeleteAssetCommandOutput) => void
   ): Promise<DeleteAssetCommandOutput> | void {
     const command = new DeleteAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -285,7 +295,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDataSetCommandOutput>;
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
@@ -298,16 +308,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteDataSet(
     args: DeleteDataSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDataSetCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSetCommandOutput) => void
   ): Promise<DeleteDataSetCommandOutput> | void {
     const command = new DeleteDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -318,7 +330,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public deleteRevision(
     args: DeleteRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRevisionCommandOutput>;
   public deleteRevision(
     args: DeleteRevisionCommandInput,
@@ -331,16 +343,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public deleteRevision(
     args: DeleteRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRevisionCommandOutput) => void),
     cb?: (err: any, data?: DeleteRevisionCommandOutput) => void
   ): Promise<DeleteRevisionCommandOutput> | void {
     const command = new DeleteRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -351,7 +365,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public getAsset(
     args: GetAssetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetAssetCommandOutput>;
   public getAsset(
     args: GetAssetCommandInput,
@@ -364,16 +378,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getAsset(
     args: GetAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAssetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAssetCommandOutput) => void),
     cb?: (err: any, data?: GetAssetCommandOutput) => void
   ): Promise<GetAssetCommandOutput> | void {
     const command = new GetAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -384,7 +400,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public getDataSet(
     args: GetDataSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDataSetCommandOutput>;
   public getDataSet(
     args: GetDataSetCommandInput,
@@ -397,16 +413,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getDataSet(
     args: GetDataSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDataSetCommandOutput) => void),
     cb?: (err: any, data?: GetDataSetCommandOutput) => void
   ): Promise<GetDataSetCommandOutput> | void {
     const command = new GetDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -417,7 +435,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public getJob(
     args: GetJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetJobCommandOutput>;
   public getJob(
     args: GetJobCommandInput,
@@ -430,16 +448,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getJob(
     args: GetJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetJobCommandOutput) => void),
     cb?: (err: any, data?: GetJobCommandOutput) => void
   ): Promise<GetJobCommandOutput> | void {
     const command = new GetJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -450,7 +470,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public getRevision(
     args: GetRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRevisionCommandOutput>;
   public getRevision(
     args: GetRevisionCommandInput,
@@ -463,16 +483,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public getRevision(
     args: GetRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRevisionCommandOutput) => void),
     cb?: (err: any, data?: GetRevisionCommandOutput) => void
   ): Promise<GetRevisionCommandOutput> | void {
     const command = new GetRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -483,7 +505,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public listDataSetRevisions(
     args: ListDataSetRevisionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDataSetRevisionsCommandOutput>;
   public listDataSetRevisions(
     args: ListDataSetRevisionsCommandInput,
@@ -496,16 +518,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listDataSetRevisions(
     args: ListDataSetRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSetRevisionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSetRevisionsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSetRevisionsCommandOutput) => void
   ): Promise<ListDataSetRevisionsCommandOutput> | void {
     const command = new ListDataSetRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -516,7 +540,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public listDataSets(
     args: ListDataSetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDataSetsCommandOutput>;
   public listDataSets(
     args: ListDataSetsCommandInput,
@@ -529,16 +553,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listDataSets(
     args: ListDataSetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSetsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSetsCommandOutput) => void
   ): Promise<ListDataSetsCommandOutput> | void {
     const command = new ListDataSetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +575,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListJobsCommandOutput>;
   public listJobs(
     args: ListJobsCommandInput,
@@ -562,16 +588,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -582,7 +610,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public listRevisionAssets(
     args: ListRevisionAssetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRevisionAssetsCommandOutput>;
   public listRevisionAssets(
     args: ListRevisionAssetsCommandInput,
@@ -595,16 +623,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listRevisionAssets(
     args: ListRevisionAssetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRevisionAssetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRevisionAssetsCommandOutput) => void),
     cb?: (err: any, data?: ListRevisionAssetsCommandOutput) => void
   ): Promise<ListRevisionAssetsCommandOutput> | void {
     const command = new ListRevisionAssetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -615,7 +645,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -628,16 +658,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -648,7 +680,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public startJob(
     args: StartJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartJobCommandOutput>;
   public startJob(
     args: StartJobCommandInput,
@@ -661,16 +693,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public startJob(
     args: StartJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartJobCommandOutput) => void),
     cb?: (err: any, data?: StartJobCommandOutput) => void
   ): Promise<StartJobCommandOutput> | void {
     const command = new StartJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -681,7 +715,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -694,16 +728,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -714,7 +750,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -727,16 +763,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -747,7 +785,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public updateAsset(
     args: UpdateAssetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateAssetCommandOutput>;
   public updateAsset(
     args: UpdateAssetCommandInput,
@@ -760,16 +798,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateAsset(
     args: UpdateAssetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAssetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAssetCommandOutput) => void),
     cb?: (err: any, data?: UpdateAssetCommandOutput) => void
   ): Promise<UpdateAssetCommandOutput> | void {
     const command = new UpdateAssetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -780,7 +820,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public updateDataSet(
     args: UpdateDataSetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDataSetCommandOutput>;
   public updateDataSet(
     args: UpdateDataSetCommandInput,
@@ -793,16 +833,18 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateDataSet(
     args: UpdateDataSetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSetCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSetCommandOutput) => void
   ): Promise<UpdateDataSetCommandOutput> | void {
     const command = new UpdateDataSetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -813,7 +855,7 @@ export class DataExchange extends DataExchangeClient {
    */
   public updateRevision(
     args: UpdateRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRevisionCommandOutput>;
   public updateRevision(
     args: UpdateRevisionCommandInput,
@@ -826,19 +868,20 @@ export class DataExchange extends DataExchangeClient {
   ): void;
   public updateRevision(
     args: UpdateRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRevisionCommandOutput) => void),
     cb?: (err: any, data?: UpdateRevisionCommandOutput) => void
   ): Promise<UpdateRevisionCommandOutput> | void {
     const command = new UpdateRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

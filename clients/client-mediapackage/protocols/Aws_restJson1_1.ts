@@ -1,74 +1,74 @@
 import {
   CreateChannelCommandInput,
-  CreateChannelCommandOutput,
+  CreateChannelCommandOutput
 } from "../commands/CreateChannelCommand";
 import {
   CreateHarvestJobCommandInput,
-  CreateHarvestJobCommandOutput,
+  CreateHarvestJobCommandOutput
 } from "../commands/CreateHarvestJobCommand";
 import {
   CreateOriginEndpointCommandInput,
-  CreateOriginEndpointCommandOutput,
+  CreateOriginEndpointCommandOutput
 } from "../commands/CreateOriginEndpointCommand";
 import {
   DeleteChannelCommandInput,
-  DeleteChannelCommandOutput,
+  DeleteChannelCommandOutput
 } from "../commands/DeleteChannelCommand";
 import {
   DeleteOriginEndpointCommandInput,
-  DeleteOriginEndpointCommandOutput,
+  DeleteOriginEndpointCommandOutput
 } from "../commands/DeleteOriginEndpointCommand";
 import {
   DescribeChannelCommandInput,
-  DescribeChannelCommandOutput,
+  DescribeChannelCommandOutput
 } from "../commands/DescribeChannelCommand";
 import {
   DescribeHarvestJobCommandInput,
-  DescribeHarvestJobCommandOutput,
+  DescribeHarvestJobCommandOutput
 } from "../commands/DescribeHarvestJobCommand";
 import {
   DescribeOriginEndpointCommandInput,
-  DescribeOriginEndpointCommandOutput,
+  DescribeOriginEndpointCommandOutput
 } from "../commands/DescribeOriginEndpointCommand";
 import {
   ListChannelsCommandInput,
-  ListChannelsCommandOutput,
+  ListChannelsCommandOutput
 } from "../commands/ListChannelsCommand";
 import {
   ListHarvestJobsCommandInput,
-  ListHarvestJobsCommandOutput,
+  ListHarvestJobsCommandOutput
 } from "../commands/ListHarvestJobsCommand";
 import {
   ListOriginEndpointsCommandInput,
-  ListOriginEndpointsCommandOutput,
+  ListOriginEndpointsCommandOutput
 } from "../commands/ListOriginEndpointsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   RotateChannelCredentialsCommandInput,
-  RotateChannelCredentialsCommandOutput,
+  RotateChannelCredentialsCommandOutput
 } from "../commands/RotateChannelCredentialsCommand";
 import {
   RotateIngestEndpointCredentialsCommandInput,
-  RotateIngestEndpointCredentialsCommandOutput,
+  RotateIngestEndpointCredentialsCommandOutput
 } from "../commands/RotateIngestEndpointCredentialsCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
+  UpdateChannelCommandOutput
 } from "../commands/UpdateChannelCommand";
 import {
   UpdateOriginEndpointCommandInput,
-  UpdateOriginEndpointCommandOutput,
+  UpdateOriginEndpointCommandOutput
 } from "../commands/UpdateOriginEndpointCommand";
 import {
   Channel,
@@ -97,18 +97,18 @@ import {
   TooManyRequestsException,
   UnprocessableEntityException,
   __AdTriggersElement,
-  __PeriodTriggersElement,
+  __PeriodTriggersElement
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CreateChannelCommand(
@@ -116,18 +116,18 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams['description'] = input.Description;
+    bodyParams["description"] = input.Description;
   }
   if (input.Id !== undefined) {
-    bodyParams['id'] = input.Id;
+    bodyParams["id"] = input.Id;
   }
   if (input.Tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1Tags(input.Tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -136,7 +136,7 @@ export async function serializeAws_restJson1_1CreateChannelCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -145,24 +145,27 @@ export async function serializeAws_restJson1_1CreateHarvestJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/harvest_jobs";
   let body: any = {};
   const bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['endTime'] = input.EndTime;
+    bodyParams["endTime"] = input.EndTime;
   }
   if (input.Id !== undefined) {
-    bodyParams['id'] = input.Id;
+    bodyParams["id"] = input.Id;
   }
   if (input.OriginEndpointId !== undefined) {
-    bodyParams['originEndpointId'] = input.OriginEndpointId;
+    bodyParams["originEndpointId"] = input.OriginEndpointId;
   }
   if (input.S3Destination !== undefined) {
-    bodyParams['s3Destination'] = serializeAws_restJson1_1S3Destination(input.S3Destination, context);
+    bodyParams["s3Destination"] = serializeAws_restJson1_1S3Destination(
+      input.S3Destination,
+      context
+    );
   }
   if (input.StartTime !== undefined) {
-    bodyParams['startTime'] = input.StartTime;
+    bodyParams["startTime"] = input.StartTime;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -171,7 +174,7 @@ export async function serializeAws_restJson1_1CreateHarvestJobCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -180,48 +183,65 @@ export async function serializeAws_restJson1_1CreateOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/origin_endpoints";
   let body: any = {};
   const bodyParams: any = {};
   if (input.ChannelId !== undefined) {
-    bodyParams['channelId'] = input.ChannelId;
+    bodyParams["channelId"] = input.ChannelId;
   }
   if (input.CmafPackage !== undefined) {
-    bodyParams['cmafPackage'] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(input.CmafPackage, context);
+    bodyParams[
+      "cmafPackage"
+    ] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
+      input.CmafPackage,
+      context
+    );
   }
   if (input.DashPackage !== undefined) {
-    bodyParams['dashPackage'] = serializeAws_restJson1_1DashPackage(input.DashPackage, context);
+    bodyParams["dashPackage"] = serializeAws_restJson1_1DashPackage(
+      input.DashPackage,
+      context
+    );
   }
   if (input.Description !== undefined) {
-    bodyParams['description'] = input.Description;
+    bodyParams["description"] = input.Description;
   }
   if (input.HlsPackage !== undefined) {
-    bodyParams['hlsPackage'] = serializeAws_restJson1_1HlsPackage(input.HlsPackage, context);
+    bodyParams["hlsPackage"] = serializeAws_restJson1_1HlsPackage(
+      input.HlsPackage,
+      context
+    );
   }
   if (input.Id !== undefined) {
-    bodyParams['id'] = input.Id;
+    bodyParams["id"] = input.Id;
   }
   if (input.ManifestName !== undefined) {
-    bodyParams['manifestName'] = input.ManifestName;
+    bodyParams["manifestName"] = input.ManifestName;
   }
   if (input.MssPackage !== undefined) {
-    bodyParams['mssPackage'] = serializeAws_restJson1_1MssPackage(input.MssPackage, context);
+    bodyParams["mssPackage"] = serializeAws_restJson1_1MssPackage(
+      input.MssPackage,
+      context
+    );
   }
   if (input.Origination !== undefined) {
-    bodyParams['origination'] = input.Origination;
+    bodyParams["origination"] = input.Origination;
   }
   if (input.StartoverWindowSeconds !== undefined) {
-    bodyParams['startoverWindowSeconds'] = input.StartoverWindowSeconds;
+    bodyParams["startoverWindowSeconds"] = input.StartoverWindowSeconds;
   }
   if (input.Tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1Tags(input.Tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
   }
   if (input.TimeDelaySeconds !== undefined) {
-    bodyParams['timeDelaySeconds'] = input.TimeDelaySeconds;
+    bodyParams["timeDelaySeconds"] = input.TimeDelaySeconds;
   }
   if (input.Whitelist !== undefined) {
-    bodyParams['whitelist'] = serializeAws_restJson1_1__listOf__string(input.Whitelist, context);
+    bodyParams["whitelist"] = serializeAws_restJson1_1__listOf__string(
+      input.Whitelist,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -230,7 +250,7 @@ export async function serializeAws_restJson1_1CreateOriginEndpointCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -239,23 +259,23 @@ export async function serializeAws_restJson1_1DeleteChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -264,23 +284,23 @@ export async function serializeAws_restJson1_1DeleteOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -289,23 +309,23 @@ export async function serializeAws_restJson1_1DescribeChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -314,23 +334,23 @@ export async function serializeAws_restJson1_1DescribeHarvestJobCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/harvest_jobs/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -339,23 +359,23 @@ export async function serializeAws_restJson1_1DescribeOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -364,14 +384,14 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/channels";
   const query: any = {};
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -379,7 +399,7 @@ export async function serializeAws_restJson1_1ListChannelsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -388,20 +408,20 @@ export async function serializeAws_restJson1_1ListHarvestJobsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/harvest_jobs";
   const query: any = {};
   if (input.IncludeChannelId !== undefined) {
-    query['includeChannelId'] = input.IncludeChannelId.toString();
+    query["includeChannelId"] = input.IncludeChannelId.toString();
   }
   if (input.IncludeStatus !== undefined) {
-    query['includeStatus'] = input.IncludeStatus.toString();
+    query["includeStatus"] = input.IncludeStatus.toString();
   }
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -409,7 +429,7 @@ export async function serializeAws_restJson1_1ListHarvestJobsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -418,17 +438,17 @@ export async function serializeAws_restJson1_1ListOriginEndpointsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/origin_endpoints";
   const query: any = {};
   if (input.ChannelId !== undefined) {
-    query['channelId'] = input.ChannelId.toString();
+    query["channelId"] = input.ChannelId.toString();
   }
   if (input.MaxResults !== undefined) {
-    query['maxResults'] = input.MaxResults.toString();
+    query["maxResults"] = input.MaxResults.toString();
   }
   if (input.NextToken !== undefined) {
-    query['nextToken'] = input.NextToken.toString();
+    query["nextToken"] = input.NextToken.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -436,7 +456,7 @@ export async function serializeAws_restJson1_1ListOriginEndpointsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -445,23 +465,25 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: ResourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceArn.');
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -470,23 +492,23 @@ export async function serializeAws_restJson1_1RotateChannelCredentialsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/channels/{Id}/credentials";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -495,32 +517,37 @@ export async function serializeAws_restJson1_1RotateIngestEndpointCredentialsCom
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
-  let resolvedPath = "/channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials";
+  headers["Content-Type"] = "";
+  let resolvedPath =
+    "/channels/{Id}/ingest_endpoints/{IngestEndpointId}/credentials";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   if (input.IngestEndpointId !== undefined) {
     const labelValue: any = input.IngestEndpointId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: IngestEndpointId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: IngestEndpointId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{IngestEndpointId}', labelValue);
+    resolvedPath = resolvedPath.replace("{IngestEndpointId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: IngestEndpointId.');
+    throw new Error(
+      "No value provided for input HTTP label: IngestEndpointId."
+    );
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "PUT",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -529,21 +556,26 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: ResourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceArn.');
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1__mapOf__string(input.Tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
+      input.Tags,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -552,7 +584,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -561,20 +593,22 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/tags/{ResourceArn}";
   if (input.ResourceArn !== undefined) {
     const labelValue: any = input.ResourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: ResourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{ResourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceArn.');
+    throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {};
   if (input.TagKeys !== undefined) {
-    query['tagKeys'] = input.TagKeys;
+    query["tagKeys"] = input.TagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -582,7 +616,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -591,21 +625,21 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/channels/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Description !== undefined) {
-    bodyParams['description'] = input.Description;
+    bodyParams["description"] = input.Description;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -614,7 +648,7 @@ export async function serializeAws_restJson1_1UpdateChannelCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -623,48 +657,65 @@ export async function serializeAws_restJson1_1UpdateOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/origin_endpoints/{Id}";
   if (input.Id !== undefined) {
     const labelValue: any = input.Id.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: Id.');
+      throw new Error("Empty value provided for input HTTP label: Id.");
     }
-    resolvedPath = resolvedPath.replace('{Id}', labelValue);
+    resolvedPath = resolvedPath.replace("{Id}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: Id.');
+    throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.CmafPackage !== undefined) {
-    bodyParams['cmafPackage'] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(input.CmafPackage, context);
+    bodyParams[
+      "cmafPackage"
+    ] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
+      input.CmafPackage,
+      context
+    );
   }
   if (input.DashPackage !== undefined) {
-    bodyParams['dashPackage'] = serializeAws_restJson1_1DashPackage(input.DashPackage, context);
+    bodyParams["dashPackage"] = serializeAws_restJson1_1DashPackage(
+      input.DashPackage,
+      context
+    );
   }
   if (input.Description !== undefined) {
-    bodyParams['description'] = input.Description;
+    bodyParams["description"] = input.Description;
   }
   if (input.HlsPackage !== undefined) {
-    bodyParams['hlsPackage'] = serializeAws_restJson1_1HlsPackage(input.HlsPackage, context);
+    bodyParams["hlsPackage"] = serializeAws_restJson1_1HlsPackage(
+      input.HlsPackage,
+      context
+    );
   }
   if (input.ManifestName !== undefined) {
-    bodyParams['manifestName'] = input.ManifestName;
+    bodyParams["manifestName"] = input.ManifestName;
   }
   if (input.MssPackage !== undefined) {
-    bodyParams['mssPackage'] = serializeAws_restJson1_1MssPackage(input.MssPackage, context);
+    bodyParams["mssPackage"] = serializeAws_restJson1_1MssPackage(
+      input.MssPackage,
+      context
+    );
   }
   if (input.Origination !== undefined) {
-    bodyParams['origination'] = input.Origination;
+    bodyParams["origination"] = input.Origination;
   }
   if (input.StartoverWindowSeconds !== undefined) {
-    bodyParams['startoverWindowSeconds'] = input.StartoverWindowSeconds;
+    bodyParams["startoverWindowSeconds"] = input.StartoverWindowSeconds;
   }
   if (input.TimeDelaySeconds !== undefined) {
-    bodyParams['timeDelaySeconds'] = input.TimeDelaySeconds;
+    bodyParams["timeDelaySeconds"] = input.TimeDelaySeconds;
   }
   if (input.Whitelist !== undefined) {
-    bodyParams['whitelist'] = serializeAws_restJson1_1__listOf__string(input.Whitelist, context);
+    bodyParams["whitelist"] = serializeAws_restJson1_1__listOf__string(
+      input.Whitelist,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -673,7 +724,7 @@ export async function serializeAws_restJson1_1UpdateOriginEndpointCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -691,7 +742,7 @@ export async function deserializeAws_restJson1_1CreateChannelCommand(
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -701,7 +752,10 @@ export async function deserializeAws_restJson1_1CreateChannelCommand(
     contents.Description = data.description;
   }
   if (data.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(data.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      data.hlsIngest,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -714,48 +768,66 @@ export async function deserializeAws_restJson1_1CreateChannelCommand(
 
 async function deserializeAws_restJson1_1CreateChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -766,7 +838,10 @@ export async function deserializeAws_restJson1_1CreateHarvestJobCommand(
   context: __SerdeContext
 ): Promise<CreateHarvestJobCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateHarvestJobCommandError(output, context);
+    return deserializeAws_restJson1_1CreateHarvestJobCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateHarvestJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -779,7 +854,7 @@ export async function deserializeAws_restJson1_1CreateHarvestJobCommand(
     OriginEndpointId: undefined,
     S3Destination: undefined,
     StartTime: undefined,
-    Status: undefined,
+    Status: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -801,7 +876,10 @@ export async function deserializeAws_restJson1_1CreateHarvestJobCommand(
     contents.OriginEndpointId = data.originEndpointId;
   }
   if (data.s3Destination !== undefined) {
-    contents.S3Destination = deserializeAws_restJson1_1S3Destination(data.s3Destination, context);
+    contents.S3Destination = deserializeAws_restJson1_1S3Destination(
+      data.s3Destination,
+      context
+    );
   }
   if (data.startTime !== undefined) {
     contents.StartTime = data.startTime;
@@ -814,48 +892,66 @@ export async function deserializeAws_restJson1_1CreateHarvestJobCommand(
 
 async function deserializeAws_restJson1_1CreateHarvestJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateHarvestJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -866,7 +962,10 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<CreateOriginEndpointCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateOriginEndpointCommandError(output, context);
+    return deserializeAws_restJson1_1CreateOriginEndpointCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -885,7 +984,7 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
     Tags: undefined,
     TimeDelaySeconds: undefined,
     Url: undefined,
-    Whitelist: undefined,
+    Whitelist: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -895,16 +994,25 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
     contents.ChannelId = data.channelId;
   }
   if (data.cmafPackage !== undefined) {
-    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(data.cmafPackage, context);
+    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(
+      data.cmafPackage,
+      context
+    );
   }
   if (data.dashPackage !== undefined) {
-    contents.DashPackage = deserializeAws_restJson1_1DashPackage(data.dashPackage, context);
+    contents.DashPackage = deserializeAws_restJson1_1DashPackage(
+      data.dashPackage,
+      context
+    );
   }
   if (data.description !== undefined) {
     contents.Description = data.description;
   }
   if (data.hlsPackage !== undefined) {
-    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(data.hlsPackage, context);
+    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(
+      data.hlsPackage,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -913,7 +1021,10 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
     contents.ManifestName = data.manifestName;
   }
   if (data.mssPackage !== undefined) {
-    contents.MssPackage = deserializeAws_restJson1_1MssPackage(data.mssPackage, context);
+    contents.MssPackage = deserializeAws_restJson1_1MssPackage(
+      data.mssPackage,
+      context
+    );
   }
   if (data.origination !== undefined) {
     contents.Origination = data.origination;
@@ -931,55 +1042,76 @@ export async function deserializeAws_restJson1_1CreateOriginEndpointCommand(
     contents.Url = data.url;
   }
   if (data.whitelist !== undefined) {
-    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(data.whitelist, context);
+    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(
+      data.whitelist,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateOriginEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateOriginEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -994,55 +1126,73 @@ export async function deserializeAws_restJson1_1DeleteChannelCommand(
   }
   const contents: DeleteChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteChannelResponse",
+    __type: "DeleteChannelResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1053,59 +1203,80 @@ export async function deserializeAws_restJson1_1DeleteOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<DeleteOriginEndpointCommandOutput> {
   if (output.statusCode !== 202) {
-    return deserializeAws_restJson1_1DeleteOriginEndpointCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteOriginEndpointCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteOriginEndpointResponse",
+    __type: "DeleteOriginEndpointResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteOriginEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteOriginEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1116,7 +1287,10 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeChannelCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeChannelCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1125,7 +1299,7 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1135,7 +1309,10 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
     contents.Description = data.description;
   }
   if (data.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(data.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      data.hlsIngest,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -1148,48 +1325,66 @@ export async function deserializeAws_restJson1_1DescribeChannelCommand(
 
 async function deserializeAws_restJson1_1DescribeChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1200,7 +1395,10 @@ export async function deserializeAws_restJson1_1DescribeHarvestJobCommand(
   context: __SerdeContext
 ): Promise<DescribeHarvestJobCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeHarvestJobCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeHarvestJobCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeHarvestJobCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1213,7 +1411,7 @@ export async function deserializeAws_restJson1_1DescribeHarvestJobCommand(
     OriginEndpointId: undefined,
     S3Destination: undefined,
     StartTime: undefined,
-    Status: undefined,
+    Status: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1235,7 +1433,10 @@ export async function deserializeAws_restJson1_1DescribeHarvestJobCommand(
     contents.OriginEndpointId = data.originEndpointId;
   }
   if (data.s3Destination !== undefined) {
-    contents.S3Destination = deserializeAws_restJson1_1S3Destination(data.s3Destination, context);
+    contents.S3Destination = deserializeAws_restJson1_1S3Destination(
+      data.s3Destination,
+      context
+    );
   }
   if (data.startTime !== undefined) {
     contents.StartTime = data.startTime;
@@ -1248,48 +1449,66 @@ export async function deserializeAws_restJson1_1DescribeHarvestJobCommand(
 
 async function deserializeAws_restJson1_1DescribeHarvestJobCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeHarvestJobCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1300,7 +1519,10 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<DescribeOriginEndpointCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeOriginEndpointCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeOriginEndpointCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1319,7 +1541,7 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
     Tags: undefined,
     TimeDelaySeconds: undefined,
     Url: undefined,
-    Whitelist: undefined,
+    Whitelist: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1329,16 +1551,25 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
     contents.ChannelId = data.channelId;
   }
   if (data.cmafPackage !== undefined) {
-    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(data.cmafPackage, context);
+    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(
+      data.cmafPackage,
+      context
+    );
   }
   if (data.dashPackage !== undefined) {
-    contents.DashPackage = deserializeAws_restJson1_1DashPackage(data.dashPackage, context);
+    contents.DashPackage = deserializeAws_restJson1_1DashPackage(
+      data.dashPackage,
+      context
+    );
   }
   if (data.description !== undefined) {
     contents.Description = data.description;
   }
   if (data.hlsPackage !== undefined) {
-    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(data.hlsPackage, context);
+    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(
+      data.hlsPackage,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -1347,7 +1578,10 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
     contents.ManifestName = data.manifestName;
   }
   if (data.mssPackage !== undefined) {
-    contents.MssPackage = deserializeAws_restJson1_1MssPackage(data.mssPackage, context);
+    contents.MssPackage = deserializeAws_restJson1_1MssPackage(
+      data.mssPackage,
+      context
+    );
   }
   if (data.origination !== undefined) {
     contents.Origination = data.origination;
@@ -1365,55 +1599,76 @@ export async function deserializeAws_restJson1_1DescribeOriginEndpointCommand(
     contents.Url = data.url;
   }
   if (data.whitelist !== undefined) {
-    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(data.whitelist, context);
+    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(
+      data.whitelist,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeOriginEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeOriginEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1430,11 +1685,14 @@ export async function deserializeAws_restJson1_1ListChannelsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListChannelsResponse",
     Channels: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.channels !== undefined) {
-    contents.Channels = deserializeAws_restJson1_1__listOfChannel(data.channels, context);
+    contents.Channels = deserializeAws_restJson1_1__listOfChannel(
+      data.channels,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
@@ -1444,48 +1702,66 @@ export async function deserializeAws_restJson1_1ListChannelsCommand(
 
 async function deserializeAws_restJson1_1ListChannelsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1496,17 +1772,23 @@ export async function deserializeAws_restJson1_1ListHarvestJobsCommand(
   context: __SerdeContext
 ): Promise<ListHarvestJobsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListHarvestJobsCommandError(output, context);
+    return deserializeAws_restJson1_1ListHarvestJobsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListHarvestJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListHarvestJobsResponse",
     HarvestJobs: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.harvestJobs !== undefined) {
-    contents.HarvestJobs = deserializeAws_restJson1_1__listOfHarvestJob(data.harvestJobs, context);
+    contents.HarvestJobs = deserializeAws_restJson1_1__listOfHarvestJob(
+      data.harvestJobs,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
@@ -1516,48 +1798,66 @@ export async function deserializeAws_restJson1_1ListHarvestJobsCommand(
 
 async function deserializeAws_restJson1_1ListHarvestJobsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListHarvestJobsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1568,68 +1868,92 @@ export async function deserializeAws_restJson1_1ListOriginEndpointsCommand(
   context: __SerdeContext
 ): Promise<ListOriginEndpointsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListOriginEndpointsCommandError(output, context);
+    return deserializeAws_restJson1_1ListOriginEndpointsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListOriginEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListOriginEndpointsResponse",
     NextToken: undefined,
-    OriginEndpoints: undefined,
+    OriginEndpoints: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.nextToken !== undefined) {
     contents.NextToken = data.nextToken;
   }
   if (data.originEndpoints !== undefined) {
-    contents.OriginEndpoints = deserializeAws_restJson1_1__listOfOriginEndpoint(data.originEndpoints, context);
+    contents.OriginEndpoints = deserializeAws_restJson1_1__listOfOriginEndpoint(
+      data.originEndpoints,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListOriginEndpointsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListOriginEndpointsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1640,36 +1964,42 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(data.tags, context);
+    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
+      data.tags,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1680,7 +2010,10 @@ export async function deserializeAws_restJson1_1RotateChannelCredentialsCommand(
   context: __SerdeContext
 ): Promise<RotateChannelCredentialsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RotateChannelCredentialsCommandError(output, context);
+    return deserializeAws_restJson1_1RotateChannelCredentialsCommandError(
+      output,
+      context
+    );
   }
   const contents: RotateChannelCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1689,7 +2022,7 @@ export async function deserializeAws_restJson1_1RotateChannelCredentialsCommand(
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1699,7 +2032,10 @@ export async function deserializeAws_restJson1_1RotateChannelCredentialsCommand(
     contents.Description = data.description;
   }
   if (data.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(data.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      data.hlsIngest,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -1712,48 +2048,66 @@ export async function deserializeAws_restJson1_1RotateChannelCredentialsCommand(
 
 async function deserializeAws_restJson1_1RotateChannelCredentialsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RotateChannelCredentialsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1764,7 +2118,10 @@ export async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsC
   context: __SerdeContext
 ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommandError(output, context);
+    return deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommandError(
+      output,
+      context
+    );
   }
   const contents: RotateIngestEndpointCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1773,7 +2130,7 @@ export async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsC
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1783,7 +2140,10 @@ export async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsC
     contents.Description = data.description;
   }
   if (data.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(data.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      data.hlsIngest,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -1796,48 +2156,66 @@ export async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsC
 
 async function deserializeAws_restJson1_1RotateIngestEndpointCredentialsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RotateIngestEndpointCredentialsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1851,27 +2229,27 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
     return deserializeAws_restJson1_1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1885,27 +2263,27 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
     return deserializeAws_restJson1_1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1925,7 +2303,7 @@ export async function deserializeAws_restJson1_1UpdateChannelCommand(
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -1935,7 +2313,10 @@ export async function deserializeAws_restJson1_1UpdateChannelCommand(
     contents.Description = data.description;
   }
   if (data.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(data.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      data.hlsIngest,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -1948,48 +2329,66 @@ export async function deserializeAws_restJson1_1UpdateChannelCommand(
 
 async function deserializeAws_restJson1_1UpdateChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2000,7 +2399,10 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
   context: __SerdeContext
 ): Promise<UpdateOriginEndpointCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateOriginEndpointCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateOriginEndpointCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateOriginEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -2019,7 +2421,7 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
     Tags: undefined,
     TimeDelaySeconds: undefined,
     Url: undefined,
-    Whitelist: undefined,
+    Whitelist: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined) {
@@ -2029,16 +2431,25 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
     contents.ChannelId = data.channelId;
   }
   if (data.cmafPackage !== undefined) {
-    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(data.cmafPackage, context);
+    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(
+      data.cmafPackage,
+      context
+    );
   }
   if (data.dashPackage !== undefined) {
-    contents.DashPackage = deserializeAws_restJson1_1DashPackage(data.dashPackage, context);
+    contents.DashPackage = deserializeAws_restJson1_1DashPackage(
+      data.dashPackage,
+      context
+    );
   }
   if (data.description !== undefined) {
     contents.Description = data.description;
   }
   if (data.hlsPackage !== undefined) {
-    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(data.hlsPackage, context);
+    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(
+      data.hlsPackage,
+      context
+    );
   }
   if (data.id !== undefined) {
     contents.Id = data.id;
@@ -2047,7 +2458,10 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
     contents.ManifestName = data.manifestName;
   }
   if (data.mssPackage !== undefined) {
-    contents.MssPackage = deserializeAws_restJson1_1MssPackage(data.mssPackage, context);
+    contents.MssPackage = deserializeAws_restJson1_1MssPackage(
+      data.mssPackage,
+      context
+    );
   }
   if (data.origination !== undefined) {
     contents.Origination = data.origination;
@@ -2065,55 +2479,76 @@ export async function deserializeAws_restJson1_1UpdateOriginEndpointCommand(
     contents.Url = data.url;
   }
   if (data.whitelist !== undefined) {
-    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(data.whitelist, context);
+    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(
+      data.whitelist,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateOriginEndpointCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateOriginEndpointCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ForbiddenException":
     case "com.amazonaws.mediapackage#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InternalServerErrorException":
     case "com.amazonaws.mediapackage#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "NotFoundException":
     case "com.amazonaws.mediapackage#NotFoundException":
-      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1NotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.mediapackage#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.mediapackage#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnprocessableEntityException":
     case "com.amazonaws.mediapackage#UnprocessableEntityException":
-      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnprocessableEntityExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.mediapackage#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2127,7 +2562,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2144,7 +2579,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2161,7 +2596,7 @@ const deserializeAws_restJson1_1NotFoundExceptionResponse = async (
     __type: "NotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2178,7 +2613,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2195,7 +2630,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2212,7 +2647,7 @@ const deserializeAws_restJson1_1UnprocessableEntityExceptionResponse = async (
     __type: "UnprocessableEntityException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -2225,10 +2660,8 @@ const serializeAws_restJson1_1AdTriggers = (
   input: Array<__AdTriggersElement | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1CmafEncryption = (
   input: CmafEncryption,
@@ -2236,13 +2669,16 @@ const serializeAws_restJson1_1CmafEncryption = (
 ): any => {
   let bodyParams: any = {};
   if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams['keyRotationIntervalSeconds'] = input.KeyRotationIntervalSeconds;
+    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
   }
   if (input.SpekeKeyProvider !== undefined) {
-    bodyParams['spekeKeyProvider'] = serializeAws_restJson1_1SpekeKeyProvider(input.SpekeKeyProvider, context);
+    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
+      input.SpekeKeyProvider,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters = (
   input: CmafPackageCreateOrUpdateParameters,
@@ -2250,22 +2686,33 @@ const serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters = (
 ): any => {
   let bodyParams: any = {};
   if (input.Encryption !== undefined) {
-    bodyParams['encryption'] = serializeAws_restJson1_1CmafEncryption(input.Encryption, context);
+    bodyParams["encryption"] = serializeAws_restJson1_1CmafEncryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.HlsManifests !== undefined) {
-    bodyParams['hlsManifests'] = serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters(input.HlsManifests, context);
+    bodyParams[
+      "hlsManifests"
+    ] = serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters(
+      input.HlsManifests,
+      context
+    );
   }
   if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams['segmentDurationSeconds'] = input.SegmentDurationSeconds;
+    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
   if (input.SegmentPrefix !== undefined) {
-    bodyParams['segmentPrefix'] = input.SegmentPrefix;
+    bodyParams["segmentPrefix"] = input.SegmentPrefix;
   }
   if (input.StreamSelection !== undefined) {
-    bodyParams['streamSelection'] = serializeAws_restJson1_1StreamSelection(input.StreamSelection, context);
+    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
+      input.StreamSelection,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1DashEncryption = (
   input: DashEncryption,
@@ -2273,13 +2720,16 @@ const serializeAws_restJson1_1DashEncryption = (
 ): any => {
   let bodyParams: any = {};
   if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams['keyRotationIntervalSeconds'] = input.KeyRotationIntervalSeconds;
+    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
   }
   if (input.SpekeKeyProvider !== undefined) {
-    bodyParams['spekeKeyProvider'] = serializeAws_restJson1_1SpekeKeyProvider(input.SpekeKeyProvider, context);
+    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
+      input.SpekeKeyProvider,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1DashPackage = (
   input: DashPackage,
@@ -2287,46 +2737,61 @@ const serializeAws_restJson1_1DashPackage = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdTriggers !== undefined) {
-    bodyParams['adTriggers'] = serializeAws_restJson1_1AdTriggers(input.AdTriggers, context);
+    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
+      input.AdTriggers,
+      context
+    );
   }
   if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams['adsOnDeliveryRestrictions'] = input.AdsOnDeliveryRestrictions;
+    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
   }
   if (input.Encryption !== undefined) {
-    bodyParams['encryption'] = serializeAws_restJson1_1DashEncryption(input.Encryption, context);
+    bodyParams["encryption"] = serializeAws_restJson1_1DashEncryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.ManifestLayout !== undefined) {
-    bodyParams['manifestLayout'] = input.ManifestLayout;
+    bodyParams["manifestLayout"] = input.ManifestLayout;
   }
   if (input.ManifestWindowSeconds !== undefined) {
-    bodyParams['manifestWindowSeconds'] = input.ManifestWindowSeconds;
+    bodyParams["manifestWindowSeconds"] = input.ManifestWindowSeconds;
   }
   if (input.MinBufferTimeSeconds !== undefined) {
-    bodyParams['minBufferTimeSeconds'] = input.MinBufferTimeSeconds;
+    bodyParams["minBufferTimeSeconds"] = input.MinBufferTimeSeconds;
   }
   if (input.MinUpdatePeriodSeconds !== undefined) {
-    bodyParams['minUpdatePeriodSeconds'] = input.MinUpdatePeriodSeconds;
+    bodyParams["minUpdatePeriodSeconds"] = input.MinUpdatePeriodSeconds;
   }
   if (input.PeriodTriggers !== undefined) {
-    bodyParams['periodTriggers'] = serializeAws_restJson1_1__listOf__PeriodTriggersElement(input.PeriodTriggers, context);
+    bodyParams[
+      "periodTriggers"
+    ] = serializeAws_restJson1_1__listOf__PeriodTriggersElement(
+      input.PeriodTriggers,
+      context
+    );
   }
   if (input.Profile !== undefined) {
-    bodyParams['profile'] = input.Profile;
+    bodyParams["profile"] = input.Profile;
   }
   if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams['segmentDurationSeconds'] = input.SegmentDurationSeconds;
+    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
   if (input.SegmentTemplateFormat !== undefined) {
-    bodyParams['segmentTemplateFormat'] = input.SegmentTemplateFormat;
+    bodyParams["segmentTemplateFormat"] = input.SegmentTemplateFormat;
   }
   if (input.StreamSelection !== undefined) {
-    bodyParams['streamSelection'] = serializeAws_restJson1_1StreamSelection(input.StreamSelection, context);
+    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
+      input.StreamSelection,
+      context
+    );
   }
   if (input.SuggestedPresentationDelaySeconds !== undefined) {
-    bodyParams['suggestedPresentationDelaySeconds'] = input.SuggestedPresentationDelaySeconds;
+    bodyParams["suggestedPresentationDelaySeconds"] =
+      input.SuggestedPresentationDelaySeconds;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1HlsEncryption = (
   input: HlsEncryption,
@@ -2334,22 +2799,26 @@ const serializeAws_restJson1_1HlsEncryption = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConstantInitializationVector !== undefined) {
-    bodyParams['constantInitializationVector'] = input.ConstantInitializationVector;
+    bodyParams["constantInitializationVector"] =
+      input.ConstantInitializationVector;
   }
   if (input.EncryptionMethod !== undefined) {
-    bodyParams['encryptionMethod'] = input.EncryptionMethod;
+    bodyParams["encryptionMethod"] = input.EncryptionMethod;
   }
   if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams['keyRotationIntervalSeconds'] = input.KeyRotationIntervalSeconds;
+    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
   }
   if (input.RepeatExtXKey !== undefined) {
-    bodyParams['repeatExtXKey'] = input.RepeatExtXKey;
+    bodyParams["repeatExtXKey"] = input.RepeatExtXKey;
   }
   if (input.SpekeKeyProvider !== undefined) {
-    bodyParams['spekeKeyProvider'] = serializeAws_restJson1_1SpekeKeyProvider(input.SpekeKeyProvider, context);
+    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
+      input.SpekeKeyProvider,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters = (
   input: HlsManifestCreateOrUpdateParameters,
@@ -2357,34 +2826,38 @@ const serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
-    bodyParams['adMarkers'] = input.AdMarkers;
+    bodyParams["adMarkers"] = input.AdMarkers;
   }
   if (input.AdTriggers !== undefined) {
-    bodyParams['adTriggers'] = serializeAws_restJson1_1AdTriggers(input.AdTriggers, context);
+    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
+      input.AdTriggers,
+      context
+    );
   }
   if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams['adsOnDeliveryRestrictions'] = input.AdsOnDeliveryRestrictions;
+    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
   }
   if (input.Id !== undefined) {
-    bodyParams['id'] = input.Id;
+    bodyParams["id"] = input.Id;
   }
   if (input.IncludeIframeOnlyStream !== undefined) {
-    bodyParams['includeIframeOnlyStream'] = input.IncludeIframeOnlyStream;
+    bodyParams["includeIframeOnlyStream"] = input.IncludeIframeOnlyStream;
   }
   if (input.ManifestName !== undefined) {
-    bodyParams['manifestName'] = input.ManifestName;
+    bodyParams["manifestName"] = input.ManifestName;
   }
   if (input.PlaylistType !== undefined) {
-    bodyParams['playlistType'] = input.PlaylistType;
+    bodyParams["playlistType"] = input.PlaylistType;
   }
   if (input.PlaylistWindowSeconds !== undefined) {
-    bodyParams['playlistWindowSeconds'] = input.PlaylistWindowSeconds;
+    bodyParams["playlistWindowSeconds"] = input.PlaylistWindowSeconds;
   }
   if (input.ProgramDateTimeIntervalSeconds !== undefined) {
-    bodyParams['programDateTimeIntervalSeconds'] = input.ProgramDateTimeIntervalSeconds;
+    bodyParams["programDateTimeIntervalSeconds"] =
+      input.ProgramDateTimeIntervalSeconds;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1HlsPackage = (
   input: HlsPackage,
@@ -2392,40 +2865,50 @@ const serializeAws_restJson1_1HlsPackage = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdMarkers !== undefined) {
-    bodyParams['adMarkers'] = input.AdMarkers;
+    bodyParams["adMarkers"] = input.AdMarkers;
   }
   if (input.AdTriggers !== undefined) {
-    bodyParams['adTriggers'] = serializeAws_restJson1_1AdTriggers(input.AdTriggers, context);
+    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
+      input.AdTriggers,
+      context
+    );
   }
   if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams['adsOnDeliveryRestrictions'] = input.AdsOnDeliveryRestrictions;
+    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
   }
   if (input.Encryption !== undefined) {
-    bodyParams['encryption'] = serializeAws_restJson1_1HlsEncryption(input.Encryption, context);
+    bodyParams["encryption"] = serializeAws_restJson1_1HlsEncryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.IncludeIframeOnlyStream !== undefined) {
-    bodyParams['includeIframeOnlyStream'] = input.IncludeIframeOnlyStream;
+    bodyParams["includeIframeOnlyStream"] = input.IncludeIframeOnlyStream;
   }
   if (input.PlaylistType !== undefined) {
-    bodyParams['playlistType'] = input.PlaylistType;
+    bodyParams["playlistType"] = input.PlaylistType;
   }
   if (input.PlaylistWindowSeconds !== undefined) {
-    bodyParams['playlistWindowSeconds'] = input.PlaylistWindowSeconds;
+    bodyParams["playlistWindowSeconds"] = input.PlaylistWindowSeconds;
   }
   if (input.ProgramDateTimeIntervalSeconds !== undefined) {
-    bodyParams['programDateTimeIntervalSeconds'] = input.ProgramDateTimeIntervalSeconds;
+    bodyParams["programDateTimeIntervalSeconds"] =
+      input.ProgramDateTimeIntervalSeconds;
   }
   if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams['segmentDurationSeconds'] = input.SegmentDurationSeconds;
+    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
   if (input.StreamSelection !== undefined) {
-    bodyParams['streamSelection'] = serializeAws_restJson1_1StreamSelection(input.StreamSelection, context);
+    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
+      input.StreamSelection,
+      context
+    );
   }
   if (input.UseAudioRenditionGroup !== undefined) {
-    bodyParams['useAudioRenditionGroup'] = input.UseAudioRenditionGroup;
+    bodyParams["useAudioRenditionGroup"] = input.UseAudioRenditionGroup;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1MssEncryption = (
   input: MssEncryption,
@@ -2433,10 +2916,13 @@ const serializeAws_restJson1_1MssEncryption = (
 ): any => {
   let bodyParams: any = {};
   if (input.SpekeKeyProvider !== undefined) {
-    bodyParams['spekeKeyProvider'] = serializeAws_restJson1_1SpekeKeyProvider(input.SpekeKeyProvider, context);
+    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
+      input.SpekeKeyProvider,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1MssPackage = (
   input: MssPackage,
@@ -2444,19 +2930,25 @@ const serializeAws_restJson1_1MssPackage = (
 ): any => {
   let bodyParams: any = {};
   if (input.Encryption !== undefined) {
-    bodyParams['encryption'] = serializeAws_restJson1_1MssEncryption(input.Encryption, context);
+    bodyParams["encryption"] = serializeAws_restJson1_1MssEncryption(
+      input.Encryption,
+      context
+    );
   }
   if (input.ManifestWindowSeconds !== undefined) {
-    bodyParams['manifestWindowSeconds'] = input.ManifestWindowSeconds;
+    bodyParams["manifestWindowSeconds"] = input.ManifestWindowSeconds;
   }
   if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams['segmentDurationSeconds'] = input.SegmentDurationSeconds;
+    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
   }
   if (input.StreamSelection !== undefined) {
-    bodyParams['streamSelection'] = serializeAws_restJson1_1StreamSelection(input.StreamSelection, context);
+    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
+      input.StreamSelection,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
@@ -2464,16 +2956,16 @@ const serializeAws_restJson1_1S3Destination = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketName !== undefined) {
-    bodyParams['bucketName'] = input.BucketName;
+    bodyParams["bucketName"] = input.BucketName;
   }
   if (input.ManifestKey !== undefined) {
-    bodyParams['manifestKey'] = input.ManifestKey;
+    bodyParams["manifestKey"] = input.ManifestKey;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams['roleArn'] = input.RoleArn;
+    bodyParams["roleArn"] = input.RoleArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SpekeKeyProvider = (
   input: SpekeKeyProvider,
@@ -2481,22 +2973,25 @@ const serializeAws_restJson1_1SpekeKeyProvider = (
 ): any => {
   let bodyParams: any = {};
   if (input.CertificateArn !== undefined) {
-    bodyParams['certificateArn'] = input.CertificateArn;
+    bodyParams["certificateArn"] = input.CertificateArn;
   }
   if (input.ResourceId !== undefined) {
-    bodyParams['resourceId'] = input.ResourceId;
+    bodyParams["resourceId"] = input.ResourceId;
   }
   if (input.RoleArn !== undefined) {
-    bodyParams['roleArn'] = input.RoleArn;
+    bodyParams["roleArn"] = input.RoleArn;
   }
   if (input.SystemIds !== undefined) {
-    bodyParams['systemIds'] = serializeAws_restJson1_1__listOf__string(input.SystemIds, context);
+    bodyParams["systemIds"] = serializeAws_restJson1_1__listOf__string(
+      input.SystemIds,
+      context
+    );
   }
   if (input.Url !== undefined) {
-    bodyParams['url'] = input.Url;
+    bodyParams["url"] = input.Url;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1StreamSelection = (
   input: StreamSelection,
@@ -2504,16 +2999,16 @@ const serializeAws_restJson1_1StreamSelection = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxVideoBitsPerSecond !== undefined) {
-    bodyParams['maxVideoBitsPerSecond'] = input.MaxVideoBitsPerSecond;
+    bodyParams["maxVideoBitsPerSecond"] = input.MaxVideoBitsPerSecond;
   }
   if (input.MinVideoBitsPerSecond !== undefined) {
-    bodyParams['minVideoBitsPerSecond'] = input.MinVideoBitsPerSecond;
+    bodyParams["minVideoBitsPerSecond"] = input.MinVideoBitsPerSecond;
   }
   if (input.StreamOrder !== undefined) {
-    bodyParams['streamOrder'] = input.StreamOrder;
+    bodyParams["streamOrder"] = input.StreamOrder;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Tags = (
   input: { [key: string]: string },
@@ -2524,7 +3019,7 @@ const serializeAws_restJson1_1Tags = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
   input: Array<HlsManifestCreateOrUpdateParameters>,
@@ -2533,25 +3028,21 @@ const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1__listOf__PeriodTriggersElement = (
   input: Array<__PeriodTriggersElement | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1__listOf__string = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1__mapOf__string = (
   input: { [key: string]: string },
@@ -2562,16 +3053,14 @@ const serializeAws_restJson1_1__mapOf__string = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1AdTriggers = (
   output: any,
   context: __SerdeContext
 ): Array<__AdTriggersElement | string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Channel = (
   output: any,
@@ -2583,7 +3072,7 @@ const deserializeAws_restJson1_1Channel = (
     Description: undefined,
     HlsIngest: undefined,
     Id: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   if (output.arn !== undefined) {
     contents.Arn = output.arn;
@@ -2592,7 +3081,10 @@ const deserializeAws_restJson1_1Channel = (
     contents.Description = output.description;
   }
   if (output.hlsIngest !== undefined) {
-    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(output.hlsIngest, context);
+    contents.HlsIngest = deserializeAws_restJson1_1HlsIngest(
+      output.hlsIngest,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.Id = output.id;
@@ -2601,7 +3093,7 @@ const deserializeAws_restJson1_1Channel = (
     contents.Tags = deserializeAws_restJson1_1Tags(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CmafEncryption = (
   output: any,
@@ -2610,16 +3102,19 @@ const deserializeAws_restJson1_1CmafEncryption = (
   let contents: any = {
     __type: "CmafEncryption",
     KeyRotationIntervalSeconds: undefined,
-    SpekeKeyProvider: undefined,
+    SpekeKeyProvider: undefined
   };
   if (output.keyRotationIntervalSeconds !== undefined) {
     contents.KeyRotationIntervalSeconds = output.keyRotationIntervalSeconds;
   }
   if (output.spekeKeyProvider !== undefined) {
-    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(output.spekeKeyProvider, context);
+    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(
+      output.spekeKeyProvider,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CmafPackage = (
   output: any,
@@ -2631,13 +3126,19 @@ const deserializeAws_restJson1_1CmafPackage = (
     HlsManifests: undefined,
     SegmentDurationSeconds: undefined,
     SegmentPrefix: undefined,
-    StreamSelection: undefined,
+    StreamSelection: undefined
   };
   if (output.encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1CmafEncryption(output.encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1CmafEncryption(
+      output.encryption,
+      context
+    );
   }
   if (output.hlsManifests !== undefined) {
-    contents.HlsManifests = deserializeAws_restJson1_1__listOfHlsManifest(output.hlsManifests, context);
+    contents.HlsManifests = deserializeAws_restJson1_1__listOfHlsManifest(
+      output.hlsManifests,
+      context
+    );
   }
   if (output.segmentDurationSeconds !== undefined) {
     contents.SegmentDurationSeconds = output.segmentDurationSeconds;
@@ -2646,10 +3147,13 @@ const deserializeAws_restJson1_1CmafPackage = (
     contents.SegmentPrefix = output.segmentPrefix;
   }
   if (output.streamSelection !== undefined) {
-    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(output.streamSelection, context);
+    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(
+      output.streamSelection,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DashEncryption = (
   output: any,
@@ -2658,16 +3162,19 @@ const deserializeAws_restJson1_1DashEncryption = (
   let contents: any = {
     __type: "DashEncryption",
     KeyRotationIntervalSeconds: undefined,
-    SpekeKeyProvider: undefined,
+    SpekeKeyProvider: undefined
   };
   if (output.keyRotationIntervalSeconds !== undefined) {
     contents.KeyRotationIntervalSeconds = output.keyRotationIntervalSeconds;
   }
   if (output.spekeKeyProvider !== undefined) {
-    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(output.spekeKeyProvider, context);
+    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(
+      output.spekeKeyProvider,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DashPackage = (
   output: any,
@@ -2687,16 +3194,22 @@ const deserializeAws_restJson1_1DashPackage = (
     SegmentDurationSeconds: undefined,
     SegmentTemplateFormat: undefined,
     StreamSelection: undefined,
-    SuggestedPresentationDelaySeconds: undefined,
+    SuggestedPresentationDelaySeconds: undefined
   };
   if (output.adTriggers !== undefined) {
-    contents.AdTriggers = deserializeAws_restJson1_1AdTriggers(output.adTriggers, context);
+    contents.AdTriggers = deserializeAws_restJson1_1AdTriggers(
+      output.adTriggers,
+      context
+    );
   }
   if (output.adsOnDeliveryRestrictions !== undefined) {
     contents.AdsOnDeliveryRestrictions = output.adsOnDeliveryRestrictions;
   }
   if (output.encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1DashEncryption(output.encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1DashEncryption(
+      output.encryption,
+      context
+    );
   }
   if (output.manifestLayout !== undefined) {
     contents.ManifestLayout = output.manifestLayout;
@@ -2711,7 +3224,10 @@ const deserializeAws_restJson1_1DashPackage = (
     contents.MinUpdatePeriodSeconds = output.minUpdatePeriodSeconds;
   }
   if (output.periodTriggers !== undefined) {
-    contents.PeriodTriggers = deserializeAws_restJson1_1__listOf__PeriodTriggersElement(output.periodTriggers, context);
+    contents.PeriodTriggers = deserializeAws_restJson1_1__listOf__PeriodTriggersElement(
+      output.periodTriggers,
+      context
+    );
   }
   if (output.profile !== undefined) {
     contents.Profile = output.profile;
@@ -2723,13 +3239,17 @@ const deserializeAws_restJson1_1DashPackage = (
     contents.SegmentTemplateFormat = output.segmentTemplateFormat;
   }
   if (output.streamSelection !== undefined) {
-    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(output.streamSelection, context);
+    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(
+      output.streamSelection,
+      context
+    );
   }
   if (output.suggestedPresentationDelaySeconds !== undefined) {
-    contents.SuggestedPresentationDelaySeconds = output.suggestedPresentationDelaySeconds;
+    contents.SuggestedPresentationDelaySeconds =
+      output.suggestedPresentationDelaySeconds;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HarvestJob = (
   output: any,
@@ -2745,7 +3265,7 @@ const deserializeAws_restJson1_1HarvestJob = (
     OriginEndpointId: undefined,
     S3Destination: undefined,
     StartTime: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.arn !== undefined) {
     contents.Arn = output.arn;
@@ -2766,7 +3286,10 @@ const deserializeAws_restJson1_1HarvestJob = (
     contents.OriginEndpointId = output.originEndpointId;
   }
   if (output.s3Destination !== undefined) {
-    contents.S3Destination = deserializeAws_restJson1_1S3Destination(output.s3Destination, context);
+    contents.S3Destination = deserializeAws_restJson1_1S3Destination(
+      output.s3Destination,
+      context
+    );
   }
   if (output.startTime !== undefined) {
     contents.StartTime = output.startTime;
@@ -2775,7 +3298,7 @@ const deserializeAws_restJson1_1HarvestJob = (
     contents.Status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HlsEncryption = (
   output: any,
@@ -2787,7 +3310,7 @@ const deserializeAws_restJson1_1HlsEncryption = (
     EncryptionMethod: undefined,
     KeyRotationIntervalSeconds: undefined,
     RepeatExtXKey: undefined,
-    SpekeKeyProvider: undefined,
+    SpekeKeyProvider: undefined
   };
   if (output.constantInitializationVector !== undefined) {
     contents.ConstantInitializationVector = output.constantInitializationVector;
@@ -2802,10 +3325,13 @@ const deserializeAws_restJson1_1HlsEncryption = (
     contents.RepeatExtXKey = output.repeatExtXKey;
   }
   if (output.spekeKeyProvider !== undefined) {
-    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(output.spekeKeyProvider, context);
+    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(
+      output.spekeKeyProvider,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HlsIngest = (
   output: any,
@@ -2813,13 +3339,16 @@ const deserializeAws_restJson1_1HlsIngest = (
 ): HlsIngest => {
   let contents: any = {
     __type: "HlsIngest",
-    IngestEndpoints: undefined,
+    IngestEndpoints: undefined
   };
   if (output.ingestEndpoints !== undefined) {
-    contents.IngestEndpoints = deserializeAws_restJson1_1__listOfIngestEndpoint(output.ingestEndpoints, context);
+    contents.IngestEndpoints = deserializeAws_restJson1_1__listOfIngestEndpoint(
+      output.ingestEndpoints,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HlsManifest = (
   output: any,
@@ -2834,7 +3363,7 @@ const deserializeAws_restJson1_1HlsManifest = (
     PlaylistType: undefined,
     PlaylistWindowSeconds: undefined,
     ProgramDateTimeIntervalSeconds: undefined,
-    Url: undefined,
+    Url: undefined
   };
   if (output.adMarkers !== undefined) {
     contents.AdMarkers = output.adMarkers;
@@ -2855,13 +3384,14 @@ const deserializeAws_restJson1_1HlsManifest = (
     contents.PlaylistWindowSeconds = output.playlistWindowSeconds;
   }
   if (output.programDateTimeIntervalSeconds !== undefined) {
-    contents.ProgramDateTimeIntervalSeconds = output.programDateTimeIntervalSeconds;
+    contents.ProgramDateTimeIntervalSeconds =
+      output.programDateTimeIntervalSeconds;
   }
   if (output.url !== undefined) {
     contents.Url = output.url;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HlsPackage = (
   output: any,
@@ -2879,19 +3409,25 @@ const deserializeAws_restJson1_1HlsPackage = (
     ProgramDateTimeIntervalSeconds: undefined,
     SegmentDurationSeconds: undefined,
     StreamSelection: undefined,
-    UseAudioRenditionGroup: undefined,
+    UseAudioRenditionGroup: undefined
   };
   if (output.adMarkers !== undefined) {
     contents.AdMarkers = output.adMarkers;
   }
   if (output.adTriggers !== undefined) {
-    contents.AdTriggers = deserializeAws_restJson1_1AdTriggers(output.adTriggers, context);
+    contents.AdTriggers = deserializeAws_restJson1_1AdTriggers(
+      output.adTriggers,
+      context
+    );
   }
   if (output.adsOnDeliveryRestrictions !== undefined) {
     contents.AdsOnDeliveryRestrictions = output.adsOnDeliveryRestrictions;
   }
   if (output.encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1HlsEncryption(output.encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1HlsEncryption(
+      output.encryption,
+      context
+    );
   }
   if (output.includeIframeOnlyStream !== undefined) {
     contents.IncludeIframeOnlyStream = output.includeIframeOnlyStream;
@@ -2903,19 +3439,23 @@ const deserializeAws_restJson1_1HlsPackage = (
     contents.PlaylistWindowSeconds = output.playlistWindowSeconds;
   }
   if (output.programDateTimeIntervalSeconds !== undefined) {
-    contents.ProgramDateTimeIntervalSeconds = output.programDateTimeIntervalSeconds;
+    contents.ProgramDateTimeIntervalSeconds =
+      output.programDateTimeIntervalSeconds;
   }
   if (output.segmentDurationSeconds !== undefined) {
     contents.SegmentDurationSeconds = output.segmentDurationSeconds;
   }
   if (output.streamSelection !== undefined) {
-    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(output.streamSelection, context);
+    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(
+      output.streamSelection,
+      context
+    );
   }
   if (output.useAudioRenditionGroup !== undefined) {
     contents.UseAudioRenditionGroup = output.useAudioRenditionGroup;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1IngestEndpoint = (
   output: any,
@@ -2926,7 +3466,7 @@ const deserializeAws_restJson1_1IngestEndpoint = (
     Id: undefined,
     Password: undefined,
     Url: undefined,
-    Username: undefined,
+    Username: undefined
   };
   if (output.id !== undefined) {
     contents.Id = output.id;
@@ -2941,7 +3481,7 @@ const deserializeAws_restJson1_1IngestEndpoint = (
     contents.Username = output.username;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MssEncryption = (
   output: any,
@@ -2949,13 +3489,16 @@ const deserializeAws_restJson1_1MssEncryption = (
 ): MssEncryption => {
   let contents: any = {
     __type: "MssEncryption",
-    SpekeKeyProvider: undefined,
+    SpekeKeyProvider: undefined
   };
   if (output.spekeKeyProvider !== undefined) {
-    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(output.spekeKeyProvider, context);
+    contents.SpekeKeyProvider = deserializeAws_restJson1_1SpekeKeyProvider(
+      output.spekeKeyProvider,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1MssPackage = (
   output: any,
@@ -2966,10 +3509,13 @@ const deserializeAws_restJson1_1MssPackage = (
     Encryption: undefined,
     ManifestWindowSeconds: undefined,
     SegmentDurationSeconds: undefined,
-    StreamSelection: undefined,
+    StreamSelection: undefined
   };
   if (output.encryption !== undefined) {
-    contents.Encryption = deserializeAws_restJson1_1MssEncryption(output.encryption, context);
+    contents.Encryption = deserializeAws_restJson1_1MssEncryption(
+      output.encryption,
+      context
+    );
   }
   if (output.manifestWindowSeconds !== undefined) {
     contents.ManifestWindowSeconds = output.manifestWindowSeconds;
@@ -2978,10 +3524,13 @@ const deserializeAws_restJson1_1MssPackage = (
     contents.SegmentDurationSeconds = output.segmentDurationSeconds;
   }
   if (output.streamSelection !== undefined) {
-    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(output.streamSelection, context);
+    contents.StreamSelection = deserializeAws_restJson1_1StreamSelection(
+      output.streamSelection,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1OriginEndpoint = (
   output: any,
@@ -3003,7 +3552,7 @@ const deserializeAws_restJson1_1OriginEndpoint = (
     Tags: undefined,
     TimeDelaySeconds: undefined,
     Url: undefined,
-    Whitelist: undefined,
+    Whitelist: undefined
   };
   if (output.arn !== undefined) {
     contents.Arn = output.arn;
@@ -3012,16 +3561,25 @@ const deserializeAws_restJson1_1OriginEndpoint = (
     contents.ChannelId = output.channelId;
   }
   if (output.cmafPackage !== undefined) {
-    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(output.cmafPackage, context);
+    contents.CmafPackage = deserializeAws_restJson1_1CmafPackage(
+      output.cmafPackage,
+      context
+    );
   }
   if (output.dashPackage !== undefined) {
-    contents.DashPackage = deserializeAws_restJson1_1DashPackage(output.dashPackage, context);
+    contents.DashPackage = deserializeAws_restJson1_1DashPackage(
+      output.dashPackage,
+      context
+    );
   }
   if (output.description !== undefined) {
     contents.Description = output.description;
   }
   if (output.hlsPackage !== undefined) {
-    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(output.hlsPackage, context);
+    contents.HlsPackage = deserializeAws_restJson1_1HlsPackage(
+      output.hlsPackage,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.Id = output.id;
@@ -3030,7 +3588,10 @@ const deserializeAws_restJson1_1OriginEndpoint = (
     contents.ManifestName = output.manifestName;
   }
   if (output.mssPackage !== undefined) {
-    contents.MssPackage = deserializeAws_restJson1_1MssPackage(output.mssPackage, context);
+    contents.MssPackage = deserializeAws_restJson1_1MssPackage(
+      output.mssPackage,
+      context
+    );
   }
   if (output.origination !== undefined) {
     contents.Origination = output.origination;
@@ -3048,10 +3609,13 @@ const deserializeAws_restJson1_1OriginEndpoint = (
     contents.Url = output.url;
   }
   if (output.whitelist !== undefined) {
-    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(output.whitelist, context);
+    contents.Whitelist = deserializeAws_restJson1_1__listOf__string(
+      output.whitelist,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1S3Destination = (
   output: any,
@@ -3061,7 +3625,7 @@ const deserializeAws_restJson1_1S3Destination = (
     __type: "S3Destination",
     BucketName: undefined,
     ManifestKey: undefined,
-    RoleArn: undefined,
+    RoleArn: undefined
   };
   if (output.bucketName !== undefined) {
     contents.BucketName = output.bucketName;
@@ -3073,7 +3637,7 @@ const deserializeAws_restJson1_1S3Destination = (
     contents.RoleArn = output.roleArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SpekeKeyProvider = (
   output: any,
@@ -3085,7 +3649,7 @@ const deserializeAws_restJson1_1SpekeKeyProvider = (
     ResourceId: undefined,
     RoleArn: undefined,
     SystemIds: undefined,
-    Url: undefined,
+    Url: undefined
   };
   if (output.certificateArn !== undefined) {
     contents.CertificateArn = output.certificateArn;
@@ -3097,13 +3661,16 @@ const deserializeAws_restJson1_1SpekeKeyProvider = (
     contents.RoleArn = output.roleArn;
   }
   if (output.systemIds !== undefined) {
-    contents.SystemIds = deserializeAws_restJson1_1__listOf__string(output.systemIds, context);
+    contents.SystemIds = deserializeAws_restJson1_1__listOf__string(
+      output.systemIds,
+      context
+    );
   }
   if (output.url !== undefined) {
     contents.Url = output.url;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1StreamSelection = (
   output: any,
@@ -3113,7 +3680,7 @@ const deserializeAws_restJson1_1StreamSelection = (
     __type: "StreamSelection",
     MaxVideoBitsPerSecond: undefined,
     MinVideoBitsPerSecond: undefined,
-    StreamOrder: undefined,
+    StreamOrder: undefined
   };
   if (output.maxVideoBitsPerSecond !== undefined) {
     contents.MaxVideoBitsPerSecond = output.maxVideoBitsPerSecond;
@@ -3125,7 +3692,7 @@ const deserializeAws_restJson1_1StreamSelection = (
     contents.StreamOrder = output.streamOrder;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Tags = (
   output: any,
@@ -3136,7 +3703,7 @@ const deserializeAws_restJson1_1Tags = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1__listOfChannel = (
   output: any,
@@ -3145,7 +3712,7 @@ const deserializeAws_restJson1_1__listOfChannel = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Channel(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1__listOfHarvestJob = (
   output: any,
@@ -3154,7 +3721,7 @@ const deserializeAws_restJson1_1__listOfHarvestJob = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HarvestJob(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1__listOfHlsManifest = (
   output: any,
@@ -3163,7 +3730,7 @@ const deserializeAws_restJson1_1__listOfHlsManifest = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1HlsManifest(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1__listOfIngestEndpoint = (
   output: any,
@@ -3172,7 +3739,7 @@ const deserializeAws_restJson1_1__listOfIngestEndpoint = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1IngestEndpoint(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1__listOfOriginEndpoint = (
   output: any,
@@ -3181,25 +3748,21 @@ const deserializeAws_restJson1_1__listOfOriginEndpoint = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1OriginEndpoint(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1__listOf__PeriodTriggersElement = (
   output: any,
   context: __SerdeContext
 ): Array<__PeriodTriggersElement | string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1__listOf__string = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1__mapOf__string = (
   output: any,
@@ -3210,7 +3773,7 @@ const deserializeAws_restJson1_1__mapOf__string = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

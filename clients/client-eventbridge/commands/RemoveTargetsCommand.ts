@@ -1,20 +1,17 @@
 import {
   EventBridgeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EventBridgeClient";
-import {
-  RemoveTargetsRequest,
-  RemoveTargetsResponse,
-} from "../models/index";
+import { RemoveTargetsRequest, RemoveTargetsResponse } from "../models/index";
 import {
   deserializeAws_json1_1RemoveTargetsCommand,
-  serializeAws_json1_1RemoveTargetsCommand,
+  serializeAws_json1_1RemoveTargetsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type RemoveTargetsCommandInput = RemoveTargetsRequest;
 export type RemoveTargetsCommandOutput = RemoveTargetsResponse;
 
-export class RemoveTargetsCommand extends $Command<RemoveTargetsCommandInput, RemoveTargetsCommandOutput, EventBridgeClientResolvedConfig> {
+export class RemoveTargetsCommand extends $Command<
+  RemoveTargetsCommandInput,
+  RemoveTargetsCommandOutput,
+  EventBridgeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class RemoveTargetsCommand extends $Command<RemoveTargetsCommandInput, Re
     configuration: EventBridgeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<RemoveTargetsCommandInput, RemoveTargetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

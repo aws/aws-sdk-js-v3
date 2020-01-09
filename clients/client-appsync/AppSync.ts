@@ -2,207 +2,207 @@ import { AppSyncClient } from "./AppSyncClient";
 import {
   CreateApiCacheCommand,
   CreateApiCacheCommandInput,
-  CreateApiCacheCommandOutput,
+  CreateApiCacheCommandOutput
 } from "./commands/CreateApiCacheCommand";
 import {
   CreateApiKeyCommand,
   CreateApiKeyCommandInput,
-  CreateApiKeyCommandOutput,
+  CreateApiKeyCommandOutput
 } from "./commands/CreateApiKeyCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
+  CreateDataSourceCommandOutput
 } from "./commands/CreateDataSourceCommand";
 import {
   CreateFunctionCommand,
   CreateFunctionCommandInput,
-  CreateFunctionCommandOutput,
+  CreateFunctionCommandOutput
 } from "./commands/CreateFunctionCommand";
 import {
   CreateGraphqlApiCommand,
   CreateGraphqlApiCommandInput,
-  CreateGraphqlApiCommandOutput,
+  CreateGraphqlApiCommandOutput
 } from "./commands/CreateGraphqlApiCommand";
 import {
   CreateResolverCommand,
   CreateResolverCommandInput,
-  CreateResolverCommandOutput,
+  CreateResolverCommandOutput
 } from "./commands/CreateResolverCommand";
 import {
   CreateTypeCommand,
   CreateTypeCommandInput,
-  CreateTypeCommandOutput,
+  CreateTypeCommandOutput
 } from "./commands/CreateTypeCommand";
 import {
   DeleteApiCacheCommand,
   DeleteApiCacheCommandInput,
-  DeleteApiCacheCommandOutput,
+  DeleteApiCacheCommandOutput
 } from "./commands/DeleteApiCacheCommand";
 import {
   DeleteApiKeyCommand,
   DeleteApiKeyCommandInput,
-  DeleteApiKeyCommandOutput,
+  DeleteApiKeyCommandOutput
 } from "./commands/DeleteApiKeyCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
-  DeleteDataSourceCommandOutput,
+  DeleteDataSourceCommandOutput
 } from "./commands/DeleteDataSourceCommand";
 import {
   DeleteFunctionCommand,
   DeleteFunctionCommandInput,
-  DeleteFunctionCommandOutput,
+  DeleteFunctionCommandOutput
 } from "./commands/DeleteFunctionCommand";
 import {
   DeleteGraphqlApiCommand,
   DeleteGraphqlApiCommandInput,
-  DeleteGraphqlApiCommandOutput,
+  DeleteGraphqlApiCommandOutput
 } from "./commands/DeleteGraphqlApiCommand";
 import {
   DeleteResolverCommand,
   DeleteResolverCommandInput,
-  DeleteResolverCommandOutput,
+  DeleteResolverCommandOutput
 } from "./commands/DeleteResolverCommand";
 import {
   DeleteTypeCommand,
   DeleteTypeCommandInput,
-  DeleteTypeCommandOutput,
+  DeleteTypeCommandOutput
 } from "./commands/DeleteTypeCommand";
 import {
   FlushApiCacheCommand,
   FlushApiCacheCommandInput,
-  FlushApiCacheCommandOutput,
+  FlushApiCacheCommandOutput
 } from "./commands/FlushApiCacheCommand";
 import {
   GetApiCacheCommand,
   GetApiCacheCommandInput,
-  GetApiCacheCommandOutput,
+  GetApiCacheCommandOutput
 } from "./commands/GetApiCacheCommand";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
-  GetDataSourceCommandOutput,
+  GetDataSourceCommandOutput
 } from "./commands/GetDataSourceCommand";
 import {
   GetFunctionCommand,
   GetFunctionCommandInput,
-  GetFunctionCommandOutput,
+  GetFunctionCommandOutput
 } from "./commands/GetFunctionCommand";
 import {
   GetGraphqlApiCommand,
   GetGraphqlApiCommandInput,
-  GetGraphqlApiCommandOutput,
+  GetGraphqlApiCommandOutput
 } from "./commands/GetGraphqlApiCommand";
 import {
   GetIntrospectionSchemaCommand,
   GetIntrospectionSchemaCommandInput,
-  GetIntrospectionSchemaCommandOutput,
+  GetIntrospectionSchemaCommandOutput
 } from "./commands/GetIntrospectionSchemaCommand";
 import {
   GetResolverCommand,
   GetResolverCommandInput,
-  GetResolverCommandOutput,
+  GetResolverCommandOutput
 } from "./commands/GetResolverCommand";
 import {
   GetSchemaCreationStatusCommand,
   GetSchemaCreationStatusCommandInput,
-  GetSchemaCreationStatusCommandOutput,
+  GetSchemaCreationStatusCommandOutput
 } from "./commands/GetSchemaCreationStatusCommand";
 import {
   GetTypeCommand,
   GetTypeCommandInput,
-  GetTypeCommandOutput,
+  GetTypeCommandOutput
 } from "./commands/GetTypeCommand";
 import {
   ListApiKeysCommand,
   ListApiKeysCommandInput,
-  ListApiKeysCommandOutput,
+  ListApiKeysCommandOutput
 } from "./commands/ListApiKeysCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
+  ListDataSourcesCommandOutput
 } from "./commands/ListDataSourcesCommand";
 import {
   ListFunctionsCommand,
   ListFunctionsCommandInput,
-  ListFunctionsCommandOutput,
+  ListFunctionsCommandOutput
 } from "./commands/ListFunctionsCommand";
 import {
   ListGraphqlApisCommand,
   ListGraphqlApisCommandInput,
-  ListGraphqlApisCommandOutput,
+  ListGraphqlApisCommandOutput
 } from "./commands/ListGraphqlApisCommand";
 import {
   ListResolversByFunctionCommand,
   ListResolversByFunctionCommandInput,
-  ListResolversByFunctionCommandOutput,
+  ListResolversByFunctionCommandOutput
 } from "./commands/ListResolversByFunctionCommand";
 import {
   ListResolversCommand,
   ListResolversCommandInput,
-  ListResolversCommandOutput,
+  ListResolversCommandOutput
 } from "./commands/ListResolversCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTypesCommand,
   ListTypesCommandInput,
-  ListTypesCommandOutput,
+  ListTypesCommandOutput
 } from "./commands/ListTypesCommand";
 import {
   StartSchemaCreationCommand,
   StartSchemaCreationCommandInput,
-  StartSchemaCreationCommandOutput,
+  StartSchemaCreationCommandOutput
 } from "./commands/StartSchemaCreationCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApiCacheCommand,
   UpdateApiCacheCommandInput,
-  UpdateApiCacheCommandOutput,
+  UpdateApiCacheCommandOutput
 } from "./commands/UpdateApiCacheCommand";
 import {
   UpdateApiKeyCommand,
   UpdateApiKeyCommandInput,
-  UpdateApiKeyCommandOutput,
+  UpdateApiKeyCommandOutput
 } from "./commands/UpdateApiKeyCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
+  UpdateDataSourceCommandOutput
 } from "./commands/UpdateDataSourceCommand";
 import {
   UpdateFunctionCommand,
   UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput,
+  UpdateFunctionCommandOutput
 } from "./commands/UpdateFunctionCommand";
 import {
   UpdateGraphqlApiCommand,
   UpdateGraphqlApiCommandInput,
-  UpdateGraphqlApiCommandOutput,
+  UpdateGraphqlApiCommandOutput
 } from "./commands/UpdateGraphqlApiCommand";
 import {
   UpdateResolverCommand,
   UpdateResolverCommandInput,
-  UpdateResolverCommandOutput,
+  UpdateResolverCommandOutput
 } from "./commands/UpdateResolverCommand";
 import {
   UpdateTypeCommand,
   UpdateTypeCommandInput,
-  UpdateTypeCommandOutput,
+  UpdateTypeCommandOutput
 } from "./commands/UpdateTypeCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -220,7 +220,7 @@ export class AppSync extends AppSyncClient {
    */
   public createApiCache(
     args: CreateApiCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApiCacheCommandOutput>;
   public createApiCache(
     args: CreateApiCacheCommandInput,
@@ -233,16 +233,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createApiCache(
     args: CreateApiCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApiCacheCommandOutput) => void),
     cb?: (err: any, data?: CreateApiCacheCommandOutput) => void
   ): Promise<CreateApiCacheCommandOutput> | void {
     const command = new CreateApiCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -256,7 +258,7 @@ export class AppSync extends AppSyncClient {
    */
   public createApiKey(
     args: CreateApiKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApiKeyCommandOutput>;
   public createApiKey(
     args: CreateApiKeyCommandInput,
@@ -269,16 +271,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createApiKey(
     args: CreateApiKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApiKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateApiKeyCommandOutput) => void
   ): Promise<CreateApiKeyCommandOutput> | void {
     const command = new CreateApiKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -291,7 +295,7 @@ export class AppSync extends AppSyncClient {
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSourceCommandOutput>;
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -304,16 +308,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -327,7 +333,7 @@ export class AppSync extends AppSyncClient {
    */
   public createFunction(
     args: CreateFunctionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateFunctionCommandOutput>;
   public createFunction(
     args: CreateFunctionCommandInput,
@@ -340,16 +346,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createFunction(
     args: CreateFunctionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFunctionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateFunctionCommandOutput) => void),
     cb?: (err: any, data?: CreateFunctionCommandOutput) => void
   ): Promise<CreateFunctionCommandOutput> | void {
     const command = new CreateFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -362,7 +370,7 @@ export class AppSync extends AppSyncClient {
    */
   public createGraphqlApi(
     args: CreateGraphqlApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateGraphqlApiCommandOutput>;
   public createGraphqlApi(
     args: CreateGraphqlApiCommandInput,
@@ -375,16 +383,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createGraphqlApi(
     args: CreateGraphqlApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGraphqlApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGraphqlApiCommandOutput) => void),
     cb?: (err: any, data?: CreateGraphqlApiCommandOutput) => void
   ): Promise<CreateGraphqlApiCommandOutput> | void {
     const command = new CreateGraphqlApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -399,7 +409,7 @@ export class AppSync extends AppSyncClient {
    */
   public createResolver(
     args: CreateResolverCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateResolverCommandOutput>;
   public createResolver(
     args: CreateResolverCommandInput,
@@ -412,16 +422,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createResolver(
     args: CreateResolverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateResolverCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateResolverCommandOutput) => void),
     cb?: (err: any, data?: CreateResolverCommandOutput) => void
   ): Promise<CreateResolverCommandOutput> | void {
     const command = new CreateResolverCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -434,7 +446,7 @@ export class AppSync extends AppSyncClient {
    */
   public createType(
     args: CreateTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTypeCommandOutput>;
   public createType(
     args: CreateTypeCommandInput,
@@ -447,16 +459,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public createType(
     args: CreateTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTypeCommandOutput) => void),
     cb?: (err: any, data?: CreateTypeCommandOutput) => void
   ): Promise<CreateTypeCommandOutput> | void {
     const command = new CreateTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -469,7 +483,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteApiCache(
     args: DeleteApiCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApiCacheCommandOutput>;
   public deleteApiCache(
     args: DeleteApiCacheCommandInput,
@@ -482,16 +496,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteApiCache(
     args: DeleteApiCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApiCacheCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiCacheCommandOutput) => void
   ): Promise<DeleteApiCacheCommandOutput> | void {
     const command = new DeleteApiCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -504,7 +520,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApiKeyCommandOutput>;
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
@@ -517,16 +533,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteApiKey(
     args: DeleteApiKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApiKeyCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiKeyCommandOutput) => void
   ): Promise<DeleteApiKeyCommandOutput> | void {
     const command = new DeleteApiKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -539,7 +557,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDataSourceCommandOutput>;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
@@ -552,16 +570,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteDataSource(
     args: DeleteDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DeleteDataSourceCommandOutput) => void
   ): Promise<DeleteDataSourceCommandOutput> | void {
     const command = new DeleteDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -574,7 +594,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteFunction(
     args: DeleteFunctionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFunctionCommandOutput>;
   public deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -587,16 +607,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteFunction(
     args: DeleteFunctionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFunctionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFunctionCommandOutput) => void),
     cb?: (err: any, data?: DeleteFunctionCommandOutput) => void
   ): Promise<DeleteFunctionCommandOutput> | void {
     const command = new DeleteFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -609,7 +631,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteGraphqlApi(
     args: DeleteGraphqlApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteGraphqlApiCommandOutput>;
   public deleteGraphqlApi(
     args: DeleteGraphqlApiCommandInput,
@@ -622,16 +644,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteGraphqlApi(
     args: DeleteGraphqlApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGraphqlApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGraphqlApiCommandOutput) => void),
     cb?: (err: any, data?: DeleteGraphqlApiCommandOutput) => void
   ): Promise<DeleteGraphqlApiCommandOutput> | void {
     const command = new DeleteGraphqlApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -644,7 +668,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteResolver(
     args: DeleteResolverCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteResolverCommandOutput>;
   public deleteResolver(
     args: DeleteResolverCommandInput,
@@ -657,16 +681,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteResolver(
     args: DeleteResolverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResolverCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteResolverCommandOutput) => void),
     cb?: (err: any, data?: DeleteResolverCommandOutput) => void
   ): Promise<DeleteResolverCommandOutput> | void {
     const command = new DeleteResolverCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -679,7 +705,7 @@ export class AppSync extends AppSyncClient {
    */
   public deleteType(
     args: DeleteTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTypeCommandOutput>;
   public deleteType(
     args: DeleteTypeCommandInput,
@@ -692,16 +718,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public deleteType(
     args: DeleteTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTypeCommandOutput) => void),
     cb?: (err: any, data?: DeleteTypeCommandOutput) => void
   ): Promise<DeleteTypeCommandOutput> | void {
     const command = new DeleteTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -714,7 +742,7 @@ export class AppSync extends AppSyncClient {
    */
   public flushApiCache(
     args: FlushApiCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<FlushApiCacheCommandOutput>;
   public flushApiCache(
     args: FlushApiCacheCommandInput,
@@ -727,16 +755,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public flushApiCache(
     args: FlushApiCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: FlushApiCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: FlushApiCacheCommandOutput) => void),
     cb?: (err: any, data?: FlushApiCacheCommandOutput) => void
   ): Promise<FlushApiCacheCommandOutput> | void {
     const command = new FlushApiCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -749,7 +779,7 @@ export class AppSync extends AppSyncClient {
    */
   public getApiCache(
     args: GetApiCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApiCacheCommandOutput>;
   public getApiCache(
     args: GetApiCacheCommandInput,
@@ -762,16 +792,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getApiCache(
     args: GetApiCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApiCacheCommandOutput) => void),
     cb?: (err: any, data?: GetApiCacheCommandOutput) => void
   ): Promise<GetApiCacheCommandOutput> | void {
     const command = new GetApiCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -784,7 +816,7 @@ export class AppSync extends AppSyncClient {
    */
   public getDataSource(
     args: GetDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDataSourceCommandOutput>;
   public getDataSource(
     args: GetDataSourceCommandInput,
@@ -797,16 +829,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getDataSource(
     args: GetDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDataSourceCommandOutput) => void),
     cb?: (err: any, data?: GetDataSourceCommandOutput) => void
   ): Promise<GetDataSourceCommandOutput> | void {
     const command = new GetDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -819,7 +853,7 @@ export class AppSync extends AppSyncClient {
    */
   public getFunction(
     args: GetFunctionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetFunctionCommandOutput>;
   public getFunction(
     args: GetFunctionCommandInput,
@@ -832,16 +866,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getFunction(
     args: GetFunctionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFunctionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetFunctionCommandOutput) => void),
     cb?: (err: any, data?: GetFunctionCommandOutput) => void
   ): Promise<GetFunctionCommandOutput> | void {
     const command = new GetFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -854,7 +890,7 @@ export class AppSync extends AppSyncClient {
    */
   public getGraphqlApi(
     args: GetGraphqlApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetGraphqlApiCommandOutput>;
   public getGraphqlApi(
     args: GetGraphqlApiCommandInput,
@@ -867,16 +903,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getGraphqlApi(
     args: GetGraphqlApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGraphqlApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGraphqlApiCommandOutput) => void),
     cb?: (err: any, data?: GetGraphqlApiCommandOutput) => void
   ): Promise<GetGraphqlApiCommandOutput> | void {
     const command = new GetGraphqlApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -889,7 +927,7 @@ export class AppSync extends AppSyncClient {
    */
   public getIntrospectionSchema(
     args: GetIntrospectionSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIntrospectionSchemaCommandOutput>;
   public getIntrospectionSchema(
     args: GetIntrospectionSchemaCommandInput,
@@ -902,16 +940,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getIntrospectionSchema(
     args: GetIntrospectionSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntrospectionSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntrospectionSchemaCommandOutput) => void),
     cb?: (err: any, data?: GetIntrospectionSchemaCommandOutput) => void
   ): Promise<GetIntrospectionSchemaCommandOutput> | void {
     const command = new GetIntrospectionSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -924,7 +964,7 @@ export class AppSync extends AppSyncClient {
    */
   public getResolver(
     args: GetResolverCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetResolverCommandOutput>;
   public getResolver(
     args: GetResolverCommandInput,
@@ -937,16 +977,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getResolver(
     args: GetResolverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResolverCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResolverCommandOutput) => void),
     cb?: (err: any, data?: GetResolverCommandOutput) => void
   ): Promise<GetResolverCommandOutput> | void {
     const command = new GetResolverCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -959,7 +1001,7 @@ export class AppSync extends AppSyncClient {
    */
   public getSchemaCreationStatus(
     args: GetSchemaCreationStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSchemaCreationStatusCommandOutput>;
   public getSchemaCreationStatus(
     args: GetSchemaCreationStatusCommandInput,
@@ -972,16 +1014,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getSchemaCreationStatus(
     args: GetSchemaCreationStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaCreationStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSchemaCreationStatusCommandOutput) => void),
     cb?: (err: any, data?: GetSchemaCreationStatusCommandOutput) => void
   ): Promise<GetSchemaCreationStatusCommandOutput> | void {
     const command = new GetSchemaCreationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -994,7 +1038,7 @@ export class AppSync extends AppSyncClient {
    */
   public getType(
     args: GetTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTypeCommandOutput>;
   public getType(
     args: GetTypeCommandInput,
@@ -1007,16 +1051,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public getType(
     args: GetTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTypeCommandOutput) => void),
     cb?: (err: any, data?: GetTypeCommandOutput) => void
   ): Promise<GetTypeCommandOutput> | void {
     const command = new GetTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1035,7 +1081,7 @@ export class AppSync extends AppSyncClient {
    */
   public listApiKeys(
     args: ListApiKeysCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApiKeysCommandOutput>;
   public listApiKeys(
     args: ListApiKeysCommandInput,
@@ -1048,16 +1094,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listApiKeys(
     args: ListApiKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApiKeysCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApiKeysCommandOutput) => void),
     cb?: (err: any, data?: ListApiKeysCommandOutput) => void
   ): Promise<ListApiKeysCommandOutput> | void {
     const command = new ListApiKeysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1070,7 +1118,7 @@ export class AppSync extends AppSyncClient {
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDataSourcesCommandOutput>;
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -1083,16 +1131,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1105,7 +1155,7 @@ export class AppSync extends AppSyncClient {
    */
   public listFunctions(
     args: ListFunctionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFunctionsCommandOutput>;
   public listFunctions(
     args: ListFunctionsCommandInput,
@@ -1118,16 +1168,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listFunctions(
     args: ListFunctionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFunctionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFunctionsCommandOutput) => void),
     cb?: (err: any, data?: ListFunctionsCommandOutput) => void
   ): Promise<ListFunctionsCommandOutput> | void {
     const command = new ListFunctionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1140,7 +1192,7 @@ export class AppSync extends AppSyncClient {
    */
   public listGraphqlApis(
     args: ListGraphqlApisCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListGraphqlApisCommandOutput>;
   public listGraphqlApis(
     args: ListGraphqlApisCommandInput,
@@ -1153,16 +1205,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listGraphqlApis(
     args: ListGraphqlApisCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGraphqlApisCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGraphqlApisCommandOutput) => void),
     cb?: (err: any, data?: ListGraphqlApisCommandOutput) => void
   ): Promise<ListGraphqlApisCommandOutput> | void {
     const command = new ListGraphqlApisCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1175,7 +1229,7 @@ export class AppSync extends AppSyncClient {
    */
   public listResolvers(
     args: ListResolversCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListResolversCommandOutput>;
   public listResolvers(
     args: ListResolversCommandInput,
@@ -1188,16 +1242,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listResolvers(
     args: ListResolversCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolversCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResolversCommandOutput) => void),
     cb?: (err: any, data?: ListResolversCommandOutput) => void
   ): Promise<ListResolversCommandOutput> | void {
     const command = new ListResolversCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1210,7 +1266,7 @@ export class AppSync extends AppSyncClient {
    */
   public listResolversByFunction(
     args: ListResolversByFunctionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListResolversByFunctionCommandOutput>;
   public listResolversByFunction(
     args: ListResolversByFunctionCommandInput,
@@ -1223,16 +1279,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listResolversByFunction(
     args: ListResolversByFunctionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResolversByFunctionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResolversByFunctionCommandOutput) => void),
     cb?: (err: any, data?: ListResolversByFunctionCommandOutput) => void
   ): Promise<ListResolversByFunctionCommandOutput> | void {
     const command = new ListResolversByFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1245,7 +1303,7 @@ export class AppSync extends AppSyncClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1258,16 +1316,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1280,7 +1340,7 @@ export class AppSync extends AppSyncClient {
    */
   public listTypes(
     args: ListTypesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTypesCommandOutput>;
   public listTypes(
     args: ListTypesCommandInput,
@@ -1293,16 +1353,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public listTypes(
     args: ListTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTypesCommandOutput) => void),
     cb?: (err: any, data?: ListTypesCommandOutput) => void
   ): Promise<ListTypesCommandOutput> | void {
     const command = new ListTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1317,7 +1379,7 @@ export class AppSync extends AppSyncClient {
    */
   public startSchemaCreation(
     args: StartSchemaCreationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartSchemaCreationCommandOutput>;
   public startSchemaCreation(
     args: StartSchemaCreationCommandInput,
@@ -1330,16 +1392,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public startSchemaCreation(
     args: StartSchemaCreationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartSchemaCreationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartSchemaCreationCommandOutput) => void),
     cb?: (err: any, data?: StartSchemaCreationCommandOutput) => void
   ): Promise<StartSchemaCreationCommandOutput> | void {
     const command = new StartSchemaCreationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1352,7 +1416,7 @@ export class AppSync extends AppSyncClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1365,16 +1429,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1387,7 +1453,7 @@ export class AppSync extends AppSyncClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1400,16 +1466,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1422,7 +1490,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateApiCache(
     args: UpdateApiCacheCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApiCacheCommandOutput>;
   public updateApiCache(
     args: UpdateApiCacheCommandInput,
@@ -1435,16 +1503,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateApiCache(
     args: UpdateApiCacheCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiCacheCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApiCacheCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiCacheCommandOutput) => void
   ): Promise<UpdateApiCacheCommandOutput> | void {
     const command = new UpdateApiCacheCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1457,7 +1527,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApiKeyCommandOutput>;
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
@@ -1470,16 +1540,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateApiKey(
     args: UpdateApiKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApiKeyCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiKeyCommandOutput) => void
   ): Promise<UpdateApiKeyCommandOutput> | void {
     const command = new UpdateApiKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1492,7 +1564,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -1505,16 +1577,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1527,7 +1601,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateFunction(
     args: UpdateFunctionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateFunctionCommandOutput>;
   public updateFunction(
     args: UpdateFunctionCommandInput,
@@ -1540,16 +1614,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateFunction(
     args: UpdateFunctionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFunctionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateFunctionCommandOutput) => void),
     cb?: (err: any, data?: UpdateFunctionCommandOutput) => void
   ): Promise<UpdateFunctionCommandOutput> | void {
     const command = new UpdateFunctionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1562,7 +1638,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateGraphqlApi(
     args: UpdateGraphqlApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateGraphqlApiCommandOutput>;
   public updateGraphqlApi(
     args: UpdateGraphqlApiCommandInput,
@@ -1575,16 +1651,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateGraphqlApi(
     args: UpdateGraphqlApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGraphqlApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateGraphqlApiCommandOutput) => void),
     cb?: (err: any, data?: UpdateGraphqlApiCommandOutput) => void
   ): Promise<UpdateGraphqlApiCommandOutput> | void {
     const command = new UpdateGraphqlApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1597,7 +1675,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateResolver(
     args: UpdateResolverCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateResolverCommandOutput>;
   public updateResolver(
     args: UpdateResolverCommandInput,
@@ -1610,16 +1688,18 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateResolver(
     args: UpdateResolverCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResolverCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateResolverCommandOutput) => void),
     cb?: (err: any, data?: UpdateResolverCommandOutput) => void
   ): Promise<UpdateResolverCommandOutput> | void {
     const command = new UpdateResolverCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1632,7 +1712,7 @@ export class AppSync extends AppSyncClient {
    */
   public updateType(
     args: UpdateTypeCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateTypeCommandOutput>;
   public updateType(
     args: UpdateTypeCommandInput,
@@ -1645,19 +1725,20 @@ export class AppSync extends AppSyncClient {
   ): void;
   public updateType(
     args: UpdateTypeCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTypeCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTypeCommandOutput) => void),
     cb?: (err: any, data?: UpdateTypeCommandOutput) => void
   ): Promise<UpdateTypeCommandOutput> | void {
     const command = new UpdateTypeCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

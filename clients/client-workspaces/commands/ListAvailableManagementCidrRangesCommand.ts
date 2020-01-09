@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig,
+  WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
 import {
   ListAvailableManagementCidrRangesRequest,
-  ListAvailableManagementCidrRangesResult,
+  ListAvailableManagementCidrRangesResult
 } from "../models/index";
 import {
   deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
-  serializeAws_json1_1ListAvailableManagementCidrRangesCommand,
+  serializeAws_json1_1ListAvailableManagementCidrRangesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListAvailableManagementCidrRangesCommandInput = ListAvailableManagementCidrRangesRequest;
 export type ListAvailableManagementCidrRangesCommandOutput = ListAvailableManagementCidrRangesResult;
 
-export class ListAvailableManagementCidrRangesCommand extends $Command<ListAvailableManagementCidrRangesCommandInput, ListAvailableManagementCidrRangesCommandOutput, WorkSpacesClientResolvedConfig> {
+export class ListAvailableManagementCidrRangesCommand extends $Command<
+  ListAvailableManagementCidrRangesCommandInput,
+  ListAvailableManagementCidrRangesCommandOutput,
+  WorkSpacesClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<ListAvail
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAvailableManagementCidrRangesCommandInput, ListAvailableManagementCidrRangesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListAvailableManagementCidrRangesCommandInput,
+    ListAvailableManagementCidrRangesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<ListAvail
     input: ListAvailableManagementCidrRangesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(input, context);
+    return serializeAws_json1_1ListAvailableManagementCidrRangesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListAvailableManagementCidrRangesCommandOutput> {
-    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(output, context);
+    return deserializeAws_json1_1ListAvailableManagementCidrRangesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

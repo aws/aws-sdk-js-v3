@@ -1,20 +1,17 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetRegionsRequest,
-  GetRegionsResult,
-} from "../models/index";
+import { GetRegionsRequest, GetRegionsResult } from "../models/index";
 import {
   deserializeAws_json1_1GetRegionsCommand,
-  serializeAws_json1_1GetRegionsCommand,
+  serializeAws_json1_1GetRegionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetRegionsCommandInput = GetRegionsRequest;
 export type GetRegionsCommandOutput = GetRegionsResult;
 
-export class GetRegionsCommand extends $Command<GetRegionsCommandInput, GetRegionsCommandOutput, LightsailClientResolvedConfig> {
+export class GetRegionsCommand extends $Command<
+  GetRegionsCommandInput,
+  GetRegionsCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetRegionsCommand extends $Command<GetRegionsCommandInput, GetRegio
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetRegionsCommandInput, GetRegionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

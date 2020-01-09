@@ -2,32 +2,32 @@ import { RDSDataClient } from "./RDSDataClient";
 import {
   BatchExecuteStatementCommand,
   BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput,
+  BatchExecuteStatementCommandOutput
 } from "./commands/BatchExecuteStatementCommand";
 import {
   BeginTransactionCommand,
   BeginTransactionCommandInput,
-  BeginTransactionCommandOutput,
+  BeginTransactionCommandOutput
 } from "./commands/BeginTransactionCommand";
 import {
   CommitTransactionCommand,
   CommitTransactionCommandInput,
-  CommitTransactionCommandOutput,
+  CommitTransactionCommandOutput
 } from "./commands/CommitTransactionCommand";
 import {
   ExecuteSqlCommand,
   ExecuteSqlCommandInput,
-  ExecuteSqlCommandOutput,
+  ExecuteSqlCommandOutput
 } from "./commands/ExecuteSqlCommand";
 import {
   ExecuteStatementCommand,
   ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput,
+  ExecuteStatementCommandOutput
 } from "./commands/ExecuteStatementCommand";
 import {
   RollbackTransactionCommand,
   RollbackTransactionCommandInput,
-  RollbackTransactionCommandOutput,
+  RollbackTransactionCommandOutput
 } from "./commands/RollbackTransactionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -57,7 +57,7 @@ export class RDSData extends RDSDataClient {
    */
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchExecuteStatementCommandOutput>;
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
@@ -70,16 +70,18 @@ export class RDSData extends RDSDataClient {
   ): void;
   public batchExecuteStatement(
     args: BatchExecuteStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchExecuteStatementCommandOutput) => void),
     cb?: (err: any, data?: BatchExecuteStatementCommandOutput) => void
   ): Promise<BatchExecuteStatementCommandOutput> | void {
     const command = new BatchExecuteStatementCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -101,7 +103,7 @@ export class RDSData extends RDSDataClient {
    */
   public beginTransaction(
     args: BeginTransactionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BeginTransactionCommandOutput>;
   public beginTransaction(
     args: BeginTransactionCommandInput,
@@ -114,16 +116,18 @@ export class RDSData extends RDSDataClient {
   ): void;
   public beginTransaction(
     args: BeginTransactionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BeginTransactionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BeginTransactionCommandOutput) => void),
     cb?: (err: any, data?: BeginTransactionCommandOutput) => void
   ): Promise<BeginTransactionCommandOutput> | void {
     const command = new BeginTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -135,7 +139,7 @@ export class RDSData extends RDSDataClient {
    */
   public commitTransaction(
     args: CommitTransactionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CommitTransactionCommandOutput>;
   public commitTransaction(
     args: CommitTransactionCommandInput,
@@ -148,16 +152,18 @@ export class RDSData extends RDSDataClient {
   ): void;
   public commitTransaction(
     args: CommitTransactionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CommitTransactionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CommitTransactionCommandOutput) => void),
     cb?: (err: any, data?: CommitTransactionCommandOutput) => void
   ): Promise<CommitTransactionCommandOutput> | void {
     const command = new CommitTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -172,7 +178,7 @@ export class RDSData extends RDSDataClient {
    */
   public executeSql(
     args: ExecuteSqlCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ExecuteSqlCommandOutput>;
   public executeSql(
     args: ExecuteSqlCommandInput,
@@ -185,16 +191,18 @@ export class RDSData extends RDSDataClient {
   ): void;
   public executeSql(
     args: ExecuteSqlCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteSqlCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ExecuteSqlCommandOutput) => void),
     cb?: (err: any, data?: ExecuteSqlCommandOutput) => void
   ): Promise<ExecuteSqlCommandOutput> | void {
     const command = new ExecuteSqlCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -211,7 +219,7 @@ export class RDSData extends RDSDataClient {
    */
   public executeStatement(
     args: ExecuteStatementCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ExecuteStatementCommandOutput>;
   public executeStatement(
     args: ExecuteStatementCommandInput,
@@ -224,16 +232,18 @@ export class RDSData extends RDSDataClient {
   ): void;
   public executeStatement(
     args: ExecuteStatementCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteStatementCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ExecuteStatementCommandOutput) => void),
     cb?: (err: any, data?: ExecuteStatementCommandOutput) => void
   ): Promise<ExecuteStatementCommandOutput> | void {
     const command = new ExecuteStatementCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -244,7 +254,7 @@ export class RDSData extends RDSDataClient {
    */
   public rollbackTransaction(
     args: RollbackTransactionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RollbackTransactionCommandOutput>;
   public rollbackTransaction(
     args: RollbackTransactionCommandInput,
@@ -257,19 +267,20 @@ export class RDSData extends RDSDataClient {
   ): void;
   public rollbackTransaction(
     args: RollbackTransactionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RollbackTransactionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RollbackTransactionCommandOutput) => void),
     cb?: (err: any, data?: RollbackTransactionCommandOutput) => void
   ): Promise<RollbackTransactionCommandOutput> | void {
     const command = new RollbackTransactionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -69,7 +69,7 @@ export namespace ChangedBlock {
 }
 
 export enum ChecksumAlgorithm {
-  CHECKSUM_ALGORITHM_SHA256 = "SHA256",
+  CHECKSUM_ALGORITHM_SHA256 = "SHA256"
 }
 
 export interface GetSnapshotBlockRequest {
@@ -328,7 +328,9 @@ export namespace ListSnapshotBlocksResponse {
  *         <p>The specified resource does not exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -345,7 +347,9 @@ export namespace ResourceNotFoundException {
  *         <p>The input fails to satisfy the constraints of the EBS direct APIs.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;
@@ -368,5 +372,5 @@ export enum ValidationExceptionReason {
   INVALID_CUSTOMER_KEY = "INVALID_CUSTOMER_KEY",
   INVALID_PAGE_TOKEN = "INVALID_PAGE_TOKEN",
   INVALID_SNAPSHOT_ID = "INVALID_SNAPSHOT_ID",
-  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS",
+  UNRELATED_SNAPSHOTS = "UNRELATED_SNAPSHOTS"
 }

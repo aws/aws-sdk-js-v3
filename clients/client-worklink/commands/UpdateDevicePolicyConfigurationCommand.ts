@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig,
+  WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
 import {
   UpdateDevicePolicyConfigurationRequest,
-  UpdateDevicePolicyConfigurationResponse,
+  UpdateDevicePolicyConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand,
-  serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand,
+  serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateDevicePolicyConfigurationCommandInput = UpdateDevicePolicyConfigurationRequest;
 export type UpdateDevicePolicyConfigurationCommandOutput = UpdateDevicePolicyConfigurationResponse;
 
-export class UpdateDevicePolicyConfigurationCommand extends $Command<UpdateDevicePolicyConfigurationCommandInput, UpdateDevicePolicyConfigurationCommandOutput, WorkLinkClientResolvedConfig> {
+export class UpdateDevicePolicyConfigurationCommand extends $Command<
+  UpdateDevicePolicyConfigurationCommandInput,
+  UpdateDevicePolicyConfigurationCommandOutput,
+  WorkLinkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<UpdateDevic
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDevicePolicyConfigurationCommandInput, UpdateDevicePolicyConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateDevicePolicyConfigurationCommandInput,
+    UpdateDevicePolicyConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateDevicePolicyConfigurationCommand extends $Command<UpdateDevic
     input: UpdateDevicePolicyConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand(input, context);
+    return serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

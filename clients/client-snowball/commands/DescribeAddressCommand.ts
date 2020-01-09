@@ -1,20 +1,17 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  SnowballClientResolvedConfig,
+  SnowballClientResolvedConfig
 } from "../SnowballClient";
-import {
-  DescribeAddressRequest,
-  DescribeAddressResult,
-} from "../models/index";
+import { DescribeAddressRequest, DescribeAddressResult } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAddressCommand,
-  serializeAws_json1_1DescribeAddressCommand,
+  serializeAws_json1_1DescribeAddressCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeAddressCommandInput = DescribeAddressRequest;
 export type DescribeAddressCommandOutput = DescribeAddressResult;
 
-export class DescribeAddressCommand extends $Command<DescribeAddressCommandInput, DescribeAddressCommandOutput, SnowballClientResolvedConfig> {
+export class DescribeAddressCommand extends $Command<
+  DescribeAddressCommandInput,
+  DescribeAddressCommandOutput,
+  SnowballClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class DescribeAddressCommand extends $Command<DescribeAddressCommandInput
     configuration: SnowballClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeAddressCommandInput, DescribeAddressCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

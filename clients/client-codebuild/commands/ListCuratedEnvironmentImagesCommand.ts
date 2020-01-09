@@ -1,20 +1,20 @@
 import {
   CodeBuildClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeBuildClient";
 import {
   ListCuratedEnvironmentImagesInput,
-  ListCuratedEnvironmentImagesOutput,
+  ListCuratedEnvironmentImagesOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1ListCuratedEnvironmentImagesCommand,
-  serializeAws_json1_1ListCuratedEnvironmentImagesCommand,
+  serializeAws_json1_1ListCuratedEnvironmentImagesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListCuratedEnvironmentImagesCommandInput = ListCuratedEnvironmentImagesInput;
 export type ListCuratedEnvironmentImagesCommandOutput = ListCuratedEnvironmentImagesOutput;
 
-export class ListCuratedEnvironmentImagesCommand extends $Command<ListCuratedEnvironmentImagesCommandInput, ListCuratedEnvironmentImagesCommandOutput, CodeBuildClientResolvedConfig> {
+export class ListCuratedEnvironmentImagesCommand extends $Command<
+  ListCuratedEnvironmentImagesCommandInput,
+  ListCuratedEnvironmentImagesCommandOutput,
+  CodeBuildClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<ListCuratedEnv
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListCuratedEnvironmentImagesCommandInput, ListCuratedEnvironmentImagesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListCuratedEnvironmentImagesCommandInput,
+    ListCuratedEnvironmentImagesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListCuratedEnvironmentImagesCommand extends $Command<ListCuratedEnv
     input: ListCuratedEnvironmentImagesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(input, context);
+    return serializeAws_json1_1ListCuratedEnvironmentImagesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListCuratedEnvironmentImagesCommandOutput> {
-    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(output, context);
+    return deserializeAws_json1_1ListCuratedEnvironmentImagesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

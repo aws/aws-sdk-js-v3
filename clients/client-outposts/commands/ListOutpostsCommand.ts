@@ -1,20 +1,17 @@
 import {
   OutpostsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OutpostsClient";
-import {
-  ListOutpostsInput,
-  ListOutpostsOutput,
-} from "../models/index";
+import { ListOutpostsInput, ListOutpostsOutput } from "../models/index";
 import {
   deserializeAws_restJson1_1ListOutpostsCommand,
-  serializeAws_restJson1_1ListOutpostsCommand,
+  serializeAws_restJson1_1ListOutpostsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListOutpostsCommandInput = ListOutpostsInput;
 export type ListOutpostsCommandOutput = ListOutpostsOutput;
 
-export class ListOutpostsCommand extends $Command<ListOutpostsCommandInput, ListOutpostsCommandOutput, OutpostsClientResolvedConfig> {
+export class ListOutpostsCommand extends $Command<
+  ListOutpostsCommandInput,
+  ListOutpostsCommandOutput,
+  OutpostsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListOutpostsCommand extends $Command<ListOutpostsCommandInput, List
     configuration: OutpostsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListOutpostsCommandInput, ListOutpostsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  ServiceQuotasClientResolvedConfig,
+  ServiceQuotasClientResolvedConfig
 } from "../ServiceQuotasClient";
 import {
   ListRequestedServiceQuotaChangeHistoryByQuotaRequest,
-  ListRequestedServiceQuotaChangeHistoryByQuotaResponse,
+  ListRequestedServiceQuotaChangeHistoryByQuotaResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
-  serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand,
+  serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput = ListRequestedServiceQuotaChangeHistoryByQuotaRequest;
 export type ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput = ListRequestedServiceQuotaChangeHistoryByQuotaResponse;
 
-export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Command<ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput, ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput, ServiceQuotasClientResolvedConfig> {
+export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Command<
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
+  ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput,
+  ServiceQuotasClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput) {
+  constructor(
+    readonly input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceQuotasClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput, ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
+    ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class ListRequestedServiceQuotaChangeHistoryByQuotaCommand extends $Comma
     input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, context);
+    return serializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(output, context);
+    return deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

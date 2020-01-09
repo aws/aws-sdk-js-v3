@@ -1,20 +1,20 @@
 import {
   MediaTailorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MediaTailorClient";
 import {
   PutPlaybackConfigurationRequest,
-  PutPlaybackConfigurationResponse,
+  PutPlaybackConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1PutPlaybackConfigurationCommand,
-  serializeAws_restJson1_1PutPlaybackConfigurationCommand,
+  serializeAws_restJson1_1PutPlaybackConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PutPlaybackConfigurationCommandInput = PutPlaybackConfigurationRequest;
 export type PutPlaybackConfigurationCommandOutput = PutPlaybackConfigurationResponse;
 
-export class PutPlaybackConfigurationCommand extends $Command<PutPlaybackConfigurationCommandInput, PutPlaybackConfigurationCommandOutput, MediaTailorClientResolvedConfig> {
+export class PutPlaybackConfigurationCommand extends $Command<
+  PutPlaybackConfigurationCommandInput,
+  PutPlaybackConfigurationCommandOutput,
+  MediaTailorClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class PutPlaybackConfigurationCommand extends $Command<PutPlaybackConfigu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaTailorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutPlaybackConfigurationCommandInput, PutPlaybackConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PutPlaybackConfigurationCommandInput,
+    PutPlaybackConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class PutPlaybackConfigurationCommand extends $Command<PutPlaybackConfigu
     input: PutPlaybackConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PutPlaybackConfigurationCommand(input, context);
+    return serializeAws_restJson1_1PutPlaybackConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PutPlaybackConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1PutPlaybackConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1PutPlaybackConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

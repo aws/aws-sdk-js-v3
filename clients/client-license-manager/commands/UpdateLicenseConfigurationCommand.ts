@@ -1,20 +1,20 @@
 import {
   LicenseManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LicenseManagerClient";
 import {
   UpdateLicenseConfigurationRequest,
-  UpdateLicenseConfigurationResponse,
+  UpdateLicenseConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateLicenseConfigurationCommand,
-  serializeAws_json1_1UpdateLicenseConfigurationCommand,
+  serializeAws_json1_1UpdateLicenseConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateLicenseConfigurationCommandInput = UpdateLicenseConfigurationRequest;
 export type UpdateLicenseConfigurationCommandOutput = UpdateLicenseConfigurationResponse;
 
-export class UpdateLicenseConfigurationCommand extends $Command<UpdateLicenseConfigurationCommandInput, UpdateLicenseConfigurationCommandOutput, LicenseManagerClientResolvedConfig> {
+export class UpdateLicenseConfigurationCommand extends $Command<
+  UpdateLicenseConfigurationCommandInput,
+  UpdateLicenseConfigurationCommandOutput,
+  LicenseManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateLicenseConfigurationCommand extends $Command<UpdateLicenseCon
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateLicenseConfigurationCommandInput, UpdateLicenseConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateLicenseConfigurationCommandInput,
+    UpdateLicenseConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateLicenseConfigurationCommand extends $Command<UpdateLicenseCon
     input: UpdateLicenseConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateLicenseConfigurationCommand(input, context);
+    return serializeAws_json1_1UpdateLicenseConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateLicenseConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateLicenseConfigurationCommand(output, context);
+    return deserializeAws_json1_1UpdateLicenseConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

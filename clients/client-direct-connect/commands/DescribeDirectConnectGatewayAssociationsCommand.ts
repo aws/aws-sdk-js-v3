@@ -1,20 +1,20 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectConnectClient";
 import {
   DescribeDirectConnectGatewayAssociationsRequest,
-  DescribeDirectConnectGatewayAssociationsResult,
+  DescribeDirectConnectGatewayAssociationsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
-  serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand,
+  serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeDirectConnectGatewayAssociationsCommandInput = DescribeDirectConnectGatewayAssociationsRequest;
 export type DescribeDirectConnectGatewayAssociationsCommandOutput = DescribeDirectConnectGatewayAssociationsResult;
 
-export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<DescribeDirectConnectGatewayAssociationsCommandInput, DescribeDirectConnectGatewayAssociationsCommandOutput, DirectConnectClientResolvedConfig> {
+export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<
+  DescribeDirectConnectGatewayAssociationsCommandInput,
+  DescribeDirectConnectGatewayAssociationsCommandOutput,
+  DirectConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeDirectConnectGatewayAssociationsCommandInput) {
+  constructor(
+    readonly input: DescribeDirectConnectGatewayAssociationsCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<De
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDirectConnectGatewayAssociationsCommandInput, DescribeDirectConnectGatewayAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeDirectConnectGatewayAssociationsCommandInput,
+    DescribeDirectConnectGatewayAssociationsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class DescribeDirectConnectGatewayAssociationsCommand extends $Command<De
     input: DescribeDirectConnectGatewayAssociationsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(input, context);
+    return serializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> {
-    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(output, context);
+    return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

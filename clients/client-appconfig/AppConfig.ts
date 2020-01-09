@@ -2,147 +2,147 @@ import { AppConfigClient } from "./AppConfigClient";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+  CreateApplicationCommandOutput
 } from "./commands/CreateApplicationCommand";
 import {
   CreateConfigurationProfileCommand,
   CreateConfigurationProfileCommandInput,
-  CreateConfigurationProfileCommandOutput,
+  CreateConfigurationProfileCommandOutput
 } from "./commands/CreateConfigurationProfileCommand";
 import {
   CreateDeploymentStrategyCommand,
   CreateDeploymentStrategyCommandInput,
-  CreateDeploymentStrategyCommandOutput,
+  CreateDeploymentStrategyCommandOutput
 } from "./commands/CreateDeploymentStrategyCommand";
 import {
   CreateEnvironmentCommand,
   CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
+  CreateEnvironmentCommandOutput
 } from "./commands/CreateEnvironmentCommand";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
+  DeleteApplicationCommandOutput
 } from "./commands/DeleteApplicationCommand";
 import {
   DeleteConfigurationProfileCommand,
   DeleteConfigurationProfileCommandInput,
-  DeleteConfigurationProfileCommandOutput,
+  DeleteConfigurationProfileCommandOutput
 } from "./commands/DeleteConfigurationProfileCommand";
 import {
   DeleteDeploymentStrategyCommand,
   DeleteDeploymentStrategyCommandInput,
-  DeleteDeploymentStrategyCommandOutput,
+  DeleteDeploymentStrategyCommandOutput
 } from "./commands/DeleteDeploymentStrategyCommand";
 import {
   DeleteEnvironmentCommand,
   DeleteEnvironmentCommandInput,
-  DeleteEnvironmentCommandOutput,
+  DeleteEnvironmentCommandOutput
 } from "./commands/DeleteEnvironmentCommand";
 import {
   GetApplicationCommand,
   GetApplicationCommandInput,
-  GetApplicationCommandOutput,
+  GetApplicationCommandOutput
 } from "./commands/GetApplicationCommand";
 import {
   GetConfigurationCommand,
   GetConfigurationCommandInput,
-  GetConfigurationCommandOutput,
+  GetConfigurationCommandOutput
 } from "./commands/GetConfigurationCommand";
 import {
   GetConfigurationProfileCommand,
   GetConfigurationProfileCommandInput,
-  GetConfigurationProfileCommandOutput,
+  GetConfigurationProfileCommandOutput
 } from "./commands/GetConfigurationProfileCommand";
 import {
   GetDeploymentCommand,
   GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
+  GetDeploymentCommandOutput
 } from "./commands/GetDeploymentCommand";
 import {
   GetDeploymentStrategyCommand,
   GetDeploymentStrategyCommandInput,
-  GetDeploymentStrategyCommandOutput,
+  GetDeploymentStrategyCommandOutput
 } from "./commands/GetDeploymentStrategyCommand";
 import {
   GetEnvironmentCommand,
   GetEnvironmentCommandInput,
-  GetEnvironmentCommandOutput,
+  GetEnvironmentCommandOutput
 } from "./commands/GetEnvironmentCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
+  ListApplicationsCommandOutput
 } from "./commands/ListApplicationsCommand";
 import {
   ListConfigurationProfilesCommand,
   ListConfigurationProfilesCommandInput,
-  ListConfigurationProfilesCommandOutput,
+  ListConfigurationProfilesCommandOutput
 } from "./commands/ListConfigurationProfilesCommand";
 import {
   ListDeploymentStrategiesCommand,
   ListDeploymentStrategiesCommandInput,
-  ListDeploymentStrategiesCommandOutput,
+  ListDeploymentStrategiesCommandOutput
 } from "./commands/ListDeploymentStrategiesCommand";
 import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
+  ListDeploymentsCommandOutput
 } from "./commands/ListDeploymentsCommand";
 import {
   ListEnvironmentsCommand,
   ListEnvironmentsCommandInput,
-  ListEnvironmentsCommandOutput,
+  ListEnvironmentsCommandOutput
 } from "./commands/ListEnvironmentsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   StartDeploymentCommand,
   StartDeploymentCommandInput,
-  StartDeploymentCommandOutput,
+  StartDeploymentCommandOutput
 } from "./commands/StartDeploymentCommand";
 import {
   StopDeploymentCommand,
   StopDeploymentCommandInput,
-  StopDeploymentCommandOutput,
+  StopDeploymentCommandOutput
 } from "./commands/StopDeploymentCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+  UpdateApplicationCommandOutput
 } from "./commands/UpdateApplicationCommand";
 import {
   UpdateConfigurationProfileCommand,
   UpdateConfigurationProfileCommandInput,
-  UpdateConfigurationProfileCommandOutput,
+  UpdateConfigurationProfileCommandOutput
 } from "./commands/UpdateConfigurationProfileCommand";
 import {
   UpdateDeploymentStrategyCommand,
   UpdateDeploymentStrategyCommandInput,
-  UpdateDeploymentStrategyCommandOutput,
+  UpdateDeploymentStrategyCommandOutput
 } from "./commands/UpdateDeploymentStrategyCommand";
 import {
   UpdateEnvironmentCommand,
   UpdateEnvironmentCommandInput,
-  UpdateEnvironmentCommandOutput,
+  UpdateEnvironmentCommandOutput
 } from "./commands/UpdateEnvironmentCommand";
 import {
   ValidateConfigurationCommand,
   ValidateConfigurationCommandInput,
-  ValidateConfigurationCommandOutput,
+  ValidateConfigurationCommandOutput
 } from "./commands/ValidateConfigurationCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -208,7 +208,7 @@ export class AppConfig extends AppConfigClient {
    */
   public createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApplicationCommandOutput>;
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -221,16 +221,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -257,7 +259,7 @@ export class AppConfig extends AppConfigClient {
    */
   public createConfigurationProfile(
     args: CreateConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateConfigurationProfileCommandOutput>;
   public createConfigurationProfile(
     args: CreateConfigurationProfileCommandInput,
@@ -270,16 +272,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public createConfigurationProfile(
     args: CreateConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateConfigurationProfileCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationProfileCommandOutput) => void
   ): Promise<CreateConfigurationProfileCommandOutput> | void {
     const command = new CreateConfigurationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -295,7 +299,7 @@ export class AppConfig extends AppConfigClient {
    */
   public createDeploymentStrategy(
     args: CreateDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentStrategyCommandOutput>;
   public createDeploymentStrategy(
     args: CreateDeploymentStrategyCommandInput,
@@ -308,16 +312,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public createDeploymentStrategy(
     args: CreateDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentStrategyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeploymentStrategyCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentStrategyCommandOutput) => void
   ): Promise<CreateDeploymentStrategyCommandOutput> | void {
     const command = new CreateDeploymentStrategyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -336,7 +342,7 @@ export class AppConfig extends AppConfigClient {
    */
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateEnvironmentCommandOutput>;
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
@@ -349,16 +355,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public createEnvironment(
     args: CreateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: CreateEnvironmentCommandOutput) => void
   ): Promise<CreateEnvironmentCommandOutput> | void {
     const command = new CreateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -372,7 +380,7 @@ export class AppConfig extends AppConfigClient {
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApplicationCommandOutput>;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -385,16 +393,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -408,7 +418,7 @@ export class AppConfig extends AppConfigClient {
    */
   public deleteConfigurationProfile(
     args: DeleteConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteConfigurationProfileCommandOutput>;
   public deleteConfigurationProfile(
     args: DeleteConfigurationProfileCommandInput,
@@ -421,16 +431,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public deleteConfigurationProfile(
     args: DeleteConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteConfigurationProfileCommandOutput) => void),
     cb?: (err: any, data?: DeleteConfigurationProfileCommandOutput) => void
   ): Promise<DeleteConfigurationProfileCommandOutput> | void {
     const command = new DeleteConfigurationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -444,7 +456,7 @@ export class AppConfig extends AppConfigClient {
    */
   public deleteDeploymentStrategy(
     args: DeleteDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDeploymentStrategyCommandOutput>;
   public deleteDeploymentStrategy(
     args: DeleteDeploymentStrategyCommandInput,
@@ -457,16 +469,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public deleteDeploymentStrategy(
     args: DeleteDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentStrategyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeploymentStrategyCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentStrategyCommandOutput) => void
   ): Promise<DeleteDeploymentStrategyCommandOutput> | void {
     const command = new DeleteDeploymentStrategyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -480,7 +494,7 @@ export class AppConfig extends AppConfigClient {
    */
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteEnvironmentCommandOutput>;
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
@@ -493,16 +507,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public deleteEnvironment(
     args: DeleteEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: DeleteEnvironmentCommandOutput) => void
   ): Promise<DeleteEnvironmentCommandOutput> | void {
     const command = new DeleteEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -515,7 +531,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
   public getApplication(
     args: GetApplicationCommandInput,
@@ -528,16 +544,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getApplication(
     args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApplicationCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -550,7 +568,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getConfiguration(
     args: GetConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetConfigurationCommandOutput>;
   public getConfiguration(
     args: GetConfigurationCommandInput,
@@ -563,16 +581,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getConfiguration(
     args: GetConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetConfigurationCommandOutput) => void),
     cb?: (err: any, data?: GetConfigurationCommandOutput) => void
   ): Promise<GetConfigurationCommandOutput> | void {
     const command = new GetConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -585,7 +605,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getConfigurationProfile(
     args: GetConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetConfigurationProfileCommandOutput>;
   public getConfigurationProfile(
     args: GetConfigurationProfileCommandInput,
@@ -598,16 +618,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getConfigurationProfile(
     args: GetConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetConfigurationProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetConfigurationProfileCommandOutput) => void),
     cb?: (err: any, data?: GetConfigurationProfileCommandOutput) => void
   ): Promise<GetConfigurationProfileCommandOutput> | void {
     const command = new GetConfigurationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -620,7 +642,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentCommandOutput>;
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -633,16 +655,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -659,7 +683,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getDeploymentStrategy(
     args: GetDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentStrategyCommandOutput>;
   public getDeploymentStrategy(
     args: GetDeploymentStrategyCommandInput,
@@ -672,16 +696,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getDeploymentStrategy(
     args: GetDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentStrategyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentStrategyCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentStrategyCommandOutput) => void
   ): Promise<GetDeploymentStrategyCommandOutput> | void {
     const command = new GetDeploymentStrategyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -698,7 +724,7 @@ export class AppConfig extends AppConfigClient {
    */
   public getEnvironment(
     args: GetEnvironmentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetEnvironmentCommandOutput>;
   public getEnvironment(
     args: GetEnvironmentCommandInput,
@@ -711,16 +737,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public getEnvironment(
     args: GetEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEnvironmentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: GetEnvironmentCommandOutput) => void
   ): Promise<GetEnvironmentCommandOutput> | void {
     const command = new GetEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -733,7 +761,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationsCommandOutput>;
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -746,16 +774,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -768,7 +798,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listConfigurationProfiles(
     args: ListConfigurationProfilesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListConfigurationProfilesCommandOutput>;
   public listConfigurationProfiles(
     args: ListConfigurationProfilesCommandInput,
@@ -781,16 +811,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listConfigurationProfiles(
     args: ListConfigurationProfilesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationProfilesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListConfigurationProfilesCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationProfilesCommandOutput) => void
   ): Promise<ListConfigurationProfilesCommandOutput> | void {
     const command = new ListConfigurationProfilesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -803,7 +835,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listDeploymentStrategies(
     args: ListDeploymentStrategiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentStrategiesCommandOutput>;
   public listDeploymentStrategies(
     args: ListDeploymentStrategiesCommandInput,
@@ -816,16 +848,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listDeploymentStrategies(
     args: ListDeploymentStrategiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentStrategiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentStrategiesCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentStrategiesCommandOutput) => void
   ): Promise<ListDeploymentStrategiesCommandOutput> | void {
     const command = new ListDeploymentStrategiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -838,7 +872,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
   public listDeployments(
     args: ListDeploymentsCommandInput,
@@ -851,16 +885,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -873,7 +909,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListEnvironmentsCommandOutput>;
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
@@ -886,16 +922,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listEnvironments(
     args: ListEnvironmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListEnvironmentsCommandOutput) => void),
     cb?: (err: any, data?: ListEnvironmentsCommandOutput) => void
   ): Promise<ListEnvironmentsCommandOutput> | void {
     const command = new ListEnvironmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -908,7 +946,7 @@ export class AppConfig extends AppConfigClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -921,16 +959,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -943,7 +983,7 @@ export class AppConfig extends AppConfigClient {
    */
   public startDeployment(
     args: StartDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartDeploymentCommandOutput>;
   public startDeployment(
     args: StartDeploymentCommandInput,
@@ -956,16 +996,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public startDeployment(
     args: StartDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StartDeploymentCommandOutput) => void
   ): Promise<StartDeploymentCommandOutput> | void {
     const command = new StartDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -980,7 +1022,7 @@ export class AppConfig extends AppConfigClient {
    */
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopDeploymentCommandOutput>;
   public stopDeployment(
     args: StopDeploymentCommandInput,
@@ -993,16 +1035,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StopDeploymentCommandOutput) => void
   ): Promise<StopDeploymentCommandOutput> | void {
     const command = new StopDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1017,7 +1061,7 @@ export class AppConfig extends AppConfigClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1030,16 +1074,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1052,7 +1098,7 @@ export class AppConfig extends AppConfigClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1065,16 +1111,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1087,7 +1135,7 @@ export class AppConfig extends AppConfigClient {
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApplicationCommandOutput>;
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -1100,16 +1148,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1122,7 +1172,7 @@ export class AppConfig extends AppConfigClient {
    */
   public updateConfigurationProfile(
     args: UpdateConfigurationProfileCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateConfigurationProfileCommandOutput>;
   public updateConfigurationProfile(
     args: UpdateConfigurationProfileCommandInput,
@@ -1135,16 +1185,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public updateConfigurationProfile(
     args: UpdateConfigurationProfileCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationProfileCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateConfigurationProfileCommandOutput) => void),
     cb?: (err: any, data?: UpdateConfigurationProfileCommandOutput) => void
   ): Promise<UpdateConfigurationProfileCommandOutput> | void {
     const command = new UpdateConfigurationProfileCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1157,7 +1209,7 @@ export class AppConfig extends AppConfigClient {
    */
   public updateDeploymentStrategy(
     args: UpdateDeploymentStrategyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDeploymentStrategyCommandOutput>;
   public updateDeploymentStrategy(
     args: UpdateDeploymentStrategyCommandInput,
@@ -1170,16 +1222,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public updateDeploymentStrategy(
     args: UpdateDeploymentStrategyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentStrategyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDeploymentStrategyCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeploymentStrategyCommandOutput) => void
   ): Promise<UpdateDeploymentStrategyCommandOutput> | void {
     const command = new UpdateDeploymentStrategyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1192,7 +1246,7 @@ export class AppConfig extends AppConfigClient {
    */
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateEnvironmentCommandOutput>;
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
@@ -1205,16 +1259,18 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public updateEnvironment(
     args: UpdateEnvironmentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateEnvironmentCommandOutput) => void),
     cb?: (err: any, data?: UpdateEnvironmentCommandOutput) => void
   ): Promise<UpdateEnvironmentCommandOutput> | void {
     const command = new UpdateEnvironmentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1227,7 +1283,7 @@ export class AppConfig extends AppConfigClient {
    */
   public validateConfiguration(
     args: ValidateConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ValidateConfigurationCommandOutput>;
   public validateConfiguration(
     args: ValidateConfigurationCommandInput,
@@ -1240,19 +1296,20 @@ export class AppConfig extends AppConfigClient {
   ): void;
   public validateConfiguration(
     args: ValidateConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ValidateConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ValidateConfigurationCommandOutput) => void),
     cb?: (err: any, data?: ValidateConfigurationCommandOutput) => void
   ): Promise<ValidateConfigurationCommandOutput> | void {
     const command = new ValidateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

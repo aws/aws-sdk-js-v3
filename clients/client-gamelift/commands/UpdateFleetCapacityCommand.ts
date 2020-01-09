@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
 import {
   UpdateFleetCapacityInput,
-  UpdateFleetCapacityOutput,
+  UpdateFleetCapacityOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateFleetCapacityCommand,
-  serializeAws_json1_1UpdateFleetCapacityCommand,
+  serializeAws_json1_1UpdateFleetCapacityCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateFleetCapacityCommandInput = UpdateFleetCapacityInput;
 export type UpdateFleetCapacityCommandOutput = UpdateFleetCapacityOutput;
 
-export class UpdateFleetCapacityCommand extends $Command<UpdateFleetCapacityCommandInput, UpdateFleetCapacityCommandOutput, GameLiftClientResolvedConfig> {
+export class UpdateFleetCapacityCommand extends $Command<
+  UpdateFleetCapacityCommandInput,
+  UpdateFleetCapacityCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateFleetCapacityCommand extends $Command<UpdateFleetCapacityComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateFleetCapacityCommandInput, UpdateFleetCapacityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateFleetCapacityCommandInput,
+    UpdateFleetCapacityCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

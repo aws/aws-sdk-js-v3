@@ -1,20 +1,20 @@
 import {
   KinesisClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KinesisClient";
 import {
   RegisterStreamConsumerInput,
-  RegisterStreamConsumerOutput,
+  RegisterStreamConsumerOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1RegisterStreamConsumerCommand,
-  serializeAws_json1_1RegisterStreamConsumerCommand,
+  serializeAws_json1_1RegisterStreamConsumerCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type RegisterStreamConsumerCommandInput = RegisterStreamConsumerInput;
 export type RegisterStreamConsumerCommandOutput = RegisterStreamConsumerOutput;
 
-export class RegisterStreamConsumerCommand extends $Command<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput, KinesisClientResolvedConfig> {
+export class RegisterStreamConsumerCommand extends $Command<
+  RegisterStreamConsumerCommandInput,
+  RegisterStreamConsumerCommandOutput,
+  KinesisClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class RegisterStreamConsumerCommand extends $Command<RegisterStreamConsum
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RegisterStreamConsumerCommandInput, RegisterStreamConsumerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    RegisterStreamConsumerCommandInput,
+    RegisterStreamConsumerCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

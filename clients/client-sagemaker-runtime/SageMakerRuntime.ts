@@ -2,7 +2,7 @@ import { SageMakerRuntimeClient } from "./SageMakerRuntimeClient";
 import {
   InvokeEndpointCommand,
   InvokeEndpointCommandInput,
-  InvokeEndpointCommandOutput,
+  InvokeEndpointCommandOutput
 } from "./commands/InvokeEndpointCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -38,7 +38,7 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
    */
   public invokeEndpoint(
     args: InvokeEndpointCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InvokeEndpointCommandOutput>;
   public invokeEndpoint(
     args: InvokeEndpointCommandInput,
@@ -51,19 +51,20 @@ export class SageMakerRuntime extends SageMakerRuntimeClient {
   ): void;
   public invokeEndpoint(
     args: InvokeEndpointCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InvokeEndpointCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InvokeEndpointCommandOutput) => void),
     cb?: (err: any, data?: InvokeEndpointCommandOutput) => void
   ): Promise<InvokeEndpointCommandOutput> | void {
     const command = new InvokeEndpointCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

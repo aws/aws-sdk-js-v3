@@ -7,7 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       credentials to access a resource.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   code?: string;
@@ -24,7 +26,7 @@ export namespace AccessDeniedException {
 
 export enum AccessDirection {
   inbound = "inbound",
-  outbound = "outbound",
+  outbound = "outbound"
 }
 
 /**
@@ -33,7 +35,9 @@ export enum AccessDirection {
  *       state.</p>
  *
  */
-export interface AccountSetupInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccountSetupInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccountSetupInProgressException";
   $fault: "client";
   code?: string;
@@ -134,7 +138,7 @@ export namespace AddOnRequest {
 }
 
 export enum AddOnType {
-  AutoSnapshot = "AutoSnapshot",
+  AutoSnapshot = "AutoSnapshot"
 }
 
 export interface AllocateStaticIpRequest {
@@ -287,7 +291,8 @@ export namespace AttachLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface AttachLoadBalancerTlsCertificateResult extends $MetadataBearer {
+export interface AttachLoadBalancerTlsCertificateResult
+  extends $MetadataBearer {
   __type?: "AttachLoadBalancerTlsCertificateResult";
   /**
    *
@@ -487,7 +492,7 @@ export enum AutoSnapshotStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   NOT_FOUND = "NotFound",
-  SUCCESS = "Success",
+  SUCCESS = "Success"
 }
 
 /**
@@ -628,7 +633,7 @@ export namespace Blueprint {
 
 export enum BlueprintType {
   app = "app",
-  os = "os",
+  os = "os"
 }
 
 /**
@@ -883,7 +888,7 @@ export namespace CloudFormationStackRecordSourceInfo {
 }
 
 export enum CloudFormationStackRecordSourceType {
-  ExportSnapshotRecord = "ExportSnapshotRecord",
+  ExportSnapshotRecord = "ExportSnapshotRecord"
 }
 
 export interface CopySnapshotRequest {
@@ -1906,7 +1911,8 @@ export namespace CreateLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface CreateLoadBalancerTlsCertificateResult extends $MetadataBearer {
+export interface CreateLoadBalancerTlsCertificateResult
+  extends $MetadataBearer {
   __type?: "CreateLoadBalancerTlsCertificateResult";
   /**
    *
@@ -2036,12 +2042,15 @@ export interface CreateRelationalDatabaseFromSnapshotRequest {
 }
 
 export namespace CreateRelationalDatabaseFromSnapshotRequest {
-  export function isa(o: any): o is CreateRelationalDatabaseFromSnapshotRequest {
+  export function isa(
+    o: any
+  ): o is CreateRelationalDatabaseFromSnapshotRequest {
     return _smithy.isa(o, "CreateRelationalDatabaseFromSnapshotRequest");
   }
 }
 
-export interface CreateRelationalDatabaseFromSnapshotResult extends $MetadataBearer {
+export interface CreateRelationalDatabaseFromSnapshotResult
+  extends $MetadataBearer {
   __type?: "CreateRelationalDatabaseFromSnapshotResult";
   /**
    *
@@ -2298,7 +2307,8 @@ export namespace CreateRelationalDatabaseSnapshotRequest {
   }
 }
 
-export interface CreateRelationalDatabaseSnapshotResult extends $MetadataBearer {
+export interface CreateRelationalDatabaseSnapshotResult
+  extends $MetadataBearer {
   __type?: "CreateRelationalDatabaseSnapshotResult";
   /**
    *
@@ -2705,7 +2715,8 @@ export namespace DeleteLoadBalancerTlsCertificateRequest {
   }
 }
 
-export interface DeleteLoadBalancerTlsCertificateResult extends $MetadataBearer {
+export interface DeleteLoadBalancerTlsCertificateResult
+  extends $MetadataBearer {
   __type?: "DeleteLoadBalancerTlsCertificateResult";
   /**
    *
@@ -2804,7 +2815,8 @@ export namespace DeleteRelationalDatabaseSnapshotRequest {
   }
 }
 
-export interface DeleteRelationalDatabaseSnapshotResult extends $MetadataBearer {
+export interface DeleteRelationalDatabaseSnapshotResult
+  extends $MetadataBearer {
   __type?: "DeleteRelationalDatabaseSnapshotResult";
   /**
    *
@@ -3365,7 +3377,7 @@ export enum DiskSnapshotState {
   Completed = "completed",
   Error = "error",
   Pending = "pending",
-  Unknown = "unknown",
+  Unknown = "unknown"
 }
 
 export enum DiskState {
@@ -3373,7 +3385,7 @@ export enum DiskState {
   Error = "error",
   InUse = "in-use",
   Pending = "pending",
-  Unknown = "unknown",
+  Unknown = "unknown"
 }
 
 /**
@@ -3772,7 +3784,7 @@ export namespace ExportSnapshotRecordSourceInfo {
 
 export enum ExportSnapshotRecordSourceType {
   DiskSnapshot = "DiskSnapshot",
-  InstanceSnapshot = "InstanceSnapshot",
+  InstanceSnapshot = "InstanceSnapshot"
 }
 
 export interface ExportSnapshotRequest {
@@ -5721,12 +5733,15 @@ export interface GetRelationalDatabaseMasterUserPasswordRequest {
 }
 
 export namespace GetRelationalDatabaseMasterUserPasswordRequest {
-  export function isa(o: any): o is GetRelationalDatabaseMasterUserPasswordRequest {
+  export function isa(
+    o: any
+  ): o is GetRelationalDatabaseMasterUserPasswordRequest {
     return _smithy.isa(o, "GetRelationalDatabaseMasterUserPasswordRequest");
   }
 }
 
-export interface GetRelationalDatabaseMasterUserPasswordResult extends $MetadataBearer {
+export interface GetRelationalDatabaseMasterUserPasswordResult
+  extends $MetadataBearer {
   __type?: "GetRelationalDatabaseMasterUserPasswordResult";
   /**
    *
@@ -5745,7 +5760,9 @@ export interface GetRelationalDatabaseMasterUserPasswordResult extends $Metadata
 }
 
 export namespace GetRelationalDatabaseMasterUserPasswordResult {
-  export function isa(o: any): o is GetRelationalDatabaseMasterUserPasswordResult {
+  export function isa(
+    o: any
+  ): o is GetRelationalDatabaseMasterUserPasswordResult {
     return _smithy.isa(o, "GetRelationalDatabaseMasterUserPasswordResult");
   }
 }
@@ -6530,7 +6547,7 @@ export namespace InstanceAccessDetails {
 
 export enum InstanceAccessProtocol {
   rdp = "rdp",
-  ssh = "ssh",
+  ssh = "ssh"
 }
 
 /**
@@ -6653,7 +6670,7 @@ export enum InstanceHealthReason {
   InstanceTimeout = "Instance.Timeout",
   LbInitialHealthChecking = "Lb.InitialHealthChecking",
   LbInternalError = "Lb.InternalError",
-  LbRegistrationInProgress = "Lb.RegistrationInProgress",
+  LbRegistrationInProgress = "Lb.RegistrationInProgress"
 }
 
 export enum InstanceHealthState {
@@ -6662,7 +6679,7 @@ export enum InstanceHealthState {
   Initial = "initial",
   Unavailable = "unavailable",
   Unhealthy = "unhealthy",
-  Unused = "unused",
+  Unused = "unused"
 }
 
 /**
@@ -6825,7 +6842,7 @@ export enum InstanceMetricName {
   NetworkOut = "NetworkOut",
   StatusCheckFailed = "StatusCheckFailed",
   StatusCheckFailed_Instance = "StatusCheckFailed_Instance",
-  StatusCheckFailed_System = "StatusCheckFailed_System",
+  StatusCheckFailed_System = "StatusCheckFailed_System"
 }
 
 /**
@@ -6859,7 +6876,7 @@ export namespace InstanceNetworking {
 
 export enum InstancePlatform {
   LinuxUnix = "LINUX_UNIX",
-  Windows = "WINDOWS",
+  Windows = "WINDOWS"
 }
 
 /**
@@ -7196,7 +7213,7 @@ export namespace InstanceSnapshotInfo {
 export enum InstanceSnapshotState {
   Available = "available",
   Error = "error",
-  Pending = "pending",
+  Pending = "pending"
 }
 
 /**
@@ -7240,7 +7257,9 @@ export namespace InstanceState {
  *          </note>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   code?: string;
@@ -7501,7 +7520,7 @@ export namespace LoadBalancer {
 export enum LoadBalancerAttributeName {
   HealthCheckPath = "HealthCheckPath",
   SessionStickinessEnabled = "SessionStickinessEnabled",
-  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds",
+  SessionStickiness_LB_CookieDurationSeconds = "SessionStickiness_LB_CookieDurationSeconds"
 }
 
 export enum LoadBalancerMetricName {
@@ -7516,12 +7535,12 @@ export enum LoadBalancerMetricName {
   InstanceResponseTime = "InstanceResponseTime",
   RejectedConnectionCount = "RejectedConnectionCount",
   RequestCount = "RequestCount",
-  UnhealthyHostCount = "UnhealthyHostCount",
+  UnhealthyHostCount = "UnhealthyHostCount"
 }
 
 export enum LoadBalancerProtocol {
   HTTP = "HTTP",
-  HTTP_HTTPS = "HTTP_HTTPS",
+  HTTP_HTTPS = "HTTP_HTTPS"
 }
 
 export enum LoadBalancerState {
@@ -7529,7 +7548,7 @@ export enum LoadBalancerState {
   ActiveImpaired = "active_impaired",
   Failed = "failed",
   Provisioning = "provisioning",
-  Unknown = "unknown",
+  Unknown = "unknown"
 }
 
 /**
@@ -7567,7 +7586,9 @@ export interface LoadBalancerTlsCertificate {
    *       records.</p>
    *
    */
-  domainValidationRecords?: Array<LoadBalancerTlsCertificateDomainValidationRecord>;
+  domainValidationRecords?: Array<
+    LoadBalancerTlsCertificateDomainValidationRecord
+  >;
 
   /**
    *
@@ -7809,7 +7830,7 @@ export namespace LoadBalancerTlsCertificate {
 export enum LoadBalancerTlsCertificateDomainStatus {
   Failed = "FAILED",
   PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
+  Success = "SUCCESS"
 }
 
 /**
@@ -7836,7 +7857,9 @@ export interface LoadBalancerTlsCertificateDomainValidationOption {
 }
 
 export namespace LoadBalancerTlsCertificateDomainValidationOption {
-  export function isa(o: any): o is LoadBalancerTlsCertificateDomainValidationOption {
+  export function isa(
+    o: any
+  ): o is LoadBalancerTlsCertificateDomainValidationOption {
     return _smithy.isa(o, "LoadBalancerTlsCertificateDomainValidationOption");
   }
 }
@@ -7888,7 +7911,9 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
 }
 
 export namespace LoadBalancerTlsCertificateDomainValidationRecord {
-  export function isa(o: any): o is LoadBalancerTlsCertificateDomainValidationRecord {
+  export function isa(
+    o: any
+  ): o is LoadBalancerTlsCertificateDomainValidationRecord {
     return _smithy.isa(o, "LoadBalancerTlsCertificateDomainValidationRecord");
   }
 }
@@ -7898,14 +7923,14 @@ export enum LoadBalancerTlsCertificateFailureReason {
   DomainNotAllowed = "DOMAIN_NOT_ALLOWED",
   InvalidPublicDomain = "INVALID_PUBLIC_DOMAIN",
   NoAvailableContacts = "NO_AVAILABLE_CONTACTS",
-  Other = "OTHER",
+  Other = "OTHER"
 }
 
 export enum LoadBalancerTlsCertificateRenewalStatus {
   Failed = "FAILED",
   PendingAutoRenewal = "PENDING_AUTO_RENEWAL",
   PendingValidation = "PENDING_VALIDATION",
-  Success = "SUCCESS",
+  Success = "SUCCESS"
 }
 
 /**
@@ -7923,7 +7948,9 @@ export interface LoadBalancerTlsCertificateRenewalSummary {
    *       occurs as a result of the RequestCertificate request.</p>
    *
    */
-  domainValidationOptions?: Array<LoadBalancerTlsCertificateDomainValidationOption>;
+  domainValidationOptions?: Array<
+    LoadBalancerTlsCertificateDomainValidationOption
+  >;
 
   /**
    *
@@ -7950,7 +7977,7 @@ export enum LoadBalancerTlsCertificateRevocationReason {
   PrivilegeWithdrawn = "PRIVILEGE_WITHDRAWN",
   RemoveFromCrl = "REMOVE_FROM_CRL",
   Superceded = "SUPERCEDED",
-  Unspecified = "UNSPECIFIED",
+  Unspecified = "UNSPECIFIED"
 }
 
 export enum LoadBalancerTlsCertificateStatus {
@@ -7961,7 +7988,7 @@ export enum LoadBalancerTlsCertificateStatus {
   PendingValidation = "PENDING_VALIDATION",
   Revoked = "REVOKED",
   Unknown = "UNKNOWN",
-  ValidationTimedOut = "VALIDATION_TIMED_OUT",
+  ValidationTimedOut = "VALIDATION_TIMED_OUT"
 }
 
 /**
@@ -8089,7 +8116,7 @@ export enum MetricStatistic {
   Maximum = "Maximum",
   Minimum = "Minimum",
   SampleCount = "SampleCount",
-  Sum = "Sum",
+  Sum = "Sum"
 }
 
 export enum MetricUnit {
@@ -8119,7 +8146,7 @@ export enum MetricUnit {
   Terabits = "Terabits",
   TerabitsSecond = "Terabits/Second",
   Terabytes = "Terabytes",
-  TerabytesSecond = "Terabytes/Second",
+  TerabytesSecond = "Terabytes/Second"
 }
 
 /**
@@ -8147,7 +8174,7 @@ export namespace MonthlyTransfer {
 export enum NetworkProtocol {
   ALL = "all",
   TCP = "tcp",
-  UDP = "udp",
+  UDP = "udp"
 }
 
 /**
@@ -8155,7 +8182,9 @@ export enum NetworkProtocol {
  *          <p>Lightsail throws this exception when it cannot find a resource.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   code?: string;
@@ -8315,7 +8344,9 @@ export namespace Operation {
  *          <p>Lightsail throws this exception when an operation fails to execute.</p>
  *
  */
-export interface OperationFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationFailureException";
   $fault: "client";
   code?: string;
@@ -8335,7 +8366,7 @@ export enum OperationStatus {
   Failed = "Failed",
   NotStarted = "NotStarted",
   Started = "Started",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 export enum OperationType {
@@ -8385,7 +8416,7 @@ export enum OperationType {
   UpdateDomainEntry = "UpdateDomainEntry",
   UpdateLoadBalancerAttribute = "UpdateLoadBalancerAttribute",
   UpdateRelationalDatabase = "UpdateRelationalDatabase",
-  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters",
+  UpdateRelationalDatabaseParameters = "UpdateRelationalDatabaseParameters"
 }
 
 /**
@@ -8532,7 +8563,7 @@ export namespace PendingModifiedRelationalDatabaseValues {
 
 export enum PortAccessType {
   Private = "Private",
-  Public = "Public",
+  Public = "Public"
 }
 
 /**
@@ -8575,12 +8606,12 @@ export enum PortInfoSourceType {
   Closed = "CLOSED",
   Default = "DEFAULT",
   Instance = "INSTANCE",
-  None = "NONE",
+  None = "NONE"
 }
 
 export enum PortState {
   Closed = "closed",
-  Open = "open",
+  Open = "open"
 }
 
 export interface PutInstancePublicPortsRequest {
@@ -8691,7 +8722,7 @@ export namespace RebootRelationalDatabaseResult {
 export enum RecordState {
   Failed = "Failed",
   Started = "Started",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 /**
@@ -8767,7 +8798,7 @@ export enum RegionName {
   US_EAST_1 = "us-east-1",
   US_EAST_2 = "us-east-2",
   US_WEST_1 = "us-west-1",
-  US_WEST_2 = "us-west-2",
+  US_WEST_2 = "us-west-2"
 }
 
 /**
@@ -9143,7 +9174,7 @@ export namespace RelationalDatabaseEndpoint {
 }
 
 export enum RelationalDatabaseEngine {
-  MYSQL = "mysql",
+  MYSQL = "mysql"
 }
 
 /**
@@ -9229,7 +9260,7 @@ export enum RelationalDatabaseMetricName {
   DiskQueueDepth = "DiskQueueDepth",
   FreeStorageSpace = "FreeStorageSpace",
   NetworkReceiveThroughput = "NetworkReceiveThroughput",
-  NetworkTransmitThroughput = "NetworkTransmitThroughput",
+  NetworkTransmitThroughput = "NetworkTransmitThroughput"
 }
 
 /**
@@ -9306,7 +9337,7 @@ export namespace RelationalDatabaseParameter {
 export enum RelationalDatabasePasswordVersion {
   CURRENT = "CURRENT",
   PENDING = "PENDING",
-  PREVIOUS = "PREVIOUS",
+  PREVIOUS = "PREVIOUS"
 }
 
 /**
@@ -9512,7 +9543,7 @@ export enum ResourceType {
   PeeredVpc = "PeeredVpc",
   RelationalDatabase = "RelationalDatabase",
   RelationalDatabaseSnapshot = "RelationalDatabaseSnapshot",
-  StaticIp = "StaticIp",
+  StaticIp = "StaticIp"
 }
 
 /**
@@ -9520,7 +9551,9 @@ export enum ResourceType {
  *          <p>A general service exception.</p>
  *
  */
-export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   code?: string;
@@ -9854,7 +9887,9 @@ export namespace TagResourceResult {
  *          <p>Lightsail throws this exception when the user has not been authenticated.</p>
  *
  */
-export interface UnauthenticatedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthenticatedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthenticatedException";
   $fault: "client";
   code?: string;
@@ -10052,7 +10087,8 @@ export namespace UpdateRelationalDatabaseParametersRequest {
   }
 }
 
-export interface UpdateRelationalDatabaseParametersResult extends $MetadataBearer {
+export interface UpdateRelationalDatabaseParametersResult
+  extends $MetadataBearer {
   __type?: "UpdateRelationalDatabaseParametersResult";
   /**
    *

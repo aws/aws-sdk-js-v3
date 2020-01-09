@@ -1,20 +1,17 @@
 import {
   ApiGatewayV2ClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ApiGatewayV2Client";
-import {
-  GetModelRequest,
-  GetModelResponse,
-} from "../models/index";
+import { GetModelRequest, GetModelResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetModelCommand,
-  serializeAws_restJson1_1GetModelCommand,
+  serializeAws_restJson1_1GetModelCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetModelCommandInput = GetModelRequest;
 export type GetModelCommandOutput = GetModelResponse;
 
-export class GetModelCommand extends $Command<GetModelCommandInput, GetModelCommandOutput, ApiGatewayV2ClientResolvedConfig> {
+export class GetModelCommand extends $Command<
+  GetModelCommandInput,
+  GetModelCommandOutput,
+  ApiGatewayV2ClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetModelCommand extends $Command<GetModelCommandInput, GetModelComm
     configuration: ApiGatewayV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetModelCommandInput, GetModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

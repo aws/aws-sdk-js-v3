@@ -2,102 +2,102 @@ import { XRayClient } from "./XRayClient";
 import {
   BatchGetTracesCommand,
   BatchGetTracesCommandInput,
-  BatchGetTracesCommandOutput,
+  BatchGetTracesCommandOutput
 } from "./commands/BatchGetTracesCommand";
 import {
   CreateGroupCommand,
   CreateGroupCommandInput,
-  CreateGroupCommandOutput,
+  CreateGroupCommandOutput
 } from "./commands/CreateGroupCommand";
 import {
   CreateSamplingRuleCommand,
   CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput,
+  CreateSamplingRuleCommandOutput
 } from "./commands/CreateSamplingRuleCommand";
 import {
   DeleteGroupCommand,
   DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
+  DeleteGroupCommandOutput
 } from "./commands/DeleteGroupCommand";
 import {
   DeleteSamplingRuleCommand,
   DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput,
+  DeleteSamplingRuleCommandOutput
 } from "./commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommand,
   GetEncryptionConfigCommandInput,
-  GetEncryptionConfigCommandOutput,
+  GetEncryptionConfigCommandOutput
 } from "./commands/GetEncryptionConfigCommand";
 import {
   GetGroupCommand,
   GetGroupCommandInput,
-  GetGroupCommandOutput,
+  GetGroupCommandOutput
 } from "./commands/GetGroupCommand";
 import {
   GetGroupsCommand,
   GetGroupsCommandInput,
-  GetGroupsCommandOutput,
+  GetGroupsCommandOutput
 } from "./commands/GetGroupsCommand";
 import {
   GetSamplingRulesCommand,
   GetSamplingRulesCommandInput,
-  GetSamplingRulesCommandOutput,
+  GetSamplingRulesCommandOutput
 } from "./commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommand,
   GetSamplingStatisticSummariesCommandInput,
-  GetSamplingStatisticSummariesCommandOutput,
+  GetSamplingStatisticSummariesCommandOutput
 } from "./commands/GetSamplingStatisticSummariesCommand";
 import {
   GetSamplingTargetsCommand,
   GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput,
+  GetSamplingTargetsCommandOutput
 } from "./commands/GetSamplingTargetsCommand";
 import {
   GetServiceGraphCommand,
   GetServiceGraphCommandInput,
-  GetServiceGraphCommandOutput,
+  GetServiceGraphCommandOutput
 } from "./commands/GetServiceGraphCommand";
 import {
   GetTimeSeriesServiceStatisticsCommand,
   GetTimeSeriesServiceStatisticsCommandInput,
-  GetTimeSeriesServiceStatisticsCommandOutput,
+  GetTimeSeriesServiceStatisticsCommandOutput
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
 import {
   GetTraceGraphCommand,
   GetTraceGraphCommandInput,
-  GetTraceGraphCommandOutput,
+  GetTraceGraphCommandOutput
 } from "./commands/GetTraceGraphCommand";
 import {
   GetTraceSummariesCommand,
   GetTraceSummariesCommandInput,
-  GetTraceSummariesCommandOutput,
+  GetTraceSummariesCommandOutput
 } from "./commands/GetTraceSummariesCommand";
 import {
   PutEncryptionConfigCommand,
   PutEncryptionConfigCommandInput,
-  PutEncryptionConfigCommandOutput,
+  PutEncryptionConfigCommandOutput
 } from "./commands/PutEncryptionConfigCommand";
 import {
   PutTelemetryRecordsCommand,
   PutTelemetryRecordsCommandInput,
-  PutTelemetryRecordsCommandOutput,
+  PutTelemetryRecordsCommandOutput
 } from "./commands/PutTelemetryRecordsCommand";
 import {
   PutTraceSegmentsCommand,
   PutTraceSegmentsCommandInput,
-  PutTraceSegmentsCommandOutput,
+  PutTraceSegmentsCommandOutput
 } from "./commands/PutTraceSegmentsCommand";
 import {
   UpdateGroupCommand,
   UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
+  UpdateGroupCommandOutput
 } from "./commands/UpdateGroupCommand";
 import {
   UpdateSamplingRuleCommand,
   UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput,
+  UpdateSamplingRuleCommandOutput
 } from "./commands/UpdateSamplingRuleCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -117,7 +117,7 @@ export class XRay extends XRayClient {
    */
   public batchGetTraces(
     args: BatchGetTracesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetTracesCommandOutput>;
   public batchGetTraces(
     args: BatchGetTracesCommandInput,
@@ -130,16 +130,18 @@ export class XRay extends XRayClient {
   ): void;
   public batchGetTraces(
     args: BatchGetTracesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetTracesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetTracesCommandOutput) => void),
     cb?: (err: any, data?: BatchGetTracesCommandOutput) => void
   ): Promise<BatchGetTracesCommandOutput> | void {
     const command = new BatchGetTracesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -152,7 +154,7 @@ export class XRay extends XRayClient {
    */
   public createGroup(
     args: CreateGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateGroupCommandOutput>;
   public createGroup(
     args: CreateGroupCommandInput,
@@ -165,16 +167,18 @@ export class XRay extends XRayClient {
   ): void;
   public createGroup(
     args: CreateGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateGroupCommandOutput) => void
   ): Promise<CreateGroupCommandOutput> | void {
     const command = new CreateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -193,7 +197,7 @@ export class XRay extends XRayClient {
    */
   public createSamplingRule(
     args: CreateSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSamplingRuleCommandOutput>;
   public createSamplingRule(
     args: CreateSamplingRuleCommandInput,
@@ -206,16 +210,18 @@ export class XRay extends XRayClient {
   ): void;
   public createSamplingRule(
     args: CreateSamplingRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSamplingRuleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSamplingRuleCommandOutput) => void),
     cb?: (err: any, data?: CreateSamplingRuleCommandOutput) => void
   ): Promise<CreateSamplingRuleCommandOutput> | void {
     const command = new CreateSamplingRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -228,7 +234,7 @@ export class XRay extends XRayClient {
    */
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteGroupCommandOutput>;
   public deleteGroup(
     args: DeleteGroupCommandInput,
@@ -241,16 +247,18 @@ export class XRay extends XRayClient {
   ): void;
   public deleteGroup(
     args: DeleteGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -263,7 +271,7 @@ export class XRay extends XRayClient {
    */
   public deleteSamplingRule(
     args: DeleteSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSamplingRuleCommandOutput>;
   public deleteSamplingRule(
     args: DeleteSamplingRuleCommandInput,
@@ -276,16 +284,18 @@ export class XRay extends XRayClient {
   ): void;
   public deleteSamplingRule(
     args: DeleteSamplingRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSamplingRuleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSamplingRuleCommandOutput) => void),
     cb?: (err: any, data?: DeleteSamplingRuleCommandOutput) => void
   ): Promise<DeleteSamplingRuleCommandOutput> | void {
     const command = new DeleteSamplingRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -298,7 +308,7 @@ export class XRay extends XRayClient {
    */
   public getEncryptionConfig(
     args: GetEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetEncryptionConfigCommandOutput>;
   public getEncryptionConfig(
     args: GetEncryptionConfigCommandInput,
@@ -311,16 +321,18 @@ export class XRay extends XRayClient {
   ): void;
   public getEncryptionConfig(
     args: GetEncryptionConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetEncryptionConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetEncryptionConfigCommandOutput) => void),
     cb?: (err: any, data?: GetEncryptionConfigCommandOutput) => void
   ): Promise<GetEncryptionConfigCommandOutput> | void {
     const command = new GetEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -333,7 +345,7 @@ export class XRay extends XRayClient {
    */
   public getGroup(
     args: GetGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetGroupCommandOutput>;
   public getGroup(
     args: GetGroupCommandInput,
@@ -346,16 +358,18 @@ export class XRay extends XRayClient {
   ): void;
   public getGroup(
     args: GetGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGroupCommandOutput) => void),
     cb?: (err: any, data?: GetGroupCommandOutput) => void
   ): Promise<GetGroupCommandOutput> | void {
     const command = new GetGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -368,7 +382,7 @@ export class XRay extends XRayClient {
    */
   public getGroups(
     args: GetGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetGroupsCommandOutput>;
   public getGroups(
     args: GetGroupsCommandInput,
@@ -381,16 +395,18 @@ export class XRay extends XRayClient {
   ): void;
   public getGroups(
     args: GetGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetGroupsCommandOutput) => void),
     cb?: (err: any, data?: GetGroupsCommandOutput) => void
   ): Promise<GetGroupsCommandOutput> | void {
     const command = new GetGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -403,7 +419,7 @@ export class XRay extends XRayClient {
    */
   public getSamplingRules(
     args: GetSamplingRulesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSamplingRulesCommandOutput>;
   public getSamplingRules(
     args: GetSamplingRulesCommandInput,
@@ -416,16 +432,18 @@ export class XRay extends XRayClient {
   ): void;
   public getSamplingRules(
     args: GetSamplingRulesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingRulesCommandOutput) => void),
     cb?: (err: any, data?: GetSamplingRulesCommandOutput) => void
   ): Promise<GetSamplingRulesCommandOutput> | void {
     const command = new GetSamplingRulesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -438,7 +456,7 @@ export class XRay extends XRayClient {
    */
   public getSamplingStatisticSummaries(
     args: GetSamplingStatisticSummariesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSamplingStatisticSummariesCommandOutput>;
   public getSamplingStatisticSummaries(
     args: GetSamplingStatisticSummariesCommandInput,
@@ -451,16 +469,18 @@ export class XRay extends XRayClient {
   ): void;
   public getSamplingStatisticSummaries(
     args: GetSamplingStatisticSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void),
     cb?: (err: any, data?: GetSamplingStatisticSummariesCommandOutput) => void
   ): Promise<GetSamplingStatisticSummariesCommandOutput> | void {
     const command = new GetSamplingStatisticSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -474,7 +494,7 @@ export class XRay extends XRayClient {
    */
   public getSamplingTargets(
     args: GetSamplingTargetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSamplingTargetsCommandOutput>;
   public getSamplingTargets(
     args: GetSamplingTargetsCommandInput,
@@ -487,16 +507,18 @@ export class XRay extends XRayClient {
   ): void;
   public getSamplingTargets(
     args: GetSamplingTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSamplingTargetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSamplingTargetsCommandOutput) => void),
     cb?: (err: any, data?: GetSamplingTargetsCommandOutput) => void
   ): Promise<GetSamplingTargetsCommandOutput> | void {
     const command = new GetSamplingTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -513,7 +535,7 @@ export class XRay extends XRayClient {
    */
   public getServiceGraph(
     args: GetServiceGraphCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetServiceGraphCommandOutput>;
   public getServiceGraph(
     args: GetServiceGraphCommandInput,
@@ -526,16 +548,18 @@ export class XRay extends XRayClient {
   ): void;
   public getServiceGraph(
     args: GetServiceGraphCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetServiceGraphCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetServiceGraphCommandOutput) => void),
     cb?: (err: any, data?: GetServiceGraphCommandOutput) => void
   ): Promise<GetServiceGraphCommandOutput> | void {
     const command = new GetServiceGraphCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +573,7 @@ export class XRay extends XRayClient {
    */
   public getTimeSeriesServiceStatistics(
     args: GetTimeSeriesServiceStatisticsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput>;
   public getTimeSeriesServiceStatistics(
     args: GetTimeSeriesServiceStatisticsCommandInput,
@@ -562,16 +586,21 @@ export class XRay extends XRayClient {
   ): void;
   public getTimeSeriesServiceStatistics(
     args: GetTimeSeriesServiceStatisticsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GetTimeSeriesServiceStatisticsCommandOutput
+        ) => void),
     cb?: (err: any, data?: GetTimeSeriesServiceStatisticsCommandOutput) => void
   ): Promise<GetTimeSeriesServiceStatisticsCommandOutput> | void {
     const command = new GetTimeSeriesServiceStatisticsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -584,7 +613,7 @@ export class XRay extends XRayClient {
    */
   public getTraceGraph(
     args: GetTraceGraphCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTraceGraphCommandOutput>;
   public getTraceGraph(
     args: GetTraceGraphCommandInput,
@@ -597,16 +626,18 @@ export class XRay extends XRayClient {
   ): void;
   public getTraceGraph(
     args: GetTraceGraphCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTraceGraphCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTraceGraphCommandOutput) => void),
     cb?: (err: any, data?: GetTraceGraphCommandOutput) => void
   ): Promise<GetTraceGraphCommandOutput> | void {
     const command = new GetTraceGraphCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -635,7 +666,7 @@ export class XRay extends XRayClient {
    */
   public getTraceSummaries(
     args: GetTraceSummariesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTraceSummariesCommandOutput>;
   public getTraceSummaries(
     args: GetTraceSummariesCommandInput,
@@ -648,16 +679,18 @@ export class XRay extends XRayClient {
   ): void;
   public getTraceSummaries(
     args: GetTraceSummariesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTraceSummariesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTraceSummariesCommandOutput) => void),
     cb?: (err: any, data?: GetTraceSummariesCommandOutput) => void
   ): Promise<GetTraceSummariesCommandOutput> | void {
     const command = new GetTraceSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -670,7 +703,7 @@ export class XRay extends XRayClient {
    */
   public putEncryptionConfig(
     args: PutEncryptionConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutEncryptionConfigCommandOutput>;
   public putEncryptionConfig(
     args: PutEncryptionConfigCommandInput,
@@ -683,16 +716,18 @@ export class XRay extends XRayClient {
   ): void;
   public putEncryptionConfig(
     args: PutEncryptionConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutEncryptionConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutEncryptionConfigCommandOutput) => void),
     cb?: (err: any, data?: PutEncryptionConfigCommandOutput) => void
   ): Promise<PutEncryptionConfigCommandOutput> | void {
     const command = new PutEncryptionConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -705,7 +740,7 @@ export class XRay extends XRayClient {
    */
   public putTelemetryRecords(
     args: PutTelemetryRecordsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutTelemetryRecordsCommandOutput>;
   public putTelemetryRecords(
     args: PutTelemetryRecordsCommandInput,
@@ -718,16 +753,18 @@ export class XRay extends XRayClient {
   ): void;
   public putTelemetryRecords(
     args: PutTelemetryRecordsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTelemetryRecordsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutTelemetryRecordsCommandOutput) => void),
     cb?: (err: any, data?: PutTelemetryRecordsCommandOutput) => void
   ): Promise<PutTelemetryRecordsCommandOutput> | void {
     const command = new PutTelemetryRecordsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -803,7 +840,7 @@ export class XRay extends XRayClient {
    */
   public putTraceSegments(
     args: PutTraceSegmentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutTraceSegmentsCommandOutput>;
   public putTraceSegments(
     args: PutTraceSegmentsCommandInput,
@@ -816,16 +853,18 @@ export class XRay extends XRayClient {
   ): void;
   public putTraceSegments(
     args: PutTraceSegmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutTraceSegmentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutTraceSegmentsCommandOutput) => void),
     cb?: (err: any, data?: PutTraceSegmentsCommandOutput) => void
   ): Promise<PutTraceSegmentsCommandOutput> | void {
     const command = new PutTraceSegmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -838,7 +877,7 @@ export class XRay extends XRayClient {
    */
   public updateGroup(
     args: UpdateGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateGroupCommandOutput>;
   public updateGroup(
     args: UpdateGroupCommandInput,
@@ -851,16 +890,18 @@ export class XRay extends XRayClient {
   ): void;
   public updateGroup(
     args: UpdateGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateGroupCommandOutput) => void
   ): Promise<UpdateGroupCommandOutput> | void {
     const command = new UpdateGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -873,7 +914,7 @@ export class XRay extends XRayClient {
    */
   public updateSamplingRule(
     args: UpdateSamplingRuleCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateSamplingRuleCommandOutput>;
   public updateSamplingRule(
     args: UpdateSamplingRuleCommandInput,
@@ -886,19 +927,20 @@ export class XRay extends XRayClient {
   ): void;
   public updateSamplingRule(
     args: UpdateSamplingRuleCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSamplingRuleCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSamplingRuleCommandOutput) => void),
     cb?: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
   ): Promise<UpdateSamplingRuleCommandOutput> | void {
     const command = new UpdateSamplingRuleCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -1,90 +1,90 @@
 import {
   CreateActivityCommandInput,
-  CreateActivityCommandOutput,
+  CreateActivityCommandOutput
 } from "../commands/CreateActivityCommand";
 import {
   CreateStateMachineCommandInput,
-  CreateStateMachineCommandOutput,
+  CreateStateMachineCommandOutput
 } from "../commands/CreateStateMachineCommand";
 import {
   DeleteActivityCommandInput,
-  DeleteActivityCommandOutput,
+  DeleteActivityCommandOutput
 } from "../commands/DeleteActivityCommand";
 import {
   DeleteStateMachineCommandInput,
-  DeleteStateMachineCommandOutput,
+  DeleteStateMachineCommandOutput
 } from "../commands/DeleteStateMachineCommand";
 import {
   DescribeActivityCommandInput,
-  DescribeActivityCommandOutput,
+  DescribeActivityCommandOutput
 } from "../commands/DescribeActivityCommand";
 import {
   DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput,
+  DescribeExecutionCommandOutput
 } from "../commands/DescribeExecutionCommand";
 import {
   DescribeStateMachineCommandInput,
-  DescribeStateMachineCommandOutput,
+  DescribeStateMachineCommandOutput
 } from "../commands/DescribeStateMachineCommand";
 import {
   DescribeStateMachineForExecutionCommandInput,
-  DescribeStateMachineForExecutionCommandOutput,
+  DescribeStateMachineForExecutionCommandOutput
 } from "../commands/DescribeStateMachineForExecutionCommand";
 import {
   GetActivityTaskCommandInput,
-  GetActivityTaskCommandOutput,
+  GetActivityTaskCommandOutput
 } from "../commands/GetActivityTaskCommand";
 import {
   GetExecutionHistoryCommandInput,
-  GetExecutionHistoryCommandOutput,
+  GetExecutionHistoryCommandOutput
 } from "../commands/GetExecutionHistoryCommand";
 import {
   ListActivitiesCommandInput,
-  ListActivitiesCommandOutput,
+  ListActivitiesCommandOutput
 } from "../commands/ListActivitiesCommand";
 import {
   ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
+  ListExecutionsCommandOutput
 } from "../commands/ListExecutionsCommand";
 import {
   ListStateMachinesCommandInput,
-  ListStateMachinesCommandOutput,
+  ListStateMachinesCommandOutput
 } from "../commands/ListStateMachinesCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   SendTaskFailureCommandInput,
-  SendTaskFailureCommandOutput,
+  SendTaskFailureCommandOutput
 } from "../commands/SendTaskFailureCommand";
 import {
   SendTaskHeartbeatCommandInput,
-  SendTaskHeartbeatCommandOutput,
+  SendTaskHeartbeatCommandOutput
 } from "../commands/SendTaskHeartbeatCommand";
 import {
   SendTaskSuccessCommandInput,
-  SendTaskSuccessCommandOutput,
+  SendTaskSuccessCommandOutput
 } from "../commands/SendTaskSuccessCommand";
 import {
   StartExecutionCommandInput,
-  StartExecutionCommandOutput,
+  StartExecutionCommandOutput
 } from "../commands/StartExecutionCommand";
 import {
   StopExecutionCommandInput,
-  StopExecutionCommandOutput,
+  StopExecutionCommandOutput
 } from "../commands/StopExecutionCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateStateMachineCommandInput,
-  UpdateStateMachineCommandOutput,
+  UpdateStateMachineCommandOutput
 } from "../commands/UpdateStateMachineCommand";
 import {
   ActivityDoesNotExist,
@@ -190,18 +190,18 @@ import {
   UntagResourceInput,
   UntagResourceOutput,
   UpdateStateMachineInput,
-  UpdateStateMachineOutput,
+  UpdateStateMachineOutput
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_0CreateActivityCommand(
@@ -209,11 +209,11 @@ export async function serializeAws_json1_0CreateActivityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.CreateActivity";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.CreateActivity";
   let body: any = {};
   const wrappedBody: any = {
-    CreateActivityInput: serializeAws_json1_0CreateActivityInput(input, context),
+    CreateActivityInput: serializeAws_json1_0CreateActivityInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -222,7 +222,7 @@ export async function serializeAws_json1_0CreateActivityCommand(
     method: "POST",
     path: "/CreateActivity",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -231,11 +231,14 @@ export async function serializeAws_json1_0CreateStateMachineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.CreateStateMachine";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.CreateStateMachine";
   let body: any = {};
   const wrappedBody: any = {
-    CreateStateMachineInput: serializeAws_json1_0CreateStateMachineInput(input, context),
+    CreateStateMachineInput: serializeAws_json1_0CreateStateMachineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -244,7 +247,7 @@ export async function serializeAws_json1_0CreateStateMachineCommand(
     method: "POST",
     path: "/CreateStateMachine",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -253,11 +256,11 @@ export async function serializeAws_json1_0DeleteActivityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DeleteActivity";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DeleteActivity";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteActivityInput: serializeAws_json1_0DeleteActivityInput(input, context),
+    DeleteActivityInput: serializeAws_json1_0DeleteActivityInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -266,7 +269,7 @@ export async function serializeAws_json1_0DeleteActivityCommand(
     method: "POST",
     path: "/DeleteActivity",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -275,11 +278,14 @@ export async function serializeAws_json1_0DeleteStateMachineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DeleteStateMachine";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DeleteStateMachine";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteStateMachineInput: serializeAws_json1_0DeleteStateMachineInput(input, context),
+    DeleteStateMachineInput: serializeAws_json1_0DeleteStateMachineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -288,7 +294,7 @@ export async function serializeAws_json1_0DeleteStateMachineCommand(
     method: "POST",
     path: "/DeleteStateMachine",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -297,11 +303,14 @@ export async function serializeAws_json1_0DescribeActivityCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DescribeActivity";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeActivity";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeActivityInput: serializeAws_json1_0DescribeActivityInput(input, context),
+    DescribeActivityInput: serializeAws_json1_0DescribeActivityInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -310,7 +319,7 @@ export async function serializeAws_json1_0DescribeActivityCommand(
     method: "POST",
     path: "/DescribeActivity",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -319,11 +328,14 @@ export async function serializeAws_json1_0DescribeExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DescribeExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeExecution";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeExecutionInput: serializeAws_json1_0DescribeExecutionInput(input, context),
+    DescribeExecutionInput: serializeAws_json1_0DescribeExecutionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -332,7 +344,7 @@ export async function serializeAws_json1_0DescribeExecutionCommand(
     method: "POST",
     path: "/DescribeExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -341,11 +353,14 @@ export async function serializeAws_json1_0DescribeStateMachineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DescribeStateMachine";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachine";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStateMachineInput: serializeAws_json1_0DescribeStateMachineInput(input, context),
+    DescribeStateMachineInput: serializeAws_json1_0DescribeStateMachineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -354,7 +369,7 @@ export async function serializeAws_json1_0DescribeStateMachineCommand(
     method: "POST",
     path: "/DescribeStateMachine",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -363,11 +378,14 @@ export async function serializeAws_json1_0DescribeStateMachineForExecutionComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.DescribeStateMachineForExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.DescribeStateMachineForExecution";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStateMachineForExecutionInput: serializeAws_json1_0DescribeStateMachineForExecutionInput(input, context),
+    DescribeStateMachineForExecutionInput: serializeAws_json1_0DescribeStateMachineForExecutionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -376,7 +394,7 @@ export async function serializeAws_json1_0DescribeStateMachineForExecutionComman
     method: "POST",
     path: "/DescribeStateMachineForExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -385,11 +403,14 @@ export async function serializeAws_json1_0GetActivityTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.GetActivityTask";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.GetActivityTask";
   let body: any = {};
   const wrappedBody: any = {
-    GetActivityTaskInput: serializeAws_json1_0GetActivityTaskInput(input, context),
+    GetActivityTaskInput: serializeAws_json1_0GetActivityTaskInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -398,7 +419,7 @@ export async function serializeAws_json1_0GetActivityTaskCommand(
     method: "POST",
     path: "/GetActivityTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -407,11 +428,14 @@ export async function serializeAws_json1_0GetExecutionHistoryCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.GetExecutionHistory";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.GetExecutionHistory";
   let body: any = {};
   const wrappedBody: any = {
-    GetExecutionHistoryInput: serializeAws_json1_0GetExecutionHistoryInput(input, context),
+    GetExecutionHistoryInput: serializeAws_json1_0GetExecutionHistoryInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -420,7 +444,7 @@ export async function serializeAws_json1_0GetExecutionHistoryCommand(
     method: "POST",
     path: "/GetExecutionHistory",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -429,11 +453,11 @@ export async function serializeAws_json1_0ListActivitiesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.ListActivities";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.ListActivities";
   let body: any = {};
   const wrappedBody: any = {
-    ListActivitiesInput: serializeAws_json1_0ListActivitiesInput(input, context),
+    ListActivitiesInput: serializeAws_json1_0ListActivitiesInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -442,7 +466,7 @@ export async function serializeAws_json1_0ListActivitiesCommand(
     method: "POST",
     path: "/ListActivities",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -451,11 +475,11 @@ export async function serializeAws_json1_0ListExecutionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.ListExecutions";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.ListExecutions";
   let body: any = {};
   const wrappedBody: any = {
-    ListExecutionsInput: serializeAws_json1_0ListExecutionsInput(input, context),
+    ListExecutionsInput: serializeAws_json1_0ListExecutionsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -464,7 +488,7 @@ export async function serializeAws_json1_0ListExecutionsCommand(
     method: "POST",
     path: "/ListExecutions",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -473,11 +497,14 @@ export async function serializeAws_json1_0ListStateMachinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.ListStateMachines";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.ListStateMachines";
   let body: any = {};
   const wrappedBody: any = {
-    ListStateMachinesInput: serializeAws_json1_0ListStateMachinesInput(input, context),
+    ListStateMachinesInput: serializeAws_json1_0ListStateMachinesInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -486,7 +513,7 @@ export async function serializeAws_json1_0ListStateMachinesCommand(
     method: "POST",
     path: "/ListStateMachines",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -495,11 +522,14 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.ListTagsForResource";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceInput: serializeAws_json1_0ListTagsForResourceInput(input, context),
+    ListTagsForResourceInput: serializeAws_json1_0ListTagsForResourceInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -508,7 +538,7 @@ export async function serializeAws_json1_0ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -517,11 +547,14 @@ export async function serializeAws_json1_0SendTaskFailureCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.SendTaskFailure";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskFailure";
   let body: any = {};
   const wrappedBody: any = {
-    SendTaskFailureInput: serializeAws_json1_0SendTaskFailureInput(input, context),
+    SendTaskFailureInput: serializeAws_json1_0SendTaskFailureInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -530,7 +563,7 @@ export async function serializeAws_json1_0SendTaskFailureCommand(
     method: "POST",
     path: "/SendTaskFailure",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -539,11 +572,14 @@ export async function serializeAws_json1_0SendTaskHeartbeatCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.SendTaskHeartbeat";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskHeartbeat";
   let body: any = {};
   const wrappedBody: any = {
-    SendTaskHeartbeatInput: serializeAws_json1_0SendTaskHeartbeatInput(input, context),
+    SendTaskHeartbeatInput: serializeAws_json1_0SendTaskHeartbeatInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -552,7 +588,7 @@ export async function serializeAws_json1_0SendTaskHeartbeatCommand(
     method: "POST",
     path: "/SendTaskHeartbeat",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -561,11 +597,14 @@ export async function serializeAws_json1_0SendTaskSuccessCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.SendTaskSuccess";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.SendTaskSuccess";
   let body: any = {};
   const wrappedBody: any = {
-    SendTaskSuccessInput: serializeAws_json1_0SendTaskSuccessInput(input, context),
+    SendTaskSuccessInput: serializeAws_json1_0SendTaskSuccessInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -574,7 +613,7 @@ export async function serializeAws_json1_0SendTaskSuccessCommand(
     method: "POST",
     path: "/SendTaskSuccess",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -583,11 +622,11 @@ export async function serializeAws_json1_0StartExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.StartExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.StartExecution";
   let body: any = {};
   const wrappedBody: any = {
-    StartExecutionInput: serializeAws_json1_0StartExecutionInput(input, context),
+    StartExecutionInput: serializeAws_json1_0StartExecutionInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -596,7 +635,7 @@ export async function serializeAws_json1_0StartExecutionCommand(
     method: "POST",
     path: "/StartExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -605,11 +644,11 @@ export async function serializeAws_json1_0StopExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.StopExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.StopExecution";
   let body: any = {};
   const wrappedBody: any = {
-    StopExecutionInput: serializeAws_json1_0StopExecutionInput(input, context),
+    StopExecutionInput: serializeAws_json1_0StopExecutionInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -618,7 +657,7 @@ export async function serializeAws_json1_0StopExecutionCommand(
     method: "POST",
     path: "/StopExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -627,11 +666,11 @@ export async function serializeAws_json1_0TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.TagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceInput: serializeAws_json1_0TagResourceInput(input, context),
+    TagResourceInput: serializeAws_json1_0TagResourceInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -640,7 +679,7 @@ export async function serializeAws_json1_0TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -649,11 +688,11 @@ export async function serializeAws_json1_0UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.UntagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceInput: serializeAws_json1_0UntagResourceInput(input, context),
+    UntagResourceInput: serializeAws_json1_0UntagResourceInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -662,7 +701,7 @@ export async function serializeAws_json1_0UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -671,11 +710,14 @@ export async function serializeAws_json1_0UpdateStateMachineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "AWSStepFunctions.UpdateStateMachine";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "AWSStepFunctions.UpdateStateMachine";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateStateMachineInput: serializeAws_json1_0UpdateStateMachineInput(input, context),
+    UpdateStateMachineInput: serializeAws_json1_0UpdateStateMachineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -684,7 +726,7 @@ export async function serializeAws_json1_0UpdateStateMachineCommand(
     method: "POST",
     path: "/UpdateStateMachine",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -695,48 +737,58 @@ export async function deserializeAws_json1_0CreateActivityCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0CreateActivityCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0CreateActivityOutput(data, context);
   const response: CreateActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateActivityOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0CreateActivityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateActivityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityLimitExceeded":
-      response = await deserializeAws_json1_0ActivityLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ActivityLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidNameResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TooManyTagsResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -747,74 +799,105 @@ export async function deserializeAws_json1_0CreateStateMachineCommand(
   context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0CreateStateMachineCommandError(output, context);
+    return deserializeAws_json1_0CreateStateMachineCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0CreateStateMachineOutput(data, context);
   const response: CreateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStateMachineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0CreateStateMachineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
-      response = await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidDefinitionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
-      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidNameResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#StateMachineAlreadyExists":
-      response = await deserializeAws_json1_0StateMachineAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDeletingResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#StateMachineLimitExceeded":
-      response = await deserializeAws_json1_0StateMachineLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported":
-      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TooManyTagsResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -827,40 +910,44 @@ export async function deserializeAws_json1_0DeleteActivityCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DeleteActivityCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DeleteActivityOutput(data, context);
   const response: DeleteActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteActivityOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DeleteActivityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteActivityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -871,42 +958,49 @@ export async function deserializeAws_json1_0DeleteStateMachineCommand(
   context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DeleteStateMachineCommandError(output, context);
+    return deserializeAws_json1_0DeleteStateMachineCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DeleteStateMachineOutput(data, context);
   const response: DeleteStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStateMachineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DeleteStateMachineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -919,44 +1013,51 @@ export async function deserializeAws_json1_0DescribeActivityCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeActivityCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeActivityOutput(data, context);
   const response: DescribeActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeActivityOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DescribeActivityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeActivityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
-      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -969,44 +1070,51 @@ export async function deserializeAws_json1_0DescribeExecutionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0DescribeExecutionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeExecutionOutput(data, context);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DescribeExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1017,46 +1125,56 @@ export async function deserializeAws_json1_0DescribeStateMachineCommand(
   context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeStateMachineCommandError(output, context);
+    return deserializeAws_json1_0DescribeStateMachineCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeStateMachineOutput(data, context);
   const response: DescribeStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStateMachineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DescribeStateMachineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1067,46 +1185,59 @@ export async function deserializeAws_json1_0DescribeStateMachineForExecutionComm
   context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(output, context);
+    return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(data, context);
+  contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(
+    data,
+    context
+  );
   const response: DescribeStateMachineForExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStateMachineForExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1119,48 +1250,58 @@ export async function deserializeAws_json1_0GetActivityTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0GetActivityTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetActivityTaskOutput(data, context);
   const response: GetActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetActivityTaskOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0GetActivityTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetActivityTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ActivityDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ActivityDoesNotExist":
-      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ActivityDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ActivityWorkerLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ActivityWorkerLimitExceeded":
-      response = await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ActivityWorkerLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1171,50 +1312,63 @@ export async function deserializeAws_json1_0GetExecutionHistoryCommand(
   context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0GetExecutionHistoryCommandError(output, context);
+    return deserializeAws_json1_0GetExecutionHistoryCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetExecutionHistoryOutput(data, context);
   const response: GetExecutionHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetExecutionHistoryOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0GetExecutionHistoryCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1227,40 +1381,44 @@ export async function deserializeAws_json1_0ListActivitiesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListActivitiesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0ListActivitiesOutput(data, context);
   const response: ListActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActivitiesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0ListActivitiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListActivitiesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1273,52 +1431,65 @@ export async function deserializeAws_json1_0ListExecutionsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListExecutionsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0ListExecutionsOutput(data, context);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListExecutionsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0ListExecutionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineTypeNotSupported":
     case "com.amazonaws.swf.service.v2.model#StateMachineTypeNotSupported":
-      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineTypeNotSupportedResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1331,40 +1502,44 @@ export async function deserializeAws_json1_0ListStateMachinesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0ListStateMachinesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0ListStateMachinesOutput(data, context);
   const response: ListStateMachinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStateMachinesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0ListStateMachinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListStateMachinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1375,46 +1550,56 @@ export async function deserializeAws_json1_0ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
+    return deserializeAws_json1_0ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1427,48 +1612,58 @@ export async function deserializeAws_json1_0SendTaskFailureCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SendTaskFailureCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0SendTaskFailureOutput(data, context);
   const response: SendTaskFailureCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskFailureOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0SendTaskFailureCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SendTaskFailureCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskTimedOutResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1481,48 +1676,58 @@ export async function deserializeAws_json1_0SendTaskHeartbeatCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SendTaskHeartbeatCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0SendTaskHeartbeatOutput(data, context);
   const response: SendTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskHeartbeatOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0SendTaskHeartbeatCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SendTaskHeartbeatCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskTimedOutResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1535,52 +1740,65 @@ export async function deserializeAws_json1_0SendTaskSuccessCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SendTaskSuccessCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0SendTaskSuccessOutput(data, context);
   const response: SendTaskSuccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskSuccessOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0SendTaskSuccessCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SendTaskSuccessCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidOutput":
     case "com.amazonaws.swf.service.v2.model#InvalidOutput":
-      response = await deserializeAws_json1_0InvalidOutputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidOutputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidToken":
     case "com.amazonaws.swf.service.v2.model#InvalidToken":
-      response = await deserializeAws_json1_0InvalidTokenResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidTokenResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#TaskDoesNotExist":
-      response = await deserializeAws_json1_0TaskDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskTimedOut":
     case "com.amazonaws.swf.service.v2.model#TaskTimedOut":
-      response = await deserializeAws_json1_0TaskTimedOutResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TaskTimedOutResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1593,64 +1811,86 @@ export async function deserializeAws_json1_0StartExecutionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0StartExecutionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0StartExecutionOutput(data, context);
   const response: StartExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0StartExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionAlreadyExists":
     case "com.amazonaws.swf.service.v2.model#ExecutionAlreadyExists":
-      response = await deserializeAws_json1_0ExecutionAlreadyExistsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionAlreadyExistsResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ExecutionLimitExceeded":
     case "com.amazonaws.swf.service.v2.model#ExecutionLimitExceeded":
-      response = await deserializeAws_json1_0ExecutionLimitExceededResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionLimitExceededResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidExecutionInput":
     case "com.amazonaws.swf.service.v2.model#InvalidExecutionInput":
-      response = await deserializeAws_json1_0InvalidExecutionInputResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidExecutionInputResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidName":
     case "com.amazonaws.swf.service.v2.model#InvalidName":
-      response = await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidNameResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDeletingResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1663,44 +1903,51 @@ export async function deserializeAws_json1_0StopExecutionCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0StopExecutionCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0StopExecutionOutput(data, context);
   const response: StopExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopExecutionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0StopExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StopExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExecutionDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#ExecutionDoesNotExist":
-      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ExecutionDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1713,48 +1960,58 @@ export async function deserializeAws_json1_0TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyTags":
     case "com.amazonaws.swf.service.v2.model#TooManyTags":
-      response = await deserializeAws_json1_0TooManyTagsResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0TooManyTagsResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1767,44 +2024,51 @@ export async function deserializeAws_json1_0UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFound":
     case "com.amazonaws.swf.service.v2.model#ResourceNotFound":
-      response = await deserializeAws_json1_0ResourceNotFoundResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0ResourceNotFoundResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1815,62 +2079,84 @@ export async function deserializeAws_json1_0UpdateStateMachineCommand(
   context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_0UpdateStateMachineCommandError(output, context);
+    return deserializeAws_json1_0UpdateStateMachineCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateStateMachineOutput(data, context);
   const response: UpdateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStateMachineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0UpdateStateMachineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArn":
     case "com.amazonaws.swf.service.v2.model#InvalidArn":
-      response = await deserializeAws_json1_0InvalidArnResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidArnResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidDefinition":
     case "com.amazonaws.swf.service.v2.model#InvalidDefinition":
-      response = await deserializeAws_json1_0InvalidDefinitionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidDefinitionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidLoggingConfiguration":
     case "com.amazonaws.swf.service.v2.model#InvalidLoggingConfiguration":
-      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidLoggingConfigurationResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "MissingRequiredParameter":
     case "com.amazonaws.swf.service.v2.model#MissingRequiredParameter":
-      response = await deserializeAws_json1_0MissingRequiredParameterResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0MissingRequiredParameterResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDeleting":
     case "com.amazonaws.swf.service.v2.model#StateMachineDeleting":
-      response = await deserializeAws_json1_0StateMachineDeletingResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDeletingResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StateMachineDoesNotExist":
     case "com.amazonaws.swf.service.v2.model#StateMachineDoesNotExist":
-      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0StateMachineDoesNotExistResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.swf.service.v2.model#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1880,12 +2166,15 @@ const deserializeAws_json1_0ActivityDoesNotExistResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ActivityDoesNotExist> => {
-  const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ActivityDoesNotExist(
+    output.body,
+    context
+  );
   const contents: ActivityDoesNotExist = {
     __type: "ActivityDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1894,12 +2183,15 @@ const deserializeAws_json1_0ActivityLimitExceededResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ActivityLimitExceeded> => {
-  const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ActivityLimitExceeded(
+    output.body,
+    context
+  );
   const contents: ActivityLimitExceeded = {
     __type: "ActivityLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1908,12 +2200,15 @@ const deserializeAws_json1_0ActivityWorkerLimitExceededResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ActivityWorkerLimitExceeded> => {
-  const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ActivityWorkerLimitExceeded(
+    output.body,
+    context
+  );
   const contents: ActivityWorkerLimitExceeded = {
     __type: "ActivityWorkerLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1922,12 +2217,15 @@ const deserializeAws_json1_0ExecutionAlreadyExistsResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExecutionAlreadyExists> => {
-  const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ExecutionAlreadyExists(
+    output.body,
+    context
+  );
   const contents: ExecutionAlreadyExists = {
     __type: "ExecutionAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1936,12 +2234,15 @@ const deserializeAws_json1_0ExecutionDoesNotExistResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExecutionDoesNotExist> => {
-  const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ExecutionDoesNotExist(
+    output.body,
+    context
+  );
   const contents: ExecutionDoesNotExist = {
     __type: "ExecutionDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1950,12 +2251,15 @@ const deserializeAws_json1_0ExecutionLimitExceededResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExecutionLimitExceeded> => {
-  const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ExecutionLimitExceeded(
+    output.body,
+    context
+  );
   const contents: ExecutionLimitExceeded = {
     __type: "ExecutionLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1964,12 +2268,15 @@ const deserializeAws_json1_0InvalidArnResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidArn> => {
-  const deserialized: any = deserializeAws_json1_0InvalidArn(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidArn(
+    output.body,
+    context
+  );
   const contents: InvalidArn = {
     __type: "InvalidArn",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1978,12 +2285,15 @@ const deserializeAws_json1_0InvalidDefinitionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidDefinition> => {
-  const deserialized: any = deserializeAws_json1_0InvalidDefinition(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidDefinition(
+    output.body,
+    context
+  );
   const contents: InvalidDefinition = {
     __type: "InvalidDefinition",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1992,12 +2302,15 @@ const deserializeAws_json1_0InvalidExecutionInputResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidExecutionInput> => {
-  const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidExecutionInput(
+    output.body,
+    context
+  );
   const contents: InvalidExecutionInput = {
     __type: "InvalidExecutionInput",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2006,12 +2319,15 @@ const deserializeAws_json1_0InvalidLoggingConfigurationResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidLoggingConfiguration> => {
-  const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidLoggingConfiguration(
+    output.body,
+    context
+  );
   const contents: InvalidLoggingConfiguration = {
     __type: "InvalidLoggingConfiguration",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2020,12 +2336,15 @@ const deserializeAws_json1_0InvalidNameResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidName> => {
-  const deserialized: any = deserializeAws_json1_0InvalidName(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidName(
+    output.body,
+    context
+  );
   const contents: InvalidName = {
     __type: "InvalidName",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2034,12 +2353,15 @@ const deserializeAws_json1_0InvalidOutputResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidOutput> => {
-  const deserialized: any = deserializeAws_json1_0InvalidOutput(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidOutput(
+    output.body,
+    context
+  );
   const contents: InvalidOutput = {
     __type: "InvalidOutput",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2048,12 +2370,15 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidToken> => {
-  const deserialized: any = deserializeAws_json1_0InvalidToken(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidToken(
+    output.body,
+    context
+  );
   const contents: InvalidToken = {
     __type: "InvalidToken",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2062,12 +2387,15 @@ const deserializeAws_json1_0MissingRequiredParameterResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<MissingRequiredParameter> => {
-  const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(output.body, context);
+  const deserialized: any = deserializeAws_json1_0MissingRequiredParameter(
+    output.body,
+    context
+  );
   const contents: MissingRequiredParameter = {
     __type: "MissingRequiredParameter",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2076,12 +2404,15 @@ const deserializeAws_json1_0ResourceNotFoundResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFound> => {
-  const deserialized: any = deserializeAws_json1_0ResourceNotFound(output.body, context);
+  const deserialized: any = deserializeAws_json1_0ResourceNotFound(
+    output.body,
+    context
+  );
   const contents: ResourceNotFound = {
     __type: "ResourceNotFound",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2090,12 +2421,15 @@ const deserializeAws_json1_0StateMachineAlreadyExistsResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StateMachineAlreadyExists> => {
-  const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(output.body, context);
+  const deserialized: any = deserializeAws_json1_0StateMachineAlreadyExists(
+    output.body,
+    context
+  );
   const contents: StateMachineAlreadyExists = {
     __type: "StateMachineAlreadyExists",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2104,12 +2438,15 @@ const deserializeAws_json1_0StateMachineDeletingResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StateMachineDeleting> => {
-  const deserialized: any = deserializeAws_json1_0StateMachineDeleting(output.body, context);
+  const deserialized: any = deserializeAws_json1_0StateMachineDeleting(
+    output.body,
+    context
+  );
   const contents: StateMachineDeleting = {
     __type: "StateMachineDeleting",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2118,12 +2455,15 @@ const deserializeAws_json1_0StateMachineDoesNotExistResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StateMachineDoesNotExist> => {
-  const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(output.body, context);
+  const deserialized: any = deserializeAws_json1_0StateMachineDoesNotExist(
+    output.body,
+    context
+  );
   const contents: StateMachineDoesNotExist = {
     __type: "StateMachineDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2132,12 +2472,15 @@ const deserializeAws_json1_0StateMachineLimitExceededResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StateMachineLimitExceeded> => {
-  const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(output.body, context);
+  const deserialized: any = deserializeAws_json1_0StateMachineLimitExceeded(
+    output.body,
+    context
+  );
   const contents: StateMachineLimitExceeded = {
     __type: "StateMachineLimitExceeded",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2146,12 +2489,15 @@ const deserializeAws_json1_0StateMachineTypeNotSupportedResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<StateMachineTypeNotSupported> => {
-  const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(output.body, context);
+  const deserialized: any = deserializeAws_json1_0StateMachineTypeNotSupported(
+    output.body,
+    context
+  );
   const contents: StateMachineTypeNotSupported = {
     __type: "StateMachineTypeNotSupported",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2160,12 +2506,15 @@ const deserializeAws_json1_0TaskDoesNotExistResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TaskDoesNotExist> => {
-  const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(output.body, context);
+  const deserialized: any = deserializeAws_json1_0TaskDoesNotExist(
+    output.body,
+    context
+  );
   const contents: TaskDoesNotExist = {
     __type: "TaskDoesNotExist",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2174,12 +2523,15 @@ const deserializeAws_json1_0TaskTimedOutResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TaskTimedOut> => {
-  const deserialized: any = deserializeAws_json1_0TaskTimedOut(output.body, context);
+  const deserialized: any = deserializeAws_json1_0TaskTimedOut(
+    output.body,
+    context
+  );
   const contents: TaskTimedOut = {
     __type: "TaskTimedOut",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2188,12 +2540,15 @@ const deserializeAws_json1_0TooManyTagsResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TooManyTags> => {
-  const deserialized: any = deserializeAws_json1_0TooManyTags(output.body, context);
+  const deserialized: any = deserializeAws_json1_0TooManyTags(
+    output.body,
+    context
+  );
   const contents: TooManyTags = {
     __type: "TooManyTags",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2204,10 +2559,10 @@ const serializeAws_json1_0CloudWatchLogsLogGroup = (
 ): any => {
   let bodyParams: any = {};
   if (input.logGroupArn !== undefined) {
-    bodyParams['logGroupArn'] = input.logGroupArn;
+    bodyParams["logGroupArn"] = input.logGroupArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0LogDestination = (
   input: LogDestination,
@@ -2215,10 +2570,15 @@ const serializeAws_json1_0LogDestination = (
 ): any => {
   let bodyParams: any = {};
   if (input.cloudWatchLogsLogGroup !== undefined) {
-    bodyParams['cloudWatchLogsLogGroup'] = serializeAws_json1_0CloudWatchLogsLogGroup(input.cloudWatchLogsLogGroup, context);
+    bodyParams[
+      "cloudWatchLogsLogGroup"
+    ] = serializeAws_json1_0CloudWatchLogsLogGroup(
+      input.cloudWatchLogsLogGroup,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0LogDestinationList = (
   input: Array<LogDestination>,
@@ -2227,7 +2587,7 @@ const serializeAws_json1_0LogDestinationList = (
   return (input || []).map(entry =>
     serializeAws_json1_0LogDestination(entry, context)
   );
-}
+};
 
 const serializeAws_json1_0LoggingConfiguration = (
   input: LoggingConfiguration,
@@ -2235,16 +2595,19 @@ const serializeAws_json1_0LoggingConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.destinations !== undefined) {
-    bodyParams['destinations'] = serializeAws_json1_0LogDestinationList(input.destinations, context);
+    bodyParams["destinations"] = serializeAws_json1_0LogDestinationList(
+      input.destinations,
+      context
+    );
   }
   if (input.includeExecutionData !== undefined) {
-    bodyParams['includeExecutionData'] = input.includeExecutionData;
+    bodyParams["includeExecutionData"] = input.includeExecutionData;
   }
   if (input.level !== undefined) {
-    bodyParams['level'] = input.level;
+    bodyParams["level"] = input.level;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0CreateActivityInput = (
   input: CreateActivityInput,
@@ -2252,13 +2615,13 @@ const serializeAws_json1_0CreateActivityInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_0TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0CreateStateMachineInput = (
   input: CreateStateMachineInput,
@@ -2266,25 +2629,30 @@ const serializeAws_json1_0CreateStateMachineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.definition !== undefined) {
-    bodyParams['definition'] = input.definition;
+    bodyParams["definition"] = input.definition;
   }
   if (input.loggingConfiguration !== undefined) {
-    bodyParams['loggingConfiguration'] = serializeAws_json1_0LoggingConfiguration(input.loggingConfiguration, context);
+    bodyParams[
+      "loggingConfiguration"
+    ] = serializeAws_json1_0LoggingConfiguration(
+      input.loggingConfiguration,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.roleArn !== undefined) {
-    bodyParams['roleArn'] = input.roleArn;
+    bodyParams["roleArn"] = input.roleArn;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_0TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DeleteActivityInput = (
   input: DeleteActivityInput,
@@ -2292,10 +2660,10 @@ const serializeAws_json1_0DeleteActivityInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.activityArn !== undefined) {
-    bodyParams['activityArn'] = input.activityArn;
+    bodyParams["activityArn"] = input.activityArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DeleteStateMachineInput = (
   input: DeleteStateMachineInput,
@@ -2303,10 +2671,10 @@ const serializeAws_json1_0DeleteStateMachineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.stateMachineArn !== undefined) {
-    bodyParams['stateMachineArn'] = input.stateMachineArn;
+    bodyParams["stateMachineArn"] = input.stateMachineArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DescribeActivityInput = (
   input: DescribeActivityInput,
@@ -2314,10 +2682,10 @@ const serializeAws_json1_0DescribeActivityInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.activityArn !== undefined) {
-    bodyParams['activityArn'] = input.activityArn;
+    bodyParams["activityArn"] = input.activityArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DescribeExecutionInput = (
   input: DescribeExecutionInput,
@@ -2325,10 +2693,10 @@ const serializeAws_json1_0DescribeExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.executionArn !== undefined) {
-    bodyParams['executionArn'] = input.executionArn;
+    bodyParams["executionArn"] = input.executionArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
   input: DescribeStateMachineForExecutionInput,
@@ -2336,10 +2704,10 @@ const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.executionArn !== undefined) {
-    bodyParams['executionArn'] = input.executionArn;
+    bodyParams["executionArn"] = input.executionArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0DescribeStateMachineInput = (
   input: DescribeStateMachineInput,
@@ -2347,10 +2715,10 @@ const serializeAws_json1_0DescribeStateMachineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.stateMachineArn !== undefined) {
-    bodyParams['stateMachineArn'] = input.stateMachineArn;
+    bodyParams["stateMachineArn"] = input.stateMachineArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0GetActivityTaskInput = (
   input: GetActivityTaskInput,
@@ -2358,13 +2726,13 @@ const serializeAws_json1_0GetActivityTaskInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.activityArn !== undefined) {
-    bodyParams['activityArn'] = input.activityArn;
+    bodyParams["activityArn"] = input.activityArn;
   }
   if (input.workerName !== undefined) {
-    bodyParams['workerName'] = input.workerName;
+    bodyParams["workerName"] = input.workerName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0GetExecutionHistoryInput = (
   input: GetExecutionHistoryInput,
@@ -2372,19 +2740,19 @@ const serializeAws_json1_0GetExecutionHistoryInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.executionArn !== undefined) {
-    bodyParams['executionArn'] = input.executionArn;
+    bodyParams["executionArn"] = input.executionArn;
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.reverseOrder !== undefined) {
-    bodyParams['reverseOrder'] = input.reverseOrder;
+    bodyParams["reverseOrder"] = input.reverseOrder;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0ListActivitiesInput = (
   input: ListActivitiesInput,
@@ -2392,13 +2760,13 @@ const serializeAws_json1_0ListActivitiesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0ListExecutionsInput = (
   input: ListExecutionsInput,
@@ -2406,19 +2774,19 @@ const serializeAws_json1_0ListExecutionsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.stateMachineArn !== undefined) {
-    bodyParams['stateMachineArn'] = input.stateMachineArn;
+    bodyParams["stateMachineArn"] = input.stateMachineArn;
   }
   if (input.statusFilter !== undefined) {
-    bodyParams['statusFilter'] = input.statusFilter;
+    bodyParams["statusFilter"] = input.statusFilter;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0ListStateMachinesInput = (
   input: ListStateMachinesInput,
@@ -2426,13 +2794,13 @@ const serializeAws_json1_0ListStateMachinesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
@@ -2440,10 +2808,10 @@ const serializeAws_json1_0ListTagsForResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0SendTaskFailureInput = (
   input: SendTaskFailureInput,
@@ -2451,16 +2819,16 @@ const serializeAws_json1_0SendTaskFailureInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.cause !== undefined) {
-    bodyParams['cause'] = input.cause;
+    bodyParams["cause"] = input.cause;
   }
   if (input.error !== undefined) {
-    bodyParams['error'] = input.error;
+    bodyParams["error"] = input.error;
   }
   if (input.taskToken !== undefined) {
-    bodyParams['taskToken'] = input.taskToken;
+    bodyParams["taskToken"] = input.taskToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0SendTaskHeartbeatInput = (
   input: SendTaskHeartbeatInput,
@@ -2468,10 +2836,10 @@ const serializeAws_json1_0SendTaskHeartbeatInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.taskToken !== undefined) {
-    bodyParams['taskToken'] = input.taskToken;
+    bodyParams["taskToken"] = input.taskToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0SendTaskSuccessInput = (
   input: SendTaskSuccessInput,
@@ -2479,13 +2847,13 @@ const serializeAws_json1_0SendTaskSuccessInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.output !== undefined) {
-    bodyParams['output'] = input.output;
+    bodyParams["output"] = input.output;
   }
   if (input.taskToken !== undefined) {
-    bodyParams['taskToken'] = input.taskToken;
+    bodyParams["taskToken"] = input.taskToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0StartExecutionInput = (
   input: StartExecutionInput,
@@ -2493,16 +2861,16 @@ const serializeAws_json1_0StartExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.input !== undefined) {
-    bodyParams['input'] = input.input;
+    bodyParams["input"] = input.input;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.stateMachineArn !== undefined) {
-    bodyParams['stateMachineArn'] = input.stateMachineArn;
+    bodyParams["stateMachineArn"] = input.stateMachineArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0StopExecutionInput = (
   input: StopExecutionInput,
@@ -2510,48 +2878,41 @@ const serializeAws_json1_0StopExecutionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.cause !== undefined) {
-    bodyParams['cause'] = input.cause;
+    bodyParams["cause"] = input.cause;
   }
   if (input.error !== undefined) {
-    bodyParams['error'] = input.error;
+    bodyParams["error"] = input.error;
   }
   if (input.executionArn !== undefined) {
-    bodyParams['executionArn'] = input.executionArn;
+    bodyParams["executionArn"] = input.executionArn;
   }
   return bodyParams;
-}
+};
 
-const serializeAws_json1_0Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams['value'] = input.value;
+    bodyParams["value"] = input.value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_0TagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_0Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_0Tag(entry, context));
+};
 
 const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
@@ -2559,13 +2920,13 @@ const serializeAws_json1_0TagResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_0TagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0UntagResourceInput = (
   input: UntagResourceInput,
@@ -2573,13 +2934,16 @@ const serializeAws_json1_0UntagResourceInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.resourceArn !== undefined) {
-    bodyParams['resourceArn'] = input.resourceArn;
+    bodyParams["resourceArn"] = input.resourceArn;
   }
   if (input.tagKeys !== undefined) {
-    bodyParams['tagKeys'] = serializeAws_json1_0TagKeyList(input.tagKeys, context);
+    bodyParams["tagKeys"] = serializeAws_json1_0TagKeyList(
+      input.tagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0UpdateStateMachineInput = (
   input: UpdateStateMachineInput,
@@ -2587,19 +2951,24 @@ const serializeAws_json1_0UpdateStateMachineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.definition !== undefined) {
-    bodyParams['definition'] = input.definition;
+    bodyParams["definition"] = input.definition;
   }
   if (input.loggingConfiguration !== undefined) {
-    bodyParams['loggingConfiguration'] = serializeAws_json1_0LoggingConfiguration(input.loggingConfiguration, context);
+    bodyParams[
+      "loggingConfiguration"
+    ] = serializeAws_json1_0LoggingConfiguration(
+      input.loggingConfiguration,
+      context
+    );
   }
   if (input.roleArn !== undefined) {
-    bodyParams['roleArn'] = input.roleArn;
+    bodyParams["roleArn"] = input.roleArn;
   }
   if (input.stateMachineArn !== undefined) {
-    bodyParams['stateMachineArn'] = input.stateMachineArn;
+    bodyParams["stateMachineArn"] = input.stateMachineArn;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_0ActivityFailedEventDetails = (
   output: any,
@@ -2608,7 +2977,7 @@ const deserializeAws_json1_0ActivityFailedEventDetails = (
   let contents: any = {
     __type: "ActivityFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2617,7 +2986,7 @@ const deserializeAws_json1_0ActivityFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
   output: any,
@@ -2626,7 +2995,7 @@ const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
   let contents: any = {
     __type: "ActivityScheduleFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2635,7 +3004,7 @@ const deserializeAws_json1_0ActivityScheduleFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityScheduledEventDetails = (
   output: any,
@@ -2646,7 +3015,7 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
     heartbeatInSeconds: undefined,
     input: undefined,
     resource: undefined,
-    timeoutInSeconds: undefined,
+    timeoutInSeconds: undefined
   };
   if (output.heartbeatInSeconds !== undefined) {
     contents.heartbeatInSeconds = output.heartbeatInSeconds;
@@ -2661,7 +3030,7 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
     contents.timeoutInSeconds = output.timeoutInSeconds;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityStartedEventDetails = (
   output: any,
@@ -2669,13 +3038,13 @@ const deserializeAws_json1_0ActivityStartedEventDetails = (
 ): ActivityStartedEventDetails => {
   let contents: any = {
     __type: "ActivityStartedEventDetails",
-    workerName: undefined,
+    workerName: undefined
   };
   if (output.workerName !== undefined) {
     contents.workerName = output.workerName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivitySucceededEventDetails = (
   output: any,
@@ -2683,13 +3052,13 @@ const deserializeAws_json1_0ActivitySucceededEventDetails = (
 ): ActivitySucceededEventDetails => {
   let contents: any = {
     __type: "ActivitySucceededEventDetails",
-    output: undefined,
+    output: undefined
   };
   if (output.output !== undefined) {
     contents.output = output.output;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityTimedOutEventDetails = (
   output: any,
@@ -2698,7 +3067,7 @@ const deserializeAws_json1_0ActivityTimedOutEventDetails = (
   let contents: any = {
     __type: "ActivityTimedOutEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2707,7 +3076,7 @@ const deserializeAws_json1_0ActivityTimedOutEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0CloudWatchLogsLogGroup = (
   output: any,
@@ -2715,13 +3084,13 @@ const deserializeAws_json1_0CloudWatchLogsLogGroup = (
 ): CloudWatchLogsLogGroup => {
   let contents: any = {
     __type: "CloudWatchLogsLogGroup",
-    logGroupArn: undefined,
+    logGroupArn: undefined
   };
   if (output.logGroupArn !== undefined) {
     contents.logGroupArn = output.logGroupArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionAbortedEventDetails = (
   output: any,
@@ -2730,7 +3099,7 @@ const deserializeAws_json1_0ExecutionAbortedEventDetails = (
   let contents: any = {
     __type: "ExecutionAbortedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2739,7 +3108,7 @@ const deserializeAws_json1_0ExecutionAbortedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionFailedEventDetails = (
   output: any,
@@ -2748,7 +3117,7 @@ const deserializeAws_json1_0ExecutionFailedEventDetails = (
   let contents: any = {
     __type: "ExecutionFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2757,7 +3126,7 @@ const deserializeAws_json1_0ExecutionFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionStartedEventDetails = (
   output: any,
@@ -2766,7 +3135,7 @@ const deserializeAws_json1_0ExecutionStartedEventDetails = (
   let contents: any = {
     __type: "ExecutionStartedEventDetails",
     input: undefined,
-    roleArn: undefined,
+    roleArn: undefined
   };
   if (output.input !== undefined) {
     contents.input = output.input;
@@ -2775,7 +3144,7 @@ const deserializeAws_json1_0ExecutionStartedEventDetails = (
     contents.roleArn = output.roleArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionSucceededEventDetails = (
   output: any,
@@ -2783,13 +3152,13 @@ const deserializeAws_json1_0ExecutionSucceededEventDetails = (
 ): ExecutionSucceededEventDetails => {
   let contents: any = {
     __type: "ExecutionSucceededEventDetails",
-    output: undefined,
+    output: undefined
   };
   if (output.output !== undefined) {
     contents.output = output.output;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionTimedOutEventDetails = (
   output: any,
@@ -2798,7 +3167,7 @@ const deserializeAws_json1_0ExecutionTimedOutEventDetails = (
   let contents: any = {
     __type: "ExecutionTimedOutEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2807,7 +3176,7 @@ const deserializeAws_json1_0ExecutionTimedOutEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0HistoryEvent = (
   output: any,
@@ -2850,118 +3219,218 @@ const deserializeAws_json1_0HistoryEvent = (
     taskSucceededEventDetails: undefined,
     taskTimedOutEventDetails: undefined,
     timestamp: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.activityFailedEventDetails !== undefined) {
-    contents.activityFailedEventDetails = deserializeAws_json1_0ActivityFailedEventDetails(output.activityFailedEventDetails, context);
+    contents.activityFailedEventDetails = deserializeAws_json1_0ActivityFailedEventDetails(
+      output.activityFailedEventDetails,
+      context
+    );
   }
   if (output.activityScheduleFailedEventDetails !== undefined) {
-    contents.activityScheduleFailedEventDetails = deserializeAws_json1_0ActivityScheduleFailedEventDetails(output.activityScheduleFailedEventDetails, context);
+    contents.activityScheduleFailedEventDetails = deserializeAws_json1_0ActivityScheduleFailedEventDetails(
+      output.activityScheduleFailedEventDetails,
+      context
+    );
   }
   if (output.activityScheduledEventDetails !== undefined) {
-    contents.activityScheduledEventDetails = deserializeAws_json1_0ActivityScheduledEventDetails(output.activityScheduledEventDetails, context);
+    contents.activityScheduledEventDetails = deserializeAws_json1_0ActivityScheduledEventDetails(
+      output.activityScheduledEventDetails,
+      context
+    );
   }
   if (output.activityStartedEventDetails !== undefined) {
-    contents.activityStartedEventDetails = deserializeAws_json1_0ActivityStartedEventDetails(output.activityStartedEventDetails, context);
+    contents.activityStartedEventDetails = deserializeAws_json1_0ActivityStartedEventDetails(
+      output.activityStartedEventDetails,
+      context
+    );
   }
   if (output.activitySucceededEventDetails !== undefined) {
-    contents.activitySucceededEventDetails = deserializeAws_json1_0ActivitySucceededEventDetails(output.activitySucceededEventDetails, context);
+    contents.activitySucceededEventDetails = deserializeAws_json1_0ActivitySucceededEventDetails(
+      output.activitySucceededEventDetails,
+      context
+    );
   }
   if (output.activityTimedOutEventDetails !== undefined) {
-    contents.activityTimedOutEventDetails = deserializeAws_json1_0ActivityTimedOutEventDetails(output.activityTimedOutEventDetails, context);
+    contents.activityTimedOutEventDetails = deserializeAws_json1_0ActivityTimedOutEventDetails(
+      output.activityTimedOutEventDetails,
+      context
+    );
   }
   if (output.executionAbortedEventDetails !== undefined) {
-    contents.executionAbortedEventDetails = deserializeAws_json1_0ExecutionAbortedEventDetails(output.executionAbortedEventDetails, context);
+    contents.executionAbortedEventDetails = deserializeAws_json1_0ExecutionAbortedEventDetails(
+      output.executionAbortedEventDetails,
+      context
+    );
   }
   if (output.executionFailedEventDetails !== undefined) {
-    contents.executionFailedEventDetails = deserializeAws_json1_0ExecutionFailedEventDetails(output.executionFailedEventDetails, context);
+    contents.executionFailedEventDetails = deserializeAws_json1_0ExecutionFailedEventDetails(
+      output.executionFailedEventDetails,
+      context
+    );
   }
   if (output.executionStartedEventDetails !== undefined) {
-    contents.executionStartedEventDetails = deserializeAws_json1_0ExecutionStartedEventDetails(output.executionStartedEventDetails, context);
+    contents.executionStartedEventDetails = deserializeAws_json1_0ExecutionStartedEventDetails(
+      output.executionStartedEventDetails,
+      context
+    );
   }
   if (output.executionSucceededEventDetails !== undefined) {
-    contents.executionSucceededEventDetails = deserializeAws_json1_0ExecutionSucceededEventDetails(output.executionSucceededEventDetails, context);
+    contents.executionSucceededEventDetails = deserializeAws_json1_0ExecutionSucceededEventDetails(
+      output.executionSucceededEventDetails,
+      context
+    );
   }
   if (output.executionTimedOutEventDetails !== undefined) {
-    contents.executionTimedOutEventDetails = deserializeAws_json1_0ExecutionTimedOutEventDetails(output.executionTimedOutEventDetails, context);
+    contents.executionTimedOutEventDetails = deserializeAws_json1_0ExecutionTimedOutEventDetails(
+      output.executionTimedOutEventDetails,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = output.id;
   }
   if (output.lambdaFunctionFailedEventDetails !== undefined) {
-    contents.lambdaFunctionFailedEventDetails = deserializeAws_json1_0LambdaFunctionFailedEventDetails(output.lambdaFunctionFailedEventDetails, context);
+    contents.lambdaFunctionFailedEventDetails = deserializeAws_json1_0LambdaFunctionFailedEventDetails(
+      output.lambdaFunctionFailedEventDetails,
+      context
+    );
   }
   if (output.lambdaFunctionScheduleFailedEventDetails !== undefined) {
-    contents.lambdaFunctionScheduleFailedEventDetails = deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails(output.lambdaFunctionScheduleFailedEventDetails, context);
+    contents.lambdaFunctionScheduleFailedEventDetails = deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails(
+      output.lambdaFunctionScheduleFailedEventDetails,
+      context
+    );
   }
   if (output.lambdaFunctionScheduledEventDetails !== undefined) {
-    contents.lambdaFunctionScheduledEventDetails = deserializeAws_json1_0LambdaFunctionScheduledEventDetails(output.lambdaFunctionScheduledEventDetails, context);
+    contents.lambdaFunctionScheduledEventDetails = deserializeAws_json1_0LambdaFunctionScheduledEventDetails(
+      output.lambdaFunctionScheduledEventDetails,
+      context
+    );
   }
   if (output.lambdaFunctionStartFailedEventDetails !== undefined) {
-    contents.lambdaFunctionStartFailedEventDetails = deserializeAws_json1_0LambdaFunctionStartFailedEventDetails(output.lambdaFunctionStartFailedEventDetails, context);
+    contents.lambdaFunctionStartFailedEventDetails = deserializeAws_json1_0LambdaFunctionStartFailedEventDetails(
+      output.lambdaFunctionStartFailedEventDetails,
+      context
+    );
   }
   if (output.lambdaFunctionSucceededEventDetails !== undefined) {
-    contents.lambdaFunctionSucceededEventDetails = deserializeAws_json1_0LambdaFunctionSucceededEventDetails(output.lambdaFunctionSucceededEventDetails, context);
+    contents.lambdaFunctionSucceededEventDetails = deserializeAws_json1_0LambdaFunctionSucceededEventDetails(
+      output.lambdaFunctionSucceededEventDetails,
+      context
+    );
   }
   if (output.lambdaFunctionTimedOutEventDetails !== undefined) {
-    contents.lambdaFunctionTimedOutEventDetails = deserializeAws_json1_0LambdaFunctionTimedOutEventDetails(output.lambdaFunctionTimedOutEventDetails, context);
+    contents.lambdaFunctionTimedOutEventDetails = deserializeAws_json1_0LambdaFunctionTimedOutEventDetails(
+      output.lambdaFunctionTimedOutEventDetails,
+      context
+    );
   }
   if (output.mapIterationAbortedEventDetails !== undefined) {
-    contents.mapIterationAbortedEventDetails = deserializeAws_json1_0MapIterationEventDetails(output.mapIterationAbortedEventDetails, context);
+    contents.mapIterationAbortedEventDetails = deserializeAws_json1_0MapIterationEventDetails(
+      output.mapIterationAbortedEventDetails,
+      context
+    );
   }
   if (output.mapIterationFailedEventDetails !== undefined) {
-    contents.mapIterationFailedEventDetails = deserializeAws_json1_0MapIterationEventDetails(output.mapIterationFailedEventDetails, context);
+    contents.mapIterationFailedEventDetails = deserializeAws_json1_0MapIterationEventDetails(
+      output.mapIterationFailedEventDetails,
+      context
+    );
   }
   if (output.mapIterationStartedEventDetails !== undefined) {
-    contents.mapIterationStartedEventDetails = deserializeAws_json1_0MapIterationEventDetails(output.mapIterationStartedEventDetails, context);
+    contents.mapIterationStartedEventDetails = deserializeAws_json1_0MapIterationEventDetails(
+      output.mapIterationStartedEventDetails,
+      context
+    );
   }
   if (output.mapIterationSucceededEventDetails !== undefined) {
-    contents.mapIterationSucceededEventDetails = deserializeAws_json1_0MapIterationEventDetails(output.mapIterationSucceededEventDetails, context);
+    contents.mapIterationSucceededEventDetails = deserializeAws_json1_0MapIterationEventDetails(
+      output.mapIterationSucceededEventDetails,
+      context
+    );
   }
   if (output.mapStateStartedEventDetails !== undefined) {
-    contents.mapStateStartedEventDetails = deserializeAws_json1_0MapStateStartedEventDetails(output.mapStateStartedEventDetails, context);
+    contents.mapStateStartedEventDetails = deserializeAws_json1_0MapStateStartedEventDetails(
+      output.mapStateStartedEventDetails,
+      context
+    );
   }
   if (output.previousEventId !== undefined) {
     contents.previousEventId = output.previousEventId;
   }
   if (output.stateEnteredEventDetails !== undefined) {
-    contents.stateEnteredEventDetails = deserializeAws_json1_0StateEnteredEventDetails(output.stateEnteredEventDetails, context);
+    contents.stateEnteredEventDetails = deserializeAws_json1_0StateEnteredEventDetails(
+      output.stateEnteredEventDetails,
+      context
+    );
   }
   if (output.stateExitedEventDetails !== undefined) {
-    contents.stateExitedEventDetails = deserializeAws_json1_0StateExitedEventDetails(output.stateExitedEventDetails, context);
+    contents.stateExitedEventDetails = deserializeAws_json1_0StateExitedEventDetails(
+      output.stateExitedEventDetails,
+      context
+    );
   }
   if (output.taskFailedEventDetails !== undefined) {
-    contents.taskFailedEventDetails = deserializeAws_json1_0TaskFailedEventDetails(output.taskFailedEventDetails, context);
+    contents.taskFailedEventDetails = deserializeAws_json1_0TaskFailedEventDetails(
+      output.taskFailedEventDetails,
+      context
+    );
   }
   if (output.taskScheduledEventDetails !== undefined) {
-    contents.taskScheduledEventDetails = deserializeAws_json1_0TaskScheduledEventDetails(output.taskScheduledEventDetails, context);
+    contents.taskScheduledEventDetails = deserializeAws_json1_0TaskScheduledEventDetails(
+      output.taskScheduledEventDetails,
+      context
+    );
   }
   if (output.taskStartFailedEventDetails !== undefined) {
-    contents.taskStartFailedEventDetails = deserializeAws_json1_0TaskStartFailedEventDetails(output.taskStartFailedEventDetails, context);
+    contents.taskStartFailedEventDetails = deserializeAws_json1_0TaskStartFailedEventDetails(
+      output.taskStartFailedEventDetails,
+      context
+    );
   }
   if (output.taskStartedEventDetails !== undefined) {
-    contents.taskStartedEventDetails = deserializeAws_json1_0TaskStartedEventDetails(output.taskStartedEventDetails, context);
+    contents.taskStartedEventDetails = deserializeAws_json1_0TaskStartedEventDetails(
+      output.taskStartedEventDetails,
+      context
+    );
   }
   if (output.taskSubmitFailedEventDetails !== undefined) {
-    contents.taskSubmitFailedEventDetails = deserializeAws_json1_0TaskSubmitFailedEventDetails(output.taskSubmitFailedEventDetails, context);
+    contents.taskSubmitFailedEventDetails = deserializeAws_json1_0TaskSubmitFailedEventDetails(
+      output.taskSubmitFailedEventDetails,
+      context
+    );
   }
   if (output.taskSubmittedEventDetails !== undefined) {
-    contents.taskSubmittedEventDetails = deserializeAws_json1_0TaskSubmittedEventDetails(output.taskSubmittedEventDetails, context);
+    contents.taskSubmittedEventDetails = deserializeAws_json1_0TaskSubmittedEventDetails(
+      output.taskSubmittedEventDetails,
+      context
+    );
   }
   if (output.taskSucceededEventDetails !== undefined) {
-    contents.taskSucceededEventDetails = deserializeAws_json1_0TaskSucceededEventDetails(output.taskSucceededEventDetails, context);
+    contents.taskSucceededEventDetails = deserializeAws_json1_0TaskSucceededEventDetails(
+      output.taskSucceededEventDetails,
+      context
+    );
   }
   if (output.taskTimedOutEventDetails !== undefined) {
-    contents.taskTimedOutEventDetails = deserializeAws_json1_0TaskTimedOutEventDetails(output.taskTimedOutEventDetails, context);
+    contents.taskTimedOutEventDetails = deserializeAws_json1_0TaskTimedOutEventDetails(
+      output.taskTimedOutEventDetails,
+      context
+    );
   }
   if (output.timestamp !== undefined) {
-    contents.timestamp = new Date(output.timestamp % 1 != 0 ? Math.round(output.timestamp * 1000) : output.timestamp);
+    contents.timestamp = new Date(
+      output.timestamp % 1 != 0
+        ? Math.round(output.timestamp * 1000)
+        : output.timestamp
+    );
   }
   if (output.type !== undefined) {
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0HistoryEventList = (
   output: any,
@@ -2970,7 +3439,7 @@ const deserializeAws_json1_0HistoryEventList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0HistoryEvent(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
   output: any,
@@ -2979,7 +3448,7 @@ const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
   let contents: any = {
     __type: "LambdaFunctionFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -2988,7 +3457,7 @@ const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
   output: any,
@@ -2997,7 +3466,7 @@ const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
   let contents: any = {
     __type: "LambdaFunctionScheduleFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3006,7 +3475,7 @@ const deserializeAws_json1_0LambdaFunctionScheduleFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
   output: any,
@@ -3016,7 +3485,7 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
     __type: "LambdaFunctionScheduledEventDetails",
     input: undefined,
     resource: undefined,
-    timeoutInSeconds: undefined,
+    timeoutInSeconds: undefined
   };
   if (output.input !== undefined) {
     contents.input = output.input;
@@ -3028,7 +3497,7 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
     contents.timeoutInSeconds = output.timeoutInSeconds;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
   output: any,
@@ -3037,7 +3506,7 @@ const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
   let contents: any = {
     __type: "LambdaFunctionStartFailedEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3046,7 +3515,7 @@ const deserializeAws_json1_0LambdaFunctionStartFailedEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
   output: any,
@@ -3054,13 +3523,13 @@ const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
 ): LambdaFunctionSucceededEventDetails => {
   let contents: any = {
     __type: "LambdaFunctionSucceededEventDetails",
-    output: undefined,
+    output: undefined
   };
   if (output.output !== undefined) {
     contents.output = output.output;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
   output: any,
@@ -3069,7 +3538,7 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
   let contents: any = {
     __type: "LambdaFunctionTimedOutEventDetails",
     cause: undefined,
-    error: undefined,
+    error: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3078,7 +3547,7 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventDetails = (
     contents.error = output.error;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LogDestination = (
   output: any,
@@ -3086,13 +3555,16 @@ const deserializeAws_json1_0LogDestination = (
 ): LogDestination => {
   let contents: any = {
     __type: "LogDestination",
-    cloudWatchLogsLogGroup: undefined,
+    cloudWatchLogsLogGroup: undefined
   };
   if (output.cloudWatchLogsLogGroup !== undefined) {
-    contents.cloudWatchLogsLogGroup = deserializeAws_json1_0CloudWatchLogsLogGroup(output.cloudWatchLogsLogGroup, context);
+    contents.cloudWatchLogsLogGroup = deserializeAws_json1_0CloudWatchLogsLogGroup(
+      output.cloudWatchLogsLogGroup,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LogDestinationList = (
   output: any,
@@ -3101,7 +3573,7 @@ const deserializeAws_json1_0LogDestinationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0LogDestination(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0LoggingConfiguration = (
   output: any,
@@ -3111,10 +3583,13 @@ const deserializeAws_json1_0LoggingConfiguration = (
     __type: "LoggingConfiguration",
     destinations: undefined,
     includeExecutionData: undefined,
-    level: undefined,
+    level: undefined
   };
   if (output.destinations !== undefined) {
-    contents.destinations = deserializeAws_json1_0LogDestinationList(output.destinations, context);
+    contents.destinations = deserializeAws_json1_0LogDestinationList(
+      output.destinations,
+      context
+    );
   }
   if (output.includeExecutionData !== undefined) {
     contents.includeExecutionData = output.includeExecutionData;
@@ -3123,7 +3598,7 @@ const deserializeAws_json1_0LoggingConfiguration = (
     contents.level = output.level;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0MapIterationEventDetails = (
   output: any,
@@ -3132,7 +3607,7 @@ const deserializeAws_json1_0MapIterationEventDetails = (
   let contents: any = {
     __type: "MapIterationEventDetails",
     index: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.index !== undefined) {
     contents.index = output.index;
@@ -3141,7 +3616,7 @@ const deserializeAws_json1_0MapIterationEventDetails = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0MapStateStartedEventDetails = (
   output: any,
@@ -3149,13 +3624,13 @@ const deserializeAws_json1_0MapStateStartedEventDetails = (
 ): MapStateStartedEventDetails => {
   let contents: any = {
     __type: "MapStateStartedEventDetails",
-    length: undefined,
+    length: undefined
   };
   if (output.length !== undefined) {
     contents.length = output.length;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateEnteredEventDetails = (
   output: any,
@@ -3164,7 +3639,7 @@ const deserializeAws_json1_0StateEnteredEventDetails = (
   let contents: any = {
     __type: "StateEnteredEventDetails",
     input: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.input !== undefined) {
     contents.input = output.input;
@@ -3173,7 +3648,7 @@ const deserializeAws_json1_0StateEnteredEventDetails = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateExitedEventDetails = (
   output: any,
@@ -3182,7 +3657,7 @@ const deserializeAws_json1_0StateExitedEventDetails = (
   let contents: any = {
     __type: "StateExitedEventDetails",
     name: undefined,
-    output: undefined,
+    output: undefined
   };
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -3191,7 +3666,7 @@ const deserializeAws_json1_0StateExitedEventDetails = (
     contents.output = output.output;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskFailedEventDetails = (
   output: any,
@@ -3202,7 +3677,7 @@ const deserializeAws_json1_0TaskFailedEventDetails = (
     cause: undefined,
     error: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3217,7 +3692,7 @@ const deserializeAws_json1_0TaskFailedEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskScheduledEventDetails = (
   output: any,
@@ -3229,7 +3704,7 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
     region: undefined,
     resource: undefined,
     resourceType: undefined,
-    timeoutInSeconds: undefined,
+    timeoutInSeconds: undefined
   };
   if (output.parameters !== undefined) {
     contents.parameters = output.parameters;
@@ -3247,7 +3722,7 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
     contents.timeoutInSeconds = output.timeoutInSeconds;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskStartFailedEventDetails = (
   output: any,
@@ -3258,7 +3733,7 @@ const deserializeAws_json1_0TaskStartFailedEventDetails = (
     cause: undefined,
     error: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3273,7 +3748,7 @@ const deserializeAws_json1_0TaskStartFailedEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskStartedEventDetails = (
   output: any,
@@ -3282,7 +3757,7 @@ const deserializeAws_json1_0TaskStartedEventDetails = (
   let contents: any = {
     __type: "TaskStartedEventDetails",
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.resource !== undefined) {
     contents.resource = output.resource;
@@ -3291,7 +3766,7 @@ const deserializeAws_json1_0TaskStartedEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
   output: any,
@@ -3302,7 +3777,7 @@ const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
     cause: undefined,
     error: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3317,7 +3792,7 @@ const deserializeAws_json1_0TaskSubmitFailedEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskSubmittedEventDetails = (
   output: any,
@@ -3327,7 +3802,7 @@ const deserializeAws_json1_0TaskSubmittedEventDetails = (
     __type: "TaskSubmittedEventDetails",
     output: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.output !== undefined) {
     contents.output = output.output;
@@ -3339,7 +3814,7 @@ const deserializeAws_json1_0TaskSubmittedEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskSucceededEventDetails = (
   output: any,
@@ -3349,7 +3824,7 @@ const deserializeAws_json1_0TaskSucceededEventDetails = (
     __type: "TaskSucceededEventDetails",
     output: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.output !== undefined) {
     contents.output = output.output;
@@ -3361,7 +3836,7 @@ const deserializeAws_json1_0TaskSucceededEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskTimedOutEventDetails = (
   output: any,
@@ -3372,7 +3847,7 @@ const deserializeAws_json1_0TaskTimedOutEventDetails = (
     cause: undefined,
     error: undefined,
     resource: undefined,
-    resourceType: undefined,
+    resourceType: undefined
   };
   if (output.cause !== undefined) {
     contents.cause = output.cause;
@@ -3387,7 +3862,7 @@ const deserializeAws_json1_0TaskTimedOutEventDetails = (
     contents.resourceType = output.resourceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityDoesNotExist = (
   output: any,
@@ -3395,13 +3870,13 @@ const deserializeAws_json1_0ActivityDoesNotExist = (
 ): ActivityDoesNotExist => {
   let contents: any = {
     __type: "ActivityDoesNotExist",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityLimitExceeded = (
   output: any,
@@ -3409,13 +3884,13 @@ const deserializeAws_json1_0ActivityLimitExceeded = (
 ): ActivityLimitExceeded => {
   let contents: any = {
     __type: "ActivityLimitExceeded",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityList = (
   output: any,
@@ -3424,7 +3899,7 @@ const deserializeAws_json1_0ActivityList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ActivityListItem(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0ActivityListItem = (
   output: any,
@@ -3434,19 +3909,23 @@ const deserializeAws_json1_0ActivityListItem = (
     __type: "ActivityListItem",
     activityArn: undefined,
     creationDate: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.activityArn !== undefined) {
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
   output: any,
@@ -3454,13 +3933,13 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 ): ActivityWorkerLimitExceeded => {
   let contents: any = {
     __type: "ActivityWorkerLimitExceeded",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0CreateActivityOutput = (
   output: any,
@@ -3469,16 +3948,20 @@ const deserializeAws_json1_0CreateActivityOutput = (
   let contents: any = {
     __type: "CreateActivityOutput",
     activityArn: undefined,
-    creationDate: undefined,
+    creationDate: undefined
   };
   if (output.activityArn !== undefined) {
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0CreateStateMachineOutput = (
   output: any,
@@ -3487,36 +3970,40 @@ const deserializeAws_json1_0CreateStateMachineOutput = (
   let contents: any = {
     __type: "CreateStateMachineOutput",
     creationDate: undefined,
-    stateMachineArn: undefined,
+    stateMachineArn: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0DeleteActivityOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteActivityOutput => {
   let contents: any = {
-    __type: "DeleteActivityOutput",
+    __type: "DeleteActivityOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0DeleteStateMachineOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteStateMachineOutput => {
   let contents: any = {
-    __type: "DeleteStateMachineOutput",
+    __type: "DeleteStateMachineOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0DescribeActivityOutput = (
   output: any,
@@ -3526,19 +4013,23 @@ const deserializeAws_json1_0DescribeActivityOutput = (
     __type: "DescribeActivityOutput",
     activityArn: undefined,
     creationDate: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.activityArn !== undefined) {
     contents.activityArn = output.activityArn;
   }
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0DescribeExecutionOutput = (
   output: any,
@@ -3553,7 +4044,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
     startDate: undefined,
     stateMachineArn: undefined,
     status: undefined,
-    stopDate: undefined,
+    stopDate: undefined
   };
   if (output.executionArn !== undefined) {
     contents.executionArn = output.executionArn;
@@ -3568,7 +4059,11 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
     contents.output = output.output;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(output.startDate % 1 != 0 ? Math.round(output.startDate * 1000) : output.startDate);
+    contents.startDate = new Date(
+      output.startDate % 1 != 0
+        ? Math.round(output.startDate * 1000)
+        : output.startDate
+    );
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
@@ -3577,10 +4072,14 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
     contents.status = output.status;
   }
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(output.stopDate % 1 != 0 ? Math.round(output.stopDate * 1000) : output.stopDate);
+    contents.stopDate = new Date(
+      output.stopDate % 1 != 0
+        ? Math.round(output.stopDate * 1000)
+        : output.stopDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
   output: any,
@@ -3592,7 +4091,7 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     name: undefined,
     roleArn: undefined,
     stateMachineArn: undefined,
-    updateDate: undefined,
+    updateDate: undefined
   };
   if (output.definition !== undefined) {
     contents.definition = output.definition;
@@ -3607,10 +4106,14 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     contents.stateMachineArn = output.stateMachineArn;
   }
   if (output.updateDate !== undefined) {
-    contents.updateDate = new Date(output.updateDate % 1 != 0 ? Math.round(output.updateDate * 1000) : output.updateDate);
+    contents.updateDate = new Date(
+      output.updateDate % 1 != 0
+        ? Math.round(output.updateDate * 1000)
+        : output.updateDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0DescribeStateMachineOutput = (
   output: any,
@@ -3625,16 +4128,23 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     roleArn: undefined,
     stateMachineArn: undefined,
     status: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   if (output.definition !== undefined) {
     contents.definition = output.definition;
   }
   if (output.loggingConfiguration !== undefined) {
-    contents.loggingConfiguration = deserializeAws_json1_0LoggingConfiguration(output.loggingConfiguration, context);
+    contents.loggingConfiguration = deserializeAws_json1_0LoggingConfiguration(
+      output.loggingConfiguration,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -3652,7 +4162,7 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionAlreadyExists = (
   output: any,
@@ -3660,13 +4170,13 @@ const deserializeAws_json1_0ExecutionAlreadyExists = (
 ): ExecutionAlreadyExists => {
   let contents: any = {
     __type: "ExecutionAlreadyExists",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionDoesNotExist = (
   output: any,
@@ -3674,13 +4184,13 @@ const deserializeAws_json1_0ExecutionDoesNotExist = (
 ): ExecutionDoesNotExist => {
   let contents: any = {
     __type: "ExecutionDoesNotExist",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionLimitExceeded = (
   output: any,
@@ -3688,13 +4198,13 @@ const deserializeAws_json1_0ExecutionLimitExceeded = (
 ): ExecutionLimitExceeded => {
   let contents: any = {
     __type: "ExecutionLimitExceeded",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecutionList = (
   output: any,
@@ -3703,7 +4213,7 @@ const deserializeAws_json1_0ExecutionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ExecutionListItem(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0ExecutionListItem = (
   output: any,
@@ -3716,7 +4226,7 @@ const deserializeAws_json1_0ExecutionListItem = (
     startDate: undefined,
     stateMachineArn: undefined,
     status: undefined,
-    stopDate: undefined,
+    stopDate: undefined
   };
   if (output.executionArn !== undefined) {
     contents.executionArn = output.executionArn;
@@ -3725,7 +4235,11 @@ const deserializeAws_json1_0ExecutionListItem = (
     contents.name = output.name;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(output.startDate % 1 != 0 ? Math.round(output.startDate * 1000) : output.startDate);
+    contents.startDate = new Date(
+      output.startDate % 1 != 0
+        ? Math.round(output.startDate * 1000)
+        : output.startDate
+    );
   }
   if (output.stateMachineArn !== undefined) {
     contents.stateMachineArn = output.stateMachineArn;
@@ -3734,10 +4248,14 @@ const deserializeAws_json1_0ExecutionListItem = (
     contents.status = output.status;
   }
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(output.stopDate % 1 != 0 ? Math.round(output.stopDate * 1000) : output.stopDate);
+    contents.stopDate = new Date(
+      output.stopDate % 1 != 0
+        ? Math.round(output.stopDate * 1000)
+        : output.stopDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0GetActivityTaskOutput = (
   output: any,
@@ -3746,7 +4264,7 @@ const deserializeAws_json1_0GetActivityTaskOutput = (
   let contents: any = {
     __type: "GetActivityTaskOutput",
     input: undefined,
-    taskToken: undefined,
+    taskToken: undefined
   };
   if (output.input !== undefined) {
     contents.input = output.input;
@@ -3755,7 +4273,7 @@ const deserializeAws_json1_0GetActivityTaskOutput = (
     contents.taskToken = output.taskToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0GetExecutionHistoryOutput = (
   output: any,
@@ -3764,16 +4282,19 @@ const deserializeAws_json1_0GetExecutionHistoryOutput = (
   let contents: any = {
     __type: "GetExecutionHistoryOutput",
     events: undefined,
-    nextToken: undefined,
+    nextToken: undefined
   };
   if (output.events !== undefined) {
-    contents.events = deserializeAws_json1_0HistoryEventList(output.events, context);
+    contents.events = deserializeAws_json1_0HistoryEventList(
+      output.events,
+      context
+    );
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidArn = (
   output: any,
@@ -3781,13 +4302,13 @@ const deserializeAws_json1_0InvalidArn = (
 ): InvalidArn => {
   let contents: any = {
     __type: "InvalidArn",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidDefinition = (
   output: any,
@@ -3795,13 +4316,13 @@ const deserializeAws_json1_0InvalidDefinition = (
 ): InvalidDefinition => {
   let contents: any = {
     __type: "InvalidDefinition",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidExecutionInput = (
   output: any,
@@ -3809,13 +4330,13 @@ const deserializeAws_json1_0InvalidExecutionInput = (
 ): InvalidExecutionInput => {
   let contents: any = {
     __type: "InvalidExecutionInput",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidLoggingConfiguration = (
   output: any,
@@ -3823,13 +4344,13 @@ const deserializeAws_json1_0InvalidLoggingConfiguration = (
 ): InvalidLoggingConfiguration => {
   let contents: any = {
     __type: "InvalidLoggingConfiguration",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidName = (
   output: any,
@@ -3837,13 +4358,13 @@ const deserializeAws_json1_0InvalidName = (
 ): InvalidName => {
   let contents: any = {
     __type: "InvalidName",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidOutput = (
   output: any,
@@ -3851,13 +4372,13 @@ const deserializeAws_json1_0InvalidOutput = (
 ): InvalidOutput => {
   let contents: any = {
     __type: "InvalidOutput",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidToken = (
   output: any,
@@ -3865,13 +4386,13 @@ const deserializeAws_json1_0InvalidToken = (
 ): InvalidToken => {
   let contents: any = {
     __type: "InvalidToken",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ListActivitiesOutput = (
   output: any,
@@ -3880,16 +4401,19 @@ const deserializeAws_json1_0ListActivitiesOutput = (
   let contents: any = {
     __type: "ListActivitiesOutput",
     activities: undefined,
-    nextToken: undefined,
+    nextToken: undefined
   };
   if (output.activities !== undefined) {
-    contents.activities = deserializeAws_json1_0ActivityList(output.activities, context);
+    contents.activities = deserializeAws_json1_0ActivityList(
+      output.activities,
+      context
+    );
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ListExecutionsOutput = (
   output: any,
@@ -3898,16 +4422,19 @@ const deserializeAws_json1_0ListExecutionsOutput = (
   let contents: any = {
     __type: "ListExecutionsOutput",
     executions: undefined,
-    nextToken: undefined,
+    nextToken: undefined
   };
   if (output.executions !== undefined) {
-    contents.executions = deserializeAws_json1_0ExecutionList(output.executions, context);
+    contents.executions = deserializeAws_json1_0ExecutionList(
+      output.executions,
+      context
+    );
   }
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ListStateMachinesOutput = (
   output: any,
@@ -3916,16 +4443,19 @@ const deserializeAws_json1_0ListStateMachinesOutput = (
   let contents: any = {
     __type: "ListStateMachinesOutput",
     nextToken: undefined,
-    stateMachines: undefined,
+    stateMachines: undefined
   };
   if (output.nextToken !== undefined) {
     contents.nextToken = output.nextToken;
   }
   if (output.stateMachines !== undefined) {
-    contents.stateMachines = deserializeAws_json1_0StateMachineList(output.stateMachines, context);
+    contents.stateMachines = deserializeAws_json1_0StateMachineList(
+      output.stateMachines,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ListTagsForResourceOutput = (
   output: any,
@@ -3933,13 +4463,13 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
 ): ListTagsForResourceOutput => {
   let contents: any = {
     __type: "ListTagsForResourceOutput",
-    tags: undefined,
+    tags: undefined
   };
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_json1_0TagList(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0MissingRequiredParameter = (
   output: any,
@@ -3947,13 +4477,13 @@ const deserializeAws_json1_0MissingRequiredParameter = (
 ): MissingRequiredParameter => {
   let contents: any = {
     __type: "MissingRequiredParameter",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ResourceNotFound = (
   output: any,
@@ -3962,7 +4492,7 @@ const deserializeAws_json1_0ResourceNotFound = (
   let contents: any = {
     __type: "ResourceNotFound",
     message: undefined,
-    resourceName: undefined,
+    resourceName: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
@@ -3971,37 +4501,37 @@ const deserializeAws_json1_0ResourceNotFound = (
     contents.resourceName = output.resourceName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0SendTaskFailureOutput = (
   output: any,
   context: __SerdeContext
 ): SendTaskFailureOutput => {
   let contents: any = {
-    __type: "SendTaskFailureOutput",
+    __type: "SendTaskFailureOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0SendTaskHeartbeatOutput = (
   output: any,
   context: __SerdeContext
 ): SendTaskHeartbeatOutput => {
   let contents: any = {
-    __type: "SendTaskHeartbeatOutput",
+    __type: "SendTaskHeartbeatOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0SendTaskSuccessOutput = (
   output: any,
   context: __SerdeContext
 ): SendTaskSuccessOutput => {
   let contents: any = {
-    __type: "SendTaskSuccessOutput",
+    __type: "SendTaskSuccessOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0StartExecutionOutput = (
   output: any,
@@ -4010,16 +4540,20 @@ const deserializeAws_json1_0StartExecutionOutput = (
   let contents: any = {
     __type: "StartExecutionOutput",
     executionArn: undefined,
-    startDate: undefined,
+    startDate: undefined
   };
   if (output.executionArn !== undefined) {
     contents.executionArn = output.executionArn;
   }
   if (output.startDate !== undefined) {
-    contents.startDate = new Date(output.startDate % 1 != 0 ? Math.round(output.startDate * 1000) : output.startDate);
+    contents.startDate = new Date(
+      output.startDate % 1 != 0
+        ? Math.round(output.startDate * 1000)
+        : output.startDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineAlreadyExists = (
   output: any,
@@ -4027,13 +4561,13 @@ const deserializeAws_json1_0StateMachineAlreadyExists = (
 ): StateMachineAlreadyExists => {
   let contents: any = {
     __type: "StateMachineAlreadyExists",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineDeleting = (
   output: any,
@@ -4041,13 +4575,13 @@ const deserializeAws_json1_0StateMachineDeleting = (
 ): StateMachineDeleting => {
   let contents: any = {
     __type: "StateMachineDeleting",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineDoesNotExist = (
   output: any,
@@ -4055,13 +4589,13 @@ const deserializeAws_json1_0StateMachineDoesNotExist = (
 ): StateMachineDoesNotExist => {
   let contents: any = {
     __type: "StateMachineDoesNotExist",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineLimitExceeded = (
   output: any,
@@ -4069,13 +4603,13 @@ const deserializeAws_json1_0StateMachineLimitExceeded = (
 ): StateMachineLimitExceeded => {
   let contents: any = {
     __type: "StateMachineLimitExceeded",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineList = (
   output: any,
@@ -4084,7 +4618,7 @@ const deserializeAws_json1_0StateMachineList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0StateMachineListItem(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0StateMachineListItem = (
   output: any,
@@ -4095,10 +4629,14 @@ const deserializeAws_json1_0StateMachineListItem = (
     creationDate: undefined,
     name: undefined,
     stateMachineArn: undefined,
-    type: undefined,
+    type: undefined
   };
   if (output.creationDate !== undefined) {
-    contents.creationDate = new Date(output.creationDate % 1 != 0 ? Math.round(output.creationDate * 1000) : output.creationDate);
+    contents.creationDate = new Date(
+      output.creationDate % 1 != 0
+        ? Math.round(output.creationDate * 1000)
+        : output.creationDate
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -4110,7 +4648,7 @@ const deserializeAws_json1_0StateMachineListItem = (
     contents.type = output.type;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StateMachineTypeNotSupported = (
   output: any,
@@ -4118,13 +4656,13 @@ const deserializeAws_json1_0StateMachineTypeNotSupported = (
 ): StateMachineTypeNotSupported => {
   let contents: any = {
     __type: "StateMachineTypeNotSupported",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StopExecutionOutput = (
   output: any,
@@ -4132,13 +4670,17 @@ const deserializeAws_json1_0StopExecutionOutput = (
 ): StopExecutionOutput => {
   let contents: any = {
     __type: "StopExecutionOutput",
-    stopDate: undefined,
+    stopDate: undefined
   };
   if (output.stopDate !== undefined) {
-    contents.stopDate = new Date(output.stopDate % 1 != 0 ? Math.round(output.stopDate * 1000) : output.stopDate);
+    contents.stopDate = new Date(
+      output.stopDate % 1 != 0
+        ? Math.round(output.stopDate * 1000)
+        : output.stopDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0Tag = (
   output: any,
@@ -4147,7 +4689,7 @@ const deserializeAws_json1_0Tag = (
   let contents: any = {
     __type: "Tag",
     key: undefined,
-    value: undefined,
+    value: undefined
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -4156,7 +4698,7 @@ const deserializeAws_json1_0Tag = (
     contents.value = output.value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TagList = (
   output: any,
@@ -4165,17 +4707,17 @@ const deserializeAws_json1_0TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_0TagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): TagResourceOutput => {
   let contents: any = {
-    __type: "TagResourceOutput",
+    __type: "TagResourceOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskDoesNotExist = (
   output: any,
@@ -4183,13 +4725,13 @@ const deserializeAws_json1_0TaskDoesNotExist = (
 ): TaskDoesNotExist => {
   let contents: any = {
     __type: "TaskDoesNotExist",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TaskTimedOut = (
   output: any,
@@ -4197,13 +4739,13 @@ const deserializeAws_json1_0TaskTimedOut = (
 ): TaskTimedOut => {
   let contents: any = {
     __type: "TaskTimedOut",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0TooManyTags = (
   output: any,
@@ -4212,7 +4754,7 @@ const deserializeAws_json1_0TooManyTags = (
   let contents: any = {
     __type: "TooManyTags",
     message: undefined,
-    resourceName: undefined,
+    resourceName: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
@@ -4221,17 +4763,17 @@ const deserializeAws_json1_0TooManyTags = (
     contents.resourceName = output.resourceName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0UntagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): UntagResourceOutput => {
   let contents: any = {
-    __type: "UntagResourceOutput",
+    __type: "UntagResourceOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0UpdateStateMachineOutput = (
   output: any,
@@ -4239,13 +4781,17 @@ const deserializeAws_json1_0UpdateStateMachineOutput = (
 ): UpdateStateMachineOutput => {
   let contents: any = {
     __type: "UpdateStateMachineOutput",
-    updateDate: undefined,
+    updateDate: undefined
   };
   if (output.updateDate !== undefined) {
-    contents.updateDate = new Date(output.updateDate % 1 != 0 ? Math.round(output.updateDate * 1000) : output.updateDate);
+    contents.updateDate = new Date(
+      output.updateDate % 1 != 0
+        ? Math.round(output.updateDate * 1000)
+        : output.updateDate
+    );
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

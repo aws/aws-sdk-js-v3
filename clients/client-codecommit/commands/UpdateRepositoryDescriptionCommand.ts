@@ -1,17 +1,17 @@
 import {
   CodeCommitClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeCommitClient";
 import { UpdateRepositoryDescriptionInput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRepositoryDescriptionCommand,
-  serializeAws_json1_1UpdateRepositoryDescriptionCommand,
+  serializeAws_json1_1UpdateRepositoryDescriptionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type UpdateRepositoryDescriptionCommandInput = UpdateRepositoryDescriptionInput;
-export type UpdateRepositoryDescriptionCommandOutput = __MetadataBearer
+export type UpdateRepositoryDescriptionCommandOutput = __MetadataBearer;
 
-export class UpdateRepositoryDescriptionCommand extends $Command<UpdateRepositoryDescriptionCommandInput, UpdateRepositoryDescriptionCommandOutput, CodeCommitClientResolvedConfig> {
+export class UpdateRepositoryDescriptionCommand extends $Command<
+  UpdateRepositoryDescriptionCommandInput,
+  UpdateRepositoryDescriptionCommandOutput,
+  CodeCommitClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class UpdateRepositoryDescriptionCommand extends $Command<UpdateRepositor
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeCommitClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateRepositoryDescriptionCommandInput, UpdateRepositoryDescriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateRepositoryDescriptionCommandInput,
+    UpdateRepositoryDescriptionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +70,20 @@ export class UpdateRepositoryDescriptionCommand extends $Command<UpdateRepositor
     input: UpdateRepositoryDescriptionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRepositoryDescriptionCommand(input, context);
+    return serializeAws_json1_1UpdateRepositoryDescriptionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateRepositoryDescriptionCommandOutput> {
-    return deserializeAws_json1_1UpdateRepositoryDescriptionCommand(output, context);
+    return deserializeAws_json1_1UpdateRepositoryDescriptionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

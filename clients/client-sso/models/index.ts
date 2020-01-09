@@ -89,7 +89,9 @@ export namespace GetRoleCredentialsResponse {
  *       parameter might be missing or out of range.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   message?: string;
@@ -238,7 +240,9 @@ export namespace LogoutRequest {
  *          <p>The specified resource doesn't exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -329,7 +333,9 @@ export namespace RoleInfo {
  *          <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -346,7 +352,9 @@ export namespace TooManyRequestsException {
  *          <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
  *
  */
-export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   message?: string;

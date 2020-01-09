@@ -1,20 +1,20 @@
 import {
   InspectorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../InspectorClient";
 import {
   GetExclusionsPreviewRequest,
-  GetExclusionsPreviewResponse,
+  GetExclusionsPreviewResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1GetExclusionsPreviewCommand,
-  serializeAws_json1_1GetExclusionsPreviewCommand,
+  serializeAws_json1_1GetExclusionsPreviewCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetExclusionsPreviewCommandInput = GetExclusionsPreviewRequest;
 export type GetExclusionsPreviewCommandOutput = GetExclusionsPreviewResponse;
 
-export class GetExclusionsPreviewCommand extends $Command<GetExclusionsPreviewCommandInput, GetExclusionsPreviewCommandOutput, InspectorClientResolvedConfig> {
+export class GetExclusionsPreviewCommand extends $Command<
+  GetExclusionsPreviewCommandInput,
+  GetExclusionsPreviewCommandOutput,
+  InspectorClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetExclusionsPreviewCommand extends $Command<GetExclusionsPreviewCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: InspectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetExclusionsPreviewCommandInput, GetExclusionsPreviewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetExclusionsPreviewCommandInput,
+    GetExclusionsPreviewCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

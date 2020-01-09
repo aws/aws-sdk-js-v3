@@ -1,20 +1,20 @@
 import {
   PinpointClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointClient";
 import {
   UpdateEmailTemplateRequest,
-  UpdateEmailTemplateResponse,
+  UpdateEmailTemplateResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateEmailTemplateCommand,
-  serializeAws_restJson1_1UpdateEmailTemplateCommand,
+  serializeAws_restJson1_1UpdateEmailTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateEmailTemplateCommandInput = UpdateEmailTemplateRequest;
 export type UpdateEmailTemplateCommandOutput = UpdateEmailTemplateResponse;
 
-export class UpdateEmailTemplateCommand extends $Command<UpdateEmailTemplateCommandInput, UpdateEmailTemplateCommandOutput, PinpointClientResolvedConfig> {
+export class UpdateEmailTemplateCommand extends $Command<
+  UpdateEmailTemplateCommandInput,
+  UpdateEmailTemplateCommandOutput,
+  PinpointClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateEmailTemplateCommand extends $Command<UpdateEmailTemplateComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateEmailTemplateCommandInput, UpdateEmailTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateEmailTemplateCommandInput,
+    UpdateEmailTemplateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateEmailTemplateCommand extends $Command<UpdateEmailTemplateComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateEmailTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateEmailTemplateCommand(output, context);
+    return deserializeAws_restJson1_1UpdateEmailTemplateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

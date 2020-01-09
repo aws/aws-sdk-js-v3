@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig,
+  WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
 import {
   ListWebsiteCertificateAuthoritiesRequest,
-  ListWebsiteCertificateAuthoritiesResponse,
+  ListWebsiteCertificateAuthoritiesResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand,
-  serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand,
+  serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListWebsiteCertificateAuthoritiesCommandInput = ListWebsiteCertificateAuthoritiesRequest;
 export type ListWebsiteCertificateAuthoritiesCommandOutput = ListWebsiteCertificateAuthoritiesResponse;
 
-export class ListWebsiteCertificateAuthoritiesCommand extends $Command<ListWebsiteCertificateAuthoritiesCommandInput, ListWebsiteCertificateAuthoritiesCommandOutput, WorkLinkClientResolvedConfig> {
+export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
+  ListWebsiteCertificateAuthoritiesCommandInput,
+  ListWebsiteCertificateAuthoritiesCommandOutput,
+  WorkLinkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<ListWebsi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListWebsiteCertificateAuthoritiesCommandInput, ListWebsiteCertificateAuthoritiesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListWebsiteCertificateAuthoritiesCommandInput,
+    ListWebsiteCertificateAuthoritiesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<ListWebsi
     input: ListWebsiteCertificateAuthoritiesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand(input, context);
+    return serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
-    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand(output, context);
+    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   ComprehendClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ComprehendClient";
 import {
   DescribeDominantLanguageDetectionJobRequest,
-  DescribeDominantLanguageDetectionJobResponse,
+  DescribeDominantLanguageDetectionJobResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
-  serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand,
+  serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeDominantLanguageDetectionJobCommandInput = DescribeDominantLanguageDetectionJobRequest;
 export type DescribeDominantLanguageDetectionJobCommandOutput = DescribeDominantLanguageDetectionJobResponse;
 
-export class DescribeDominantLanguageDetectionJobCommand extends $Command<DescribeDominantLanguageDetectionJobCommandInput, DescribeDominantLanguageDetectionJobCommandOutput, ComprehendClientResolvedConfig> {
+export class DescribeDominantLanguageDetectionJobCommand extends $Command<
+  DescribeDominantLanguageDetectionJobCommandInput,
+  DescribeDominantLanguageDetectionJobCommandOutput,
+  ComprehendClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: DescribeDominantLanguageDetectionJobCommandInput) {
+  constructor(
+    readonly input: DescribeDominantLanguageDetectionJobCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<Descri
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDominantLanguageDetectionJobCommandInput, DescribeDominantLanguageDetectionJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeDominantLanguageDetectionJobCommandInput,
+    DescribeDominantLanguageDetectionJobCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class DescribeDominantLanguageDetectionJobCommand extends $Command<Descri
     input: DescribeDominantLanguageDetectionJobCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(input, context);
+    return serializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeDominantLanguageDetectionJobCommandOutput> {
-    return deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(output, context);
+    return deserializeAws_json1_1DescribeDominantLanguageDetectionJobCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

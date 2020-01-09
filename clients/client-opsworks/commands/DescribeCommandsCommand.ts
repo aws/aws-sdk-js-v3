@@ -1,20 +1,20 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksClient";
 import {
   DescribeCommandsRequest,
-  DescribeCommandsResult,
+  DescribeCommandsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCommandsCommand,
-  serializeAws_json1_1DescribeCommandsCommand,
+  serializeAws_json1_1DescribeCommandsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeCommandsCommandInput = DescribeCommandsRequest;
 export type DescribeCommandsCommandOutput = DescribeCommandsResult;
 
-export class DescribeCommandsCommand extends $Command<DescribeCommandsCommandInput, DescribeCommandsCommandOutput, OpsWorksClientResolvedConfig> {
+export class DescribeCommandsCommand extends $Command<
+  DescribeCommandsCommandInput,
+  DescribeCommandsCommandOutput,
+  OpsWorksClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class DescribeCommandsCommand extends $Command<DescribeCommandsCommandInp
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribeCommandsCommandInput, DescribeCommandsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

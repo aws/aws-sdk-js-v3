@@ -7,7 +7,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *       credentials of an account that belongs to an organization.</p>
  *
  */
-export interface AWSOrganizationsNotInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface AWSOrganizationsNotInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AWSOrganizationsNotInUseException";
   $fault: "client";
   Message?: string;
@@ -62,7 +64,9 @@ export namespace AcceptHandshakeResponse {
  *          </p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -82,7 +86,9 @@ export namespace AccessDeniedException {
  *       permission.</p>
  *
  */
-export interface AccessDeniedForDependencyException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedForDependencyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedForDependencyException";
   $fault: "client";
   Message?: string;
@@ -96,7 +102,7 @@ export namespace AccessDeniedForDependencyException {
 }
 
 export enum AccessDeniedForDependencyExceptionReason {
-  ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE = "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE",
+  ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE = "ACCESS_DENIED_DURING_CREATE_SERVICE_LINKED_ROLE"
 }
 
 /**
@@ -173,7 +179,7 @@ export namespace Account {
 
 export enum AccountJoinedMethod {
   CREATED = "CREATED",
-  INVITED = "INVITED",
+  INVITED = "INVITED"
 }
 
 /**
@@ -183,7 +189,9 @@ export enum AccountJoinedMethod {
  *       organization.</p>
  *
  */
-export interface AccountNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccountNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccountNotFoundException";
   $fault: "client";
   Message?: string;
@@ -203,7 +211,9 @@ export namespace AccountNotFoundException {
  *          </p>
  *
  */
-export interface AccountOwnerNotVerifiedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccountOwnerNotVerifiedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccountOwnerNotVerifiedException";
   $fault: "client";
   Message?: string;
@@ -217,14 +227,14 @@ export namespace AccountOwnerNotVerifiedException {
 
 export enum AccountStatus {
   ACTIVE = "ACTIVE",
-  SUSPENDED = "SUSPENDED",
+  SUSPENDED = "SUSPENDED"
 }
 
 export enum ActionType {
   ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE = "ADD_ORGANIZATIONS_SERVICE_LINKED_ROLE",
   APPROVE_ALL_FEATURES = "APPROVE_ALL_FEATURES",
   ENABLE_ALL_FEATURES = "ENABLE_ALL_FEATURES",
-  INVITE_ACCOUNT_TO_ORGANIZATION = "INVITE",
+  INVITE_ACCOUNT_TO_ORGANIZATION = "INVITE"
 }
 
 /**
@@ -233,7 +243,9 @@ export enum ActionType {
  *       organization at a time.</p>
  *
  */
-export interface AlreadyInOrganizationException extends _smithy.SmithyException, $MetadataBearer {
+export interface AlreadyInOrganizationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AlreadyInOrganizationException";
   $fault: "client";
   Message?: string;
@@ -373,7 +385,9 @@ export namespace Child {
  *       that you specified.</p>
  *
  */
-export interface ChildNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ChildNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ChildNotFoundException";
   $fault: "client";
   Message?: string;
@@ -387,7 +401,7 @@ export namespace ChildNotFoundException {
 
 export enum ChildType {
   ACCOUNT = "ACCOUNT",
-  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
+  ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT"
 }
 
 /**
@@ -396,7 +410,9 @@ export enum ChildType {
  *       later.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -528,7 +544,9 @@ export namespace ConcurrentModificationException {
  *          </ul>
  *
  */
-export interface ConstraintViolationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConstraintViolationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -564,7 +582,7 @@ export enum ConstraintViolationExceptionReason {
   POLICY_CONTENT_LIMIT_EXCEEDED = "POLICY_CONTENT_LIMIT_EXCEEDED",
   POLICY_NUMBER_LIMIT_EXCEEDED = "POLICY_NUMBER_LIMIT_EXCEEDED",
   TAG_POLICY_VIOLATION = "TAG_POLICY_VIOLATION",
-  WAIT_PERIOD_ACTIVE = "WAIT_PERIOD_ACTIVE",
+  WAIT_PERIOD_ACTIVE = "WAIT_PERIOD_ACTIVE"
 }
 
 export enum CreateAccountFailureReason {
@@ -574,7 +592,7 @@ export enum CreateAccountFailureReason {
   GOVCLOUD_ACCOUNT_ALREADY_EXISTS = "GOVCLOUD_ACCOUNT_ALREADY_EXISTS",
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
   INVALID_ADDRESS = "INVALID_ADDRESS",
-  INVALID_EMAIL = "INVALID_EMAIL",
+  INVALID_EMAIL = "INVALID_EMAIL"
 }
 
 export interface CreateAccountRequest {
@@ -663,7 +681,7 @@ export namespace CreateAccountResponse {
 export enum CreateAccountState {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -776,7 +794,9 @@ export namespace CreateAccountStatus {
  *       you specified.</p>
  *
  */
-export interface CreateAccountStatusNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface CreateAccountStatusNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CreateAccountStatusNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1360,7 +1380,9 @@ export namespace DescribePolicyResponse {
  *       you specified.</p>
  *
  */
-export interface DestinationParentNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface DestinationParentNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DestinationParentNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1485,7 +1507,9 @@ export namespace DisablePolicyTypeResponse {
  *          <p>That account is already present in the specified destination.</p>
  *
  */
-export interface DuplicateAccountException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateAccountException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateAccountException";
   $fault: "client";
   Message?: string;
@@ -1505,7 +1529,9 @@ export namespace DuplicateAccountException {
  *       existing handshakes that might be considered duplicates are canceled or declined.</p>
  *
  */
-export interface DuplicateHandshakeException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateHandshakeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateHandshakeException";
   $fault: "client";
   Message?: string;
@@ -1522,7 +1548,9 @@ export namespace DuplicateHandshakeException {
  *          <p>An OU with the same name already exists.</p>
  *
  */
-export interface DuplicateOrganizationalUnitException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateOrganizationalUnitException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateOrganizationalUnitException";
   $fault: "client";
   Message?: string;
@@ -1539,7 +1567,9 @@ export namespace DuplicateOrganizationalUnitException {
  *          <p>The selected policy is already attached to the specified target.</p>
  *
  */
-export interface DuplicatePolicyAttachmentException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicatePolicyAttachmentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicatePolicyAttachmentException";
   $fault: "client";
   Message?: string;
@@ -1556,7 +1586,9 @@ export namespace DuplicatePolicyAttachmentException {
  *          <p>A policy with the same name already exists.</p>
  *
  */
-export interface DuplicatePolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicatePolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicatePolicyException";
   $fault: "client";
   Message?: string;
@@ -1620,7 +1652,9 @@ export namespace EffectivePolicy {
  *       account. </p>
  *
  */
-export interface EffectivePolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface EffectivePolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EffectivePolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1633,7 +1667,7 @@ export namespace EffectivePolicyNotFoundException {
 }
 
 export enum EffectivePolicyType {
-  TAG_POLICY = "TAG_POLICY",
+  TAG_POLICY = "TAG_POLICY"
 }
 
 export interface EnableAWSServiceAccessRequest {
@@ -1763,7 +1797,9 @@ export namespace EnabledServicePrincipal {
  *       Support</a>.</p>
  *
  */
-export interface FinalizingOrganizationException extends _smithy.SmithyException, $MetadataBearer {
+export interface FinalizingOrganizationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FinalizingOrganizationException";
   $fault: "client";
   Message?: string;
@@ -1927,7 +1963,9 @@ export namespace Handshake {
  *       handshake that was already accepted.</p>
  *
  */
-export interface HandshakeAlreadyInStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface HandshakeAlreadyInStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HandshakeAlreadyInStateException";
   $fault: "client";
   Message?: string;
@@ -1991,7 +2029,9 @@ export namespace HandshakeAlreadyInStateException {
  *          </ul>
  *
  */
-export interface HandshakeConstraintViolationException extends _smithy.SmithyException, $MetadataBearer {
+export interface HandshakeConstraintViolationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HandshakeConstraintViolationException";
   $fault: "client";
   Message?: string;
@@ -2012,7 +2052,7 @@ export enum HandshakeConstraintViolationExceptionReason {
   ORGANIZATION_ALREADY_HAS_ALL_FEATURES = "ORGANIZATION_ALREADY_HAS_ALL_FEATURES",
   ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD = "ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD",
   ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED = "ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED",
-  PAYMENT_INSTRUMENT_REQUIRED = "PAYMENT_INSTRUMENT_REQUIRED",
+  PAYMENT_INSTRUMENT_REQUIRED = "PAYMENT_INSTRUMENT_REQUIRED"
 }
 
 /**
@@ -2055,7 +2095,9 @@ export namespace HandshakeFilter {
  *          <p>We can't find a handshake with the <code>HandshakeId</code> that you specified.</p>
  *
  */
-export interface HandshakeNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface HandshakeNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HandshakeNotFoundException";
   $fault: "client";
   Message?: string;
@@ -2100,7 +2142,7 @@ export namespace HandshakeParty {
 export enum HandshakePartyType {
   ACCOUNT = "ACCOUNT",
   EMAIL = "EMAIL",
-  ORGANIZATION = "ORGANIZATION",
+  ORGANIZATION = "ORGANIZATION"
 }
 
 /**
@@ -2179,7 +2221,7 @@ export enum HandshakeResourceType {
   NOTES = "NOTES",
   ORGANIZATION = "ORGANIZATION",
   ORGANIZATION_FEATURE_SET = "ORGANIZATION_FEATURE_SET",
-  PARENT_HANDSHAKE = "PARENT_HANDSHAKE",
+  PARENT_HANDSHAKE = "PARENT_HANDSHAKE"
 }
 
 export enum HandshakeState {
@@ -2188,12 +2230,12 @@ export enum HandshakeState {
   DECLINED = "DECLINED",
   EXPIRED = "EXPIRED",
   OPEN = "OPEN",
-  REQUESTED = "REQUESTED",
+  REQUESTED = "REQUESTED"
 }
 
 export enum IAMUserAccessToBilling {
   ALLOW = "ALLOW",
-  DENY = "DENY",
+  DENY = "DENY"
 }
 
 /**
@@ -2203,7 +2245,9 @@ export enum IAMUserAccessToBilling {
  *       declined.</p>
  *
  */
-export interface InvalidHandshakeTransitionException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidHandshakeTransitionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidHandshakeTransitionException";
   $fault: "client";
   Message?: string;
@@ -2304,7 +2348,9 @@ export namespace InvalidHandshakeTransitionException {
  *          </ul>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   Message?: string;
@@ -2339,7 +2385,7 @@ export enum InvalidInputExceptionReason {
   MIN_VALUE_EXCEEDED = "MIN_VALUE_EXCEEDED",
   MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS = "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS",
   TARGET_NOT_SUPPORTED = "TARGET_NOT_SUPPORTED",
-  UNRECOGNIZED_SERVICE_PRINCIPAL = "UNRECOGNIZED_SERVICE_PRINCIPAL",
+  UNRECOGNIZED_SERVICE_PRINCIPAL = "UNRECOGNIZED_SERVICE_PRINCIPAL"
 }
 
 export interface InviteAccountToOrganizationRequest {
@@ -2434,7 +2480,8 @@ export namespace ListAWSServiceAccessForOrganizationRequest {
   }
 }
 
-export interface ListAWSServiceAccessForOrganizationResponse extends $MetadataBearer {
+export interface ListAWSServiceAccessForOrganizationResponse
+  extends $MetadataBearer {
   __type?: "ListAWSServiceAccessForOrganizationResponse";
   /**
    *
@@ -2458,7 +2505,9 @@ export interface ListAWSServiceAccessForOrganizationResponse extends $MetadataBe
 }
 
 export namespace ListAWSServiceAccessForOrganizationResponse {
-  export function isa(o: any): o is ListAWSServiceAccessForOrganizationResponse {
+  export function isa(
+    o: any
+  ): o is ListAWSServiceAccessForOrganizationResponse {
     return _smithy.isa(o, "ListAWSServiceAccessForOrganizationResponse");
   }
 }
@@ -2953,7 +3002,8 @@ export namespace ListOrganizationalUnitsForParentRequest {
   }
 }
 
-export interface ListOrganizationalUnitsForParentResponse extends $MetadataBearer {
+export interface ListOrganizationalUnitsForParentResponse
+  extends $MetadataBearer {
   __type?: "ListOrganizationalUnitsForParentResponse";
   /**
    *
@@ -3416,7 +3466,9 @@ export namespace ListTargetsForPolicyResponse {
  *          </p>
  *
  */
-export interface MalformedPolicyDocumentException extends _smithy.SmithyException, $MetadataBearer {
+export interface MalformedPolicyDocumentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MalformedPolicyDocumentException";
   $fault: "client";
   Message?: string;
@@ -3435,7 +3487,9 @@ export namespace MalformedPolicyDocumentException {
  *       organization of the master account.</p>
  *
  */
-export interface MasterCannotLeaveOrganizationException extends _smithy.SmithyException, $MetadataBearer {
+export interface MasterCannotLeaveOrganizationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MasterCannotLeaveOrganizationException";
   $fault: "client";
   Message?: string;
@@ -3600,7 +3654,7 @@ export namespace Organization {
 
 export enum OrganizationFeatureSet {
   ALL = "ALL",
-  CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING",
+  CONSOLIDATED_BILLING = "CONSOLIDATED_BILLING"
 }
 
 /**
@@ -3609,7 +3663,9 @@ export enum OrganizationFeatureSet {
  *       accounts except the master account, delete all OUs, and delete all policies.</p>
  *
  */
-export interface OrganizationNotEmptyException extends _smithy.SmithyException, $MetadataBearer {
+export interface OrganizationNotEmptyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OrganizationNotEmptyException";
   $fault: "client";
   Message?: string;
@@ -3673,7 +3729,9 @@ export namespace OrganizationalUnit {
  *       all child OUs, and try the operation again.</p>
  *
  */
-export interface OrganizationalUnitNotEmptyException extends _smithy.SmithyException, $MetadataBearer {
+export interface OrganizationalUnitNotEmptyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OrganizationalUnitNotEmptyException";
   $fault: "client";
   Message?: string;
@@ -3690,7 +3748,9 @@ export namespace OrganizationalUnitNotEmptyException {
  *          <p>We can't find an OU with the <code>OrganizationalUnitId</code> that you specified.</p>
  *
  */
-export interface OrganizationalUnitNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface OrganizationalUnitNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OrganizationalUnitNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3749,7 +3809,9 @@ export namespace Parent {
  *          <p>We can't find a root or OU with the <code>ParentId</code> that you specified.</p>
  *
  */
-export interface ParentNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ParentNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParentNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3763,7 +3825,7 @@ export namespace ParentNotFoundException {
 
 export enum ParentType {
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ROOT = "ROOT",
+  ROOT = "ROOT"
 }
 
 /**
@@ -3801,7 +3863,9 @@ export namespace Policy {
  *       the operation again later. </p>
  *
  */
-export interface PolicyChangesInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyChangesInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyChangesInProgressException";
   $fault: "client";
   Message?: string;
@@ -3819,7 +3883,9 @@ export namespace PolicyChangesInProgressException {
  *       and accounts before performing this operation.</p>
  *
  */
-export interface PolicyInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyInUseException";
   $fault: "client";
   Message?: string;
@@ -3836,7 +3902,9 @@ export namespace PolicyInUseException {
  *          <p>The policy isn't attached to the specified target in the specified root.</p>
  *
  */
-export interface PolicyNotAttachedException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyNotAttachedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyNotAttachedException";
   $fault: "client";
   Message?: string;
@@ -3853,7 +3921,9 @@ export namespace PolicyNotAttachedException {
  *          <p>We can't find a policy with the <code>PolicyId</code> that you specified.</p>
  *
  */
-export interface PolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3996,7 +4066,7 @@ export namespace PolicyTargetSummary {
 
 export enum PolicyType {
   SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY",
-  TAG_POLICY = "TAG_POLICY",
+  TAG_POLICY = "TAG_POLICY"
 }
 
 /**
@@ -4004,7 +4074,9 @@ export enum PolicyType {
  *          <p>The specified policy type is already enabled in the specified root.</p>
  *
  */
-export interface PolicyTypeAlreadyEnabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyTypeAlreadyEnabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyTypeAlreadyEnabledException";
   $fault: "client";
   Message?: string;
@@ -4025,14 +4097,18 @@ export namespace PolicyTypeAlreadyEnabledException {
  *          </p>
  *
  */
-export interface PolicyTypeNotAvailableForOrganizationException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyTypeNotAvailableForOrganizationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyTypeNotAvailableForOrganizationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace PolicyTypeNotAvailableForOrganizationException {
-  export function isa(o: any): o is PolicyTypeNotAvailableForOrganizationException {
+  export function isa(
+    o: any
+  ): o is PolicyTypeNotAvailableForOrganizationException {
     return _smithy.isa(o, "PolicyTypeNotAvailableForOrganizationException");
   }
 }
@@ -4046,7 +4122,9 @@ export namespace PolicyTypeNotAvailableForOrganizationException {
  *          </p>
  *
  */
-export interface PolicyTypeNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyTypeNotEnabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyTypeNotEnabledException";
   $fault: "client";
   Message?: string;
@@ -4061,7 +4139,7 @@ export namespace PolicyTypeNotEnabledException {
 export enum PolicyTypeStatus {
   ENABLED = "ENABLED",
   PENDING_DISABLE = "PENDING_DISABLE",
-  PENDING_ENABLE = "PENDING_ENABLE",
+  PENDING_ENABLE = "PENDING_ENABLE"
 }
 
 /**
@@ -4177,7 +4255,9 @@ export namespace Root {
  *          <p>We can't find a root with the <code>RootId</code> that you specified.</p>
  *
  */
-export interface RootNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface RootNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RootNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4195,7 +4275,9 @@ export namespace RootNotFoundException {
  *       later.</p>
  *
  */
-export interface ServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceException";
   $fault: "server";
   Message?: string;
@@ -4213,7 +4295,9 @@ export namespace ServiceException {
  *       specified.</p>
  *
  */
-export interface SourceParentNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface SourceParentNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SourceParentNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4285,7 +4369,9 @@ export namespace TagResourceRequest {
  *       specified.</p>
  *
  */
-export interface TargetNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface TargetNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TargetNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4300,7 +4386,7 @@ export namespace TargetNotFoundException {
 export enum TargetType {
   ACCOUNT = "ACCOUNT",
   ORGANIZATIONAL_UNIT = "ORGANIZATIONAL_UNIT",
-  ROOT = "ROOT",
+  ROOT = "ROOT"
 }
 
 /**
@@ -4312,7 +4398,9 @@ export enum TargetType {
  *          </p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -4330,7 +4418,9 @@ export namespace TooManyRequestsException {
  *          <p>This action isn't available in the current Region.</p>
  *
  */
-export interface UnsupportedAPIEndpointException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedAPIEndpointException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedAPIEndpointException";
   $fault: "client";
   Message?: string;

@@ -1,166 +1,166 @@
 import {
   AbortDocumentVersionUploadCommandInput,
-  AbortDocumentVersionUploadCommandOutput,
+  AbortDocumentVersionUploadCommandOutput
 } from "../commands/AbortDocumentVersionUploadCommand";
 import {
   ActivateUserCommandInput,
-  ActivateUserCommandOutput,
+  ActivateUserCommandOutput
 } from "../commands/ActivateUserCommand";
 import {
   AddResourcePermissionsCommandInput,
-  AddResourcePermissionsCommandOutput,
+  AddResourcePermissionsCommandOutput
 } from "../commands/AddResourcePermissionsCommand";
 import {
   CreateCommentCommandInput,
-  CreateCommentCommandOutput,
+  CreateCommentCommandOutput
 } from "../commands/CreateCommentCommand";
 import {
   CreateCustomMetadataCommandInput,
-  CreateCustomMetadataCommandOutput,
+  CreateCustomMetadataCommandOutput
 } from "../commands/CreateCustomMetadataCommand";
 import {
   CreateFolderCommandInput,
-  CreateFolderCommandOutput,
+  CreateFolderCommandOutput
 } from "../commands/CreateFolderCommand";
 import {
   CreateLabelsCommandInput,
-  CreateLabelsCommandOutput,
+  CreateLabelsCommandOutput
 } from "../commands/CreateLabelsCommand";
 import {
   CreateNotificationSubscriptionCommandInput,
-  CreateNotificationSubscriptionCommandOutput,
+  CreateNotificationSubscriptionCommandOutput
 } from "../commands/CreateNotificationSubscriptionCommand";
 import {
   CreateUserCommandInput,
-  CreateUserCommandOutput,
+  CreateUserCommandOutput
 } from "../commands/CreateUserCommand";
 import {
   DeactivateUserCommandInput,
-  DeactivateUserCommandOutput,
+  DeactivateUserCommandOutput
 } from "../commands/DeactivateUserCommand";
 import {
   DeleteCommentCommandInput,
-  DeleteCommentCommandOutput,
+  DeleteCommentCommandOutput
 } from "../commands/DeleteCommentCommand";
 import {
   DeleteCustomMetadataCommandInput,
-  DeleteCustomMetadataCommandOutput,
+  DeleteCustomMetadataCommandOutput
 } from "../commands/DeleteCustomMetadataCommand";
 import {
   DeleteDocumentCommandInput,
-  DeleteDocumentCommandOutput,
+  DeleteDocumentCommandOutput
 } from "../commands/DeleteDocumentCommand";
 import {
   DeleteFolderCommandInput,
-  DeleteFolderCommandOutput,
+  DeleteFolderCommandOutput
 } from "../commands/DeleteFolderCommand";
 import {
   DeleteFolderContentsCommandInput,
-  DeleteFolderContentsCommandOutput,
+  DeleteFolderContentsCommandOutput
 } from "../commands/DeleteFolderContentsCommand";
 import {
   DeleteLabelsCommandInput,
-  DeleteLabelsCommandOutput,
+  DeleteLabelsCommandOutput
 } from "../commands/DeleteLabelsCommand";
 import {
   DeleteNotificationSubscriptionCommandInput,
-  DeleteNotificationSubscriptionCommandOutput,
+  DeleteNotificationSubscriptionCommandOutput
 } from "../commands/DeleteNotificationSubscriptionCommand";
 import {
   DeleteUserCommandInput,
-  DeleteUserCommandOutput,
+  DeleteUserCommandOutput
 } from "../commands/DeleteUserCommand";
 import {
   DescribeActivitiesCommandInput,
-  DescribeActivitiesCommandOutput,
+  DescribeActivitiesCommandOutput
 } from "../commands/DescribeActivitiesCommand";
 import {
   DescribeCommentsCommandInput,
-  DescribeCommentsCommandOutput,
+  DescribeCommentsCommandOutput
 } from "../commands/DescribeCommentsCommand";
 import {
   DescribeDocumentVersionsCommandInput,
-  DescribeDocumentVersionsCommandOutput,
+  DescribeDocumentVersionsCommandOutput
 } from "../commands/DescribeDocumentVersionsCommand";
 import {
   DescribeFolderContentsCommandInput,
-  DescribeFolderContentsCommandOutput,
+  DescribeFolderContentsCommandOutput
 } from "../commands/DescribeFolderContentsCommand";
 import {
   DescribeGroupsCommandInput,
-  DescribeGroupsCommandOutput,
+  DescribeGroupsCommandOutput
 } from "../commands/DescribeGroupsCommand";
 import {
   DescribeNotificationSubscriptionsCommandInput,
-  DescribeNotificationSubscriptionsCommandOutput,
+  DescribeNotificationSubscriptionsCommandOutput
 } from "../commands/DescribeNotificationSubscriptionsCommand";
 import {
   DescribeResourcePermissionsCommandInput,
-  DescribeResourcePermissionsCommandOutput,
+  DescribeResourcePermissionsCommandOutput
 } from "../commands/DescribeResourcePermissionsCommand";
 import {
   DescribeRootFoldersCommandInput,
-  DescribeRootFoldersCommandOutput,
+  DescribeRootFoldersCommandOutput
 } from "../commands/DescribeRootFoldersCommand";
 import {
   DescribeUsersCommandInput,
-  DescribeUsersCommandOutput,
+  DescribeUsersCommandOutput
 } from "../commands/DescribeUsersCommand";
 import {
   GetCurrentUserCommandInput,
-  GetCurrentUserCommandOutput,
+  GetCurrentUserCommandOutput
 } from "../commands/GetCurrentUserCommand";
 import {
   GetDocumentCommandInput,
-  GetDocumentCommandOutput,
+  GetDocumentCommandOutput
 } from "../commands/GetDocumentCommand";
 import {
   GetDocumentPathCommandInput,
-  GetDocumentPathCommandOutput,
+  GetDocumentPathCommandOutput
 } from "../commands/GetDocumentPathCommand";
 import {
   GetDocumentVersionCommandInput,
-  GetDocumentVersionCommandOutput,
+  GetDocumentVersionCommandOutput
 } from "../commands/GetDocumentVersionCommand";
 import {
   GetFolderCommandInput,
-  GetFolderCommandOutput,
+  GetFolderCommandOutput
 } from "../commands/GetFolderCommand";
 import {
   GetFolderPathCommandInput,
-  GetFolderPathCommandOutput,
+  GetFolderPathCommandOutput
 } from "../commands/GetFolderPathCommand";
 import {
   GetResourcesCommandInput,
-  GetResourcesCommandOutput,
+  GetResourcesCommandOutput
 } from "../commands/GetResourcesCommand";
 import {
   InitiateDocumentVersionUploadCommandInput,
-  InitiateDocumentVersionUploadCommandOutput,
+  InitiateDocumentVersionUploadCommandOutput
 } from "../commands/InitiateDocumentVersionUploadCommand";
 import {
   RemoveAllResourcePermissionsCommandInput,
-  RemoveAllResourcePermissionsCommandOutput,
+  RemoveAllResourcePermissionsCommandOutput
 } from "../commands/RemoveAllResourcePermissionsCommand";
 import {
   RemoveResourcePermissionCommandInput,
-  RemoveResourcePermissionCommandOutput,
+  RemoveResourcePermissionCommandOutput
 } from "../commands/RemoveResourcePermissionCommand";
 import {
   UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput,
+  UpdateDocumentCommandOutput
 } from "../commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
-  UpdateDocumentVersionCommandOutput,
+  UpdateDocumentVersionCommandOutput
 } from "../commands/UpdateDocumentVersionCommand";
 import {
   UpdateFolderCommandInput,
-  UpdateFolderCommandOutput,
+  UpdateFolderCommandOutput
 } from "../commands/UpdateFolderCommand";
 import {
   UpdateUserCommandInput,
-  UpdateUserCommandOutput,
+  UpdateUserCommandOutput
 } from "../commands/UpdateUserCommand";
 import {
   Activity,
@@ -209,18 +209,18 @@ import {
   UploadMetadata,
   User,
   UserMetadata,
-  UserStorageMetadata,
+  UserStorageMetadata
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
@@ -228,7 +228,7 @@ export async function serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -236,27 +236,27 @@ export async function serializeAws_restJson1_1AbortDocumentVersionUploadCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -265,7 +265,7 @@ export async function serializeAws_restJson1_1ActivateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -273,18 +273,18 @@ export async function serializeAws_restJson1_1ActivateUserCommand(
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: UserId.');
+      throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
+    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: UserId.');
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "POST",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -293,7 +293,7 @@ export async function serializeAws_restJson1_1AddResourcePermissionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -301,19 +301,27 @@ export async function serializeAws_restJson1_1AddResourcePermissionsCommand(
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.NotificationOptions !== undefined) {
-    bodyParams['NotificationOptions'] = serializeAws_restJson1_1NotificationOptions(input.NotificationOptions, context);
+    bodyParams[
+      "NotificationOptions"
+    ] = serializeAws_restJson1_1NotificationOptions(
+      input.NotificationOptions,
+      context
+    );
   }
   if (input.Principals !== undefined) {
-    bodyParams['Principals'] = serializeAws_restJson1_1SharePrincipalList(input.Principals, context);
+    bodyParams["Principals"] = serializeAws_restJson1_1SharePrincipalList(
+      input.Principals,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -322,7 +330,7 @@ export async function serializeAws_restJson1_1AddResourcePermissionsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -331,45 +339,46 @@ export async function serializeAws_restJson1_1CreateCommentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
-  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
+  let resolvedPath =
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment";
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.NotifyCollaborators !== undefined) {
-    bodyParams['NotifyCollaborators'] = input.NotifyCollaborators;
+    bodyParams["NotifyCollaborators"] = input.NotifyCollaborators;
   }
   if (input.ParentId !== undefined) {
-    bodyParams['ParentId'] = input.ParentId;
+    bodyParams["ParentId"] = input.ParentId;
   }
   if (input.Text !== undefined) {
-    bodyParams['Text'] = input.Text;
+    bodyParams["Text"] = input.Text;
   }
   if (input.ThreadId !== undefined) {
-    bodyParams['ThreadId'] = input.ThreadId;
+    bodyParams["ThreadId"] = input.ThreadId;
   }
   if (input.Visibility !== undefined) {
-    bodyParams['Visibility'] = input.Visibility;
+    bodyParams["Visibility"] = input.Visibility;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -378,7 +387,7 @@ export async function serializeAws_restJson1_1CreateCommentCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -387,7 +396,7 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -395,20 +404,23 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.VersionId !== undefined) {
-    query['versionid'] = input.VersionId.toString();
+    query["versionid"] = input.VersionId.toString();
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.CustomMetadata !== undefined) {
-    bodyParams['CustomMetadata'] = serializeAws_restJson1_1CustomMetadataMap(input.CustomMetadata, context);
+    bodyParams["CustomMetadata"] = serializeAws_restJson1_1CustomMetadataMap(
+      input.CustomMetadata,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -418,7 +430,7 @@ export async function serializeAws_restJson1_1CreateCustomMetadataCommand(
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -427,7 +439,7 @@ export async function serializeAws_restJson1_1CreateFolderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -435,10 +447,10 @@ export async function serializeAws_restJson1_1CreateFolderCommand(
   let body: any = {};
   const bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.ParentFolderId !== undefined) {
-    bodyParams['ParentFolderId'] = input.ParentFolderId;
+    bodyParams["ParentFolderId"] = input.ParentFolderId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -447,7 +459,7 @@ export async function serializeAws_restJson1_1CreateFolderCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -456,7 +468,7 @@ export async function serializeAws_restJson1_1CreateLabelsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -464,16 +476,19 @@ export async function serializeAws_restJson1_1CreateLabelsCommand(
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Labels !== undefined) {
-    bodyParams['Labels'] = serializeAws_restJson1_1SharedLabels(input.Labels, context);
+    bodyParams["Labels"] = serializeAws_restJson1_1SharedLabels(
+      input.Labels,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -482,7 +497,7 @@ export async function serializeAws_restJson1_1CreateLabelsCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -491,27 +506,29 @@ export async function serializeAws_restJson1_1CreateNotificationSubscriptionComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
     const labelValue: any = input.OrganizationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: OrganizationId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: OrganizationId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{OrganizationId}', labelValue);
+    resolvedPath = resolvedPath.replace("{OrganizationId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: OrganizationId.');
+    throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Endpoint !== undefined) {
-    bodyParams['Endpoint'] = input.Endpoint;
+    bodyParams["Endpoint"] = input.Endpoint;
   }
   if (input.Protocol !== undefined) {
-    bodyParams['Protocol'] = input.Protocol;
+    bodyParams["Protocol"] = input.Protocol;
   }
   if (input.SubscriptionType !== undefined) {
-    bodyParams['SubscriptionType'] = input.SubscriptionType;
+    bodyParams["SubscriptionType"] = input.SubscriptionType;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -520,7 +537,7 @@ export async function serializeAws_restJson1_1CreateNotificationSubscriptionComm
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -529,7 +546,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -537,28 +554,31 @@ export async function serializeAws_restJson1_1CreateUserCommand(
   let body: any = {};
   const bodyParams: any = {};
   if (input.EmailAddress !== undefined) {
-    bodyParams['EmailAddress'] = input.EmailAddress;
+    bodyParams["EmailAddress"] = input.EmailAddress;
   }
   if (input.GivenName !== undefined) {
-    bodyParams['GivenName'] = input.GivenName;
+    bodyParams["GivenName"] = input.GivenName;
   }
   if (input.OrganizationId !== undefined) {
-    bodyParams['OrganizationId'] = input.OrganizationId;
+    bodyParams["OrganizationId"] = input.OrganizationId;
   }
   if (input.Password !== undefined) {
-    bodyParams['Password'] = input.Password;
+    bodyParams["Password"] = input.Password;
   }
   if (input.StorageRule !== undefined) {
-    bodyParams['StorageRule'] = serializeAws_restJson1_1StorageRuleType(input.StorageRule, context);
+    bodyParams["StorageRule"] = serializeAws_restJson1_1StorageRuleType(
+      input.StorageRule,
+      context
+    );
   }
   if (input.Surname !== undefined) {
-    bodyParams['Surname'] = input.Surname;
+    bodyParams["Surname"] = input.Surname;
   }
   if (input.TimeZoneId !== undefined) {
-    bodyParams['TimeZoneId'] = input.TimeZoneId;
+    bodyParams["TimeZoneId"] = input.TimeZoneId;
   }
   if (input.Username !== undefined) {
-    bodyParams['Username'] = input.Username;
+    bodyParams["Username"] = input.Username;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -567,7 +587,7 @@ export async function serializeAws_restJson1_1CreateUserCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -576,7 +596,7 @@ export async function serializeAws_restJson1_1DeactivateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -584,18 +604,18 @@ export async function serializeAws_restJson1_1DeactivateUserCommand(
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: UserId.');
+      throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
+    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: UserId.');
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -604,44 +624,45 @@ export async function serializeAws_restJson1_1DeleteCommentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
-  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
+  let resolvedPath =
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comment/{CommentId}";
   if (input.CommentId !== undefined) {
     const labelValue: any = input.CommentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: CommentId.');
+      throw new Error("Empty value provided for input HTTP label: CommentId.");
     }
-    resolvedPath = resolvedPath.replace('{CommentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{CommentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: CommentId.');
+    throw new Error("No value provided for input HTTP label: CommentId.");
   }
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -650,7 +671,7 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -658,21 +679,21 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.DeleteAll !== undefined) {
-    query['deleteAll'] = input.DeleteAll.toString();
+    query["deleteAll"] = input.DeleteAll.toString();
   }
   if (input.Keys !== undefined) {
-    query['keys'] = input.Keys;
+    query["keys"] = input.Keys;
   }
   if (input.VersionId !== undefined) {
-    query['versionId'] = input.VersionId.toString();
+    query["versionId"] = input.VersionId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -680,7 +701,7 @@ export async function serializeAws_restJson1_1DeleteCustomMetadataCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -689,7 +710,7 @@ export async function serializeAws_restJson1_1DeleteDocumentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -697,18 +718,18 @@ export async function serializeAws_restJson1_1DeleteDocumentCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -717,7 +738,7 @@ export async function serializeAws_restJson1_1DeleteFolderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -725,18 +746,18 @@ export async function serializeAws_restJson1_1DeleteFolderCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -745,7 +766,7 @@ export async function serializeAws_restJson1_1DeleteFolderContentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -753,18 +774,18 @@ export async function serializeAws_restJson1_1DeleteFolderContentsCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -773,7 +794,7 @@ export async function serializeAws_restJson1_1DeleteLabelsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -781,18 +802,18 @@ export async function serializeAws_restJson1_1DeleteLabelsCommand(
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.DeleteAll !== undefined) {
-    query['deleteAll'] = input.DeleteAll.toString();
+    query["deleteAll"] = input.DeleteAll.toString();
   }
   if (input.Labels !== undefined) {
-    query['labels'] = input.Labels;
+    query["labels"] = input.Labels;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -800,7 +821,7 @@ export async function serializeAws_restJson1_1DeleteLabelsCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -809,32 +830,37 @@ export async function serializeAws_restJson1_1DeleteNotificationSubscriptionComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
-  let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
+  headers["Content-Type"] = "";
+  let resolvedPath =
+    "/api/v1/organizations/{OrganizationId}/subscriptions/{SubscriptionId}";
   if (input.OrganizationId !== undefined) {
     const labelValue: any = input.OrganizationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: OrganizationId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: OrganizationId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{OrganizationId}', labelValue);
+    resolvedPath = resolvedPath.replace("{OrganizationId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: OrganizationId.');
+    throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   if (input.SubscriptionId !== undefined) {
     const labelValue: any = input.SubscriptionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: SubscriptionId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: SubscriptionId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{SubscriptionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{SubscriptionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: SubscriptionId.');
+    throw new Error("No value provided for input HTTP label: SubscriptionId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -843,7 +869,7 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -851,18 +877,18 @@ export async function serializeAws_restJson1_1DeleteUserCommand(
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: UserId.');
+      throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
+    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: UserId.');
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -871,38 +897,40 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/activities";
   const query: any = {};
   if (input.ActivityTypes !== undefined) {
-    query['activityTypes'] = input.ActivityTypes.toString();
+    query["activityTypes"] = input.ActivityTypes.toString();
   }
   if (input.EndTime !== undefined) {
-    query['endTime'] = input.EndTime.toISOString();
+    query["endTime"] = input.EndTime.toISOString();
   }
   if (input.IncludeIndirectActivities !== undefined) {
-    query['includeIndirectActivities'] = input.IncludeIndirectActivities.toString();
+    query[
+      "includeIndirectActivities"
+    ] = input.IncludeIndirectActivities.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.OrganizationId !== undefined) {
-    query['organizationId'] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId.toString();
   }
   if (input.ResourceId !== undefined) {
-    query['resourceId'] = input.ResourceId.toString();
+    query["resourceId"] = input.ResourceId.toString();
   }
   if (input.StartTime !== undefined) {
-    query['startTime'] = input.StartTime.toISOString();
+    query["startTime"] = input.StartTime.toISOString();
   }
   if (input.UserId !== undefined) {
-    query['userId'] = input.UserId.toString();
+    query["userId"] = input.UserId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -910,7 +938,7 @@ export async function serializeAws_restJson1_1DescribeActivitiesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -919,35 +947,36 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
-  let resolvedPath = "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
+  let resolvedPath =
+    "/api/v1/documents/{DocumentId}/versions/{VersionId}/comments";
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -955,7 +984,7 @@ export async function serializeAws_restJson1_1DescribeCommentsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -964,7 +993,7 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -972,24 +1001,24 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query['fields'] = input.Fields.toString();
+    query["fields"] = input.Fields.toString();
   }
   if (input.Include !== undefined) {
-    query['include'] = input.Include.toString();
+    query["include"] = input.Include.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -997,7 +1026,7 @@ export async function serializeAws_restJson1_1DescribeDocumentVersionsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1006,7 +1035,7 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1014,30 +1043,30 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   const query: any = {};
   if (input.Include !== undefined) {
-    query['include'] = input.Include.toString();
+    query["include"] = input.Include.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.Order !== undefined) {
-    query['order'] = input.Order.toString();
+    query["order"] = input.Order.toString();
   }
   if (input.Sort !== undefined) {
-    query['sort'] = input.Sort.toString();
+    query["sort"] = input.Sort.toString();
   }
   if (input.Type !== undefined) {
-    query['type'] = input.Type.toString();
+    query["type"] = input.Type.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1045,7 +1074,7 @@ export async function serializeAws_restJson1_1DescribeFolderContentsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1054,23 +1083,23 @@ export async function serializeAws_restJson1_1DescribeGroupsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/groups";
   const query: any = {};
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.OrganizationId !== undefined) {
-    query['organizationId'] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId.toString();
   }
   if (input.SearchQuery !== undefined) {
-    query['searchQuery'] = input.SearchQuery.toString();
+    query["searchQuery"] = input.SearchQuery.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1078,7 +1107,7 @@ export async function serializeAws_restJson1_1DescribeGroupsCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1087,23 +1116,25 @@ export async function serializeAws_restJson1_1DescribeNotificationSubscriptionsC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/api/v1/organizations/{OrganizationId}/subscriptions";
   if (input.OrganizationId !== undefined) {
     const labelValue: any = input.OrganizationId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: OrganizationId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: OrganizationId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{OrganizationId}', labelValue);
+    resolvedPath = resolvedPath.replace("{OrganizationId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: OrganizationId.');
+    throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1111,7 +1142,7 @@ export async function serializeAws_restJson1_1DescribeNotificationSubscriptionsC
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1120,7 +1151,7 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1128,21 +1159,21 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.PrincipalId !== undefined) {
-    query['principalId'] = input.PrincipalId.toString();
+    query["principalId"] = input.PrincipalId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1150,7 +1181,7 @@ export async function serializeAws_restJson1_1DescribeResourcePermissionsCommand
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1159,17 +1190,17 @@ export async function serializeAws_restJson1_1DescribeRootFoldersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/me/root";
   const query: any = {};
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1177,7 +1208,7 @@ export async function serializeAws_restJson1_1DescribeRootFoldersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1186,38 +1217,38 @@ export async function serializeAws_restJson1_1DescribeUsersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/users";
   const query: any = {};
   if (input.Fields !== undefined) {
-    query['fields'] = input.Fields.toString();
+    query["fields"] = input.Fields.toString();
   }
   if (input.Include !== undefined) {
-    query['include'] = input.Include.toString();
+    query["include"] = input.Include.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.Order !== undefined) {
-    query['order'] = input.Order.toString();
+    query["order"] = input.Order.toString();
   }
   if (input.OrganizationId !== undefined) {
-    query['organizationId'] = input.OrganizationId.toString();
+    query["organizationId"] = input.OrganizationId.toString();
   }
   if (input.Query !== undefined) {
-    query['query'] = input.Query.toString();
+    query["query"] = input.Query.toString();
   }
   if (input.Sort !== undefined) {
-    query['sort'] = input.Sort.toString();
+    query["sort"] = input.Sort.toString();
   }
   if (input.UserIds !== undefined) {
-    query['userIds'] = input.UserIds.toString();
+    query["userIds"] = input.UserIds.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1225,7 +1256,7 @@ export async function serializeAws_restJson1_1DescribeUsersCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1234,7 +1265,7 @@ export async function serializeAws_restJson1_1GetCurrentUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1244,7 +1275,7 @@ export async function serializeAws_restJson1_1GetCurrentUserCommand(
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -1253,7 +1284,7 @@ export async function serializeAws_restJson1_1GetDocumentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1261,15 +1292,15 @@ export async function serializeAws_restJson1_1GetDocumentCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   const query: any = {};
   if (input.IncludeCustomMetadata !== undefined) {
-    query['includeCustomMetadata'] = input.IncludeCustomMetadata.toString();
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1277,7 +1308,7 @@ export async function serializeAws_restJson1_1GetDocumentCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1286,7 +1317,7 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1294,21 +1325,21 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query['fields'] = input.Fields.toString();
+    query["fields"] = input.Fields.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1316,7 +1347,7 @@ export async function serializeAws_restJson1_1GetDocumentPathCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1325,7 +1356,7 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1333,27 +1364,27 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query['fields'] = input.Fields.toString();
+    query["fields"] = input.Fields.toString();
   }
   if (input.IncludeCustomMetadata !== undefined) {
-    query['includeCustomMetadata'] = input.IncludeCustomMetadata.toString();
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1361,7 +1392,7 @@ export async function serializeAws_restJson1_1GetDocumentVersionCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1370,7 +1401,7 @@ export async function serializeAws_restJson1_1GetFolderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1378,15 +1409,15 @@ export async function serializeAws_restJson1_1GetFolderCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   const query: any = {};
   if (input.IncludeCustomMetadata !== undefined) {
-    query['includeCustomMetadata'] = input.IncludeCustomMetadata.toString();
+    query["includeCustomMetadata"] = input.IncludeCustomMetadata.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1394,7 +1425,7 @@ export async function serializeAws_restJson1_1GetFolderCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1403,7 +1434,7 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1411,21 +1442,21 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   const query: any = {};
   if (input.Fields !== undefined) {
-    query['fields'] = input.Fields.toString();
+    query["fields"] = input.Fields.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1433,7 +1464,7 @@ export async function serializeAws_restJson1_1GetFolderPathCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1442,23 +1473,23 @@ export async function serializeAws_restJson1_1GetResourcesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
   let resolvedPath = "/api/v1/resources";
   const query: any = {};
   if (input.CollectionType !== undefined) {
-    query['collectionType'] = input.CollectionType.toString();
+    query["collectionType"] = input.CollectionType.toString();
   }
   if (input.Limit !== undefined) {
-    query['limit'] = input.Limit.toString();
+    query["limit"] = input.Limit.toString();
   }
   if (input.Marker !== undefined) {
-    query['marker'] = input.Marker.toString();
+    query["marker"] = input.Marker.toString();
   }
   if (input.UserId !== undefined) {
-    query['userId'] = input.UserId.toString();
+    query["userId"] = input.UserId.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1466,7 +1497,7 @@ export async function serializeAws_restJson1_1GetResourcesCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1475,7 +1506,7 @@ export async function serializeAws_restJson1_1InitiateDocumentVersionUploadComma
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1483,25 +1514,29 @@ export async function serializeAws_restJson1_1InitiateDocumentVersionUploadComma
   let body: any = {};
   const bodyParams: any = {};
   if (input.ContentCreatedTimestamp !== undefined) {
-    bodyParams['ContentCreatedTimestamp'] = Math.round(input.ContentCreatedTimestamp.getTime() / 1000);
+    bodyParams["ContentCreatedTimestamp"] = Math.round(
+      input.ContentCreatedTimestamp.getTime() / 1000
+    );
   }
   if (input.ContentModifiedTimestamp !== undefined) {
-    bodyParams['ContentModifiedTimestamp'] = Math.round(input.ContentModifiedTimestamp.getTime() / 1000);
+    bodyParams["ContentModifiedTimestamp"] = Math.round(
+      input.ContentModifiedTimestamp.getTime() / 1000
+    );
   }
   if (input.ContentType !== undefined) {
-    bodyParams['ContentType'] = input.ContentType;
+    bodyParams["ContentType"] = input.ContentType;
   }
   if (input.DocumentSizeInBytes !== undefined) {
-    bodyParams['DocumentSizeInBytes'] = input.DocumentSizeInBytes;
+    bodyParams["DocumentSizeInBytes"] = input.DocumentSizeInBytes;
   }
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.ParentFolderId !== undefined) {
-    bodyParams['ParentFolderId'] = input.ParentFolderId;
+    bodyParams["ParentFolderId"] = input.ParentFolderId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1510,7 +1545,7 @@ export async function serializeAws_restJson1_1InitiateDocumentVersionUploadComma
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1519,7 +1554,7 @@ export async function serializeAws_restJson1_1RemoveAllResourcePermissionsComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1527,18 +1562,18 @@ export async function serializeAws_restJson1_1RemoveAllResourcePermissionsComman
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "DELETE",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -1547,7 +1582,7 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1555,24 +1590,26 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
   if (input.PrincipalId !== undefined) {
     const labelValue: any = input.PrincipalId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: PrincipalId.');
+      throw new Error(
+        "Empty value provided for input HTTP label: PrincipalId."
+      );
     }
-    resolvedPath = resolvedPath.replace('{PrincipalId}', labelValue);
+    resolvedPath = resolvedPath.replace("{PrincipalId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: PrincipalId.');
+    throw new Error("No value provided for input HTTP label: PrincipalId.");
   }
   if (input.ResourceId !== undefined) {
     const labelValue: any = input.ResourceId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: ResourceId.');
+      throw new Error("Empty value provided for input HTTP label: ResourceId.");
     }
-    resolvedPath = resolvedPath.replace('{ResourceId}', labelValue);
+    resolvedPath = resolvedPath.replace("{ResourceId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: ResourceId.');
+    throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   const query: any = {};
   if (input.PrincipalType !== undefined) {
-    query['type'] = input.PrincipalType.toString();
+    query["type"] = input.PrincipalType.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1580,7 +1617,7 @@ export async function serializeAws_restJson1_1RemoveResourcePermissionCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1589,7 +1626,7 @@ export async function serializeAws_restJson1_1UpdateDocumentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1597,22 +1634,22 @@ export async function serializeAws_restJson1_1UpdateDocumentCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.ParentFolderId !== undefined) {
-    bodyParams['ParentFolderId'] = input.ParentFolderId;
+    bodyParams["ParentFolderId"] = input.ParentFolderId;
   }
   if (input.ResourceState !== undefined) {
-    bodyParams['ResourceState'] = input.ResourceState;
+    bodyParams["ResourceState"] = input.ResourceState;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1621,7 +1658,7 @@ export async function serializeAws_restJson1_1UpdateDocumentCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1630,7 +1667,7 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1638,25 +1675,25 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
   if (input.DocumentId !== undefined) {
     const labelValue: any = input.DocumentId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: DocumentId.');
+      throw new Error("Empty value provided for input HTTP label: DocumentId.");
     }
-    resolvedPath = resolvedPath.replace('{DocumentId}', labelValue);
+    resolvedPath = resolvedPath.replace("{DocumentId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: DocumentId.');
+    throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   if (input.VersionId !== undefined) {
     const labelValue: any = input.VersionId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: VersionId.');
+      throw new Error("Empty value provided for input HTTP label: VersionId.");
     }
-    resolvedPath = resolvedPath.replace('{VersionId}', labelValue);
+    resolvedPath = resolvedPath.replace("{VersionId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: VersionId.');
+    throw new Error("No value provided for input HTTP label: VersionId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.VersionStatus !== undefined) {
-    bodyParams['VersionStatus'] = input.VersionStatus;
+    bodyParams["VersionStatus"] = input.VersionStatus;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1665,7 +1702,7 @@ export async function serializeAws_restJson1_1UpdateDocumentVersionCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1674,7 +1711,7 @@ export async function serializeAws_restJson1_1UpdateFolderCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1682,22 +1719,22 @@ export async function serializeAws_restJson1_1UpdateFolderCommand(
   if (input.FolderId !== undefined) {
     const labelValue: any = input.FolderId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: FolderId.');
+      throw new Error("Empty value provided for input HTTP label: FolderId.");
     }
-    resolvedPath = resolvedPath.replace('{FolderId}', labelValue);
+    resolvedPath = resolvedPath.replace("{FolderId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: FolderId.');
+    throw new Error("No value provided for input HTTP label: FolderId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.ParentFolderId !== undefined) {
-    bodyParams['ParentFolderId'] = input.ParentFolderId;
+    bodyParams["ParentFolderId"] = input.ParentFolderId;
   }
   if (input.ResourceState !== undefined) {
-    bodyParams['ResourceState'] = input.ResourceState;
+    bodyParams["ResourceState"] = input.ResourceState;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1706,7 +1743,7 @@ export async function serializeAws_restJson1_1UpdateFolderCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1715,7 +1752,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   if (input.AuthenticationToken !== undefined) {
     headers["Authentication"] = input.AuthenticationToken.toString();
   }
@@ -1723,34 +1760,37 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
   if (input.UserId !== undefined) {
     const labelValue: any = input.UserId.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: UserId.');
+      throw new Error("Empty value provided for input HTTP label: UserId.");
     }
-    resolvedPath = resolvedPath.replace('{UserId}', labelValue);
+    resolvedPath = resolvedPath.replace("{UserId}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: UserId.');
+    throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.GivenName !== undefined) {
-    bodyParams['GivenName'] = input.GivenName;
+    bodyParams["GivenName"] = input.GivenName;
   }
   if (input.GrantPoweruserPrivileges !== undefined) {
-    bodyParams['GrantPoweruserPrivileges'] = input.GrantPoweruserPrivileges;
+    bodyParams["GrantPoweruserPrivileges"] = input.GrantPoweruserPrivileges;
   }
   if (input.Locale !== undefined) {
-    bodyParams['Locale'] = input.Locale;
+    bodyParams["Locale"] = input.Locale;
   }
   if (input.StorageRule !== undefined) {
-    bodyParams['StorageRule'] = serializeAws_restJson1_1StorageRuleType(input.StorageRule, context);
+    bodyParams["StorageRule"] = serializeAws_restJson1_1StorageRuleType(
+      input.StorageRule,
+      context
+    );
   }
   if (input.Surname !== undefined) {
-    bodyParams['Surname'] = input.Surname;
+    bodyParams["Surname"] = input.Surname;
   }
   if (input.TimeZoneId !== undefined) {
-    bodyParams['TimeZoneId'] = input.TimeZoneId;
+    bodyParams["TimeZoneId"] = input.TimeZoneId;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1759,7 +1799,7 @@ export async function serializeAws_restJson1_1UpdateUserCommand(
     method: "PATCH",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1768,58 +1808,79 @@ export async function deserializeAws_restJson1_1AbortDocumentVersionUploadComman
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(output, context);
+    return deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
+      output,
+      context
+    );
   }
   const contents: AbortDocumentVersionUploadCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1AbortDocumentVersionUploadCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1835,7 +1896,7 @@ export async function deserializeAws_restJson1_1ActivateUserCommand(
   const contents: ActivateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivateUserResponse",
-    User: undefined,
+    User: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.User !== undefined) {
@@ -1846,44 +1907,59 @@ export async function deserializeAws_restJson1_1ActivateUserCommand(
 
 async function deserializeAws_restJson1_1ActivateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ActivateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1894,56 +1970,74 @@ export async function deserializeAws_restJson1_1AddResourcePermissionsCommand(
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1AddResourcePermissionsCommandError(output, context);
+    return deserializeAws_restJson1_1AddResourcePermissionsCommandError(
+      output,
+      context
+    );
   }
   const contents: AddResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddResourcePermissionsResponse",
-    ShareResults: undefined,
+    ShareResults: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.ShareResults !== undefined) {
-    contents.ShareResults = deserializeAws_restJson1_1ShareResultsList(data.ShareResults, context);
+    contents.ShareResults = deserializeAws_restJson1_1ShareResultsList(
+      data.ShareResults,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1AddResourcePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1959,7 +2053,7 @@ export async function deserializeAws_restJson1_1CreateCommentCommand(
   const contents: CreateCommentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateCommentResponse",
-    Comment: undefined,
+    Comment: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Comment !== undefined) {
@@ -1970,56 +2064,80 @@ export async function deserializeAws_restJson1_1CreateCommentCommand(
 
 async function deserializeAws_restJson1_1CreateCommentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateCommentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
-      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidCommentOperationException":
     case "com.amazon.aws.gorillaboy#InvalidCommentOperationException":
-      response = await deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2030,63 +2148,87 @@ export async function deserializeAws_restJson1_1CreateCustomMetadataCommand(
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateCustomMetadataCommandError(output, context);
+    return deserializeAws_restJson1_1CreateCustomMetadataCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCustomMetadataResponse",
+    __type: "CreateCustomMetadataResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateCustomMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CustomMetadataLimitExceededException":
     case "com.amazon.aws.gorillaboy#CustomMetadataLimitExceededException":
-      response = await deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2102,71 +2244,101 @@ export async function deserializeAws_restJson1_1CreateFolderCommand(
   const contents: CreateFolderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFolderResponse",
-    Metadata: undefined,
+    Metadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(data.Metadata, context);
+    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(
+      data.Metadata,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateFolderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2181,55 +2353,73 @@ export async function deserializeAws_restJson1_1CreateLabelsCommand(
   }
   const contents: CreateLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLabelsResponse",
+    __type: "CreateLabelsResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateLabelsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateLabelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyLabelsException":
     case "com.amazon.aws.gorillaboy#TooManyLabelsException":
-      response = await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyLabelsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2240,52 +2430,67 @@ export async function deserializeAws_restJson1_1CreateNotificationSubscriptionCo
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(output, context);
+    return deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateNotificationSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateNotificationSubscriptionResponse",
-    Subscription: undefined,
+    Subscription: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Subscription !== undefined) {
-    contents.Subscription = deserializeAws_restJson1_1Subscription(data.Subscription, context);
+    contents.Subscription = deserializeAws_restJson1_1Subscription(
+      data.Subscription,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1CreateNotificationSubscriptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManySubscriptionsException":
     case "com.amazon.aws.gorillaboy#TooManySubscriptionsException":
-      response = await deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2301,7 +2506,7 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
   const contents: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateUserResponse",
-    User: undefined,
+    User: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.User !== undefined) {
@@ -2312,44 +2517,59 @@ export async function deserializeAws_restJson1_1CreateUserCommand(
 
 async function deserializeAws_restJson1_1CreateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2360,54 +2580,72 @@ export async function deserializeAws_restJson1_1DeactivateUserCommand(
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeactivateUserCommandError(output, context);
+    return deserializeAws_restJson1_1DeactivateUserCommandError(
+      output,
+      context
+    );
   }
   const contents: DeactivateUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeactivateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2421,59 +2659,80 @@ export async function deserializeAws_restJson1_1DeleteCommentCommand(
     return deserializeAws_restJson1_1DeleteCommentCommandError(output, context);
   }
   const contents: DeleteCommentCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteCommentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteCommentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "DocumentLockedForCommentsException":
     case "com.amazon.aws.gorillaboy#DocumentLockedForCommentsException":
-      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2484,59 +2743,80 @@ export async function deserializeAws_restJson1_1DeleteCustomMetadataCommand(
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteCustomMetadataCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteCustomMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCustomMetadataResponse",
+    __type: "DeleteCustomMetadataResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteCustomMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2547,66 +2827,93 @@ export async function deserializeAws_restJson1_1DeleteDocumentCommand(
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeleteDocumentCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteDocumentCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteDocumentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2620,63 +2927,87 @@ export async function deserializeAws_restJson1_1DeleteFolderCommand(
     return deserializeAws_restJson1_1DeleteFolderCommandError(output, context);
   }
   const contents: DeleteFolderCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteFolderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2687,62 +3018,86 @@ export async function deserializeAws_restJson1_1DeleteFolderContentsCommand(
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1DeleteFolderContentsCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteFolderContentsCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteFolderContentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteFolderContentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2757,51 +3112,66 @@ export async function deserializeAws_restJson1_1DeleteLabelsCommand(
   }
   const contents: DeleteLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLabelsResponse",
+    __type: "DeleteLabelsResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteLabelsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteLabelsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2812,50 +3182,65 @@ export async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCo
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteNotificationSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteNotificationSubscriptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2869,51 +3254,66 @@ export async function deserializeAws_restJson1_1DeleteUserCommand(
     return deserializeAws_restJson1_1DeleteUserCommandError(output, context);
   }
   const contents: DeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2924,64 +3324,85 @@ export async function deserializeAws_restJson1_1DescribeActivitiesCommand(
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeActivitiesCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeActivitiesCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeActivitiesResponse",
     Marker: undefined,
-    UserActivities: undefined,
+    UserActivities: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
   }
   if (data.UserActivities !== undefined) {
-    contents.UserActivities = deserializeAws_restJson1_1UserActivities(data.UserActivities, context);
+    contents.UserActivities = deserializeAws_restJson1_1UserActivities(
+      data.UserActivities,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeActivitiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2992,17 +3413,23 @@ export async function deserializeAws_restJson1_1DescribeCommentsCommand(
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeCommentsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeCommentsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeCommentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCommentsResponse",
     Comments: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Comments !== undefined) {
-    contents.Comments = deserializeAws_restJson1_1CommentList(data.Comments, context);
+    contents.Comments = deserializeAws_restJson1_1CommentList(
+      data.Comments,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3012,48 +3439,66 @@ export async function deserializeAws_restJson1_1DescribeCommentsCommand(
 
 async function deserializeAws_restJson1_1DescribeCommentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3064,17 +3509,23 @@ export async function deserializeAws_restJson1_1DescribeDocumentVersionsCommand(
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeDocumentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDocumentVersionsResponse",
     DocumentVersions: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.DocumentVersions !== undefined) {
-    contents.DocumentVersions = deserializeAws_restJson1_1DocumentVersionMetadataList(data.DocumentVersions, context);
+    contents.DocumentVersions = deserializeAws_restJson1_1DocumentVersionMetadataList(
+      data.DocumentVersions,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3084,52 +3535,73 @@ export async function deserializeAws_restJson1_1DescribeDocumentVersionsCommand(
 
 async function deserializeAws_restJson1_1DescribeDocumentVersionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3140,21 +3612,30 @@ export async function deserializeAws_restJson1_1DescribeFolderContentsCommand(
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeFolderContentsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeFolderContentsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeFolderContentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeFolderContentsResponse",
     Documents: undefined,
     Folders: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Documents !== undefined) {
-    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(data.Documents, context);
+    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(
+      data.Documents,
+      context
+    );
   }
   if (data.Folders !== undefined) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
+      data.Folders,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3164,48 +3645,66 @@ export async function deserializeAws_restJson1_1DescribeFolderContentsCommand(
 
 async function deserializeAws_restJson1_1DescribeFolderContentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3216,17 +3715,23 @@ export async function deserializeAws_restJson1_1DescribeGroupsCommand(
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeGroupsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeGroupsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGroupsResponse",
     Groups: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Groups !== undefined) {
-    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(data.Groups, context);
+    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(
+      data.Groups,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3236,40 +3741,52 @@ export async function deserializeAws_restJson1_1DescribeGroupsCommand(
 
 async function deserializeAws_restJson1_1DescribeGroupsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3280,56 +3797,71 @@ export async function deserializeAws_restJson1_1DescribeNotificationSubscription
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeNotificationSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeNotificationSubscriptionsResponse",
     Marker: undefined,
-    Subscriptions: undefined,
+    Subscriptions: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
   }
   if (data.Subscriptions !== undefined) {
-    contents.Subscriptions = deserializeAws_restJson1_1SubscriptionList(data.Subscriptions, context);
+    contents.Subscriptions = deserializeAws_restJson1_1SubscriptionList(
+      data.Subscriptions,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeNotificationSubscriptionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3340,60 +3872,78 @@ export async function deserializeAws_restJson1_1DescribeResourcePermissionsComma
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeResourcePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeResourcePermissionsResponse",
     Marker: undefined,
-    Principals: undefined,
+    Principals: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
   }
   if (data.Principals !== undefined) {
-    contents.Principals = deserializeAws_restJson1_1PrincipalList(data.Principals, context);
+    contents.Principals = deserializeAws_restJson1_1PrincipalList(
+      data.Principals,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeResourcePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3404,17 +3954,23 @@ export async function deserializeAws_restJson1_1DescribeRootFoldersCommand(
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeRootFoldersCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeRootFoldersCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeRootFoldersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeRootFoldersResponse",
     Folders: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Folders !== undefined) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
+      data.Folders,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3424,44 +3980,59 @@ export async function deserializeAws_restJson1_1DescribeRootFoldersCommand(
 
 async function deserializeAws_restJson1_1DescribeRootFoldersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3479,7 +4050,7 @@ export async function deserializeAws_restJson1_1DescribeUsersCommand(
     __type: "DescribeUsersResponse",
     Marker: undefined,
     TotalNumberOfUsers: undefined,
-    Users: undefined,
+    Users: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Marker !== undefined) {
@@ -3489,59 +4060,83 @@ export async function deserializeAws_restJson1_1DescribeUsersCommand(
     contents.TotalNumberOfUsers = data.TotalNumberOfUsers;
   }
   if (data.Users !== undefined) {
-    contents.Users = deserializeAws_restJson1_1OrganizationUserList(data.Users, context);
+    contents.Users = deserializeAws_restJson1_1OrganizationUserList(
+      data.Users,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DescribeUsersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "RequestedEntityTooLargeException":
     case "com.amazon.aws.gorillaboy#RequestedEntityTooLargeException":
-      response = await deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3552,12 +4147,15 @@ export async function deserializeAws_restJson1_1GetCurrentUserCommand(
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetCurrentUserCommandError(output, context);
+    return deserializeAws_restJson1_1GetCurrentUserCommandError(
+      output,
+      context
+    );
   }
   const contents: GetCurrentUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetCurrentUserResponse",
-    User: undefined,
+    User: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.User !== undefined) {
@@ -3568,44 +4166,59 @@ export async function deserializeAws_restJson1_1GetCurrentUserCommand(
 
 async function deserializeAws_restJson1_1GetCurrentUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3622,66 +4235,93 @@ export async function deserializeAws_restJson1_1GetDocumentCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetDocumentResponse",
     CustomMetadata: undefined,
-    Metadata: undefined,
+    Metadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.CustomMetadata !== undefined) {
-    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(data.CustomMetadata, context);
+    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(
+      data.CustomMetadata,
+      context
+    );
   }
   if (data.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(data.Metadata, context);
+    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(
+      data.Metadata,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetDocumentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetDocumentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPasswordException":
     case "com.amazon.aws.gorillaboy#InvalidPasswordException":
-      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3692,12 +4332,15 @@ export async function deserializeAws_restJson1_1GetDocumentPathCommand(
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetDocumentPathCommandError(output, context);
+    return deserializeAws_restJson1_1GetDocumentPathCommandError(
+      output,
+      context
+    );
   }
   const contents: GetDocumentPathCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDocumentPathResponse",
-    Path: undefined,
+    Path: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Path !== undefined) {
@@ -3708,44 +4351,59 @@ export async function deserializeAws_restJson1_1GetDocumentPathCommand(
 
 async function deserializeAws_restJson1_1GetDocumentPathCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3756,72 +4414,102 @@ export async function deserializeAws_restJson1_1GetDocumentVersionCommand(
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetDocumentVersionCommandError(output, context);
+    return deserializeAws_restJson1_1GetDocumentVersionCommandError(
+      output,
+      context
+    );
   }
   const contents: GetDocumentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDocumentVersionResponse",
     CustomMetadata: undefined,
-    Metadata: undefined,
+    Metadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.CustomMetadata !== undefined) {
-    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(data.CustomMetadata, context);
+    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(
+      data.CustomMetadata,
+      context
+    );
   }
   if (data.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentVersionMetadata(data.Metadata, context);
+    contents.Metadata = deserializeAws_restJson1_1DocumentVersionMetadata(
+      data.Metadata,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetDocumentVersionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPasswordException":
     case "com.amazon.aws.gorillaboy#InvalidPasswordException":
-      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPasswordExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3838,66 +4526,93 @@ export async function deserializeAws_restJson1_1GetFolderCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetFolderResponse",
     CustomMetadata: undefined,
-    Metadata: undefined,
+    Metadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.CustomMetadata !== undefined) {
-    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(data.CustomMetadata, context);
+    contents.CustomMetadata = deserializeAws_restJson1_1CustomMetadataMap(
+      data.CustomMetadata,
+      context
+    );
   }
   if (data.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(data.Metadata, context);
+    contents.Metadata = deserializeAws_restJson1_1FolderMetadata(
+      data.Metadata,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1GetFolderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetFolderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3913,7 +4628,7 @@ export async function deserializeAws_restJson1_1GetFolderPathCommand(
   const contents: GetFolderPathCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetFolderPathResponse",
-    Path: undefined,
+    Path: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Path !== undefined) {
@@ -3924,44 +4639,59 @@ export async function deserializeAws_restJson1_1GetFolderPathCommand(
 
 async function deserializeAws_restJson1_1GetFolderPathCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetFolderPathCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3979,14 +4709,20 @@ export async function deserializeAws_restJson1_1GetResourcesCommand(
     __type: "GetResourcesResponse",
     Documents: undefined,
     Folders: undefined,
-    Marker: undefined,
+    Marker: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Documents !== undefined) {
-    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(data.Documents, context);
+    contents.Documents = deserializeAws_restJson1_1DocumentMetadataList(
+      data.Documents,
+      context
+    );
   }
   if (data.Folders !== undefined) {
-    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(data.Folders, context);
+    contents.Folders = deserializeAws_restJson1_1FolderMetadataList(
+      data.Folders,
+      context
+    );
   }
   if (data.Marker !== undefined) {
     contents.Marker = data.Marker;
@@ -3996,44 +4732,59 @@ export async function deserializeAws_restJson1_1GetResourcesCommand(
 
 async function deserializeAws_restJson1_1GetResourcesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4044,88 +4795,130 @@ export async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCom
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> {
   if (output.statusCode !== 201) {
-    return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(output, context);
+    return deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(
+      output,
+      context
+    );
   }
   const contents: InitiateDocumentVersionUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "InitiateDocumentVersionUploadResponse",
     Metadata: undefined,
-    UploadMetadata: undefined,
+    UploadMetadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Metadata !== undefined) {
-    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(data.Metadata, context);
+    contents.Metadata = deserializeAws_restJson1_1DocumentMetadata(
+      data.Metadata,
+      context
+    );
   }
   if (data.UploadMetadata !== undefined) {
-    contents.UploadMetadata = deserializeAws_restJson1_1UploadMetadata(data.UploadMetadata, context);
+    contents.UploadMetadata = deserializeAws_restJson1_1UploadMetadata(
+      data.UploadMetadata,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1InitiateDocumentVersionUploadCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "DraftUploadOutOfSyncException":
     case "com.amazon.aws.gorillaboy#DraftUploadOutOfSyncException":
-      response = await deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyCheckedOutException":
     case "com.amazon.aws.gorillaboy#ResourceAlreadyCheckedOutException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StorageLimitExceededException":
     case "com.amazon.aws.gorillaboy#StorageLimitExceededException":
-      response = await deserializeAws_restJson1_1StorageLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1StorageLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "StorageLimitWillExceedException":
     case "com.amazon.aws.gorillaboy#StorageLimitWillExceedException":
-      response = await deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4136,50 +4929,65 @@ export async function deserializeAws_restJson1_1RemoveAllResourcePermissionsComm
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(output, context);
+    return deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(
+      output,
+      context
+    );
   }
   const contents: RemoveAllResourcePermissionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RemoveAllResourcePermissionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4190,50 +4998,65 @@ export async function deserializeAws_restJson1_1RemoveResourcePermissionCommand(
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> {
   if (output.statusCode !== 204) {
-    return deserializeAws_restJson1_1RemoveResourcePermissionCommandError(output, context);
+    return deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
+      output,
+      context
+    );
   }
   const contents: RemoveResourcePermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RemoveResourcePermissionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4244,74 +5067,107 @@ export async function deserializeAws_restJson1_1UpdateDocumentCommand(
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateDocumentCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateDocumentCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateDocumentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4322,66 +5178,93 @@ export async function deserializeAws_restJson1_1UpdateDocumentVersionCommand(
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateDocumentVersionCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateDocumentVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateDocumentVersionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazon.aws.gorillaboy#InvalidOperationException":
-      response = await deserializeAws_restJson1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4395,71 +5278,101 @@ export async function deserializeAws_restJson1_1UpdateFolderCommand(
     return deserializeAws_restJson1_1UpdateFolderCommandError(output, context);
   }
   const contents: UpdateFolderCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateFolderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "ConcurrentModificationException":
     case "com.amazon.aws.gorillaboy#ConcurrentModificationException":
-      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConcurrentModificationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ConflictingOperationException":
     case "com.amazon.aws.gorillaboy#ConflictingOperationException":
-      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ConflictingOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityAlreadyExistsException":
     case "com.amazon.aws.gorillaboy#EntityAlreadyExistsException":
-      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazon.aws.gorillaboy#LimitExceededException":
-      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProhibitedStateException":
     case "com.amazon.aws.gorillaboy#ProhibitedStateException":
-      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ProhibitedStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4475,7 +5388,7 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
   const contents: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateUserResponse",
-    User: undefined,
+    User: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.User !== undefined) {
@@ -4486,56 +5399,80 @@ export async function deserializeAws_restJson1_1UpdateUserCommand(
 
 async function deserializeAws_restJson1_1UpdateUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "DeactivatingLastSystemUserException":
     case "com.amazon.aws.gorillaboy#DeactivatingLastSystemUserException":
-      response = await deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "EntityNotExistsException":
     case "com.amazon.aws.gorillaboy#EntityNotExistsException":
-      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1EntityNotExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "FailedDependencyException":
     case "com.amazon.aws.gorillaboy#FailedDependencyException":
-      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1FailedDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IllegalUserStateException":
     case "com.amazon.aws.gorillaboy#IllegalUserStateException":
-      response = await deserializeAws_restJson1_1IllegalUserStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IllegalUserStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazon.aws.gorillaboy#InvalidArgumentException":
-      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazon.aws.gorillaboy#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedOperationException":
     case "com.amazon.aws.gorillaboy#UnauthorizedOperationException":
-      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedResourceAccessException":
     case "com.amazon.aws.gorillaboy#UnauthorizedResourceAccessException":
-      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.aws.gorillaboy#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4549,7 +5486,7 @@ const deserializeAws_restJson1_1ConcurrentModificationExceptionResponse = async 
     __type: "ConcurrentModificationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4566,7 +5503,7 @@ const deserializeAws_restJson1_1ConflictingOperationExceptionResponse = async (
     __type: "ConflictingOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4583,7 +5520,7 @@ const deserializeAws_restJson1_1CustomMetadataLimitExceededExceptionResponse = a
     __type: "CustomMetadataLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4601,7 +5538,7 @@ const deserializeAws_restJson1_1DeactivatingLastSystemUserExceptionResponse = as
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Code !== undefined) {
@@ -4621,7 +5558,7 @@ const deserializeAws_restJson1_1DocumentLockedForCommentsExceptionResponse = asy
     __type: "DocumentLockedForCommentsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4638,7 +5575,7 @@ const deserializeAws_restJson1_1DraftUploadOutOfSyncExceptionResponse = async (
     __type: "DraftUploadOutOfSyncException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4655,7 +5592,7 @@ const deserializeAws_restJson1_1EntityAlreadyExistsExceptionResponse = async (
     __type: "EntityAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4673,11 +5610,14 @@ const deserializeAws_restJson1_1EntityNotExistsExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     EntityIds: undefined,
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.EntityIds !== undefined) {
-    contents.EntityIds = deserializeAws_restJson1_1EntityIdList(data.EntityIds, context);
+    contents.EntityIds = deserializeAws_restJson1_1EntityIdList(
+      data.EntityIds,
+      context
+    );
   }
   if (data.Message !== undefined) {
     contents.Message = data.Message;
@@ -4693,7 +5633,7 @@ const deserializeAws_restJson1_1FailedDependencyExceptionResponse = async (
     __type: "FailedDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4710,7 +5650,7 @@ const deserializeAws_restJson1_1IllegalUserStateExceptionResponse = async (
     __type: "IllegalUserStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4727,7 +5667,7 @@ const deserializeAws_restJson1_1InvalidArgumentExceptionResponse = async (
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4744,7 +5684,7 @@ const deserializeAws_restJson1_1InvalidCommentOperationExceptionResponse = async
     __type: "InvalidCommentOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4761,7 +5701,7 @@ const deserializeAws_restJson1_1InvalidOperationExceptionResponse = async (
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4778,7 +5718,7 @@ const deserializeAws_restJson1_1InvalidPasswordExceptionResponse = async (
     __type: "InvalidPasswordException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4795,7 +5735,7 @@ const deserializeAws_restJson1_1LimitExceededExceptionResponse = async (
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4812,7 +5752,7 @@ const deserializeAws_restJson1_1ProhibitedStateExceptionResponse = async (
     __type: "ProhibitedStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4829,7 +5769,7 @@ const deserializeAws_restJson1_1RequestedEntityTooLargeExceptionResponse = async
     __type: "RequestedEntityTooLargeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4846,7 +5786,7 @@ const deserializeAws_restJson1_1ResourceAlreadyCheckedOutExceptionResponse = asy
     __type: "ResourceAlreadyCheckedOutException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4863,7 +5803,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4880,7 +5820,7 @@ const deserializeAws_restJson1_1StorageLimitExceededExceptionResponse = async (
     __type: "StorageLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4897,7 +5837,7 @@ const deserializeAws_restJson1_1StorageLimitWillExceedExceptionResponse = async 
     __type: "StorageLimitWillExceedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4914,7 +5854,7 @@ const deserializeAws_restJson1_1TooManyLabelsExceptionResponse = async (
     __type: "TooManyLabelsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4931,7 +5871,7 @@ const deserializeAws_restJson1_1TooManySubscriptionsExceptionResponse = async (
     __type: "TooManySubscriptionsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4949,7 +5889,7 @@ const deserializeAws_restJson1_1UnauthorizedOperationExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Code !== undefined) {
@@ -4969,7 +5909,7 @@ const deserializeAws_restJson1_1UnauthorizedResourceAccessExceptionResponse = as
     __type: "UnauthorizedResourceAccessException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -4987,7 +5927,7 @@ const serializeAws_restJson1_1CustomMetadataMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_restJson1_1NotificationOptions = (
   input: NotificationOptions,
@@ -4995,13 +5935,13 @@ const serializeAws_restJson1_1NotificationOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.EmailMessage !== undefined) {
-    bodyParams['EmailMessage'] = input.EmailMessage;
+    bodyParams["EmailMessage"] = input.EmailMessage;
   }
   if (input.SendEmail !== undefined) {
-    bodyParams['SendEmail'] = input.SendEmail;
+    bodyParams["SendEmail"] = input.SendEmail;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SharePrincipal = (
   input: SharePrincipal,
@@ -5009,16 +5949,16 @@ const serializeAws_restJson1_1SharePrincipal = (
 ): any => {
   let bodyParams: any = {};
   if (input.Id !== undefined) {
-    bodyParams['Id'] = input.Id;
+    bodyParams["Id"] = input.Id;
   }
   if (input.Role !== undefined) {
-    bodyParams['Role'] = input.Role;
+    bodyParams["Role"] = input.Role;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SharePrincipalList = (
   input: Array<SharePrincipal>,
@@ -5027,16 +5967,14 @@ const serializeAws_restJson1_1SharePrincipalList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1SharePrincipal(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1SharedLabels = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1StorageRuleType = (
   input: StorageRuleType,
@@ -5044,13 +5982,13 @@ const serializeAws_restJson1_1StorageRuleType = (
 ): any => {
   let bodyParams: any = {};
   if (input.StorageAllocatedInBytes !== undefined) {
-    bodyParams['StorageAllocatedInBytes'] = input.StorageAllocatedInBytes;
+    bodyParams["StorageAllocatedInBytes"] = input.StorageAllocatedInBytes;
   }
   if (input.StorageType !== undefined) {
-    bodyParams['StorageType'] = input.StorageType;
+    bodyParams["StorageType"] = input.StorageType;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_restJson1_1Activity = (
   output: any,
@@ -5066,13 +6004,19 @@ const deserializeAws_restJson1_1Activity = (
     Participants: undefined,
     ResourceMetadata: undefined,
     TimeStamp: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.CommentMetadata !== undefined) {
-    contents.CommentMetadata = deserializeAws_restJson1_1CommentMetadata(output.CommentMetadata, context);
+    contents.CommentMetadata = deserializeAws_restJson1_1CommentMetadata(
+      output.CommentMetadata,
+      context
+    );
   }
   if (output.Initiator !== undefined) {
-    contents.Initiator = deserializeAws_restJson1_1UserMetadata(output.Initiator, context);
+    contents.Initiator = deserializeAws_restJson1_1UserMetadata(
+      output.Initiator,
+      context
+    );
   }
   if (output.IsIndirectActivity !== undefined) {
     contents.IsIndirectActivity = output.IsIndirectActivity;
@@ -5081,22 +6025,35 @@ const deserializeAws_restJson1_1Activity = (
     contents.OrganizationId = output.OrganizationId;
   }
   if (output.OriginalParent !== undefined) {
-    contents.OriginalParent = deserializeAws_restJson1_1ResourceMetadata(output.OriginalParent, context);
+    contents.OriginalParent = deserializeAws_restJson1_1ResourceMetadata(
+      output.OriginalParent,
+      context
+    );
   }
   if (output.Participants !== undefined) {
-    contents.Participants = deserializeAws_restJson1_1Participants(output.Participants, context);
+    contents.Participants = deserializeAws_restJson1_1Participants(
+      output.Participants,
+      context
+    );
   }
   if (output.ResourceMetadata !== undefined) {
-    contents.ResourceMetadata = deserializeAws_restJson1_1ResourceMetadata(output.ResourceMetadata, context);
+    contents.ResourceMetadata = deserializeAws_restJson1_1ResourceMetadata(
+      output.ResourceMetadata,
+      context
+    );
   }
   if (output.TimeStamp !== undefined) {
-    contents.TimeStamp = new Date(output.TimeStamp % 1 != 0 ? Math.round(output.TimeStamp * 1000) : output.TimeStamp);
+    contents.TimeStamp = new Date(
+      output.TimeStamp % 1 != 0
+        ? Math.round(output.TimeStamp * 1000)
+        : output.TimeStamp
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Comment = (
   output: any,
@@ -5112,16 +6069,23 @@ const deserializeAws_restJson1_1Comment = (
     Status: undefined,
     Text: undefined,
     ThreadId: undefined,
-    Visibility: undefined,
+    Visibility: undefined
   };
   if (output.CommentId !== undefined) {
     contents.CommentId = output.CommentId;
   }
   if (output.Contributor !== undefined) {
-    contents.Contributor = deserializeAws_restJson1_1User(output.Contributor, context);
+    contents.Contributor = deserializeAws_restJson1_1User(
+      output.Contributor,
+      context
+    );
   }
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.ParentId !== undefined) {
     contents.ParentId = output.ParentId;
@@ -5142,7 +6106,7 @@ const deserializeAws_restJson1_1Comment = (
     contents.Visibility = output.Visibility;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CommentList = (
   output: any,
@@ -5151,7 +6115,7 @@ const deserializeAws_restJson1_1CommentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Comment(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1CommentMetadata = (
   output: any,
@@ -5163,7 +6127,7 @@ const deserializeAws_restJson1_1CommentMetadata = (
     CommentStatus: undefined,
     Contributor: undefined,
     CreatedTimestamp: undefined,
-    RecipientId: undefined,
+    RecipientId: undefined
   };
   if (output.CommentId !== undefined) {
     contents.CommentId = output.CommentId;
@@ -5172,16 +6136,23 @@ const deserializeAws_restJson1_1CommentMetadata = (
     contents.CommentStatus = output.CommentStatus;
   }
   if (output.Contributor !== undefined) {
-    contents.Contributor = deserializeAws_restJson1_1User(output.Contributor, context);
+    contents.Contributor = deserializeAws_restJson1_1User(
+      output.Contributor,
+      context
+    );
   }
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.RecipientId !== undefined) {
     contents.RecipientId = output.RecipientId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1CustomMetadataMap = (
   output: any,
@@ -5192,7 +6163,7 @@ const deserializeAws_restJson1_1CustomMetadataMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1DocumentMetadata = (
   output: any,
@@ -5207,10 +6178,14 @@ const deserializeAws_restJson1_1DocumentMetadata = (
     LatestVersionMetadata: undefined,
     ModifiedTimestamp: undefined,
     ParentFolderId: undefined,
-    ResourceState: undefined,
+    ResourceState: undefined
   };
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.CreatorId !== undefined) {
     contents.CreatorId = output.CreatorId;
@@ -5219,13 +6194,23 @@ const deserializeAws_restJson1_1DocumentMetadata = (
     contents.Id = output.Id;
   }
   if (output.Labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1SharedLabels(output.Labels, context);
+    contents.Labels = deserializeAws_restJson1_1SharedLabels(
+      output.Labels,
+      context
+    );
   }
   if (output.LatestVersionMetadata !== undefined) {
-    contents.LatestVersionMetadata = deserializeAws_restJson1_1DocumentVersionMetadata(output.LatestVersionMetadata, context);
+    contents.LatestVersionMetadata = deserializeAws_restJson1_1DocumentVersionMetadata(
+      output.LatestVersionMetadata,
+      context
+    );
   }
   if (output.ModifiedTimestamp !== undefined) {
-    contents.ModifiedTimestamp = new Date(output.ModifiedTimestamp % 1 != 0 ? Math.round(output.ModifiedTimestamp * 1000) : output.ModifiedTimestamp);
+    contents.ModifiedTimestamp = new Date(
+      output.ModifiedTimestamp % 1 != 0
+        ? Math.round(output.ModifiedTimestamp * 1000)
+        : output.ModifiedTimestamp
+    );
   }
   if (output.ParentFolderId !== undefined) {
     contents.ParentFolderId = output.ParentFolderId;
@@ -5234,7 +6219,7 @@ const deserializeAws_restJson1_1DocumentMetadata = (
     contents.ResourceState = output.ResourceState;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DocumentMetadataList = (
   output: any,
@@ -5243,7 +6228,7 @@ const deserializeAws_restJson1_1DocumentMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1DocumentSourceUrlMap = (
   output: any,
@@ -5254,7 +6239,7 @@ const deserializeAws_restJson1_1DocumentSourceUrlMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1DocumentThumbnailUrlMap = (
   output: any,
@@ -5265,7 +6250,7 @@ const deserializeAws_restJson1_1DocumentThumbnailUrlMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1DocumentVersionMetadata = (
   output: any,
@@ -5285,19 +6270,31 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
     Size: undefined,
     Source: undefined,
     Status: undefined,
-    Thumbnail: undefined,
+    Thumbnail: undefined
   };
   if (output.ContentCreatedTimestamp !== undefined) {
-    contents.ContentCreatedTimestamp = new Date(output.ContentCreatedTimestamp % 1 != 0 ? Math.round(output.ContentCreatedTimestamp * 1000) : output.ContentCreatedTimestamp);
+    contents.ContentCreatedTimestamp = new Date(
+      output.ContentCreatedTimestamp % 1 != 0
+        ? Math.round(output.ContentCreatedTimestamp * 1000)
+        : output.ContentCreatedTimestamp
+    );
   }
   if (output.ContentModifiedTimestamp !== undefined) {
-    contents.ContentModifiedTimestamp = new Date(output.ContentModifiedTimestamp % 1 != 0 ? Math.round(output.ContentModifiedTimestamp * 1000) : output.ContentModifiedTimestamp);
+    contents.ContentModifiedTimestamp = new Date(
+      output.ContentModifiedTimestamp % 1 != 0
+        ? Math.round(output.ContentModifiedTimestamp * 1000)
+        : output.ContentModifiedTimestamp
+    );
   }
   if (output.ContentType !== undefined) {
     contents.ContentType = output.ContentType;
   }
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.CreatorId !== undefined) {
     contents.CreatorId = output.CreatorId;
@@ -5306,7 +6303,11 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
     contents.Id = output.Id;
   }
   if (output.ModifiedTimestamp !== undefined) {
-    contents.ModifiedTimestamp = new Date(output.ModifiedTimestamp % 1 != 0 ? Math.round(output.ModifiedTimestamp * 1000) : output.ModifiedTimestamp);
+    contents.ModifiedTimestamp = new Date(
+      output.ModifiedTimestamp % 1 != 0
+        ? Math.round(output.ModifiedTimestamp * 1000)
+        : output.ModifiedTimestamp
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -5318,16 +6319,22 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
     contents.Size = output.Size;
   }
   if (output.Source !== undefined) {
-    contents.Source = deserializeAws_restJson1_1DocumentSourceUrlMap(output.Source, context);
+    contents.Source = deserializeAws_restJson1_1DocumentSourceUrlMap(
+      output.Source,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   if (output.Thumbnail !== undefined) {
-    contents.Thumbnail = deserializeAws_restJson1_1DocumentThumbnailUrlMap(output.Thumbnail, context);
+    contents.Thumbnail = deserializeAws_restJson1_1DocumentThumbnailUrlMap(
+      output.Thumbnail,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DocumentVersionMetadataList = (
   output: any,
@@ -5336,16 +6343,14 @@ const deserializeAws_restJson1_1DocumentVersionMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentVersionMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1EntityIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1FolderMetadata = (
   output: any,
@@ -5363,10 +6368,14 @@ const deserializeAws_restJson1_1FolderMetadata = (
     ParentFolderId: undefined,
     ResourceState: undefined,
     Signature: undefined,
-    Size: undefined,
+    Size: undefined
   };
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.CreatorId !== undefined) {
     contents.CreatorId = output.CreatorId;
@@ -5375,13 +6384,20 @@ const deserializeAws_restJson1_1FolderMetadata = (
     contents.Id = output.Id;
   }
   if (output.Labels !== undefined) {
-    contents.Labels = deserializeAws_restJson1_1SharedLabels(output.Labels, context);
+    contents.Labels = deserializeAws_restJson1_1SharedLabels(
+      output.Labels,
+      context
+    );
   }
   if (output.LatestVersionSize !== undefined) {
     contents.LatestVersionSize = output.LatestVersionSize;
   }
   if (output.ModifiedTimestamp !== undefined) {
-    contents.ModifiedTimestamp = new Date(output.ModifiedTimestamp % 1 != 0 ? Math.round(output.ModifiedTimestamp * 1000) : output.ModifiedTimestamp);
+    contents.ModifiedTimestamp = new Date(
+      output.ModifiedTimestamp % 1 != 0
+        ? Math.round(output.ModifiedTimestamp * 1000)
+        : output.ModifiedTimestamp
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -5399,7 +6415,7 @@ const deserializeAws_restJson1_1FolderMetadata = (
     contents.Size = output.Size;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FolderMetadataList = (
   output: any,
@@ -5408,7 +6424,7 @@ const deserializeAws_restJson1_1FolderMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FolderMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1GroupMetadata = (
   output: any,
@@ -5417,7 +6433,7 @@ const deserializeAws_restJson1_1GroupMetadata = (
   let contents: any = {
     __type: "GroupMetadata",
     Id: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5426,7 +6442,7 @@ const deserializeAws_restJson1_1GroupMetadata = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1GroupMetadataList = (
   output: any,
@@ -5435,7 +6451,7 @@ const deserializeAws_restJson1_1GroupMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1GroupMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1OrganizationUserList = (
   output: any,
@@ -5444,7 +6460,7 @@ const deserializeAws_restJson1_1OrganizationUserList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1User(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Participants = (
   output: any,
@@ -5453,16 +6469,22 @@ const deserializeAws_restJson1_1Participants = (
   let contents: any = {
     __type: "Participants",
     Groups: undefined,
-    Users: undefined,
+    Users: undefined
   };
   if (output.Groups !== undefined) {
-    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(output.Groups, context);
+    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(
+      output.Groups,
+      context
+    );
   }
   if (output.Users !== undefined) {
-    contents.Users = deserializeAws_restJson1_1UserMetadataList(output.Users, context);
+    contents.Users = deserializeAws_restJson1_1UserMetadataList(
+      output.Users,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PermissionInfo = (
   output: any,
@@ -5471,7 +6493,7 @@ const deserializeAws_restJson1_1PermissionInfo = (
   let contents: any = {
     __type: "PermissionInfo",
     Role: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Role !== undefined) {
     contents.Role = output.Role;
@@ -5480,7 +6502,7 @@ const deserializeAws_restJson1_1PermissionInfo = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PermissionInfoList = (
   output: any,
@@ -5489,7 +6511,7 @@ const deserializeAws_restJson1_1PermissionInfoList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1PermissionInfo(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Principal = (
   output: any,
@@ -5499,19 +6521,22 @@ const deserializeAws_restJson1_1Principal = (
     __type: "Principal",
     Id: undefined,
     Roles: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
   }
   if (output.Roles !== undefined) {
-    contents.Roles = deserializeAws_restJson1_1PermissionInfoList(output.Roles, context);
+    contents.Roles = deserializeAws_restJson1_1PermissionInfoList(
+      output.Roles,
+      context
+    );
   }
   if (output.Type !== undefined) {
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1PrincipalList = (
   output: any,
@@ -5520,7 +6545,7 @@ const deserializeAws_restJson1_1PrincipalList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Principal(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ResourceMetadata = (
   output: any,
@@ -5534,7 +6559,7 @@ const deserializeAws_restJson1_1ResourceMetadata = (
     Owner: undefined,
     ParentId: undefined,
     Type: undefined,
-    VersionId: undefined,
+    VersionId: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5546,7 +6571,10 @@ const deserializeAws_restJson1_1ResourceMetadata = (
     contents.OriginalName = output.OriginalName;
   }
   if (output.Owner !== undefined) {
-    contents.Owner = deserializeAws_restJson1_1UserMetadata(output.Owner, context);
+    contents.Owner = deserializeAws_restJson1_1UserMetadata(
+      output.Owner,
+      context
+    );
   }
   if (output.ParentId !== undefined) {
     contents.ParentId = output.ParentId;
@@ -5558,7 +6586,7 @@ const deserializeAws_restJson1_1ResourceMetadata = (
     contents.VersionId = output.VersionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResourcePath = (
   output: any,
@@ -5566,13 +6594,16 @@ const deserializeAws_restJson1_1ResourcePath = (
 ): ResourcePath => {
   let contents: any = {
     __type: "ResourcePath",
-    Components: undefined,
+    Components: undefined
   };
   if (output.Components !== undefined) {
-    contents.Components = deserializeAws_restJson1_1ResourcePathComponentList(output.Components, context);
+    contents.Components = deserializeAws_restJson1_1ResourcePathComponentList(
+      output.Components,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResourcePathComponent = (
   output: any,
@@ -5581,7 +6612,7 @@ const deserializeAws_restJson1_1ResourcePathComponent = (
   let contents: any = {
     __type: "ResourcePathComponent",
     Id: undefined,
-    Name: undefined,
+    Name: undefined
   };
   if (output.Id !== undefined) {
     contents.Id = output.Id;
@@ -5590,7 +6621,7 @@ const deserializeAws_restJson1_1ResourcePathComponent = (
     contents.Name = output.Name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ResourcePathComponentList = (
   output: any,
@@ -5599,7 +6630,7 @@ const deserializeAws_restJson1_1ResourcePathComponentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ResourcePathComponent(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ShareResult = (
   output: any,
@@ -5612,7 +6643,7 @@ const deserializeAws_restJson1_1ShareResult = (
     Role: undefined,
     ShareId: undefined,
     Status: undefined,
-    StatusMessage: undefined,
+    StatusMessage: undefined
   };
   if (output.InviteePrincipalId !== undefined) {
     contents.InviteePrincipalId = output.InviteePrincipalId;
@@ -5633,7 +6664,7 @@ const deserializeAws_restJson1_1ShareResult = (
     contents.StatusMessage = output.StatusMessage;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ShareResultsList = (
   output: any,
@@ -5642,16 +6673,14 @@ const deserializeAws_restJson1_1ShareResultsList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ShareResult(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SharedLabels = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1SignedHeaderMap = (
   output: any,
@@ -5662,7 +6691,7 @@ const deserializeAws_restJson1_1SignedHeaderMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1StorageRuleType = (
   output: any,
@@ -5671,7 +6700,7 @@ const deserializeAws_restJson1_1StorageRuleType = (
   let contents: any = {
     __type: "StorageRuleType",
     StorageAllocatedInBytes: undefined,
-    StorageType: undefined,
+    StorageType: undefined
   };
   if (output.StorageAllocatedInBytes !== undefined) {
     contents.StorageAllocatedInBytes = output.StorageAllocatedInBytes;
@@ -5680,7 +6709,7 @@ const deserializeAws_restJson1_1StorageRuleType = (
     contents.StorageType = output.StorageType;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Subscription = (
   output: any,
@@ -5690,7 +6719,7 @@ const deserializeAws_restJson1_1Subscription = (
     __type: "Subscription",
     EndPoint: undefined,
     Protocol: undefined,
-    SubscriptionId: undefined,
+    SubscriptionId: undefined
   };
   if (output.EndPoint !== undefined) {
     contents.EndPoint = output.EndPoint;
@@ -5702,7 +6731,7 @@ const deserializeAws_restJson1_1Subscription = (
     contents.SubscriptionId = output.SubscriptionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SubscriptionList = (
   output: any,
@@ -5711,7 +6740,7 @@ const deserializeAws_restJson1_1SubscriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Subscription(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1UploadMetadata = (
   output: any,
@@ -5720,16 +6749,19 @@ const deserializeAws_restJson1_1UploadMetadata = (
   let contents: any = {
     __type: "UploadMetadata",
     SignedHeaders: undefined,
-    UploadUrl: undefined,
+    UploadUrl: undefined
   };
   if (output.SignedHeaders !== undefined) {
-    contents.SignedHeaders = deserializeAws_restJson1_1SignedHeaderMap(output.SignedHeaders, context);
+    contents.SignedHeaders = deserializeAws_restJson1_1SignedHeaderMap(
+      output.SignedHeaders,
+      context
+    );
   }
   if (output.UploadUrl !== undefined) {
     contents.UploadUrl = output.UploadUrl;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1User = (
   output: any,
@@ -5751,10 +6783,14 @@ const deserializeAws_restJson1_1User = (
     Surname: undefined,
     TimeZoneId: undefined,
     Type: undefined,
-    Username: undefined,
+    Username: undefined
   };
   if (output.CreatedTimestamp !== undefined) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp % 1 != 0 ? Math.round(output.CreatedTimestamp * 1000) : output.CreatedTimestamp);
+    contents.CreatedTimestamp = new Date(
+      output.CreatedTimestamp % 1 != 0
+        ? Math.round(output.CreatedTimestamp * 1000)
+        : output.CreatedTimestamp
+    );
   }
   if (output.EmailAddress !== undefined) {
     contents.EmailAddress = output.EmailAddress;
@@ -5769,7 +6805,11 @@ const deserializeAws_restJson1_1User = (
     contents.Locale = output.Locale;
   }
   if (output.ModifiedTimestamp !== undefined) {
-    contents.ModifiedTimestamp = new Date(output.ModifiedTimestamp % 1 != 0 ? Math.round(output.ModifiedTimestamp * 1000) : output.ModifiedTimestamp);
+    contents.ModifiedTimestamp = new Date(
+      output.ModifiedTimestamp % 1 != 0
+        ? Math.round(output.ModifiedTimestamp * 1000)
+        : output.ModifiedTimestamp
+    );
   }
   if (output.OrganizationId !== undefined) {
     contents.OrganizationId = output.OrganizationId;
@@ -5784,7 +6824,10 @@ const deserializeAws_restJson1_1User = (
     contents.Status = output.Status;
   }
   if (output.Storage !== undefined) {
-    contents.Storage = deserializeAws_restJson1_1UserStorageMetadata(output.Storage, context);
+    contents.Storage = deserializeAws_restJson1_1UserStorageMetadata(
+      output.Storage,
+      context
+    );
   }
   if (output.Surname !== undefined) {
     contents.Surname = output.Surname;
@@ -5799,7 +6842,7 @@ const deserializeAws_restJson1_1User = (
     contents.Username = output.Username;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UserActivities = (
   output: any,
@@ -5808,7 +6851,7 @@ const deserializeAws_restJson1_1UserActivities = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Activity(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1UserMetadata = (
   output: any,
@@ -5820,7 +6863,7 @@ const deserializeAws_restJson1_1UserMetadata = (
     GivenName: undefined,
     Id: undefined,
     Surname: undefined,
-    Username: undefined,
+    Username: undefined
   };
   if (output.EmailAddress !== undefined) {
     contents.EmailAddress = output.EmailAddress;
@@ -5838,7 +6881,7 @@ const deserializeAws_restJson1_1UserMetadata = (
     contents.Username = output.Username;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1UserMetadataList = (
   output: any,
@@ -5847,7 +6890,7 @@ const deserializeAws_restJson1_1UserMetadataList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1UserMetadata(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1UserStorageMetadata = (
   output: any,
@@ -5856,16 +6899,19 @@ const deserializeAws_restJson1_1UserStorageMetadata = (
   let contents: any = {
     __type: "UserStorageMetadata",
     StorageRule: undefined,
-    StorageUtilizedInBytes: undefined,
+    StorageUtilizedInBytes: undefined
   };
   if (output.StorageRule !== undefined) {
-    contents.StorageRule = deserializeAws_restJson1_1StorageRuleType(output.StorageRule, context);
+    contents.StorageRule = deserializeAws_restJson1_1StorageRuleType(
+      output.StorageRule,
+      context
+    );
   }
   if (output.StorageUtilizedInBytes !== undefined) {
     contents.StorageUtilizedInBytes = output.StorageUtilizedInBytes;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

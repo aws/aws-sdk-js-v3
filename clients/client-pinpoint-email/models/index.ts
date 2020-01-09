@@ -71,7 +71,9 @@ export namespace Tag {
  *             permanently restricted.</p>
  *
  */
-export interface AccountSuspendedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccountSuspendedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccountSuspendedException";
   $fault: "client";
   message?: string;
@@ -88,7 +90,9 @@ export namespace AccountSuspendedException {
  *         <p>The resource specified in your request already exists.</p>
  *
  */
-export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -105,7 +109,9 @@ export namespace AlreadyExistsException {
  *         <p>The input you provided is invalid.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   message?: string;
@@ -119,7 +125,7 @@ export namespace BadRequestException {
 
 export enum BehaviorOnMxFailure {
   REJECT_MESSAGE = "REJECT_MESSAGE",
-  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE",
+  USE_DEFAULT_VALUE = "USE_DEFAULT_VALUE"
 }
 
 /**
@@ -280,7 +286,9 @@ export namespace CloudWatchDimensionConfiguration {
  *         <p>The resource is being modified by another operation or thread.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "server";
   message?: string;
@@ -354,7 +362,9 @@ export interface CreateConfigurationSetEventDestinationRequest {
 }
 
 export namespace CreateConfigurationSetEventDestinationRequest {
-  export function isa(o: any): o is CreateConfigurationSetEventDestinationRequest {
+  export function isa(
+    o: any
+  ): o is CreateConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "CreateConfigurationSetEventDestinationRequest");
   }
 }
@@ -365,12 +375,15 @@ export namespace CreateConfigurationSetEventDestinationRequest {
  *             fails.</p>
  *
  */
-export interface CreateConfigurationSetEventDestinationResponse extends $MetadataBearer {
+export interface CreateConfigurationSetEventDestinationResponse
+  extends $MetadataBearer {
   __type?: "CreateConfigurationSetEventDestinationResponse";
 }
 
 export namespace CreateConfigurationSetEventDestinationResponse {
-  export function isa(o: any): o is CreateConfigurationSetEventDestinationResponse {
+  export function isa(
+    o: any
+  ): o is CreateConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "CreateConfigurationSetEventDestinationResponse");
   }
 }
@@ -552,7 +565,8 @@ export namespace CreateDeliverabilityTestReportRequest {
  *         <p>Information about the predictive inbox placement test that you created.</p>
  *
  */
-export interface CreateDeliverabilityTestReportResponse extends $MetadataBearer {
+export interface CreateDeliverabilityTestReportResponse
+  extends $MetadataBearer {
   __type?: "CreateDeliverabilityTestReportResponse";
   /**
    *
@@ -770,7 +784,9 @@ export interface DeleteConfigurationSetEventDestinationRequest {
 }
 
 export namespace DeleteConfigurationSetEventDestinationRequest {
-  export function isa(o: any): o is DeleteConfigurationSetEventDestinationRequest {
+  export function isa(
+    o: any
+  ): o is DeleteConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "DeleteConfigurationSetEventDestinationRequest");
   }
 }
@@ -781,12 +797,15 @@ export namespace DeleteConfigurationSetEventDestinationRequest {
  *             fails.</p>
  *
  */
-export interface DeleteConfigurationSetEventDestinationResponse extends $MetadataBearer {
+export interface DeleteConfigurationSetEventDestinationResponse
+  extends $MetadataBearer {
   __type?: "DeleteConfigurationSetEventDestinationResponse";
 }
 
 export namespace DeleteConfigurationSetEventDestinationResponse {
-  export function isa(o: any): o is DeleteConfigurationSetEventDestinationResponse {
+  export function isa(
+    o: any
+  ): o is DeleteConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "DeleteConfigurationSetEventDestinationResponse");
   }
 }
@@ -908,7 +927,7 @@ export namespace DeleteEmailIdentityResponse {
 export enum DeliverabilityDashboardAccountStatus {
   ACTIVE = "ACTIVE",
   DISABLED = "DISABLED",
-  PENDING_EXPIRATION = "PENDING_EXPIRATION",
+  PENDING_EXPIRATION = "PENDING_EXPIRATION"
 }
 
 /**
@@ -972,7 +991,7 @@ export namespace DeliverabilityTestReport {
 
 export enum DeliverabilityTestStatus {
   COMPLETED = "COMPLETED",
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
 }
 
 /**
@@ -1048,7 +1067,7 @@ export namespace Destination {
 export enum DimensionValueSource {
   EMAIL_HEADER = "EMAIL_HEADER",
   LINK_TAG = "LINK_TAG",
-  MESSAGE_TAG = "MESSAGE_TAG",
+  MESSAGE_TAG = "MESSAGE_TAG"
 }
 
 /**
@@ -1128,7 +1147,7 @@ export enum DkimStatus {
   NOT_STARTED = "NOT_STARTED",
   PENDING = "PENDING",
   SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
 }
 
 /**
@@ -1576,7 +1595,7 @@ export enum EventType {
   OPEN = "OPEN",
   REJECT = "REJECT",
   RENDERING_FAILURE = "RENDERING_FAILURE",
-  SEND = "SEND",
+  SEND = "SEND"
 }
 
 /**
@@ -1741,7 +1760,9 @@ export interface GetConfigurationSetEventDestinationsRequest {
 }
 
 export namespace GetConfigurationSetEventDestinationsRequest {
-  export function isa(o: any): o is GetConfigurationSetEventDestinationsRequest {
+  export function isa(
+    o: any
+  ): o is GetConfigurationSetEventDestinationsRequest {
     return _smithy.isa(o, "GetConfigurationSetEventDestinationsRequest");
   }
 }
@@ -1751,7 +1772,8 @@ export namespace GetConfigurationSetEventDestinationsRequest {
  *         <p>Information about an event destination for a configuration set.</p>
  *
  */
-export interface GetConfigurationSetEventDestinationsResponse extends $MetadataBearer {
+export interface GetConfigurationSetEventDestinationsResponse
+  extends $MetadataBearer {
   __type?: "GetConfigurationSetEventDestinationsResponse";
   /**
    *
@@ -1763,7 +1785,9 @@ export interface GetConfigurationSetEventDestinationsResponse extends $MetadataB
 }
 
 export namespace GetConfigurationSetEventDestinationsResponse {
-  export function isa(o: any): o is GetConfigurationSetEventDestinationsResponse {
+  export function isa(
+    o: any
+  ): o is GetConfigurationSetEventDestinationsResponse {
     return _smithy.isa(o, "GetConfigurationSetEventDestinationsResponse");
   }
 }
@@ -1991,7 +2015,8 @@ export namespace GetDeliverabilityDashboardOptionsRequest {
  *         <p>An object that shows the status of the Deliverability dashboard for your Amazon Pinpoint account.</p>
  *
  */
-export interface GetDeliverabilityDashboardOptionsResponse extends $MetadataBearer {
+export interface GetDeliverabilityDashboardOptionsResponse
+  extends $MetadataBearer {
   __type?: "GetDeliverabilityDashboardOptionsResponse";
   /**
    *
@@ -2026,7 +2051,9 @@ export interface GetDeliverabilityDashboardOptionsResponse extends $MetadataBear
    *             end of the current calendar month.</p>
    *
    */
-  PendingExpirationSubscribedDomains?: Array<DomainDeliverabilityTrackingOption>;
+  PendingExpirationSubscribedDomains?: Array<
+    DomainDeliverabilityTrackingOption
+  >;
 
   /**
    *
@@ -2155,7 +2182,8 @@ export namespace GetDomainDeliverabilityCampaignRequest {
  *             operation).</p>
  *
  */
-export interface GetDomainDeliverabilityCampaignResponse extends $MetadataBearer {
+export interface GetDomainDeliverabilityCampaignResponse
+  extends $MetadataBearer {
   __type?: "GetDomainDeliverabilityCampaignResponse";
   /**
    *
@@ -2389,7 +2417,7 @@ export namespace IdentityInfo {
 export enum IdentityType {
   DOMAIN = "DOMAIN",
   EMAIL_ADDRESS = "EMAIL_ADDRESS",
-  MANAGED_DOMAIN = "MANAGED_DOMAIN",
+  MANAGED_DOMAIN = "MANAGED_DOMAIN"
 }
 
 /**
@@ -2489,7 +2517,9 @@ export namespace KinesisFirehoseDestination {
  *         <p>There are too many instances of the specified resource type.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2763,7 +2793,8 @@ export namespace ListDomainDeliverabilityCampaignsRequest {
  *                 (<code>PutDeliverabilityDashboardOption</code> operation) for the domain.</p>
  *
  */
-export interface ListDomainDeliverabilityCampaignsResponse extends $MetadataBearer {
+export interface ListDomainDeliverabilityCampaignsResponse
+  extends $MetadataBearer {
   __type?: "ListDomainDeliverabilityCampaignsResponse";
   /**
    *
@@ -2771,7 +2802,9 @@ export interface ListDomainDeliverabilityCampaignsResponse extends $MetadataBear
    *             the specified time range.</p>
    *
    */
-  DomainDeliverabilityCampaigns: Array<DomainDeliverabilityCampaign> | undefined;
+  DomainDeliverabilityCampaigns:
+    | Array<DomainDeliverabilityCampaign>
+    | undefined;
 
   /**
    *
@@ -2961,7 +2994,9 @@ export namespace MailFromAttributes {
  *         <p>The message can't be sent because the sending domain isn't verified.</p>
  *
  */
-export interface MailFromDomainNotVerifiedException extends _smithy.SmithyException, $MetadataBearer {
+export interface MailFromDomainNotVerifiedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MailFromDomainNotVerifiedException";
   $fault: "client";
   message?: string;
@@ -2977,7 +3012,7 @@ export enum MailFromDomainStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
   SUCCESS = "SUCCESS",
-  TEMPORARY_FAILURE = "TEMPORARY_FAILURE",
+  TEMPORARY_FAILURE = "TEMPORARY_FAILURE"
 }
 
 /**
@@ -3017,7 +3052,9 @@ export namespace Message {
  *         <p>The message can't be sent because it contains invalid content.</p>
  *
  */
-export interface MessageRejected extends _smithy.SmithyException, $MetadataBearer {
+export interface MessageRejected
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MessageRejected";
   $fault: "client";
   message?: string;
@@ -3084,7 +3121,9 @@ export namespace MessageTag {
  *         <p>The resource you attempted to access doesn't exist.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   message?: string;
@@ -3231,7 +3270,9 @@ export interface PutAccountDedicatedIpWarmupAttributesRequest {
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesRequest {
-  export function isa(o: any): o is PutAccountDedicatedIpWarmupAttributesRequest {
+  export function isa(
+    o: any
+  ): o is PutAccountDedicatedIpWarmupAttributesRequest {
     return _smithy.isa(o, "PutAccountDedicatedIpWarmupAttributesRequest");
   }
 }
@@ -3242,12 +3283,15 @@ export namespace PutAccountDedicatedIpWarmupAttributesRequest {
  *             fails.</p>
  *
  */
-export interface PutAccountDedicatedIpWarmupAttributesResponse extends $MetadataBearer {
+export interface PutAccountDedicatedIpWarmupAttributesResponse
+  extends $MetadataBearer {
   __type?: "PutAccountDedicatedIpWarmupAttributesResponse";
 }
 
 export namespace PutAccountDedicatedIpWarmupAttributesResponse {
-  export function isa(o: any): o is PutAccountDedicatedIpWarmupAttributesResponse {
+  export function isa(
+    o: any
+  ): o is PutAccountDedicatedIpWarmupAttributesResponse {
     return _smithy.isa(o, "PutAccountDedicatedIpWarmupAttributesResponse");
   }
 }
@@ -3340,7 +3384,8 @@ export namespace PutConfigurationSetDeliveryOptionsRequest {
  *             fails.</p>
  *
  */
-export interface PutConfigurationSetDeliveryOptionsResponse extends $MetadataBearer {
+export interface PutConfigurationSetDeliveryOptionsResponse
+  extends $MetadataBearer {
   __type?: "PutConfigurationSetDeliveryOptionsResponse";
 }
 
@@ -3377,7 +3422,9 @@ export interface PutConfigurationSetReputationOptionsRequest {
 }
 
 export namespace PutConfigurationSetReputationOptionsRequest {
-  export function isa(o: any): o is PutConfigurationSetReputationOptionsRequest {
+  export function isa(
+    o: any
+  ): o is PutConfigurationSetReputationOptionsRequest {
     return _smithy.isa(o, "PutConfigurationSetReputationOptionsRequest");
   }
 }
@@ -3388,12 +3435,15 @@ export namespace PutConfigurationSetReputationOptionsRequest {
  *             fails.</p>
  *
  */
-export interface PutConfigurationSetReputationOptionsResponse extends $MetadataBearer {
+export interface PutConfigurationSetReputationOptionsResponse
+  extends $MetadataBearer {
   __type?: "PutConfigurationSetReputationOptionsResponse";
 }
 
 export namespace PutConfigurationSetReputationOptionsResponse {
-  export function isa(o: any): o is PutConfigurationSetReputationOptionsResponse {
+  export function isa(
+    o: any
+  ): o is PutConfigurationSetReputationOptionsResponse {
     return _smithy.isa(o, "PutConfigurationSetReputationOptionsResponse");
   }
 }
@@ -3435,7 +3485,8 @@ export namespace PutConfigurationSetSendingOptionsRequest {
  *             fails.</p>
  *
  */
-export interface PutConfigurationSetSendingOptionsResponse extends $MetadataBearer {
+export interface PutConfigurationSetSendingOptionsResponse
+  extends $MetadataBearer {
   __type?: "PutConfigurationSetSendingOptionsResponse";
 }
 
@@ -3481,7 +3532,8 @@ export namespace PutConfigurationSetTrackingOptionsRequest {
  *             fails.</p>
  *
  */
-export interface PutConfigurationSetTrackingOptionsResponse extends $MetadataBearer {
+export interface PutConfigurationSetTrackingOptionsResponse
+  extends $MetadataBearer {
   __type?: "PutConfigurationSetTrackingOptionsResponse";
 }
 
@@ -3573,7 +3625,8 @@ export namespace PutDedicatedIpWarmupAttributesRequest {
  *             fails.</p>
  *
  */
-export interface PutDedicatedIpWarmupAttributesResponse extends $MetadataBearer {
+export interface PutDedicatedIpWarmupAttributesResponse
+  extends $MetadataBearer {
   __type?: "PutDedicatedIpWarmupAttributesResponse";
 }
 
@@ -3625,7 +3678,8 @@ export namespace PutDeliverabilityDashboardOptionRequest {
  *             account.</p>
  *
  */
-export interface PutDeliverabilityDashboardOptionResponse extends $MetadataBearer {
+export interface PutDeliverabilityDashboardOptionResponse
+  extends $MetadataBearer {
   __type?: "PutDeliverabilityDashboardOptionResponse";
 }
 
@@ -3673,7 +3727,8 @@ export namespace PutEmailIdentityDkimAttributesRequest {
  *             fails.</p>
  *
  */
-export interface PutEmailIdentityDkimAttributesResponse extends $MetadataBearer {
+export interface PutEmailIdentityDkimAttributesResponse
+  extends $MetadataBearer {
   __type?: "PutEmailIdentityDkimAttributesResponse";
 }
 
@@ -3727,7 +3782,8 @@ export namespace PutEmailIdentityFeedbackAttributesRequest {
  *             fails.</p>
  *
  */
-export interface PutEmailIdentityFeedbackAttributesResponse extends $MetadataBearer {
+export interface PutEmailIdentityFeedbackAttributesResponse
+  extends $MetadataBearer {
   __type?: "PutEmailIdentityFeedbackAttributesResponse";
 }
 
@@ -3799,7 +3855,8 @@ export namespace PutEmailIdentityMailFromAttributesRequest {
  *             fails.</p>
  *
  */
-export interface PutEmailIdentityMailFromAttributesResponse extends $MetadataBearer {
+export interface PutEmailIdentityMailFromAttributesResponse
+  extends $MetadataBearer {
   __type?: "PutEmailIdentityMailFromAttributesResponse";
 }
 
@@ -4059,7 +4116,9 @@ export namespace SendingOptions {
  *             paused.</p>
  *
  */
-export interface SendingPausedException extends _smithy.SmithyException, $MetadataBearer {
+export interface SendingPausedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SendingPausedException";
   $fault: "client";
   message?: string;
@@ -4157,7 +4216,7 @@ export namespace Template {
 
 export enum TlsPolicy {
   OPTIONAL = "OPTIONAL",
-  REQUIRE = "REQUIRE",
+  REQUIRE = "REQUIRE"
 }
 
 /**
@@ -4165,7 +4224,9 @@ export enum TlsPolicy {
  *         <p>Too many requests have been made to the operation.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   message?: string;
@@ -4276,7 +4337,9 @@ export interface UpdateConfigurationSetEventDestinationRequest {
 }
 
 export namespace UpdateConfigurationSetEventDestinationRequest {
-  export function isa(o: any): o is UpdateConfigurationSetEventDestinationRequest {
+  export function isa(
+    o: any
+  ): o is UpdateConfigurationSetEventDestinationRequest {
     return _smithy.isa(o, "UpdateConfigurationSetEventDestinationRequest");
   }
 }
@@ -4287,12 +4350,15 @@ export namespace UpdateConfigurationSetEventDestinationRequest {
  *             fails.</p>
  *
  */
-export interface UpdateConfigurationSetEventDestinationResponse extends $MetadataBearer {
+export interface UpdateConfigurationSetEventDestinationResponse
+  extends $MetadataBearer {
   __type?: "UpdateConfigurationSetEventDestinationResponse";
 }
 
 export namespace UpdateConfigurationSetEventDestinationResponse {
-  export function isa(o: any): o is UpdateConfigurationSetEventDestinationResponse {
+  export function isa(
+    o: any
+  ): o is UpdateConfigurationSetEventDestinationResponse {
     return _smithy.isa(o, "UpdateConfigurationSetEventDestinationResponse");
   }
 }
@@ -4345,5 +4411,5 @@ export namespace VolumeStatistics {
 
 export enum WarmupStatus {
   DONE = "DONE",
-  IN_PROGRESS = "IN_PROGRESS",
+  IN_PROGRESS = "IN_PROGRESS"
 }

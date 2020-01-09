@@ -1,20 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
 import {
   GetRelationalDatabaseEventsRequest,
-  GetRelationalDatabaseEventsResult,
+  GetRelationalDatabaseEventsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1GetRelationalDatabaseEventsCommand,
-  serializeAws_json1_1GetRelationalDatabaseEventsCommand,
+  serializeAws_json1_1GetRelationalDatabaseEventsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseEventsCommandInput = GetRelationalDatabaseEventsRequest;
 export type GetRelationalDatabaseEventsCommandOutput = GetRelationalDatabaseEventsResult;
 
-export class GetRelationalDatabaseEventsCommand extends $Command<GetRelationalDatabaseEventsCommandInput, GetRelationalDatabaseEventsCommandOutput, LightsailClientResolvedConfig> {
+export class GetRelationalDatabaseEventsCommand extends $Command<
+  GetRelationalDatabaseEventsCommandInput,
+  GetRelationalDatabaseEventsCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetRelationalDatabaseEventsCommand extends $Command<GetRelationalDa
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRelationalDatabaseEventsCommandInput, GetRelationalDatabaseEventsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetRelationalDatabaseEventsCommandInput,
+    GetRelationalDatabaseEventsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetRelationalDatabaseEventsCommand extends $Command<GetRelationalDa
     input: GetRelationalDatabaseEventsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseEventsCommand(input, context);
+    return serializeAws_json1_1GetRelationalDatabaseEventsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetRelationalDatabaseEventsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseEventsCommand(output, context);
+    return deserializeAws_json1_1GetRelationalDatabaseEventsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

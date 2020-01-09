@@ -1,20 +1,20 @@
 import {
   GlacierClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GlacierClient";
 import {
   GetVaultAccessPolicyInput,
-  GetVaultAccessPolicyOutput,
+  GetVaultAccessPolicyOutput
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetVaultAccessPolicyCommand,
-  serializeAws_restJson1_1GetVaultAccessPolicyCommand,
+  serializeAws_restJson1_1GetVaultAccessPolicyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetVaultAccessPolicyCommandInput = GetVaultAccessPolicyInput;
 export type GetVaultAccessPolicyCommandOutput = GetVaultAccessPolicyOutput;
 
-export class GetVaultAccessPolicyCommand extends $Command<GetVaultAccessPolicyCommandInput, GetVaultAccessPolicyCommandOutput, GlacierClientResolvedConfig> {
+export class GetVaultAccessPolicyCommand extends $Command<
+  GetVaultAccessPolicyCommandInput,
+  GetVaultAccessPolicyCommandOutput,
+  GlacierClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetVaultAccessPolicyCommand extends $Command<GetVaultAccessPolicyCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlacierClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetVaultAccessPolicyCommandInput, GetVaultAccessPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetVaultAccessPolicyCommandInput,
+    GetVaultAccessPolicyCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class GetVaultAccessPolicyCommand extends $Command<GetVaultAccessPolicyCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1GetVaultAccessPolicyCommand(output, context);
+    return deserializeAws_restJson1_1GetVaultAccessPolicyCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>You are not authorized to perform the action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Code?: string;
@@ -76,7 +78,7 @@ export namespace Asset {
 
 export enum Attribute {
   ALL = "ALL",
-  DEFAULT = "DEFAULT",
+  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -307,7 +309,7 @@ export namespace CelebrityRecognition {
 
 export enum CelebrityRecognitionSortBy {
   ID = "ID",
-  TIMESTAMP = "TIMESTAMP",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 /**
@@ -566,7 +568,7 @@ export namespace ComparedSourceImageFace {
 
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
 }
 
 /**
@@ -600,7 +602,7 @@ export namespace ContentModerationDetection {
 
 export enum ContentModerationSortBy {
   NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 export interface CreateCollectionRequest {
@@ -1600,7 +1602,16 @@ export namespace Emotion {
   }
 }
 
-export type EmotionName = "ANGRY" | "CALM" | "CONFUSED" | "DISGUSTED" | "FEAR" | "HAPPY" | "SAD" | "SURPRISED" | "UNKNOWN"
+export type EmotionName =
+  | "ANGRY"
+  | "CALM"
+  | "CONFUSED"
+  | "DISGUSTED"
+  | "FEAR"
+  | "HAPPY"
+  | "SAD"
+  | "SURPRISED"
+  | "UNKNOWN";
 
 /**
  *
@@ -1745,7 +1756,7 @@ export namespace Face {
 
 export enum FaceAttributes {
   ALL = "ALL",
-  DEFAULT = "DEFAULT",
+  DEFAULT = "DEFAULT"
 }
 
 /**
@@ -2023,7 +2034,7 @@ export namespace FaceSearchSettings {
 
 export enum FaceSearchSortBy {
   INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 /**
@@ -2068,7 +2079,7 @@ export namespace Gender {
 
 export enum GenderType {
   Female = "Female",
-  Male = "Male",
+  Male = "Male"
 }
 
 /**
@@ -2816,7 +2827,9 @@ export namespace HumanLoopDataAttributes {
  *          <p>The number of in-progress human reviews you have has exceeded the number allowed.</p>
  *
  */
-export interface HumanLoopQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface HumanLoopQuotaExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HumanLoopQuotaExceededException";
   $fault: "client";
   Code?: string;
@@ -2839,7 +2852,9 @@ export namespace HumanLoopQuotaExceededException {
  *         parameters is different from the previous call to the operation.</p>
  *
  */
-export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface IdempotentParameterMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   Code?: string;
@@ -2941,7 +2956,9 @@ export namespace ImageQuality {
  *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  *
  */
-export interface ImageTooLargeException extends _smithy.SmithyException, $MetadataBearer {
+export interface ImageTooLargeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ImageTooLargeException";
   $fault: "client";
   Code?: string;
@@ -3156,7 +3173,9 @@ export namespace Instance {
  *          <p>Amazon Rekognition experienced a service issue. Try your call again.</p>
  *
  */
-export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Code?: string;
@@ -3175,7 +3194,9 @@ export namespace InternalServerError {
  *          <p>The provided image format is not supported. </p>
  *
  */
-export interface InvalidImageFormatException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidImageFormatException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidImageFormatException";
   $fault: "client";
   Code?: string;
@@ -3194,7 +3215,9 @@ export namespace InvalidImageFormatException {
  *          <p>Pagination token in the request is not valid.</p>
  *
  */
-export interface InvalidPaginationTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPaginationTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPaginationTokenException";
   $fault: "client";
   Code?: string;
@@ -3214,7 +3237,9 @@ export namespace InvalidPaginationTokenException {
  *       operation again.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   Code?: string;
@@ -3233,7 +3258,9 @@ export namespace InvalidParameterException {
  *          <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  *
  */
-export interface InvalidS3ObjectException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidS3ObjectException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidS3ObjectException";
   $fault: "client";
   Code?: string;
@@ -3371,7 +3398,7 @@ export namespace LabelDetection {
 
 export enum LabelDetectionSortBy {
   NAME = "NAME",
-  TIMESTAMP = "TIMESTAMP",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 /**
@@ -3443,7 +3470,7 @@ export enum LandmarkType {
   rightEyeUp = "rightEyeUp",
   rightPupil = "rightPupil",
   upperJawlineLeft = "upperJawlineLeft",
-  upperJawlineRight = "upperJawlineRight",
+  upperJawlineRight = "upperJawlineRight"
 }
 
 /**
@@ -3453,7 +3480,9 @@ export enum LandmarkType {
  *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Code?: string;
@@ -3769,7 +3798,7 @@ export enum OrientationCorrection {
   ROTATE_0 = "ROTATE_0",
   ROTATE_180 = "ROTATE_180",
   ROTATE_270 = "ROTATE_270",
-  ROTATE_90 = "ROTATE_90",
+  ROTATE_90 = "ROTATE_90"
 }
 
 /**
@@ -3928,7 +3957,7 @@ export namespace PersonMatch {
 
 export enum PersonTrackingSortBy {
   INDEX = "INDEX",
-  TIMESTAMP = "TIMESTAMP",
+  TIMESTAMP = "TIMESTAMP"
 }
 
 /**
@@ -4039,7 +4068,7 @@ export namespace ProjectDescription {
 export enum ProjectStatus {
   CREATED = "CREATED",
   CREATING = "CREATING",
-  DELETING = "DELETING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -4144,7 +4173,7 @@ export enum ProjectVersionStatus {
   STOPPING = "STOPPING",
   TRAINING_COMPLETED = "TRAINING_COMPLETED",
   TRAINING_FAILED = "TRAINING_FAILED",
-  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS",
+  TRAINING_IN_PROGRESS = "TRAINING_IN_PROGRESS"
 }
 
 /**
@@ -4153,7 +4182,9 @@ export enum ProjectVersionStatus {
  *       limit, contact Amazon Rekognition.</p>
  *
  */
-export interface ProvisionedThroughputExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ProvisionedThroughputExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ProvisionedThroughputExceededException";
   $fault: "client";
   Code?: string;
@@ -4172,7 +4203,7 @@ export enum QualityFilter {
   HIGH = "HIGH",
   LOW = "LOW",
   MEDIUM = "MEDIUM",
-  NONE = "NONE",
+  NONE = "NONE"
 }
 
 export enum Reason {
@@ -4182,7 +4213,7 @@ export enum Reason {
   LOW_CONFIDENCE = "LOW_CONFIDENCE",
   LOW_FACE_QUALITY = "LOW_FACE_QUALITY",
   LOW_SHARPNESS = "LOW_SHARPNESS",
-  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX",
+  SMALL_BOUNDING_BOX = "SMALL_BOUNDING_BOX"
 }
 
 export interface RecognizeCelebritiesRequest {
@@ -4253,7 +4284,9 @@ export namespace RecognizeCelebritiesResponse {
  *          <p>A collection with the specified ID already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   Code?: string;
@@ -4272,7 +4305,9 @@ export namespace ResourceAlreadyExistsException {
  *         <p></p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Code?: string;
@@ -4291,7 +4326,9 @@ export namespace ResourceInUseException {
  *          <p>The collection specified in the request cannot be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Code?: string;
@@ -4312,7 +4349,9 @@ export namespace ResourceNotFoundException {
  *          model version that isn't deployed. </p>
  *
  */
-export interface ResourceNotReadyException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotReadyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotReadyException";
   $fault: "client";
   Code?: string;
@@ -5205,7 +5244,7 @@ export enum StreamProcessorStatus {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
+  STOPPING = "STOPPING"
 }
 
 /**
@@ -5398,7 +5437,7 @@ export namespace TextDetection {
 
 export enum TextTypes {
   LINE = "LINE",
-  WORD = "WORD",
+  WORD = "WORD"
 }
 
 /**
@@ -5406,7 +5445,9 @@ export enum TextTypes {
  *          <p>Amazon Rekognition is temporarily unable to process the request. Try your call again.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "server";
   Code?: string;
@@ -5547,7 +5588,7 @@ export namespace Video {
 export enum VideoJobStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -5613,7 +5654,9 @@ export namespace VideoMetadata {
  *         The maximum duration is 2 hours. </p>
  *
  */
-export interface VideoTooLargeException extends _smithy.SmithyException, $MetadataBearer {
+export interface VideoTooLargeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "VideoTooLargeException";
   $fault: "client";
   Code?: string;

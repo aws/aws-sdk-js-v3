@@ -2,232 +2,232 @@ import { CodeDeployClient } from "./CodeDeployClient";
 import {
   AddTagsToOnPremisesInstancesCommand,
   AddTagsToOnPremisesInstancesCommandInput,
-  AddTagsToOnPremisesInstancesCommandOutput,
+  AddTagsToOnPremisesInstancesCommandOutput
 } from "./commands/AddTagsToOnPremisesInstancesCommand";
 import {
   BatchGetApplicationRevisionsCommand,
   BatchGetApplicationRevisionsCommandInput,
-  BatchGetApplicationRevisionsCommandOutput,
+  BatchGetApplicationRevisionsCommandOutput
 } from "./commands/BatchGetApplicationRevisionsCommand";
 import {
   BatchGetApplicationsCommand,
   BatchGetApplicationsCommandInput,
-  BatchGetApplicationsCommandOutput,
+  BatchGetApplicationsCommandOutput
 } from "./commands/BatchGetApplicationsCommand";
 import {
   BatchGetDeploymentGroupsCommand,
   BatchGetDeploymentGroupsCommandInput,
-  BatchGetDeploymentGroupsCommandOutput,
+  BatchGetDeploymentGroupsCommandOutput
 } from "./commands/BatchGetDeploymentGroupsCommand";
 import {
   BatchGetDeploymentInstancesCommand,
   BatchGetDeploymentInstancesCommandInput,
-  BatchGetDeploymentInstancesCommandOutput,
+  BatchGetDeploymentInstancesCommandOutput
 } from "./commands/BatchGetDeploymentInstancesCommand";
 import {
   BatchGetDeploymentTargetsCommand,
   BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
+  BatchGetDeploymentTargetsCommandOutput
 } from "./commands/BatchGetDeploymentTargetsCommand";
 import {
   BatchGetDeploymentsCommand,
   BatchGetDeploymentsCommandInput,
-  BatchGetDeploymentsCommandOutput,
+  BatchGetDeploymentsCommandOutput
 } from "./commands/BatchGetDeploymentsCommand";
 import {
   BatchGetOnPremisesInstancesCommand,
   BatchGetOnPremisesInstancesCommandInput,
-  BatchGetOnPremisesInstancesCommandOutput,
+  BatchGetOnPremisesInstancesCommandOutput
 } from "./commands/BatchGetOnPremisesInstancesCommand";
 import {
   ContinueDeploymentCommand,
   ContinueDeploymentCommandInput,
-  ContinueDeploymentCommandOutput,
+  ContinueDeploymentCommandOutput
 } from "./commands/ContinueDeploymentCommand";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
-  CreateApplicationCommandOutput,
+  CreateApplicationCommandOutput
 } from "./commands/CreateApplicationCommand";
 import {
   CreateDeploymentCommand,
   CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
+  CreateDeploymentCommandOutput
 } from "./commands/CreateDeploymentCommand";
 import {
   CreateDeploymentConfigCommand,
   CreateDeploymentConfigCommandInput,
-  CreateDeploymentConfigCommandOutput,
+  CreateDeploymentConfigCommandOutput
 } from "./commands/CreateDeploymentConfigCommand";
 import {
   CreateDeploymentGroupCommand,
   CreateDeploymentGroupCommandInput,
-  CreateDeploymentGroupCommandOutput,
+  CreateDeploymentGroupCommandOutput
 } from "./commands/CreateDeploymentGroupCommand";
 import {
   DeleteApplicationCommand,
   DeleteApplicationCommandInput,
-  DeleteApplicationCommandOutput,
+  DeleteApplicationCommandOutput
 } from "./commands/DeleteApplicationCommand";
 import {
   DeleteDeploymentConfigCommand,
   DeleteDeploymentConfigCommandInput,
-  DeleteDeploymentConfigCommandOutput,
+  DeleteDeploymentConfigCommandOutput
 } from "./commands/DeleteDeploymentConfigCommand";
 import {
   DeleteDeploymentGroupCommand,
   DeleteDeploymentGroupCommandInput,
-  DeleteDeploymentGroupCommandOutput,
+  DeleteDeploymentGroupCommandOutput
 } from "./commands/DeleteDeploymentGroupCommand";
 import {
   DeleteGitHubAccountTokenCommand,
   DeleteGitHubAccountTokenCommandInput,
-  DeleteGitHubAccountTokenCommandOutput,
+  DeleteGitHubAccountTokenCommandOutput
 } from "./commands/DeleteGitHubAccountTokenCommand";
 import {
   DeregisterOnPremisesInstanceCommand,
   DeregisterOnPremisesInstanceCommandInput,
-  DeregisterOnPremisesInstanceCommandOutput,
+  DeregisterOnPremisesInstanceCommandOutput
 } from "./commands/DeregisterOnPremisesInstanceCommand";
 import {
   GetApplicationCommand,
   GetApplicationCommandInput,
-  GetApplicationCommandOutput,
+  GetApplicationCommandOutput
 } from "./commands/GetApplicationCommand";
 import {
   GetApplicationRevisionCommand,
   GetApplicationRevisionCommandInput,
-  GetApplicationRevisionCommandOutput,
+  GetApplicationRevisionCommandOutput
 } from "./commands/GetApplicationRevisionCommand";
 import {
   GetDeploymentCommand,
   GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
+  GetDeploymentCommandOutput
 } from "./commands/GetDeploymentCommand";
 import {
   GetDeploymentConfigCommand,
   GetDeploymentConfigCommandInput,
-  GetDeploymentConfigCommandOutput,
+  GetDeploymentConfigCommandOutput
 } from "./commands/GetDeploymentConfigCommand";
 import {
   GetDeploymentGroupCommand,
   GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput,
+  GetDeploymentGroupCommandOutput
 } from "./commands/GetDeploymentGroupCommand";
 import {
   GetDeploymentInstanceCommand,
   GetDeploymentInstanceCommandInput,
-  GetDeploymentInstanceCommandOutput,
+  GetDeploymentInstanceCommandOutput
 } from "./commands/GetDeploymentInstanceCommand";
 import {
   GetDeploymentTargetCommand,
   GetDeploymentTargetCommandInput,
-  GetDeploymentTargetCommandOutput,
+  GetDeploymentTargetCommandOutput
 } from "./commands/GetDeploymentTargetCommand";
 import {
   GetOnPremisesInstanceCommand,
   GetOnPremisesInstanceCommandInput,
-  GetOnPremisesInstanceCommandOutput,
+  GetOnPremisesInstanceCommandOutput
 } from "./commands/GetOnPremisesInstanceCommand";
 import {
   ListApplicationRevisionsCommand,
   ListApplicationRevisionsCommandInput,
-  ListApplicationRevisionsCommandOutput,
+  ListApplicationRevisionsCommandOutput
 } from "./commands/ListApplicationRevisionsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
-  ListApplicationsCommandOutput,
+  ListApplicationsCommandOutput
 } from "./commands/ListApplicationsCommand";
 import {
   ListDeploymentConfigsCommand,
   ListDeploymentConfigsCommandInput,
-  ListDeploymentConfigsCommandOutput,
+  ListDeploymentConfigsCommandOutput
 } from "./commands/ListDeploymentConfigsCommand";
 import {
   ListDeploymentGroupsCommand,
   ListDeploymentGroupsCommandInput,
-  ListDeploymentGroupsCommandOutput,
+  ListDeploymentGroupsCommandOutput
 } from "./commands/ListDeploymentGroupsCommand";
 import {
   ListDeploymentInstancesCommand,
   ListDeploymentInstancesCommandInput,
-  ListDeploymentInstancesCommandOutput,
+  ListDeploymentInstancesCommandOutput
 } from "./commands/ListDeploymentInstancesCommand";
 import {
   ListDeploymentTargetsCommand,
   ListDeploymentTargetsCommandInput,
-  ListDeploymentTargetsCommandOutput,
+  ListDeploymentTargetsCommandOutput
 } from "./commands/ListDeploymentTargetsCommand";
 import {
   ListDeploymentsCommand,
   ListDeploymentsCommandInput,
-  ListDeploymentsCommandOutput,
+  ListDeploymentsCommandOutput
 } from "./commands/ListDeploymentsCommand";
 import {
   ListGitHubAccountTokenNamesCommand,
   ListGitHubAccountTokenNamesCommandInput,
-  ListGitHubAccountTokenNamesCommandOutput,
+  ListGitHubAccountTokenNamesCommandOutput
 } from "./commands/ListGitHubAccountTokenNamesCommand";
 import {
   ListOnPremisesInstancesCommand,
   ListOnPremisesInstancesCommandInput,
-  ListOnPremisesInstancesCommandOutput,
+  ListOnPremisesInstancesCommandOutput
 } from "./commands/ListOnPremisesInstancesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   PutLifecycleEventHookExecutionStatusCommand,
   PutLifecycleEventHookExecutionStatusCommandInput,
-  PutLifecycleEventHookExecutionStatusCommandOutput,
+  PutLifecycleEventHookExecutionStatusCommandOutput
 } from "./commands/PutLifecycleEventHookExecutionStatusCommand";
 import {
   RegisterApplicationRevisionCommand,
   RegisterApplicationRevisionCommandInput,
-  RegisterApplicationRevisionCommandOutput,
+  RegisterApplicationRevisionCommandOutput
 } from "./commands/RegisterApplicationRevisionCommand";
 import {
   RegisterOnPremisesInstanceCommand,
   RegisterOnPremisesInstanceCommandInput,
-  RegisterOnPremisesInstanceCommandOutput,
+  RegisterOnPremisesInstanceCommandOutput
 } from "./commands/RegisterOnPremisesInstanceCommand";
 import {
   RemoveTagsFromOnPremisesInstancesCommand,
   RemoveTagsFromOnPremisesInstancesCommandInput,
-  RemoveTagsFromOnPremisesInstancesCommandOutput,
+  RemoveTagsFromOnPremisesInstancesCommandOutput
 } from "./commands/RemoveTagsFromOnPremisesInstancesCommand";
 import {
   SkipWaitTimeForInstanceTerminationCommand,
   SkipWaitTimeForInstanceTerminationCommandInput,
-  SkipWaitTimeForInstanceTerminationCommandOutput,
+  SkipWaitTimeForInstanceTerminationCommandOutput
 } from "./commands/SkipWaitTimeForInstanceTerminationCommand";
 import {
   StopDeploymentCommand,
   StopDeploymentCommandInput,
-  StopDeploymentCommandOutput,
+  StopDeploymentCommandOutput
 } from "./commands/StopDeploymentCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateApplicationCommand,
   UpdateApplicationCommandInput,
-  UpdateApplicationCommandOutput,
+  UpdateApplicationCommandOutput
 } from "./commands/UpdateApplicationCommand";
 import {
   UpdateDeploymentGroupCommand,
   UpdateDeploymentGroupCommandInput,
-  UpdateDeploymentGroupCommandOutput,
+  UpdateDeploymentGroupCommandOutput
 } from "./commands/UpdateDeploymentGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -344,7 +344,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public addTagsToOnPremisesInstances(
     args: AddTagsToOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsToOnPremisesInstancesCommandOutput>;
   public addTagsToOnPremisesInstances(
     args: AddTagsToOnPremisesInstancesCommandInput,
@@ -357,16 +357,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public addTagsToOnPremisesInstances(
     args: AddTagsToOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToOnPremisesInstancesCommandOutput) => void
   ): Promise<AddTagsToOnPremisesInstancesCommandOutput> | void {
     const command = new AddTagsToOnPremisesInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -380,7 +382,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetApplicationRevisions(
     args: BatchGetApplicationRevisionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetApplicationRevisionsCommandOutput>;
   public batchGetApplicationRevisions(
     args: BatchGetApplicationRevisionsCommandInput,
@@ -393,16 +395,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetApplicationRevisions(
     args: BatchGetApplicationRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetApplicationRevisionsCommandOutput) => void
   ): Promise<BatchGetApplicationRevisionsCommandOutput> | void {
     const command = new BatchGetApplicationRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -416,7 +420,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetApplicationsCommandOutput>;
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
@@ -429,16 +433,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetApplications(
     args: BatchGetApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetApplicationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetApplicationsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetApplicationsCommandOutput) => void
   ): Promise<BatchGetApplicationsCommandOutput> | void {
     const command = new BatchGetApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -452,7 +458,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetDeploymentGroups(
     args: BatchGetDeploymentGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetDeploymentGroupsCommandOutput>;
   public batchGetDeploymentGroups(
     args: BatchGetDeploymentGroupsCommandInput,
@@ -465,16 +471,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetDeploymentGroups(
     args: BatchGetDeploymentGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetDeploymentGroupsCommandOutput) => void
   ): Promise<BatchGetDeploymentGroupsCommandOutput> | void {
     const command = new BatchGetDeploymentGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -495,7 +503,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetDeploymentInstances(
     args: BatchGetDeploymentInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetDeploymentInstancesCommandOutput>;
   public batchGetDeploymentInstances(
     args: BatchGetDeploymentInstancesCommandInput,
@@ -508,16 +516,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetDeploymentInstances(
     args: BatchGetDeploymentInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void),
     cb?: (err: any, data?: BatchGetDeploymentInstancesCommandOutput) => void
   ): Promise<BatchGetDeploymentInstancesCommandOutput> | void {
     const command = new BatchGetDeploymentInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -551,7 +561,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetDeploymentTargets(
     args: BatchGetDeploymentTargetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetDeploymentTargetsCommandOutput>;
   public batchGetDeploymentTargets(
     args: BatchGetDeploymentTargetsCommandInput,
@@ -564,16 +574,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetDeploymentTargets(
     args: BatchGetDeploymentTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetDeploymentTargetsCommandOutput) => void
   ): Promise<BatchGetDeploymentTargetsCommandOutput> | void {
     const command = new BatchGetDeploymentTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -587,7 +599,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetDeployments(
     args: BatchGetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetDeploymentsCommandOutput>;
   public batchGetDeployments(
     args: BatchGetDeploymentsCommandInput,
@@ -600,16 +612,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetDeployments(
     args: BatchGetDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDeploymentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: BatchGetDeploymentsCommandOutput) => void
   ): Promise<BatchGetDeploymentsCommandOutput> | void {
     const command = new BatchGetDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -623,7 +637,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public batchGetOnPremisesInstances(
     args: BatchGetOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetOnPremisesInstancesCommandOutput>;
   public batchGetOnPremisesInstances(
     args: BatchGetOnPremisesInstancesCommandInput,
@@ -636,16 +650,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public batchGetOnPremisesInstances(
     args: BatchGetOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void),
     cb?: (err: any, data?: BatchGetOnPremisesInstancesCommandOutput) => void
   ): Promise<BatchGetOnPremisesInstancesCommandOutput> | void {
     const command = new BatchGetOnPremisesInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -663,7 +679,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public continueDeployment(
     args: ContinueDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ContinueDeploymentCommandOutput>;
   public continueDeployment(
     args: ContinueDeploymentCommandInput,
@@ -676,16 +692,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public continueDeployment(
     args: ContinueDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ContinueDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ContinueDeploymentCommandOutput) => void),
     cb?: (err: any, data?: ContinueDeploymentCommandOutput) => void
   ): Promise<ContinueDeploymentCommandOutput> | void {
     const command = new ContinueDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -699,7 +717,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public createApplication(
     args: CreateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApplicationCommandOutput>;
   public createApplication(
     args: CreateApplicationCommandInput,
@@ -712,16 +730,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public createApplication(
     args: CreateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApplicationCommandOutput) => void),
     cb?: (err: any, data?: CreateApplicationCommandOutput) => void
   ): Promise<CreateApplicationCommandOutput> | void {
     const command = new CreateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -735,7 +755,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentCommandOutput>;
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -748,16 +768,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -771,7 +793,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public createDeploymentConfig(
     args: CreateDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentConfigCommandOutput>;
   public createDeploymentConfig(
     args: CreateDeploymentConfigCommandInput,
@@ -784,16 +806,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public createDeploymentConfig(
     args: CreateDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeploymentConfigCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentConfigCommandOutput) => void
   ): Promise<CreateDeploymentConfigCommandOutput> | void {
     const command = new CreateDeploymentConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -807,7 +831,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public createDeploymentGroup(
     args: CreateDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentGroupCommandOutput>;
   public createDeploymentGroup(
     args: CreateDeploymentGroupCommandInput,
@@ -820,16 +844,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public createDeploymentGroup(
     args: CreateDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeploymentGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentGroupCommandOutput) => void
   ): Promise<CreateDeploymentGroupCommandOutput> | void {
     const command = new CreateDeploymentGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -843,7 +869,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApplicationCommandOutput>;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
@@ -856,16 +882,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public deleteApplication(
     args: DeleteApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApplicationCommandOutput) => void),
     cb?: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): Promise<DeleteApplicationCommandOutput> | void {
     const command = new DeleteApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -883,7 +911,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public deleteDeploymentConfig(
     args: DeleteDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDeploymentConfigCommandOutput>;
   public deleteDeploymentConfig(
     args: DeleteDeploymentConfigCommandInput,
@@ -896,16 +924,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public deleteDeploymentConfig(
     args: DeleteDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeploymentConfigCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentConfigCommandOutput) => void
   ): Promise<DeleteDeploymentConfigCommandOutput> | void {
     const command = new DeleteDeploymentConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -919,7 +949,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public deleteDeploymentGroup(
     args: DeleteDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDeploymentGroupCommandOutput>;
   public deleteDeploymentGroup(
     args: DeleteDeploymentGroupCommandInput,
@@ -932,16 +962,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public deleteDeploymentGroup(
     args: DeleteDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeploymentGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentGroupCommandOutput) => void
   ): Promise<DeleteDeploymentGroupCommandOutput> | void {
     const command = new DeleteDeploymentGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -954,7 +986,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public deleteGitHubAccountToken(
     args: DeleteGitHubAccountTokenCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteGitHubAccountTokenCommandOutput>;
   public deleteGitHubAccountToken(
     args: DeleteGitHubAccountTokenCommandInput,
@@ -967,16 +999,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public deleteGitHubAccountToken(
     args: DeleteGitHubAccountTokenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void),
     cb?: (err: any, data?: DeleteGitHubAccountTokenCommandOutput) => void
   ): Promise<DeleteGitHubAccountTokenCommandOutput> | void {
     const command = new DeleteGitHubAccountTokenCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -990,7 +1024,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public deregisterOnPremisesInstance(
     args: DeregisterOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeregisterOnPremisesInstanceCommandOutput>;
   public deregisterOnPremisesInstance(
     args: DeregisterOnPremisesInstanceCommandInput,
@@ -1003,16 +1037,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public deregisterOnPremisesInstance(
     args: DeregisterOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void),
     cb?: (err: any, data?: DeregisterOnPremisesInstanceCommandOutput) => void
   ): Promise<DeregisterOnPremisesInstanceCommandOutput> | void {
     const command = new DeregisterOnPremisesInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1026,7 +1062,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getApplication(
     args: GetApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApplicationCommandOutput>;
   public getApplication(
     args: GetApplicationCommandInput,
@@ -1039,16 +1075,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getApplication(
     args: GetApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApplicationCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationCommandOutput) => void
   ): Promise<GetApplicationCommandOutput> | void {
     const command = new GetApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1062,7 +1100,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getApplicationRevision(
     args: GetApplicationRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApplicationRevisionCommandOutput>;
   public getApplicationRevision(
     args: GetApplicationRevisionCommandInput,
@@ -1075,16 +1113,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getApplicationRevision(
     args: GetApplicationRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApplicationRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApplicationRevisionCommandOutput) => void),
     cb?: (err: any, data?: GetApplicationRevisionCommandOutput) => void
   ): Promise<GetApplicationRevisionCommandOutput> | void {
     const command = new GetApplicationRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1105,7 +1145,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentCommandOutput>;
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -1118,16 +1158,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1141,7 +1183,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getDeploymentConfig(
     args: GetDeploymentConfigCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentConfigCommandOutput>;
   public getDeploymentConfig(
     args: GetDeploymentConfigCommandInput,
@@ -1154,16 +1196,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeploymentConfig(
     args: GetDeploymentConfigCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentConfigCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentConfigCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentConfigCommandOutput) => void
   ): Promise<GetDeploymentConfigCommandOutput> | void {
     const command = new GetDeploymentConfigCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1177,7 +1221,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getDeploymentGroup(
     args: GetDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentGroupCommandOutput>;
   public getDeploymentGroup(
     args: GetDeploymentGroupCommandInput,
@@ -1190,16 +1234,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeploymentGroup(
     args: GetDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentGroupCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentGroupCommandOutput) => void
   ): Promise<GetDeploymentGroupCommandOutput> | void {
     const command = new GetDeploymentGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1213,7 +1259,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getDeploymentInstance(
     args: GetDeploymentInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentInstanceCommandOutput>;
   public getDeploymentInstance(
     args: GetDeploymentInstanceCommandInput,
@@ -1226,16 +1272,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeploymentInstance(
     args: GetDeploymentInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentInstanceCommandOutput) => void
   ): Promise<GetDeploymentInstanceCommandOutput> | void {
     const command = new GetDeploymentInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1248,7 +1296,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getDeploymentTarget(
     args: GetDeploymentTargetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentTargetCommandOutput>;
   public getDeploymentTarget(
     args: GetDeploymentTargetCommandInput,
@@ -1261,16 +1309,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getDeploymentTarget(
     args: GetDeploymentTargetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentTargetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentTargetCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentTargetCommandOutput) => void
   ): Promise<GetDeploymentTargetCommandOutput> | void {
     const command = new GetDeploymentTargetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1284,7 +1334,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public getOnPremisesInstance(
     args: GetOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetOnPremisesInstanceCommandOutput>;
   public getOnPremisesInstance(
     args: GetOnPremisesInstanceCommandInput,
@@ -1297,16 +1347,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public getOnPremisesInstance(
     args: GetOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetOnPremisesInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetOnPremisesInstanceCommandOutput) => void),
     cb?: (err: any, data?: GetOnPremisesInstanceCommandOutput) => void
   ): Promise<GetOnPremisesInstanceCommandOutput> | void {
     const command = new GetOnPremisesInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1320,7 +1372,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listApplicationRevisions(
     args: ListApplicationRevisionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationRevisionsCommandOutput>;
   public listApplicationRevisions(
     args: ListApplicationRevisionsCommandInput,
@@ -1333,16 +1385,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listApplicationRevisions(
     args: ListApplicationRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationRevisionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationRevisionsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationRevisionsCommandOutput) => void
   ): Promise<ListApplicationRevisionsCommandOutput> | void {
     const command = new ListApplicationRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1356,7 +1410,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listApplications(
     args: ListApplicationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListApplicationsCommandOutput>;
   public listApplications(
     args: ListApplicationsCommandInput,
@@ -1369,16 +1423,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listApplications(
     args: ListApplicationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListApplicationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListApplicationsCommandOutput) => void),
     cb?: (err: any, data?: ListApplicationsCommandOutput) => void
   ): Promise<ListApplicationsCommandOutput> | void {
     const command = new ListApplicationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1392,7 +1448,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listDeploymentConfigs(
     args: ListDeploymentConfigsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentConfigsCommandOutput>;
   public listDeploymentConfigs(
     args: ListDeploymentConfigsCommandInput,
@@ -1405,16 +1461,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeploymentConfigs(
     args: ListDeploymentConfigsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentConfigsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentConfigsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentConfigsCommandOutput) => void
   ): Promise<ListDeploymentConfigsCommandOutput> | void {
     const command = new ListDeploymentConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1429,7 +1487,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listDeploymentGroups(
     args: ListDeploymentGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentGroupsCommandOutput>;
   public listDeploymentGroups(
     args: ListDeploymentGroupsCommandInput,
@@ -1442,16 +1500,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeploymentGroups(
     args: ListDeploymentGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentGroupsCommandOutput) => void
   ): Promise<ListDeploymentGroupsCommandOutput> | void {
     const command = new ListDeploymentGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1470,7 +1530,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listDeploymentInstances(
     args: ListDeploymentInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentInstancesCommandOutput>;
   public listDeploymentInstances(
     args: ListDeploymentInstancesCommandInput,
@@ -1483,16 +1543,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeploymentInstances(
     args: ListDeploymentInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentInstancesCommandOutput) => void
   ): Promise<ListDeploymentInstancesCommandOutput> | void {
     const command = new ListDeploymentInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1505,7 +1567,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listDeploymentTargets(
     args: ListDeploymentTargetsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentTargetsCommandOutput>;
   public listDeploymentTargets(
     args: ListDeploymentTargetsCommandInput,
@@ -1518,16 +1580,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeploymentTargets(
     args: ListDeploymentTargetsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentTargetsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentTargetsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentTargetsCommandOutput) => void
   ): Promise<ListDeploymentTargetsCommandOutput> | void {
     const command = new ListDeploymentTargetsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1542,7 +1606,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDeploymentsCommandOutput>;
   public listDeployments(
     args: ListDeploymentsCommandInput,
@@ -1555,16 +1619,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listDeployments(
     args: ListDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDeploymentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: ListDeploymentsCommandOutput) => void
   ): Promise<ListDeploymentsCommandOutput> | void {
     const command = new ListDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1577,7 +1643,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listGitHubAccountTokenNames(
     args: ListGitHubAccountTokenNamesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListGitHubAccountTokenNamesCommandOutput>;
   public listGitHubAccountTokenNames(
     args: ListGitHubAccountTokenNamesCommandInput,
@@ -1590,16 +1656,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listGitHubAccountTokenNames(
     args: ListGitHubAccountTokenNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void),
     cb?: (err: any, data?: ListGitHubAccountTokenNamesCommandOutput) => void
   ): Promise<ListGitHubAccountTokenNamesCommandOutput> | void {
     const command = new ListGitHubAccountTokenNamesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1616,7 +1684,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listOnPremisesInstances(
     args: ListOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListOnPremisesInstancesCommandOutput>;
   public listOnPremisesInstances(
     args: ListOnPremisesInstancesCommandInput,
@@ -1629,16 +1697,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listOnPremisesInstances(
     args: ListOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOnPremisesInstancesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListOnPremisesInstancesCommandOutput) => void),
     cb?: (err: any, data?: ListOnPremisesInstancesCommandOutput) => void
   ): Promise<ListOnPremisesInstancesCommandOutput> | void {
     const command = new ListOnPremisesInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1654,7 +1724,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1667,16 +1737,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1691,29 +1763,43 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput>;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
-    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PutLifecycleEventHookExecutionStatusCommandOutput
+    ) => void
   ): void;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
+    cb: (
+      err: any,
+      data?: PutLifecycleEventHookExecutionStatusCommandOutput
+    ) => void
   ): void;
   public putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void),
-    cb?: (err: any, data?: PutLifecycleEventHookExecutionStatusCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: PutLifecycleEventHookExecutionStatusCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: PutLifecycleEventHookExecutionStatusCommandOutput
+    ) => void
   ): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> | void {
     const command = new PutLifecycleEventHookExecutionStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1727,7 +1813,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public registerApplicationRevision(
     args: RegisterApplicationRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RegisterApplicationRevisionCommandOutput>;
   public registerApplicationRevision(
     args: RegisterApplicationRevisionCommandInput,
@@ -1740,16 +1826,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public registerApplicationRevision(
     args: RegisterApplicationRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterApplicationRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterApplicationRevisionCommandOutput) => void),
     cb?: (err: any, data?: RegisterApplicationRevisionCommandOutput) => void
   ): Promise<RegisterApplicationRevisionCommandOutput> | void {
     const command = new RegisterApplicationRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1767,7 +1855,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public registerOnPremisesInstance(
     args: RegisterOnPremisesInstanceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RegisterOnPremisesInstanceCommandOutput>;
   public registerOnPremisesInstance(
     args: RegisterOnPremisesInstanceCommandInput,
@@ -1780,16 +1868,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public registerOnPremisesInstance(
     args: RegisterOnPremisesInstanceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void),
     cb?: (err: any, data?: RegisterOnPremisesInstanceCommandOutput) => void
   ): Promise<RegisterOnPremisesInstanceCommandOutput> | void {
     const command = new RegisterOnPremisesInstanceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1803,29 +1893,43 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput>;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
+    ) => void
   ): void;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
+    cb: (
+      err: any,
+      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
+    ) => void
   ): void;
   public removeTagsFromOnPremisesInstances(
     args: RemoveTagsFromOnPremisesInstancesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void),
-    cb?: (err: any, data?: RemoveTagsFromOnPremisesInstancesCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: RemoveTagsFromOnPremisesInstancesCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: RemoveTagsFromOnPremisesInstancesCommandOutput
+    ) => void
   ): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> | void {
     const command = new RemoveTagsFromOnPremisesInstancesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1840,29 +1944,43 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput>;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
-    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: SkipWaitTimeForInstanceTerminationCommandOutput
+    ) => void
   ): void;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
+    cb: (
+      err: any,
+      data?: SkipWaitTimeForInstanceTerminationCommandOutput
+    ) => void
   ): void;
   public skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void),
-    cb?: (err: any, data?: SkipWaitTimeForInstanceTerminationCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: SkipWaitTimeForInstanceTerminationCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: SkipWaitTimeForInstanceTerminationCommandOutput
+    ) => void
   ): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> | void {
     const command = new SkipWaitTimeForInstanceTerminationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1876,7 +1994,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopDeploymentCommandOutput>;
   public stopDeployment(
     args: StopDeploymentCommandInput,
@@ -1889,16 +2007,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public stopDeployment(
     args: StopDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopDeploymentCommandOutput) => void),
     cb?: (err: any, data?: StopDeploymentCommandOutput) => void
   ): Promise<StopDeploymentCommandOutput> | void {
     const command = new StopDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1913,7 +2033,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1926,16 +2046,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1951,7 +2073,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1964,16 +2086,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1987,7 +2111,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApplicationCommandOutput>;
   public updateApplication(
     args: UpdateApplicationCommandInput,
@@ -2000,16 +2124,18 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public updateApplication(
     args: UpdateApplicationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApplicationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApplicationCommandOutput) => void),
     cb?: (err: any, data?: UpdateApplicationCommandOutput) => void
   ): Promise<UpdateApplicationCommandOutput> | void {
     const command = new UpdateApplicationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2023,7 +2149,7 @@ export class CodeDeploy extends CodeDeployClient {
    */
   public updateDeploymentGroup(
     args: UpdateDeploymentGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDeploymentGroupCommandOutput>;
   public updateDeploymentGroup(
     args: UpdateDeploymentGroupCommandInput,
@@ -2036,19 +2162,20 @@ export class CodeDeploy extends CodeDeployClient {
   ): void;
   public updateDeploymentGroup(
     args: UpdateDeploymentGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDeploymentGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeploymentGroupCommandOutput) => void
   ): Promise<UpdateDeploymentGroupCommandOutput> | void {
     const command = new UpdateDeploymentGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

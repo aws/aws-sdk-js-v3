@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The resource being created already exists.</p>
  *
  */
-export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -23,7 +25,9 @@ export namespace AlreadyExistsException {
  *          <p>There is a concurrent modification of resources.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   Message?: string;
@@ -40,7 +44,9 @@ export namespace ConcurrentModificationException {
  *          <p>The request failed because this device is no longer registered and therefore no longer managed by this account.</p>
  *
  */
-export interface DeviceNotRegisteredException extends _smithy.SmithyException, $MetadataBearer {
+export interface DeviceNotRegisteredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DeviceNotRegisteredException";
   $fault: "client";
   Message?: string;
@@ -86,7 +92,9 @@ export namespace Filter {
  *          <p>You are performing an action that would put you beyond your account's limits.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -103,7 +111,9 @@ export namespace LimitExceededException {
  *          <p>The name sent in the request is already in use.</p>
  *
  */
-export interface NameInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface NameInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NameInUseException";
   $fault: "client";
   Message?: string;
@@ -120,7 +130,9 @@ export namespace NameInUseException {
  *          <p>The resource is not found.</p>
  *
  */
-export interface NotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotFoundException";
   $fault: "client";
   Message?: string;
@@ -137,7 +149,9 @@ export namespace NotFoundException {
  *          <p>The resource in the request is already in use.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -161,7 +175,9 @@ export namespace ResourceInUseException {
  *          <p>The caller has no permissions to operate on the resource involved in the API call.</p>
  *
  */
-export interface UnauthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnauthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnauthorizedException";
   $fault: "client";
   Message?: string;
@@ -176,7 +192,7 @@ export namespace UnauthorizedException {
 export enum CommsProtocol {
   H323 = "H323",
   SIP = "SIP",
-  SIPS = "SIPS",
+  SIPS = "SIPS"
 }
 
 /**
@@ -245,7 +261,7 @@ export enum ConferenceProviderType {
   RINGCENTRAL = "RINGCENTRAL",
   SKYPE_FOR_BUSINESS = "SKYPE_FOR_BUSINESS",
   WEBEX = "WEBEX",
-  ZOOM = "ZOOM",
+  ZOOM = "ZOOM"
 }
 
 /**
@@ -355,7 +371,7 @@ export namespace PSTNDialIn {
 export enum RequirePin {
   NO = "NO",
   OPTIONAL = "OPTIONAL",
-  YES = "YES",
+  YES = "YES"
 }
 
 /**
@@ -433,7 +449,7 @@ export namespace Content {
 }
 
 export enum Locale {
-  en_US = "en-US",
+  en_US = "en-US"
 }
 
 export interface SendAnnouncementRequest {
@@ -580,7 +596,7 @@ export namespace DeleteDeviceUsageDataResponse {
 }
 
 export enum DeviceUsageType {
-  VOICE = "VOICE",
+  VOICE = "VOICE"
 }
 
 /**
@@ -702,7 +718,8 @@ export namespace AssociateContactWithAddressBookRequest {
   }
 }
 
-export interface AssociateContactWithAddressBookResponse extends $MetadataBearer {
+export interface AssociateContactWithAddressBookResponse
+  extends $MetadataBearer {
   __type?: "AssociateContactWithAddressBookResponse";
 }
 
@@ -735,7 +752,8 @@ export namespace AssociateDeviceWithNetworkProfileRequest {
   }
 }
 
-export interface AssociateDeviceWithNetworkProfileResponse extends $MetadataBearer {
+export interface AssociateDeviceWithNetworkProfileResponse
+  extends $MetadataBearer {
   __type?: "AssociateDeviceWithNetworkProfileResponse";
 }
 
@@ -944,18 +962,18 @@ export namespace BusinessReportContentRange {
 export enum BusinessReportFailureCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
-  NO_SUCH_BUCKET = "NO_SUCH_BUCKET",
+  NO_SUCH_BUCKET = "NO_SUCH_BUCKET"
 }
 
 export enum BusinessReportFormat {
   CSV = "CSV",
-  CSV_ZIP = "CSV_ZIP",
+  CSV_ZIP = "CSV_ZIP"
 }
 
 export enum BusinessReportInterval {
   ONE_DAY = "ONE_DAY",
   ONE_WEEK = "ONE_WEEK",
-  THIRTY_DAYS = "THIRTY_DAYS",
+  THIRTY_DAYS = "THIRTY_DAYS"
 }
 
 /**
@@ -1082,7 +1100,7 @@ export namespace BusinessReportSchedule {
 export enum BusinessReportStatus {
   FAILED = "FAILED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -1138,7 +1156,7 @@ export namespace ConferencePreference {
 
 export enum ConnectionStatus {
   OFFLINE = "OFFLINE",
-  ONLINE = "ONLINE",
+  ONLINE = "ONLINE"
 }
 
 /**
@@ -2748,7 +2766,7 @@ export namespace DeviceEvent {
 
 export enum DeviceEventType {
   CONNECTION_STATUS = "CONNECTION_STATUS",
-  DEVICE_STATUS = "DEVICE_STATUS",
+  DEVICE_STATUS = "DEVICE_STATUS"
 }
 
 /**
@@ -2791,7 +2809,7 @@ export enum DeviceStatus {
   FAILED = "FAILED",
   PENDING = "PENDING",
   READY = "READY",
-  WAS_OFFLINE = "WAS_OFFLINE",
+  WAS_OFFLINE = "WAS_OFFLINE"
 }
 
 /**
@@ -2837,7 +2855,7 @@ export enum DeviceStatusDetailCode {
   NETWORK_PROFILE_NOT_FOUND = "NETWORK_PROFILE_NOT_FOUND",
   PASSWORD_NOT_FOUND = "PASSWORD_NOT_FOUND",
   TLS_VERSION_MISMATCH = "TLS_VERSION_MISMATCH",
-  UNKNOWN_FAILURE = "UNKNOWN_FAILURE",
+  UNKNOWN_FAILURE = "UNKNOWN_FAILURE"
 }
 
 /**
@@ -2891,7 +2909,8 @@ export namespace DisassociateContactFromAddressBookRequest {
   }
 }
 
-export interface DisassociateContactFromAddressBookResponse extends $MetadataBearer {
+export interface DisassociateContactFromAddressBookResponse
+  extends $MetadataBearer {
   __type?: "DisassociateContactFromAddressBookResponse";
 }
 
@@ -2950,7 +2969,8 @@ export namespace DisassociateSkillFromSkillGroupRequest {
   }
 }
 
-export interface DisassociateSkillFromSkillGroupResponse extends $MetadataBearer {
+export interface DisassociateSkillFromSkillGroupResponse
+  extends $MetadataBearer {
   __type?: "DisassociateSkillFromSkillGroupResponse";
 }
 
@@ -3010,7 +3030,8 @@ export namespace DisassociateSkillGroupFromRoomRequest {
   }
 }
 
-export interface DisassociateSkillGroupFromRoomResponse extends $MetadataBearer {
+export interface DisassociateSkillGroupFromRoomResponse
+  extends $MetadataBearer {
   __type?: "DisassociateSkillGroupFromRoomResponse";
 }
 
@@ -3022,17 +3043,17 @@ export namespace DisassociateSkillGroupFromRoomResponse {
 
 export enum DistanceUnit {
   IMPERIAL = "IMPERIAL",
-  METRIC = "METRIC",
+  METRIC = "METRIC"
 }
 
 export enum EnablementType {
   ENABLED = "ENABLED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 export enum EnablementTypeFilter {
   ENABLED = "ENABLED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -3075,7 +3096,7 @@ export enum EndOfMeetingReminderType {
   ANNOUNCEMENT_TIME_CHECK = "ANNOUNCEMENT_TIME_CHECK",
   ANNOUNCEMENT_VARIABLE_TIME_LEFT = "ANNOUNCEMENT_VARIABLE_TIME_LEFT",
   CHIME = "CHIME",
-  KNOCK = "KNOCK",
+  KNOCK = "KNOCK"
 }
 
 export enum EnrollmentStatus {
@@ -3083,7 +3104,7 @@ export enum EnrollmentStatus {
   DISASSOCIATING = "DISASSOCIATING",
   INITIALIZED = "INITIALIZED",
   PENDING = "PENDING",
-  REGISTERED = "REGISTERED",
+  REGISTERED = "REGISTERED"
 }
 
 export enum Feature {
@@ -3094,7 +3115,7 @@ export enum Feature {
   NOTIFICATIONS = "NOTIFICATIONS",
   SETTINGS = "SETTINGS",
   SKILLS = "SKILLS",
-  VOLUME = "VOLUME",
+  VOLUME = "VOLUME"
 }
 
 export interface ForgetSmartHomeAppliancesRequest {
@@ -3764,7 +3785,9 @@ export namespace InstantBooking {
  *          <p>The Certificate Authority can't issue or revoke a certificate.</p>
  *
  */
-export interface InvalidCertificateAuthorityException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCertificateAuthorityException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCertificateAuthorityException";
   $fault: "client";
   Message?: string;
@@ -3781,7 +3804,9 @@ export namespace InvalidCertificateAuthorityException {
  *          <p>The device is in an invalid state.</p>
  *
  */
-export interface InvalidDeviceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDeviceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDeviceException";
   $fault: "client";
   Message?: string;
@@ -3798,7 +3823,9 @@ export namespace InvalidDeviceException {
  *          <p>A password in SecretsManager is in an invalid state.</p>
  *
  */
-export interface InvalidSecretsManagerResourceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSecretsManagerResourceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSecretsManagerResourceException";
   $fault: "client";
   Message?: string;
@@ -3815,7 +3842,9 @@ export namespace InvalidSecretsManagerResourceException {
  *          <p>The service linked role is locked for deletion. </p>
  *
  */
-export interface InvalidServiceLinkedRoleStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidServiceLinkedRoleStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidServiceLinkedRoleStateException";
   $fault: "client";
   Message?: string;
@@ -3832,7 +3861,9 @@ export namespace InvalidServiceLinkedRoleStateException {
  *          <p>The attempt to update a user is invalid due to the user's current status.</p>
  *
  */
-export interface InvalidUserStatusException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidUserStatusException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidUserStatusException";
   $fault: "client";
   Message?: string;
@@ -4252,7 +4283,8 @@ export namespace ListSkillsStoreSkillsByCategoryRequest {
   }
 }
 
-export interface ListSkillsStoreSkillsByCategoryResponse extends $MetadataBearer {
+export interface ListSkillsStoreSkillsByCategoryResponse
+  extends $MetadataBearer {
   __type?: "ListSkillsStoreSkillsByCategoryResponse";
   /**
    *
@@ -4433,7 +4465,7 @@ export namespace MeetingRoomConfiguration {
 }
 
 export enum NetworkEapMethod {
-  EAP_TLS = "EAP_TLS",
+  EAP_TLS = "EAP_TLS"
 }
 
 /**
@@ -4597,7 +4629,7 @@ export enum NetworkSecurityType {
   WEP = "WEP",
   WPA2_ENTERPRISE = "WPA2_ENTERPRISE",
   WPA2_PSK = "WPA2_PSK",
-  WPA_PSK = "WPA_PSK",
+  WPA_PSK = "WPA_PSK"
 }
 
 /**
@@ -4631,7 +4663,7 @@ export namespace PhoneNumber {
 export enum PhoneNumberType {
   HOME = "HOME",
   MOBILE = "MOBILE",
-  WORK = "WORK",
+  WORK = "WORK"
 }
 
 /**
@@ -5151,7 +5183,9 @@ export namespace ResolveRoomResponse {
  *          <p>Another resource is associated with the resource in the request.</p>
  *
  */
-export interface ResourceAssociatedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAssociatedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAssociatedException";
   $fault: "client";
   Message?: string;
@@ -5978,7 +6012,7 @@ export namespace SipAddress {
 }
 
 export enum SipType {
-  WORK = "WORK",
+  WORK = "WORK"
 }
 
 /**
@@ -6141,7 +6175,9 @@ export namespace SkillGroupData {
  *          <p>The skill must be linked to a third-party account.</p>
  *
  */
-export interface SkillNotLinkedException extends _smithy.SmithyException, $MetadataBearer {
+export interface SkillNotLinkedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SkillNotLinkedException";
   $fault: "client";
   Message?: string;
@@ -6205,13 +6241,13 @@ export namespace SkillSummary {
 
 export enum SkillType {
   PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
+  PUBLIC = "PUBLIC"
 }
 
 export enum SkillTypeFilter {
   ALL = "ALL",
   PRIVATE = "PRIVATE",
-  PUBLIC = "PUBLIC",
+  PUBLIC = "PUBLIC"
 }
 
 /**
@@ -6343,7 +6379,7 @@ export namespace Sort {
 
 export enum SortValue {
   ASC = "ASC",
-  DESC = "DESC",
+  DESC = "DESC"
 }
 
 export interface StartDeviceSyncRequest {
@@ -6402,7 +6438,8 @@ export namespace StartSmartHomeApplianceDiscoveryRequest {
   }
 }
 
-export interface StartSmartHomeApplianceDiscoveryResponse extends $MetadataBearer {
+export interface StartSmartHomeApplianceDiscoveryResponse
+  extends $MetadataBearer {
   __type?: "StartSmartHomeApplianceDiscoveryResponse";
 }
 
@@ -6476,7 +6513,7 @@ export namespace TagResourceResponse {
 
 export enum TemperatureUnit {
   CELSIUS = "CELSIUS",
-  FAHRENHEIT = "FAHRENHEIT",
+  FAHRENHEIT = "FAHRENHEIT"
 }
 
 export interface UntagResourceRequest {
@@ -7338,5 +7375,5 @@ export enum WakeWord {
   ALEXA = "ALEXA",
   AMAZON = "AMAZON",
   COMPUTER = "COMPUTER",
-  ECHO = "ECHO",
+  ECHO = "ECHO"
 }

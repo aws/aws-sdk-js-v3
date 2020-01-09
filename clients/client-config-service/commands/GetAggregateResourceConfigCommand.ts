@@ -1,20 +1,20 @@
 import {
   ConfigServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConfigServiceClient";
 import {
   GetAggregateResourceConfigRequest,
-  GetAggregateResourceConfigResponse,
+  GetAggregateResourceConfigResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1GetAggregateResourceConfigCommand,
-  serializeAws_json1_1GetAggregateResourceConfigCommand,
+  serializeAws_json1_1GetAggregateResourceConfigCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetAggregateResourceConfigCommandInput = GetAggregateResourceConfigRequest;
 export type GetAggregateResourceConfigCommandOutput = GetAggregateResourceConfigResponse;
 
-export class GetAggregateResourceConfigCommand extends $Command<GetAggregateResourceConfigCommandInput, GetAggregateResourceConfigCommandOutput, ConfigServiceClientResolvedConfig> {
+export class GetAggregateResourceConfigCommand extends $Command<
+  GetAggregateResourceConfigCommandInput,
+  GetAggregateResourceConfigCommandOutput,
+  ConfigServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetAggregateResourceConfigCommand extends $Command<GetAggregateReso
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetAggregateResourceConfigCommandInput, GetAggregateResourceConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetAggregateResourceConfigCommandInput,
+    GetAggregateResourceConfigCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetAggregateResourceConfigCommand extends $Command<GetAggregateReso
     input: GetAggregateResourceConfigCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetAggregateResourceConfigCommand(input, context);
+    return serializeAws_json1_1GetAggregateResourceConfigCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetAggregateResourceConfigCommandOutput> {
-    return deserializeAws_json1_1GetAggregateResourceConfigCommand(output, context);
+    return deserializeAws_json1_1GetAggregateResourceConfigCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

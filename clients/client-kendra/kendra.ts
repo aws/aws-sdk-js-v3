@@ -1,102 +1,102 @@
 import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput,
+  BatchDeleteDocumentCommandOutput
 } from "./commands/BatchDeleteDocumentCommand";
 import {
   BatchPutDocumentCommand,
   BatchPutDocumentCommandInput,
-  BatchPutDocumentCommandOutput,
+  BatchPutDocumentCommandOutput
 } from "./commands/BatchPutDocumentCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
-  CreateDataSourceCommandOutput,
+  CreateDataSourceCommandOutput
 } from "./commands/CreateDataSourceCommand";
 import {
   CreateFaqCommand,
   CreateFaqCommandInput,
-  CreateFaqCommandOutput,
+  CreateFaqCommandOutput
 } from "./commands/CreateFaqCommand";
 import {
   CreateIndexCommand,
   CreateIndexCommandInput,
-  CreateIndexCommandOutput,
+  CreateIndexCommandOutput
 } from "./commands/CreateIndexCommand";
 import {
   DeleteFaqCommand,
   DeleteFaqCommandInput,
-  DeleteFaqCommandOutput,
+  DeleteFaqCommandOutput
 } from "./commands/DeleteFaqCommand";
 import {
   DeleteIndexCommand,
   DeleteIndexCommandInput,
-  DeleteIndexCommandOutput,
+  DeleteIndexCommandOutput
 } from "./commands/DeleteIndexCommand";
 import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
+  DescribeDataSourceCommandOutput
 } from "./commands/DescribeDataSourceCommand";
 import {
   DescribeFaqCommand,
   DescribeFaqCommandInput,
-  DescribeFaqCommandOutput,
+  DescribeFaqCommandOutput
 } from "./commands/DescribeFaqCommand";
 import {
   DescribeIndexCommand,
   DescribeIndexCommandInput,
-  DescribeIndexCommandOutput,
+  DescribeIndexCommandOutput
 } from "./commands/DescribeIndexCommand";
 import {
   ListDataSourceSyncJobsCommand,
   ListDataSourceSyncJobsCommandInput,
-  ListDataSourceSyncJobsCommandOutput,
+  ListDataSourceSyncJobsCommandOutput
 } from "./commands/ListDataSourceSyncJobsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
-  ListDataSourcesCommandOutput,
+  ListDataSourcesCommandOutput
 } from "./commands/ListDataSourcesCommand";
 import {
   ListFaqsCommand,
   ListFaqsCommandInput,
-  ListFaqsCommandOutput,
+  ListFaqsCommandOutput
 } from "./commands/ListFaqsCommand";
 import {
   ListIndicesCommand,
   ListIndicesCommandInput,
-  ListIndicesCommandOutput,
+  ListIndicesCommandOutput
 } from "./commands/ListIndicesCommand";
 import {
   QueryCommand,
   QueryCommandInput,
-  QueryCommandOutput,
+  QueryCommandOutput
 } from "./commands/QueryCommand";
 import {
   StartDataSourceSyncJobCommand,
   StartDataSourceSyncJobCommandInput,
-  StartDataSourceSyncJobCommandOutput,
+  StartDataSourceSyncJobCommandOutput
 } from "./commands/StartDataSourceSyncJobCommand";
 import {
   StopDataSourceSyncJobCommand,
   StopDataSourceSyncJobCommandInput,
-  StopDataSourceSyncJobCommandOutput,
+  StopDataSourceSyncJobCommandOutput
 } from "./commands/StopDataSourceSyncJobCommand";
 import {
   SubmitFeedbackCommand,
   SubmitFeedbackCommandInput,
-  SubmitFeedbackCommandOutput,
+  SubmitFeedbackCommandOutput
 } from "./commands/SubmitFeedbackCommand";
 import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
-  UpdateDataSourceCommandOutput,
+  UpdateDataSourceCommandOutput
 } from "./commands/UpdateDataSourceCommand";
 import {
   UpdateIndexCommand,
   UpdateIndexCommandInput,
-  UpdateIndexCommandOutput,
+  UpdateIndexCommandOutput
 } from "./commands/UpdateIndexCommand";
 import { kendraClient } from "./kendraClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
@@ -118,7 +118,7 @@ export class kendra extends kendraClient {
    */
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchDeleteDocumentCommandOutput>;
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
@@ -131,16 +131,18 @@ export class kendra extends kendraClient {
   ): void;
   public batchDeleteDocument(
     args: BatchDeleteDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDeleteDocumentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchDeleteDocumentCommandOutput) => void),
     cb?: (err: any, data?: BatchDeleteDocumentCommandOutput) => void
   ): Promise<BatchDeleteDocumentCommandOutput> | void {
     const command = new BatchDeleteDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -160,7 +162,7 @@ export class kendra extends kendraClient {
    */
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchPutDocumentCommandOutput>;
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
@@ -173,16 +175,18 @@ export class kendra extends kendraClient {
   ): void;
   public batchPutDocument(
     args: BatchPutDocumentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchPutDocumentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchPutDocumentCommandOutput) => void),
     cb?: (err: any, data?: BatchPutDocumentCommandOutput) => void
   ): Promise<BatchPutDocumentCommandOutput> | void {
     const command = new BatchPutDocumentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -202,7 +206,7 @@ export class kendra extends kendraClient {
    */
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDataSourceCommandOutput>;
   public createDataSource(
     args: CreateDataSourceCommandInput,
@@ -215,16 +219,18 @@ export class kendra extends kendraClient {
   ): void;
   public createDataSource(
     args: CreateDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: CreateDataSourceCommandOutput) => void
   ): Promise<CreateDataSourceCommandOutput> | void {
     const command = new CreateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -237,7 +243,7 @@ export class kendra extends kendraClient {
    */
   public createFaq(
     args: CreateFaqCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateFaqCommandOutput>;
   public createFaq(
     args: CreateFaqCommandInput,
@@ -250,16 +256,18 @@ export class kendra extends kendraClient {
   ): void;
   public createFaq(
     args: CreateFaqCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFaqCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateFaqCommandOutput) => void),
     cb?: (err: any, data?: CreateFaqCommandOutput) => void
   ): Promise<CreateFaqCommandOutput> | void {
     const command = new CreateFaqCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -277,7 +285,7 @@ export class kendra extends kendraClient {
    */
   public createIndex(
     args: CreateIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateIndexCommandOutput>;
   public createIndex(
     args: CreateIndexCommandInput,
@@ -290,16 +298,18 @@ export class kendra extends kendraClient {
   ): void;
   public createIndex(
     args: CreateIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateIndexCommandOutput) => void),
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -312,7 +322,7 @@ export class kendra extends kendraClient {
    */
   public deleteFaq(
     args: DeleteFaqCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFaqCommandOutput>;
   public deleteFaq(
     args: DeleteFaqCommandInput,
@@ -325,16 +335,18 @@ export class kendra extends kendraClient {
   ): void;
   public deleteFaq(
     args: DeleteFaqCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFaqCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFaqCommandOutput) => void),
     cb?: (err: any, data?: DeleteFaqCommandOutput) => void
   ): Promise<DeleteFaqCommandOutput> | void {
     const command = new DeleteFaqCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -349,7 +361,7 @@ export class kendra extends kendraClient {
    */
   public deleteIndex(
     args: DeleteIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteIndexCommandOutput>;
   public deleteIndex(
     args: DeleteIndexCommandInput,
@@ -362,16 +374,18 @@ export class kendra extends kendraClient {
   ): void;
   public deleteIndex(
     args: DeleteIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteIndexCommandOutput) => void),
     cb?: (err: any, data?: DeleteIndexCommandOutput) => void
   ): Promise<DeleteIndexCommandOutput> | void {
     const command = new DeleteIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -384,7 +398,7 @@ export class kendra extends kendraClient {
    */
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeDataSourceCommandOutput>;
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
@@ -397,16 +411,18 @@ export class kendra extends kendraClient {
   ): void;
   public describeDataSource(
     args: DescribeDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeDataSourceCommandOutput) => void),
     cb?: (err: any, data?: DescribeDataSourceCommandOutput) => void
   ): Promise<DescribeDataSourceCommandOutput> | void {
     const command = new DescribeDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -419,7 +435,7 @@ export class kendra extends kendraClient {
    */
   public describeFaq(
     args: DescribeFaqCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeFaqCommandOutput>;
   public describeFaq(
     args: DescribeFaqCommandInput,
@@ -432,16 +448,18 @@ export class kendra extends kendraClient {
   ): void;
   public describeFaq(
     args: DescribeFaqCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeFaqCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeFaqCommandOutput) => void),
     cb?: (err: any, data?: DescribeFaqCommandOutput) => void
   ): Promise<DescribeFaqCommandOutput> | void {
     const command = new DescribeFaqCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -454,7 +472,7 @@ export class kendra extends kendraClient {
    */
   public describeIndex(
     args: DescribeIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeIndexCommandOutput>;
   public describeIndex(
     args: DescribeIndexCommandInput,
@@ -467,16 +485,18 @@ export class kendra extends kendraClient {
   ): void;
   public describeIndex(
     args: DescribeIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeIndexCommandOutput) => void),
     cb?: (err: any, data?: DescribeIndexCommandOutput) => void
   ): Promise<DescribeIndexCommandOutput> | void {
     const command = new DescribeIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -489,7 +509,7 @@ export class kendra extends kendraClient {
    */
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDataSourceSyncJobsCommandOutput>;
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
@@ -502,16 +522,18 @@ export class kendra extends kendraClient {
   ): void;
   public listDataSourceSyncJobs(
     args: ListDataSourceSyncJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourceSyncJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSourceSyncJobsCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourceSyncJobsCommandOutput) => void
   ): Promise<ListDataSourceSyncJobsCommandOutput> | void {
     const command = new ListDataSourceSyncJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -524,7 +546,7 @@ export class kendra extends kendraClient {
    */
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDataSourcesCommandOutput>;
   public listDataSources(
     args: ListDataSourcesCommandInput,
@@ -537,16 +559,18 @@ export class kendra extends kendraClient {
   ): void;
   public listDataSources(
     args: ListDataSourcesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataSourcesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataSourcesCommandOutput) => void),
     cb?: (err: any, data?: ListDataSourcesCommandOutput) => void
   ): Promise<ListDataSourcesCommandOutput> | void {
     const command = new ListDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -559,7 +583,7 @@ export class kendra extends kendraClient {
    */
   public listFaqs(
     args: ListFaqsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFaqsCommandOutput>;
   public listFaqs(
     args: ListFaqsCommandInput,
@@ -572,16 +596,18 @@ export class kendra extends kendraClient {
   ): void;
   public listFaqs(
     args: ListFaqsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFaqsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFaqsCommandOutput) => void),
     cb?: (err: any, data?: ListFaqsCommandOutput) => void
   ): Promise<ListFaqsCommandOutput> | void {
     const command = new ListFaqsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -594,7 +620,7 @@ export class kendra extends kendraClient {
    */
   public listIndices(
     args: ListIndicesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListIndicesCommandOutput>;
   public listIndices(
     args: ListIndicesCommandInput,
@@ -607,16 +633,18 @@ export class kendra extends kendraClient {
   ): void;
   public listIndices(
     args: ListIndicesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIndicesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIndicesCommandOutput) => void),
     cb?: (err: any, data?: ListIndicesCommandOutput) => void
   ): Promise<ListIndicesCommandOutput> | void {
     const command = new ListIndicesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -648,7 +676,7 @@ export class kendra extends kendraClient {
    */
   public query(
     args: QueryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<QueryCommandOutput>;
   public query(
     args: QueryCommandInput,
@@ -661,16 +689,18 @@ export class kendra extends kendraClient {
   ): void;
   public query(
     args: QueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: QueryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: QueryCommandOutput) => void),
     cb?: (err: any, data?: QueryCommandOutput) => void
   ): Promise<QueryCommandOutput> | void {
     const command = new QueryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -684,7 +714,7 @@ export class kendra extends kendraClient {
    */
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartDataSourceSyncJobCommandOutput>;
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
@@ -697,16 +727,18 @@ export class kendra extends kendraClient {
   ): void;
   public startDataSourceSyncJob(
     args: StartDataSourceSyncJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDataSourceSyncJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartDataSourceSyncJobCommandOutput) => void),
     cb?: (err: any, data?: StartDataSourceSyncJobCommandOutput) => void
   ): Promise<StartDataSourceSyncJobCommandOutput> | void {
     const command = new StartDataSourceSyncJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -720,7 +752,7 @@ export class kendra extends kendraClient {
    */
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopDataSourceSyncJobCommandOutput>;
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
@@ -733,16 +765,18 @@ export class kendra extends kendraClient {
   ): void;
   public stopDataSourceSyncJob(
     args: StopDataSourceSyncJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopDataSourceSyncJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopDataSourceSyncJobCommandOutput) => void),
     cb?: (err: any, data?: StopDataSourceSyncJobCommandOutput) => void
   ): Promise<StopDataSourceSyncJobCommandOutput> | void {
     const command = new StopDataSourceSyncJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -756,7 +790,7 @@ export class kendra extends kendraClient {
    */
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SubmitFeedbackCommandOutput>;
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
@@ -769,16 +803,18 @@ export class kendra extends kendraClient {
   ): void;
   public submitFeedback(
     args: SubmitFeedbackCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SubmitFeedbackCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SubmitFeedbackCommandOutput) => void),
     cb?: (err: any, data?: SubmitFeedbackCommandOutput) => void
   ): Promise<SubmitFeedbackCommandOutput> | void {
     const command = new SubmitFeedbackCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -791,7 +827,7 @@ export class kendra extends kendraClient {
    */
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDataSourceCommandOutput>;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
@@ -804,16 +840,18 @@ export class kendra extends kendraClient {
   ): void;
   public updateDataSource(
     args: UpdateDataSourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDataSourceCommandOutput) => void),
     cb?: (err: any, data?: UpdateDataSourceCommandOutput) => void
   ): Promise<UpdateDataSourceCommandOutput> | void {
     const command = new UpdateDataSourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -826,7 +864,7 @@ export class kendra extends kendraClient {
    */
   public updateIndex(
     args: UpdateIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateIndexCommandOutput>;
   public updateIndex(
     args: UpdateIndexCommandInput,
@@ -839,19 +877,20 @@ export class kendra extends kendraClient {
   ): void;
   public updateIndex(
     args: UpdateIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateIndexCommandOutput) => void),
     cb?: (err: any, data?: UpdateIndexCommandOutput) => void
   ): Promise<UpdateIndexCommandOutput> | void {
     const command = new UpdateIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

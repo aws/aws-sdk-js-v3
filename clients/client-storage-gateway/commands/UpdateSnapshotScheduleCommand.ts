@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  StorageGatewayClientResolvedConfig,
+  StorageGatewayClientResolvedConfig
 } from "../StorageGatewayClient";
 import {
   UpdateSnapshotScheduleInput,
-  UpdateSnapshotScheduleOutput,
+  UpdateSnapshotScheduleOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateSnapshotScheduleCommand,
-  serializeAws_json1_1UpdateSnapshotScheduleCommand,
+  serializeAws_json1_1UpdateSnapshotScheduleCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateSnapshotScheduleCommandInput = UpdateSnapshotScheduleInput;
 export type UpdateSnapshotScheduleCommandOutput = UpdateSnapshotScheduleOutput;
 
-export class UpdateSnapshotScheduleCommand extends $Command<UpdateSnapshotScheduleCommandInput, UpdateSnapshotScheduleCommandOutput, StorageGatewayClientResolvedConfig> {
+export class UpdateSnapshotScheduleCommand extends $Command<
+  UpdateSnapshotScheduleCommandInput,
+  UpdateSnapshotScheduleCommandOutput,
+  StorageGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateSnapshotScheduleCommand extends $Command<UpdateSnapshotSchedu
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: StorageGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateSnapshotScheduleCommandInput, UpdateSnapshotScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateSnapshotScheduleCommandInput,
+    UpdateSnapshotScheduleCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

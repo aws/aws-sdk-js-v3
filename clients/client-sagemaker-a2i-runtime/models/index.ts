@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum ContentClassifier {
   FREE_OF_ADULT_CONTENT = "FreeOfAdultContent",
-  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation",
+  FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION = "FreeOfPersonallyIdentifiableInformation"
 }
 
 export interface DeleteHumanLoopRequest {
@@ -217,7 +217,7 @@ export enum HumanLoopStatus {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   STOPPED = "Stopped",
-  STOPPING = "Stopping",
+  STOPPING = "Stopping"
 }
 
 /**
@@ -296,7 +296,9 @@ export namespace HumanReviewDataAttributes {
  *          <p>Your request could not be processed.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -380,7 +382,9 @@ export namespace ListHumanLoopsResponse {
  *          <p>We were unable to find the requested resource.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -397,7 +401,9 @@ export namespace ResourceNotFoundException {
  *          <p>You have exceeded your service quota. To perform the requested action, remove some of the relevant resources, or request a service quota increase.</p>
  *
  */
-export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceQuotaExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -411,7 +417,7 @@ export namespace ServiceQuotaExceededException {
 
 export enum SortOrder {
   ASCENDING = "Ascending",
-  DESCENDING = "Descending",
+  DESCENDING = "Descending"
 }
 
 export interface StartHumanLoopRequest {
@@ -505,7 +511,9 @@ export namespace StopHumanLoopResponse {
  *          <p>Your request has exceeded the allowed amount of requests.</p>
  *
  */
-export interface ThrottlingException extends _smithy.SmithyException, $MetadataBearer {
+export interface ThrottlingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ThrottlingException";
   $fault: "client";
   Message?: string;
@@ -522,7 +530,9 @@ export namespace ThrottlingException {
  *          <p>Your request was not valid. Check the syntax and try again.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>You do not have authorization to perform the requested action.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -24,12 +26,12 @@ export enum AgentUpdateStatus {
   STAGED = "STAGED",
   STAGING = "STAGING",
   UPDATED = "UPDATED",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 export enum AssignPublicIp {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -161,7 +163,9 @@ export namespace Attribute {
  *             a resource with <a>DeleteAttributes</a>.</p>
  *
  */
-export interface AttributeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface AttributeLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttributeLimitExceededException";
   $fault: "client";
   message?: string;
@@ -268,7 +272,9 @@ export namespace AwsVpcConfiguration {
  *         <p>Your AWS account has been blocked. For more information, contact <a href="http://aws.amazon.com/contact-us/">AWS Support</a>.</p>
  *
  */
-export interface BlockedException extends _smithy.SmithyException, $MetadataBearer {
+export interface BlockedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BlockedException";
   $fault: "client";
   message?: string;
@@ -364,11 +370,11 @@ export namespace CapacityProvider {
 }
 
 export enum CapacityProviderField {
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 export enum CapacityProviderStatus {
-  ACTIVE = "ACTIVE",
+  ACTIVE = "ACTIVE"
 }
 
 /**
@@ -423,7 +429,9 @@ export namespace CapacityProviderStrategyItem {
  *             resource, or specifying an identifier that is not valid.</p>
  *
  */
-export interface ClientException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClientException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClientException";
   $fault: "client";
   message?: string;
@@ -640,7 +648,9 @@ export namespace Cluster {
  *                 <a>DeregisterContainerInstance</a>.</p>
  *
  */
-export interface ClusterContainsContainerInstancesException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterContainsContainerInstancesException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterContainsContainerInstancesException";
   $fault: "client";
   message?: string;
@@ -659,7 +669,9 @@ export namespace ClusterContainsContainerInstancesException {
  *             see <a>UpdateService</a> and <a>DeleteService</a>.</p>
  *
  */
-export interface ClusterContainsServicesException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterContainsServicesException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterContainsServicesException";
   $fault: "client";
   message?: string;
@@ -676,7 +688,9 @@ export namespace ClusterContainsServicesException {
  *         <p>You cannot delete a cluster that has active tasks.</p>
  *
  */
-export interface ClusterContainsTasksException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterContainsTasksException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterContainsTasksException";
   $fault: "client";
   message?: string;
@@ -692,7 +706,7 @@ export enum ClusterField {
   ATTACHMENTS = "ATTACHMENTS",
   SETTINGS = "SETTINGS",
   STATISTICS = "STATISTICS",
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 /**
@@ -701,7 +715,9 @@ export enum ClusterField {
  *                 <a>ListClusters</a>. Amazon ECS clusters are Region-specific.</p>
  *
  */
-export interface ClusterNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterNotFoundException";
   $fault: "client";
   message?: string;
@@ -749,17 +765,17 @@ export namespace ClusterSetting {
 }
 
 export enum ClusterSettingName {
-  CONTAINER_INSIGHTS = "containerInsights",
+  CONTAINER_INSIGHTS = "containerInsights"
 }
 
 export enum Compatibility {
   EC2 = "EC2",
-  FARGATE = "FARGATE",
+  FARGATE = "FARGATE"
 }
 
 export enum Connectivity {
   CONNECTED = "CONNECTED",
-  DISCONNECTED = "DISCONNECTED",
+  DISCONNECTED = "DISCONNECTED"
 }
 
 /**
@@ -901,7 +917,7 @@ export enum ContainerCondition {
   COMPLETE = "COMPLETE",
   HEALTHY = "HEALTHY",
   START = "START",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -1884,7 +1900,7 @@ export namespace ContainerInstance {
 }
 
 export enum ContainerInstanceField {
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 export enum ContainerInstanceStatus {
@@ -1892,7 +1908,7 @@ export enum ContainerInstanceStatus {
   DEREGISTERING = "DEREGISTERING",
   DRAINING = "DRAINING",
   REGISTERING = "REGISTERING",
-  REGISTRATION_FAILED = "REGISTRATION_FAILED",
+  REGISTRATION_FAILED = "REGISTRATION_FAILED"
 }
 
 /**
@@ -3211,7 +3227,7 @@ export namespace DeploymentController {
 export enum DeploymentControllerType {
   CODE_DEPLOY = "CODE_DEPLOY",
   ECS = "ECS",
-  EXTERNAL = "EXTERNAL",
+  EXTERNAL = "EXTERNAL"
 }
 
 export interface DeregisterContainerInstanceRequest {
@@ -3793,7 +3809,7 @@ export namespace DescribeTasksResponse {
 export enum DesiredStatus {
   PENDING = "PENDING",
   RUNNING = "RUNNING",
-  STOPPED = "STOPPED",
+  STOPPED = "STOPPED"
 }
 
 /**
@@ -3836,7 +3852,7 @@ export namespace Device {
 export enum DeviceCgroupPermission {
   MKNOD = "mknod",
   READ = "read",
-  WRITE = "write",
+  WRITE = "write"
 }
 
 export interface DiscoverPollEndpointRequest {
@@ -4035,7 +4051,7 @@ export namespace FirelensConfiguration {
 
 export enum FirelensConfigurationType {
   FLUENTBIT = "fluentbit",
-  FLUENTD = "fluentd",
+  FLUENTD = "fluentd"
 }
 
 /**
@@ -4130,7 +4146,7 @@ export namespace HealthCheck {
 export enum HealthStatus {
   HEALTHY = "HEALTHY",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 /**
@@ -4261,7 +4277,9 @@ export namespace InferenceAcceleratorOverride {
  *             request.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -4276,7 +4294,7 @@ export namespace InvalidParameterException {
 export enum IpcMode {
   HOST = "host",
   NONE = "none",
-  TASK = "task",
+  TASK = "task"
 }
 
 /**
@@ -4373,7 +4391,7 @@ export namespace KeyValuePair {
 
 export enum LaunchType {
   EC2 = "EC2",
-  FARGATE = "FARGATE",
+  FARGATE = "FARGATE"
 }
 
 /**
@@ -4381,7 +4399,9 @@ export enum LaunchType {
  *         <p>The limit for the resource has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -5435,7 +5455,7 @@ export enum LogDriver {
   JOURNALD = "journald",
   JSON_FILE = "json-file",
   SPLUNK = "splunk",
-  SYSLOG = "syslog",
+  SYSLOG = "syslog"
 }
 
 /**
@@ -5494,12 +5514,12 @@ export namespace ManagedScaling {
 
 export enum ManagedScalingStatus {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 export enum ManagedTerminationProtection {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -5510,7 +5530,9 @@ export enum ManagedTerminationProtection {
  *             version that does not use our version information.</p>
  *
  */
-export interface MissingVersionException extends _smithy.SmithyException, $MetadataBearer {
+export interface MissingVersionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MissingVersionException";
   $fault: "client";
   message?: string;
@@ -5669,7 +5691,7 @@ export enum NetworkMode {
   AWSVPC = "awsvpc",
   BRIDGE = "bridge",
   HOST = "host",
-  NONE = "none",
+  NONE = "none"
 }
 
 /**
@@ -5679,7 +5701,9 @@ export enum NetworkMode {
  *             path to the current version.</p>
  *
  */
-export interface NoUpdateAvailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoUpdateAvailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoUpdateAvailableException";
   $fault: "client";
   message?: string;
@@ -5693,7 +5717,7 @@ export namespace NoUpdateAvailableException {
 
 export enum PidMode {
   HOST = "host",
-  TASK = "task",
+  TASK = "task"
 }
 
 /**
@@ -5738,7 +5762,7 @@ export namespace PlacementConstraint {
 
 export enum PlacementConstraintType {
   DISTINCT_INSTANCE = "distinctInstance",
-  MEMBER_OF = "memberOf",
+  MEMBER_OF = "memberOf"
 }
 
 /**
@@ -5785,7 +5809,7 @@ export namespace PlacementStrategy {
 export enum PlacementStrategyType {
   BINPACK = "binpack",
   RANDOM = "random",
-  SPREAD = "spread",
+  SPREAD = "spread"
 }
 
 /**
@@ -5821,7 +5845,7 @@ export namespace PlatformDevice {
 }
 
 export enum PlatformDeviceType {
-  GPU = "GPU",
+  GPU = "GPU"
 }
 
 /**
@@ -5830,14 +5854,18 @@ export enum PlatformDeviceType {
  *             capabilities.</p>
  *
  */
-export interface PlatformTaskDefinitionIncompatibilityException extends _smithy.SmithyException, $MetadataBearer {
+export interface PlatformTaskDefinitionIncompatibilityException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PlatformTaskDefinitionIncompatibilityException";
   $fault: "client";
   message?: string;
 }
 
 export namespace PlatformTaskDefinitionIncompatibilityException {
-  export function isa(o: any): o is PlatformTaskDefinitionIncompatibilityException {
+  export function isa(
+    o: any
+  ): o is PlatformTaskDefinitionIncompatibilityException {
     return _smithy.isa(o, "PlatformTaskDefinitionIncompatibilityException");
   }
 }
@@ -5847,7 +5875,9 @@ export namespace PlatformTaskDefinitionIncompatibilityException {
  *         <p>The specified platform version does not exist.</p>
  *
  */
-export interface PlatformUnknownException extends _smithy.SmithyException, $MetadataBearer {
+export interface PlatformUnknownException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PlatformUnknownException";
   $fault: "client";
   message?: string;
@@ -5946,7 +5976,7 @@ export namespace PortMapping {
 
 export enum PropagateTags {
   SERVICE = "SERVICE",
-  TASK_DEFINITION = "TASK_DEFINITION",
+  TASK_DEFINITION = "TASK_DEFINITION"
 }
 
 /**
@@ -6039,7 +6069,7 @@ export namespace ProxyConfiguration {
 }
 
 export enum ProxyConfigurationType {
-  APPMESH = "APPMESH",
+  APPMESH = "APPMESH"
 }
 
 export interface PutAccountSettingDefaultRequest {
@@ -6233,7 +6263,9 @@ export interface PutClusterCapacityProvidersRequest {
    *             used.</p>
    *
    */
-  defaultCapacityProviderStrategy: Array<CapacityProviderStrategyItem> | undefined;
+  defaultCapacityProviderStrategy:
+    | Array<CapacityProviderStrategyItem>
+    | undefined;
 }
 
 export namespace PutClusterCapacityProvidersRequest {
@@ -6812,7 +6844,9 @@ export namespace Resource {
  *         <p>The specified resource is in-use and cannot be removed.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -6829,7 +6863,9 @@ export namespace ResourceInUseException {
  *         <p>The specified resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -6883,7 +6919,7 @@ export namespace ResourceRequirement {
 
 export enum ResourceType {
   GPU = "GPU",
-  INFERENCE_ACCELERATOR = "InferenceAccelerator",
+  INFERENCE_ACCELERATOR = "InferenceAccelerator"
 }
 
 export interface RunTaskRequest {
@@ -7155,17 +7191,17 @@ export namespace Scale {
 }
 
 export enum ScaleUnit {
-  PERCENT = "PERCENT",
+  PERCENT = "PERCENT"
 }
 
 export enum SchedulingStrategy {
   DAEMON = "DAEMON",
-  REPLICA = "REPLICA",
+  REPLICA = "REPLICA"
 }
 
 export enum Scope {
   SHARED = "shared",
-  TASK = "task",
+  TASK = "task"
 }
 
 /**
@@ -7220,7 +7256,9 @@ export namespace Secret {
  *         <p>These errors are usually caused by a server issue.</p>
  *
  */
-export interface ServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServerException";
   $fault: "server";
   message?: string;
@@ -7568,7 +7606,7 @@ export namespace ServiceEvent {
 }
 
 export enum ServiceField {
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 /**
@@ -7577,7 +7615,9 @@ export enum ServiceField {
  *             you have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
  *
  */
-export interface ServiceNotActiveException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceNotActiveException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceNotActiveException";
   $fault: "client";
   message?: string;
@@ -7596,7 +7636,9 @@ export namespace ServiceNotActiveException {
  *             Region-specific.</p>
  *
  */
-export interface ServiceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceNotFoundException";
   $fault: "client";
   message?: string;
@@ -7708,17 +7750,17 @@ export enum SettingName {
   CONTAINER_INSIGHTS = "containerInsights",
   CONTAINER_INSTANCE_LONG_ARN_FORMAT = "containerInstanceLongArnFormat",
   SERVICE_LONG_ARN_FORMAT = "serviceLongArnFormat",
-  TASK_LONG_ARN_FORMAT = "taskLongArnFormat",
+  TASK_LONG_ARN_FORMAT = "taskLongArnFormat"
 }
 
 export enum SortOrder {
   ASC = "ASC",
-  DESC = "DESC",
+  DESC = "DESC"
 }
 
 export enum StabilityStatus {
   STABILIZING = "STABILIZING",
-  STEADY_STATE = "STEADY_STATE",
+  STEADY_STATE = "STEADY_STATE"
 }
 
 export interface StartTaskRequest {
@@ -8332,7 +8374,9 @@ export namespace TagResourceResponse {
  *             cluster-specific and Region-specific.</p>
  *
  */
-export interface TargetNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface TargetNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TargetNotFoundException";
   $fault: "client";
   message?: string;
@@ -8345,7 +8389,7 @@ export namespace TargetNotFoundException {
 }
 
 export enum TargetType {
-  CONTAINER_INSTANCE = "container-instance",
+  CONTAINER_INSTANCE = "container-instance"
 }
 
 /**
@@ -9015,11 +9059,11 @@ export namespace TaskDefinition {
 export enum TaskDefinitionFamilyStatus {
   ACTIVE = "ACTIVE",
   ALL = "ALL",
-  INACTIVE = "INACTIVE",
+  INACTIVE = "INACTIVE"
 }
 
 export enum TaskDefinitionField {
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 /**
@@ -9060,16 +9104,16 @@ export namespace TaskDefinitionPlacementConstraint {
 }
 
 export enum TaskDefinitionPlacementConstraintType {
-  MEMBER_OF = "memberOf",
+  MEMBER_OF = "memberOf"
 }
 
 export enum TaskDefinitionStatus {
   ACTIVE = "ACTIVE",
-  INACTIVE = "INACTIVE",
+  INACTIVE = "INACTIVE"
 }
 
 export enum TaskField {
-  TAGS = "TAGS",
+  TAGS = "TAGS"
 }
 
 /**
@@ -9368,7 +9412,9 @@ export namespace TaskSet {
  *             and Region.</p>
  *
  */
-export interface TaskSetNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface TaskSetNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TaskSetNotFoundException";
   $fault: "client";
   message?: string;
@@ -9383,7 +9429,7 @@ export namespace TaskSetNotFoundException {
 export enum TaskStopCode {
   ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
   TASK_FAILED_TO_START = "TaskFailedToStart",
-  USER_INITIATED = "UserInitiated",
+  USER_INITIATED = "UserInitiated"
 }
 
 /**
@@ -9430,7 +9476,7 @@ export namespace Tmpfs {
 
 export enum TransportProtocol {
   TCP = "tcp",
-  UDP = "udp",
+  UDP = "udp"
 }
 
 /**
@@ -9483,7 +9529,7 @@ export enum UlimitName {
   RTPRIO = "rtprio",
   RTTIME = "rttime",
   SIGPENDING = "sigpending",
-  STACK = "stack",
+  STACK = "stack"
 }
 
 /**
@@ -9491,7 +9537,9 @@ export enum UlimitName {
  *         <p>The specified task is not supported in this Region.</p>
  *
  */
-export interface UnsupportedFeatureException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedFeatureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedFeatureException";
   $fault: "client";
   message?: string;
@@ -9693,7 +9741,9 @@ export namespace UpdateContainerInstancesStateResponse {
  *             where it stopped previously.</p>
  *
  */
-export interface UpdateInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface UpdateInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UpdateInProgressException";
   $fault: "client";
   message?: string;

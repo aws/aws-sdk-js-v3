@@ -1,114 +1,114 @@
 import {
   AddTagsToStreamCommandInput,
-  AddTagsToStreamCommandOutput,
+  AddTagsToStreamCommandOutput
 } from "../commands/AddTagsToStreamCommand";
 import {
   CreateStreamCommandInput,
-  CreateStreamCommandOutput,
+  CreateStreamCommandOutput
 } from "../commands/CreateStreamCommand";
 import {
   DecreaseStreamRetentionPeriodCommandInput,
-  DecreaseStreamRetentionPeriodCommandOutput,
+  DecreaseStreamRetentionPeriodCommandOutput
 } from "../commands/DecreaseStreamRetentionPeriodCommand";
 import {
   DeleteStreamCommandInput,
-  DeleteStreamCommandOutput,
+  DeleteStreamCommandOutput
 } from "../commands/DeleteStreamCommand";
 import {
   DeregisterStreamConsumerCommandInput,
-  DeregisterStreamConsumerCommandOutput,
+  DeregisterStreamConsumerCommandOutput
 } from "../commands/DeregisterStreamConsumerCommand";
 import {
   DescribeLimitsCommandInput,
-  DescribeLimitsCommandOutput,
+  DescribeLimitsCommandOutput
 } from "../commands/DescribeLimitsCommand";
 import {
   DescribeStreamCommandInput,
-  DescribeStreamCommandOutput,
+  DescribeStreamCommandOutput
 } from "../commands/DescribeStreamCommand";
 import {
   DescribeStreamConsumerCommandInput,
-  DescribeStreamConsumerCommandOutput,
+  DescribeStreamConsumerCommandOutput
 } from "../commands/DescribeStreamConsumerCommand";
 import {
   DescribeStreamSummaryCommandInput,
-  DescribeStreamSummaryCommandOutput,
+  DescribeStreamSummaryCommandOutput
 } from "../commands/DescribeStreamSummaryCommand";
 import {
   DisableEnhancedMonitoringCommandInput,
-  DisableEnhancedMonitoringCommandOutput,
+  DisableEnhancedMonitoringCommandOutput
 } from "../commands/DisableEnhancedMonitoringCommand";
 import {
   EnableEnhancedMonitoringCommandInput,
-  EnableEnhancedMonitoringCommandOutput,
+  EnableEnhancedMonitoringCommandOutput
 } from "../commands/EnableEnhancedMonitoringCommand";
 import {
   GetRecordsCommandInput,
-  GetRecordsCommandOutput,
+  GetRecordsCommandOutput
 } from "../commands/GetRecordsCommand";
 import {
   GetShardIteratorCommandInput,
-  GetShardIteratorCommandOutput,
+  GetShardIteratorCommandOutput
 } from "../commands/GetShardIteratorCommand";
 import {
   IncreaseStreamRetentionPeriodCommandInput,
-  IncreaseStreamRetentionPeriodCommandOutput,
+  IncreaseStreamRetentionPeriodCommandOutput
 } from "../commands/IncreaseStreamRetentionPeriodCommand";
 import {
   ListShardsCommandInput,
-  ListShardsCommandOutput,
+  ListShardsCommandOutput
 } from "../commands/ListShardsCommand";
 import {
   ListStreamConsumersCommandInput,
-  ListStreamConsumersCommandOutput,
+  ListStreamConsumersCommandOutput
 } from "../commands/ListStreamConsumersCommand";
 import {
   ListStreamsCommandInput,
-  ListStreamsCommandOutput,
+  ListStreamsCommandOutput
 } from "../commands/ListStreamsCommand";
 import {
   ListTagsForStreamCommandInput,
-  ListTagsForStreamCommandOutput,
+  ListTagsForStreamCommandOutput
 } from "../commands/ListTagsForStreamCommand";
 import {
   MergeShardsCommandInput,
-  MergeShardsCommandOutput,
+  MergeShardsCommandOutput
 } from "../commands/MergeShardsCommand";
 import {
   PutRecordCommandInput,
-  PutRecordCommandOutput,
+  PutRecordCommandOutput
 } from "../commands/PutRecordCommand";
 import {
   PutRecordsCommandInput,
-  PutRecordsCommandOutput,
+  PutRecordsCommandOutput
 } from "../commands/PutRecordsCommand";
 import {
   RegisterStreamConsumerCommandInput,
-  RegisterStreamConsumerCommandOutput,
+  RegisterStreamConsumerCommandOutput
 } from "../commands/RegisterStreamConsumerCommand";
 import {
   RemoveTagsFromStreamCommandInput,
-  RemoveTagsFromStreamCommandOutput,
+  RemoveTagsFromStreamCommandOutput
 } from "../commands/RemoveTagsFromStreamCommand";
 import {
   SplitShardCommandInput,
-  SplitShardCommandOutput,
+  SplitShardCommandOutput
 } from "../commands/SplitShardCommand";
 import {
   StartStreamEncryptionCommandInput,
-  StartStreamEncryptionCommandOutput,
+  StartStreamEncryptionCommandOutput
 } from "../commands/StartStreamEncryptionCommand";
 import {
   StopStreamEncryptionCommandInput,
-  StopStreamEncryptionCommandOutput,
+  StopStreamEncryptionCommandOutput
 } from "../commands/StopStreamEncryptionCommand";
 import {
   SubscribeToShardCommandInput,
-  SubscribeToShardCommandOutput,
+  SubscribeToShardCommandOutput
 } from "../commands/SubscribeToShardCommand";
 import {
   UpdateShardCountCommandInput,
-  UpdateShardCountCommandOutput,
+  UpdateShardCountCommandOutput
 } from "../commands/UpdateShardCountCommand";
 import {
   AddTagsToStreamInput,
@@ -184,18 +184,18 @@ import {
   Tag,
   UpdateShardCountInput,
   UpdateShardCountOutput,
-  _Record,
+  _Record
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AddTagsToStreamCommand(
@@ -203,11 +203,14 @@ export async function serializeAws_json1_1AddTagsToStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.AddTagsToStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.AddTagsToStream";
   let body: any = {};
   const wrappedBody: any = {
-    AddTagsToStreamInput: serializeAws_json1_1AddTagsToStreamInput(input, context),
+    AddTagsToStreamInput: serializeAws_json1_1AddTagsToStreamInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -216,7 +219,7 @@ export async function serializeAws_json1_1AddTagsToStreamCommand(
     method: "POST",
     path: "/AddTagsToStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -225,11 +228,11 @@ export async function serializeAws_json1_1CreateStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.CreateStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.CreateStream";
   let body: any = {};
   const wrappedBody: any = {
-    CreateStreamInput: serializeAws_json1_1CreateStreamInput(input, context),
+    CreateStreamInput: serializeAws_json1_1CreateStreamInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -238,7 +241,7 @@ export async function serializeAws_json1_1CreateStreamCommand(
     method: "POST",
     path: "/CreateStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -247,11 +250,14 @@ export async function serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DecreaseStreamRetentionPeriod";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DecreaseStreamRetentionPeriod";
   let body: any = {};
   const wrappedBody: any = {
-    DecreaseStreamRetentionPeriodInput: serializeAws_json1_1DecreaseStreamRetentionPeriodInput(input, context),
+    DecreaseStreamRetentionPeriodInput: serializeAws_json1_1DecreaseStreamRetentionPeriodInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -260,7 +266,7 @@ export async function serializeAws_json1_1DecreaseStreamRetentionPeriodCommand(
     method: "POST",
     path: "/DecreaseStreamRetentionPeriod",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -269,11 +275,11 @@ export async function serializeAws_json1_1DeleteStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DeleteStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DeleteStream";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteStreamInput: serializeAws_json1_1DeleteStreamInput(input, context),
+    DeleteStreamInput: serializeAws_json1_1DeleteStreamInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -282,7 +288,7 @@ export async function serializeAws_json1_1DeleteStreamCommand(
     method: "POST",
     path: "/DeleteStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -291,11 +297,14 @@ export async function serializeAws_json1_1DeregisterStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DeregisterStreamConsumer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DeregisterStreamConsumer";
   let body: any = {};
   const wrappedBody: any = {
-    DeregisterStreamConsumerInput: serializeAws_json1_1DeregisterStreamConsumerInput(input, context),
+    DeregisterStreamConsumerInput: serializeAws_json1_1DeregisterStreamConsumerInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -304,7 +313,7 @@ export async function serializeAws_json1_1DeregisterStreamConsumerCommand(
     method: "POST",
     path: "/DeregisterStreamConsumer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -313,11 +322,11 @@ export async function serializeAws_json1_1DescribeLimitsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DescribeLimits";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DescribeLimits";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLimitsInput: serializeAws_json1_1DescribeLimitsInput(input, context),
+    DescribeLimitsInput: serializeAws_json1_1DescribeLimitsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -326,7 +335,7 @@ export async function serializeAws_json1_1DescribeLimitsCommand(
     method: "POST",
     path: "/DescribeLimits",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -335,11 +344,11 @@ export async function serializeAws_json1_1DescribeStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DescribeStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStream";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStreamInput: serializeAws_json1_1DescribeStreamInput(input, context),
+    DescribeStreamInput: serializeAws_json1_1DescribeStreamInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -348,7 +357,7 @@ export async function serializeAws_json1_1DescribeStreamCommand(
     method: "POST",
     path: "/DescribeStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -357,11 +366,14 @@ export async function serializeAws_json1_1DescribeStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DescribeStreamConsumer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStreamConsumer";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStreamConsumerInput: serializeAws_json1_1DescribeStreamConsumerInput(input, context),
+    DescribeStreamConsumerInput: serializeAws_json1_1DescribeStreamConsumerInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -370,7 +382,7 @@ export async function serializeAws_json1_1DescribeStreamConsumerCommand(
     method: "POST",
     path: "/DescribeStreamConsumer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -379,11 +391,14 @@ export async function serializeAws_json1_1DescribeStreamSummaryCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DescribeStreamSummary";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DescribeStreamSummary";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeStreamSummaryInput: serializeAws_json1_1DescribeStreamSummaryInput(input, context),
+    DescribeStreamSummaryInput: serializeAws_json1_1DescribeStreamSummaryInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -392,7 +407,7 @@ export async function serializeAws_json1_1DescribeStreamSummaryCommand(
     method: "POST",
     path: "/DescribeStreamSummary",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -401,11 +416,14 @@ export async function serializeAws_json1_1DisableEnhancedMonitoringCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.DisableEnhancedMonitoring";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.DisableEnhancedMonitoring";
   let body: any = {};
   const wrappedBody: any = {
-    DisableEnhancedMonitoringInput: serializeAws_json1_1DisableEnhancedMonitoringInput(input, context),
+    DisableEnhancedMonitoringInput: serializeAws_json1_1DisableEnhancedMonitoringInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -414,7 +432,7 @@ export async function serializeAws_json1_1DisableEnhancedMonitoringCommand(
     method: "POST",
     path: "/DisableEnhancedMonitoring",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -423,11 +441,14 @@ export async function serializeAws_json1_1EnableEnhancedMonitoringCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.EnableEnhancedMonitoring";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.EnableEnhancedMonitoring";
   let body: any = {};
   const wrappedBody: any = {
-    EnableEnhancedMonitoringInput: serializeAws_json1_1EnableEnhancedMonitoringInput(input, context),
+    EnableEnhancedMonitoringInput: serializeAws_json1_1EnableEnhancedMonitoringInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -436,7 +457,7 @@ export async function serializeAws_json1_1EnableEnhancedMonitoringCommand(
     method: "POST",
     path: "/EnableEnhancedMonitoring",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -445,11 +466,11 @@ export async function serializeAws_json1_1GetRecordsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.GetRecords";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.GetRecords";
   let body: any = {};
   const wrappedBody: any = {
-    GetRecordsInput: serializeAws_json1_1GetRecordsInput(input, context),
+    GetRecordsInput: serializeAws_json1_1GetRecordsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -458,7 +479,7 @@ export async function serializeAws_json1_1GetRecordsCommand(
     method: "POST",
     path: "/GetRecords",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -467,11 +488,14 @@ export async function serializeAws_json1_1GetShardIteratorCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.GetShardIterator";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.GetShardIterator";
   let body: any = {};
   const wrappedBody: any = {
-    GetShardIteratorInput: serializeAws_json1_1GetShardIteratorInput(input, context),
+    GetShardIteratorInput: serializeAws_json1_1GetShardIteratorInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -480,7 +504,7 @@ export async function serializeAws_json1_1GetShardIteratorCommand(
     method: "POST",
     path: "/GetShardIterator",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -489,11 +513,14 @@ export async function serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.IncreaseStreamRetentionPeriod";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.IncreaseStreamRetentionPeriod";
   let body: any = {};
   const wrappedBody: any = {
-    IncreaseStreamRetentionPeriodInput: serializeAws_json1_1IncreaseStreamRetentionPeriodInput(input, context),
+    IncreaseStreamRetentionPeriodInput: serializeAws_json1_1IncreaseStreamRetentionPeriodInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -502,7 +529,7 @@ export async function serializeAws_json1_1IncreaseStreamRetentionPeriodCommand(
     method: "POST",
     path: "/IncreaseStreamRetentionPeriod",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -511,11 +538,11 @@ export async function serializeAws_json1_1ListShardsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.ListShards";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.ListShards";
   let body: any = {};
   const wrappedBody: any = {
-    ListShardsInput: serializeAws_json1_1ListShardsInput(input, context),
+    ListShardsInput: serializeAws_json1_1ListShardsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -524,7 +551,7 @@ export async function serializeAws_json1_1ListShardsCommand(
     method: "POST",
     path: "/ListShards",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -533,11 +560,14 @@ export async function serializeAws_json1_1ListStreamConsumersCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.ListStreamConsumers";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.ListStreamConsumers";
   let body: any = {};
   const wrappedBody: any = {
-    ListStreamConsumersInput: serializeAws_json1_1ListStreamConsumersInput(input, context),
+    ListStreamConsumersInput: serializeAws_json1_1ListStreamConsumersInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -546,7 +576,7 @@ export async function serializeAws_json1_1ListStreamConsumersCommand(
     method: "POST",
     path: "/ListStreamConsumers",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -555,11 +585,11 @@ export async function serializeAws_json1_1ListStreamsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.ListStreams";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.ListStreams";
   let body: any = {};
   const wrappedBody: any = {
-    ListStreamsInput: serializeAws_json1_1ListStreamsInput(input, context),
+    ListStreamsInput: serializeAws_json1_1ListStreamsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -568,7 +598,7 @@ export async function serializeAws_json1_1ListStreamsCommand(
     method: "POST",
     path: "/ListStreams",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -577,11 +607,14 @@ export async function serializeAws_json1_1ListTagsForStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.ListTagsForStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.ListTagsForStream";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForStreamInput: serializeAws_json1_1ListTagsForStreamInput(input, context),
+    ListTagsForStreamInput: serializeAws_json1_1ListTagsForStreamInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -590,7 +623,7 @@ export async function serializeAws_json1_1ListTagsForStreamCommand(
     method: "POST",
     path: "/ListTagsForStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -599,11 +632,11 @@ export async function serializeAws_json1_1MergeShardsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.MergeShards";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.MergeShards";
   let body: any = {};
   const wrappedBody: any = {
-    MergeShardsInput: serializeAws_json1_1MergeShardsInput(input, context),
+    MergeShardsInput: serializeAws_json1_1MergeShardsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -612,7 +645,7 @@ export async function serializeAws_json1_1MergeShardsCommand(
     method: "POST",
     path: "/MergeShards",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -621,11 +654,11 @@ export async function serializeAws_json1_1PutRecordCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.PutRecord";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.PutRecord";
   let body: any = {};
   const wrappedBody: any = {
-    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context),
+    PutRecordInput: serializeAws_json1_1PutRecordInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -634,7 +667,7 @@ export async function serializeAws_json1_1PutRecordCommand(
     method: "POST",
     path: "/PutRecord",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -643,11 +676,11 @@ export async function serializeAws_json1_1PutRecordsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.PutRecords";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.PutRecords";
   let body: any = {};
   const wrappedBody: any = {
-    PutRecordsInput: serializeAws_json1_1PutRecordsInput(input, context),
+    PutRecordsInput: serializeAws_json1_1PutRecordsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -656,7 +689,7 @@ export async function serializeAws_json1_1PutRecordsCommand(
     method: "POST",
     path: "/PutRecords",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -665,11 +698,14 @@ export async function serializeAws_json1_1RegisterStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.RegisterStreamConsumer";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.RegisterStreamConsumer";
   let body: any = {};
   const wrappedBody: any = {
-    RegisterStreamConsumerInput: serializeAws_json1_1RegisterStreamConsumerInput(input, context),
+    RegisterStreamConsumerInput: serializeAws_json1_1RegisterStreamConsumerInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -678,7 +714,7 @@ export async function serializeAws_json1_1RegisterStreamConsumerCommand(
     method: "POST",
     path: "/RegisterStreamConsumer",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -687,11 +723,14 @@ export async function serializeAws_json1_1RemoveTagsFromStreamCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.RemoveTagsFromStream";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.RemoveTagsFromStream";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveTagsFromStreamInput: serializeAws_json1_1RemoveTagsFromStreamInput(input, context),
+    RemoveTagsFromStreamInput: serializeAws_json1_1RemoveTagsFromStreamInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -700,7 +739,7 @@ export async function serializeAws_json1_1RemoveTagsFromStreamCommand(
     method: "POST",
     path: "/RemoveTagsFromStream",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -709,11 +748,11 @@ export async function serializeAws_json1_1SplitShardCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.SplitShard";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.SplitShard";
   let body: any = {};
   const wrappedBody: any = {
-    SplitShardInput: serializeAws_json1_1SplitShardInput(input, context),
+    SplitShardInput: serializeAws_json1_1SplitShardInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -722,7 +761,7 @@ export async function serializeAws_json1_1SplitShardCommand(
     method: "POST",
     path: "/SplitShard",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -731,11 +770,14 @@ export async function serializeAws_json1_1StartStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.StartStreamEncryption";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.StartStreamEncryption";
   let body: any = {};
   const wrappedBody: any = {
-    StartStreamEncryptionInput: serializeAws_json1_1StartStreamEncryptionInput(input, context),
+    StartStreamEncryptionInput: serializeAws_json1_1StartStreamEncryptionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -744,7 +786,7 @@ export async function serializeAws_json1_1StartStreamEncryptionCommand(
     method: "POST",
     path: "/StartStreamEncryption",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -753,11 +795,14 @@ export async function serializeAws_json1_1StopStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.StopStreamEncryption";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.StopStreamEncryption";
   let body: any = {};
   const wrappedBody: any = {
-    StopStreamEncryptionInput: serializeAws_json1_1StopStreamEncryptionInput(input, context),
+    StopStreamEncryptionInput: serializeAws_json1_1StopStreamEncryptionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -766,7 +811,7 @@ export async function serializeAws_json1_1StopStreamEncryptionCommand(
     method: "POST",
     path: "/StopStreamEncryption",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -775,11 +820,14 @@ export async function serializeAws_json1_1SubscribeToShardCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.SubscribeToShard";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.SubscribeToShard";
   let body: any = {};
   const wrappedBody: any = {
-    SubscribeToShardInput: serializeAws_json1_1SubscribeToShardInput(input, context),
+    SubscribeToShardInput: serializeAws_json1_1SubscribeToShardInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -788,7 +836,7 @@ export async function serializeAws_json1_1SubscribeToShardCommand(
     method: "POST",
     path: "/SubscribeToShard",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -797,11 +845,14 @@ export async function serializeAws_json1_1UpdateShardCountCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "Kinesis_20131202.UpdateShardCount";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "Kinesis_20131202.UpdateShardCount";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateShardCountInput: serializeAws_json1_1UpdateShardCountInput(input, context),
+    UpdateShardCountInput: serializeAws_json1_1UpdateShardCountInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -810,7 +861,7 @@ export async function serializeAws_json1_1UpdateShardCountCommand(
     method: "POST",
     path: "/UpdateShardCount",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -822,46 +873,59 @@ export async function deserializeAws_json1_1AddTagsToStreamCommand(
     return deserializeAws_json1_1AddTagsToStreamCommandError(output, context);
   }
   const response: AddTagsToStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddTagsToStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddTagsToStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -875,42 +939,52 @@ export async function deserializeAws_json1_1CreateStreamCommand(
     return deserializeAws_json1_1CreateStreamCommandError(output, context);
   }
   const response: CreateStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -921,49 +995,65 @@ export async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand
   context: __SerdeContext
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(output, context);
+    return deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(
+      output,
+      context
+    );
   }
   const response: DecreaseStreamRetentionPeriodCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -977,42 +1067,52 @@ export async function deserializeAws_json1_1DeleteStreamCommand(
     return deserializeAws_json1_1DeleteStreamCommandError(output, context);
   }
   const response: DeleteStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1023,45 +1123,58 @@ export async function deserializeAws_json1_1DeregisterStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<DeregisterStreamConsumerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeregisterStreamConsumerCommandError(output, context);
+    return deserializeAws_json1_1DeregisterStreamConsumerCommandError(
+      output,
+      context
+    );
   }
   const response: DeregisterStreamConsumerCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeregisterStreamConsumerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeregisterStreamConsumerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1074,40 +1187,44 @@ export async function deserializeAws_json1_1DescribeLimitsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeLimitsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLimitsOutput(data, context);
   const response: DescribeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLimitsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLimitsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeLimitsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1120,44 +1237,51 @@ export async function deserializeAws_json1_1DescribeStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStreamOutput(data, context);
   const response: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStreamOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1168,50 +1292,63 @@ export async function deserializeAws_json1_1DescribeStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<DescribeStreamConsumerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeStreamConsumerCommandError(output, context);
+    return deserializeAws_json1_1DescribeStreamConsumerCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStreamConsumerOutput(data, context);
   const response: DescribeStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStreamConsumerOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeStreamConsumerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStreamConsumerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1222,46 +1359,56 @@ export async function deserializeAws_json1_1DescribeStreamSummaryCommand(
   context: __SerdeContext
 ): Promise<DescribeStreamSummaryCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeStreamSummaryCommandError(output, context);
+    return deserializeAws_json1_1DescribeStreamSummaryCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeStreamSummaryOutput(data, context);
   const response: DescribeStreamSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStreamSummaryOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeStreamSummaryCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeStreamSummaryCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1272,54 +1419,70 @@ export async function deserializeAws_json1_1DisableEnhancedMonitoringCommand(
   context: __SerdeContext
 ): Promise<DisableEnhancedMonitoringCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisableEnhancedMonitoringCommandError(output, context);
+    return deserializeAws_json1_1DisableEnhancedMonitoringCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EnhancedMonitoringOutput(data, context);
   const response: DisableEnhancedMonitoringCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnhancedMonitoringOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DisableEnhancedMonitoringCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisableEnhancedMonitoringCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1330,54 +1493,70 @@ export async function deserializeAws_json1_1EnableEnhancedMonitoringCommand(
   context: __SerdeContext
 ): Promise<EnableEnhancedMonitoringCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1EnableEnhancedMonitoringCommandError(output, context);
+    return deserializeAws_json1_1EnableEnhancedMonitoringCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EnhancedMonitoringOutput(data, context);
   const response: EnableEnhancedMonitoringCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EnhancedMonitoringOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1EnableEnhancedMonitoringCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<EnableEnhancedMonitoringCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1390,76 +1569,107 @@ export async function deserializeAws_json1_1GetRecordsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetRecordsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetRecordsOutput(data, context);
   const response: GetRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRecordsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetRecordsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredIteratorException":
     case "com.amazonaws.kinesis.v20131202#ExpiredIteratorException":
-      response = await deserializeAws_json1_1ExpiredIteratorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ExpiredIteratorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
-      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSDisabledException":
     case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
-      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSInvalidStateException":
     case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
-      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSNotFoundException":
     case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
-      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSOptInRequired":
     case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
-      response = await deserializeAws_json1_1KMSOptInRequiredResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSOptInRequiredResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSThrottlingException":
     case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
-      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1472,48 +1682,58 @@ export async function deserializeAws_json1_1GetShardIteratorCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetShardIteratorCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetShardIteratorOutput(data, context);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetShardIteratorOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetShardIteratorCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1524,49 +1744,65 @@ export async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand
   context: __SerdeContext
 ): Promise<IncreaseStreamRetentionPeriodCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(output, context);
+    return deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(
+      output,
+      context
+    );
   }
   const response: IncreaseStreamRetentionPeriodCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<IncreaseStreamRetentionPeriodCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1579,56 +1815,72 @@ export async function deserializeAws_json1_1ListShardsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListShardsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListShardsOutput(data, context);
   const response: ListShardsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListShardsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListShardsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListShardsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis.v20131202#ExpiredNextTokenException":
-      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1639,58 +1891,77 @@ export async function deserializeAws_json1_1ListStreamConsumersCommand(
   context: __SerdeContext
 ): Promise<ListStreamConsumersCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListStreamConsumersCommandError(output, context);
+    return deserializeAws_json1_1ListStreamConsumersCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListStreamConsumersOutput(data, context);
   const response: ListStreamConsumersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStreamConsumersOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListStreamConsumersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListStreamConsumersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "ExpiredNextTokenException":
     case "com.amazonaws.kinesis.v20131202#ExpiredNextTokenException":
-      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ExpiredNextTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1703,40 +1974,44 @@ export async function deserializeAws_json1_1ListStreamsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListStreamsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListStreamsOutput(data, context);
   const response: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStreamsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListStreamsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1749,48 +2024,58 @@ export async function deserializeAws_json1_1ListTagsForStreamCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTagsForStreamCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForStreamOutput(data, context);
   const response: ListTagsForStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForStreamOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1804,46 +2089,59 @@ export async function deserializeAws_json1_1MergeShardsCommand(
     return deserializeAws_json1_1MergeShardsCommandError(output, context);
   }
   const response: MergeShardsCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1MergeShardsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<MergeShardsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1856,72 +2154,100 @@ export async function deserializeAws_json1_1PutRecordCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutRecordCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRecordOutput(data, context);
   const response: PutRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutRecordCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutRecordCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
-      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSDisabledException":
     case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
-      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSInvalidStateException":
     case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
-      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSNotFoundException":
     case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
-      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSOptInRequired":
     case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
-      response = await deserializeAws_json1_1KMSOptInRequiredResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSOptInRequiredResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSThrottlingException":
     case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
-      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1934,72 +2260,100 @@ export async function deserializeAws_json1_1PutRecordsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutRecordsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutRecordsOutput(data, context);
   const response: PutRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutRecordsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutRecordsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutRecordsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
-      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSDisabledException":
     case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
-      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSInvalidStateException":
     case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
-      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSNotFoundException":
     case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
-      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSOptInRequired":
     case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
-      response = await deserializeAws_json1_1KMSOptInRequiredResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSOptInRequiredResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSThrottlingException":
     case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
-      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis.v20131202#ProvisionedThroughputExceededException":
-      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2010,54 +2364,70 @@ export async function deserializeAws_json1_1RegisterStreamConsumerCommand(
   context: __SerdeContext
 ): Promise<RegisterStreamConsumerCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RegisterStreamConsumerCommandError(output, context);
+    return deserializeAws_json1_1RegisterStreamConsumerCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RegisterStreamConsumerOutput(data, context);
   const response: RegisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RegisterStreamConsumerOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RegisterStreamConsumerCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RegisterStreamConsumerCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2068,49 +2438,65 @@ export async function deserializeAws_json1_1RemoveTagsFromStreamCommand(
   context: __SerdeContext
 ): Promise<RemoveTagsFromStreamCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1RemoveTagsFromStreamCommandError(output, context);
+    return deserializeAws_json1_1RemoveTagsFromStreamCommandError(
+      output,
+      context
+    );
   }
   const response: RemoveTagsFromStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveTagsFromStreamCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveTagsFromStreamCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2124,46 +2510,59 @@ export async function deserializeAws_json1_1SplitShardCommand(
     return deserializeAws_json1_1SplitShardCommandError(output, context);
   }
   const response: SplitShardCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SplitShardCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SplitShardCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2174,73 +2573,107 @@ export async function deserializeAws_json1_1StartStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<StartStreamEncryptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartStreamEncryptionCommandError(output, context);
+    return deserializeAws_json1_1StartStreamEncryptionCommandError(
+      output,
+      context
+    );
   }
   const response: StartStreamEncryptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartStreamEncryptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartStreamEncryptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis.v20131202#KMSAccessDeniedException":
-      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSAccessDeniedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSDisabledException":
     case "com.amazonaws.kinesis.v20131202#KMSDisabledException":
-      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSDisabledExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSInvalidStateException":
     case "com.amazonaws.kinesis.v20131202#KMSInvalidStateException":
-      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSInvalidStateExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSNotFoundException":
     case "com.amazonaws.kinesis.v20131202#KMSNotFoundException":
-      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSOptInRequired":
     case "com.amazonaws.kinesis.v20131202#KMSOptInRequired":
-      response = await deserializeAws_json1_1KMSOptInRequiredResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSOptInRequiredResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "KMSThrottlingException":
     case "com.amazonaws.kinesis.v20131202#KMSThrottlingException":
-      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1KMSThrottlingExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2251,49 +2684,65 @@ export async function deserializeAws_json1_1StopStreamEncryptionCommand(
   context: __SerdeContext
 ): Promise<StopStreamEncryptionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StopStreamEncryptionCommandError(output, context);
+    return deserializeAws_json1_1StopStreamEncryptionCommandError(
+      output,
+      context
+    );
   }
   const response: StopStreamEncryptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StopStreamEncryptionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StopStreamEncryptionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2306,52 +2755,65 @@ export async function deserializeAws_json1_1SubscribeToShardCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SubscribeToShardCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SubscribeToShardOutput(data, context);
   const response: SubscribeToShardCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SubscribeToShardOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SubscribeToShardCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SubscribeToShardCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2364,52 +2826,65 @@ export async function deserializeAws_json1_1UpdateShardCountCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateShardCountCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateShardCountOutput(data, context);
   const response: UpdateShardCountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateShardCountOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateShardCountCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateShardCountCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis.v20131202#InvalidArgumentException":
-      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidArgumentExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.kinesis.v20131202#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.kinesis.v20131202#ResourceInUseException":
-      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.kinesis.v20131202#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.kinesis.v20131202#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2419,12 +2894,15 @@ const deserializeAws_json1_1ExpiredIteratorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExpiredIteratorException> => {
-  const deserialized: any = deserializeAws_json1_1ExpiredIteratorException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ExpiredIteratorException(
+    output.body,
+    context
+  );
   const contents: ExpiredIteratorException = {
     __type: "ExpiredIteratorException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2433,12 +2911,15 @@ const deserializeAws_json1_1ExpiredNextTokenExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ExpiredNextTokenException> => {
-  const deserialized: any = deserializeAws_json1_1ExpiredNextTokenException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ExpiredNextTokenException(
+    output.body,
+    context
+  );
   const contents: ExpiredNextTokenException = {
     __type: "ExpiredNextTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2447,12 +2928,15 @@ const deserializeAws_json1_1InvalidArgumentExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidArgumentException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidArgumentException(
+    output.body,
+    context
+  );
   const contents: InvalidArgumentException = {
     __type: "InvalidArgumentException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2461,12 +2945,15 @@ const deserializeAws_json1_1KMSAccessDeniedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSAccessDeniedException> => {
-  const deserialized: any = deserializeAws_json1_1KMSAccessDeniedException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSAccessDeniedException(
+    output.body,
+    context
+  );
   const contents: KMSAccessDeniedException = {
     __type: "KMSAccessDeniedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2475,12 +2962,15 @@ const deserializeAws_json1_1KMSDisabledExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSDisabledException> => {
-  const deserialized: any = deserializeAws_json1_1KMSDisabledException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSDisabledException(
+    output.body,
+    context
+  );
   const contents: KMSDisabledException = {
     __type: "KMSDisabledException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2489,12 +2979,15 @@ const deserializeAws_json1_1KMSInvalidStateExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSInvalidStateException> => {
-  const deserialized: any = deserializeAws_json1_1KMSInvalidStateException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSInvalidStateException(
+    output.body,
+    context
+  );
   const contents: KMSInvalidStateException = {
     __type: "KMSInvalidStateException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2503,12 +2996,15 @@ const deserializeAws_json1_1KMSNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1KMSNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSNotFoundException(
+    output.body,
+    context
+  );
   const contents: KMSNotFoundException = {
     __type: "KMSNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2517,12 +3013,15 @@ const deserializeAws_json1_1KMSOptInRequiredResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSOptInRequired> => {
-  const deserialized: any = deserializeAws_json1_1KMSOptInRequired(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSOptInRequired(
+    output.body,
+    context
+  );
   const contents: KMSOptInRequired = {
     __type: "KMSOptInRequired",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2531,12 +3030,15 @@ const deserializeAws_json1_1KMSThrottlingExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<KMSThrottlingException> => {
-  const deserialized: any = deserializeAws_json1_1KMSThrottlingException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1KMSThrottlingException(
+    output.body,
+    context
+  );
   const contents: KMSThrottlingException = {
     __type: "KMSThrottlingException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2545,12 +3047,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(
+    output.body,
+    context
+  );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2559,12 +3064,15 @@ const deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse = asy
   output: any,
   context: __SerdeContext
 ): Promise<ProvisionedThroughputExceededException> => {
-  const deserialized: any = deserializeAws_json1_1ProvisionedThroughputExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ProvisionedThroughputExceededException(
+    output.body,
+    context
+  );
   const contents: ProvisionedThroughputExceededException = {
     __type: "ProvisionedThroughputExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2573,12 +3081,15 @@ const deserializeAws_json1_1ResourceInUseExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceInUseException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceInUseException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceInUseException(
+    output.body,
+    context
+  );
   const contents: ResourceInUseException = {
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2587,12 +3098,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    output.body,
+    context
+  );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2603,13 +3117,13 @@ const serializeAws_json1_1AddTagsToStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagMap(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagMap(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateStreamInput = (
   input: CreateStreamInput,
@@ -2617,13 +3131,13 @@ const serializeAws_json1_1CreateStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ShardCount !== undefined) {
-    bodyParams['ShardCount'] = input.ShardCount;
+    bodyParams["ShardCount"] = input.ShardCount;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   input: DecreaseStreamRetentionPeriodInput,
@@ -2631,13 +3145,13 @@ const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.RetentionPeriodHours !== undefined) {
-    bodyParams['RetentionPeriodHours'] = input.RetentionPeriodHours;
+    bodyParams["RetentionPeriodHours"] = input.RetentionPeriodHours;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteStreamInput = (
   input: DeleteStreamInput,
@@ -2645,13 +3159,13 @@ const serializeAws_json1_1DeleteStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EnforceConsumerDeletion !== undefined) {
-    bodyParams['EnforceConsumerDeletion'] = input.EnforceConsumerDeletion;
+    bodyParams["EnforceConsumerDeletion"] = input.EnforceConsumerDeletion;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeregisterStreamConsumerInput = (
   input: DeregisterStreamConsumerInput,
@@ -2659,16 +3173,16 @@ const serializeAws_json1_1DeregisterStreamConsumerInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConsumerARN !== undefined) {
-    bodyParams['ConsumerARN'] = input.ConsumerARN;
+    bodyParams["ConsumerARN"] = input.ConsumerARN;
   }
   if (input.ConsumerName !== undefined) {
-    bodyParams['ConsumerName'] = input.ConsumerName;
+    bodyParams["ConsumerName"] = input.ConsumerName;
   }
   if (input.StreamARN !== undefined) {
-    bodyParams['StreamARN'] = input.StreamARN;
+    bodyParams["StreamARN"] = input.StreamARN;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeLimitsInput = (
   input: DescribeLimitsInput,
@@ -2676,7 +3190,7 @@ const serializeAws_json1_1DescribeLimitsInput = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeStreamConsumerInput = (
   input: DescribeStreamConsumerInput,
@@ -2684,16 +3198,16 @@ const serializeAws_json1_1DescribeStreamConsumerInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConsumerARN !== undefined) {
-    bodyParams['ConsumerARN'] = input.ConsumerARN;
+    bodyParams["ConsumerARN"] = input.ConsumerARN;
   }
   if (input.ConsumerName !== undefined) {
-    bodyParams['ConsumerName'] = input.ConsumerName;
+    bodyParams["ConsumerName"] = input.ConsumerName;
   }
   if (input.StreamARN !== undefined) {
-    bodyParams['StreamARN'] = input.StreamARN;
+    bodyParams["StreamARN"] = input.StreamARN;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeStreamInput = (
   input: DescribeStreamInput,
@@ -2701,16 +3215,16 @@ const serializeAws_json1_1DescribeStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExclusiveStartShardId !== undefined) {
-    bodyParams['ExclusiveStartShardId'] = input.ExclusiveStartShardId;
+    bodyParams["ExclusiveStartShardId"] = input.ExclusiveStartShardId;
   }
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeStreamSummaryInput = (
   input: DescribeStreamSummaryInput,
@@ -2718,10 +3232,10 @@ const serializeAws_json1_1DescribeStreamSummaryInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DisableEnhancedMonitoringInput = (
   input: DisableEnhancedMonitoringInput,
@@ -2729,13 +3243,16 @@ const serializeAws_json1_1DisableEnhancedMonitoringInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ShardLevelMetrics !== undefined) {
-    bodyParams['ShardLevelMetrics'] = serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context);
+    bodyParams["ShardLevelMetrics"] = serializeAws_json1_1MetricsNameList(
+      input.ShardLevelMetrics,
+      context
+    );
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EnableEnhancedMonitoringInput = (
   input: EnableEnhancedMonitoringInput,
@@ -2743,13 +3260,16 @@ const serializeAws_json1_1EnableEnhancedMonitoringInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ShardLevelMetrics !== undefined) {
-    bodyParams['ShardLevelMetrics'] = serializeAws_json1_1MetricsNameList(input.ShardLevelMetrics, context);
+    bodyParams["ShardLevelMetrics"] = serializeAws_json1_1MetricsNameList(
+      input.ShardLevelMetrics,
+      context
+    );
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetRecordsInput = (
   input: GetRecordsInput,
@@ -2757,13 +3277,13 @@ const serializeAws_json1_1GetRecordsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.ShardIterator !== undefined) {
-    bodyParams['ShardIterator'] = input.ShardIterator;
+    bodyParams["ShardIterator"] = input.ShardIterator;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetShardIteratorInput = (
   input: GetShardIteratorInput,
@@ -2771,22 +3291,22 @@ const serializeAws_json1_1GetShardIteratorInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ShardId !== undefined) {
-    bodyParams['ShardId'] = input.ShardId;
+    bodyParams["ShardId"] = input.ShardId;
   }
   if (input.ShardIteratorType !== undefined) {
-    bodyParams['ShardIteratorType'] = input.ShardIteratorType;
+    bodyParams["ShardIteratorType"] = input.ShardIteratorType;
   }
   if (input.StartingSequenceNumber !== undefined) {
-    bodyParams['StartingSequenceNumber'] = input.StartingSequenceNumber;
+    bodyParams["StartingSequenceNumber"] = input.StartingSequenceNumber;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   if (input.Timestamp !== undefined) {
-    bodyParams['Timestamp'] = Math.round(input.Timestamp.getTime() / 1000);
+    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   input: IncreaseStreamRetentionPeriodInput,
@@ -2794,13 +3314,13 @@ const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.RetentionPeriodHours !== undefined) {
-    bodyParams['RetentionPeriodHours'] = input.RetentionPeriodHours;
+    bodyParams["RetentionPeriodHours"] = input.RetentionPeriodHours;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListShardsInput = (
   input: ListShardsInput,
@@ -2808,22 +3328,24 @@ const serializeAws_json1_1ListShardsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExclusiveStartShardId !== undefined) {
-    bodyParams['ExclusiveStartShardId'] = input.ExclusiveStartShardId;
+    bodyParams["ExclusiveStartShardId"] = input.ExclusiveStartShardId;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.StreamCreationTimestamp !== undefined) {
-    bodyParams['StreamCreationTimestamp'] = Math.round(input.StreamCreationTimestamp.getTime() / 1000);
+    bodyParams["StreamCreationTimestamp"] = Math.round(
+      input.StreamCreationTimestamp.getTime() / 1000
+    );
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListStreamConsumersInput = (
   input: ListStreamConsumersInput,
@@ -2831,19 +3353,21 @@ const serializeAws_json1_1ListStreamConsumersInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.StreamARN !== undefined) {
-    bodyParams['StreamARN'] = input.StreamARN;
+    bodyParams["StreamARN"] = input.StreamARN;
   }
   if (input.StreamCreationTimestamp !== undefined) {
-    bodyParams['StreamCreationTimestamp'] = Math.round(input.StreamCreationTimestamp.getTime() / 1000);
+    bodyParams["StreamCreationTimestamp"] = Math.round(
+      input.StreamCreationTimestamp.getTime() / 1000
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListStreamsInput = (
   input: ListStreamsInput,
@@ -2851,13 +3375,13 @@ const serializeAws_json1_1ListStreamsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExclusiveStartStreamName !== undefined) {
-    bodyParams['ExclusiveStartStreamName'] = input.ExclusiveStartStreamName;
+    bodyParams["ExclusiveStartStreamName"] = input.ExclusiveStartStreamName;
   }
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTagsForStreamInput = (
   input: ListTagsForStreamInput,
@@ -2865,16 +3389,16 @@ const serializeAws_json1_1ListTagsForStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExclusiveStartTagKey !== undefined) {
-    bodyParams['ExclusiveStartTagKey'] = input.ExclusiveStartTagKey;
+    bodyParams["ExclusiveStartTagKey"] = input.ExclusiveStartTagKey;
   }
   if (input.Limit !== undefined) {
-    bodyParams['Limit'] = input.Limit;
+    bodyParams["Limit"] = input.Limit;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1MergeShardsInput = (
   input: MergeShardsInput,
@@ -2882,25 +3406,23 @@ const serializeAws_json1_1MergeShardsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdjacentShardToMerge !== undefined) {
-    bodyParams['AdjacentShardToMerge'] = input.AdjacentShardToMerge;
+    bodyParams["AdjacentShardToMerge"] = input.AdjacentShardToMerge;
   }
   if (input.ShardToMerge !== undefined) {
-    bodyParams['ShardToMerge'] = input.ShardToMerge;
+    bodyParams["ShardToMerge"] = input.ShardToMerge;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1MetricsNameList = (
   input: Array<MetricsName | string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1PutRecordInput = (
   input: PutRecordInput,
@@ -2908,22 +3430,22 @@ const serializeAws_json1_1PutRecordInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams['Data'] = context.base64Encoder(input.Data);
+    bodyParams["Data"] = context.base64Encoder(input.Data);
   }
   if (input.ExplicitHashKey !== undefined) {
-    bodyParams['ExplicitHashKey'] = input.ExplicitHashKey;
+    bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
   }
   if (input.PartitionKey !== undefined) {
-    bodyParams['PartitionKey'] = input.PartitionKey;
+    bodyParams["PartitionKey"] = input.PartitionKey;
   }
   if (input.SequenceNumberForOrdering !== undefined) {
-    bodyParams['SequenceNumberForOrdering'] = input.SequenceNumberForOrdering;
+    bodyParams["SequenceNumberForOrdering"] = input.SequenceNumberForOrdering;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutRecordsInput = (
   input: PutRecordsInput,
@@ -2931,13 +3453,16 @@ const serializeAws_json1_1PutRecordsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.Records !== undefined) {
-    bodyParams['Records'] = serializeAws_json1_1PutRecordsRequestEntryList(input.Records, context);
+    bodyParams["Records"] = serializeAws_json1_1PutRecordsRequestEntryList(
+      input.Records,
+      context
+    );
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutRecordsRequestEntry = (
   input: PutRecordsRequestEntry,
@@ -2945,16 +3470,16 @@ const serializeAws_json1_1PutRecordsRequestEntry = (
 ): any => {
   let bodyParams: any = {};
   if (input.Data !== undefined) {
-    bodyParams['Data'] = context.base64Encoder(input.Data);
+    bodyParams["Data"] = context.base64Encoder(input.Data);
   }
   if (input.ExplicitHashKey !== undefined) {
-    bodyParams['ExplicitHashKey'] = input.ExplicitHashKey;
+    bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
   }
   if (input.PartitionKey !== undefined) {
-    bodyParams['PartitionKey'] = input.PartitionKey;
+    bodyParams["PartitionKey"] = input.PartitionKey;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutRecordsRequestEntryList = (
   input: Array<PutRecordsRequestEntry>,
@@ -2963,7 +3488,7 @@ const serializeAws_json1_1PutRecordsRequestEntryList = (
   return (input || []).map(entry =>
     serializeAws_json1_1PutRecordsRequestEntry(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1RegisterStreamConsumerInput = (
   input: RegisterStreamConsumerInput,
@@ -2971,13 +3496,13 @@ const serializeAws_json1_1RegisterStreamConsumerInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConsumerName !== undefined) {
-    bodyParams['ConsumerName'] = input.ConsumerName;
+    bodyParams["ConsumerName"] = input.ConsumerName;
   }
   if (input.StreamARN !== undefined) {
-    bodyParams['StreamARN'] = input.StreamARN;
+    bodyParams["StreamARN"] = input.StreamARN;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RemoveTagsFromStreamInput = (
   input: RemoveTagsFromStreamInput,
@@ -2985,13 +3510,16 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   if (input.TagKeys !== undefined) {
-    bodyParams['TagKeys'] = serializeAws_json1_1TagKeyList(input.TagKeys, context);
+    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
+      input.TagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SplitShardInput = (
   input: SplitShardInput,
@@ -2999,16 +3527,16 @@ const serializeAws_json1_1SplitShardInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.NewStartingHashKey !== undefined) {
-    bodyParams['NewStartingHashKey'] = input.NewStartingHashKey;
+    bodyParams["NewStartingHashKey"] = input.NewStartingHashKey;
   }
   if (input.ShardToSplit !== undefined) {
-    bodyParams['ShardToSplit'] = input.ShardToSplit;
+    bodyParams["ShardToSplit"] = input.ShardToSplit;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StartStreamEncryptionInput = (
   input: StartStreamEncryptionInput,
@@ -3016,16 +3544,16 @@ const serializeAws_json1_1StartStreamEncryptionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EncryptionType !== undefined) {
-    bodyParams['EncryptionType'] = input.EncryptionType;
+    bodyParams["EncryptionType"] = input.EncryptionType;
   }
   if (input.KeyId !== undefined) {
-    bodyParams['KeyId'] = input.KeyId;
+    bodyParams["KeyId"] = input.KeyId;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StartingPosition = (
   input: StartingPosition,
@@ -3033,16 +3561,16 @@ const serializeAws_json1_1StartingPosition = (
 ): any => {
   let bodyParams: any = {};
   if (input.SequenceNumber !== undefined) {
-    bodyParams['SequenceNumber'] = input.SequenceNumber;
+    bodyParams["SequenceNumber"] = input.SequenceNumber;
   }
   if (input.Timestamp !== undefined) {
-    bodyParams['Timestamp'] = Math.round(input.Timestamp.getTime() / 1000);
+    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StopStreamEncryptionInput = (
   input: StopStreamEncryptionInput,
@@ -3050,16 +3578,16 @@ const serializeAws_json1_1StopStreamEncryptionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.EncryptionType !== undefined) {
-    bodyParams['EncryptionType'] = input.EncryptionType;
+    bodyParams["EncryptionType"] = input.EncryptionType;
   }
   if (input.KeyId !== undefined) {
-    bodyParams['KeyId'] = input.KeyId;
+    bodyParams["KeyId"] = input.KeyId;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SubscribeToShardInput = (
   input: SubscribeToShardInput,
@@ -3067,25 +3595,26 @@ const serializeAws_json1_1SubscribeToShardInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ConsumerARN !== undefined) {
-    bodyParams['ConsumerARN'] = input.ConsumerARN;
+    bodyParams["ConsumerARN"] = input.ConsumerARN;
   }
   if (input.ShardId !== undefined) {
-    bodyParams['ShardId'] = input.ShardId;
+    bodyParams["ShardId"] = input.ShardId;
   }
   if (input.StartingPosition !== undefined) {
-    bodyParams['StartingPosition'] = serializeAws_json1_1StartingPosition(input.StartingPosition, context);
+    bodyParams["StartingPosition"] = serializeAws_json1_1StartingPosition(
+      input.StartingPosition,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1TagMap = (
   input: { [key: string]: string },
@@ -3096,7 +3625,7 @@ const serializeAws_json1_1TagMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1UpdateShardCountInput = (
   input: UpdateShardCountInput,
@@ -3104,16 +3633,16 @@ const serializeAws_json1_1UpdateShardCountInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.ScalingType !== undefined) {
-    bodyParams['ScalingType'] = input.ScalingType;
+    bodyParams["ScalingType"] = input.ScalingType;
   }
   if (input.StreamName !== undefined) {
-    bodyParams['StreamName'] = input.StreamName;
+    bodyParams["StreamName"] = input.StreamName;
   }
   if (input.TargetShardCount !== undefined) {
-    bodyParams['TargetShardCount'] = input.TargetShardCount;
+    bodyParams["TargetShardCount"] = input.TargetShardCount;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1Consumer = (
   output: any,
@@ -3124,13 +3653,17 @@ const deserializeAws_json1_1Consumer = (
     ConsumerARN: undefined,
     ConsumerCreationTimestamp: undefined,
     ConsumerName: undefined,
-    ConsumerStatus: undefined,
+    ConsumerStatus: undefined
   };
   if (output.ConsumerARN !== undefined) {
     contents.ConsumerARN = output.ConsumerARN;
   }
   if (output.ConsumerCreationTimestamp !== undefined) {
-    contents.ConsumerCreationTimestamp = new Date(output.ConsumerCreationTimestamp % 1 != 0 ? Math.round(output.ConsumerCreationTimestamp * 1000) : output.ConsumerCreationTimestamp);
+    contents.ConsumerCreationTimestamp = new Date(
+      output.ConsumerCreationTimestamp % 1 != 0
+        ? Math.round(output.ConsumerCreationTimestamp * 1000)
+        : output.ConsumerCreationTimestamp
+    );
   }
   if (output.ConsumerName !== undefined) {
     contents.ConsumerName = output.ConsumerName;
@@ -3139,7 +3672,7 @@ const deserializeAws_json1_1Consumer = (
     contents.ConsumerStatus = output.ConsumerStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ConsumerDescription = (
   output: any,
@@ -3151,13 +3684,17 @@ const deserializeAws_json1_1ConsumerDescription = (
     ConsumerCreationTimestamp: undefined,
     ConsumerName: undefined,
     ConsumerStatus: undefined,
-    StreamARN: undefined,
+    StreamARN: undefined
   };
   if (output.ConsumerARN !== undefined) {
     contents.ConsumerARN = output.ConsumerARN;
   }
   if (output.ConsumerCreationTimestamp !== undefined) {
-    contents.ConsumerCreationTimestamp = new Date(output.ConsumerCreationTimestamp % 1 != 0 ? Math.round(output.ConsumerCreationTimestamp * 1000) : output.ConsumerCreationTimestamp);
+    contents.ConsumerCreationTimestamp = new Date(
+      output.ConsumerCreationTimestamp % 1 != 0
+        ? Math.round(output.ConsumerCreationTimestamp * 1000)
+        : output.ConsumerCreationTimestamp
+    );
   }
   if (output.ConsumerName !== undefined) {
     contents.ConsumerName = output.ConsumerName;
@@ -3169,7 +3706,7 @@ const deserializeAws_json1_1ConsumerDescription = (
     contents.StreamARN = output.StreamARN;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ConsumerList = (
   output: any,
@@ -3178,7 +3715,7 @@ const deserializeAws_json1_1ConsumerList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Consumer(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1DescribeLimitsOutput = (
   output: any,
@@ -3187,7 +3724,7 @@ const deserializeAws_json1_1DescribeLimitsOutput = (
   let contents: any = {
     __type: "DescribeLimitsOutput",
     OpenShardCount: undefined,
-    ShardLimit: undefined,
+    ShardLimit: undefined
   };
   if (output.OpenShardCount !== undefined) {
     contents.OpenShardCount = output.OpenShardCount;
@@ -3196,7 +3733,7 @@ const deserializeAws_json1_1DescribeLimitsOutput = (
     contents.ShardLimit = output.ShardLimit;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeStreamConsumerOutput = (
   output: any,
@@ -3204,13 +3741,16 @@ const deserializeAws_json1_1DescribeStreamConsumerOutput = (
 ): DescribeStreamConsumerOutput => {
   let contents: any = {
     __type: "DescribeStreamConsumerOutput",
-    ConsumerDescription: undefined,
+    ConsumerDescription: undefined
   };
   if (output.ConsumerDescription !== undefined) {
-    contents.ConsumerDescription = deserializeAws_json1_1ConsumerDescription(output.ConsumerDescription, context);
+    contents.ConsumerDescription = deserializeAws_json1_1ConsumerDescription(
+      output.ConsumerDescription,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeStreamOutput = (
   output: any,
@@ -3218,13 +3758,16 @@ const deserializeAws_json1_1DescribeStreamOutput = (
 ): DescribeStreamOutput => {
   let contents: any = {
     __type: "DescribeStreamOutput",
-    StreamDescription: undefined,
+    StreamDescription: undefined
   };
   if (output.StreamDescription !== undefined) {
-    contents.StreamDescription = deserializeAws_json1_1StreamDescription(output.StreamDescription, context);
+    contents.StreamDescription = deserializeAws_json1_1StreamDescription(
+      output.StreamDescription,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeStreamSummaryOutput = (
   output: any,
@@ -3232,13 +3775,16 @@ const deserializeAws_json1_1DescribeStreamSummaryOutput = (
 ): DescribeStreamSummaryOutput => {
   let contents: any = {
     __type: "DescribeStreamSummaryOutput",
-    StreamDescriptionSummary: undefined,
+    StreamDescriptionSummary: undefined
   };
   if (output.StreamDescriptionSummary !== undefined) {
-    contents.StreamDescriptionSummary = deserializeAws_json1_1StreamDescriptionSummary(output.StreamDescriptionSummary, context);
+    contents.StreamDescriptionSummary = deserializeAws_json1_1StreamDescriptionSummary(
+      output.StreamDescriptionSummary,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EnhancedMetrics = (
   output: any,
@@ -3246,13 +3792,16 @@ const deserializeAws_json1_1EnhancedMetrics = (
 ): EnhancedMetrics => {
   let contents: any = {
     __type: "EnhancedMetrics",
-    ShardLevelMetrics: undefined,
+    ShardLevelMetrics: undefined
   };
   if (output.ShardLevelMetrics !== undefined) {
-    contents.ShardLevelMetrics = deserializeAws_json1_1MetricsNameList(output.ShardLevelMetrics, context);
+    contents.ShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
+      output.ShardLevelMetrics,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EnhancedMonitoringList = (
   output: any,
@@ -3261,7 +3810,7 @@ const deserializeAws_json1_1EnhancedMonitoringList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EnhancedMetrics(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1EnhancedMonitoringOutput = (
   output: any,
@@ -3271,19 +3820,25 @@ const deserializeAws_json1_1EnhancedMonitoringOutput = (
     __type: "EnhancedMonitoringOutput",
     CurrentShardLevelMetrics: undefined,
     DesiredShardLevelMetrics: undefined,
-    StreamName: undefined,
+    StreamName: undefined
   };
   if (output.CurrentShardLevelMetrics !== undefined) {
-    contents.CurrentShardLevelMetrics = deserializeAws_json1_1MetricsNameList(output.CurrentShardLevelMetrics, context);
+    contents.CurrentShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
+      output.CurrentShardLevelMetrics,
+      context
+    );
   }
   if (output.DesiredShardLevelMetrics !== undefined) {
-    contents.DesiredShardLevelMetrics = deserializeAws_json1_1MetricsNameList(output.DesiredShardLevelMetrics, context);
+    contents.DesiredShardLevelMetrics = deserializeAws_json1_1MetricsNameList(
+      output.DesiredShardLevelMetrics,
+      context
+    );
   }
   if (output.StreamName !== undefined) {
     contents.StreamName = output.StreamName;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ExpiredIteratorException = (
   output: any,
@@ -3291,13 +3846,13 @@ const deserializeAws_json1_1ExpiredIteratorException = (
 ): ExpiredIteratorException => {
   let contents: any = {
     __type: "ExpiredIteratorException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ExpiredNextTokenException = (
   output: any,
@@ -3305,13 +3860,13 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 ): ExpiredNextTokenException => {
   let contents: any = {
     __type: "ExpiredNextTokenException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetRecordsOutput = (
   output: any,
@@ -3321,7 +3876,7 @@ const deserializeAws_json1_1GetRecordsOutput = (
     __type: "GetRecordsOutput",
     MillisBehindLatest: undefined,
     NextShardIterator: undefined,
-    Records: undefined,
+    Records: undefined
   };
   if (output.MillisBehindLatest !== undefined) {
     contents.MillisBehindLatest = output.MillisBehindLatest;
@@ -3330,10 +3885,13 @@ const deserializeAws_json1_1GetRecordsOutput = (
     contents.NextShardIterator = output.NextShardIterator;
   }
   if (output.Records !== undefined) {
-    contents.Records = deserializeAws_json1_1RecordList(output.Records, context);
+    contents.Records = deserializeAws_json1_1RecordList(
+      output.Records,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetShardIteratorOutput = (
   output: any,
@@ -3341,13 +3899,13 @@ const deserializeAws_json1_1GetShardIteratorOutput = (
 ): GetShardIteratorOutput => {
   let contents: any = {
     __type: "GetShardIteratorOutput",
-    ShardIterator: undefined,
+    ShardIterator: undefined
   };
   if (output.ShardIterator !== undefined) {
     contents.ShardIterator = output.ShardIterator;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1HashKeyRange = (
   output: any,
@@ -3356,7 +3914,7 @@ const deserializeAws_json1_1HashKeyRange = (
   let contents: any = {
     __type: "HashKeyRange",
     EndingHashKey: undefined,
-    StartingHashKey: undefined,
+    StartingHashKey: undefined
   };
   if (output.EndingHashKey !== undefined) {
     contents.EndingHashKey = output.EndingHashKey;
@@ -3365,7 +3923,7 @@ const deserializeAws_json1_1HashKeyRange = (
     contents.StartingHashKey = output.StartingHashKey;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalFailureException = (
   output: any,
@@ -3373,13 +3931,13 @@ const deserializeAws_json1_1InternalFailureException = (
 ): InternalFailureException => {
   let contents: any = {
     __type: "InternalFailureException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidArgumentException = (
   output: any,
@@ -3387,13 +3945,13 @@ const deserializeAws_json1_1InvalidArgumentException = (
 ): InvalidArgumentException => {
   let contents: any = {
     __type: "InvalidArgumentException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSAccessDeniedException = (
   output: any,
@@ -3401,13 +3959,13 @@ const deserializeAws_json1_1KMSAccessDeniedException = (
 ): KMSAccessDeniedException => {
   let contents: any = {
     __type: "KMSAccessDeniedException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSDisabledException = (
   output: any,
@@ -3415,13 +3973,13 @@ const deserializeAws_json1_1KMSDisabledException = (
 ): KMSDisabledException => {
   let contents: any = {
     __type: "KMSDisabledException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSInvalidStateException = (
   output: any,
@@ -3429,13 +3987,13 @@ const deserializeAws_json1_1KMSInvalidStateException = (
 ): KMSInvalidStateException => {
   let contents: any = {
     __type: "KMSInvalidStateException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSNotFoundException = (
   output: any,
@@ -3443,13 +4001,13 @@ const deserializeAws_json1_1KMSNotFoundException = (
 ): KMSNotFoundException => {
   let contents: any = {
     __type: "KMSNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSOptInRequired = (
   output: any,
@@ -3457,13 +4015,13 @@ const deserializeAws_json1_1KMSOptInRequired = (
 ): KMSOptInRequired => {
   let contents: any = {
     __type: "KMSOptInRequired",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1KMSThrottlingException = (
   output: any,
@@ -3471,13 +4029,13 @@ const deserializeAws_json1_1KMSThrottlingException = (
 ): KMSThrottlingException => {
   let contents: any = {
     __type: "KMSThrottlingException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -3485,13 +4043,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListShardsOutput = (
   output: any,
@@ -3500,7 +4058,7 @@ const deserializeAws_json1_1ListShardsOutput = (
   let contents: any = {
     __type: "ListShardsOutput",
     NextToken: undefined,
-    Shards: undefined,
+    Shards: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -3509,7 +4067,7 @@ const deserializeAws_json1_1ListShardsOutput = (
     contents.Shards = deserializeAws_json1_1ShardList(output.Shards, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListStreamConsumersOutput = (
   output: any,
@@ -3518,16 +4076,19 @@ const deserializeAws_json1_1ListStreamConsumersOutput = (
   let contents: any = {
     __type: "ListStreamConsumersOutput",
     Consumers: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.Consumers !== undefined) {
-    contents.Consumers = deserializeAws_json1_1ConsumerList(output.Consumers, context);
+    contents.Consumers = deserializeAws_json1_1ConsumerList(
+      output.Consumers,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListStreamsOutput = (
   output: any,
@@ -3536,16 +4097,19 @@ const deserializeAws_json1_1ListStreamsOutput = (
   let contents: any = {
     __type: "ListStreamsOutput",
     HasMoreStreams: undefined,
-    StreamNames: undefined,
+    StreamNames: undefined
   };
   if (output.HasMoreStreams !== undefined) {
     contents.HasMoreStreams = output.HasMoreStreams;
   }
   if (output.StreamNames !== undefined) {
-    contents.StreamNames = deserializeAws_json1_1StreamNameList(output.StreamNames, context);
+    contents.StreamNames = deserializeAws_json1_1StreamNameList(
+      output.StreamNames,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTagsForStreamOutput = (
   output: any,
@@ -3554,7 +4118,7 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
   let contents: any = {
     __type: "ListTagsForStreamOutput",
     HasMoreTags: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   if (output.HasMoreTags !== undefined) {
     contents.HasMoreTags = output.HasMoreTags;
@@ -3563,16 +4127,14 @@ const deserializeAws_json1_1ListTagsForStreamOutput = (
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1MetricsNameList = (
   output: any,
   context: __SerdeContext
 ): Array<MetricsName | string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   output: any,
@@ -3580,13 +4142,13 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
 ): ProvisionedThroughputExceededException => {
   let contents: any = {
     __type: "ProvisionedThroughputExceededException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutRecordOutput = (
   output: any,
@@ -3596,7 +4158,7 @@ const deserializeAws_json1_1PutRecordOutput = (
     __type: "PutRecordOutput",
     EncryptionType: undefined,
     SequenceNumber: undefined,
-    ShardId: undefined,
+    ShardId: undefined
   };
   if (output.EncryptionType !== undefined) {
     contents.EncryptionType = output.EncryptionType;
@@ -3608,7 +4170,7 @@ const deserializeAws_json1_1PutRecordOutput = (
     contents.ShardId = output.ShardId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutRecordsOutput = (
   output: any,
@@ -3618,7 +4180,7 @@ const deserializeAws_json1_1PutRecordsOutput = (
     __type: "PutRecordsOutput",
     EncryptionType: undefined,
     FailedRecordCount: undefined,
-    Records: undefined,
+    Records: undefined
   };
   if (output.EncryptionType !== undefined) {
     contents.EncryptionType = output.EncryptionType;
@@ -3627,10 +4189,13 @@ const deserializeAws_json1_1PutRecordsOutput = (
     contents.FailedRecordCount = output.FailedRecordCount;
   }
   if (output.Records !== undefined) {
-    contents.Records = deserializeAws_json1_1PutRecordsResultEntryList(output.Records, context);
+    contents.Records = deserializeAws_json1_1PutRecordsResultEntryList(
+      output.Records,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutRecordsResultEntry = (
   output: any,
@@ -3641,7 +4206,7 @@ const deserializeAws_json1_1PutRecordsResultEntry = (
     ErrorCode: undefined,
     ErrorMessage: undefined,
     SequenceNumber: undefined,
-    ShardId: undefined,
+    ShardId: undefined
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3656,7 +4221,7 @@ const deserializeAws_json1_1PutRecordsResultEntry = (
     contents.ShardId = output.ShardId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutRecordsResultEntryList = (
   output: any,
@@ -3665,7 +4230,7 @@ const deserializeAws_json1_1PutRecordsResultEntryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PutRecordsResultEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1_Record = (
   output: any,
@@ -3677,10 +4242,14 @@ const deserializeAws_json1_1_Record = (
     Data: undefined,
     EncryptionType: undefined,
     PartitionKey: undefined,
-    SequenceNumber: undefined,
+    SequenceNumber: undefined
   };
   if (output.ApproximateArrivalTimestamp !== undefined) {
-    contents.ApproximateArrivalTimestamp = new Date(output.ApproximateArrivalTimestamp % 1 != 0 ? Math.round(output.ApproximateArrivalTimestamp * 1000) : output.ApproximateArrivalTimestamp);
+    contents.ApproximateArrivalTimestamp = new Date(
+      output.ApproximateArrivalTimestamp % 1 != 0
+        ? Math.round(output.ApproximateArrivalTimestamp * 1000)
+        : output.ApproximateArrivalTimestamp
+    );
   }
   if (output.Data !== undefined) {
     contents.Data = context.base64Decoder(output.Data);
@@ -3695,7 +4264,7 @@ const deserializeAws_json1_1_Record = (
     contents.SequenceNumber = output.SequenceNumber;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RecordList = (
   output: any,
@@ -3704,7 +4273,7 @@ const deserializeAws_json1_1RecordList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1_Record(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1RegisterStreamConsumerOutput = (
   output: any,
@@ -3712,13 +4281,16 @@ const deserializeAws_json1_1RegisterStreamConsumerOutput = (
 ): RegisterStreamConsumerOutput => {
   let contents: any = {
     __type: "RegisterStreamConsumerOutput",
-    Consumer: undefined,
+    Consumer: undefined
   };
   if (output.Consumer !== undefined) {
-    contents.Consumer = deserializeAws_json1_1Consumer(output.Consumer, context);
+    contents.Consumer = deserializeAws_json1_1Consumer(
+      output.Consumer,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
@@ -3726,13 +4298,13 @@ const deserializeAws_json1_1ResourceInUseException = (
 ): ResourceInUseException => {
   let contents: any = {
     __type: "ResourceInUseException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -3740,13 +4312,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SequenceNumberRange = (
   output: any,
@@ -3755,7 +4327,7 @@ const deserializeAws_json1_1SequenceNumberRange = (
   let contents: any = {
     __type: "SequenceNumberRange",
     EndingSequenceNumber: undefined,
-    StartingSequenceNumber: undefined,
+    StartingSequenceNumber: undefined
   };
   if (output.EndingSequenceNumber !== undefined) {
     contents.EndingSequenceNumber = output.EndingSequenceNumber;
@@ -3764,7 +4336,7 @@ const deserializeAws_json1_1SequenceNumberRange = (
     contents.StartingSequenceNumber = output.StartingSequenceNumber;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Shard = (
   output: any,
@@ -3776,25 +4348,31 @@ const deserializeAws_json1_1Shard = (
     HashKeyRange: undefined,
     ParentShardId: undefined,
     SequenceNumberRange: undefined,
-    ShardId: undefined,
+    ShardId: undefined
   };
   if (output.AdjacentParentShardId !== undefined) {
     contents.AdjacentParentShardId = output.AdjacentParentShardId;
   }
   if (output.HashKeyRange !== undefined) {
-    contents.HashKeyRange = deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context);
+    contents.HashKeyRange = deserializeAws_json1_1HashKeyRange(
+      output.HashKeyRange,
+      context
+    );
   }
   if (output.ParentShardId !== undefined) {
     contents.ParentShardId = output.ParentShardId;
   }
   if (output.SequenceNumberRange !== undefined) {
-    contents.SequenceNumberRange = deserializeAws_json1_1SequenceNumberRange(output.SequenceNumberRange, context);
+    contents.SequenceNumberRange = deserializeAws_json1_1SequenceNumberRange(
+      output.SequenceNumberRange,
+      context
+    );
   }
   if (output.ShardId !== undefined) {
     contents.ShardId = output.ShardId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ShardList = (
   output: any,
@@ -3803,7 +4381,7 @@ const deserializeAws_json1_1ShardList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Shard(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1StreamDescription = (
   output: any,
@@ -3820,13 +4398,16 @@ const deserializeAws_json1_1StreamDescription = (
     StreamARN: undefined,
     StreamCreationTimestamp: undefined,
     StreamName: undefined,
-    StreamStatus: undefined,
+    StreamStatus: undefined
   };
   if (output.EncryptionType !== undefined) {
     contents.EncryptionType = output.EncryptionType;
   }
   if (output.EnhancedMonitoring !== undefined) {
-    contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context);
+    contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(
+      output.EnhancedMonitoring,
+      context
+    );
   }
   if (output.HasMoreShards !== undefined) {
     contents.HasMoreShards = output.HasMoreShards;
@@ -3844,7 +4425,11 @@ const deserializeAws_json1_1StreamDescription = (
     contents.StreamARN = output.StreamARN;
   }
   if (output.StreamCreationTimestamp !== undefined) {
-    contents.StreamCreationTimestamp = new Date(output.StreamCreationTimestamp % 1 != 0 ? Math.round(output.StreamCreationTimestamp * 1000) : output.StreamCreationTimestamp);
+    contents.StreamCreationTimestamp = new Date(
+      output.StreamCreationTimestamp % 1 != 0
+        ? Math.round(output.StreamCreationTimestamp * 1000)
+        : output.StreamCreationTimestamp
+    );
   }
   if (output.StreamName !== undefined) {
     contents.StreamName = output.StreamName;
@@ -3853,7 +4438,7 @@ const deserializeAws_json1_1StreamDescription = (
     contents.StreamStatus = output.StreamStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StreamDescriptionSummary = (
   output: any,
@@ -3870,7 +4455,7 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     StreamARN: undefined,
     StreamCreationTimestamp: undefined,
     StreamName: undefined,
-    StreamStatus: undefined,
+    StreamStatus: undefined
   };
   if (output.ConsumerCount !== undefined) {
     contents.ConsumerCount = output.ConsumerCount;
@@ -3879,7 +4464,10 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     contents.EncryptionType = output.EncryptionType;
   }
   if (output.EnhancedMonitoring !== undefined) {
-    contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(output.EnhancedMonitoring, context);
+    contents.EnhancedMonitoring = deserializeAws_json1_1EnhancedMonitoringList(
+      output.EnhancedMonitoring,
+      context
+    );
   }
   if (output.KeyId !== undefined) {
     contents.KeyId = output.KeyId;
@@ -3894,7 +4482,11 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     contents.StreamARN = output.StreamARN;
   }
   if (output.StreamCreationTimestamp !== undefined) {
-    contents.StreamCreationTimestamp = new Date(output.StreamCreationTimestamp % 1 != 0 ? Math.round(output.StreamCreationTimestamp * 1000) : output.StreamCreationTimestamp);
+    contents.StreamCreationTimestamp = new Date(
+      output.StreamCreationTimestamp % 1 != 0
+        ? Math.round(output.StreamCreationTimestamp * 1000)
+        : output.StreamCreationTimestamp
+    );
   }
   if (output.StreamName !== undefined) {
     contents.StreamName = output.StreamName;
@@ -3903,16 +4495,14 @@ const deserializeAws_json1_1StreamDescriptionSummary = (
     contents.StreamStatus = output.StreamStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1StreamNameList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1SubscribeToShardEvent = (
   output: any,
@@ -3922,7 +4512,7 @@ const deserializeAws_json1_1SubscribeToShardEvent = (
     __type: "SubscribeToShardEvent",
     ContinuationSequenceNumber: undefined,
     MillisBehindLatest: undefined,
-    Records: undefined,
+    Records: undefined
   };
   if (output.ContinuationSequenceNumber !== undefined) {
     contents.ContinuationSequenceNumber = output.ContinuationSequenceNumber;
@@ -3931,10 +4521,13 @@ const deserializeAws_json1_1SubscribeToShardEvent = (
     contents.MillisBehindLatest = output.MillisBehindLatest;
   }
   if (output.Records !== undefined) {
-    contents.Records = deserializeAws_json1_1RecordList(output.Records, context);
+    contents.Records = deserializeAws_json1_1RecordList(
+      output.Records,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SubscribeToShardEventStream = (
   output: any,
@@ -3942,57 +4535,87 @@ const deserializeAws_json1_1SubscribeToShardEventStream = (
 ): SubscribeToShardEventStream => {
   if (output.InternalFailureException !== undefined) {
     return {
-      InternalFailureException: deserializeAws_json1_1InternalFailureException(output.InternalFailureException, context)
+      InternalFailureException: deserializeAws_json1_1InternalFailureException(
+        output.InternalFailureException,
+        context
+      )
     };
   }
   if (output.KMSAccessDeniedException !== undefined) {
     return {
-      KMSAccessDeniedException: deserializeAws_json1_1KMSAccessDeniedException(output.KMSAccessDeniedException, context)
+      KMSAccessDeniedException: deserializeAws_json1_1KMSAccessDeniedException(
+        output.KMSAccessDeniedException,
+        context
+      )
     };
   }
   if (output.KMSDisabledException !== undefined) {
     return {
-      KMSDisabledException: deserializeAws_json1_1KMSDisabledException(output.KMSDisabledException, context)
+      KMSDisabledException: deserializeAws_json1_1KMSDisabledException(
+        output.KMSDisabledException,
+        context
+      )
     };
   }
   if (output.KMSInvalidStateException !== undefined) {
     return {
-      KMSInvalidStateException: deserializeAws_json1_1KMSInvalidStateException(output.KMSInvalidStateException, context)
+      KMSInvalidStateException: deserializeAws_json1_1KMSInvalidStateException(
+        output.KMSInvalidStateException,
+        context
+      )
     };
   }
   if (output.KMSNotFoundException !== undefined) {
     return {
-      KMSNotFoundException: deserializeAws_json1_1KMSNotFoundException(output.KMSNotFoundException, context)
+      KMSNotFoundException: deserializeAws_json1_1KMSNotFoundException(
+        output.KMSNotFoundException,
+        context
+      )
     };
   }
   if (output.KMSOptInRequired !== undefined) {
     return {
-      KMSOptInRequired: deserializeAws_json1_1KMSOptInRequired(output.KMSOptInRequired, context)
+      KMSOptInRequired: deserializeAws_json1_1KMSOptInRequired(
+        output.KMSOptInRequired,
+        context
+      )
     };
   }
   if (output.KMSThrottlingException !== undefined) {
     return {
-      KMSThrottlingException: deserializeAws_json1_1KMSThrottlingException(output.KMSThrottlingException, context)
+      KMSThrottlingException: deserializeAws_json1_1KMSThrottlingException(
+        output.KMSThrottlingException,
+        context
+      )
     };
   }
   if (output.ResourceInUseException !== undefined) {
     return {
-      ResourceInUseException: deserializeAws_json1_1ResourceInUseException(output.ResourceInUseException, context)
+      ResourceInUseException: deserializeAws_json1_1ResourceInUseException(
+        output.ResourceInUseException,
+        context
+      )
     };
   }
   if (output.ResourceNotFoundException !== undefined) {
     return {
-      ResourceNotFoundException: deserializeAws_json1_1ResourceNotFoundException(output.ResourceNotFoundException, context)
+      ResourceNotFoundException: deserializeAws_json1_1ResourceNotFoundException(
+        output.ResourceNotFoundException,
+        context
+      )
     };
   }
   if (output.SubscribeToShardEvent !== undefined) {
     return {
-      SubscribeToShardEvent: deserializeAws_json1_1SubscribeToShardEvent(output.SubscribeToShardEvent, context)
+      SubscribeToShardEvent: deserializeAws_json1_1SubscribeToShardEvent(
+        output.SubscribeToShardEvent,
+        context
+      )
     };
   }
   const key = Object.keys(output)[0];
   return { $unknown: [key, output[key]] };
-}
+};
 
 const deserializeAws_json1_1SubscribeToShardOutput = (
   output: any,
@@ -4000,13 +4623,16 @@ const deserializeAws_json1_1SubscribeToShardOutput = (
 ): SubscribeToShardOutput => {
   let contents: any = {
     __type: "SubscribeToShardOutput",
-    EventStream: undefined,
+    EventStream: undefined
   };
   if (output.EventStream !== undefined) {
-    contents.EventStream = deserializeAws_json1_1SubscribeToShardEventStream(output.EventStream, context);
+    contents.EventStream = deserializeAws_json1_1SubscribeToShardEventStream(
+      output.EventStream,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -4015,7 +4641,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -4024,7 +4650,7 @@ const deserializeAws_json1_1Tag = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -4033,7 +4659,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1UpdateShardCountOutput = (
   output: any,
@@ -4043,7 +4669,7 @@ const deserializeAws_json1_1UpdateShardCountOutput = (
     __type: "UpdateShardCountOutput",
     CurrentShardCount: undefined,
     StreamName: undefined,
-    TargetShardCount: undefined,
+    TargetShardCount: undefined
   };
   if (output.CurrentShardCount !== undefined) {
     contents.CurrentShardCount = output.CurrentShardCount;
@@ -4055,7 +4681,7 @@ const deserializeAws_json1_1UpdateShardCountOutput = (
     contents.TargetShardCount = output.TargetShardCount;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

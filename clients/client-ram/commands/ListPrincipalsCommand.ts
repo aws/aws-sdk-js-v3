@@ -1,20 +1,17 @@
 import {
   RAMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RAMClient";
-import {
-  ListPrincipalsRequest,
-  ListPrincipalsResponse,
-} from "../models/index";
+import { ListPrincipalsRequest, ListPrincipalsResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListPrincipalsCommand,
-  serializeAws_restJson1_1ListPrincipalsCommand,
+  serializeAws_restJson1_1ListPrincipalsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListPrincipalsCommandInput = ListPrincipalsRequest;
 export type ListPrincipalsCommandOutput = ListPrincipalsResponse;
 
-export class ListPrincipalsCommand extends $Command<ListPrincipalsCommandInput, ListPrincipalsCommandOutput, RAMClientResolvedConfig> {
+export class ListPrincipalsCommand extends $Command<
+  ListPrincipalsCommandInput,
+  ListPrincipalsCommandOutput,
+  RAMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListPrincipalsCommand extends $Command<ListPrincipalsCommandInput, 
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListPrincipalsCommandInput, ListPrincipalsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

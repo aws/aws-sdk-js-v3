@@ -1,20 +1,20 @@
 import {
   RekognitionClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RekognitionClient";
 import {
   DescribeStreamProcessorRequest,
-  DescribeStreamProcessorResponse,
+  DescribeStreamProcessorResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeStreamProcessorCommand,
-  serializeAws_json1_1DescribeStreamProcessorCommand,
+  serializeAws_json1_1DescribeStreamProcessorCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeStreamProcessorCommandInput = DescribeStreamProcessorRequest;
 export type DescribeStreamProcessorCommandOutput = DescribeStreamProcessorResponse;
 
-export class DescribeStreamProcessorCommand extends $Command<DescribeStreamProcessorCommandInput, DescribeStreamProcessorCommandOutput, RekognitionClientResolvedConfig> {
+export class DescribeStreamProcessorCommand extends $Command<
+  DescribeStreamProcessorCommandInput,
+  DescribeStreamProcessorCommandOutput,
+  RekognitionClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeStreamProcessorCommand extends $Command<DescribeStreamProce
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RekognitionClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeStreamProcessorCommandInput, DescribeStreamProcessorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeStreamProcessorCommandInput,
+    DescribeStreamProcessorCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeStreamProcessorCommand extends $Command<DescribeStreamProce
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeStreamProcessorCommandOutput> {
-    return deserializeAws_json1_1DescribeStreamProcessorCommand(output, context);
+    return deserializeAws_json1_1DescribeStreamProcessorCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -2,97 +2,97 @@ import { AthenaClient } from "./AthenaClient";
 import {
   BatchGetNamedQueryCommand,
   BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput,
+  BatchGetNamedQueryCommandOutput
 } from "./commands/BatchGetNamedQueryCommand";
 import {
   BatchGetQueryExecutionCommand,
   BatchGetQueryExecutionCommandInput,
-  BatchGetQueryExecutionCommandOutput,
+  BatchGetQueryExecutionCommandOutput
 } from "./commands/BatchGetQueryExecutionCommand";
 import {
   CreateNamedQueryCommand,
   CreateNamedQueryCommandInput,
-  CreateNamedQueryCommandOutput,
+  CreateNamedQueryCommandOutput
 } from "./commands/CreateNamedQueryCommand";
 import {
   CreateWorkGroupCommand,
   CreateWorkGroupCommandInput,
-  CreateWorkGroupCommandOutput,
+  CreateWorkGroupCommandOutput
 } from "./commands/CreateWorkGroupCommand";
 import {
   DeleteNamedQueryCommand,
   DeleteNamedQueryCommandInput,
-  DeleteNamedQueryCommandOutput,
+  DeleteNamedQueryCommandOutput
 } from "./commands/DeleteNamedQueryCommand";
 import {
   DeleteWorkGroupCommand,
   DeleteWorkGroupCommandInput,
-  DeleteWorkGroupCommandOutput,
+  DeleteWorkGroupCommandOutput
 } from "./commands/DeleteWorkGroupCommand";
 import {
   GetNamedQueryCommand,
   GetNamedQueryCommandInput,
-  GetNamedQueryCommandOutput,
+  GetNamedQueryCommandOutput
 } from "./commands/GetNamedQueryCommand";
 import {
   GetQueryExecutionCommand,
   GetQueryExecutionCommandInput,
-  GetQueryExecutionCommandOutput,
+  GetQueryExecutionCommandOutput
 } from "./commands/GetQueryExecutionCommand";
 import {
   GetQueryResultsCommand,
   GetQueryResultsCommandInput,
-  GetQueryResultsCommandOutput,
+  GetQueryResultsCommandOutput
 } from "./commands/GetQueryResultsCommand";
 import {
   GetWorkGroupCommand,
   GetWorkGroupCommandInput,
-  GetWorkGroupCommandOutput,
+  GetWorkGroupCommandOutput
 } from "./commands/GetWorkGroupCommand";
 import {
   ListNamedQueriesCommand,
   ListNamedQueriesCommandInput,
-  ListNamedQueriesCommandOutput,
+  ListNamedQueriesCommandOutput
 } from "./commands/ListNamedQueriesCommand";
 import {
   ListQueryExecutionsCommand,
   ListQueryExecutionsCommandInput,
-  ListQueryExecutionsCommandOutput,
+  ListQueryExecutionsCommandOutput
 } from "./commands/ListQueryExecutionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListWorkGroupsCommand,
   ListWorkGroupsCommandInput,
-  ListWorkGroupsCommandOutput,
+  ListWorkGroupsCommandOutput
 } from "./commands/ListWorkGroupsCommand";
 import {
   StartQueryExecutionCommand,
   StartQueryExecutionCommandInput,
-  StartQueryExecutionCommandOutput,
+  StartQueryExecutionCommandOutput
 } from "./commands/StartQueryExecutionCommand";
 import {
   StopQueryExecutionCommand,
   StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput,
+  StopQueryExecutionCommandOutput
 } from "./commands/StopQueryExecutionCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateWorkGroupCommand,
   UpdateWorkGroupCommandInput,
-  UpdateWorkGroupCommandOutput,
+  UpdateWorkGroupCommandOutput
 } from "./commands/UpdateWorkGroupCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -117,7 +117,7 @@ export class Athena extends AthenaClient {
    */
   public batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetNamedQueryCommandOutput>;
   public batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
@@ -130,16 +130,18 @@ export class Athena extends AthenaClient {
   ): void;
   public batchGetNamedQuery(
     args: BatchGetNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetNamedQueryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: BatchGetNamedQueryCommandOutput) => void
   ): Promise<BatchGetNamedQueryCommandOutput> | void {
     const command = new BatchGetNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -156,7 +158,7 @@ export class Athena extends AthenaClient {
    */
   public batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchGetQueryExecutionCommandOutput>;
   public batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
@@ -169,16 +171,18 @@ export class Athena extends AthenaClient {
   ): void;
   public batchGetQueryExecution(
     args: BatchGetQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetQueryExecutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchGetQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: BatchGetQueryExecutionCommandOutput) => void
   ): Promise<BatchGetQueryExecutionCommandOutput> | void {
     const command = new BatchGetQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -192,7 +196,7 @@ export class Athena extends AthenaClient {
    */
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateNamedQueryCommandOutput>;
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
@@ -205,16 +209,18 @@ export class Athena extends AthenaClient {
   ): void;
   public createNamedQuery(
     args: CreateNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: CreateNamedQueryCommandOutput) => void
   ): Promise<CreateNamedQueryCommandOutput> | void {
     const command = new CreateNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -227,7 +233,7 @@ export class Athena extends AthenaClient {
    */
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateWorkGroupCommandOutput>;
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
@@ -240,16 +246,18 @@ export class Athena extends AthenaClient {
   ): void;
   public createWorkGroup(
     args: CreateWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: CreateWorkGroupCommandOutput) => void
   ): Promise<CreateWorkGroupCommandOutput> | void {
     const command = new CreateWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -263,7 +271,7 @@ export class Athena extends AthenaClient {
    */
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteNamedQueryCommandOutput>;
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
@@ -276,16 +284,18 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteNamedQuery(
     args: DeleteNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: DeleteNamedQueryCommandOutput) => void
   ): Promise<DeleteNamedQueryCommandOutput> | void {
     const command = new DeleteNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -298,7 +308,7 @@ export class Athena extends AthenaClient {
    */
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteWorkGroupCommandOutput>;
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
@@ -311,16 +321,18 @@ export class Athena extends AthenaClient {
   ): void;
   public deleteWorkGroup(
     args: DeleteWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: DeleteWorkGroupCommandOutput) => void
   ): Promise<DeleteWorkGroupCommandOutput> | void {
     const command = new DeleteWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -333,7 +345,7 @@ export class Athena extends AthenaClient {
    */
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetNamedQueryCommandOutput>;
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
@@ -346,16 +358,18 @@ export class Athena extends AthenaClient {
   ): void;
   public getNamedQuery(
     args: GetNamedQueryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetNamedQueryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetNamedQueryCommandOutput) => void),
     cb?: (err: any, data?: GetNamedQueryCommandOutput) => void
   ): Promise<GetNamedQueryCommandOutput> | void {
     const command = new GetNamedQueryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -368,7 +382,7 @@ export class Athena extends AthenaClient {
    */
   public getQueryExecution(
     args: GetQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetQueryExecutionCommandOutput>;
   public getQueryExecution(
     args: GetQueryExecutionCommandInput,
@@ -381,16 +395,18 @@ export class Athena extends AthenaClient {
   ): void;
   public getQueryExecution(
     args: GetQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryExecutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: GetQueryExecutionCommandOutput) => void
   ): Promise<GetQueryExecutionCommandOutput> | void {
     const command = new GetQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -407,7 +423,7 @@ export class Athena extends AthenaClient {
    */
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetQueryResultsCommandOutput>;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -420,16 +436,18 @@ export class Athena extends AthenaClient {
   ): void;
   public getQueryResults(
     args: GetQueryResultsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetQueryResultsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetQueryResultsCommandOutput) => void),
     cb?: (err: any, data?: GetQueryResultsCommandOutput) => void
   ): Promise<GetQueryResultsCommandOutput> | void {
     const command = new GetQueryResultsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -442,7 +460,7 @@ export class Athena extends AthenaClient {
    */
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetWorkGroupCommandOutput>;
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
@@ -455,16 +473,18 @@ export class Athena extends AthenaClient {
   ): void;
   public getWorkGroup(
     args: GetWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetWorkGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: GetWorkGroupCommandOutput) => void
   ): Promise<GetWorkGroupCommandOutput> | void {
     const command = new GetWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -478,7 +498,7 @@ export class Athena extends AthenaClient {
    */
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListNamedQueriesCommandOutput>;
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
@@ -491,16 +511,18 @@ export class Athena extends AthenaClient {
   ): void;
   public listNamedQueries(
     args: ListNamedQueriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListNamedQueriesCommandOutput) => void),
     cb?: (err: any, data?: ListNamedQueriesCommandOutput) => void
   ): Promise<ListNamedQueriesCommandOutput> | void {
     const command = new ListNamedQueriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -514,7 +536,7 @@ export class Athena extends AthenaClient {
    */
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListQueryExecutionsCommandOutput>;
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
@@ -527,16 +549,18 @@ export class Athena extends AthenaClient {
   ): void;
   public listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListQueryExecutionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListQueryExecutionsCommandOutput) => void),
     cb?: (err: any, data?: ListQueryExecutionsCommandOutput) => void
   ): Promise<ListQueryExecutionsCommandOutput> | void {
     const command = new ListQueryExecutionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +573,7 @@ export class Athena extends AthenaClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -562,16 +586,18 @@ export class Athena extends AthenaClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -584,7 +610,7 @@ export class Athena extends AthenaClient {
    */
   public listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListWorkGroupsCommandOutput>;
   public listWorkGroups(
     args: ListWorkGroupsCommandInput,
@@ -597,16 +623,18 @@ export class Athena extends AthenaClient {
   ): void;
   public listWorkGroups(
     args: ListWorkGroupsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListWorkGroupsCommandOutput) => void),
     cb?: (err: any, data?: ListWorkGroupsCommandOutput) => void
   ): Promise<ListWorkGroupsCommandOutput> | void {
     const command = new ListWorkGroupsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -620,7 +648,7 @@ export class Athena extends AthenaClient {
    */
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartQueryExecutionCommandOutput>;
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
@@ -633,16 +661,18 @@ export class Athena extends AthenaClient {
   ): void;
   public startQueryExecution(
     args: StartQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartQueryExecutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: StartQueryExecutionCommandOutput) => void
   ): Promise<StartQueryExecutionCommandOutput> | void {
     const command = new StartQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -656,7 +686,7 @@ export class Athena extends AthenaClient {
    */
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopQueryExecutionCommandOutput>;
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
@@ -669,16 +699,18 @@ export class Athena extends AthenaClient {
   ): void;
   public stopQueryExecution(
     args: StopQueryExecutionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopQueryExecutionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopQueryExecutionCommandOutput) => void),
     cb?: (err: any, data?: StopQueryExecutionCommandOutput) => void
   ): Promise<StopQueryExecutionCommandOutput> | void {
     const command = new StopQueryExecutionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -695,7 +727,7 @@ export class Athena extends AthenaClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -708,16 +740,18 @@ export class Athena extends AthenaClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -730,7 +764,7 @@ export class Athena extends AthenaClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -743,16 +777,18 @@ export class Athena extends AthenaClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -765,7 +801,7 @@ export class Athena extends AthenaClient {
    */
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateWorkGroupCommandOutput>;
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
@@ -778,19 +814,20 @@ export class Athena extends AthenaClient {
   ): void;
   public updateWorkGroup(
     args: UpdateWorkGroupCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateWorkGroupCommandOutput) => void),
     cb?: (err: any, data?: UpdateWorkGroupCommandOutput) => void
   ): Promise<UpdateWorkGroupCommandOutput> | void {
     const command = new UpdateWorkGroupCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

@@ -1,20 +1,17 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
-import {
-  ListAttendeesRequest,
-  ListAttendeesResponse,
-} from "../models/index";
+import { ListAttendeesRequest, ListAttendeesResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1ListAttendeesCommand,
-  serializeAws_restJson1_1ListAttendeesCommand,
+  serializeAws_restJson1_1ListAttendeesCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListAttendeesCommandInput = ListAttendeesRequest;
 export type ListAttendeesCommandOutput = ListAttendeesResponse;
 
-export class ListAttendeesCommand extends $Command<ListAttendeesCommandInput, ListAttendeesCommandOutput, ChimeClientResolvedConfig> {
+export class ListAttendeesCommand extends $Command<
+  ListAttendeesCommandInput,
+  ListAttendeesCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListAttendeesCommand extends $Command<ListAttendeesCommandInput, Li
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListAttendeesCommandInput, ListAttendeesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

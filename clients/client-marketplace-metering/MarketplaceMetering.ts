@@ -2,22 +2,22 @@ import { MarketplaceMeteringClient } from "./MarketplaceMeteringClient";
 import {
   BatchMeterUsageCommand,
   BatchMeterUsageCommandInput,
-  BatchMeterUsageCommandOutput,
+  BatchMeterUsageCommandOutput
 } from "./commands/BatchMeterUsageCommand";
 import {
   MeterUsageCommand,
   MeterUsageCommandInput,
-  MeterUsageCommandOutput,
+  MeterUsageCommandOutput
 } from "./commands/MeterUsageCommand";
 import {
   RegisterUsageCommand,
   RegisterUsageCommandInput,
-  RegisterUsageCommandOutput,
+  RegisterUsageCommandOutput
 } from "./commands/RegisterUsageCommand";
 import {
   ResolveCustomerCommand,
   ResolveCustomerCommandInput,
-  ResolveCustomerCommandOutput,
+  ResolveCustomerCommandOutput
 } from "./commands/ResolveCustomerCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -94,7 +94,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
    */
   public batchMeterUsage(
     args: BatchMeterUsageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchMeterUsageCommandOutput>;
   public batchMeterUsage(
     args: BatchMeterUsageCommandInput,
@@ -107,16 +107,18 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public batchMeterUsage(
     args: BatchMeterUsageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchMeterUsageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchMeterUsageCommandOutput) => void),
     cb?: (err: any, data?: BatchMeterUsageCommandOutput) => void
   ): Promise<BatchMeterUsageCommandOutput> | void {
     const command = new BatchMeterUsageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -132,7 +134,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
    */
   public meterUsage(
     args: MeterUsageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<MeterUsageCommandOutput>;
   public meterUsage(
     args: MeterUsageCommandInput,
@@ -145,16 +147,18 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public meterUsage(
     args: MeterUsageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MeterUsageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: MeterUsageCommandOutput) => void),
     cb?: (err: any, data?: MeterUsageCommandOutput) => void
   ): Promise<MeterUsageCommandOutput> | void {
     const command = new MeterUsageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -206,7 +210,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
    */
   public registerUsage(
     args: RegisterUsageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RegisterUsageCommandOutput>;
   public registerUsage(
     args: RegisterUsageCommandInput,
@@ -219,16 +223,18 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public registerUsage(
     args: RegisterUsageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RegisterUsageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RegisterUsageCommandOutput) => void),
     cb?: (err: any, data?: RegisterUsageCommandOutput) => void
   ): Promise<RegisterUsageCommandOutput> | void {
     const command = new RegisterUsageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -244,7 +250,7 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
    */
   public resolveCustomer(
     args: ResolveCustomerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ResolveCustomerCommandOutput>;
   public resolveCustomer(
     args: ResolveCustomerCommandInput,
@@ -257,19 +263,20 @@ export class MarketplaceMetering extends MarketplaceMeteringClient {
   ): void;
   public resolveCustomer(
     args: ResolveCustomerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ResolveCustomerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ResolveCustomerCommandOutput) => void),
     cb?: (err: any, data?: ResolveCustomerCommandOutput) => void
   ): Promise<ResolveCustomerCommandOutput> | void {
     const command = new ResolveCustomerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

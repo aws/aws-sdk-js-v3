@@ -1,78 +1,78 @@
 import {
   ActivatePipelineCommandInput,
-  ActivatePipelineCommandOutput,
+  ActivatePipelineCommandOutput
 } from "../commands/ActivatePipelineCommand";
 import {
   AddTagsCommandInput,
-  AddTagsCommandOutput,
+  AddTagsCommandOutput
 } from "../commands/AddTagsCommand";
 import {
   CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
+  CreatePipelineCommandOutput
 } from "../commands/CreatePipelineCommand";
 import {
   DeactivatePipelineCommandInput,
-  DeactivatePipelineCommandOutput,
+  DeactivatePipelineCommandOutput
 } from "../commands/DeactivatePipelineCommand";
 import {
   DeletePipelineCommandInput,
-  DeletePipelineCommandOutput,
+  DeletePipelineCommandOutput
 } from "../commands/DeletePipelineCommand";
 import {
   DescribeObjectsCommandInput,
-  DescribeObjectsCommandOutput,
+  DescribeObjectsCommandOutput
 } from "../commands/DescribeObjectsCommand";
 import {
   DescribePipelinesCommandInput,
-  DescribePipelinesCommandOutput,
+  DescribePipelinesCommandOutput
 } from "../commands/DescribePipelinesCommand";
 import {
   EvaluateExpressionCommandInput,
-  EvaluateExpressionCommandOutput,
+  EvaluateExpressionCommandOutput
 } from "../commands/EvaluateExpressionCommand";
 import {
   GetPipelineDefinitionCommandInput,
-  GetPipelineDefinitionCommandOutput,
+  GetPipelineDefinitionCommandOutput
 } from "../commands/GetPipelineDefinitionCommand";
 import {
   ListPipelinesCommandInput,
-  ListPipelinesCommandOutput,
+  ListPipelinesCommandOutput
 } from "../commands/ListPipelinesCommand";
 import {
   PollForTaskCommandInput,
-  PollForTaskCommandOutput,
+  PollForTaskCommandOutput
 } from "../commands/PollForTaskCommand";
 import {
   PutPipelineDefinitionCommandInput,
-  PutPipelineDefinitionCommandOutput,
+  PutPipelineDefinitionCommandOutput
 } from "../commands/PutPipelineDefinitionCommand";
 import {
   QueryObjectsCommandInput,
-  QueryObjectsCommandOutput,
+  QueryObjectsCommandOutput
 } from "../commands/QueryObjectsCommand";
 import {
   RemoveTagsCommandInput,
-  RemoveTagsCommandOutput,
+  RemoveTagsCommandOutput
 } from "../commands/RemoveTagsCommand";
 import {
   ReportTaskProgressCommandInput,
-  ReportTaskProgressCommandOutput,
+  ReportTaskProgressCommandOutput
 } from "../commands/ReportTaskProgressCommand";
 import {
   ReportTaskRunnerHeartbeatCommandInput,
-  ReportTaskRunnerHeartbeatCommandOutput,
+  ReportTaskRunnerHeartbeatCommandOutput
 } from "../commands/ReportTaskRunnerHeartbeatCommand";
 import {
   SetStatusCommandInput,
-  SetStatusCommandOutput,
+  SetStatusCommandOutput
 } from "../commands/SetStatusCommand";
 import {
   SetTaskStatusCommandInput,
-  SetTaskStatusCommandOutput,
+  SetTaskStatusCommandOutput
 } from "../commands/SetTaskStatusCommand";
 import {
   ValidatePipelineDefinitionCommandInput,
-  ValidatePipelineDefinitionCommandOutput,
+  ValidatePipelineDefinitionCommandOutput
 } from "../commands/ValidatePipelineDefinitionCommand";
 import {
   ActivatePipelineInput,
@@ -130,18 +130,18 @@ import {
   ValidatePipelineDefinitionInput,
   ValidatePipelineDefinitionOutput,
   ValidationError,
-  ValidationWarning,
+  ValidationWarning
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1ActivatePipelineCommand(
@@ -149,11 +149,14 @@ export async function serializeAws_json1_1ActivatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.ActivatePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.ActivatePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    ActivatePipelineInput: serializeAws_json1_1ActivatePipelineInput(input, context),
+    ActivatePipelineInput: serializeAws_json1_1ActivatePipelineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -162,7 +165,7 @@ export async function serializeAws_json1_1ActivatePipelineCommand(
     method: "POST",
     path: "/ActivatePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -171,11 +174,11 @@ export async function serializeAws_json1_1AddTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.AddTags";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.AddTags";
   let body: any = {};
   const wrappedBody: any = {
-    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context),
+    AddTagsInput: serializeAws_json1_1AddTagsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -184,7 +187,7 @@ export async function serializeAws_json1_1AddTagsCommand(
     method: "POST",
     path: "/AddTags",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -193,11 +196,11 @@ export async function serializeAws_json1_1CreatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.CreatePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.CreatePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    CreatePipelineInput: serializeAws_json1_1CreatePipelineInput(input, context),
+    CreatePipelineInput: serializeAws_json1_1CreatePipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -206,7 +209,7 @@ export async function serializeAws_json1_1CreatePipelineCommand(
     method: "POST",
     path: "/CreatePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -215,11 +218,14 @@ export async function serializeAws_json1_1DeactivatePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.DeactivatePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.DeactivatePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    DeactivatePipelineInput: serializeAws_json1_1DeactivatePipelineInput(input, context),
+    DeactivatePipelineInput: serializeAws_json1_1DeactivatePipelineInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -228,7 +234,7 @@ export async function serializeAws_json1_1DeactivatePipelineCommand(
     method: "POST",
     path: "/DeactivatePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -237,11 +243,11 @@ export async function serializeAws_json1_1DeletePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.DeletePipeline";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.DeletePipeline";
   let body: any = {};
   const wrappedBody: any = {
-    DeletePipelineInput: serializeAws_json1_1DeletePipelineInput(input, context),
+    DeletePipelineInput: serializeAws_json1_1DeletePipelineInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -250,7 +256,7 @@ export async function serializeAws_json1_1DeletePipelineCommand(
     method: "POST",
     path: "/DeletePipeline",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -259,11 +265,14 @@ export async function serializeAws_json1_1DescribeObjectsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.DescribeObjects";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.DescribeObjects";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeObjectsInput: serializeAws_json1_1DescribeObjectsInput(input, context),
+    DescribeObjectsInput: serializeAws_json1_1DescribeObjectsInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -272,7 +281,7 @@ export async function serializeAws_json1_1DescribeObjectsCommand(
     method: "POST",
     path: "/DescribeObjects",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -281,11 +290,14 @@ export async function serializeAws_json1_1DescribePipelinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.DescribePipelines";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.DescribePipelines";
   let body: any = {};
   const wrappedBody: any = {
-    DescribePipelinesInput: serializeAws_json1_1DescribePipelinesInput(input, context),
+    DescribePipelinesInput: serializeAws_json1_1DescribePipelinesInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -294,7 +306,7 @@ export async function serializeAws_json1_1DescribePipelinesCommand(
     method: "POST",
     path: "/DescribePipelines",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -303,11 +315,14 @@ export async function serializeAws_json1_1EvaluateExpressionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.EvaluateExpression";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.EvaluateExpression";
   let body: any = {};
   const wrappedBody: any = {
-    EvaluateExpressionInput: serializeAws_json1_1EvaluateExpressionInput(input, context),
+    EvaluateExpressionInput: serializeAws_json1_1EvaluateExpressionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -316,7 +331,7 @@ export async function serializeAws_json1_1EvaluateExpressionCommand(
     method: "POST",
     path: "/EvaluateExpression",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -325,11 +340,14 @@ export async function serializeAws_json1_1GetPipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.GetPipelineDefinition";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.GetPipelineDefinition";
   let body: any = {};
   const wrappedBody: any = {
-    GetPipelineDefinitionInput: serializeAws_json1_1GetPipelineDefinitionInput(input, context),
+    GetPipelineDefinitionInput: serializeAws_json1_1GetPipelineDefinitionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -338,7 +356,7 @@ export async function serializeAws_json1_1GetPipelineDefinitionCommand(
     method: "POST",
     path: "/GetPipelineDefinition",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -347,11 +365,11 @@ export async function serializeAws_json1_1ListPipelinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.ListPipelines";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.ListPipelines";
   let body: any = {};
   const wrappedBody: any = {
-    ListPipelinesInput: serializeAws_json1_1ListPipelinesInput(input, context),
+    ListPipelinesInput: serializeAws_json1_1ListPipelinesInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -360,7 +378,7 @@ export async function serializeAws_json1_1ListPipelinesCommand(
     method: "POST",
     path: "/ListPipelines",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -369,11 +387,11 @@ export async function serializeAws_json1_1PollForTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.PollForTask";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.PollForTask";
   let body: any = {};
   const wrappedBody: any = {
-    PollForTaskInput: serializeAws_json1_1PollForTaskInput(input, context),
+    PollForTaskInput: serializeAws_json1_1PollForTaskInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -382,7 +400,7 @@ export async function serializeAws_json1_1PollForTaskCommand(
     method: "POST",
     path: "/PollForTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -391,11 +409,14 @@ export async function serializeAws_json1_1PutPipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.PutPipelineDefinition";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.PutPipelineDefinition";
   let body: any = {};
   const wrappedBody: any = {
-    PutPipelineDefinitionInput: serializeAws_json1_1PutPipelineDefinitionInput(input, context),
+    PutPipelineDefinitionInput: serializeAws_json1_1PutPipelineDefinitionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -404,7 +425,7 @@ export async function serializeAws_json1_1PutPipelineDefinitionCommand(
     method: "POST",
     path: "/PutPipelineDefinition",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -413,11 +434,11 @@ export async function serializeAws_json1_1QueryObjectsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.QueryObjects";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.QueryObjects";
   let body: any = {};
   const wrappedBody: any = {
-    QueryObjectsInput: serializeAws_json1_1QueryObjectsInput(input, context),
+    QueryObjectsInput: serializeAws_json1_1QueryObjectsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -426,7 +447,7 @@ export async function serializeAws_json1_1QueryObjectsCommand(
     method: "POST",
     path: "/QueryObjects",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -435,11 +456,11 @@ export async function serializeAws_json1_1RemoveTagsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.RemoveTags";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.RemoveTags";
   let body: any = {};
   const wrappedBody: any = {
-    RemoveTagsInput: serializeAws_json1_1RemoveTagsInput(input, context),
+    RemoveTagsInput: serializeAws_json1_1RemoveTagsInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -448,7 +469,7 @@ export async function serializeAws_json1_1RemoveTagsCommand(
     method: "POST",
     path: "/RemoveTags",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -457,11 +478,14 @@ export async function serializeAws_json1_1ReportTaskProgressCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.ReportTaskProgress";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.ReportTaskProgress";
   let body: any = {};
   const wrappedBody: any = {
-    ReportTaskProgressInput: serializeAws_json1_1ReportTaskProgressInput(input, context),
+    ReportTaskProgressInput: serializeAws_json1_1ReportTaskProgressInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -470,7 +494,7 @@ export async function serializeAws_json1_1ReportTaskProgressCommand(
     method: "POST",
     path: "/ReportTaskProgress",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -479,11 +503,14 @@ export async function serializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.ReportTaskRunnerHeartbeat";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.ReportTaskRunnerHeartbeat";
   let body: any = {};
   const wrappedBody: any = {
-    ReportTaskRunnerHeartbeatInput: serializeAws_json1_1ReportTaskRunnerHeartbeatInput(input, context),
+    ReportTaskRunnerHeartbeatInput: serializeAws_json1_1ReportTaskRunnerHeartbeatInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -492,7 +519,7 @@ export async function serializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
     method: "POST",
     path: "/ReportTaskRunnerHeartbeat",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -501,11 +528,11 @@ export async function serializeAws_json1_1SetStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.SetStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.SetStatus";
   let body: any = {};
   const wrappedBody: any = {
-    SetStatusInput: serializeAws_json1_1SetStatusInput(input, context),
+    SetStatusInput: serializeAws_json1_1SetStatusInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -514,7 +541,7 @@ export async function serializeAws_json1_1SetStatusCommand(
     method: "POST",
     path: "/SetStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -523,11 +550,11 @@ export async function serializeAws_json1_1SetTaskStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.SetTaskStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.SetTaskStatus";
   let body: any = {};
   const wrappedBody: any = {
-    SetTaskStatusInput: serializeAws_json1_1SetTaskStatusInput(input, context),
+    SetTaskStatusInput: serializeAws_json1_1SetTaskStatusInput(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -536,7 +563,7 @@ export async function serializeAws_json1_1SetTaskStatusCommand(
     method: "POST",
     path: "/SetTaskStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -545,11 +572,14 @@ export async function serializeAws_json1_1ValidatePipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "DataPipeline.ValidatePipelineDefinition";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "DataPipeline.ValidatePipelineDefinition";
   let body: any = {};
   const wrappedBody: any = {
-    ValidatePipelineDefinitionInput: serializeAws_json1_1ValidatePipelineDefinitionInput(input, context),
+    ValidatePipelineDefinitionInput: serializeAws_json1_1ValidatePipelineDefinitionInput(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -558,7 +588,7 @@ export async function serializeAws_json1_1ValidatePipelineDefinitionCommand(
     method: "POST",
     path: "/ValidatePipelineDefinition",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -569,52 +599,65 @@ export async function deserializeAws_json1_1ActivatePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ActivatePipelineCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ActivatePipelineOutput(data, context);
   const response: ActivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ActivatePipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ActivatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ActivatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -627,52 +670,65 @@ export async function deserializeAws_json1_1AddTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1AddTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AddTagsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AddTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AddTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -685,44 +741,51 @@ export async function deserializeAws_json1_1CreatePipelineCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreatePipelineCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreatePipelineOutput(data, context);
   const response: CreatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreatePipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -733,54 +796,70 @@ export async function deserializeAws_json1_1DeactivatePipelineCommand(
   context: __SerdeContext
 ): Promise<DeactivatePipelineCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeactivatePipelineCommandError(output, context);
+    return deserializeAws_json1_1DeactivatePipelineCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeactivatePipelineOutput(data, context);
   const response: DeactivatePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeactivatePipelineOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeactivatePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeactivatePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -794,42 +873,52 @@ export async function deserializeAws_json1_1DeletePipelineCommand(
     return deserializeAws_json1_1DeletePipelineCommandError(output, context);
   }
   const response: DeletePipelineCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeletePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -842,52 +931,65 @@ export async function deserializeAws_json1_1DescribeObjectsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeObjectsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeObjectsOutput(data, context);
   const response: DescribeObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeObjectsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeObjectsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeObjectsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -900,52 +1002,65 @@ export async function deserializeAws_json1_1DescribePipelinesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribePipelinesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribePipelinesOutput(data, context);
   const response: DescribePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribePipelinesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribePipelinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribePipelinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -956,58 +1071,77 @@ export async function deserializeAws_json1_1EvaluateExpressionCommand(
   context: __SerdeContext
 ): Promise<EvaluateExpressionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1EvaluateExpressionCommandError(output, context);
+    return deserializeAws_json1_1EvaluateExpressionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1EvaluateExpressionOutput(data, context);
   const response: EvaluateExpressionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "EvaluateExpressionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1EvaluateExpressionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<EvaluateExpressionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskNotFoundException":
     case "com.amazon.setl.webservice#TaskNotFoundException":
-      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1018,54 +1152,70 @@ export async function deserializeAws_json1_1GetPipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<GetPipelineDefinitionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetPipelineDefinitionCommandError(output, context);
+    return deserializeAws_json1_1GetPipelineDefinitionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPipelineDefinitionOutput(data, context);
   const response: GetPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPipelineDefinitionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPipelineDefinitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPipelineDefinitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1078,44 +1228,51 @@ export async function deserializeAws_json1_1ListPipelinesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPipelinesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPipelinesOutput(data, context);
   const response: ListPipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPipelinesOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListPipelinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1128,48 +1285,58 @@ export async function deserializeAws_json1_1PollForTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PollForTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PollForTaskOutput(data, context);
   const response: PollForTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PollForTaskOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PollForTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PollForTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskNotFoundException":
     case "com.amazon.setl.webservice#TaskNotFoundException":
-      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1180,54 +1347,70 @@ export async function deserializeAws_json1_1PutPipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<PutPipelineDefinitionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutPipelineDefinitionCommandError(output, context);
+    return deserializeAws_json1_1PutPipelineDefinitionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutPipelineDefinitionOutput(data, context);
   const response: PutPipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPipelineDefinitionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutPipelineDefinitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutPipelineDefinitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1240,52 +1423,65 @@ export async function deserializeAws_json1_1QueryObjectsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1QueryObjectsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1QueryObjectsOutput(data, context);
   const response: QueryObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryObjectsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1QueryObjectsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<QueryObjectsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1298,52 +1494,65 @@ export async function deserializeAws_json1_1RemoveTagsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1RemoveTagsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RemoveTagsOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1RemoveTagsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1354,58 +1563,77 @@ export async function deserializeAws_json1_1ReportTaskProgressCommand(
   context: __SerdeContext
 ): Promise<ReportTaskProgressCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ReportTaskProgressCommandError(output, context);
+    return deserializeAws_json1_1ReportTaskProgressCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ReportTaskProgressOutput(data, context);
   const response: ReportTaskProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReportTaskProgressOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ReportTaskProgressCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ReportTaskProgressCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskNotFoundException":
     case "com.amazon.setl.webservice#TaskNotFoundException":
-      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1416,46 +1644,59 @@ export async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand(
   context: __SerdeContext
 ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError(output, context);
+    return deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput(data, context);
+  contents = deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput(
+    data,
+    context
+  );
   const response: ReportTaskRunnerHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ReportTaskRunnerHeartbeatOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ReportTaskRunnerHeartbeatCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1469,46 +1710,59 @@ export async function deserializeAws_json1_1SetStatusCommand(
     return deserializeAws_json1_1SetStatusCommandError(output, context);
   }
   const response: SetStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SetStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1521,56 +1775,72 @@ export async function deserializeAws_json1_1SetTaskStatusCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1SetTaskStatusCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1SetTaskStatusOutput(data, context);
   const response: SetTaskStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SetTaskStatusOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1SetTaskStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SetTaskStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TaskNotFoundException":
     case "com.amazon.setl.webservice#TaskNotFoundException":
-      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1TaskNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1581,54 +1851,73 @@ export async function deserializeAws_json1_1ValidatePipelineDefinitionCommand(
   context: __SerdeContext
 ): Promise<ValidatePipelineDefinitionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ValidatePipelineDefinitionCommandError(output, context);
+    return deserializeAws_json1_1ValidatePipelineDefinitionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1ValidatePipelineDefinitionOutput(data, context);
+  contents = deserializeAws_json1_1ValidatePipelineDefinitionOutput(
+    data,
+    context
+  );
   const response: ValidatePipelineDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ValidatePipelineDefinitionOutput",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ValidatePipelineDefinitionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ValidatePipelineDefinitionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalServiceError":
     case "com.amazon.setl.webservice#InternalServiceError":
-      response = await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalServiceErrorResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazon.setl.webservice#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineDeletedException":
     case "com.amazon.setl.webservice#PipelineDeletedException":
-      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineDeletedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "PipelineNotFoundException":
     case "com.amazon.setl.webservice#PipelineNotFoundException":
-      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1PipelineNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazon.setl.webservice#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1638,12 +1927,15 @@ const deserializeAws_json1_1InternalServiceErrorResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalServiceError> => {
-  const deserialized: any = deserializeAws_json1_1InternalServiceError(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalServiceError(
+    output.body,
+    context
+  );
   const contents: InternalServiceError = {
     __type: "InternalServiceError",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1652,12 +1944,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
+    output.body,
+    context
+  );
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1666,12 +1961,15 @@ const deserializeAws_json1_1PipelineDeletedExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineDeletedException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineDeletedException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineDeletedException(
+    output.body,
+    context
+  );
   const contents: PipelineDeletedException = {
     __type: "PipelineDeletedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1680,12 +1978,15 @@ const deserializeAws_json1_1PipelineNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<PipelineNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1PipelineNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1PipelineNotFoundException(
+    output.body,
+    context
+  );
   const contents: PipelineNotFoundException = {
     __type: "PipelineNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1694,12 +1995,15 @@ const deserializeAws_json1_1TaskNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<TaskNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1TaskNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1TaskNotFoundException(
+    output.body,
+    context
+  );
   const contents: TaskNotFoundException = {
     __type: "TaskNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1710,16 +2014,21 @@ const serializeAws_json1_1ActivatePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.parameterValues !== undefined) {
-    bodyParams['parameterValues'] = serializeAws_json1_1ParameterValueList(input.parameterValues, context);
+    bodyParams["parameterValues"] = serializeAws_json1_1ParameterValueList(
+      input.parameterValues,
+      context
+    );
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.startTimestamp !== undefined) {
-    bodyParams['startTimestamp'] = Math.round(input.startTimestamp.getTime() / 1000);
+    bodyParams["startTimestamp"] = Math.round(
+      input.startTimestamp.getTime() / 1000
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1AddTagsInput = (
   input: AddTagsInput,
@@ -1727,13 +2036,13 @@ const serializeAws_json1_1AddTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1tagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1tagList(input.tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreatePipelineInput = (
   input: CreatePipelineInput,
@@ -1741,19 +2050,19 @@ const serializeAws_json1_1CreatePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_json1_1tagList(input.tags, context);
+    bodyParams["tags"] = serializeAws_json1_1tagList(input.tags, context);
   }
   if (input.uniqueId !== undefined) {
-    bodyParams['uniqueId'] = input.uniqueId;
+    bodyParams["uniqueId"] = input.uniqueId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeactivatePipelineInput = (
   input: DeactivatePipelineInput,
@@ -1761,13 +2070,13 @@ const serializeAws_json1_1DeactivatePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.cancelActive !== undefined) {
-    bodyParams['cancelActive'] = input.cancelActive;
+    bodyParams["cancelActive"] = input.cancelActive;
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeletePipelineInput = (
   input: DeletePipelineInput,
@@ -1775,10 +2084,10 @@ const serializeAws_json1_1DeletePipelineInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeObjectsInput = (
   input: DescribeObjectsInput,
@@ -1786,19 +2095,22 @@ const serializeAws_json1_1DescribeObjectsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.evaluateExpressions !== undefined) {
-    bodyParams['evaluateExpressions'] = input.evaluateExpressions;
+    bodyParams["evaluateExpressions"] = input.evaluateExpressions;
   }
   if (input.marker !== undefined) {
-    bodyParams['marker'] = input.marker;
+    bodyParams["marker"] = input.marker;
   }
   if (input.objectIds !== undefined) {
-    bodyParams['objectIds'] = serializeAws_json1_1idList(input.objectIds, context);
+    bodyParams["objectIds"] = serializeAws_json1_1idList(
+      input.objectIds,
+      context
+    );
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribePipelinesInput = (
   input: DescribePipelinesInput,
@@ -1806,10 +2118,13 @@ const serializeAws_json1_1DescribePipelinesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineIds !== undefined) {
-    bodyParams['pipelineIds'] = serializeAws_json1_1idList(input.pipelineIds, context);
+    bodyParams["pipelineIds"] = serializeAws_json1_1idList(
+      input.pipelineIds,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1EvaluateExpressionInput = (
   input: EvaluateExpressionInput,
@@ -1817,16 +2132,16 @@ const serializeAws_json1_1EvaluateExpressionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.expression !== undefined) {
-    bodyParams['expression'] = input.expression;
+    bodyParams["expression"] = input.expression;
   }
   if (input.objectId !== undefined) {
-    bodyParams['objectId'] = input.objectId;
+    bodyParams["objectId"] = input.objectId;
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Field = (
   input: Field,
@@ -1834,16 +2149,16 @@ const serializeAws_json1_1Field = (
 ): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.refValue !== undefined) {
-    bodyParams['refValue'] = input.refValue;
+    bodyParams["refValue"] = input.refValue;
   }
   if (input.stringValue !== undefined) {
-    bodyParams['stringValue'] = input.stringValue;
+    bodyParams["stringValue"] = input.stringValue;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPipelineDefinitionInput = (
   input: GetPipelineDefinitionInput,
@@ -1851,13 +2166,13 @@ const serializeAws_json1_1GetPipelineDefinitionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.version !== undefined) {
-    bodyParams['version'] = input.version;
+    bodyParams["version"] = input.version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1InstanceIdentity = (
   input: InstanceIdentity,
@@ -1865,13 +2180,13 @@ const serializeAws_json1_1InstanceIdentity = (
 ): any => {
   let bodyParams: any = {};
   if (input.document !== undefined) {
-    bodyParams['document'] = input.document;
+    bodyParams["document"] = input.document;
   }
   if (input.signature !== undefined) {
-    bodyParams['signature'] = input.signature;
+    bodyParams["signature"] = input.signature;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListPipelinesInput = (
   input: ListPipelinesInput,
@@ -1879,10 +2194,10 @@ const serializeAws_json1_1ListPipelinesInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.marker !== undefined) {
-    bodyParams['marker'] = input.marker;
+    bodyParams["marker"] = input.marker;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Operator = (
   input: Operator,
@@ -1890,13 +2205,16 @@ const serializeAws_json1_1Operator = (
 ): any => {
   let bodyParams: any = {};
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   if (input.values !== undefined) {
-    bodyParams['values'] = serializeAws_json1_1stringList(input.values, context);
+    bodyParams["values"] = serializeAws_json1_1stringList(
+      input.values,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ParameterAttribute = (
   input: ParameterAttribute,
@@ -1904,13 +2222,13 @@ const serializeAws_json1_1ParameterAttribute = (
 ): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.stringValue !== undefined) {
-    bodyParams['stringValue'] = input.stringValue;
+    bodyParams["stringValue"] = input.stringValue;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ParameterAttributeList = (
   input: Array<ParameterAttribute>,
@@ -1919,7 +2237,7 @@ const serializeAws_json1_1ParameterAttributeList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ParameterAttribute(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ParameterObject = (
   input: ParameterObject,
@@ -1927,13 +2245,16 @@ const serializeAws_json1_1ParameterObject = (
 ): any => {
   let bodyParams: any = {};
   if (input.attributes !== undefined) {
-    bodyParams['attributes'] = serializeAws_json1_1ParameterAttributeList(input.attributes, context);
+    bodyParams["attributes"] = serializeAws_json1_1ParameterAttributeList(
+      input.attributes,
+      context
+    );
   }
   if (input.id !== undefined) {
-    bodyParams['id'] = input.id;
+    bodyParams["id"] = input.id;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ParameterObjectList = (
   input: Array<ParameterObject>,
@@ -1942,7 +2263,7 @@ const serializeAws_json1_1ParameterObjectList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ParameterObject(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ParameterValue = (
   input: ParameterValue,
@@ -1950,13 +2271,13 @@ const serializeAws_json1_1ParameterValue = (
 ): any => {
   let bodyParams: any = {};
   if (input.id !== undefined) {
-    bodyParams['id'] = input.id;
+    bodyParams["id"] = input.id;
   }
   if (input.stringValue !== undefined) {
-    bodyParams['stringValue'] = input.stringValue;
+    bodyParams["stringValue"] = input.stringValue;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ParameterValueList = (
   input: Array<ParameterValue>,
@@ -1965,7 +2286,7 @@ const serializeAws_json1_1ParameterValueList = (
   return (input || []).map(entry =>
     serializeAws_json1_1ParameterValue(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PipelineObject = (
   input: PipelineObject,
@@ -1973,16 +2294,16 @@ const serializeAws_json1_1PipelineObject = (
 ): any => {
   let bodyParams: any = {};
   if (input.fields !== undefined) {
-    bodyParams['fields'] = serializeAws_json1_1fieldList(input.fields, context);
+    bodyParams["fields"] = serializeAws_json1_1fieldList(input.fields, context);
   }
   if (input.id !== undefined) {
-    bodyParams['id'] = input.id;
+    bodyParams["id"] = input.id;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PipelineObjectList = (
   input: Array<PipelineObject>,
@@ -1991,7 +2312,7 @@ const serializeAws_json1_1PipelineObjectList = (
   return (input || []).map(entry =>
     serializeAws_json1_1PipelineObject(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1PollForTaskInput = (
   input: PollForTaskInput,
@@ -1999,16 +2320,19 @@ const serializeAws_json1_1PollForTaskInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.hostname !== undefined) {
-    bodyParams['hostname'] = input.hostname;
+    bodyParams["hostname"] = input.hostname;
   }
   if (input.instanceIdentity !== undefined) {
-    bodyParams['instanceIdentity'] = serializeAws_json1_1InstanceIdentity(input.instanceIdentity, context);
+    bodyParams["instanceIdentity"] = serializeAws_json1_1InstanceIdentity(
+      input.instanceIdentity,
+      context
+    );
   }
   if (input.workerGroup !== undefined) {
-    bodyParams['workerGroup'] = input.workerGroup;
+    bodyParams["workerGroup"] = input.workerGroup;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutPipelineDefinitionInput = (
   input: PutPipelineDefinitionInput,
@@ -2016,19 +2340,28 @@ const serializeAws_json1_1PutPipelineDefinitionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.parameterObjects !== undefined) {
-    bodyParams['parameterObjects'] = serializeAws_json1_1ParameterObjectList(input.parameterObjects, context);
+    bodyParams["parameterObjects"] = serializeAws_json1_1ParameterObjectList(
+      input.parameterObjects,
+      context
+    );
   }
   if (input.parameterValues !== undefined) {
-    bodyParams['parameterValues'] = serializeAws_json1_1ParameterValueList(input.parameterValues, context);
+    bodyParams["parameterValues"] = serializeAws_json1_1ParameterValueList(
+      input.parameterValues,
+      context
+    );
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.pipelineObjects !== undefined) {
-    bodyParams['pipelineObjects'] = serializeAws_json1_1PipelineObjectList(input.pipelineObjects, context);
+    bodyParams["pipelineObjects"] = serializeAws_json1_1PipelineObjectList(
+      input.pipelineObjects,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Query = (
   input: Query,
@@ -2036,10 +2369,13 @@ const serializeAws_json1_1Query = (
 ): any => {
   let bodyParams: any = {};
   if (input.selectors !== undefined) {
-    bodyParams['selectors'] = serializeAws_json1_1SelectorList(input.selectors, context);
+    bodyParams["selectors"] = serializeAws_json1_1SelectorList(
+      input.selectors,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1QueryObjectsInput = (
   input: QueryObjectsInput,
@@ -2047,22 +2383,22 @@ const serializeAws_json1_1QueryObjectsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.limit !== undefined) {
-    bodyParams['limit'] = input.limit;
+    bodyParams["limit"] = input.limit;
   }
   if (input.marker !== undefined) {
-    bodyParams['marker'] = input.marker;
+    bodyParams["marker"] = input.marker;
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.query !== undefined) {
-    bodyParams['query'] = serializeAws_json1_1Query(input.query, context);
+    bodyParams["query"] = serializeAws_json1_1Query(input.query, context);
   }
   if (input.sphere !== undefined) {
-    bodyParams['sphere'] = input.sphere;
+    bodyParams["sphere"] = input.sphere;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1RemoveTagsInput = (
   input: RemoveTagsInput,
@@ -2070,13 +2406,16 @@ const serializeAws_json1_1RemoveTagsInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.tagKeys !== undefined) {
-    bodyParams['tagKeys'] = serializeAws_json1_1stringList(input.tagKeys, context);
+    bodyParams["tagKeys"] = serializeAws_json1_1stringList(
+      input.tagKeys,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ReportTaskProgressInput = (
   input: ReportTaskProgressInput,
@@ -2084,13 +2423,13 @@ const serializeAws_json1_1ReportTaskProgressInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.fields !== undefined) {
-    bodyParams['fields'] = serializeAws_json1_1fieldList(input.fields, context);
+    bodyParams["fields"] = serializeAws_json1_1fieldList(input.fields, context);
   }
   if (input.taskId !== undefined) {
-    bodyParams['taskId'] = input.taskId;
+    bodyParams["taskId"] = input.taskId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ReportTaskRunnerHeartbeatInput = (
   input: ReportTaskRunnerHeartbeatInput,
@@ -2098,16 +2437,16 @@ const serializeAws_json1_1ReportTaskRunnerHeartbeatInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.hostname !== undefined) {
-    bodyParams['hostname'] = input.hostname;
+    bodyParams["hostname"] = input.hostname;
   }
   if (input.taskrunnerId !== undefined) {
-    bodyParams['taskrunnerId'] = input.taskrunnerId;
+    bodyParams["taskrunnerId"] = input.taskrunnerId;
   }
   if (input.workerGroup !== undefined) {
-    bodyParams['workerGroup'] = input.workerGroup;
+    bodyParams["workerGroup"] = input.workerGroup;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Selector = (
   input: Selector,
@@ -2115,13 +2454,16 @@ const serializeAws_json1_1Selector = (
 ): any => {
   let bodyParams: any = {};
   if (input.fieldName !== undefined) {
-    bodyParams['fieldName'] = input.fieldName;
+    bodyParams["fieldName"] = input.fieldName;
   }
   if (input.operator !== undefined) {
-    bodyParams['operator'] = serializeAws_json1_1Operator(input.operator, context);
+    bodyParams["operator"] = serializeAws_json1_1Operator(
+      input.operator,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SelectorList = (
   input: Array<Selector>,
@@ -2130,7 +2472,7 @@ const serializeAws_json1_1SelectorList = (
   return (input || []).map(entry =>
     serializeAws_json1_1Selector(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1SetStatusInput = (
   input: SetStatusInput,
@@ -2138,16 +2480,19 @@ const serializeAws_json1_1SetStatusInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.objectIds !== undefined) {
-    bodyParams['objectIds'] = serializeAws_json1_1idList(input.objectIds, context);
+    bodyParams["objectIds"] = serializeAws_json1_1idList(
+      input.objectIds,
+      context
+    );
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.status !== undefined) {
-    bodyParams['status'] = input.status;
+    bodyParams["status"] = input.status;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SetTaskStatusInput = (
   input: SetTaskStatusInput,
@@ -2155,36 +2500,33 @@ const serializeAws_json1_1SetTaskStatusInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.errorId !== undefined) {
-    bodyParams['errorId'] = input.errorId;
+    bodyParams["errorId"] = input.errorId;
   }
   if (input.errorMessage !== undefined) {
-    bodyParams['errorMessage'] = input.errorMessage;
+    bodyParams["errorMessage"] = input.errorMessage;
   }
   if (input.errorStackTrace !== undefined) {
-    bodyParams['errorStackTrace'] = input.errorStackTrace;
+    bodyParams["errorStackTrace"] = input.errorStackTrace;
   }
   if (input.taskId !== undefined) {
-    bodyParams['taskId'] = input.taskId;
+    bodyParams["taskId"] = input.taskId;
   }
   if (input.taskStatus !== undefined) {
-    bodyParams['taskStatus'] = input.taskStatus;
+    bodyParams["taskStatus"] = input.taskStatus;
   }
   return bodyParams;
-}
+};
 
-const serializeAws_json1_1Tag = (
-  input: Tag,
-  context: __SerdeContext
-): any => {
+const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
   let bodyParams: any = {};
   if (input.key !== undefined) {
-    bodyParams['key'] = input.key;
+    bodyParams["key"] = input.key;
   }
   if (input.value !== undefined) {
-    bodyParams['value'] = input.value;
+    bodyParams["value"] = input.value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ValidatePipelineDefinitionInput = (
   input: ValidatePipelineDefinitionInput,
@@ -2192,75 +2534,76 @@ const serializeAws_json1_1ValidatePipelineDefinitionInput = (
 ): any => {
   let bodyParams: any = {};
   if (input.parameterObjects !== undefined) {
-    bodyParams['parameterObjects'] = serializeAws_json1_1ParameterObjectList(input.parameterObjects, context);
+    bodyParams["parameterObjects"] = serializeAws_json1_1ParameterObjectList(
+      input.parameterObjects,
+      context
+    );
   }
   if (input.parameterValues !== undefined) {
-    bodyParams['parameterValues'] = serializeAws_json1_1ParameterValueList(input.parameterValues, context);
+    bodyParams["parameterValues"] = serializeAws_json1_1ParameterValueList(
+      input.parameterValues,
+      context
+    );
   }
   if (input.pipelineId !== undefined) {
-    bodyParams['pipelineId'] = input.pipelineId;
+    bodyParams["pipelineId"] = input.pipelineId;
   }
   if (input.pipelineObjects !== undefined) {
-    bodyParams['pipelineObjects'] = serializeAws_json1_1PipelineObjectList(input.pipelineObjects, context);
+    bodyParams["pipelineObjects"] = serializeAws_json1_1PipelineObjectList(
+      input.pipelineObjects,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1fieldList = (
   input: Array<Field>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Field(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Field(entry, context));
+};
 
 const serializeAws_json1_1idList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1stringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1tagList = (
   input: Array<Tag>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    serializeAws_json1_1Tag(entry, context)
-  );
-}
+  return (input || []).map(entry => serializeAws_json1_1Tag(entry, context));
+};
 
 const deserializeAws_json1_1ActivatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): ActivatePipelineOutput => {
   let contents: any = {
-    __type: "ActivatePipelineOutput",
+    __type: "ActivatePipelineOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsOutput => {
   let contents: any = {
-    __type: "AddTagsOutput",
+    __type: "AddTagsOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreatePipelineOutput = (
   output: any,
@@ -2268,23 +2611,23 @@ const deserializeAws_json1_1CreatePipelineOutput = (
 ): CreatePipelineOutput => {
   let contents: any = {
     __type: "CreatePipelineOutput",
-    pipelineId: undefined,
+    pipelineId: undefined
   };
   if (output.pipelineId !== undefined) {
     contents.pipelineId = output.pipelineId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeactivatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): DeactivatePipelineOutput => {
   let contents: any = {
-    __type: "DeactivatePipelineOutput",
+    __type: "DeactivatePipelineOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeObjectsOutput = (
   output: any,
@@ -2294,7 +2637,7 @@ const deserializeAws_json1_1DescribeObjectsOutput = (
     __type: "DescribeObjectsOutput",
     hasMoreResults: undefined,
     marker: undefined,
-    pipelineObjects: undefined,
+    pipelineObjects: undefined
   };
   if (output.hasMoreResults !== undefined) {
     contents.hasMoreResults = output.hasMoreResults;
@@ -2303,10 +2646,13 @@ const deserializeAws_json1_1DescribeObjectsOutput = (
     contents.marker = output.marker;
   }
   if (output.pipelineObjects !== undefined) {
-    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(output.pipelineObjects, context);
+    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
+      output.pipelineObjects,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribePipelinesOutput = (
   output: any,
@@ -2314,13 +2660,16 @@ const deserializeAws_json1_1DescribePipelinesOutput = (
 ): DescribePipelinesOutput => {
   let contents: any = {
     __type: "DescribePipelinesOutput",
-    pipelineDescriptionList: undefined,
+    pipelineDescriptionList: undefined
   };
   if (output.pipelineDescriptionList !== undefined) {
-    contents.pipelineDescriptionList = deserializeAws_json1_1PipelineDescriptionList(output.pipelineDescriptionList, context);
+    contents.pipelineDescriptionList = deserializeAws_json1_1PipelineDescriptionList(
+      output.pipelineDescriptionList,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EvaluateExpressionOutput = (
   output: any,
@@ -2328,13 +2677,13 @@ const deserializeAws_json1_1EvaluateExpressionOutput = (
 ): EvaluateExpressionOutput => {
   let contents: any = {
     __type: "EvaluateExpressionOutput",
-    evaluatedExpression: undefined,
+    evaluatedExpression: undefined
   };
   if (output.evaluatedExpression !== undefined) {
     contents.evaluatedExpression = output.evaluatedExpression;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Field = (
   output: any,
@@ -2344,7 +2693,7 @@ const deserializeAws_json1_1Field = (
     __type: "Field",
     key: undefined,
     refValue: undefined,
-    stringValue: undefined,
+    stringValue: undefined
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -2356,7 +2705,7 @@ const deserializeAws_json1_1Field = (
     contents.stringValue = output.stringValue;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPipelineDefinitionOutput = (
   output: any,
@@ -2366,19 +2715,28 @@ const deserializeAws_json1_1GetPipelineDefinitionOutput = (
     __type: "GetPipelineDefinitionOutput",
     parameterObjects: undefined,
     parameterValues: undefined,
-    pipelineObjects: undefined,
+    pipelineObjects: undefined
   };
   if (output.parameterObjects !== undefined) {
-    contents.parameterObjects = deserializeAws_json1_1ParameterObjectList(output.parameterObjects, context);
+    contents.parameterObjects = deserializeAws_json1_1ParameterObjectList(
+      output.parameterObjects,
+      context
+    );
   }
   if (output.parameterValues !== undefined) {
-    contents.parameterValues = deserializeAws_json1_1ParameterValueList(output.parameterValues, context);
+    contents.parameterValues = deserializeAws_json1_1ParameterValueList(
+      output.parameterValues,
+      context
+    );
   }
   if (output.pipelineObjects !== undefined) {
-    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(output.pipelineObjects, context);
+    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
+      output.pipelineObjects,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalServiceError = (
   output: any,
@@ -2386,13 +2744,13 @@ const deserializeAws_json1_1InternalServiceError = (
 ): InternalServiceError => {
   let contents: any = {
     __type: "InternalServiceError",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -2400,13 +2758,13 @@ const deserializeAws_json1_1InvalidRequestException = (
 ): InvalidRequestException => {
   let contents: any = {
     __type: "InvalidRequestException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListPipelinesOutput = (
   output: any,
@@ -2416,7 +2774,7 @@ const deserializeAws_json1_1ListPipelinesOutput = (
     __type: "ListPipelinesOutput",
     hasMoreResults: undefined,
     marker: undefined,
-    pipelineIdList: undefined,
+    pipelineIdList: undefined
   };
   if (output.hasMoreResults !== undefined) {
     contents.hasMoreResults = output.hasMoreResults;
@@ -2425,10 +2783,13 @@ const deserializeAws_json1_1ListPipelinesOutput = (
     contents.marker = output.marker;
   }
   if (output.pipelineIdList !== undefined) {
-    contents.pipelineIdList = deserializeAws_json1_1pipelineList(output.pipelineIdList, context);
+    contents.pipelineIdList = deserializeAws_json1_1pipelineList(
+      output.pipelineIdList,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ParameterAttribute = (
   output: any,
@@ -2437,7 +2798,7 @@ const deserializeAws_json1_1ParameterAttribute = (
   let contents: any = {
     __type: "ParameterAttribute",
     key: undefined,
-    stringValue: undefined,
+    stringValue: undefined
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -2446,7 +2807,7 @@ const deserializeAws_json1_1ParameterAttribute = (
     contents.stringValue = output.stringValue;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ParameterAttributeList = (
   output: any,
@@ -2455,7 +2816,7 @@ const deserializeAws_json1_1ParameterAttributeList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterAttribute(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ParameterObject = (
   output: any,
@@ -2464,16 +2825,19 @@ const deserializeAws_json1_1ParameterObject = (
   let contents: any = {
     __type: "ParameterObject",
     attributes: undefined,
-    id: undefined,
+    id: undefined
   };
   if (output.attributes !== undefined) {
-    contents.attributes = deserializeAws_json1_1ParameterAttributeList(output.attributes, context);
+    contents.attributes = deserializeAws_json1_1ParameterAttributeList(
+      output.attributes,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = output.id;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ParameterObjectList = (
   output: any,
@@ -2482,7 +2846,7 @@ const deserializeAws_json1_1ParameterObjectList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterObject(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ParameterValue = (
   output: any,
@@ -2491,7 +2855,7 @@ const deserializeAws_json1_1ParameterValue = (
   let contents: any = {
     __type: "ParameterValue",
     id: undefined,
-    stringValue: undefined,
+    stringValue: undefined
   };
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -2500,7 +2864,7 @@ const deserializeAws_json1_1ParameterValue = (
     contents.stringValue = output.stringValue;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ParameterValueList = (
   output: any,
@@ -2509,7 +2873,7 @@ const deserializeAws_json1_1ParameterValueList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ParameterValue(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineDeletedException = (
   output: any,
@@ -2517,13 +2881,13 @@ const deserializeAws_json1_1PipelineDeletedException = (
 ): PipelineDeletedException => {
   let contents: any = {
     __type: "PipelineDeletedException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineDescription = (
   output: any,
@@ -2535,7 +2899,7 @@ const deserializeAws_json1_1PipelineDescription = (
     fields: undefined,
     name: undefined,
     pipelineId: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -2553,7 +2917,7 @@ const deserializeAws_json1_1PipelineDescription = (
     contents.tags = deserializeAws_json1_1tagList(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineDescriptionList = (
   output: any,
@@ -2562,7 +2926,7 @@ const deserializeAws_json1_1PipelineDescriptionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineDescription(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineIdName = (
   output: any,
@@ -2571,7 +2935,7 @@ const deserializeAws_json1_1PipelineIdName = (
   let contents: any = {
     __type: "PipelineIdName",
     id: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -2580,7 +2944,7 @@ const deserializeAws_json1_1PipelineIdName = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineNotFoundException = (
   output: any,
@@ -2588,13 +2952,13 @@ const deserializeAws_json1_1PipelineNotFoundException = (
 ): PipelineNotFoundException => {
   let contents: any = {
     __type: "PipelineNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineObject = (
   output: any,
@@ -2604,7 +2968,7 @@ const deserializeAws_json1_1PipelineObject = (
     __type: "PipelineObject",
     fields: undefined,
     id: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.fields !== undefined) {
     contents.fields = deserializeAws_json1_1fieldList(output.fields, context);
@@ -2616,7 +2980,7 @@ const deserializeAws_json1_1PipelineObject = (
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PipelineObjectList = (
   output: any,
@@ -2625,7 +2989,7 @@ const deserializeAws_json1_1PipelineObjectList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineObject(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PipelineObjectMap = (
   output: any,
@@ -2636,7 +3000,7 @@ const deserializeAws_json1_1PipelineObjectMap = (
     mapParams[key] = deserializeAws_json1_1PipelineObject(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1PollForTaskOutput = (
   output: any,
@@ -2644,13 +3008,16 @@ const deserializeAws_json1_1PollForTaskOutput = (
 ): PollForTaskOutput => {
   let contents: any = {
     __type: "PollForTaskOutput",
-    taskObject: undefined,
+    taskObject: undefined
   };
   if (output.taskObject !== undefined) {
-    contents.taskObject = deserializeAws_json1_1TaskObject(output.taskObject, context);
+    contents.taskObject = deserializeAws_json1_1TaskObject(
+      output.taskObject,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PutPipelineDefinitionOutput = (
   output: any,
@@ -2660,19 +3027,25 @@ const deserializeAws_json1_1PutPipelineDefinitionOutput = (
     __type: "PutPipelineDefinitionOutput",
     errored: undefined,
     validationErrors: undefined,
-    validationWarnings: undefined,
+    validationWarnings: undefined
   };
   if (output.errored !== undefined) {
     contents.errored = output.errored;
   }
   if (output.validationErrors !== undefined) {
-    contents.validationErrors = deserializeAws_json1_1ValidationErrors(output.validationErrors, context);
+    contents.validationErrors = deserializeAws_json1_1ValidationErrors(
+      output.validationErrors,
+      context
+    );
   }
   if (output.validationWarnings !== undefined) {
-    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(output.validationWarnings, context);
+    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
+      output.validationWarnings,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1QueryObjectsOutput = (
   output: any,
@@ -2682,7 +3055,7 @@ const deserializeAws_json1_1QueryObjectsOutput = (
     __type: "QueryObjectsOutput",
     hasMoreResults: undefined,
     ids: undefined,
-    marker: undefined,
+    marker: undefined
   };
   if (output.hasMoreResults !== undefined) {
     contents.hasMoreResults = output.hasMoreResults;
@@ -2694,17 +3067,17 @@ const deserializeAws_json1_1QueryObjectsOutput = (
     contents.marker = output.marker;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1RemoveTagsOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsOutput => {
   let contents: any = {
-    __type: "RemoveTagsOutput",
+    __type: "RemoveTagsOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1ReportTaskProgressOutput = (
   output: any,
@@ -2712,13 +3085,13 @@ const deserializeAws_json1_1ReportTaskProgressOutput = (
 ): ReportTaskProgressOutput => {
   let contents: any = {
     __type: "ReportTaskProgressOutput",
-    canceled: undefined,
+    canceled: undefined
   };
   if (output.canceled !== undefined) {
     contents.canceled = output.canceled;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput = (
   output: any,
@@ -2726,23 +3099,23 @@ const deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput = (
 ): ReportTaskRunnerHeartbeatOutput => {
   let contents: any = {
     __type: "ReportTaskRunnerHeartbeatOutput",
-    terminate: undefined,
+    terminate: undefined
   };
   if (output.terminate !== undefined) {
     contents.terminate = output.terminate;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SetTaskStatusOutput = (
   output: any,
   context: __SerdeContext
 ): SetTaskStatusOutput => {
   let contents: any = {
-    __type: "SetTaskStatusOutput",
+    __type: "SetTaskStatusOutput"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1Tag = (
   output: any,
@@ -2751,7 +3124,7 @@ const deserializeAws_json1_1Tag = (
   let contents: any = {
     __type: "Tag",
     key: undefined,
-    value: undefined,
+    value: undefined
   };
   if (output.key !== undefined) {
     contents.key = output.key;
@@ -2760,7 +3133,7 @@ const deserializeAws_json1_1Tag = (
     contents.value = output.value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskNotFoundException = (
   output: any,
@@ -2768,13 +3141,13 @@ const deserializeAws_json1_1TaskNotFoundException = (
 ): TaskNotFoundException => {
   let contents: any = {
     __type: "TaskNotFoundException",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskObject = (
   output: any,
@@ -2785,13 +3158,16 @@ const deserializeAws_json1_1TaskObject = (
     attemptId: undefined,
     objects: undefined,
     pipelineId: undefined,
-    taskId: undefined,
+    taskId: undefined
   };
   if (output.attemptId !== undefined) {
     contents.attemptId = output.attemptId;
   }
   if (output.objects !== undefined) {
-    contents.objects = deserializeAws_json1_1PipelineObjectMap(output.objects, context);
+    contents.objects = deserializeAws_json1_1PipelineObjectMap(
+      output.objects,
+      context
+    );
   }
   if (output.pipelineId !== undefined) {
     contents.pipelineId = output.pipelineId;
@@ -2800,7 +3176,7 @@ const deserializeAws_json1_1TaskObject = (
     contents.taskId = output.taskId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ValidatePipelineDefinitionOutput = (
   output: any,
@@ -2810,19 +3186,25 @@ const deserializeAws_json1_1ValidatePipelineDefinitionOutput = (
     __type: "ValidatePipelineDefinitionOutput",
     errored: undefined,
     validationErrors: undefined,
-    validationWarnings: undefined,
+    validationWarnings: undefined
   };
   if (output.errored !== undefined) {
     contents.errored = output.errored;
   }
   if (output.validationErrors !== undefined) {
-    contents.validationErrors = deserializeAws_json1_1ValidationErrors(output.validationErrors, context);
+    contents.validationErrors = deserializeAws_json1_1ValidationErrors(
+      output.validationErrors,
+      context
+    );
   }
   if (output.validationWarnings !== undefined) {
-    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(output.validationWarnings, context);
+    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
+      output.validationWarnings,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ValidationError = (
   output: any,
@@ -2831,16 +3213,19 @@ const deserializeAws_json1_1ValidationError = (
   let contents: any = {
     __type: "ValidationError",
     errors: undefined,
-    id: undefined,
+    id: undefined
   };
   if (output.errors !== undefined) {
-    contents.errors = deserializeAws_json1_1validationMessages(output.errors, context);
+    contents.errors = deserializeAws_json1_1validationMessages(
+      output.errors,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = output.id;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ValidationErrors = (
   output: any,
@@ -2849,7 +3234,7 @@ const deserializeAws_json1_1ValidationErrors = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ValidationError(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ValidationWarning = (
   output: any,
@@ -2858,16 +3243,19 @@ const deserializeAws_json1_1ValidationWarning = (
   let contents: any = {
     __type: "ValidationWarning",
     id: undefined,
-    warnings: undefined,
+    warnings: undefined
   };
   if (output.id !== undefined) {
     contents.id = output.id;
   }
   if (output.warnings !== undefined) {
-    contents.warnings = deserializeAws_json1_1validationMessages(output.warnings, context);
+    contents.warnings = deserializeAws_json1_1validationMessages(
+      output.warnings,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ValidationWarnings = (
   output: any,
@@ -2876,7 +3264,7 @@ const deserializeAws_json1_1ValidationWarnings = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ValidationWarning(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1fieldList = (
   output: any,
@@ -2885,16 +3273,14 @@ const deserializeAws_json1_1fieldList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Field(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1idList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1pipelineList = (
   output: any,
@@ -2903,7 +3289,7 @@ const deserializeAws_json1_1pipelineList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PipelineIdName(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1tagList = (
   output: any,
@@ -2912,16 +3298,14 @@ const deserializeAws_json1_1tagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1Tag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1validationMessages = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

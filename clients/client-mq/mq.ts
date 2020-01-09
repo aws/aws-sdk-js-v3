@@ -1,112 +1,112 @@
 import {
   CreateBrokerCommand,
   CreateBrokerCommandInput,
-  CreateBrokerCommandOutput,
+  CreateBrokerCommandOutput
 } from "./commands/CreateBrokerCommand";
 import {
   CreateConfigurationCommand,
   CreateConfigurationCommandInput,
-  CreateConfigurationCommandOutput,
+  CreateConfigurationCommandOutput
 } from "./commands/CreateConfigurationCommand";
 import {
   CreateTagsCommand,
   CreateTagsCommandInput,
-  CreateTagsCommandOutput,
+  CreateTagsCommandOutput
 } from "./commands/CreateTagsCommand";
 import {
   CreateUserCommand,
   CreateUserCommandInput,
-  CreateUserCommandOutput,
+  CreateUserCommandOutput
 } from "./commands/CreateUserCommand";
 import {
   DeleteBrokerCommand,
   DeleteBrokerCommandInput,
-  DeleteBrokerCommandOutput,
+  DeleteBrokerCommandOutput
 } from "./commands/DeleteBrokerCommand";
 import {
   DeleteTagsCommand,
   DeleteTagsCommandInput,
-  DeleteTagsCommandOutput,
+  DeleteTagsCommandOutput
 } from "./commands/DeleteTagsCommand";
 import {
   DeleteUserCommand,
   DeleteUserCommandInput,
-  DeleteUserCommandOutput,
+  DeleteUserCommandOutput
 } from "./commands/DeleteUserCommand";
 import {
   DescribeBrokerCommand,
   DescribeBrokerCommandInput,
-  DescribeBrokerCommandOutput,
+  DescribeBrokerCommandOutput
 } from "./commands/DescribeBrokerCommand";
 import {
   DescribeBrokerEngineTypesCommand,
   DescribeBrokerEngineTypesCommandInput,
-  DescribeBrokerEngineTypesCommandOutput,
+  DescribeBrokerEngineTypesCommandOutput
 } from "./commands/DescribeBrokerEngineTypesCommand";
 import {
   DescribeBrokerInstanceOptionsCommand,
   DescribeBrokerInstanceOptionsCommandInput,
-  DescribeBrokerInstanceOptionsCommandOutput,
+  DescribeBrokerInstanceOptionsCommandOutput
 } from "./commands/DescribeBrokerInstanceOptionsCommand";
 import {
   DescribeConfigurationCommand,
   DescribeConfigurationCommandInput,
-  DescribeConfigurationCommandOutput,
+  DescribeConfigurationCommandOutput
 } from "./commands/DescribeConfigurationCommand";
 import {
   DescribeConfigurationRevisionCommand,
   DescribeConfigurationRevisionCommandInput,
-  DescribeConfigurationRevisionCommandOutput,
+  DescribeConfigurationRevisionCommandOutput
 } from "./commands/DescribeConfigurationRevisionCommand";
 import {
   DescribeUserCommand,
   DescribeUserCommandInput,
-  DescribeUserCommandOutput,
+  DescribeUserCommandOutput
 } from "./commands/DescribeUserCommand";
 import {
   ListBrokersCommand,
   ListBrokersCommandInput,
-  ListBrokersCommandOutput,
+  ListBrokersCommandOutput
 } from "./commands/ListBrokersCommand";
 import {
   ListConfigurationRevisionsCommand,
   ListConfigurationRevisionsCommandInput,
-  ListConfigurationRevisionsCommandOutput,
+  ListConfigurationRevisionsCommandOutput
 } from "./commands/ListConfigurationRevisionsCommand";
 import {
   ListConfigurationsCommand,
   ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
+  ListConfigurationsCommandOutput
 } from "./commands/ListConfigurationsCommand";
 import {
   ListTagsCommand,
   ListTagsCommandInput,
-  ListTagsCommandOutput,
+  ListTagsCommandOutput
 } from "./commands/ListTagsCommand";
 import {
   ListUsersCommand,
   ListUsersCommandInput,
-  ListUsersCommandOutput,
+  ListUsersCommandOutput
 } from "./commands/ListUsersCommand";
 import {
   RebootBrokerCommand,
   RebootBrokerCommandInput,
-  RebootBrokerCommandOutput,
+  RebootBrokerCommandOutput
 } from "./commands/RebootBrokerCommand";
 import {
   UpdateBrokerCommand,
   UpdateBrokerCommandInput,
-  UpdateBrokerCommandOutput,
+  UpdateBrokerCommandOutput
 } from "./commands/UpdateBrokerCommand";
 import {
   UpdateConfigurationCommand,
   UpdateConfigurationCommandInput,
-  UpdateConfigurationCommandOutput,
+  UpdateConfigurationCommandOutput
 } from "./commands/UpdateConfigurationCommand";
 import {
   UpdateUserCommand,
   UpdateUserCommandInput,
-  UpdateUserCommandOutput,
+  UpdateUserCommandOutput
 } from "./commands/UpdateUserCommand";
 import { mqClient } from "./mqClient";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
@@ -120,7 +120,7 @@ export class mq extends mqClient {
    */
   public createBroker(
     args: CreateBrokerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateBrokerCommandOutput>;
   public createBroker(
     args: CreateBrokerCommandInput,
@@ -133,16 +133,18 @@ export class mq extends mqClient {
   ): void;
   public createBroker(
     args: CreateBrokerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBrokerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateBrokerCommandOutput) => void),
     cb?: (err: any, data?: CreateBrokerCommandOutput) => void
   ): Promise<CreateBrokerCommandOutput> | void {
     const command = new CreateBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -153,7 +155,7 @@ export class mq extends mqClient {
    */
   public createConfiguration(
     args: CreateConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateConfigurationCommandOutput>;
   public createConfiguration(
     args: CreateConfigurationCommandInput,
@@ -166,16 +168,18 @@ export class mq extends mqClient {
   ): void;
   public createConfiguration(
     args: CreateConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateConfigurationCommandOutput) => void),
     cb?: (err: any, data?: CreateConfigurationCommandOutput) => void
   ): Promise<CreateConfigurationCommandOutput> | void {
     const command = new CreateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -186,7 +190,7 @@ export class mq extends mqClient {
    */
   public createTags(
     args: CreateTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTagsCommandOutput>;
   public createTags(
     args: CreateTagsCommandInput,
@@ -199,16 +203,18 @@ export class mq extends mqClient {
   ): void;
   public createTags(
     args: CreateTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTagsCommandOutput) => void),
     cb?: (err: any, data?: CreateTagsCommandOutput) => void
   ): Promise<CreateTagsCommandOutput> | void {
     const command = new CreateTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -219,7 +225,7 @@ export class mq extends mqClient {
    */
   public createUser(
     args: CreateUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateUserCommandOutput>;
   public createUser(
     args: CreateUserCommandInput,
@@ -232,16 +238,18 @@ export class mq extends mqClient {
   ): void;
   public createUser(
     args: CreateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateUserCommandOutput) => void),
     cb?: (err: any, data?: CreateUserCommandOutput) => void
   ): Promise<CreateUserCommandOutput> | void {
     const command = new CreateUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -252,7 +260,7 @@ export class mq extends mqClient {
    */
   public deleteBroker(
     args: DeleteBrokerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteBrokerCommandOutput>;
   public deleteBroker(
     args: DeleteBrokerCommandInput,
@@ -265,16 +273,18 @@ export class mq extends mqClient {
   ): void;
   public deleteBroker(
     args: DeleteBrokerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBrokerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteBrokerCommandOutput) => void),
     cb?: (err: any, data?: DeleteBrokerCommandOutput) => void
   ): Promise<DeleteBrokerCommandOutput> | void {
     const command = new DeleteBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -285,7 +295,7 @@ export class mq extends mqClient {
    */
   public deleteTags(
     args: DeleteTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTagsCommandOutput>;
   public deleteTags(
     args: DeleteTagsCommandInput,
@@ -298,16 +308,18 @@ export class mq extends mqClient {
   ): void;
   public deleteTags(
     args: DeleteTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTagsCommandOutput) => void),
     cb?: (err: any, data?: DeleteTagsCommandOutput) => void
   ): Promise<DeleteTagsCommandOutput> | void {
     const command = new DeleteTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -318,7 +330,7 @@ export class mq extends mqClient {
    */
   public deleteUser(
     args: DeleteUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteUserCommandOutput>;
   public deleteUser(
     args: DeleteUserCommandInput,
@@ -331,16 +343,18 @@ export class mq extends mqClient {
   ): void;
   public deleteUser(
     args: DeleteUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteUserCommandOutput) => void),
     cb?: (err: any, data?: DeleteUserCommandOutput) => void
   ): Promise<DeleteUserCommandOutput> | void {
     const command = new DeleteUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -351,7 +365,7 @@ export class mq extends mqClient {
    */
   public describeBroker(
     args: DescribeBrokerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBrokerCommandOutput>;
   public describeBroker(
     args: DescribeBrokerCommandInput,
@@ -364,16 +378,18 @@ export class mq extends mqClient {
   ): void;
   public describeBroker(
     args: DescribeBrokerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBrokerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBrokerCommandOutput) => void),
     cb?: (err: any, data?: DescribeBrokerCommandOutput) => void
   ): Promise<DescribeBrokerCommandOutput> | void {
     const command = new DescribeBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -384,7 +400,7 @@ export class mq extends mqClient {
    */
   public describeBrokerEngineTypes(
     args: DescribeBrokerEngineTypesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBrokerEngineTypesCommandOutput>;
   public describeBrokerEngineTypes(
     args: DescribeBrokerEngineTypesCommandInput,
@@ -397,16 +413,18 @@ export class mq extends mqClient {
   ): void;
   public describeBrokerEngineTypes(
     args: DescribeBrokerEngineTypesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void),
     cb?: (err: any, data?: DescribeBrokerEngineTypesCommandOutput) => void
   ): Promise<DescribeBrokerEngineTypesCommandOutput> | void {
     const command = new DescribeBrokerEngineTypesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -417,7 +435,7 @@ export class mq extends mqClient {
    */
   public describeBrokerInstanceOptions(
     args: DescribeBrokerInstanceOptionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput>;
   public describeBrokerInstanceOptions(
     args: DescribeBrokerInstanceOptionsCommandInput,
@@ -430,16 +448,18 @@ export class mq extends mqClient {
   ): void;
   public describeBrokerInstanceOptions(
     args: DescribeBrokerInstanceOptionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeBrokerInstanceOptionsCommandOutput) => void
   ): Promise<DescribeBrokerInstanceOptionsCommandOutput> | void {
     const command = new DescribeBrokerInstanceOptionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -450,7 +470,7 @@ export class mq extends mqClient {
    */
   public describeConfiguration(
     args: DescribeConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeConfigurationCommandOutput>;
   public describeConfiguration(
     args: DescribeConfigurationCommandInput,
@@ -463,16 +483,18 @@ export class mq extends mqClient {
   ): void;
   public describeConfiguration(
     args: DescribeConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeConfigurationCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationCommandOutput) => void
   ): Promise<DescribeConfigurationCommandOutput> | void {
     const command = new DescribeConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -483,7 +505,7 @@ export class mq extends mqClient {
    */
   public describeConfigurationRevision(
     args: DescribeConfigurationRevisionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeConfigurationRevisionCommandOutput>;
   public describeConfigurationRevision(
     args: DescribeConfigurationRevisionCommandInput,
@@ -496,16 +518,18 @@ export class mq extends mqClient {
   ): void;
   public describeConfigurationRevision(
     args: DescribeConfigurationRevisionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConfigurationRevisionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeConfigurationRevisionCommandOutput) => void),
     cb?: (err: any, data?: DescribeConfigurationRevisionCommandOutput) => void
   ): Promise<DescribeConfigurationRevisionCommandOutput> | void {
     const command = new DescribeConfigurationRevisionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -516,7 +540,7 @@ export class mq extends mqClient {
    */
   public describeUser(
     args: DescribeUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeUserCommandOutput>;
   public describeUser(
     args: DescribeUserCommandInput,
@@ -529,16 +553,18 @@ export class mq extends mqClient {
   ): void;
   public describeUser(
     args: DescribeUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeUserCommandOutput) => void),
     cb?: (err: any, data?: DescribeUserCommandOutput) => void
   ): Promise<DescribeUserCommandOutput> | void {
     const command = new DescribeUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +575,7 @@ export class mq extends mqClient {
    */
   public listBrokers(
     args: ListBrokersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListBrokersCommandOutput>;
   public listBrokers(
     args: ListBrokersCommandInput,
@@ -562,16 +588,18 @@ export class mq extends mqClient {
   ): void;
   public listBrokers(
     args: ListBrokersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListBrokersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListBrokersCommandOutput) => void),
     cb?: (err: any, data?: ListBrokersCommandOutput) => void
   ): Promise<ListBrokersCommandOutput> | void {
     const command = new ListBrokersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -582,7 +610,7 @@ export class mq extends mqClient {
    */
   public listConfigurationRevisions(
     args: ListConfigurationRevisionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListConfigurationRevisionsCommandOutput>;
   public listConfigurationRevisions(
     args: ListConfigurationRevisionsCommandInput,
@@ -595,16 +623,18 @@ export class mq extends mqClient {
   ): void;
   public listConfigurationRevisions(
     args: ListConfigurationRevisionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationRevisionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListConfigurationRevisionsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationRevisionsCommandOutput) => void
   ): Promise<ListConfigurationRevisionsCommandOutput> | void {
     const command = new ListConfigurationRevisionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -615,7 +645,7 @@ export class mq extends mqClient {
    */
   public listConfigurations(
     args: ListConfigurationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListConfigurationsCommandOutput>;
   public listConfigurations(
     args: ListConfigurationsCommandInput,
@@ -628,16 +658,18 @@ export class mq extends mqClient {
   ): void;
   public listConfigurations(
     args: ListConfigurationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListConfigurationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListConfigurationsCommandOutput) => void),
     cb?: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): Promise<ListConfigurationsCommandOutput> | void {
     const command = new ListConfigurationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -648,7 +680,7 @@ export class mq extends mqClient {
    */
   public listTags(
     args: ListTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsCommandOutput>;
   public listTags(
     args: ListTagsCommandInput,
@@ -661,16 +693,18 @@ export class mq extends mqClient {
   ): void;
   public listTags(
     args: ListTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsCommandOutput) => void),
     cb?: (err: any, data?: ListTagsCommandOutput) => void
   ): Promise<ListTagsCommandOutput> | void {
     const command = new ListTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -681,7 +715,7 @@ export class mq extends mqClient {
    */
   public listUsers(
     args: ListUsersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListUsersCommandOutput>;
   public listUsers(
     args: ListUsersCommandInput,
@@ -694,16 +728,18 @@ export class mq extends mqClient {
   ): void;
   public listUsers(
     args: ListUsersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListUsersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListUsersCommandOutput) => void),
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -714,7 +750,7 @@ export class mq extends mqClient {
    */
   public rebootBroker(
     args: RebootBrokerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RebootBrokerCommandOutput>;
   public rebootBroker(
     args: RebootBrokerCommandInput,
@@ -727,16 +763,18 @@ export class mq extends mqClient {
   ): void;
   public rebootBroker(
     args: RebootBrokerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RebootBrokerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RebootBrokerCommandOutput) => void),
     cb?: (err: any, data?: RebootBrokerCommandOutput) => void
   ): Promise<RebootBrokerCommandOutput> | void {
     const command = new RebootBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -747,7 +785,7 @@ export class mq extends mqClient {
    */
   public updateBroker(
     args: UpdateBrokerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateBrokerCommandOutput>;
   public updateBroker(
     args: UpdateBrokerCommandInput,
@@ -760,16 +798,18 @@ export class mq extends mqClient {
   ): void;
   public updateBroker(
     args: UpdateBrokerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBrokerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateBrokerCommandOutput) => void),
     cb?: (err: any, data?: UpdateBrokerCommandOutput) => void
   ): Promise<UpdateBrokerCommandOutput> | void {
     const command = new UpdateBrokerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -780,7 +820,7 @@ export class mq extends mqClient {
    */
   public updateConfiguration(
     args: UpdateConfigurationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateConfigurationCommandOutput>;
   public updateConfiguration(
     args: UpdateConfigurationCommandInput,
@@ -793,16 +833,18 @@ export class mq extends mqClient {
   ): void;
   public updateConfiguration(
     args: UpdateConfigurationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
     cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
   ): Promise<UpdateConfigurationCommandOutput> | void {
     const command = new UpdateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -813,7 +855,7 @@ export class mq extends mqClient {
    */
   public updateUser(
     args: UpdateUserCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateUserCommandOutput>;
   public updateUser(
     args: UpdateUserCommandInput,
@@ -826,19 +868,20 @@ export class mq extends mqClient {
   ): void;
   public updateUser(
     args: UpdateUserCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateUserCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateUserCommandOutput) => void),
     cb?: (err: any, data?: UpdateUserCommandOutput) => void
   ): Promise<UpdateUserCommandOutput> | void {
     const command = new UpdateUserCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

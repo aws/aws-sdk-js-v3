@@ -1,20 +1,20 @@
 import {
   RAMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../RAMClient";
 import {
   DisassociateResourceShareRequest,
-  DisassociateResourceShareResponse,
+  DisassociateResourceShareResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DisassociateResourceShareCommand,
-  serializeAws_restJson1_1DisassociateResourceShareCommand,
+  serializeAws_restJson1_1DisassociateResourceShareCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DisassociateResourceShareCommandInput = DisassociateResourceShareRequest;
 export type DisassociateResourceShareCommandOutput = DisassociateResourceShareResponse;
 
-export class DisassociateResourceShareCommand extends $Command<DisassociateResourceShareCommandInput, DisassociateResourceShareCommandOutput, RAMClientResolvedConfig> {
+export class DisassociateResourceShareCommand extends $Command<
+  DisassociateResourceShareCommandInput,
+  DisassociateResourceShareCommandOutput,
+  RAMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DisassociateResourceShareCommand extends $Command<DisassociateResou
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RAMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateResourceShareCommandInput, DisassociateResourceShareCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DisassociateResourceShareCommandInput,
+    DisassociateResourceShareCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DisassociateResourceShareCommand extends $Command<DisassociateResou
     input: DisassociateResourceShareCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DisassociateResourceShareCommand(input, context);
+    return serializeAws_restJson1_1DisassociateResourceShareCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateResourceShareCommandOutput> {
-    return deserializeAws_restJson1_1DisassociateResourceShareCommand(output, context);
+    return deserializeAws_restJson1_1DisassociateResourceShareCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

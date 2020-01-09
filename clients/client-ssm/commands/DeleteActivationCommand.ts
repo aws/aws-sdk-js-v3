@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   DeleteActivationRequest,
-  DeleteActivationResult,
+  DeleteActivationResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteActivationCommand,
-  serializeAws_json1_1DeleteActivationCommand,
+  serializeAws_json1_1DeleteActivationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteActivationCommandInput = DeleteActivationRequest;
 export type DeleteActivationCommandOutput = DeleteActivationResult;
 
-export class DeleteActivationCommand extends $Command<DeleteActivationCommandInput, DeleteActivationCommandOutput, SSMClientResolvedConfig> {
+export class DeleteActivationCommand extends $Command<
+  DeleteActivationCommandInput,
+  DeleteActivationCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class DeleteActivationCommand extends $Command<DeleteActivationCommandInp
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteActivationCommandInput, DeleteActivationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

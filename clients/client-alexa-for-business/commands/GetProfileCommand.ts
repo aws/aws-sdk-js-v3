@@ -1,20 +1,17 @@
 import {
   AlexaForBusinessClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AlexaForBusinessClient";
-import {
-  GetProfileRequest,
-  GetProfileResponse,
-} from "../models/index";
+import { GetProfileRequest, GetProfileResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetProfileCommand,
-  serializeAws_json1_1GetProfileCommand,
+  serializeAws_json1_1GetProfileCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetProfileCommandInput = GetProfileRequest;
 export type GetProfileCommandOutput = GetProfileResponse;
 
-export class GetProfileCommand extends $Command<GetProfileCommandInput, GetProfileCommandOutput, AlexaForBusinessClientResolvedConfig> {
+export class GetProfileCommand extends $Command<
+  GetProfileCommandInput,
+  GetProfileCommandOutput,
+  AlexaForBusinessClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetProfileCommand extends $Command<GetProfileCommandInput, GetProfi
     configuration: AlexaForBusinessClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetProfileCommandInput, GetProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

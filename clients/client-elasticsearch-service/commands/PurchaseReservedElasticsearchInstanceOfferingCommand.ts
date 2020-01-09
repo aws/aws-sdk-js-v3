@@ -1,20 +1,20 @@
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ElasticsearchServiceClient";
 import {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
-  PurchaseReservedElasticsearchInstanceOfferingResponse,
+  PurchaseReservedElasticsearchInstanceOfferingResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand,
-  serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand,
+  serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type PurchaseReservedElasticsearchInstanceOfferingCommandInput = PurchaseReservedElasticsearchInstanceOfferingRequest;
 export type PurchaseReservedElasticsearchInstanceOfferingCommandOutput = PurchaseReservedElasticsearchInstanceOfferingResponse;
 
-export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<PurchaseReservedElasticsearchInstanceOfferingCommandInput, PurchaseReservedElasticsearchInstanceOfferingCommandOutput, ElasticsearchServiceClientResolvedConfig> {
+export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Command<
+  PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+  PurchaseReservedElasticsearchInstanceOfferingCommandOutput,
+  ElasticsearchServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput) {
+  constructor(
+    readonly input: PurchaseReservedElasticsearchInstanceOfferingCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ElasticsearchServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PurchaseReservedElasticsearchInstanceOfferingCommandInput, PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    PurchaseReservedElasticsearchInstanceOfferingCommandInput,
+    PurchaseReservedElasticsearchInstanceOfferingCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class PurchaseReservedElasticsearchInstanceOfferingCommand extends $Comma
     input: PurchaseReservedElasticsearchInstanceOfferingCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(input, context);
+    return serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<PurchaseReservedElasticsearchInstanceOfferingCommandOutput> {
-    return deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(output, context);
+    return deserializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferingCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

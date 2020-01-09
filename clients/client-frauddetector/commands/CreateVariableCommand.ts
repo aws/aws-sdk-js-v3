@@ -1,20 +1,17 @@
 import {
   FraudDetectorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../FraudDetectorClient";
-import {
-  CreateVariableRequest,
-  CreateVariableResult,
-} from "../models/index";
+import { CreateVariableRequest, CreateVariableResult } from "../models/index";
 import {
   deserializeAws_json1_1CreateVariableCommand,
-  serializeAws_json1_1CreateVariableCommand,
+  serializeAws_json1_1CreateVariableCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateVariableCommandInput = CreateVariableRequest;
 export type CreateVariableCommandOutput = CreateVariableResult;
 
-export class CreateVariableCommand extends $Command<CreateVariableCommandInput, CreateVariableCommandOutput, FraudDetectorClientResolvedConfig> {
+export class CreateVariableCommand extends $Command<
+  CreateVariableCommandInput,
+  CreateVariableCommandOutput,
+  FraudDetectorClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class CreateVariableCommand extends $Command<CreateVariableCommandInput, 
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<CreateVariableCommandInput, CreateVariableCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

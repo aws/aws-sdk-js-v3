@@ -1,20 +1,20 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
 import {
   ListRoomMembershipsRequest,
-  ListRoomMembershipsResponse,
+  ListRoomMembershipsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListRoomMembershipsCommand,
-  serializeAws_restJson1_1ListRoomMembershipsCommand,
+  serializeAws_restJson1_1ListRoomMembershipsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListRoomMembershipsCommandInput = ListRoomMembershipsRequest;
 export type ListRoomMembershipsCommandOutput = ListRoomMembershipsResponse;
 
-export class ListRoomMembershipsCommand extends $Command<ListRoomMembershipsCommandInput, ListRoomMembershipsCommandOutput, ChimeClientResolvedConfig> {
+export class ListRoomMembershipsCommand extends $Command<
+  ListRoomMembershipsCommandInput,
+  ListRoomMembershipsCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListRoomMembershipsCommand extends $Command<ListRoomMembershipsComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListRoomMembershipsCommandInput, ListRoomMembershipsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListRoomMembershipsCommandInput,
+    ListRoomMembershipsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class ListRoomMembershipsCommand extends $Command<ListRoomMembershipsComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListRoomMembershipsCommandOutput> {
-    return deserializeAws_restJson1_1ListRoomMembershipsCommand(output, context);
+    return deserializeAws_restJson1_1ListRoomMembershipsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

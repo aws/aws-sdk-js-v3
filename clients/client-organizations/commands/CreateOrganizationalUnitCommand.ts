@@ -1,20 +1,20 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
 import {
   CreateOrganizationalUnitRequest,
-  CreateOrganizationalUnitResponse,
+  CreateOrganizationalUnitResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateOrganizationalUnitCommand,
-  serializeAws_json1_1CreateOrganizationalUnitCommand,
+  serializeAws_json1_1CreateOrganizationalUnitCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateOrganizationalUnitCommandInput = CreateOrganizationalUnitRequest;
 export type CreateOrganizationalUnitCommandOutput = CreateOrganizationalUnitResponse;
 
-export class CreateOrganizationalUnitCommand extends $Command<CreateOrganizationalUnitCommandInput, CreateOrganizationalUnitCommandOutput, OrganizationsClientResolvedConfig> {
+export class CreateOrganizationalUnitCommand extends $Command<
+  CreateOrganizationalUnitCommandInput,
+  CreateOrganizationalUnitCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateOrganizationalUnitCommand extends $Command<CreateOrganization
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateOrganizationalUnitCommandInput, CreateOrganizationalUnitCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateOrganizationalUnitCommandInput,
+    CreateOrganizationalUnitCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class CreateOrganizationalUnitCommand extends $Command<CreateOrganization
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateOrganizationalUnitCommandOutput> {
-    return deserializeAws_json1_1CreateOrganizationalUnitCommand(output, context);
+    return deserializeAws_json1_1CreateOrganizationalUnitCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

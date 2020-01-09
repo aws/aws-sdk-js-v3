@@ -1,17 +1,17 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksClient";
 import { UpdateMyUserProfileRequest } from "../models/index";
 import {
   deserializeAws_json1_1UpdateMyUserProfileCommand,
-  serializeAws_json1_1UpdateMyUserProfileCommand,
+  serializeAws_json1_1UpdateMyUserProfileCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type UpdateMyUserProfileCommandInput = UpdateMyUserProfileRequest;
-export type UpdateMyUserProfileCommandOutput = __MetadataBearer
+export type UpdateMyUserProfileCommandOutput = __MetadataBearer;
 
-export class UpdateMyUserProfileCommand extends $Command<UpdateMyUserProfileCommandInput, UpdateMyUserProfileCommandOutput, OpsWorksClientResolvedConfig> {
+export class UpdateMyUserProfileCommand extends $Command<
+  UpdateMyUserProfileCommandInput,
+  UpdateMyUserProfileCommandOutput,
+  OpsWorksClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class UpdateMyUserProfileCommand extends $Command<UpdateMyUserProfileComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateMyUserProfileCommandInput, UpdateMyUserProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateMyUserProfileCommandInput,
+    UpdateMyUserProfileCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

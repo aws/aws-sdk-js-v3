@@ -2,232 +2,232 @@ import { KMSClient } from "./KMSClient";
 import {
   CancelKeyDeletionCommand,
   CancelKeyDeletionCommandInput,
-  CancelKeyDeletionCommandOutput,
+  CancelKeyDeletionCommandOutput
 } from "./commands/CancelKeyDeletionCommand";
 import {
   ConnectCustomKeyStoreCommand,
   ConnectCustomKeyStoreCommandInput,
-  ConnectCustomKeyStoreCommandOutput,
+  ConnectCustomKeyStoreCommandOutput
 } from "./commands/ConnectCustomKeyStoreCommand";
 import {
   CreateAliasCommand,
   CreateAliasCommandInput,
-  CreateAliasCommandOutput,
+  CreateAliasCommandOutput
 } from "./commands/CreateAliasCommand";
 import {
   CreateCustomKeyStoreCommand,
   CreateCustomKeyStoreCommandInput,
-  CreateCustomKeyStoreCommandOutput,
+  CreateCustomKeyStoreCommandOutput
 } from "./commands/CreateCustomKeyStoreCommand";
 import {
   CreateGrantCommand,
   CreateGrantCommandInput,
-  CreateGrantCommandOutput,
+  CreateGrantCommandOutput
 } from "./commands/CreateGrantCommand";
 import {
   CreateKeyCommand,
   CreateKeyCommandInput,
-  CreateKeyCommandOutput,
+  CreateKeyCommandOutput
 } from "./commands/CreateKeyCommand";
 import {
   DecryptCommand,
   DecryptCommandInput,
-  DecryptCommandOutput,
+  DecryptCommandOutput
 } from "./commands/DecryptCommand";
 import {
   DeleteAliasCommand,
   DeleteAliasCommandInput,
-  DeleteAliasCommandOutput,
+  DeleteAliasCommandOutput
 } from "./commands/DeleteAliasCommand";
 import {
   DeleteCustomKeyStoreCommand,
   DeleteCustomKeyStoreCommandInput,
-  DeleteCustomKeyStoreCommandOutput,
+  DeleteCustomKeyStoreCommandOutput
 } from "./commands/DeleteCustomKeyStoreCommand";
 import {
   DeleteImportedKeyMaterialCommand,
   DeleteImportedKeyMaterialCommandInput,
-  DeleteImportedKeyMaterialCommandOutput,
+  DeleteImportedKeyMaterialCommandOutput
 } from "./commands/DeleteImportedKeyMaterialCommand";
 import {
   DescribeCustomKeyStoresCommand,
   DescribeCustomKeyStoresCommandInput,
-  DescribeCustomKeyStoresCommandOutput,
+  DescribeCustomKeyStoresCommandOutput
 } from "./commands/DescribeCustomKeyStoresCommand";
 import {
   DescribeKeyCommand,
   DescribeKeyCommandInput,
-  DescribeKeyCommandOutput,
+  DescribeKeyCommandOutput
 } from "./commands/DescribeKeyCommand";
 import {
   DisableKeyCommand,
   DisableKeyCommandInput,
-  DisableKeyCommandOutput,
+  DisableKeyCommandOutput
 } from "./commands/DisableKeyCommand";
 import {
   DisableKeyRotationCommand,
   DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput,
+  DisableKeyRotationCommandOutput
 } from "./commands/DisableKeyRotationCommand";
 import {
   DisconnectCustomKeyStoreCommand,
   DisconnectCustomKeyStoreCommandInput,
-  DisconnectCustomKeyStoreCommandOutput,
+  DisconnectCustomKeyStoreCommandOutput
 } from "./commands/DisconnectCustomKeyStoreCommand";
 import {
   EnableKeyCommand,
   EnableKeyCommandInput,
-  EnableKeyCommandOutput,
+  EnableKeyCommandOutput
 } from "./commands/EnableKeyCommand";
 import {
   EnableKeyRotationCommand,
   EnableKeyRotationCommandInput,
-  EnableKeyRotationCommandOutput,
+  EnableKeyRotationCommandOutput
 } from "./commands/EnableKeyRotationCommand";
 import {
   EncryptCommand,
   EncryptCommandInput,
-  EncryptCommandOutput,
+  EncryptCommandOutput
 } from "./commands/EncryptCommand";
 import {
   GenerateDataKeyCommand,
   GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput,
+  GenerateDataKeyCommandOutput
 } from "./commands/GenerateDataKeyCommand";
 import {
   GenerateDataKeyPairCommand,
   GenerateDataKeyPairCommandInput,
-  GenerateDataKeyPairCommandOutput,
+  GenerateDataKeyPairCommandOutput
 } from "./commands/GenerateDataKeyPairCommand";
 import {
   GenerateDataKeyPairWithoutPlaintextCommand,
   GenerateDataKeyPairWithoutPlaintextCommandInput,
-  GenerateDataKeyPairWithoutPlaintextCommandOutput,
+  GenerateDataKeyPairWithoutPlaintextCommandOutput
 } from "./commands/GenerateDataKeyPairWithoutPlaintextCommand";
 import {
   GenerateDataKeyWithoutPlaintextCommand,
   GenerateDataKeyWithoutPlaintextCommandInput,
-  GenerateDataKeyWithoutPlaintextCommandOutput,
+  GenerateDataKeyWithoutPlaintextCommandOutput
 } from "./commands/GenerateDataKeyWithoutPlaintextCommand";
 import {
   GenerateRandomCommand,
   GenerateRandomCommandInput,
-  GenerateRandomCommandOutput,
+  GenerateRandomCommandOutput
 } from "./commands/GenerateRandomCommand";
 import {
   GetKeyPolicyCommand,
   GetKeyPolicyCommandInput,
-  GetKeyPolicyCommandOutput,
+  GetKeyPolicyCommandOutput
 } from "./commands/GetKeyPolicyCommand";
 import {
   GetKeyRotationStatusCommand,
   GetKeyRotationStatusCommandInput,
-  GetKeyRotationStatusCommandOutput,
+  GetKeyRotationStatusCommandOutput
 } from "./commands/GetKeyRotationStatusCommand";
 import {
   GetParametersForImportCommand,
   GetParametersForImportCommandInput,
-  GetParametersForImportCommandOutput,
+  GetParametersForImportCommandOutput
 } from "./commands/GetParametersForImportCommand";
 import {
   GetPublicKeyCommand,
   GetPublicKeyCommandInput,
-  GetPublicKeyCommandOutput,
+  GetPublicKeyCommandOutput
 } from "./commands/GetPublicKeyCommand";
 import {
   ImportKeyMaterialCommand,
   ImportKeyMaterialCommandInput,
-  ImportKeyMaterialCommandOutput,
+  ImportKeyMaterialCommandOutput
 } from "./commands/ImportKeyMaterialCommand";
 import {
   ListAliasesCommand,
   ListAliasesCommandInput,
-  ListAliasesCommandOutput,
+  ListAliasesCommandOutput
 } from "./commands/ListAliasesCommand";
 import {
   ListGrantsCommand,
   ListGrantsCommandInput,
-  ListGrantsCommandOutput,
+  ListGrantsCommandOutput
 } from "./commands/ListGrantsCommand";
 import {
   ListKeyPoliciesCommand,
   ListKeyPoliciesCommandInput,
-  ListKeyPoliciesCommandOutput,
+  ListKeyPoliciesCommandOutput
 } from "./commands/ListKeyPoliciesCommand";
 import {
   ListKeysCommand,
   ListKeysCommandInput,
-  ListKeysCommandOutput,
+  ListKeysCommandOutput
 } from "./commands/ListKeysCommand";
 import {
   ListResourceTagsCommand,
   ListResourceTagsCommandInput,
-  ListResourceTagsCommandOutput,
+  ListResourceTagsCommandOutput
 } from "./commands/ListResourceTagsCommand";
 import {
   ListRetirableGrantsCommand,
   ListRetirableGrantsCommandInput,
-  ListRetirableGrantsCommandOutput,
+  ListRetirableGrantsCommandOutput
 } from "./commands/ListRetirableGrantsCommand";
 import {
   PutKeyPolicyCommand,
   PutKeyPolicyCommandInput,
-  PutKeyPolicyCommandOutput,
+  PutKeyPolicyCommandOutput
 } from "./commands/PutKeyPolicyCommand";
 import {
   ReEncryptCommand,
   ReEncryptCommandInput,
-  ReEncryptCommandOutput,
+  ReEncryptCommandOutput
 } from "./commands/ReEncryptCommand";
 import {
   RetireGrantCommand,
   RetireGrantCommandInput,
-  RetireGrantCommandOutput,
+  RetireGrantCommandOutput
 } from "./commands/RetireGrantCommand";
 import {
   RevokeGrantCommand,
   RevokeGrantCommandInput,
-  RevokeGrantCommandOutput,
+  RevokeGrantCommandOutput
 } from "./commands/RevokeGrantCommand";
 import {
   ScheduleKeyDeletionCommand,
   ScheduleKeyDeletionCommandInput,
-  ScheduleKeyDeletionCommandOutput,
+  ScheduleKeyDeletionCommandOutput
 } from "./commands/ScheduleKeyDeletionCommand";
 import {
   SignCommand,
   SignCommandInput,
-  SignCommandOutput,
+  SignCommandOutput
 } from "./commands/SignCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateAliasCommand,
   UpdateAliasCommandInput,
-  UpdateAliasCommandOutput,
+  UpdateAliasCommandOutput
 } from "./commands/UpdateAliasCommand";
 import {
   UpdateCustomKeyStoreCommand,
   UpdateCustomKeyStoreCommandInput,
-  UpdateCustomKeyStoreCommandOutput,
+  UpdateCustomKeyStoreCommandOutput
 } from "./commands/UpdateCustomKeyStoreCommand";
 import {
   UpdateKeyDescriptionCommand,
   UpdateKeyDescriptionCommandInput,
-  UpdateKeyDescriptionCommandOutput,
+  UpdateKeyDescriptionCommandOutput
 } from "./commands/UpdateKeyDescriptionCommand";
 import {
   VerifyCommand,
   VerifyCommandInput,
-  VerifyCommandOutput,
+  VerifyCommandOutput
 } from "./commands/VerifyCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -340,7 +340,7 @@ export class KMS extends KMSClient {
    */
   public cancelKeyDeletion(
     args: CancelKeyDeletionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelKeyDeletionCommandOutput>;
   public cancelKeyDeletion(
     args: CancelKeyDeletionCommandInput,
@@ -353,16 +353,18 @@ export class KMS extends KMSClient {
   ): void;
   public cancelKeyDeletion(
     args: CancelKeyDeletionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelKeyDeletionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelKeyDeletionCommandOutput) => void),
     cb?: (err: any, data?: CancelKeyDeletionCommandOutput) => void
   ): Promise<CancelKeyDeletionCommandOutput> | void {
     const command = new CancelKeyDeletionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -400,7 +402,7 @@ export class KMS extends KMSClient {
    */
   public connectCustomKeyStore(
     args: ConnectCustomKeyStoreCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ConnectCustomKeyStoreCommandOutput>;
   public connectCustomKeyStore(
     args: ConnectCustomKeyStoreCommandInput,
@@ -413,16 +415,18 @@ export class KMS extends KMSClient {
   ): void;
   public connectCustomKeyStore(
     args: ConnectCustomKeyStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ConnectCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ConnectCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: ConnectCustomKeyStoreCommandOutput) => void
   ): Promise<ConnectCustomKeyStoreCommandOutput> | void {
     const command = new ConnectCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -499,7 +503,7 @@ export class KMS extends KMSClient {
    */
   public createAlias(
     args: CreateAliasCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAliasCommandOutput>;
   public createAlias(
     args: CreateAliasCommandInput,
@@ -512,16 +516,18 @@ export class KMS extends KMSClient {
   ): void;
   public createAlias(
     args: CreateAliasCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAliasCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAliasCommandOutput) => void),
     cb?: (err: any, data?: CreateAliasCommandOutput) => void
   ): Promise<CreateAliasCommandOutput> | void {
     const command = new CreateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -549,7 +555,7 @@ export class KMS extends KMSClient {
    */
   public createCustomKeyStore(
     args: CreateCustomKeyStoreCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCustomKeyStoreCommandOutput>;
   public createCustomKeyStore(
     args: CreateCustomKeyStoreCommandInput,
@@ -562,16 +568,18 @@ export class KMS extends KMSClient {
   ): void;
   public createCustomKeyStore(
     args: CreateCustomKeyStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: CreateCustomKeyStoreCommandOutput) => void
   ): Promise<CreateCustomKeyStoreCommandOutput> | void {
     const command = new CreateCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -628,7 +636,7 @@ export class KMS extends KMSClient {
    */
   public createGrant(
     args: CreateGrantCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateGrantCommandOutput>;
   public createGrant(
     args: CreateGrantCommandInput,
@@ -641,16 +649,18 @@ export class KMS extends KMSClient {
   ): void;
   public createGrant(
     args: CreateGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateGrantCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateGrantCommandOutput) => void),
     cb?: (err: any, data?: CreateGrantCommandOutput) => void
   ): Promise<CreateGrantCommandOutput> | void {
     const command = new CreateGrantCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -739,7 +749,7 @@ export class KMS extends KMSClient {
    */
   public createKey(
     args: CreateKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateKeyCommandOutput>;
   public createKey(
     args: CreateKeyCommandInput,
@@ -752,16 +762,18 @@ export class KMS extends KMSClient {
   ): void;
   public createKey(
     args: CreateKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateKeyCommandOutput) => void),
     cb?: (err: any, data?: CreateKeyCommandOutput) => void
   ): Promise<CreateKeyCommandOutput> | void {
     const command = new CreateKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -826,7 +838,7 @@ export class KMS extends KMSClient {
    */
   public decrypt(
     args: DecryptCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DecryptCommandOutput>;
   public decrypt(
     args: DecryptCommandInput,
@@ -839,16 +851,18 @@ export class KMS extends KMSClient {
   ): void;
   public decrypt(
     args: DecryptCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DecryptCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DecryptCommandOutput) => void),
     cb?: (err: any, data?: DecryptCommandOutput) => void
   ): Promise<DecryptCommandOutput> | void {
     const command = new DecryptCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -867,7 +881,7 @@ export class KMS extends KMSClient {
    */
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteAliasCommandOutput>;
   public deleteAlias(
     args: DeleteAliasCommandInput,
@@ -880,16 +894,18 @@ export class KMS extends KMSClient {
   ): void;
   public deleteAlias(
     args: DeleteAliasCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAliasCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAliasCommandOutput) => void),
     cb?: (err: any, data?: DeleteAliasCommandOutput) => void
   ): Promise<DeleteAliasCommandOutput> | void {
     const command = new DeleteAliasCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -921,7 +937,7 @@ export class KMS extends KMSClient {
    */
   public deleteCustomKeyStore(
     args: DeleteCustomKeyStoreCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteCustomKeyStoreCommandOutput>;
   public deleteCustomKeyStore(
     args: DeleteCustomKeyStoreCommandInput,
@@ -934,16 +950,18 @@ export class KMS extends KMSClient {
   ): void;
   public deleteCustomKeyStore(
     args: DeleteCustomKeyStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: DeleteCustomKeyStoreCommandOutput) => void
   ): Promise<DeleteCustomKeyStoreCommandOutput> | void {
     const command = new DeleteCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -968,7 +986,7 @@ export class KMS extends KMSClient {
    */
   public deleteImportedKeyMaterial(
     args: DeleteImportedKeyMaterialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteImportedKeyMaterialCommandOutput>;
   public deleteImportedKeyMaterial(
     args: DeleteImportedKeyMaterialCommandInput,
@@ -981,16 +999,18 @@ export class KMS extends KMSClient {
   ): void;
   public deleteImportedKeyMaterial(
     args: DeleteImportedKeyMaterialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void),
     cb?: (err: any, data?: DeleteImportedKeyMaterialCommandOutput) => void
   ): Promise<DeleteImportedKeyMaterialCommandOutput> | void {
     const command = new DeleteImportedKeyMaterialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1022,7 +1042,7 @@ export class KMS extends KMSClient {
    */
   public describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCustomKeyStoresCommandOutput>;
   public describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
@@ -1035,16 +1055,18 @@ export class KMS extends KMSClient {
   ): void;
   public describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCustomKeyStoresCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCustomKeyStoresCommandOutput) => void),
     cb?: (err: any, data?: DescribeCustomKeyStoresCommandOutput) => void
   ): Promise<DescribeCustomKeyStoresCommandOutput> | void {
     const command = new DescribeCustomKeyStoresCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1091,7 +1113,7 @@ export class KMS extends KMSClient {
    */
   public describeKey(
     args: DescribeKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeKeyCommandOutput>;
   public describeKey(
     args: DescribeKeyCommandInput,
@@ -1104,16 +1126,18 @@ export class KMS extends KMSClient {
   ): void;
   public describeKey(
     args: DescribeKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeKeyCommandOutput) => void),
     cb?: (err: any, data?: DescribeKeyCommandOutput) => void
   ): Promise<DescribeKeyCommandOutput> | void {
     const command = new DescribeKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1135,7 +1159,7 @@ export class KMS extends KMSClient {
    */
   public disableKey(
     args: DisableKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableKeyCommandOutput>;
   public disableKey(
     args: DisableKeyCommandInput,
@@ -1148,16 +1172,18 @@ export class KMS extends KMSClient {
   ): void;
   public disableKey(
     args: DisableKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableKeyCommandOutput) => void),
     cb?: (err: any, data?: DisableKeyCommandOutput) => void
   ): Promise<DisableKeyCommandOutput> | void {
     const command = new DisableKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1177,7 +1203,7 @@ export class KMS extends KMSClient {
    */
   public disableKeyRotation(
     args: DisableKeyRotationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableKeyRotationCommandOutput>;
   public disableKeyRotation(
     args: DisableKeyRotationCommandInput,
@@ -1190,16 +1216,18 @@ export class KMS extends KMSClient {
   ): void;
   public disableKeyRotation(
     args: DisableKeyRotationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableKeyRotationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableKeyRotationCommandOutput) => void),
     cb?: (err: any, data?: DisableKeyRotationCommandOutput) => void
   ): Promise<DisableKeyRotationCommandOutput> | void {
     const command = new DisableKeyRotationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1228,7 +1256,7 @@ export class KMS extends KMSClient {
    */
   public disconnectCustomKeyStore(
     args: DisconnectCustomKeyStoreCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisconnectCustomKeyStoreCommandOutput>;
   public disconnectCustomKeyStore(
     args: DisconnectCustomKeyStoreCommandInput,
@@ -1241,16 +1269,18 @@ export class KMS extends KMSClient {
   ): void;
   public disconnectCustomKeyStore(
     args: DisconnectCustomKeyStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: DisconnectCustomKeyStoreCommandOutput) => void
   ): Promise<DisconnectCustomKeyStoreCommandOutput> | void {
     const command = new DisconnectCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1268,7 +1298,7 @@ export class KMS extends KMSClient {
    */
   public enableKey(
     args: EnableKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableKeyCommandOutput>;
   public enableKey(
     args: EnableKeyCommandInput,
@@ -1281,16 +1311,18 @@ export class KMS extends KMSClient {
   ): void;
   public enableKey(
     args: EnableKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableKeyCommandOutput) => void),
     cb?: (err: any, data?: EnableKeyCommandOutput) => void
   ): Promise<EnableKeyCommandOutput> | void {
     const command = new EnableKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1310,7 +1342,7 @@ export class KMS extends KMSClient {
    */
   public enableKeyRotation(
     args: EnableKeyRotationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableKeyRotationCommandOutput>;
   public enableKeyRotation(
     args: EnableKeyRotationCommandInput,
@@ -1323,16 +1355,18 @@ export class KMS extends KMSClient {
   ): void;
   public enableKeyRotation(
     args: EnableKeyRotationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableKeyRotationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableKeyRotationCommandOutput) => void),
     cb?: (err: any, data?: EnableKeyRotationCommandOutput) => void
   ): Promise<EnableKeyRotationCommandOutput> | void {
     const command = new EnableKeyRotationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1446,7 +1480,7 @@ export class KMS extends KMSClient {
    */
   public encrypt(
     args: EncryptCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EncryptCommandOutput>;
   public encrypt(
     args: EncryptCommandInput,
@@ -1459,16 +1493,18 @@ export class KMS extends KMSClient {
   ): void;
   public encrypt(
     args: EncryptCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EncryptCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EncryptCommandOutput) => void),
     cb?: (err: any, data?: EncryptCommandOutput) => void
   ): Promise<EncryptCommandOutput> | void {
     const command = new EncryptCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1539,7 +1575,7 @@ export class KMS extends KMSClient {
    */
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GenerateDataKeyCommandOutput>;
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
@@ -1552,16 +1588,18 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKey(
     args: GenerateDataKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GenerateDataKeyCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyCommandOutput) => void
   ): Promise<GenerateDataKeyCommandOutput> | void {
     const command = new GenerateDataKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1607,7 +1645,7 @@ export class KMS extends KMSClient {
    */
   public generateDataKeyPair(
     args: GenerateDataKeyPairCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GenerateDataKeyPairCommandOutput>;
   public generateDataKeyPair(
     args: GenerateDataKeyPairCommandInput,
@@ -1620,16 +1658,18 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKeyPair(
     args: GenerateDataKeyPairCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyPairCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GenerateDataKeyPairCommandOutput) => void),
     cb?: (err: any, data?: GenerateDataKeyPairCommandOutput) => void
   ): Promise<GenerateDataKeyPairCommandOutput> | void {
     const command = new GenerateDataKeyPairCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1664,29 +1704,43 @@ export class KMS extends KMSClient {
    */
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput>;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
+    ) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
     options: __HttpHandlerOptions,
-    cb: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
+    cb: (
+      err: any,
+      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
+    ) => void
   ): void;
   public generateDataKeyPairWithoutPlaintext(
     args: GenerateDataKeyPairWithoutPlaintextCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void),
-    cb?: (err: any, data?: GenerateDataKeyPairWithoutPlaintextCommandOutput) => void
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
+        ) => void),
+    cb?: (
+      err: any,
+      data?: GenerateDataKeyPairWithoutPlaintextCommandOutput
+    ) => void
   ): Promise<GenerateDataKeyPairWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyPairWithoutPlaintextCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1737,7 +1791,7 @@ export class KMS extends KMSClient {
    */
   public generateDataKeyWithoutPlaintext(
     args: GenerateDataKeyWithoutPlaintextCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput>;
   public generateDataKeyWithoutPlaintext(
     args: GenerateDataKeyWithoutPlaintextCommandInput,
@@ -1750,16 +1804,21 @@ export class KMS extends KMSClient {
   ): void;
   public generateDataKeyWithoutPlaintext(
     args: GenerateDataKeyWithoutPlaintextCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((
+          err: any,
+          data?: GenerateDataKeyWithoutPlaintextCommandOutput
+        ) => void),
     cb?: (err: any, data?: GenerateDataKeyWithoutPlaintextCommandOutput) => void
   ): Promise<GenerateDataKeyWithoutPlaintextCommandOutput> | void {
     const command = new GenerateDataKeyWithoutPlaintextCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1778,7 +1837,7 @@ export class KMS extends KMSClient {
    */
   public generateRandom(
     args: GenerateRandomCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GenerateRandomCommandOutput>;
   public generateRandom(
     args: GenerateRandomCommandInput,
@@ -1791,16 +1850,18 @@ export class KMS extends KMSClient {
   ): void;
   public generateRandom(
     args: GenerateRandomCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GenerateRandomCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GenerateRandomCommandOutput) => void),
     cb?: (err: any, data?: GenerateRandomCommandOutput) => void
   ): Promise<GenerateRandomCommandOutput> | void {
     const command = new GenerateRandomCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1815,7 +1876,7 @@ export class KMS extends KMSClient {
    */
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetKeyPolicyCommandOutput>;
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
@@ -1828,16 +1889,18 @@ export class KMS extends KMSClient {
   ): void;
   public getKeyPolicy(
     args: GetKeyPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetKeyPolicyCommandOutput) => void
   ): Promise<GetKeyPolicyCommandOutput> | void {
     const command = new GetKeyPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1869,7 +1932,7 @@ export class KMS extends KMSClient {
    */
   public getKeyRotationStatus(
     args: GetKeyRotationStatusCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetKeyRotationStatusCommandOutput>;
   public getKeyRotationStatus(
     args: GetKeyRotationStatusCommandInput,
@@ -1882,16 +1945,18 @@ export class KMS extends KMSClient {
   ): void;
   public getKeyRotationStatus(
     args: GetKeyRotationStatusCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyRotationStatusCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetKeyRotationStatusCommandOutput) => void),
     cb?: (err: any, data?: GetKeyRotationStatusCommandOutput) => void
   ): Promise<GetKeyRotationStatusCommandOutput> | void {
     const command = new GetKeyRotationStatusCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1921,7 +1986,7 @@ export class KMS extends KMSClient {
    */
   public getParametersForImport(
     args: GetParametersForImportCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetParametersForImportCommandOutput>;
   public getParametersForImport(
     args: GetParametersForImportCommandInput,
@@ -1934,16 +1999,18 @@ export class KMS extends KMSClient {
   ): void;
   public getParametersForImport(
     args: GetParametersForImportCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetParametersForImportCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetParametersForImportCommandOutput) => void),
     cb?: (err: any, data?: GetParametersForImportCommandOutput) => void
   ): Promise<GetParametersForImportCommandOutput> | void {
     const command = new GetParametersForImportCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1995,7 +2062,7 @@ export class KMS extends KMSClient {
    */
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetPublicKeyCommandOutput>;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
@@ -2008,16 +2075,18 @@ export class KMS extends KMSClient {
   ): void;
   public getPublicKey(
     args: GetPublicKeyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPublicKeyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPublicKeyCommandOutput) => void),
     cb?: (err: any, data?: GetPublicKeyCommandOutput) => void
   ): Promise<GetPublicKeyCommandOutput> | void {
     const command = new GetPublicKeyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2074,7 +2143,7 @@ export class KMS extends KMSClient {
    */
   public importKeyMaterial(
     args: ImportKeyMaterialCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ImportKeyMaterialCommandOutput>;
   public importKeyMaterial(
     args: ImportKeyMaterialCommandInput,
@@ -2087,16 +2156,18 @@ export class KMS extends KMSClient {
   ): void;
   public importKeyMaterial(
     args: ImportKeyMaterialCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportKeyMaterialCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ImportKeyMaterialCommandOutput) => void),
     cb?: (err: any, data?: ImportKeyMaterialCommandOutput) => void
   ): Promise<ImportKeyMaterialCommandOutput> | void {
     const command = new ImportKeyMaterialCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2123,7 +2194,7 @@ export class KMS extends KMSClient {
    */
   public listAliases(
     args: ListAliasesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAliasesCommandOutput>;
   public listAliases(
     args: ListAliasesCommandInput,
@@ -2136,16 +2207,18 @@ export class KMS extends KMSClient {
   ): void;
   public listAliases(
     args: ListAliasesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAliasesCommandOutput) => void),
     cb?: (err: any, data?: ListAliasesCommandOutput) => void
   ): Promise<ListAliasesCommandOutput> | void {
     const command = new ListAliasesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2161,7 +2234,7 @@ export class KMS extends KMSClient {
    */
   public listGrants(
     args: ListGrantsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListGrantsCommandOutput>;
   public listGrants(
     args: ListGrantsCommandInput,
@@ -2174,16 +2247,18 @@ export class KMS extends KMSClient {
   ): void;
   public listGrants(
     args: ListGrantsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListGrantsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListGrantsCommandOutput) => void),
     cb?: (err: any, data?: ListGrantsCommandOutput) => void
   ): Promise<ListGrantsCommandOutput> | void {
     const command = new ListGrantsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2200,7 +2275,7 @@ export class KMS extends KMSClient {
    */
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListKeyPoliciesCommandOutput>;
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
@@ -2213,16 +2288,18 @@ export class KMS extends KMSClient {
   ): void;
   public listKeyPolicies(
     args: ListKeyPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListKeyPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListKeyPoliciesCommandOutput) => void
   ): Promise<ListKeyPoliciesCommandOutput> | void {
     const command = new ListKeyPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2237,7 +2314,7 @@ export class KMS extends KMSClient {
    */
   public listKeys(
     args: ListKeysCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListKeysCommandOutput>;
   public listKeys(
     args: ListKeysCommandInput,
@@ -2250,16 +2327,18 @@ export class KMS extends KMSClient {
   ): void;
   public listKeys(
     args: ListKeysCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeysCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListKeysCommandOutput) => void),
     cb?: (err: any, data?: ListKeysCommandOutput) => void
   ): Promise<ListKeysCommandOutput> | void {
     const command = new ListKeysCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2274,7 +2353,7 @@ export class KMS extends KMSClient {
    */
   public listResourceTags(
     args: ListResourceTagsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListResourceTagsCommandOutput>;
   public listResourceTags(
     args: ListResourceTagsCommandInput,
@@ -2287,16 +2366,18 @@ export class KMS extends KMSClient {
   ): void;
   public listResourceTags(
     args: ListResourceTagsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceTagsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListResourceTagsCommandOutput) => void),
     cb?: (err: any, data?: ListResourceTagsCommandOutput) => void
   ): Promise<ListResourceTagsCommandOutput> | void {
     const command = new ListResourceTagsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2313,7 +2394,7 @@ export class KMS extends KMSClient {
    */
   public listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListRetirableGrantsCommandOutput>;
   public listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
@@ -2326,16 +2407,18 @@ export class KMS extends KMSClient {
   ): void;
   public listRetirableGrants(
     args: ListRetirableGrantsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRetirableGrantsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListRetirableGrantsCommandOutput) => void),
     cb?: (err: any, data?: ListRetirableGrantsCommandOutput) => void
   ): Promise<ListRetirableGrantsCommandOutput> | void {
     const command = new ListRetirableGrantsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2351,7 +2434,7 @@ export class KMS extends KMSClient {
    */
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutKeyPolicyCommandOutput>;
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
@@ -2364,16 +2447,18 @@ export class KMS extends KMSClient {
   ): void;
   public putKeyPolicy(
     args: PutKeyPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutKeyPolicyCommandOutput) => void),
     cb?: (err: any, data?: PutKeyPolicyCommandOutput) => void
   ): Promise<PutKeyPolicyCommandOutput> | void {
     const command = new PutKeyPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2446,7 +2531,7 @@ export class KMS extends KMSClient {
    */
   public reEncrypt(
     args: ReEncryptCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ReEncryptCommandOutput>;
   public reEncrypt(
     args: ReEncryptCommandInput,
@@ -2459,16 +2544,18 @@ export class KMS extends KMSClient {
   ): void;
   public reEncrypt(
     args: ReEncryptCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReEncryptCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ReEncryptCommandOutput) => void),
     cb?: (err: any, data?: ReEncryptCommandOutput) => void
   ): Promise<ReEncryptCommandOutput> | void {
     const command = new ReEncryptCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2500,7 +2587,7 @@ export class KMS extends KMSClient {
    */
   public retireGrant(
     args: RetireGrantCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RetireGrantCommandOutput>;
   public retireGrant(
     args: RetireGrantCommandInput,
@@ -2513,16 +2600,18 @@ export class KMS extends KMSClient {
   ): void;
   public retireGrant(
     args: RetireGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RetireGrantCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RetireGrantCommandOutput) => void),
     cb?: (err: any, data?: RetireGrantCommandOutput) => void
   ): Promise<RetireGrantCommandOutput> | void {
     const command = new RetireGrantCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2539,7 +2628,7 @@ export class KMS extends KMSClient {
    */
   public revokeGrant(
     args: RevokeGrantCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RevokeGrantCommandOutput>;
   public revokeGrant(
     args: RevokeGrantCommandInput,
@@ -2552,16 +2641,18 @@ export class KMS extends KMSClient {
   ): void;
   public revokeGrant(
     args: RevokeGrantCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RevokeGrantCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RevokeGrantCommandOutput) => void),
     cb?: (err: any, data?: RevokeGrantCommandOutput) => void
   ): Promise<RevokeGrantCommandOutput> | void {
     const command = new RevokeGrantCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2596,7 +2687,7 @@ export class KMS extends KMSClient {
    */
   public scheduleKeyDeletion(
     args: ScheduleKeyDeletionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ScheduleKeyDeletionCommandOutput>;
   public scheduleKeyDeletion(
     args: ScheduleKeyDeletionCommandInput,
@@ -2609,16 +2700,18 @@ export class KMS extends KMSClient {
   ): void;
   public scheduleKeyDeletion(
     args: ScheduleKeyDeletionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ScheduleKeyDeletionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ScheduleKeyDeletionCommandOutput) => void),
     cb?: (err: any, data?: ScheduleKeyDeletionCommandOutput) => void
   ): Promise<ScheduleKeyDeletionCommandOutput> | void {
     const command = new ScheduleKeyDeletionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2668,7 +2761,7 @@ export class KMS extends KMSClient {
    */
   public sign(
     args: SignCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SignCommandOutput>;
   public sign(
     args: SignCommandInput,
@@ -2681,16 +2774,18 @@ export class KMS extends KMSClient {
   ): void;
   public sign(
     args: SignCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SignCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SignCommandOutput) => void),
     cb?: (err: any, data?: SignCommandOutput) => void
   ): Promise<SignCommandOutput> | void {
     const command = new SignCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2713,7 +2808,7 @@ export class KMS extends KMSClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -2726,16 +2821,18 @@ export class KMS extends KMSClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2755,7 +2852,7 @@ export class KMS extends KMSClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2768,16 +2865,18 @@ export class KMS extends KMSClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2807,7 +2906,7 @@ export class KMS extends KMSClient {
    */
   public updateAlias(
     args: UpdateAliasCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateAliasCommandOutput>;
   public updateAlias(
     args: UpdateAliasCommandInput,
@@ -2820,16 +2919,18 @@ export class KMS extends KMSClient {
   ): void;
   public updateAlias(
     args: UpdateAliasCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAliasCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAliasCommandOutput) => void),
     cb?: (err: any, data?: UpdateAliasCommandOutput) => void
   ): Promise<UpdateAliasCommandOutput> | void {
     const command = new UpdateAliasCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2879,7 +2980,7 @@ export class KMS extends KMSClient {
    */
   public updateCustomKeyStore(
     args: UpdateCustomKeyStoreCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateCustomKeyStoreCommandOutput>;
   public updateCustomKeyStore(
     args: UpdateCustomKeyStoreCommandInput,
@@ -2892,16 +2993,18 @@ export class KMS extends KMSClient {
   ): void;
   public updateCustomKeyStore(
     args: UpdateCustomKeyStoreCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateCustomKeyStoreCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateCustomKeyStoreCommandOutput) => void),
     cb?: (err: any, data?: UpdateCustomKeyStoreCommandOutput) => void
   ): Promise<UpdateCustomKeyStoreCommandOutput> | void {
     const command = new UpdateCustomKeyStoreCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2920,7 +3023,7 @@ export class KMS extends KMSClient {
    */
   public updateKeyDescription(
     args: UpdateKeyDescriptionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateKeyDescriptionCommandOutput>;
   public updateKeyDescription(
     args: UpdateKeyDescriptionCommandInput,
@@ -2933,16 +3036,18 @@ export class KMS extends KMSClient {
   ): void;
   public updateKeyDescription(
     args: UpdateKeyDescriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateKeyDescriptionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateKeyDescriptionCommandOutput) => void),
     cb?: (err: any, data?: UpdateKeyDescriptionCommandOutput) => void
   ): Promise<UpdateKeyDescriptionCommandOutput> | void {
     const command = new UpdateKeyDescriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2982,7 +3087,7 @@ export class KMS extends KMSClient {
    */
   public verify(
     args: VerifyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<VerifyCommandOutput>;
   public verify(
     args: VerifyCommandInput,
@@ -2995,19 +3100,20 @@ export class KMS extends KMSClient {
   ): void;
   public verify(
     args: VerifyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: VerifyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: VerifyCommandOutput) => void),
     cb?: (err: any, data?: VerifyCommandOutput) => void
   ): Promise<VerifyCommandOutput> | void {
     const command = new VerifyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

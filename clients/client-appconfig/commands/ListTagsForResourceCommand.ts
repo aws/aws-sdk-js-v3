@@ -1,20 +1,17 @@
 import {
   AppConfigClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppConfigClient";
-import {
-  ListTagsForResourceRequest,
-  ResourceTags,
-} from "../models/index";
+import { ListTagsForResourceRequest, ResourceTags } from "../models/index";
 import {
   deserializeAws_restJson1_1ListTagsForResourceCommand,
-  serializeAws_restJson1_1ListTagsForResourceCommand,
+  serializeAws_restJson1_1ListTagsForResourceCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListTagsForResourceCommandInput = ListTagsForResourceRequest;
 export type ListTagsForResourceCommandOutput = ResourceTags;
 
-export class ListTagsForResourceCommand extends $Command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput, AppConfigClientResolvedConfig> {
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+  AppConfigClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +44,19 @@ export class ListTagsForResourceCommand extends $Command<ListTagsForResourceComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListTagsForResourceCommandInput,
+    ListTagsForResourceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +76,10 @@ export class ListTagsForResourceCommand extends $Command<ListTagsForResourceComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListTagsForResourceCommandOutput> {
-    return deserializeAws_restJson1_1ListTagsForResourceCommand(output, context);
+    return deserializeAws_restJson1_1ListTagsForResourceCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

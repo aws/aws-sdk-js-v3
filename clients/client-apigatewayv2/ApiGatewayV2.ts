@@ -2,282 +2,282 @@ import { ApiGatewayV2Client } from "./ApiGatewayV2Client";
 import {
   CreateApiCommand,
   CreateApiCommandInput,
-  CreateApiCommandOutput,
+  CreateApiCommandOutput
 } from "./commands/CreateApiCommand";
 import {
   CreateApiMappingCommand,
   CreateApiMappingCommandInput,
-  CreateApiMappingCommandOutput,
+  CreateApiMappingCommandOutput
 } from "./commands/CreateApiMappingCommand";
 import {
   CreateAuthorizerCommand,
   CreateAuthorizerCommandInput,
-  CreateAuthorizerCommandOutput,
+  CreateAuthorizerCommandOutput
 } from "./commands/CreateAuthorizerCommand";
 import {
   CreateDeploymentCommand,
   CreateDeploymentCommandInput,
-  CreateDeploymentCommandOutput,
+  CreateDeploymentCommandOutput
 } from "./commands/CreateDeploymentCommand";
 import {
   CreateDomainNameCommand,
   CreateDomainNameCommandInput,
-  CreateDomainNameCommandOutput,
+  CreateDomainNameCommandOutput
 } from "./commands/CreateDomainNameCommand";
 import {
   CreateIntegrationCommand,
   CreateIntegrationCommandInput,
-  CreateIntegrationCommandOutput,
+  CreateIntegrationCommandOutput
 } from "./commands/CreateIntegrationCommand";
 import {
   CreateIntegrationResponseCommand,
   CreateIntegrationResponseCommandInput,
-  CreateIntegrationResponseCommandOutput,
+  CreateIntegrationResponseCommandOutput
 } from "./commands/CreateIntegrationResponseCommand";
 import {
   CreateModelCommand,
   CreateModelCommandInput,
-  CreateModelCommandOutput,
+  CreateModelCommandOutput
 } from "./commands/CreateModelCommand";
 import {
   CreateRouteCommand,
   CreateRouteCommandInput,
-  CreateRouteCommandOutput,
+  CreateRouteCommandOutput
 } from "./commands/CreateRouteCommand";
 import {
   CreateRouteResponseCommand,
   CreateRouteResponseCommandInput,
-  CreateRouteResponseCommandOutput,
+  CreateRouteResponseCommandOutput
 } from "./commands/CreateRouteResponseCommand";
 import {
   CreateStageCommand,
   CreateStageCommandInput,
-  CreateStageCommandOutput,
+  CreateStageCommandOutput
 } from "./commands/CreateStageCommand";
 import {
   DeleteApiCommand,
   DeleteApiCommandInput,
-  DeleteApiCommandOutput,
+  DeleteApiCommandOutput
 } from "./commands/DeleteApiCommand";
 import {
   DeleteApiMappingCommand,
   DeleteApiMappingCommandInput,
-  DeleteApiMappingCommandOutput,
+  DeleteApiMappingCommandOutput
 } from "./commands/DeleteApiMappingCommand";
 import {
   DeleteAuthorizerCommand,
   DeleteAuthorizerCommandInput,
-  DeleteAuthorizerCommandOutput,
+  DeleteAuthorizerCommandOutput
 } from "./commands/DeleteAuthorizerCommand";
 import {
   DeleteDeploymentCommand,
   DeleteDeploymentCommandInput,
-  DeleteDeploymentCommandOutput,
+  DeleteDeploymentCommandOutput
 } from "./commands/DeleteDeploymentCommand";
 import {
   DeleteDomainNameCommand,
   DeleteDomainNameCommandInput,
-  DeleteDomainNameCommandOutput,
+  DeleteDomainNameCommandOutput
 } from "./commands/DeleteDomainNameCommand";
 import {
   DeleteIntegrationCommand,
   DeleteIntegrationCommandInput,
-  DeleteIntegrationCommandOutput,
+  DeleteIntegrationCommandOutput
 } from "./commands/DeleteIntegrationCommand";
 import {
   DeleteIntegrationResponseCommand,
   DeleteIntegrationResponseCommandInput,
-  DeleteIntegrationResponseCommandOutput,
+  DeleteIntegrationResponseCommandOutput
 } from "./commands/DeleteIntegrationResponseCommand";
 import {
   DeleteModelCommand,
   DeleteModelCommandInput,
-  DeleteModelCommandOutput,
+  DeleteModelCommandOutput
 } from "./commands/DeleteModelCommand";
 import {
   DeleteRouteCommand,
   DeleteRouteCommandInput,
-  DeleteRouteCommandOutput,
+  DeleteRouteCommandOutput
 } from "./commands/DeleteRouteCommand";
 import {
   DeleteRouteResponseCommand,
   DeleteRouteResponseCommandInput,
-  DeleteRouteResponseCommandOutput,
+  DeleteRouteResponseCommandOutput
 } from "./commands/DeleteRouteResponseCommand";
 import {
   DeleteStageCommand,
   DeleteStageCommandInput,
-  DeleteStageCommandOutput,
+  DeleteStageCommandOutput
 } from "./commands/DeleteStageCommand";
 import {
   GetApiCommand,
   GetApiCommandInput,
-  GetApiCommandOutput,
+  GetApiCommandOutput
 } from "./commands/GetApiCommand";
 import {
   GetApiMappingCommand,
   GetApiMappingCommandInput,
-  GetApiMappingCommandOutput,
+  GetApiMappingCommandOutput
 } from "./commands/GetApiMappingCommand";
 import {
   GetApiMappingsCommand,
   GetApiMappingsCommandInput,
-  GetApiMappingsCommandOutput,
+  GetApiMappingsCommandOutput
 } from "./commands/GetApiMappingsCommand";
 import {
   GetApisCommand,
   GetApisCommandInput,
-  GetApisCommandOutput,
+  GetApisCommandOutput
 } from "./commands/GetApisCommand";
 import {
   GetAuthorizerCommand,
   GetAuthorizerCommandInput,
-  GetAuthorizerCommandOutput,
+  GetAuthorizerCommandOutput
 } from "./commands/GetAuthorizerCommand";
 import {
   GetAuthorizersCommand,
   GetAuthorizersCommandInput,
-  GetAuthorizersCommandOutput,
+  GetAuthorizersCommandOutput
 } from "./commands/GetAuthorizersCommand";
 import {
   GetDeploymentCommand,
   GetDeploymentCommandInput,
-  GetDeploymentCommandOutput,
+  GetDeploymentCommandOutput
 } from "./commands/GetDeploymentCommand";
 import {
   GetDeploymentsCommand,
   GetDeploymentsCommandInput,
-  GetDeploymentsCommandOutput,
+  GetDeploymentsCommandOutput
 } from "./commands/GetDeploymentsCommand";
 import {
   GetDomainNameCommand,
   GetDomainNameCommandInput,
-  GetDomainNameCommandOutput,
+  GetDomainNameCommandOutput
 } from "./commands/GetDomainNameCommand";
 import {
   GetDomainNamesCommand,
   GetDomainNamesCommandInput,
-  GetDomainNamesCommandOutput,
+  GetDomainNamesCommandOutput
 } from "./commands/GetDomainNamesCommand";
 import {
   GetIntegrationCommand,
   GetIntegrationCommandInput,
-  GetIntegrationCommandOutput,
+  GetIntegrationCommandOutput
 } from "./commands/GetIntegrationCommand";
 import {
   GetIntegrationResponseCommand,
   GetIntegrationResponseCommandInput,
-  GetIntegrationResponseCommandOutput,
+  GetIntegrationResponseCommandOutput
 } from "./commands/GetIntegrationResponseCommand";
 import {
   GetIntegrationResponsesCommand,
   GetIntegrationResponsesCommandInput,
-  GetIntegrationResponsesCommandOutput,
+  GetIntegrationResponsesCommandOutput
 } from "./commands/GetIntegrationResponsesCommand";
 import {
   GetIntegrationsCommand,
   GetIntegrationsCommandInput,
-  GetIntegrationsCommandOutput,
+  GetIntegrationsCommandOutput
 } from "./commands/GetIntegrationsCommand";
 import {
   GetModelCommand,
   GetModelCommandInput,
-  GetModelCommandOutput,
+  GetModelCommandOutput
 } from "./commands/GetModelCommand";
 import {
   GetModelTemplateCommand,
   GetModelTemplateCommandInput,
-  GetModelTemplateCommandOutput,
+  GetModelTemplateCommandOutput
 } from "./commands/GetModelTemplateCommand";
 import {
   GetModelsCommand,
   GetModelsCommandInput,
-  GetModelsCommandOutput,
+  GetModelsCommandOutput
 } from "./commands/GetModelsCommand";
 import {
   GetRouteCommand,
   GetRouteCommandInput,
-  GetRouteCommandOutput,
+  GetRouteCommandOutput
 } from "./commands/GetRouteCommand";
 import {
   GetRouteResponseCommand,
   GetRouteResponseCommandInput,
-  GetRouteResponseCommandOutput,
+  GetRouteResponseCommandOutput
 } from "./commands/GetRouteResponseCommand";
 import {
   GetRouteResponsesCommand,
   GetRouteResponsesCommandInput,
-  GetRouteResponsesCommandOutput,
+  GetRouteResponsesCommandOutput
 } from "./commands/GetRouteResponsesCommand";
 import {
   GetRoutesCommand,
   GetRoutesCommandInput,
-  GetRoutesCommandOutput,
+  GetRoutesCommandOutput
 } from "./commands/GetRoutesCommand";
 import {
   GetStageCommand,
   GetStageCommandInput,
-  GetStageCommandOutput,
+  GetStageCommandOutput
 } from "./commands/GetStageCommand";
 import {
   GetStagesCommand,
   GetStagesCommandInput,
-  GetStagesCommandOutput,
+  GetStagesCommandOutput
 } from "./commands/GetStagesCommand";
 import {
   UpdateApiCommand,
   UpdateApiCommandInput,
-  UpdateApiCommandOutput,
+  UpdateApiCommandOutput
 } from "./commands/UpdateApiCommand";
 import {
   UpdateApiMappingCommand,
   UpdateApiMappingCommandInput,
-  UpdateApiMappingCommandOutput,
+  UpdateApiMappingCommandOutput
 } from "./commands/UpdateApiMappingCommand";
 import {
   UpdateAuthorizerCommand,
   UpdateAuthorizerCommandInput,
-  UpdateAuthorizerCommandOutput,
+  UpdateAuthorizerCommandOutput
 } from "./commands/UpdateAuthorizerCommand";
 import {
   UpdateDeploymentCommand,
   UpdateDeploymentCommandInput,
-  UpdateDeploymentCommandOutput,
+  UpdateDeploymentCommandOutput
 } from "./commands/UpdateDeploymentCommand";
 import {
   UpdateDomainNameCommand,
   UpdateDomainNameCommandInput,
-  UpdateDomainNameCommandOutput,
+  UpdateDomainNameCommandOutput
 } from "./commands/UpdateDomainNameCommand";
 import {
   UpdateIntegrationCommand,
   UpdateIntegrationCommandInput,
-  UpdateIntegrationCommandOutput,
+  UpdateIntegrationCommandOutput
 } from "./commands/UpdateIntegrationCommand";
 import {
   UpdateIntegrationResponseCommand,
   UpdateIntegrationResponseCommandInput,
-  UpdateIntegrationResponseCommandOutput,
+  UpdateIntegrationResponseCommandOutput
 } from "./commands/UpdateIntegrationResponseCommand";
 import {
   UpdateModelCommand,
   UpdateModelCommandInput,
-  UpdateModelCommandOutput,
+  UpdateModelCommandOutput
 } from "./commands/UpdateModelCommand";
 import {
   UpdateRouteCommand,
   UpdateRouteCommandInput,
-  UpdateRouteCommandOutput,
+  UpdateRouteCommandOutput
 } from "./commands/UpdateRouteCommand";
 import {
   UpdateRouteResponseCommand,
   UpdateRouteResponseCommandInput,
-  UpdateRouteResponseCommandOutput,
+  UpdateRouteResponseCommandOutput
 } from "./commands/UpdateRouteResponseCommand";
 import {
   UpdateStageCommand,
   UpdateStageCommandInput,
-  UpdateStageCommandOutput,
+  UpdateStageCommandOutput
 } from "./commands/UpdateStageCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -290,7 +290,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createApi(
     args: CreateApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApiCommandOutput>;
   public createApi(
     args: CreateApiCommandInput,
@@ -303,16 +303,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createApi(
     args: CreateApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApiCommandOutput) => void),
     cb?: (err: any, data?: CreateApiCommandOutput) => void
   ): Promise<CreateApiCommandOutput> | void {
     const command = new CreateApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -323,7 +325,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createApiMapping(
     args: CreateApiMappingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateApiMappingCommandOutput>;
   public createApiMapping(
     args: CreateApiMappingCommandInput,
@@ -336,16 +338,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createApiMapping(
     args: CreateApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateApiMappingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateApiMappingCommandOutput) => void),
     cb?: (err: any, data?: CreateApiMappingCommandOutput) => void
   ): Promise<CreateApiMappingCommandOutput> | void {
     const command = new CreateApiMappingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -356,7 +360,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateAuthorizerCommandOutput>;
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
@@ -369,16 +373,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createAuthorizer(
     args: CreateAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: CreateAuthorizerCommandOutput) => void
   ): Promise<CreateAuthorizerCommandOutput> | void {
     const command = new CreateAuthorizerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -389,7 +395,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDeploymentCommandOutput>;
   public createDeployment(
     args: CreateDeploymentCommandInput,
@@ -402,16 +408,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createDeployment(
     args: CreateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: CreateDeploymentCommandOutput) => void
   ): Promise<CreateDeploymentCommandOutput> | void {
     const command = new CreateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -422,7 +430,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createDomainName(
     args: CreateDomainNameCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDomainNameCommandOutput>;
   public createDomainName(
     args: CreateDomainNameCommandInput,
@@ -435,16 +443,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createDomainName(
     args: CreateDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDomainNameCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: CreateDomainNameCommandOutput) => void
   ): Promise<CreateDomainNameCommandOutput> | void {
     const command = new CreateDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -455,7 +465,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createIntegration(
     args: CreateIntegrationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateIntegrationCommandOutput>;
   public createIntegration(
     args: CreateIntegrationCommandInput,
@@ -468,16 +478,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createIntegration(
     args: CreateIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateIntegrationCommandOutput) => void),
     cb?: (err: any, data?: CreateIntegrationCommandOutput) => void
   ): Promise<CreateIntegrationCommandOutput> | void {
     const command = new CreateIntegrationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -488,7 +500,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateIntegrationResponseCommandOutput>;
   public createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
@@ -501,16 +513,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createIntegrationResponse(
     args: CreateIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIntegrationResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateIntegrationResponseCommandOutput) => void),
     cb?: (err: any, data?: CreateIntegrationResponseCommandOutput) => void
   ): Promise<CreateIntegrationResponseCommandOutput> | void {
     const command = new CreateIntegrationResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -521,7 +535,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createModel(
     args: CreateModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateModelCommandOutput>;
   public createModel(
     args: CreateModelCommandInput,
@@ -534,16 +548,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createModel(
     args: CreateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateModelCommandOutput) => void),
     cb?: (err: any, data?: CreateModelCommandOutput) => void
   ): Promise<CreateModelCommandOutput> | void {
     const command = new CreateModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -554,7 +570,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createRoute(
     args: CreateRouteCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRouteCommandOutput>;
   public createRoute(
     args: CreateRouteCommandInput,
@@ -567,16 +583,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createRoute(
     args: CreateRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRouteCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteCommandOutput) => void
   ): Promise<CreateRouteCommandOutput> | void {
     const command = new CreateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -587,7 +605,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createRouteResponse(
     args: CreateRouteResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateRouteResponseCommandOutput>;
   public createRouteResponse(
     args: CreateRouteResponseCommandInput,
@@ -600,16 +618,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createRouteResponse(
     args: CreateRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRouteResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateRouteResponseCommandOutput) => void),
     cb?: (err: any, data?: CreateRouteResponseCommandOutput) => void
   ): Promise<CreateRouteResponseCommandOutput> | void {
     const command = new CreateRouteResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -620,7 +640,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public createStage(
     args: CreateStageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateStageCommandOutput>;
   public createStage(
     args: CreateStageCommandInput,
@@ -633,16 +653,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public createStage(
     args: CreateStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStageCommandOutput) => void),
     cb?: (err: any, data?: CreateStageCommandOutput) => void
   ): Promise<CreateStageCommandOutput> | void {
     const command = new CreateStageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -653,7 +675,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteApi(
     args: DeleteApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApiCommandOutput>;
   public deleteApi(
     args: DeleteApiCommandInput,
@@ -666,16 +688,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteApi(
     args: DeleteApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApiCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiCommandOutput) => void
   ): Promise<DeleteApiCommandOutput> | void {
     const command = new DeleteApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -686,7 +710,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteApiMapping(
     args: DeleteApiMappingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteApiMappingCommandOutput>;
   public deleteApiMapping(
     args: DeleteApiMappingCommandInput,
@@ -699,16 +723,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteApiMapping(
     args: DeleteApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteApiMappingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteApiMappingCommandOutput) => void),
     cb?: (err: any, data?: DeleteApiMappingCommandOutput) => void
   ): Promise<DeleteApiMappingCommandOutput> | void {
     const command = new DeleteApiMappingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -719,7 +745,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteAuthorizerCommandOutput>;
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
@@ -732,16 +758,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteAuthorizer(
     args: DeleteAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: DeleteAuthorizerCommandOutput) => void
   ): Promise<DeleteAuthorizerCommandOutput> | void {
     const command = new DeleteAuthorizerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -752,7 +780,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDeploymentCommandOutput>;
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
@@ -765,16 +793,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteDeployment(
     args: DeleteDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDeploymentCommandOutput) => void),
     cb?: (err: any, data?: DeleteDeploymentCommandOutput) => void
   ): Promise<DeleteDeploymentCommandOutput> | void {
     const command = new DeleteDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -785,7 +815,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDomainNameCommandOutput>;
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
@@ -798,16 +828,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteDomainName(
     args: DeleteDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDomainNameCommandOutput) => void),
     cb?: (err: any, data?: DeleteDomainNameCommandOutput) => void
   ): Promise<DeleteDomainNameCommandOutput> | void {
     const command = new DeleteDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -818,7 +850,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteIntegrationCommandOutput>;
   public deleteIntegration(
     args: DeleteIntegrationCommandInput,
@@ -831,16 +863,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteIntegration(
     args: DeleteIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntegrationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteIntegrationCommandOutput) => void),
     cb?: (err: any, data?: DeleteIntegrationCommandOutput) => void
   ): Promise<DeleteIntegrationCommandOutput> | void {
     const command = new DeleteIntegrationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -851,7 +885,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteIntegrationResponseCommandOutput>;
   public deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
@@ -864,16 +898,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteIntegrationResponse(
     args: DeleteIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteIntegrationResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteIntegrationResponseCommandOutput) => void),
     cb?: (err: any, data?: DeleteIntegrationResponseCommandOutput) => void
   ): Promise<DeleteIntegrationResponseCommandOutput> | void {
     const command = new DeleteIntegrationResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -884,7 +920,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteModel(
     args: DeleteModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteModelCommandOutput>;
   public deleteModel(
     args: DeleteModelCommandInput,
@@ -897,16 +933,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteModel(
     args: DeleteModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteModelCommandOutput) => void),
     cb?: (err: any, data?: DeleteModelCommandOutput) => void
   ): Promise<DeleteModelCommandOutput> | void {
     const command = new DeleteModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -917,7 +955,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRouteCommandOutput>;
   public deleteRoute(
     args: DeleteRouteCommandInput,
@@ -930,16 +968,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteRoute(
     args: DeleteRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRouteCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteCommandOutput) => void
   ): Promise<DeleteRouteCommandOutput> | void {
     const command = new DeleteRouteCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -950,7 +990,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteRouteResponseCommandOutput>;
   public deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
@@ -963,16 +1003,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteRouteResponse(
     args: DeleteRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRouteResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteRouteResponseCommandOutput) => void),
     cb?: (err: any, data?: DeleteRouteResponseCommandOutput) => void
   ): Promise<DeleteRouteResponseCommandOutput> | void {
     const command = new DeleteRouteResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -983,7 +1025,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public deleteStage(
     args: DeleteStageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteStageCommandOutput>;
   public deleteStage(
     args: DeleteStageCommandInput,
@@ -996,16 +1038,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public deleteStage(
     args: DeleteStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStageCommandOutput) => void),
     cb?: (err: any, data?: DeleteStageCommandOutput) => void
   ): Promise<DeleteStageCommandOutput> | void {
     const command = new DeleteStageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1016,7 +1060,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getApi(
     args: GetApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApiCommandOutput>;
   public getApi(
     args: GetApiCommandInput,
@@ -1029,16 +1073,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApi(
     args: GetApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApiCommandOutput) => void),
     cb?: (err: any, data?: GetApiCommandOutput) => void
   ): Promise<GetApiCommandOutput> | void {
     const command = new GetApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1049,7 +1095,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getApiMapping(
     args: GetApiMappingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApiMappingCommandOutput>;
   public getApiMapping(
     args: GetApiMappingCommandInput,
@@ -1062,16 +1108,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApiMapping(
     args: GetApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApiMappingCommandOutput) => void),
     cb?: (err: any, data?: GetApiMappingCommandOutput) => void
   ): Promise<GetApiMappingCommandOutput> | void {
     const command = new GetApiMappingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1082,7 +1130,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getApiMappings(
     args: GetApiMappingsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApiMappingsCommandOutput>;
   public getApiMappings(
     args: GetApiMappingsCommandInput,
@@ -1095,16 +1143,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApiMappings(
     args: GetApiMappingsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApiMappingsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApiMappingsCommandOutput) => void),
     cb?: (err: any, data?: GetApiMappingsCommandOutput) => void
   ): Promise<GetApiMappingsCommandOutput> | void {
     const command = new GetApiMappingsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1115,7 +1165,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getApis(
     args: GetApisCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetApisCommandOutput>;
   public getApis(
     args: GetApisCommandInput,
@@ -1128,16 +1178,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getApis(
     args: GetApisCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetApisCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetApisCommandOutput) => void),
     cb?: (err: any, data?: GetApisCommandOutput) => void
   ): Promise<GetApisCommandOutput> | void {
     const command = new GetApisCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1148,7 +1200,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetAuthorizerCommandOutput>;
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
@@ -1161,16 +1213,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getAuthorizer(
     args: GetAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizerCommandOutput) => void
   ): Promise<GetAuthorizerCommandOutput> | void {
     const command = new GetAuthorizerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1181,7 +1235,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetAuthorizersCommandOutput>;
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
@@ -1194,16 +1248,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getAuthorizers(
     args: GetAuthorizersCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAuthorizersCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAuthorizersCommandOutput) => void),
     cb?: (err: any, data?: GetAuthorizersCommandOutput) => void
   ): Promise<GetAuthorizersCommandOutput> | void {
     const command = new GetAuthorizersCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1214,7 +1270,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getDeployment(
     args: GetDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentCommandOutput>;
   public getDeployment(
     args: GetDeploymentCommandInput,
@@ -1227,16 +1283,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDeployment(
     args: GetDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentCommandOutput) => void
   ): Promise<GetDeploymentCommandOutput> | void {
     const command = new GetDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1247,7 +1305,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getDeployments(
     args: GetDeploymentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDeploymentsCommandOutput>;
   public getDeployments(
     args: GetDeploymentsCommandInput,
@@ -1260,16 +1318,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDeployments(
     args: GetDeploymentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDeploymentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDeploymentsCommandOutput) => void),
     cb?: (err: any, data?: GetDeploymentsCommandOutput) => void
   ): Promise<GetDeploymentsCommandOutput> | void {
     const command = new GetDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1280,7 +1340,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getDomainName(
     args: GetDomainNameCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDomainNameCommandOutput>;
   public getDomainName(
     args: GetDomainNameCommandInput,
@@ -1293,16 +1353,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDomainName(
     args: GetDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNameCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDomainNameCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNameCommandOutput) => void
   ): Promise<GetDomainNameCommandOutput> | void {
     const command = new GetDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1313,7 +1375,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getDomainNames(
     args: GetDomainNamesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDomainNamesCommandOutput>;
   public getDomainNames(
     args: GetDomainNamesCommandInput,
@@ -1326,16 +1388,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getDomainNames(
     args: GetDomainNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDomainNamesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDomainNamesCommandOutput) => void),
     cb?: (err: any, data?: GetDomainNamesCommandOutput) => void
   ): Promise<GetDomainNamesCommandOutput> | void {
     const command = new GetDomainNamesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1346,7 +1410,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getIntegration(
     args: GetIntegrationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIntegrationCommandOutput>;
   public getIntegration(
     args: GetIntegrationCommandInput,
@@ -1359,16 +1423,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegration(
     args: GetIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntegrationCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationCommandOutput) => void
   ): Promise<GetIntegrationCommandOutput> | void {
     const command = new GetIntegrationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1379,7 +1445,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIntegrationResponseCommandOutput>;
   public getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
@@ -1392,16 +1458,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegrationResponse(
     args: GetIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntegrationResponseCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationResponseCommandOutput) => void
   ): Promise<GetIntegrationResponseCommandOutput> | void {
     const command = new GetIntegrationResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1412,7 +1480,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIntegrationResponsesCommandOutput>;
   public getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
@@ -1425,16 +1493,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegrationResponses(
     args: GetIntegrationResponsesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationResponsesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntegrationResponsesCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationResponsesCommandOutput) => void
   ): Promise<GetIntegrationResponsesCommandOutput> | void {
     const command = new GetIntegrationResponsesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1445,7 +1515,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getIntegrations(
     args: GetIntegrationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetIntegrationsCommandOutput>;
   public getIntegrations(
     args: GetIntegrationsCommandInput,
@@ -1458,16 +1528,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getIntegrations(
     args: GetIntegrationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetIntegrationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetIntegrationsCommandOutput) => void),
     cb?: (err: any, data?: GetIntegrationsCommandOutput) => void
   ): Promise<GetIntegrationsCommandOutput> | void {
     const command = new GetIntegrationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1478,7 +1550,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getModel(
     args: GetModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetModelCommandOutput>;
   public getModel(
     args: GetModelCommandInput,
@@ -1491,16 +1563,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModel(
     args: GetModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelCommandOutput) => void),
     cb?: (err: any, data?: GetModelCommandOutput) => void
   ): Promise<GetModelCommandOutput> | void {
     const command = new GetModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1511,7 +1585,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getModelTemplate(
     args: GetModelTemplateCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetModelTemplateCommandOutput>;
   public getModelTemplate(
     args: GetModelTemplateCommandInput,
@@ -1524,16 +1598,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModelTemplate(
     args: GetModelTemplateCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelTemplateCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelTemplateCommandOutput) => void),
     cb?: (err: any, data?: GetModelTemplateCommandOutput) => void
   ): Promise<GetModelTemplateCommandOutput> | void {
     const command = new GetModelTemplateCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1544,7 +1620,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getModels(
     args: GetModelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetModelsCommandOutput>;
   public getModels(
     args: GetModelsCommandInput,
@@ -1557,16 +1633,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getModels(
     args: GetModelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetModelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetModelsCommandOutput) => void),
     cb?: (err: any, data?: GetModelsCommandOutput) => void
   ): Promise<GetModelsCommandOutput> | void {
     const command = new GetModelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1577,7 +1655,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getRoute(
     args: GetRouteCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRouteCommandOutput>;
   public getRoute(
     args: GetRouteCommandInput,
@@ -1590,16 +1668,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRoute(
     args: GetRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRouteCommandOutput) => void),
     cb?: (err: any, data?: GetRouteCommandOutput) => void
   ): Promise<GetRouteCommandOutput> | void {
     const command = new GetRouteCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1610,7 +1690,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getRouteResponse(
     args: GetRouteResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRouteResponseCommandOutput>;
   public getRouteResponse(
     args: GetRouteResponseCommandInput,
@@ -1623,16 +1703,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRouteResponse(
     args: GetRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRouteResponseCommandOutput) => void),
     cb?: (err: any, data?: GetRouteResponseCommandOutput) => void
   ): Promise<GetRouteResponseCommandOutput> | void {
     const command = new GetRouteResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1643,7 +1725,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getRouteResponses(
     args: GetRouteResponsesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRouteResponsesCommandOutput>;
   public getRouteResponses(
     args: GetRouteResponsesCommandInput,
@@ -1656,16 +1738,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRouteResponses(
     args: GetRouteResponsesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRouteResponsesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRouteResponsesCommandOutput) => void),
     cb?: (err: any, data?: GetRouteResponsesCommandOutput) => void
   ): Promise<GetRouteResponsesCommandOutput> | void {
     const command = new GetRouteResponsesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1676,7 +1760,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getRoutes(
     args: GetRoutesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRoutesCommandOutput>;
   public getRoutes(
     args: GetRoutesCommandInput,
@@ -1689,16 +1773,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getRoutes(
     args: GetRoutesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRoutesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRoutesCommandOutput) => void),
     cb?: (err: any, data?: GetRoutesCommandOutput) => void
   ): Promise<GetRoutesCommandOutput> | void {
     const command = new GetRoutesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1709,7 +1795,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getStage(
     args: GetStageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetStageCommandOutput>;
   public getStage(
     args: GetStageCommandInput,
@@ -1722,16 +1808,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getStage(
     args: GetStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetStageCommandOutput) => void),
     cb?: (err: any, data?: GetStageCommandOutput) => void
   ): Promise<GetStageCommandOutput> | void {
     const command = new GetStageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1742,7 +1830,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public getStages(
     args: GetStagesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetStagesCommandOutput>;
   public getStages(
     args: GetStagesCommandInput,
@@ -1755,16 +1843,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public getStages(
     args: GetStagesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetStagesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetStagesCommandOutput) => void),
     cb?: (err: any, data?: GetStagesCommandOutput) => void
   ): Promise<GetStagesCommandOutput> | void {
     const command = new GetStagesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1775,7 +1865,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateApi(
     args: UpdateApiCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApiCommandOutput>;
   public updateApi(
     args: UpdateApiCommandInput,
@@ -1788,16 +1878,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateApi(
     args: UpdateApiCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApiCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiCommandOutput) => void
   ): Promise<UpdateApiCommandOutput> | void {
     const command = new UpdateApiCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1808,7 +1900,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateApiMapping(
     args: UpdateApiMappingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateApiMappingCommandOutput>;
   public updateApiMapping(
     args: UpdateApiMappingCommandInput,
@@ -1821,16 +1913,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateApiMapping(
     args: UpdateApiMappingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateApiMappingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateApiMappingCommandOutput) => void),
     cb?: (err: any, data?: UpdateApiMappingCommandOutput) => void
   ): Promise<UpdateApiMappingCommandOutput> | void {
     const command = new UpdateApiMappingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1841,7 +1935,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateAuthorizerCommandOutput>;
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
@@ -1854,16 +1948,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateAuthorizer(
     args: UpdateAuthorizerCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateAuthorizerCommandOutput) => void),
     cb?: (err: any, data?: UpdateAuthorizerCommandOutput) => void
   ): Promise<UpdateAuthorizerCommandOutput> | void {
     const command = new UpdateAuthorizerCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1874,7 +1970,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDeploymentCommandOutput>;
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
@@ -1887,16 +1983,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateDeployment(
     args: UpdateDeploymentCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDeploymentCommandOutput) => void),
     cb?: (err: any, data?: UpdateDeploymentCommandOutput) => void
   ): Promise<UpdateDeploymentCommandOutput> | void {
     const command = new UpdateDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1907,7 +2005,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateDomainNameCommandOutput>;
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
@@ -1920,16 +2018,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateDomainName(
     args: UpdateDomainNameCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateDomainNameCommandOutput) => void),
     cb?: (err: any, data?: UpdateDomainNameCommandOutput) => void
   ): Promise<UpdateDomainNameCommandOutput> | void {
     const command = new UpdateDomainNameCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1940,7 +2040,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateIntegration(
     args: UpdateIntegrationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateIntegrationCommandOutput>;
   public updateIntegration(
     args: UpdateIntegrationCommandInput,
@@ -1953,16 +2053,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateIntegration(
     args: UpdateIntegrationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIntegrationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateIntegrationCommandOutput) => void),
     cb?: (err: any, data?: UpdateIntegrationCommandOutput) => void
   ): Promise<UpdateIntegrationCommandOutput> | void {
     const command = new UpdateIntegrationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1973,7 +2075,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateIntegrationResponseCommandOutput>;
   public updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
@@ -1986,16 +2088,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateIntegrationResponse(
     args: UpdateIntegrationResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateIntegrationResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateIntegrationResponseCommandOutput) => void),
     cb?: (err: any, data?: UpdateIntegrationResponseCommandOutput) => void
   ): Promise<UpdateIntegrationResponseCommandOutput> | void {
     const command = new UpdateIntegrationResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2006,7 +2110,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateModel(
     args: UpdateModelCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateModelCommandOutput>;
   public updateModel(
     args: UpdateModelCommandInput,
@@ -2019,16 +2123,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateModel(
     args: UpdateModelCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateModelCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateModelCommandOutput) => void),
     cb?: (err: any, data?: UpdateModelCommandOutput) => void
   ): Promise<UpdateModelCommandOutput> | void {
     const command = new UpdateModelCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2039,7 +2145,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateRoute(
     args: UpdateRouteCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRouteCommandOutput>;
   public updateRoute(
     args: UpdateRouteCommandInput,
@@ -2052,16 +2158,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateRoute(
     args: UpdateRouteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRouteCommandOutput) => void),
     cb?: (err: any, data?: UpdateRouteCommandOutput) => void
   ): Promise<UpdateRouteCommandOutput> | void {
     const command = new UpdateRouteCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2072,7 +2180,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateRouteResponseCommandOutput>;
   public updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
@@ -2085,16 +2193,18 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateRouteResponse(
     args: UpdateRouteResponseCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRouteResponseCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateRouteResponseCommandOutput) => void),
     cb?: (err: any, data?: UpdateRouteResponseCommandOutput) => void
   ): Promise<UpdateRouteResponseCommandOutput> | void {
     const command = new UpdateRouteResponseCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2105,7 +2215,7 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
    */
   public updateStage(
     args: UpdateStageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateStageCommandOutput>;
   public updateStage(
     args: UpdateStageCommandInput,
@@ -2118,19 +2228,20 @@ export class ApiGatewayV2 extends ApiGatewayV2Client {
   ): void;
   public updateStage(
     args: UpdateStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateStageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateStageCommandOutput) => void),
     cb?: (err: any, data?: UpdateStageCommandOutput) => void
   ): Promise<UpdateStageCommandOutput> | void {
     const command = new UpdateStageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

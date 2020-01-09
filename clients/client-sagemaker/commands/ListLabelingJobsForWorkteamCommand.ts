@@ -1,20 +1,20 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerClient";
 import {
   ListLabelingJobsForWorkteamRequest,
-  ListLabelingJobsForWorkteamResponse,
+  ListLabelingJobsForWorkteamResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListLabelingJobsForWorkteamCommand,
-  serializeAws_json1_1ListLabelingJobsForWorkteamCommand,
+  serializeAws_json1_1ListLabelingJobsForWorkteamCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListLabelingJobsForWorkteamCommandInput = ListLabelingJobsForWorkteamRequest;
 export type ListLabelingJobsForWorkteamCommandOutput = ListLabelingJobsForWorkteamResponse;
 
-export class ListLabelingJobsForWorkteamCommand extends $Command<ListLabelingJobsForWorkteamCommandInput, ListLabelingJobsForWorkteamCommandOutput, SageMakerClientResolvedConfig> {
+export class ListLabelingJobsForWorkteamCommand extends $Command<
+  ListLabelingJobsForWorkteamCommandInput,
+  ListLabelingJobsForWorkteamCommandOutput,
+  SageMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<ListLabelingJob
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLabelingJobsForWorkteamCommandInput, ListLabelingJobsForWorkteamCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListLabelingJobsForWorkteamCommandInput,
+    ListLabelingJobsForWorkteamCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListLabelingJobsForWorkteamCommand extends $Command<ListLabelingJob
     input: ListLabelingJobsForWorkteamCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(input, context);
+    return serializeAws_json1_1ListLabelingJobsForWorkteamCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListLabelingJobsForWorkteamCommandOutput> {
-    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(output, context);
+    return deserializeAws_json1_1ListLabelingJobsForWorkteamCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

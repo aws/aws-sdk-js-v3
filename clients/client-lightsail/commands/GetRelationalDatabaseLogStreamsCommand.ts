@@ -1,20 +1,20 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
 import {
   GetRelationalDatabaseLogStreamsRequest,
-  GetRelationalDatabaseLogStreamsResult,
+  GetRelationalDatabaseLogStreamsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand,
-  serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand,
+  serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetRelationalDatabaseLogStreamsCommandInput = GetRelationalDatabaseLogStreamsRequest;
 export type GetRelationalDatabaseLogStreamsCommandOutput = GetRelationalDatabaseLogStreamsResult;
 
-export class GetRelationalDatabaseLogStreamsCommand extends $Command<GetRelationalDatabaseLogStreamsCommandInput, GetRelationalDatabaseLogStreamsCommandOutput, LightsailClientResolvedConfig> {
+export class GetRelationalDatabaseLogStreamsCommand extends $Command<
+  GetRelationalDatabaseLogStreamsCommandInput,
+  GetRelationalDatabaseLogStreamsCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<GetRelation
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetRelationalDatabaseLogStreamsCommandInput, GetRelationalDatabaseLogStreamsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetRelationalDatabaseLogStreamsCommandInput,
+    GetRelationalDatabaseLogStreamsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetRelationalDatabaseLogStreamsCommand extends $Command<GetRelation
     input: GetRelationalDatabaseLogStreamsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(input, context);
+    return serializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> {
-    return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(output, context);
+    return deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

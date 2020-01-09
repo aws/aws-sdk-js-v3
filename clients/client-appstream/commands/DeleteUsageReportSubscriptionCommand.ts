@@ -1,20 +1,20 @@
 import {
   AppStreamClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppStreamClient";
 import {
   DeleteUsageReportSubscriptionRequest,
-  DeleteUsageReportSubscriptionResult,
+  DeleteUsageReportSubscriptionResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteUsageReportSubscriptionCommand,
-  serializeAws_json1_1DeleteUsageReportSubscriptionCommand,
+  serializeAws_json1_1DeleteUsageReportSubscriptionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteUsageReportSubscriptionCommandInput = DeleteUsageReportSubscriptionRequest;
 export type DeleteUsageReportSubscriptionCommandOutput = DeleteUsageReportSubscriptionResult;
 
-export class DeleteUsageReportSubscriptionCommand extends $Command<DeleteUsageReportSubscriptionCommandInput, DeleteUsageReportSubscriptionCommandOutput, AppStreamClientResolvedConfig> {
+export class DeleteUsageReportSubscriptionCommand extends $Command<
+  DeleteUsageReportSubscriptionCommandInput,
+  DeleteUsageReportSubscriptionCommandOutput,
+  AppStreamClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<DeleteUsageRe
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppStreamClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteUsageReportSubscriptionCommandInput, DeleteUsageReportSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteUsageReportSubscriptionCommandInput,
+    DeleteUsageReportSubscriptionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DeleteUsageReportSubscriptionCommand extends $Command<DeleteUsageRe
     input: DeleteUsageReportSubscriptionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DeleteUsageReportSubscriptionCommand(input, context);
+    return serializeAws_json1_1DeleteUsageReportSubscriptionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteUsageReportSubscriptionCommandOutput> {
-    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommand(output, context);
+    return deserializeAws_json1_1DeleteUsageReportSubscriptionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

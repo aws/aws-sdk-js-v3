@@ -1,20 +1,20 @@
 import {
   OpsWorksClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OpsWorksClient";
 import {
   DescribeAgentVersionsRequest,
-  DescribeAgentVersionsResult,
+  DescribeAgentVersionsResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeAgentVersionsCommand,
-  serializeAws_json1_1DescribeAgentVersionsCommand,
+  serializeAws_json1_1DescribeAgentVersionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeAgentVersionsCommandInput = DescribeAgentVersionsRequest;
 export type DescribeAgentVersionsCommandOutput = DescribeAgentVersionsResult;
 
-export class DescribeAgentVersionsCommand extends $Command<DescribeAgentVersionsCommandInput, DescribeAgentVersionsCommandOutput, OpsWorksClientResolvedConfig> {
+export class DescribeAgentVersionsCommand extends $Command<
+  DescribeAgentVersionsCommandInput,
+  DescribeAgentVersionsCommandOutput,
+  OpsWorksClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeAgentVersionsCommand extends $Command<DescribeAgentVersions
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpsWorksClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeAgentVersionsCommandInput, DescribeAgentVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeAgentVersionsCommandInput,
+    DescribeAgentVersionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

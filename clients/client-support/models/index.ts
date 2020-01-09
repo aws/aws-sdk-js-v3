@@ -404,7 +404,9 @@ export namespace Service {
  *         <p>An attachment with the specified ID could not be found.</p>
  *
  */
-export interface AttachmentIdNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface AttachmentIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttachmentIdNotFound";
   $fault: "client";
   /**
@@ -427,7 +429,9 @@ export namespace AttachmentIdNotFound {
  *             been exceeded.</p>
  *
  */
-export interface AttachmentLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface AttachmentLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -451,7 +455,9 @@ export namespace AttachmentLimitExceeded {
  *             it is created.</p>
  *
  */
-export interface AttachmentSetExpired extends _smithy.SmithyException, $MetadataBearer {
+export interface AttachmentSetExpired
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttachmentSetExpired";
   $fault: "client";
   /**
@@ -474,7 +480,9 @@ export namespace AttachmentSetExpired {
  *         <p>An attachment set with the specified ID could not be found.</p>
  *
  */
-export interface AttachmentSetIdNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface AttachmentSetIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttachmentSetIdNotFound";
   $fault: "client";
   /**
@@ -497,7 +505,9 @@ export namespace AttachmentSetIdNotFound {
  *             attachments and 5 MB per attachment.</p>
  *
  */
-export interface AttachmentSetSizeLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface AttachmentSetSizeLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AttachmentSetSizeLimitExceeded";
   $fault: "client";
   /**
@@ -520,7 +530,9 @@ export namespace AttachmentSetSizeLimitExceeded {
  *         <p>The case creation limit for the account has been exceeded.</p>
  *
  */
-export interface CaseCreationLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface CaseCreationLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CaseCreationLimitExceeded";
   $fault: "client";
   /**
@@ -543,7 +555,9 @@ export namespace CaseCreationLimitExceeded {
  *         <p>The requested <code>caseId</code> could not be located.</p>
  *
  */
-export interface CaseIdNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface CaseIdNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CaseIdNotFound";
   $fault: "client";
   /**
@@ -566,7 +580,9 @@ export namespace CaseIdNotFound {
  *             short period of time has been exceeded.</p>
  *
  */
-export interface DescribeAttachmentLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface DescribeAttachmentLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DescribeAttachmentLimitExceeded";
   $fault: "client";
   /**
@@ -589,7 +605,9 @@ export namespace DescribeAttachmentLimitExceeded {
  *         <p>An internal server error occurred.</p>
  *
  */
-export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   /**
@@ -1292,7 +1310,9 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest {
+  export function isa(
+    o: any
+  ): o is DescribeTrustedAdvisorCheckRefreshStatusesRequest {
     return _smithy.isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesRequest");
   }
 }
@@ -1302,7 +1322,8 @@ export namespace DescribeTrustedAdvisorCheckRefreshStatusesRequest {
  *         <p>The statuses of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckRefreshStatuses</a> operation.</p>
  *
  */
-export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse
+  extends $MetadataBearer {
   __type?: "DescribeTrustedAdvisorCheckRefreshStatusesResponse";
   /**
    *
@@ -1313,7 +1334,9 @@ export interface DescribeTrustedAdvisorCheckRefreshStatusesResponse extends $Met
 }
 
 export namespace DescribeTrustedAdvisorCheckRefreshStatusesResponse {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse {
+  export function isa(
+    o: any
+  ): o is DescribeTrustedAdvisorCheckRefreshStatusesResponse {
     return _smithy.isa(o, "DescribeTrustedAdvisorCheckRefreshStatusesResponse");
   }
 }
@@ -1353,7 +1376,8 @@ export namespace DescribeTrustedAdvisorCheckResultRequest {
  *         <p>The result of the Trusted Advisor check returned by the <a>DescribeTrustedAdvisorCheckResult</a> operation.</p>
  *
  */
-export interface DescribeTrustedAdvisorCheckResultResponse extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckResultResponse
+  extends $MetadataBearer {
   __type?: "DescribeTrustedAdvisorCheckResultResponse";
   /**
    *
@@ -1380,7 +1404,9 @@ export interface DescribeTrustedAdvisorCheckSummariesRequest {
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesRequest {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckSummariesRequest {
+  export function isa(
+    o: any
+  ): o is DescribeTrustedAdvisorCheckSummariesRequest {
     return _smithy.isa(o, "DescribeTrustedAdvisorCheckSummariesRequest");
   }
 }
@@ -1390,7 +1416,8 @@ export namespace DescribeTrustedAdvisorCheckSummariesRequest {
  *         <p>The summaries of the Trusted Advisor checks returned by the <a>DescribeTrustedAdvisorCheckSummaries</a> operation.</p>
  *
  */
-export interface DescribeTrustedAdvisorCheckSummariesResponse extends $MetadataBearer {
+export interface DescribeTrustedAdvisorCheckSummariesResponse
+  extends $MetadataBearer {
   __type?: "DescribeTrustedAdvisorCheckSummariesResponse";
   /**
    *
@@ -1401,7 +1428,9 @@ export interface DescribeTrustedAdvisorCheckSummariesResponse extends $MetadataB
 }
 
 export namespace DescribeTrustedAdvisorCheckSummariesResponse {
-  export function isa(o: any): o is DescribeTrustedAdvisorCheckSummariesResponse {
+  export function isa(
+    o: any
+  ): o is DescribeTrustedAdvisorCheckSummariesResponse {
     return _smithy.isa(o, "DescribeTrustedAdvisorCheckSummariesResponse");
   }
 }

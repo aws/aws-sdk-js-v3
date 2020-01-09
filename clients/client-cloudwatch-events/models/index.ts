@@ -19,7 +19,7 @@ export namespace ActivateEventSourceRequest {
 
 export enum AssignPublicIp {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -857,7 +857,7 @@ export namespace EventSource {
 export enum EventSourceState {
   ACTIVE = "ACTIVE",
   DELETED = "DELETED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -967,7 +967,7 @@ export namespace KinesisParameters {
 
 export enum LaunchType {
   EC2 = "EC2",
-  FARGATE = "FARGATE",
+  FARGATE = "FARGATE"
 }
 
 export interface ListEventBusesRequest {
@@ -1114,7 +1114,8 @@ export namespace ListPartnerEventSourceAccountsRequest {
   }
 }
 
-export interface ListPartnerEventSourceAccountsResponse extends $MetadataBearer {
+export interface ListPartnerEventSourceAccountsResponse
+  extends $MetadataBearer {
   __type?: "ListPartnerEventSourceAccountsResponse";
   /**
    *
@@ -2209,7 +2210,7 @@ export namespace Rule {
 
 export enum RuleState {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -2545,7 +2546,9 @@ export namespace UntagResourceResponse {
  *         <p>There is concurrent modification on a resource.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -2562,7 +2565,9 @@ export namespace ConcurrentModificationException {
  *         <p>This exception occurs due to unexpected causes.</p>
  *
  */
-export interface InternalException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalException";
   $fault: "server";
   message?: string;
@@ -2579,7 +2584,9 @@ export namespace InternalException {
  *         <p>The event pattern isn't valid.</p>
  *
  */
-export interface InvalidEventPatternException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidEventPatternException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidEventPatternException";
   $fault: "client";
   message?: string;
@@ -2596,7 +2603,9 @@ export namespace InvalidEventPatternException {
  *             <p>The specified state isn't a valid state for an event source.</p>
  *
  */
-export interface InvalidStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidStateException";
   $fault: "client";
   message?: string;
@@ -2613,7 +2622,9 @@ export namespace InvalidStateException {
  *         <p>You tried to create more resources than is allowed.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -2636,7 +2647,9 @@ export namespace LimitExceededException {
  *                 <code>UntagResource</code>. </p>
  *
  */
-export interface ManagedRuleException extends _smithy.SmithyException, $MetadataBearer {
+export interface ManagedRuleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ManagedRuleException";
   $fault: "client";
   message?: string;
@@ -2654,7 +2667,9 @@ export namespace ManagedRuleException {
  *         <p>The event bus policy is too long. For more information, see the limits.</p>
  *
  */
-export interface PolicyLengthExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyLengthExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyLengthExceededException";
   $fault: "client";
   message?: string;
@@ -2671,7 +2686,9 @@ export namespace PolicyLengthExceededException {
  *             <p>The resource that you're trying to create already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -2688,7 +2705,9 @@ export namespace ResourceAlreadyExistsException {
  *         <p>An entity that you specified doesn't exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

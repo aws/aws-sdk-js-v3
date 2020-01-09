@@ -1,20 +1,20 @@
 import {
   AppConfigClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AppConfigClient";
 import {
   ConfigurationProfile,
-  GetConfigurationProfileRequest,
+  GetConfigurationProfileRequest
 } from "../models/index";
 import {
   deserializeAws_restJson1_1GetConfigurationProfileCommand,
-  serializeAws_restJson1_1GetConfigurationProfileCommand,
+  serializeAws_restJson1_1GetConfigurationProfileCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetConfigurationProfileCommandInput = GetConfigurationProfileRequest;
 export type GetConfigurationProfileCommandOutput = ConfigurationProfile;
 
-export class GetConfigurationProfileCommand extends $Command<GetConfigurationProfileCommandInput, GetConfigurationProfileCommandOutput, AppConfigClientResolvedConfig> {
+export class GetConfigurationProfileCommand extends $Command<
+  GetConfigurationProfileCommandInput,
+  GetConfigurationProfileCommandOutput,
+  AppConfigClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetConfigurationProfileCommand extends $Command<GetConfigurationPro
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppConfigClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetConfigurationProfileCommandInput, GetConfigurationProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetConfigurationProfileCommandInput,
+    GetConfigurationProfileCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class GetConfigurationProfileCommand extends $Command<GetConfigurationPro
     input: GetConfigurationProfileCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1GetConfigurationProfileCommand(input, context);
+    return serializeAws_restJson1_1GetConfigurationProfileCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<GetConfigurationProfileCommandOutput> {
-    return deserializeAws_restJson1_1GetConfigurationProfileCommand(output, context);
+    return deserializeAws_restJson1_1GetConfigurationProfileCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

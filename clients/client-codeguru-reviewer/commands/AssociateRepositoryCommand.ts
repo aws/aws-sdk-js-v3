@@ -1,20 +1,20 @@
 import {
   CodeGuruReviewerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeGuruReviewerClient";
 import {
   AssociateRepositoryRequest,
-  AssociateRepositoryResponse,
+  AssociateRepositoryResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1AssociateRepositoryCommand,
-  serializeAws_restJson1_1AssociateRepositoryCommand,
+  serializeAws_restJson1_1AssociateRepositoryCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type AssociateRepositoryCommandInput = AssociateRepositoryRequest;
 export type AssociateRepositoryCommandOutput = AssociateRepositoryResponse;
 
-export class AssociateRepositoryCommand extends $Command<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput, CodeGuruReviewerClientResolvedConfig> {
+export class AssociateRepositoryCommand extends $Command<
+  AssociateRepositoryCommandInput,
+  AssociateRepositoryCommandOutput,
+  CodeGuruReviewerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class AssociateRepositoryCommand extends $Command<AssociateRepositoryComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeGuruReviewerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AssociateRepositoryCommandInput,
+    AssociateRepositoryCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class AssociateRepositoryCommand extends $Command<AssociateRepositoryComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociateRepositoryCommandOutput> {
-    return deserializeAws_restJson1_1AssociateRepositoryCommand(output, context);
+    return deserializeAws_restJson1_1AssociateRepositoryCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

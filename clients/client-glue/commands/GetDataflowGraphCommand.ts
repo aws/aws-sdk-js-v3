@@ -1,20 +1,20 @@
 import {
   GlueClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GlueClient";
 import {
   GetDataflowGraphRequest,
-  GetDataflowGraphResponse,
+  GetDataflowGraphResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1GetDataflowGraphCommand,
-  serializeAws_json1_1GetDataflowGraphCommand,
+  serializeAws_json1_1GetDataflowGraphCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetDataflowGraphCommandInput = GetDataflowGraphRequest;
 export type GetDataflowGraphCommandOutput = GetDataflowGraphResponse;
 
-export class GetDataflowGraphCommand extends $Command<GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput, GlueClientResolvedConfig> {
+export class GetDataflowGraphCommand extends $Command<
+  GetDataflowGraphCommandInput,
+  GetDataflowGraphCommandOutput,
+  GlueClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class GetDataflowGraphCommand extends $Command<GetDataflowGraphCommandInp
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

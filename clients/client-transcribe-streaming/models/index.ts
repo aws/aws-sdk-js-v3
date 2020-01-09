@@ -58,7 +58,7 @@ export namespace AudioEvent {
  */
 export type AudioStream =
   | AudioStream.AudioEventMember
-  | AudioStream.$UnknownMember
+  | AudioStream.$UnknownMember;
 
 export namespace AudioStream {
   interface $Base {
@@ -82,11 +82,9 @@ export namespace AudioStream {
     AudioEvent: (value: AudioEvent) => T;
     _: (name: string, value: any) => T;
   }
-  export function visit<T>(
-    value: AudioStream,
-    visitor: Visitor<T>
-  ): T {
-    if (value.AudioEvent !== undefined) return visitor.AudioEvent(value.AudioEvent);
+  export function visit<T>(value: AudioStream, visitor: Visitor<T>): T {
+    if (value.AudioEvent !== undefined)
+      return visitor.AudioEvent(value.AudioEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
@@ -99,7 +97,9 @@ export namespace AudioStream {
  *       request again.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -117,7 +117,9 @@ export namespace BadRequestException {
  *       terminated.</p>
  *
  */
-export interface ConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictException";
   $fault: "client";
   Message?: string;
@@ -135,7 +137,9 @@ export namespace ConflictException {
  *       request again.</p>
  *
  */
-export interface InternalFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalFailureException";
   $fault: "server";
   Message?: string;
@@ -195,7 +199,7 @@ export namespace Item {
 
 export enum ItemType {
   PRONUNCIATION = "pronunciation",
-  PUNCTUATION = "punctuation",
+  PUNCTUATION = "punctuation"
 }
 
 export enum LanguageCode {
@@ -204,7 +208,7 @@ export enum LanguageCode {
   EN_US = "en-US",
   ES_US = "es-US",
   FR_CA = "fr-CA",
-  FR_FR = "fr-FR",
+  FR_FR = "fr-FR"
 }
 
 /**
@@ -215,7 +219,9 @@ export enum LanguageCode {
  *       again.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -454,7 +460,7 @@ export type TranscriptResultStream =
   | TranscriptResultStream.InternalFailureExceptionMember
   | TranscriptResultStream.LimitExceededExceptionMember
   | TranscriptResultStream.TranscriptEventMember
-  | TranscriptResultStream.$UnknownMember
+  | TranscriptResultStream.$UnknownMember;
 
 export namespace TranscriptResultStream {
   interface $Base {
@@ -551,15 +557,20 @@ export namespace TranscriptResultStream {
     value: TranscriptResultStream,
     visitor: Visitor<T>
   ): T {
-    if (value.BadRequestException !== undefined) return visitor.BadRequestException(value.BadRequestException);
-    if (value.ConflictException !== undefined) return visitor.ConflictException(value.ConflictException);
-    if (value.InternalFailureException !== undefined) return visitor.InternalFailureException(value.InternalFailureException);
-    if (value.LimitExceededException !== undefined) return visitor.LimitExceededException(value.LimitExceededException);
-    if (value.TranscriptEvent !== undefined) return visitor.TranscriptEvent(value.TranscriptEvent);
+    if (value.BadRequestException !== undefined)
+      return visitor.BadRequestException(value.BadRequestException);
+    if (value.ConflictException !== undefined)
+      return visitor.ConflictException(value.ConflictException);
+    if (value.InternalFailureException !== undefined)
+      return visitor.InternalFailureException(value.InternalFailureException);
+    if (value.LimitExceededException !== undefined)
+      return visitor.LimitExceededException(value.LimitExceededException);
+    if (value.TranscriptEvent !== undefined)
+      return visitor.TranscriptEvent(value.TranscriptEvent);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   }
 }
 
 export enum MediaEncoding {
-  PCM = "pcm",
+  PCM = "pcm"
 }

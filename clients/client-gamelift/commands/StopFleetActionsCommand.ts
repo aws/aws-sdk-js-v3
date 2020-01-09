@@ -1,20 +1,17 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
-import {
-  StopFleetActionsInput,
-  StopFleetActionsOutput,
-} from "../models/index";
+import { StopFleetActionsInput, StopFleetActionsOutput } from "../models/index";
 import {
   deserializeAws_json1_1StopFleetActionsCommand,
-  serializeAws_json1_1StopFleetActionsCommand,
+  serializeAws_json1_1StopFleetActionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type StopFleetActionsCommandInput = StopFleetActionsInput;
 export type StopFleetActionsCommandOutput = StopFleetActionsOutput;
 
-export class StopFleetActionsCommand extends $Command<StopFleetActionsCommandInput, StopFleetActionsCommandOutput, GameLiftClientResolvedConfig> {
+export class StopFleetActionsCommand extends $Command<
+  StopFleetActionsCommandInput,
+  StopFleetActionsCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class StopFleetActionsCommand extends $Command<StopFleetActionsCommandInp
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<StopFleetActionsCommandInput, StopFleetActionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

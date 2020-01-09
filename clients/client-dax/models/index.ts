@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>Two or more incompatible parameters were specified.</p>
  *
  */
-export interface InvalidParameterCombinationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterCombinationException";
   $fault: "client";
   message?: string;
@@ -23,7 +25,9 @@ export namespace InvalidParameterCombinationException {
  *         <p>The value for a parameter is invalid.</p>
  *
  */
-export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -35,7 +39,7 @@ export namespace InvalidParameterValueException {
   }
 }
 
-export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT"
+export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
 
 /**
  *
@@ -1136,7 +1140,7 @@ export namespace IncreaseReplicationFactorResponse {
   }
 }
 
-export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE"
+export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
 
 export interface ListTagsRequest {
   __type?: "ListTagsRequest";
@@ -1487,7 +1491,7 @@ export namespace ParameterNameValue {
   }
 }
 
-export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC"
+export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
 
 export interface RebootNodeRequest {
   __type?: "RebootNodeRequest";
@@ -1588,7 +1592,7 @@ export namespace SSESpecification {
   }
 }
 
-export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING"
+export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
 
 /**
  *
@@ -1618,7 +1622,7 @@ export namespace SecurityGroupMembership {
   }
 }
 
-export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP"
+export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
 
 /**
  *
@@ -1985,7 +1989,9 @@ export namespace UpdateSubnetGroupResponse {
  *         <p>You already have a DAX cluster with the given identifier.</p>
  *
  */
-export interface ClusterAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -2002,7 +2008,9 @@ export namespace ClusterAlreadyExistsFault {
  *         <p>The requested cluster ID does not refer to an existing DAX cluster.</p>
  *
  */
-export interface ClusterNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2020,7 +2028,9 @@ export namespace ClusterNotFoundFault {
  *             account.</p>
  *
  */
-export interface ClusterQuotaForCustomerExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ClusterQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ClusterQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
@@ -2038,7 +2048,9 @@ export namespace ClusterQuotaForCustomerExceededFault {
  *             resize an already-existing cluster). </p>
  *
  */
-export interface InsufficientClusterCapacityFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InsufficientClusterCapacityFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InsufficientClusterCapacityFault";
   $fault: "client";
   message?: string;
@@ -2055,7 +2067,9 @@ export namespace InsufficientClusterCapacityFault {
  *         <p>The Amazon Resource Name (ARN) supplied in the request is not valid.</p>
  *
  */
-export interface InvalidARNFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidARNFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidARNFault";
   $fault: "client";
   message?: string;
@@ -2073,7 +2087,9 @@ export namespace InvalidARNFault {
  *             state.</p>
  *
  */
-export interface InvalidClusterStateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidClusterStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidClusterStateFault";
   $fault: "client";
   message?: string;
@@ -2090,7 +2106,9 @@ export namespace InvalidClusterStateFault {
  *         <p>One or more parameters in a parameter group are in an invalid state.</p>
  *
  */
-export interface InvalidParameterGroupStateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterGroupStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterGroupStateFault";
   $fault: "client";
   message?: string;
@@ -2107,7 +2125,9 @@ export namespace InvalidParameterGroupStateFault {
  *         <p>An invalid subnet identifier was specified.</p>
  *
  */
-export interface InvalidSubnet extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSubnet
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSubnet";
   $fault: "client";
   message?: string;
@@ -2124,7 +2144,9 @@ export namespace InvalidSubnet {
  *         <p>The VPC network is in an invalid state.</p>
  *
  */
-export interface InvalidVPCNetworkStateFault extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidVPCNetworkStateFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidVPCNetworkStateFault";
   $fault: "client";
   message?: string;
@@ -2141,7 +2163,9 @@ export namespace InvalidVPCNetworkStateFault {
  *         <p>None of the nodes in the cluster have the given node ID.</p>
  *
  */
-export interface NodeNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface NodeNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NodeNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2159,7 +2183,9 @@ export namespace NodeNotFoundFault {
  *             cluster.</p>
  *
  */
-export interface NodeQuotaForClusterExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface NodeQuotaForClusterExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NodeQuotaForClusterExceededFault";
   $fault: "client";
   message?: string;
@@ -2177,7 +2203,9 @@ export namespace NodeQuotaForClusterExceededFault {
  *             account.</p>
  *
  */
-export interface NodeQuotaForCustomerExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface NodeQuotaForCustomerExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NodeQuotaForCustomerExceededFault";
   $fault: "client";
   message?: string;
@@ -2194,7 +2222,9 @@ export namespace NodeQuotaForCustomerExceededFault {
  *         <p>The specified parameter group already exists.</p>
  *
  */
-export interface ParameterGroupAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -2211,7 +2241,9 @@ export namespace ParameterGroupAlreadyExistsFault {
  *         <p>The specified parameter group does not exist.</p>
  *
  */
-export interface ParameterGroupNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2228,7 +2260,9 @@ export namespace ParameterGroupNotFoundFault {
  *         <p>You have attempted to exceed the maximum number of parameter groups.</p>
  *
  */
-export interface ParameterGroupQuotaExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -2245,7 +2279,9 @@ export namespace ParameterGroupQuotaExceededFault {
  *          <p>The specified service linked role (SLR) was not found.</p>
  *
  */
-export interface ServiceLinkedRoleNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceLinkedRoleNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceLinkedRoleNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2262,7 +2298,9 @@ export namespace ServiceLinkedRoleNotFoundFault {
  *         <p>The specified subnet group already exists.</p>
  *
  */
-export interface SubnetGroupAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetGroupAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetGroupAlreadyExistsFault";
   $fault: "client";
   message?: string;
@@ -2279,7 +2317,9 @@ export namespace SubnetGroupAlreadyExistsFault {
  *         <p>The specified subnet group is currently in use.</p>
  *
  */
-export interface SubnetGroupInUseFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetGroupInUseFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetGroupInUseFault";
   $fault: "client";
   message?: string;
@@ -2297,7 +2337,9 @@ export namespace SubnetGroupInUseFault {
  *             group.</p>
  *
  */
-export interface SubnetGroupNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetGroupNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetGroupNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2315,7 +2357,9 @@ export namespace SubnetGroupNotFoundFault {
  *             subnets in a subnet group.</p>
  *
  */
-export interface SubnetGroupQuotaExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetGroupQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetGroupQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -2350,7 +2394,9 @@ export namespace SubnetInUse {
  *             subnets in a subnet group.</p>
  *
  */
-export interface SubnetQuotaExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface SubnetQuotaExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubnetQuotaExceededFault";
   $fault: "client";
   message?: string;
@@ -2367,7 +2413,9 @@ export namespace SubnetQuotaExceededFault {
  *         <p>The tag does not exist.</p>
  *
  */
-export interface TagNotFoundFault extends _smithy.SmithyException, $MetadataBearer {
+export interface TagNotFoundFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TagNotFoundFault";
   $fault: "client";
   message?: string;
@@ -2384,7 +2432,9 @@ export namespace TagNotFoundFault {
  *         <p>You have exceeded the maximum number of tags for this DAX cluster.</p>
  *
  */
-export interface TagQuotaPerResourceExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface TagQuotaPerResourceExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TagQuotaPerResourceExceeded";
   $fault: "client";
   message?: string;

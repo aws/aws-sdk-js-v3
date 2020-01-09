@@ -1,20 +1,17 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
-import {
-  DescribeWorkflowTypeInput,
-  WorkflowTypeDetail,
-} from "../models/index";
+import { DescribeWorkflowTypeInput, WorkflowTypeDetail } from "../models/index";
 import {
   deserializeAws_json1_0DescribeWorkflowTypeCommand,
-  serializeAws_json1_0DescribeWorkflowTypeCommand,
+  serializeAws_json1_0DescribeWorkflowTypeCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeWorkflowTypeCommandInput = DescribeWorkflowTypeInput;
 export type DescribeWorkflowTypeCommandOutput = WorkflowTypeDetail;
 
-export class DescribeWorkflowTypeCommand extends $Command<DescribeWorkflowTypeCommandInput, DescribeWorkflowTypeCommandOutput, SWFClientResolvedConfig> {
+export class DescribeWorkflowTypeCommand extends $Command<
+  DescribeWorkflowTypeCommandInput,
+  DescribeWorkflowTypeCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +44,19 @@ export class DescribeWorkflowTypeCommand extends $Command<DescribeWorkflowTypeCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeWorkflowTypeCommandInput, DescribeWorkflowTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeWorkflowTypeCommandInput,
+    DescribeWorkflowTypeCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

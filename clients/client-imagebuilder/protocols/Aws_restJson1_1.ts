@@ -1,170 +1,170 @@
 import {
   CancelImageCreationCommandInput,
-  CancelImageCreationCommandOutput,
+  CancelImageCreationCommandOutput
 } from "../commands/CancelImageCreationCommand";
 import {
   CreateComponentCommandInput,
-  CreateComponentCommandOutput,
+  CreateComponentCommandOutput
 } from "../commands/CreateComponentCommand";
 import {
   CreateDistributionConfigurationCommandInput,
-  CreateDistributionConfigurationCommandOutput,
+  CreateDistributionConfigurationCommandOutput
 } from "../commands/CreateDistributionConfigurationCommand";
 import {
   CreateImageCommandInput,
-  CreateImageCommandOutput,
+  CreateImageCommandOutput
 } from "../commands/CreateImageCommand";
 import {
   CreateImagePipelineCommandInput,
-  CreateImagePipelineCommandOutput,
+  CreateImagePipelineCommandOutput
 } from "../commands/CreateImagePipelineCommand";
 import {
   CreateImageRecipeCommandInput,
-  CreateImageRecipeCommandOutput,
+  CreateImageRecipeCommandOutput
 } from "../commands/CreateImageRecipeCommand";
 import {
   CreateInfrastructureConfigurationCommandInput,
-  CreateInfrastructureConfigurationCommandOutput,
+  CreateInfrastructureConfigurationCommandOutput
 } from "../commands/CreateInfrastructureConfigurationCommand";
 import {
   DeleteComponentCommandInput,
-  DeleteComponentCommandOutput,
+  DeleteComponentCommandOutput
 } from "../commands/DeleteComponentCommand";
 import {
   DeleteDistributionConfigurationCommandInput,
-  DeleteDistributionConfigurationCommandOutput,
+  DeleteDistributionConfigurationCommandOutput
 } from "../commands/DeleteDistributionConfigurationCommand";
 import {
   DeleteImageCommandInput,
-  DeleteImageCommandOutput,
+  DeleteImageCommandOutput
 } from "../commands/DeleteImageCommand";
 import {
   DeleteImagePipelineCommandInput,
-  DeleteImagePipelineCommandOutput,
+  DeleteImagePipelineCommandOutput
 } from "../commands/DeleteImagePipelineCommand";
 import {
   DeleteImageRecipeCommandInput,
-  DeleteImageRecipeCommandOutput,
+  DeleteImageRecipeCommandOutput
 } from "../commands/DeleteImageRecipeCommand";
 import {
   DeleteInfrastructureConfigurationCommandInput,
-  DeleteInfrastructureConfigurationCommandOutput,
+  DeleteInfrastructureConfigurationCommandOutput
 } from "../commands/DeleteInfrastructureConfigurationCommand";
 import {
   GetComponentCommandInput,
-  GetComponentCommandOutput,
+  GetComponentCommandOutput
 } from "../commands/GetComponentCommand";
 import {
   GetComponentPolicyCommandInput,
-  GetComponentPolicyCommandOutput,
+  GetComponentPolicyCommandOutput
 } from "../commands/GetComponentPolicyCommand";
 import {
   GetDistributionConfigurationCommandInput,
-  GetDistributionConfigurationCommandOutput,
+  GetDistributionConfigurationCommandOutput
 } from "../commands/GetDistributionConfigurationCommand";
 import {
   GetImageCommandInput,
-  GetImageCommandOutput,
+  GetImageCommandOutput
 } from "../commands/GetImageCommand";
 import {
   GetImagePipelineCommandInput,
-  GetImagePipelineCommandOutput,
+  GetImagePipelineCommandOutput
 } from "../commands/GetImagePipelineCommand";
 import {
   GetImagePolicyCommandInput,
-  GetImagePolicyCommandOutput,
+  GetImagePolicyCommandOutput
 } from "../commands/GetImagePolicyCommand";
 import {
   GetImageRecipeCommandInput,
-  GetImageRecipeCommandOutput,
+  GetImageRecipeCommandOutput
 } from "../commands/GetImageRecipeCommand";
 import {
   GetImageRecipePolicyCommandInput,
-  GetImageRecipePolicyCommandOutput,
+  GetImageRecipePolicyCommandOutput
 } from "../commands/GetImageRecipePolicyCommand";
 import {
   GetInfrastructureConfigurationCommandInput,
-  GetInfrastructureConfigurationCommandOutput,
+  GetInfrastructureConfigurationCommandOutput
 } from "../commands/GetInfrastructureConfigurationCommand";
 import {
   ImportComponentCommandInput,
-  ImportComponentCommandOutput,
+  ImportComponentCommandOutput
 } from "../commands/ImportComponentCommand";
 import {
   ListComponentBuildVersionsCommandInput,
-  ListComponentBuildVersionsCommandOutput,
+  ListComponentBuildVersionsCommandOutput
 } from "../commands/ListComponentBuildVersionsCommand";
 import {
   ListComponentsCommandInput,
-  ListComponentsCommandOutput,
+  ListComponentsCommandOutput
 } from "../commands/ListComponentsCommand";
 import {
   ListDistributionConfigurationsCommandInput,
-  ListDistributionConfigurationsCommandOutput,
+  ListDistributionConfigurationsCommandOutput
 } from "../commands/ListDistributionConfigurationsCommand";
 import {
   ListImageBuildVersionsCommandInput,
-  ListImageBuildVersionsCommandOutput,
+  ListImageBuildVersionsCommandOutput
 } from "../commands/ListImageBuildVersionsCommand";
 import {
   ListImagePipelineImagesCommandInput,
-  ListImagePipelineImagesCommandOutput,
+  ListImagePipelineImagesCommandOutput
 } from "../commands/ListImagePipelineImagesCommand";
 import {
   ListImagePipelinesCommandInput,
-  ListImagePipelinesCommandOutput,
+  ListImagePipelinesCommandOutput
 } from "../commands/ListImagePipelinesCommand";
 import {
   ListImageRecipesCommandInput,
-  ListImageRecipesCommandOutput,
+  ListImageRecipesCommandOutput
 } from "../commands/ListImageRecipesCommand";
 import {
   ListImagesCommandInput,
-  ListImagesCommandOutput,
+  ListImagesCommandOutput
 } from "../commands/ListImagesCommand";
 import {
   ListInfrastructureConfigurationsCommandInput,
-  ListInfrastructureConfigurationsCommandOutput,
+  ListInfrastructureConfigurationsCommandOutput
 } from "../commands/ListInfrastructureConfigurationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   PutComponentPolicyCommandInput,
-  PutComponentPolicyCommandOutput,
+  PutComponentPolicyCommandOutput
 } from "../commands/PutComponentPolicyCommand";
 import {
   PutImagePolicyCommandInput,
-  PutImagePolicyCommandOutput,
+  PutImagePolicyCommandOutput
 } from "../commands/PutImagePolicyCommand";
 import {
   PutImageRecipePolicyCommandInput,
-  PutImageRecipePolicyCommandOutput,
+  PutImageRecipePolicyCommandOutput
 } from "../commands/PutImageRecipePolicyCommand";
 import {
   StartImagePipelineExecutionCommandInput,
-  StartImagePipelineExecutionCommandOutput,
+  StartImagePipelineExecutionCommandOutput
 } from "../commands/StartImagePipelineExecutionCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateDistributionConfigurationCommandInput,
-  UpdateDistributionConfigurationCommandOutput,
+  UpdateDistributionConfigurationCommandOutput
 } from "../commands/UpdateDistributionConfigurationCommand";
 import {
   UpdateImagePipelineCommandInput,
-  UpdateImagePipelineCommandOutput,
+  UpdateImagePipelineCommandOutput
 } from "../commands/UpdateImagePipelineCommand";
 import {
   UpdateInfrastructureConfigurationCommandInput,
-  UpdateInfrastructureConfigurationCommandOutput,
+  UpdateInfrastructureConfigurationCommandOutput
 } from "../commands/UpdateInfrastructureConfigurationCommand";
 import {
   Ami,
@@ -209,18 +209,18 @@ import {
   S3Logs,
   Schedule,
   ServiceException,
-  ServiceUnavailableException,
+  ServiceUnavailableException
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1CancelImageCreationCommand(
@@ -228,15 +228,15 @@ export async function serializeAws_restJson1_1CancelImageCreationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CancelImageCreation";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.imageBuildVersionArn !== undefined) {
-    bodyParams['imageBuildVersionArn'] = input.imageBuildVersionArn;
+    bodyParams["imageBuildVersionArn"] = input.imageBuildVersionArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -245,7 +245,7 @@ export async function serializeAws_restJson1_1CancelImageCreationCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -254,39 +254,39 @@ export async function serializeAws_restJson1_1CreateComponentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateComponent";
   let body: any = {};
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
-    bodyParams['changeDescription'] = input.changeDescription;
+    bodyParams["changeDescription"] = input.changeDescription;
   }
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.data !== undefined) {
-    bodyParams['data'] = input.data;
+    bodyParams["data"] = input.data;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.kmsKeyId !== undefined) {
-    bodyParams['kmsKeyId'] = input.kmsKeyId;
+    bodyParams["kmsKeyId"] = input.kmsKeyId;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.platform !== undefined) {
-    bodyParams['platform'] = input.platform;
+    bodyParams["platform"] = input.platform;
   }
   if (input.semanticVersion !== undefined) {
-    bodyParams['semanticVersion'] = input.semanticVersion;
+    bodyParams["semanticVersion"] = input.semanticVersion;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   if (input.uri !== undefined) {
-    bodyParams['uri'] = input.uri;
+    bodyParams["uri"] = input.uri;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -295,7 +295,7 @@ export async function serializeAws_restJson1_1CreateComponentCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -304,24 +304,27 @@ export async function serializeAws_restJson1_1CreateDistributionConfigurationCom
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateDistributionConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.distributions !== undefined) {
-    bodyParams['distributions'] = serializeAws_restJson1_1DistributionList(input.distributions, context);
+    bodyParams["distributions"] = serializeAws_restJson1_1DistributionList(
+      input.distributions,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -330,7 +333,7 @@ export async function serializeAws_restJson1_1CreateDistributionConfigurationCom
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -339,27 +342,34 @@ export async function serializeAws_restJson1_1CreateImageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImage";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.distributionConfigurationArn !== undefined) {
-    bodyParams['distributionConfigurationArn'] = input.distributionConfigurationArn;
+    bodyParams["distributionConfigurationArn"] =
+      input.distributionConfigurationArn;
   }
   if (input.imageRecipeArn !== undefined) {
-    bodyParams['imageRecipeArn'] = input.imageRecipeArn;
+    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
   }
   if (input.imageTestsConfiguration !== undefined) {
-    bodyParams['imageTestsConfiguration'] = serializeAws_restJson1_1ImageTestsConfiguration(input.imageTestsConfiguration, context);
+    bodyParams[
+      "imageTestsConfiguration"
+    ] = serializeAws_restJson1_1ImageTestsConfiguration(
+      input.imageTestsConfiguration,
+      context
+    );
   }
   if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn;
+    bodyParams["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -368,7 +378,7 @@ export async function serializeAws_restJson1_1CreateImageCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -377,39 +387,49 @@ export async function serializeAws_restJson1_1CreateImagePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImagePipeline";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.distributionConfigurationArn !== undefined) {
-    bodyParams['distributionConfigurationArn'] = input.distributionConfigurationArn;
+    bodyParams["distributionConfigurationArn"] =
+      input.distributionConfigurationArn;
   }
   if (input.imageRecipeArn !== undefined) {
-    bodyParams['imageRecipeArn'] = input.imageRecipeArn;
+    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
   }
   if (input.imageTestsConfiguration !== undefined) {
-    bodyParams['imageTestsConfiguration'] = serializeAws_restJson1_1ImageTestsConfiguration(input.imageTestsConfiguration, context);
+    bodyParams[
+      "imageTestsConfiguration"
+    ] = serializeAws_restJson1_1ImageTestsConfiguration(
+      input.imageTestsConfiguration,
+      context
+    );
   }
   if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn;
+    bodyParams["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.schedule !== undefined) {
-    bodyParams['schedule'] = serializeAws_restJson1_1Schedule(input.schedule, context);
+    bodyParams["schedule"] = serializeAws_restJson1_1Schedule(
+      input.schedule,
+      context
+    );
   }
   if (input.status !== undefined) {
-    bodyParams['status'] = input.status;
+    bodyParams["status"] = input.status;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -418,7 +438,7 @@ export async function serializeAws_restJson1_1CreateImagePipelineCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -427,33 +447,43 @@ export async function serializeAws_restJson1_1CreateImageRecipeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateImageRecipe";
   let body: any = {};
   const bodyParams: any = {};
   if (input.blockDeviceMappings !== undefined) {
-    bodyParams['blockDeviceMappings'] = serializeAws_restJson1_1InstanceBlockDeviceMappings(input.blockDeviceMappings, context);
+    bodyParams[
+      "blockDeviceMappings"
+    ] = serializeAws_restJson1_1InstanceBlockDeviceMappings(
+      input.blockDeviceMappings,
+      context
+    );
   }
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.components !== undefined) {
-    bodyParams['components'] = serializeAws_restJson1_1ComponentConfigurationList(input.components, context);
+    bodyParams[
+      "components"
+    ] = serializeAws_restJson1_1ComponentConfigurationList(
+      input.components,
+      context
+    );
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.parentImage !== undefined) {
-    bodyParams['parentImage'] = input.parentImage;
+    bodyParams["parentImage"] = input.parentImage;
   }
   if (input.semanticVersion !== undefined) {
-    bodyParams['semanticVersion'] = input.semanticVersion;
+    bodyParams["semanticVersion"] = input.semanticVersion;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -462,7 +492,7 @@ export async function serializeAws_restJson1_1CreateImageRecipeCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -471,45 +501,54 @@ export async function serializeAws_restJson1_1CreateInfrastructureConfigurationC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/CreateInfrastructureConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.instanceProfileName !== undefined) {
-    bodyParams['instanceProfileName'] = input.instanceProfileName;
+    bodyParams["instanceProfileName"] = input.instanceProfileName;
   }
   if (input.instanceTypes !== undefined) {
-    bodyParams['instanceTypes'] = serializeAws_restJson1_1InstanceTypeList(input.instanceTypes, context);
+    bodyParams["instanceTypes"] = serializeAws_restJson1_1InstanceTypeList(
+      input.instanceTypes,
+      context
+    );
   }
   if (input.keyPair !== undefined) {
-    bodyParams['keyPair'] = input.keyPair;
+    bodyParams["keyPair"] = input.keyPair;
   }
   if (input.logging !== undefined) {
-    bodyParams['logging'] = serializeAws_restJson1_1Logging(input.logging, context);
+    bodyParams["logging"] = serializeAws_restJson1_1Logging(
+      input.logging,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.securityGroupIds !== undefined) {
-    bodyParams['securityGroupIds'] = serializeAws_restJson1_1SecurityGroupIds(input.securityGroupIds, context);
+    bodyParams["securityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
+      input.securityGroupIds,
+      context
+    );
   }
   if (input.snsTopicArn !== undefined) {
-    bodyParams['snsTopicArn'] = input.snsTopicArn;
+    bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
   if (input.subnetId !== undefined) {
-    bodyParams['subnetId'] = input.subnetId;
+    bodyParams["subnetId"] = input.subnetId;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   if (input.terminateInstanceOnFailure !== undefined) {
-    bodyParams['terminateInstanceOnFailure'] = input.terminateInstanceOnFailure;
+    bodyParams["terminateInstanceOnFailure"] = input.terminateInstanceOnFailure;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -518,7 +557,7 @@ export async function serializeAws_restJson1_1CreateInfrastructureConfigurationC
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -527,11 +566,13 @@ export async function serializeAws_restJson1_1DeleteComponentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
-    query['componentBuildVersionArn'] = input.componentBuildVersionArn.toString();
+    query[
+      "componentBuildVersionArn"
+    ] = input.componentBuildVersionArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -539,7 +580,7 @@ export async function serializeAws_restJson1_1DeleteComponentCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -548,11 +589,13 @@ export async function serializeAws_restJson1_1DeleteDistributionConfigurationCom
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
-    query['distributionConfigurationArn'] = input.distributionConfigurationArn.toString();
+    query[
+      "distributionConfigurationArn"
+    ] = input.distributionConfigurationArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -560,7 +603,7 @@ export async function serializeAws_restJson1_1DeleteDistributionConfigurationCom
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -569,11 +612,11 @@ export async function serializeAws_restJson1_1DeleteImageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
-    query['imageBuildVersionArn'] = input.imageBuildVersionArn.toString();
+    query["imageBuildVersionArn"] = input.imageBuildVersionArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -581,7 +624,7 @@ export async function serializeAws_restJson1_1DeleteImageCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -590,11 +633,11 @@ export async function serializeAws_restJson1_1DeleteImagePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
-    query['imagePipelineArn'] = input.imagePipelineArn.toString();
+    query["imagePipelineArn"] = input.imagePipelineArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -602,7 +645,7 @@ export async function serializeAws_restJson1_1DeleteImagePipelineCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -611,11 +654,11 @@ export async function serializeAws_restJson1_1DeleteImageRecipeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query['imageRecipeArn'] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -623,7 +666,7 @@ export async function serializeAws_restJson1_1DeleteImageRecipeCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -632,11 +675,13 @@ export async function serializeAws_restJson1_1DeleteInfrastructureConfigurationC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/DeleteInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
-    query['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn.toString();
+    query[
+      "infrastructureConfigurationArn"
+    ] = input.infrastructureConfigurationArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -644,7 +689,7 @@ export async function serializeAws_restJson1_1DeleteInfrastructureConfigurationC
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -653,11 +698,13 @@ export async function serializeAws_restJson1_1GetComponentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetComponent";
   const query: any = {};
   if (input.componentBuildVersionArn !== undefined) {
-    query['componentBuildVersionArn'] = input.componentBuildVersionArn.toString();
+    query[
+      "componentBuildVersionArn"
+    ] = input.componentBuildVersionArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -665,7 +712,7 @@ export async function serializeAws_restJson1_1GetComponentCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -674,11 +721,11 @@ export async function serializeAws_restJson1_1GetComponentPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetComponentPolicy";
   const query: any = {};
   if (input.componentArn !== undefined) {
-    query['componentArn'] = input.componentArn.toString();
+    query["componentArn"] = input.componentArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -686,7 +733,7 @@ export async function serializeAws_restJson1_1GetComponentPolicyCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -695,11 +742,13 @@ export async function serializeAws_restJson1_1GetDistributionConfigurationComman
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetDistributionConfiguration";
   const query: any = {};
   if (input.distributionConfigurationArn !== undefined) {
-    query['distributionConfigurationArn'] = input.distributionConfigurationArn.toString();
+    query[
+      "distributionConfigurationArn"
+    ] = input.distributionConfigurationArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -707,7 +756,7 @@ export async function serializeAws_restJson1_1GetDistributionConfigurationComman
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -716,11 +765,11 @@ export async function serializeAws_restJson1_1GetImageCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetImage";
   const query: any = {};
   if (input.imageBuildVersionArn !== undefined) {
-    query['imageBuildVersionArn'] = input.imageBuildVersionArn.toString();
+    query["imageBuildVersionArn"] = input.imageBuildVersionArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -728,7 +777,7 @@ export async function serializeAws_restJson1_1GetImageCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -737,11 +786,11 @@ export async function serializeAws_restJson1_1GetImagePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetImagePipeline";
   const query: any = {};
   if (input.imagePipelineArn !== undefined) {
-    query['imagePipelineArn'] = input.imagePipelineArn.toString();
+    query["imagePipelineArn"] = input.imagePipelineArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -749,7 +798,7 @@ export async function serializeAws_restJson1_1GetImagePipelineCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -758,11 +807,11 @@ export async function serializeAws_restJson1_1GetImagePolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetImagePolicy";
   const query: any = {};
   if (input.imageArn !== undefined) {
-    query['imageArn'] = input.imageArn.toString();
+    query["imageArn"] = input.imageArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -770,7 +819,7 @@ export async function serializeAws_restJson1_1GetImagePolicyCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -779,11 +828,11 @@ export async function serializeAws_restJson1_1GetImageRecipeCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetImageRecipe";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query['imageRecipeArn'] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -791,7 +840,7 @@ export async function serializeAws_restJson1_1GetImageRecipeCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -800,11 +849,11 @@ export async function serializeAws_restJson1_1GetImageRecipePolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetImageRecipePolicy";
   const query: any = {};
   if (input.imageRecipeArn !== undefined) {
-    query['imageRecipeArn'] = input.imageRecipeArn.toString();
+    query["imageRecipeArn"] = input.imageRecipeArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -812,7 +861,7 @@ export async function serializeAws_restJson1_1GetImageRecipePolicyCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -821,11 +870,13 @@ export async function serializeAws_restJson1_1GetInfrastructureConfigurationComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/GetInfrastructureConfiguration";
   const query: any = {};
   if (input.infrastructureConfigurationArn !== undefined) {
-    query['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn.toString();
+    query[
+      "infrastructureConfigurationArn"
+    ] = input.infrastructureConfigurationArn.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -833,7 +884,7 @@ export async function serializeAws_restJson1_1GetInfrastructureConfigurationComm
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -842,45 +893,45 @@ export async function serializeAws_restJson1_1ImportComponentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ImportComponent";
   let body: any = {};
   const bodyParams: any = {};
   if (input.changeDescription !== undefined) {
-    bodyParams['changeDescription'] = input.changeDescription;
+    bodyParams["changeDescription"] = input.changeDescription;
   }
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.data !== undefined) {
-    bodyParams['data'] = input.data;
+    bodyParams["data"] = input.data;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.format !== undefined) {
-    bodyParams['format'] = input.format;
+    bodyParams["format"] = input.format;
   }
   if (input.kmsKeyId !== undefined) {
-    bodyParams['kmsKeyId'] = input.kmsKeyId;
+    bodyParams["kmsKeyId"] = input.kmsKeyId;
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.platform !== undefined) {
-    bodyParams['platform'] = input.platform;
+    bodyParams["platform"] = input.platform;
   }
   if (input.semanticVersion !== undefined) {
-    bodyParams['semanticVersion'] = input.semanticVersion;
+    bodyParams["semanticVersion"] = input.semanticVersion;
   }
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   if (input.type !== undefined) {
-    bodyParams['type'] = input.type;
+    bodyParams["type"] = input.type;
   }
   if (input.uri !== undefined) {
-    bodyParams['uri'] = input.uri;
+    bodyParams["uri"] = input.uri;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -889,7 +940,7 @@ export async function serializeAws_restJson1_1ImportComponentCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -898,18 +949,18 @@ export async function serializeAws_restJson1_1ListComponentBuildVersionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListComponentBuildVersions";
   let body: any = {};
   const bodyParams: any = {};
   if (input.componentVersionArn !== undefined) {
-    bodyParams['componentVersionArn'] = input.componentVersionArn;
+    bodyParams["componentVersionArn"] = input.componentVersionArn;
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -918,7 +969,7 @@ export async function serializeAws_restJson1_1ListComponentBuildVersionsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -927,21 +978,24 @@ export async function serializeAws_restJson1_1ListComponentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListComponents";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.owner !== undefined) {
-    bodyParams['owner'] = input.owner;
+    bodyParams["owner"] = input.owner;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -950,7 +1004,7 @@ export async function serializeAws_restJson1_1ListComponentsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -959,18 +1013,21 @@ export async function serializeAws_restJson1_1ListDistributionConfigurationsComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListDistributionConfigurations";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -979,7 +1036,7 @@ export async function serializeAws_restJson1_1ListDistributionConfigurationsComm
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -988,21 +1045,24 @@ export async function serializeAws_restJson1_1ListImageBuildVersionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImageBuildVersions";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.imageVersionArn !== undefined) {
-    bodyParams['imageVersionArn'] = input.imageVersionArn;
+    bodyParams["imageVersionArn"] = input.imageVersionArn;
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1011,7 +1071,7 @@ export async function serializeAws_restJson1_1ListImageBuildVersionsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1020,21 +1080,24 @@ export async function serializeAws_restJson1_1ListImagePipelineImagesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImagePipelineImages";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.imagePipelineArn !== undefined) {
-    bodyParams['imagePipelineArn'] = input.imagePipelineArn;
+    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1043,7 +1106,7 @@ export async function serializeAws_restJson1_1ListImagePipelineImagesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1052,18 +1115,21 @@ export async function serializeAws_restJson1_1ListImagePipelinesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImagePipelines";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1072,7 +1138,7 @@ export async function serializeAws_restJson1_1ListImagePipelinesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1081,21 +1147,24 @@ export async function serializeAws_restJson1_1ListImageRecipesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImageRecipes";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.owner !== undefined) {
-    bodyParams['owner'] = input.owner;
+    bodyParams["owner"] = input.owner;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1104,7 +1173,7 @@ export async function serializeAws_restJson1_1ListImageRecipesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1113,21 +1182,24 @@ export async function serializeAws_restJson1_1ListImagesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListImages";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   if (input.owner !== undefined) {
-    bodyParams['owner'] = input.owner;
+    bodyParams["owner"] = input.owner;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1136,7 +1208,7 @@ export async function serializeAws_restJson1_1ListImagesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1145,18 +1217,21 @@ export async function serializeAws_restJson1_1ListInfrastructureConfigurationsCo
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/ListInfrastructureConfigurations";
   let body: any = {};
   const bodyParams: any = {};
   if (input.filters !== undefined) {
-    bodyParams['filters'] = serializeAws_restJson1_1FilterList(input.filters, context);
+    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
+      input.filters,
+      context
+    );
   }
   if (input.maxResults !== undefined) {
-    bodyParams['maxResults'] = input.maxResults;
+    bodyParams["maxResults"] = input.maxResults;
   }
   if (input.nextToken !== undefined) {
-    bodyParams['nextToken'] = input.nextToken;
+    bodyParams["nextToken"] = input.nextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1165,7 +1240,7 @@ export async function serializeAws_restJson1_1ListInfrastructureConfigurationsCo
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1174,23 +1249,25 @@ export async function serializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: resourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: resourceArn.');
+    throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   return new __HttpRequest({
     ...context.endpoint,
     protocol: "https",
     method: "GET",
     headers: headers,
-    path: resolvedPath,
+    path: resolvedPath
   });
 }
 
@@ -1199,15 +1276,15 @@ export async function serializeAws_restJson1_1PutComponentPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutComponentPolicy";
   let body: any = {};
   const bodyParams: any = {};
   if (input.componentArn !== undefined) {
-    bodyParams['componentArn'] = input.componentArn;
+    bodyParams["componentArn"] = input.componentArn;
   }
   if (input.policy !== undefined) {
-    bodyParams['policy'] = input.policy;
+    bodyParams["policy"] = input.policy;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1216,7 +1293,7 @@ export async function serializeAws_restJson1_1PutComponentPolicyCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1225,15 +1302,15 @@ export async function serializeAws_restJson1_1PutImagePolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutImagePolicy";
   let body: any = {};
   const bodyParams: any = {};
   if (input.imageArn !== undefined) {
-    bodyParams['imageArn'] = input.imageArn;
+    bodyParams["imageArn"] = input.imageArn;
   }
   if (input.policy !== undefined) {
-    bodyParams['policy'] = input.policy;
+    bodyParams["policy"] = input.policy;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1242,7 +1319,7 @@ export async function serializeAws_restJson1_1PutImagePolicyCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1251,15 +1328,15 @@ export async function serializeAws_restJson1_1PutImageRecipePolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/PutImageRecipePolicy";
   let body: any = {};
   const bodyParams: any = {};
   if (input.imageRecipeArn !== undefined) {
-    bodyParams['imageRecipeArn'] = input.imageRecipeArn;
+    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
   }
   if (input.policy !== undefined) {
-    bodyParams['policy'] = input.policy;
+    bodyParams["policy"] = input.policy;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1268,7 +1345,7 @@ export async function serializeAws_restJson1_1PutImageRecipePolicyCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1277,15 +1354,15 @@ export async function serializeAws_restJson1_1StartImagePipelineExecutionCommand
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/StartImagePipelineExecution";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.imagePipelineArn !== undefined) {
-    bodyParams['imagePipelineArn'] = input.imagePipelineArn;
+    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1294,7 +1371,7 @@ export async function serializeAws_restJson1_1StartImagePipelineExecutionCommand
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1303,21 +1380,23 @@ export async function serializeAws_restJson1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: resourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: resourceArn.');
+    throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any = {};
   const bodyParams: any = {};
   if (input.tags !== undefined) {
-    bodyParams['tags'] = serializeAws_restJson1_1TagMap(input.tags, context);
+    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1326,7 +1405,7 @@ export async function serializeAws_restJson1_1TagResourceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1335,20 +1414,22 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
     const labelValue: any = input.resourceArn.toString();
     if (labelValue.length <= 0) {
-      throw new Error('Empty value provided for input HTTP label: resourceArn.');
+      throw new Error(
+        "Empty value provided for input HTTP label: resourceArn."
+      );
     }
-    resolvedPath = resolvedPath.replace('{resourceArn}', labelValue);
+    resolvedPath = resolvedPath.replace("{resourceArn}", labelValue);
   } else {
-    throw new Error('No value provided for input HTTP label: resourceArn.');
+    throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   const query: any = {};
   if (input.tagKeys !== undefined) {
-    query['tagKeys'] = input.tagKeys;
+    query["tagKeys"] = input.tagKeys;
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -1356,7 +1437,7 @@ export async function serializeAws_restJson1_1UntagResourceCommand(
     method: "DELETE",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -1365,21 +1446,25 @@ export async function serializeAws_restJson1_1UpdateDistributionConfigurationCom
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateDistributionConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.distributionConfigurationArn !== undefined) {
-    bodyParams['distributionConfigurationArn'] = input.distributionConfigurationArn;
+    bodyParams["distributionConfigurationArn"] =
+      input.distributionConfigurationArn;
   }
   if (input.distributions !== undefined) {
-    bodyParams['distributions'] = serializeAws_restJson1_1DistributionList(input.distributions, context);
+    bodyParams["distributions"] = serializeAws_restJson1_1DistributionList(
+      input.distributions,
+      context
+    );
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1388,7 +1473,7 @@ export async function serializeAws_restJson1_1UpdateDistributionConfigurationCom
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1397,36 +1482,46 @@ export async function serializeAws_restJson1_1UpdateImagePipelineCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateImagePipeline";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.distributionConfigurationArn !== undefined) {
-    bodyParams['distributionConfigurationArn'] = input.distributionConfigurationArn;
+    bodyParams["distributionConfigurationArn"] =
+      input.distributionConfigurationArn;
   }
   if (input.imagePipelineArn !== undefined) {
-    bodyParams['imagePipelineArn'] = input.imagePipelineArn;
+    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
   }
   if (input.imageRecipeArn !== undefined) {
-    bodyParams['imageRecipeArn'] = input.imageRecipeArn;
+    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
   }
   if (input.imageTestsConfiguration !== undefined) {
-    bodyParams['imageTestsConfiguration'] = serializeAws_restJson1_1ImageTestsConfiguration(input.imageTestsConfiguration, context);
+    bodyParams[
+      "imageTestsConfiguration"
+    ] = serializeAws_restJson1_1ImageTestsConfiguration(
+      input.imageTestsConfiguration,
+      context
+    );
   }
   if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn;
+    bodyParams["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   if (input.schedule !== undefined) {
-    bodyParams['schedule'] = serializeAws_restJson1_1Schedule(input.schedule, context);
+    bodyParams["schedule"] = serializeAws_restJson1_1Schedule(
+      input.schedule,
+      context
+    );
   }
   if (input.status !== undefined) {
-    bodyParams['status'] = input.status;
+    bodyParams["status"] = input.status;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1435,7 +1530,7 @@ export async function serializeAws_restJson1_1UpdateImagePipelineCommand(
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1444,42 +1539,52 @@ export async function serializeAws_restJson1_1UpdateInfrastructureConfigurationC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateInfrastructureConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.clientToken !== undefined) {
-    bodyParams['clientToken'] = input.clientToken;
+    bodyParams["clientToken"] = input.clientToken;
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams['infrastructureConfigurationArn'] = input.infrastructureConfigurationArn;
+    bodyParams["infrastructureConfigurationArn"] =
+      input.infrastructureConfigurationArn;
   }
   if (input.instanceProfileName !== undefined) {
-    bodyParams['instanceProfileName'] = input.instanceProfileName;
+    bodyParams["instanceProfileName"] = input.instanceProfileName;
   }
   if (input.instanceTypes !== undefined) {
-    bodyParams['instanceTypes'] = serializeAws_restJson1_1InstanceTypeList(input.instanceTypes, context);
+    bodyParams["instanceTypes"] = serializeAws_restJson1_1InstanceTypeList(
+      input.instanceTypes,
+      context
+    );
   }
   if (input.keyPair !== undefined) {
-    bodyParams['keyPair'] = input.keyPair;
+    bodyParams["keyPair"] = input.keyPair;
   }
   if (input.logging !== undefined) {
-    bodyParams['logging'] = serializeAws_restJson1_1Logging(input.logging, context);
+    bodyParams["logging"] = serializeAws_restJson1_1Logging(
+      input.logging,
+      context
+    );
   }
   if (input.securityGroupIds !== undefined) {
-    bodyParams['securityGroupIds'] = serializeAws_restJson1_1SecurityGroupIds(input.securityGroupIds, context);
+    bodyParams["securityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
+      input.securityGroupIds,
+      context
+    );
   }
   if (input.snsTopicArn !== undefined) {
-    bodyParams['snsTopicArn'] = input.snsTopicArn;
+    bodyParams["snsTopicArn"] = input.snsTopicArn;
   }
   if (input.subnetId !== undefined) {
-    bodyParams['subnetId'] = input.subnetId;
+    bodyParams["subnetId"] = input.subnetId;
   }
   if (input.terminateInstanceOnFailure !== undefined) {
-    bodyParams['terminateInstanceOnFailure'] = input.terminateInstanceOnFailure;
+    bodyParams["terminateInstanceOnFailure"] = input.terminateInstanceOnFailure;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -1488,7 +1593,7 @@ export async function serializeAws_restJson1_1UpdateInfrastructureConfigurationC
     method: "PUT",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -1497,14 +1602,17 @@ export async function deserializeAws_restJson1_1CancelImageCreationCommand(
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CancelImageCreationCommandError(output, context);
+    return deserializeAws_restJson1_1CancelImageCreationCommandError(
+      output,
+      context
+    );
   }
   const contents: CancelImageCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelImageCreationResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1521,56 +1629,80 @@ export async function deserializeAws_restJson1_1CancelImageCreationCommand(
 
 async function deserializeAws_restJson1_1CancelImageCreationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1581,14 +1713,17 @@ export async function deserializeAws_restJson1_1CreateComponentCommand(
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateComponentCommandError(output, context);
+    return deserializeAws_restJson1_1CreateComponentCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateComponentResponse",
     clientToken: undefined,
     componentBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1605,64 +1740,94 @@ export async function deserializeAws_restJson1_1CreateComponentCommand(
 
 async function deserializeAws_restJson1_1CreateComponentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
-      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidVersionNumberException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
-      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1673,14 +1838,17 @@ export async function deserializeAws_restJson1_1CreateDistributionConfigurationC
   context: __SerdeContext
 ): Promise<CreateDistributionConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateDistributionConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1CreateDistributionConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateDistributionConfigurationResponse",
     clientToken: undefined,
     distributionConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1697,64 +1865,94 @@ export async function deserializeAws_restJson1_1CreateDistributionConfigurationC
 
 async function deserializeAws_restJson1_1CreateDistributionConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateDistributionConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
-      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1772,7 +1970,7 @@ export async function deserializeAws_restJson1_1CreateImageCommand(
     __type: "CreateImageResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1789,56 +1987,80 @@ export async function deserializeAws_restJson1_1CreateImageCommand(
 
 async function deserializeAws_restJson1_1CreateImageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateImageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1849,14 +2071,17 @@ export async function deserializeAws_restJson1_1CreateImagePipelineCommand(
   context: __SerdeContext
 ): Promise<CreateImagePipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateImagePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1CreateImagePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImagePipelineResponse",
     clientToken: undefined,
     imagePipelineArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1873,60 +2098,87 @@ export async function deserializeAws_restJson1_1CreateImagePipelineCommand(
 
 async function deserializeAws_restJson1_1CreateImagePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateImagePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1937,14 +2189,17 @@ export async function deserializeAws_restJson1_1CreateImageRecipeCommand(
   context: __SerdeContext
 ): Promise<CreateImageRecipeCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateImageRecipeCommandError(output, context);
+    return deserializeAws_restJson1_1CreateImageRecipeCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateImageRecipeResponse",
     clientToken: undefined,
     imageRecipeArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -1961,64 +2216,94 @@ export async function deserializeAws_restJson1_1CreateImageRecipeCommand(
 
 async function deserializeAws_restJson1_1CreateImageRecipeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateImageRecipeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidVersionNumberException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
-      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2029,21 +2314,25 @@ export async function deserializeAws_restJson1_1CreateInfrastructureConfiguratio
   context: __SerdeContext
 ): Promise<CreateInfrastructureConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1CreateInfrastructureConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1CreateInfrastructureConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: CreateInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateInfrastructureConfigurationResponse",
     clientToken: undefined,
     infrastructureConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
     contents.clientToken = data.clientToken;
   }
   if (data.infrastructureConfigurationArn !== undefined) {
-    contents.infrastructureConfigurationArn = data.infrastructureConfigurationArn;
+    contents.infrastructureConfigurationArn =
+      data.infrastructureConfigurationArn;
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -2053,60 +2342,87 @@ export async function deserializeAws_restJson1_1CreateInfrastructureConfiguratio
 
 async function deserializeAws_restJson1_1CreateInfrastructureConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateInfrastructureConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2117,13 +2433,16 @@ export async function deserializeAws_restJson1_1DeleteComponentCommand(
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteComponentCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteComponentCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteComponentResponse",
     componentBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.componentBuildVersionArn !== undefined) {
@@ -2137,52 +2456,73 @@ export async function deserializeAws_restJson1_1DeleteComponentCommand(
 
 async function deserializeAws_restJson1_1DeleteComponentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2193,13 +2533,16 @@ export async function deserializeAws_restJson1_1DeleteDistributionConfigurationC
   context: __SerdeContext
 ): Promise<DeleteDistributionConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteDistributionConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteDistributionConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteDistributionConfigurationResponse",
     distributionConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.distributionConfigurationArn !== undefined) {
@@ -2213,52 +2556,73 @@ export async function deserializeAws_restJson1_1DeleteDistributionConfigurationC
 
 async function deserializeAws_restJson1_1DeleteDistributionConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteDistributionConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2275,7 +2639,7 @@ export async function deserializeAws_restJson1_1DeleteImageCommand(
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageResponse",
     imageBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageBuildVersionArn !== undefined) {
@@ -2289,52 +2653,73 @@ export async function deserializeAws_restJson1_1DeleteImageCommand(
 
 async function deserializeAws_restJson1_1DeleteImageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2345,13 +2730,16 @@ export async function deserializeAws_restJson1_1DeleteImagePipelineCommand(
   context: __SerdeContext
 ): Promise<DeleteImagePipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteImagePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteImagePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImagePipelineResponse",
     imagePipelineArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imagePipelineArn !== undefined) {
@@ -2365,52 +2753,73 @@ export async function deserializeAws_restJson1_1DeleteImagePipelineCommand(
 
 async function deserializeAws_restJson1_1DeleteImagePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteImagePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2421,13 +2830,16 @@ export async function deserializeAws_restJson1_1DeleteImageRecipeCommand(
   context: __SerdeContext
 ): Promise<DeleteImageRecipeCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteImageRecipeCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteImageRecipeCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteImageRecipeResponse",
     imageRecipeArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageRecipeArn !== undefined) {
@@ -2441,52 +2853,73 @@ export async function deserializeAws_restJson1_1DeleteImageRecipeCommand(
 
 async function deserializeAws_restJson1_1DeleteImageRecipeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteImageRecipeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2497,17 +2930,21 @@ export async function deserializeAws_restJson1_1DeleteInfrastructureConfiguratio
   context: __SerdeContext
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DeleteInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteInfrastructureConfigurationResponse",
     infrastructureConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.infrastructureConfigurationArn !== undefined) {
-    contents.infrastructureConfigurationArn = data.infrastructureConfigurationArn;
+    contents.infrastructureConfigurationArn =
+      data.infrastructureConfigurationArn;
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -2517,52 +2954,73 @@ export async function deserializeAws_restJson1_1DeleteInfrastructureConfiguratio
 
 async function deserializeAws_restJson1_1DeleteInfrastructureConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceDependencyException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceDependencyException":
-      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceDependencyExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2579,11 +3037,14 @@ export async function deserializeAws_restJson1_1GetComponentCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetComponentResponse",
     component: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.component !== undefined) {
-    contents.component = deserializeAws_restJson1_1Component(data.component, context);
+    contents.component = deserializeAws_restJson1_1Component(
+      data.component,
+      context
+    );
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -2593,48 +3054,66 @@ export async function deserializeAws_restJson1_1GetComponentCommand(
 
 async function deserializeAws_restJson1_1GetComponentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetComponentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2645,13 +3124,16 @@ export async function deserializeAws_restJson1_1GetComponentPolicyCommand(
   context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetComponentPolicyCommandError(output, context);
+    return deserializeAws_restJson1_1GetComponentPolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: GetComponentPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetComponentPolicyResponse",
     policy: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined) {
@@ -2665,48 +3147,66 @@ export async function deserializeAws_restJson1_1GetComponentPolicyCommand(
 
 async function deserializeAws_restJson1_1GetComponentPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2717,17 +3217,23 @@ export async function deserializeAws_restJson1_1GetDistributionConfigurationComm
   context: __SerdeContext
 ): Promise<GetDistributionConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetDistributionConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1GetDistributionConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: GetDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetDistributionConfigurationResponse",
     distributionConfiguration: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.distributionConfiguration !== undefined) {
-    contents.distributionConfiguration = deserializeAws_restJson1_1DistributionConfiguration(data.distributionConfiguration, context);
+    contents.distributionConfiguration = deserializeAws_restJson1_1DistributionConfiguration(
+      data.distributionConfiguration,
+      context
+    );
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -2737,48 +3243,66 @@ export async function deserializeAws_restJson1_1GetDistributionConfigurationComm
 
 async function deserializeAws_restJson1_1GetDistributionConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetDistributionConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2795,7 +3319,7 @@ export async function deserializeAws_restJson1_1GetImageCommand(
     $metadata: deserializeMetadata(output),
     __type: "GetImageResponse",
     image: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.image !== undefined) {
@@ -2809,48 +3333,66 @@ export async function deserializeAws_restJson1_1GetImageCommand(
 
 async function deserializeAws_restJson1_1GetImageCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetImageCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2861,17 +3403,23 @@ export async function deserializeAws_restJson1_1GetImagePipelineCommand(
   context: __SerdeContext
 ): Promise<GetImagePipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetImagePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1GetImagePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: GetImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetImagePipelineResponse",
     imagePipeline: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imagePipeline !== undefined) {
-    contents.imagePipeline = deserializeAws_restJson1_1ImagePipeline(data.imagePipeline, context);
+    contents.imagePipeline = deserializeAws_restJson1_1ImagePipeline(
+      data.imagePipeline,
+      context
+    );
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -2881,48 +3429,66 @@ export async function deserializeAws_restJson1_1GetImagePipelineCommand(
 
 async function deserializeAws_restJson1_1GetImagePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetImagePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2933,13 +3499,16 @@ export async function deserializeAws_restJson1_1GetImagePolicyCommand(
   context: __SerdeContext
 ): Promise<GetImagePolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetImagePolicyCommandError(output, context);
+    return deserializeAws_restJson1_1GetImagePolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: GetImagePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetImagePolicyResponse",
     policy: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined) {
@@ -2953,48 +3522,66 @@ export async function deserializeAws_restJson1_1GetImagePolicyCommand(
 
 async function deserializeAws_restJson1_1GetImagePolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetImagePolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3005,17 +3592,23 @@ export async function deserializeAws_restJson1_1GetImageRecipeCommand(
   context: __SerdeContext
 ): Promise<GetImageRecipeCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetImageRecipeCommandError(output, context);
+    return deserializeAws_restJson1_1GetImageRecipeCommandError(
+      output,
+      context
+    );
   }
   const contents: GetImageRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetImageRecipeResponse",
     imageRecipe: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageRecipe !== undefined) {
-    contents.imageRecipe = deserializeAws_restJson1_1ImageRecipe(data.imageRecipe, context);
+    contents.imageRecipe = deserializeAws_restJson1_1ImageRecipe(
+      data.imageRecipe,
+      context
+    );
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -3025,48 +3618,66 @@ export async function deserializeAws_restJson1_1GetImageRecipeCommand(
 
 async function deserializeAws_restJson1_1GetImageRecipeCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetImageRecipeCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3077,13 +3688,16 @@ export async function deserializeAws_restJson1_1GetImageRecipePolicyCommand(
   context: __SerdeContext
 ): Promise<GetImageRecipePolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetImageRecipePolicyCommandError(output, context);
+    return deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: GetImageRecipePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetImageRecipePolicyResponse",
     policy: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.policy !== undefined) {
@@ -3097,48 +3711,66 @@ export async function deserializeAws_restJson1_1GetImageRecipePolicyCommand(
 
 async function deserializeAws_restJson1_1GetImageRecipePolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetImageRecipePolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3149,17 +3781,23 @@ export async function deserializeAws_restJson1_1GetInfrastructureConfigurationCo
   context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1GetInfrastructureConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1GetInfrastructureConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: GetInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetInfrastructureConfigurationResponse",
     infrastructureConfiguration: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.infrastructureConfiguration !== undefined) {
-    contents.infrastructureConfiguration = deserializeAws_restJson1_1InfrastructureConfiguration(data.infrastructureConfiguration, context);
+    contents.infrastructureConfiguration = deserializeAws_restJson1_1InfrastructureConfiguration(
+      data.infrastructureConfiguration,
+      context
+    );
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -3169,48 +3807,66 @@ export async function deserializeAws_restJson1_1GetInfrastructureConfigurationCo
 
 async function deserializeAws_restJson1_1GetInfrastructureConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3221,14 +3877,17 @@ export async function deserializeAws_restJson1_1ImportComponentCommand(
   context: __SerdeContext
 ): Promise<ImportComponentCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ImportComponentCommandError(output, context);
+    return deserializeAws_restJson1_1ImportComponentCommandError(
+      output,
+      context
+    );
   }
   const contents: ImportComponentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ImportComponentResponse",
     clientToken: undefined,
     componentBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -3245,64 +3904,94 @@ export async function deserializeAws_restJson1_1ImportComponentCommand(
 
 async function deserializeAws_restJson1_1ImportComponentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ImportComponentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
-      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidVersionNumberException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidVersionNumberException":
-      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3313,18 +4002,24 @@ export async function deserializeAws_restJson1_1ListComponentBuildVersionsComman
   context: __SerdeContext
 ): Promise<ListComponentBuildVersionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(output, context);
+    return deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListComponentBuildVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListComponentBuildVersionsResponse",
     componentSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.componentSummaryList !== undefined) {
-    contents.componentSummaryList = deserializeAws_restJson1_1ComponentSummaryList(data.componentSummaryList, context);
+    contents.componentSummaryList = deserializeAws_restJson1_1ComponentSummaryList(
+      data.componentSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3337,52 +4032,73 @@ export async function deserializeAws_restJson1_1ListComponentBuildVersionsComman
 
 async function deserializeAws_restJson1_1ListComponentBuildVersionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListComponentBuildVersionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3393,18 +4109,24 @@ export async function deserializeAws_restJson1_1ListComponentsCommand(
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListComponentsCommandError(output, context);
+    return deserializeAws_restJson1_1ListComponentsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListComponentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListComponentsResponse",
     componentVersionList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.componentVersionList !== undefined) {
-    contents.componentVersionList = deserializeAws_restJson1_1ComponentVersionList(data.componentVersionList, context);
+    contents.componentVersionList = deserializeAws_restJson1_1ComponentVersionList(
+      data.componentVersionList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3417,52 +4139,73 @@ export async function deserializeAws_restJson1_1ListComponentsCommand(
 
 async function deserializeAws_restJson1_1ListComponentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3473,18 +4216,24 @@ export async function deserializeAws_restJson1_1ListDistributionConfigurationsCo
   context: __SerdeContext
 ): Promise<ListDistributionConfigurationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListDistributionConfigurationsCommandError(output, context);
+    return deserializeAws_restJson1_1ListDistributionConfigurationsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListDistributionConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListDistributionConfigurationsResponse",
     distributionConfigurationSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.distributionConfigurationSummaryList !== undefined) {
-    contents.distributionConfigurationSummaryList = deserializeAws_restJson1_1DistributionConfigurationSummaryList(data.distributionConfigurationSummaryList, context);
+    contents.distributionConfigurationSummaryList = deserializeAws_restJson1_1DistributionConfigurationSummaryList(
+      data.distributionConfigurationSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3497,52 +4246,73 @@ export async function deserializeAws_restJson1_1ListDistributionConfigurationsCo
 
 async function deserializeAws_restJson1_1ListDistributionConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListDistributionConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3553,18 +4323,24 @@ export async function deserializeAws_restJson1_1ListImageBuildVersionsCommand(
   context: __SerdeContext
 ): Promise<ListImageBuildVersionsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListImageBuildVersionsCommandError(output, context);
+    return deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListImageBuildVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImageBuildVersionsResponse",
     imageSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageSummaryList !== undefined) {
-    contents.imageSummaryList = deserializeAws_restJson1_1ImageSummaryList(data.imageSummaryList, context);
+    contents.imageSummaryList = deserializeAws_restJson1_1ImageSummaryList(
+      data.imageSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3577,52 +4353,73 @@ export async function deserializeAws_restJson1_1ListImageBuildVersionsCommand(
 
 async function deserializeAws_restJson1_1ListImageBuildVersionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListImageBuildVersionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3633,18 +4430,24 @@ export async function deserializeAws_restJson1_1ListImagePipelineImagesCommand(
   context: __SerdeContext
 ): Promise<ListImagePipelineImagesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListImagePipelineImagesCommandError(output, context);
+    return deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
+      output,
+      context
+    );
   }
   const contents: ListImagePipelineImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImagePipelineImagesResponse",
     imageSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageSummaryList !== undefined) {
-    contents.imageSummaryList = deserializeAws_restJson1_1ImageSummaryList(data.imageSummaryList, context);
+    contents.imageSummaryList = deserializeAws_restJson1_1ImageSummaryList(
+      data.imageSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3657,56 +4460,80 @@ export async function deserializeAws_restJson1_1ListImagePipelineImagesCommand(
 
 async function deserializeAws_restJson1_1ListImagePipelineImagesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListImagePipelineImagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3717,18 +4544,24 @@ export async function deserializeAws_restJson1_1ListImagePipelinesCommand(
   context: __SerdeContext
 ): Promise<ListImagePipelinesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListImagePipelinesCommandError(output, context);
+    return deserializeAws_restJson1_1ListImagePipelinesCommandError(
+      output,
+      context
+    );
   }
   const contents: ListImagePipelinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImagePipelinesResponse",
     imagePipelineList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imagePipelineList !== undefined) {
-    contents.imagePipelineList = deserializeAws_restJson1_1ImagePipelineList(data.imagePipelineList, context);
+    contents.imagePipelineList = deserializeAws_restJson1_1ImagePipelineList(
+      data.imagePipelineList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3741,52 +4574,73 @@ export async function deserializeAws_restJson1_1ListImagePipelinesCommand(
 
 async function deserializeAws_restJson1_1ListImagePipelinesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListImagePipelinesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3797,18 +4651,24 @@ export async function deserializeAws_restJson1_1ListImageRecipesCommand(
   context: __SerdeContext
 ): Promise<ListImageRecipesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListImageRecipesCommandError(output, context);
+    return deserializeAws_restJson1_1ListImageRecipesCommandError(
+      output,
+      context
+    );
   }
   const contents: ListImageRecipesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListImageRecipesResponse",
     imageRecipeSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageRecipeSummaryList !== undefined) {
-    contents.imageRecipeSummaryList = deserializeAws_restJson1_1ImageRecipeSummaryList(data.imageRecipeSummaryList, context);
+    contents.imageRecipeSummaryList = deserializeAws_restJson1_1ImageRecipeSummaryList(
+      data.imageRecipeSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3821,52 +4681,73 @@ export async function deserializeAws_restJson1_1ListImageRecipesCommand(
 
 async function deserializeAws_restJson1_1ListImageRecipesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListImageRecipesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3884,11 +4765,14 @@ export async function deserializeAws_restJson1_1ListImagesCommand(
     __type: "ListImagesResponse",
     imageVersionList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageVersionList !== undefined) {
-    contents.imageVersionList = deserializeAws_restJson1_1ImageVersionList(data.imageVersionList, context);
+    contents.imageVersionList = deserializeAws_restJson1_1ImageVersionList(
+      data.imageVersionList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3901,52 +4785,73 @@ export async function deserializeAws_restJson1_1ListImagesCommand(
 
 async function deserializeAws_restJson1_1ListImagesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListImagesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -3957,18 +4862,24 @@ export async function deserializeAws_restJson1_1ListInfrastructureConfigurations
   context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListInfrastructureConfigurationsCommandError(output, context);
+    return deserializeAws_restJson1_1ListInfrastructureConfigurationsCommandError(
+      output,
+      context
+    );
   }
   const contents: ListInfrastructureConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListInfrastructureConfigurationsResponse",
     infrastructureConfigurationSummaryList: undefined,
     nextToken: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.infrastructureConfigurationSummaryList !== undefined) {
-    contents.infrastructureConfigurationSummaryList = deserializeAws_restJson1_1InfrastructureConfigurationSummaryList(data.infrastructureConfigurationSummaryList, context);
+    contents.infrastructureConfigurationSummaryList = deserializeAws_restJson1_1InfrastructureConfigurationSummaryList(
+      data.infrastructureConfigurationSummaryList,
+      context
+    );
   }
   if (data.nextToken !== undefined) {
     contents.nextToken = data.nextToken;
@@ -3981,52 +4892,73 @@ export async function deserializeAws_restJson1_1ListInfrastructureConfigurations
 
 async function deserializeAws_restJson1_1ListInfrastructureConfigurationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidPaginationTokenException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidPaginationTokenException":
-      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4037,12 +4969,15 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_restJson1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    tags: undefined,
+    tags: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.tags !== undefined) {
@@ -4053,36 +4988,45 @@ export async function deserializeAws_restJson1_1ListTagsForResourceCommand(
 
 async function deserializeAws_restJson1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4093,13 +5037,16 @@ export async function deserializeAws_restJson1_1PutComponentPolicyCommand(
   context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutComponentPolicyCommandError(output, context);
+    return deserializeAws_restJson1_1PutComponentPolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: PutComponentPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutComponentPolicyResponse",
     componentArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.componentArn !== undefined) {
@@ -4113,56 +5060,80 @@ export async function deserializeAws_restJson1_1PutComponentPolicyCommand(
 
 async function deserializeAws_restJson1_1PutComponentPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
-      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4173,13 +5144,16 @@ export async function deserializeAws_restJson1_1PutImagePolicyCommand(
   context: __SerdeContext
 ): Promise<PutImagePolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutImagePolicyCommandError(output, context);
+    return deserializeAws_restJson1_1PutImagePolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: PutImagePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutImagePolicyResponse",
     imageArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageArn !== undefined) {
@@ -4193,56 +5167,80 @@ export async function deserializeAws_restJson1_1PutImagePolicyCommand(
 
 async function deserializeAws_restJson1_1PutImagePolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutImagePolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
-      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4253,13 +5251,16 @@ export async function deserializeAws_restJson1_1PutImageRecipePolicyCommand(
   context: __SerdeContext
 ): Promise<PutImageRecipePolicyCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1PutImageRecipePolicyCommandError(output, context);
+    return deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
+      output,
+      context
+    );
   }
   const contents: PutImageRecipePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutImageRecipePolicyResponse",
     imageRecipeArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.imageRecipeArn !== undefined) {
@@ -4273,56 +5274,80 @@ export async function deserializeAws_restJson1_1PutImageRecipePolicyCommand(
 
 async function deserializeAws_restJson1_1PutImageRecipePolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutImageRecipePolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterValueException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterValueException":
-      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterValueExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4333,14 +5358,17 @@ export async function deserializeAws_restJson1_1StartImagePipelineExecutionComma
   context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1StartImagePipelineExecutionCommandError(output, context);
+    return deserializeAws_restJson1_1StartImagePipelineExecutionCommandError(
+      output,
+      context
+    );
   }
   const contents: StartImagePipelineExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartImagePipelineExecutionResponse",
     clientToken: undefined,
     imageBuildVersionArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -4357,60 +5385,87 @@ export async function deserializeAws_restJson1_1StartImagePipelineExecutionComma
 
 async function deserializeAws_restJson1_1StartImagePipelineExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4425,43 +5480,52 @@ export async function deserializeAws_restJson1_1TagResourceCommand(
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
+    __type: "TagResourceResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4476,43 +5540,52 @@ export async function deserializeAws_restJson1_1UntagResourceCommand(
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
+    __type: "UntagResourceResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InvalidParameterException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterException":
-      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4523,14 +5596,17 @@ export async function deserializeAws_restJson1_1UpdateDistributionConfigurationC
   context: __SerdeContext
 ): Promise<UpdateDistributionConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateDistributionConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateDistributionConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateDistributionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateDistributionConfigurationResponse",
     clientToken: undefined,
     distributionConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -4547,60 +5623,87 @@ export async function deserializeAws_restJson1_1UpdateDistributionConfigurationC
 
 async function deserializeAws_restJson1_1UpdateDistributionConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateDistributionConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidParameterCombinationException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidParameterCombinationException":
-      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4611,14 +5714,17 @@ export async function deserializeAws_restJson1_1UpdateImagePipelineCommand(
   context: __SerdeContext
 ): Promise<UpdateImagePipelineCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateImagePipelineCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateImagePipelineCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateImagePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateImagePipelineResponse",
     clientToken: undefined,
     imagePipelineArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
@@ -4635,56 +5741,80 @@ export async function deserializeAws_restJson1_1UpdateImagePipelineCommand(
 
 async function deserializeAws_restJson1_1UpdateImagePipelineCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateImagePipelineCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4695,21 +5825,25 @@ export async function deserializeAws_restJson1_1UpdateInfrastructureConfiguratio
   context: __SerdeContext
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateInfrastructureConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateInfrastructureConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateInfrastructureConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateInfrastructureConfigurationResponse",
     clientToken: undefined,
     infrastructureConfigurationArn: undefined,
-    requestId: undefined,
+    requestId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined) {
     contents.clientToken = data.clientToken;
   }
   if (data.infrastructureConfigurationArn !== undefined) {
-    contents.infrastructureConfigurationArn = data.infrastructureConfigurationArn;
+    contents.infrastructureConfigurationArn =
+      data.infrastructureConfigurationArn;
   }
   if (data.requestId !== undefined) {
     contents.requestId = data.requestId;
@@ -4719,56 +5853,80 @@ export async function deserializeAws_restJson1_1UpdateInfrastructureConfiguratio
 
 async function deserializeAws_restJson1_1UpdateInfrastructureConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "CallRateLimitExceededException":
     case "com.amazonaws.services.imagebuilder.generated#CallRateLimitExceededException":
-      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ClientException":
     case "com.amazonaws.services.imagebuilder.generated#ClientException":
-      response = await deserializeAws_restJson1_1ClientExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ClientExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ForbiddenException":
     case "com.amazonaws.services.imagebuilder.generated#ForbiddenException":
-      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ForbiddenExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.services.imagebuilder.generated#IdempotentParameterMismatchException":
-      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.services.imagebuilder.generated#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceInUseException":
     case "com.amazonaws.services.imagebuilder.generated#ResourceInUseException":
-      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceInUseExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceException":
-      response = await deserializeAws_restJson1_1ServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ServiceUnavailableException":
     case "com.amazonaws.services.imagebuilder.generated#ServiceUnavailableException":
-      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ServiceUnavailableExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.services.imagebuilder.generated#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -4782,7 +5940,7 @@ const deserializeAws_restJson1_1CallRateLimitExceededExceptionResponse = async (
     __type: "CallRateLimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4799,7 +5957,7 @@ const deserializeAws_restJson1_1ClientExceptionResponse = async (
     __type: "ClientException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4816,7 +5974,7 @@ const deserializeAws_restJson1_1ForbiddenExceptionResponse = async (
     __type: "ForbiddenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4833,7 +5991,7 @@ const deserializeAws_restJson1_1IdempotentParameterMismatchExceptionResponse = a
     __type: "IdempotentParameterMismatchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4850,7 +6008,7 @@ const deserializeAws_restJson1_1InvalidPaginationTokenExceptionResponse = async 
     __type: "InvalidPaginationTokenException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4867,7 +6025,7 @@ const deserializeAws_restJson1_1InvalidParameterCombinationExceptionResponse = a
     __type: "InvalidParameterCombinationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4884,7 +6042,7 @@ const deserializeAws_restJson1_1InvalidParameterExceptionResponse = async (
     __type: "InvalidParameterException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4901,7 +6059,7 @@ const deserializeAws_restJson1_1InvalidParameterValueExceptionResponse = async (
     __type: "InvalidParameterValueException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4918,7 +6076,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4935,7 +6093,7 @@ const deserializeAws_restJson1_1InvalidVersionNumberExceptionResponse = async (
     __type: "InvalidVersionNumberException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4952,7 +6110,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4969,7 +6127,7 @@ const deserializeAws_restJson1_1ResourceDependencyExceptionResponse = async (
     __type: "ResourceDependencyException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -4986,7 +6144,7 @@ const deserializeAws_restJson1_1ResourceInUseExceptionResponse = async (
     __type: "ResourceInUseException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -5003,7 +6161,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -5020,7 +6178,7 @@ const deserializeAws_restJson1_1ServiceExceptionResponse = async (
     __type: "ServiceException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -5037,7 +6195,7 @@ const deserializeAws_restJson1_1ServiceUnavailableExceptionResponse = async (
     __type: "ServiceUnavailableException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -5050,10 +6208,8 @@ const serializeAws_restJson1_1AccountList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1AmiDistributionConfiguration = (
   input: AmiDistributionConfiguration,
@@ -5061,28 +6217,34 @@ const serializeAws_restJson1_1AmiDistributionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.amiTags !== undefined) {
-    bodyParams['amiTags'] = serializeAws_restJson1_1TagMap(input.amiTags, context);
+    bodyParams["amiTags"] = serializeAws_restJson1_1TagMap(
+      input.amiTags,
+      context
+    );
   }
   if (input.description !== undefined) {
-    bodyParams['description'] = input.description;
+    bodyParams["description"] = input.description;
   }
   if (input.launchPermission !== undefined) {
-    bodyParams['launchPermission'] = serializeAws_restJson1_1LaunchPermissionConfiguration(input.launchPermission, context);
+    bodyParams[
+      "launchPermission"
+    ] = serializeAws_restJson1_1LaunchPermissionConfiguration(
+      input.launchPermission,
+      context
+    );
   }
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1ArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1ComponentConfiguration = (
   input: ComponentConfiguration,
@@ -5090,10 +6252,10 @@ const serializeAws_restJson1_1ComponentConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.componentArn !== undefined) {
-    bodyParams['componentArn'] = input.componentArn;
+    bodyParams["componentArn"] = input.componentArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1ComponentConfigurationList = (
   input: Array<ComponentConfiguration>,
@@ -5102,7 +6264,7 @@ const serializeAws_restJson1_1ComponentConfigurationList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1ComponentConfiguration(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1Distribution = (
   input: Distribution,
@@ -5110,16 +6272,24 @@ const serializeAws_restJson1_1Distribution = (
 ): any => {
   let bodyParams: any = {};
   if (input.amiDistributionConfiguration !== undefined) {
-    bodyParams['amiDistributionConfiguration'] = serializeAws_restJson1_1AmiDistributionConfiguration(input.amiDistributionConfiguration, context);
+    bodyParams[
+      "amiDistributionConfiguration"
+    ] = serializeAws_restJson1_1AmiDistributionConfiguration(
+      input.amiDistributionConfiguration,
+      context
+    );
   }
   if (input.licenseConfigurationArns !== undefined) {
-    bodyParams['licenseConfigurationArns'] = serializeAws_restJson1_1ArnList(input.licenseConfigurationArns, context);
+    bodyParams["licenseConfigurationArns"] = serializeAws_restJson1_1ArnList(
+      input.licenseConfigurationArns,
+      context
+    );
   }
   if (input.region !== undefined) {
-    bodyParams['region'] = input.region;
+    bodyParams["region"] = input.region;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1DistributionList = (
   input: Array<Distribution>,
@@ -5128,7 +6298,7 @@ const serializeAws_restJson1_1DistributionList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Distribution(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
   input: EbsInstanceBlockDeviceSpecification,
@@ -5136,28 +6306,28 @@ const serializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
 ): any => {
   let bodyParams: any = {};
   if (input.deleteOnTermination !== undefined) {
-    bodyParams['deleteOnTermination'] = input.deleteOnTermination;
+    bodyParams["deleteOnTermination"] = input.deleteOnTermination;
   }
   if (input.encrypted !== undefined) {
-    bodyParams['encrypted'] = input.encrypted;
+    bodyParams["encrypted"] = input.encrypted;
   }
   if (input.iops !== undefined) {
-    bodyParams['iops'] = input.iops;
+    bodyParams["iops"] = input.iops;
   }
   if (input.kmsKeyId !== undefined) {
-    bodyParams['kmsKeyId'] = input.kmsKeyId;
+    bodyParams["kmsKeyId"] = input.kmsKeyId;
   }
   if (input.snapshotId !== undefined) {
-    bodyParams['snapshotId'] = input.snapshotId;
+    bodyParams["snapshotId"] = input.snapshotId;
   }
   if (input.volumeSize !== undefined) {
-    bodyParams['volumeSize'] = input.volumeSize;
+    bodyParams["volumeSize"] = input.volumeSize;
   }
   if (input.volumeType !== undefined) {
-    bodyParams['volumeType'] = input.volumeType;
+    bodyParams["volumeType"] = input.volumeType;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Filter = (
   input: Filter,
@@ -5165,13 +6335,16 @@ const serializeAws_restJson1_1Filter = (
 ): any => {
   let bodyParams: any = {};
   if (input.name !== undefined) {
-    bodyParams['name'] = input.name;
+    bodyParams["name"] = input.name;
   }
   if (input.values !== undefined) {
-    bodyParams['values'] = serializeAws_restJson1_1FilterValues(input.values, context);
+    bodyParams["values"] = serializeAws_restJson1_1FilterValues(
+      input.values,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1FilterList = (
   input: Array<Filter>,
@@ -5180,16 +6353,14 @@ const serializeAws_restJson1_1FilterList = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1Filter(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1FilterValues = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1ImageTestsConfiguration = (
   input: ImageTestsConfiguration,
@@ -5197,13 +6368,13 @@ const serializeAws_restJson1_1ImageTestsConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.imageTestsEnabled !== undefined) {
-    bodyParams['imageTestsEnabled'] = input.imageTestsEnabled;
+    bodyParams["imageTestsEnabled"] = input.imageTestsEnabled;
   }
   if (input.timeoutMinutes !== undefined) {
-    bodyParams['timeoutMinutes'] = input.timeoutMinutes;
+    bodyParams["timeoutMinutes"] = input.timeoutMinutes;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1InstanceBlockDeviceMapping = (
   input: InstanceBlockDeviceMapping,
@@ -5211,19 +6382,24 @@ const serializeAws_restJson1_1InstanceBlockDeviceMapping = (
 ): any => {
   let bodyParams: any = {};
   if (input.deviceName !== undefined) {
-    bodyParams['deviceName'] = input.deviceName;
+    bodyParams["deviceName"] = input.deviceName;
   }
   if (input.ebs !== undefined) {
-    bodyParams['ebs'] = serializeAws_restJson1_1EbsInstanceBlockDeviceSpecification(input.ebs, context);
+    bodyParams[
+      "ebs"
+    ] = serializeAws_restJson1_1EbsInstanceBlockDeviceSpecification(
+      input.ebs,
+      context
+    );
   }
   if (input.noDevice !== undefined) {
-    bodyParams['noDevice'] = input.noDevice;
+    bodyParams["noDevice"] = input.noDevice;
   }
   if (input.virtualName !== undefined) {
-    bodyParams['virtualName'] = input.virtualName;
+    bodyParams["virtualName"] = input.virtualName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1InstanceBlockDeviceMappings = (
   input: Array<InstanceBlockDeviceMapping>,
@@ -5232,16 +6408,14 @@ const serializeAws_restJson1_1InstanceBlockDeviceMappings = (
   return (input || []).map(entry =>
     serializeAws_restJson1_1InstanceBlockDeviceMapping(entry, context)
   );
-}
+};
 
 const serializeAws_restJson1_1InstanceTypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1LaunchPermissionConfiguration = (
   input: LaunchPermissionConfiguration,
@@ -5249,13 +6423,19 @@ const serializeAws_restJson1_1LaunchPermissionConfiguration = (
 ): any => {
   let bodyParams: any = {};
   if (input.userGroups !== undefined) {
-    bodyParams['userGroups'] = serializeAws_restJson1_1StringList(input.userGroups, context);
+    bodyParams["userGroups"] = serializeAws_restJson1_1StringList(
+      input.userGroups,
+      context
+    );
   }
   if (input.userIds !== undefined) {
-    bodyParams['userIds'] = serializeAws_restJson1_1AccountList(input.userIds, context);
+    bodyParams["userIds"] = serializeAws_restJson1_1AccountList(
+      input.userIds,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Logging = (
   input: Logging,
@@ -5263,10 +6443,13 @@ const serializeAws_restJson1_1Logging = (
 ): any => {
   let bodyParams: any = {};
   if (input.s3Logs !== undefined) {
-    bodyParams['s3Logs'] = serializeAws_restJson1_1S3Logs(input.s3Logs, context);
+    bodyParams["s3Logs"] = serializeAws_restJson1_1S3Logs(
+      input.s3Logs,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1S3Logs = (
   input: S3Logs,
@@ -5274,13 +6457,13 @@ const serializeAws_restJson1_1S3Logs = (
 ): any => {
   let bodyParams: any = {};
   if (input.s3BucketName !== undefined) {
-    bodyParams['s3BucketName'] = input.s3BucketName;
+    bodyParams["s3BucketName"] = input.s3BucketName;
   }
   if (input.s3KeyPrefix !== undefined) {
-    bodyParams['s3KeyPrefix'] = input.s3KeyPrefix;
+    bodyParams["s3KeyPrefix"] = input.s3KeyPrefix;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1Schedule = (
   input: Schedule,
@@ -5288,31 +6471,28 @@ const serializeAws_restJson1_1Schedule = (
 ): any => {
   let bodyParams: any = {};
   if (input.pipelineExecutionStartCondition !== undefined) {
-    bodyParams['pipelineExecutionStartCondition'] = input.pipelineExecutionStartCondition;
+    bodyParams["pipelineExecutionStartCondition"] =
+      input.pipelineExecutionStartCondition;
   }
   if (input.scheduleExpression !== undefined) {
-    bodyParams['scheduleExpression'] = input.scheduleExpression;
+    bodyParams["scheduleExpression"] = input.scheduleExpression;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_restJson1_1SecurityGroupIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1StringList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1TagMap = (
   input: { [key: string]: string },
@@ -5323,16 +6503,14 @@ const serializeAws_restJson1_1TagMap = (
     mapParams[key] = input[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1AccountList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Ami = (
   output: any,
@@ -5344,7 +6522,7 @@ const deserializeAws_restJson1_1Ami = (
     image: undefined,
     name: undefined,
     region: undefined,
-    state: undefined,
+    state: undefined
   };
   if (output.description !== undefined) {
     contents.description = output.description;
@@ -5359,10 +6537,13 @@ const deserializeAws_restJson1_1Ami = (
     contents.region = output.region;
   }
   if (output.state !== undefined) {
-    contents.state = deserializeAws_restJson1_1ImageState(output.state, context);
+    contents.state = deserializeAws_restJson1_1ImageState(
+      output.state,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1AmiDistributionConfiguration = (
   output: any,
@@ -5373,22 +6554,28 @@ const deserializeAws_restJson1_1AmiDistributionConfiguration = (
     amiTags: undefined,
     description: undefined,
     launchPermission: undefined,
-    name: undefined,
+    name: undefined
   };
   if (output.amiTags !== undefined) {
-    contents.amiTags = deserializeAws_restJson1_1TagMap(output.amiTags, context);
+    contents.amiTags = deserializeAws_restJson1_1TagMap(
+      output.amiTags,
+      context
+    );
   }
   if (output.description !== undefined) {
     contents.description = output.description;
   }
   if (output.launchPermission !== undefined) {
-    contents.launchPermission = deserializeAws_restJson1_1LaunchPermissionConfiguration(output.launchPermission, context);
+    contents.launchPermission = deserializeAws_restJson1_1LaunchPermissionConfiguration(
+      output.launchPermission,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1AmiList = (
   output: any,
@@ -5397,16 +6584,14 @@ const deserializeAws_restJson1_1AmiList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Ami(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Component = (
   output: any,
@@ -5426,7 +6611,7 @@ const deserializeAws_restJson1_1Component = (
     platform: undefined,
     tags: undefined,
     type: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5468,7 +6653,7 @@ const deserializeAws_restJson1_1Component = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ComponentConfiguration = (
   output: any,
@@ -5476,13 +6661,13 @@ const deserializeAws_restJson1_1ComponentConfiguration = (
 ): ComponentConfiguration => {
   let contents: any = {
     __type: "ComponentConfiguration",
-    componentArn: undefined,
+    componentArn: undefined
   };
   if (output.componentArn !== undefined) {
     contents.componentArn = output.componentArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ComponentConfigurationList = (
   output: any,
@@ -5491,7 +6676,7 @@ const deserializeAws_restJson1_1ComponentConfigurationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentConfiguration(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ComponentSummary = (
   output: any,
@@ -5508,7 +6693,7 @@ const deserializeAws_restJson1_1ComponentSummary = (
     platform: undefined,
     tags: undefined,
     type: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5541,7 +6726,7 @@ const deserializeAws_restJson1_1ComponentSummary = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ComponentSummaryList = (
   output: any,
@@ -5550,7 +6735,7 @@ const deserializeAws_restJson1_1ComponentSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ComponentVersion = (
   output: any,
@@ -5565,7 +6750,7 @@ const deserializeAws_restJson1_1ComponentVersion = (
     owner: undefined,
     platform: undefined,
     type: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5592,7 +6777,7 @@ const deserializeAws_restJson1_1ComponentVersion = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ComponentVersionList = (
   output: any,
@@ -5601,7 +6786,7 @@ const deserializeAws_restJson1_1ComponentVersionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ComponentVersion(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Distribution = (
   output: any,
@@ -5611,19 +6796,25 @@ const deserializeAws_restJson1_1Distribution = (
     __type: "Distribution",
     amiDistributionConfiguration: undefined,
     licenseConfigurationArns: undefined,
-    region: undefined,
+    region: undefined
   };
   if (output.amiDistributionConfiguration !== undefined) {
-    contents.amiDistributionConfiguration = deserializeAws_restJson1_1AmiDistributionConfiguration(output.amiDistributionConfiguration, context);
+    contents.amiDistributionConfiguration = deserializeAws_restJson1_1AmiDistributionConfiguration(
+      output.amiDistributionConfiguration,
+      context
+    );
   }
   if (output.licenseConfigurationArns !== undefined) {
-    contents.licenseConfigurationArns = deserializeAws_restJson1_1ArnList(output.licenseConfigurationArns, context);
+    contents.licenseConfigurationArns = deserializeAws_restJson1_1ArnList(
+      output.licenseConfigurationArns,
+      context
+    );
   }
   if (output.region !== undefined) {
     contents.region = output.region;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DistributionConfiguration = (
   output: any,
@@ -5638,7 +6829,7 @@ const deserializeAws_restJson1_1DistributionConfiguration = (
     distributions: undefined,
     name: undefined,
     tags: undefined,
-    timeoutMinutes: undefined,
+    timeoutMinutes: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5653,7 +6844,10 @@ const deserializeAws_restJson1_1DistributionConfiguration = (
     contents.description = output.description;
   }
   if (output.distributions !== undefined) {
-    contents.distributions = deserializeAws_restJson1_1DistributionList(output.distributions, context);
+    contents.distributions = deserializeAws_restJson1_1DistributionList(
+      output.distributions,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5665,7 +6859,7 @@ const deserializeAws_restJson1_1DistributionConfiguration = (
     contents.timeoutMinutes = output.timeoutMinutes;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DistributionConfigurationSummary = (
   output: any,
@@ -5678,7 +6872,7 @@ const deserializeAws_restJson1_1DistributionConfigurationSummary = (
     dateUpdated: undefined,
     description: undefined,
     name: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5699,7 +6893,7 @@ const deserializeAws_restJson1_1DistributionConfigurationSummary = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DistributionConfigurationSummaryList = (
   output: any,
@@ -5708,7 +6902,7 @@ const deserializeAws_restJson1_1DistributionConfigurationSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DistributionConfigurationSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1DistributionList = (
   output: any,
@@ -5717,7 +6911,7 @@ const deserializeAws_restJson1_1DistributionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Distribution(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
   output: any,
@@ -5731,7 +6925,7 @@ const deserializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
     kmsKeyId: undefined,
     snapshotId: undefined,
     volumeSize: undefined,
-    volumeType: undefined,
+    volumeType: undefined
   };
   if (output.deleteOnTermination !== undefined) {
     contents.deleteOnTermination = output.deleteOnTermination;
@@ -5755,7 +6949,7 @@ const deserializeAws_restJson1_1EbsInstanceBlockDeviceSpecification = (
     contents.volumeType = output.volumeType;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Image = (
   output: any,
@@ -5776,7 +6970,7 @@ const deserializeAws_restJson1_1Image = (
     sourcePipelineName: undefined,
     state: undefined,
     tags: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5785,22 +6979,37 @@ const deserializeAws_restJson1_1Image = (
     contents.dateCreated = output.dateCreated;
   }
   if (output.distributionConfiguration !== undefined) {
-    contents.distributionConfiguration = deserializeAws_restJson1_1DistributionConfiguration(output.distributionConfiguration, context);
+    contents.distributionConfiguration = deserializeAws_restJson1_1DistributionConfiguration(
+      output.distributionConfiguration,
+      context
+    );
   }
   if (output.imageRecipe !== undefined) {
-    contents.imageRecipe = deserializeAws_restJson1_1ImageRecipe(output.imageRecipe, context);
+    contents.imageRecipe = deserializeAws_restJson1_1ImageRecipe(
+      output.imageRecipe,
+      context
+    );
   }
   if (output.imageTestsConfiguration !== undefined) {
-    contents.imageTestsConfiguration = deserializeAws_restJson1_1ImageTestsConfiguration(output.imageTestsConfiguration, context);
+    contents.imageTestsConfiguration = deserializeAws_restJson1_1ImageTestsConfiguration(
+      output.imageTestsConfiguration,
+      context
+    );
   }
   if (output.infrastructureConfiguration !== undefined) {
-    contents.infrastructureConfiguration = deserializeAws_restJson1_1InfrastructureConfiguration(output.infrastructureConfiguration, context);
+    contents.infrastructureConfiguration = deserializeAws_restJson1_1InfrastructureConfiguration(
+      output.infrastructureConfiguration,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.outputResources !== undefined) {
-    contents.outputResources = deserializeAws_restJson1_1OutputResources(output.outputResources, context);
+    contents.outputResources = deserializeAws_restJson1_1OutputResources(
+      output.outputResources,
+      context
+    );
   }
   if (output.platform !== undefined) {
     contents.platform = output.platform;
@@ -5812,7 +7021,10 @@ const deserializeAws_restJson1_1Image = (
     contents.sourcePipelineName = output.sourcePipelineName;
   }
   if (output.state !== undefined) {
-    contents.state = deserializeAws_restJson1_1ImageState(output.state, context);
+    contents.state = deserializeAws_restJson1_1ImageState(
+      output.state,
+      context
+    );
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
@@ -5821,7 +7033,7 @@ const deserializeAws_restJson1_1Image = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImagePipeline = (
   output: any,
@@ -5843,7 +7055,7 @@ const deserializeAws_restJson1_1ImagePipeline = (
     platform: undefined,
     schedule: undefined,
     status: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5870,10 +7082,14 @@ const deserializeAws_restJson1_1ImagePipeline = (
     contents.imageRecipeArn = output.imageRecipeArn;
   }
   if (output.imageTestsConfiguration !== undefined) {
-    contents.imageTestsConfiguration = deserializeAws_restJson1_1ImageTestsConfiguration(output.imageTestsConfiguration, context);
+    contents.imageTestsConfiguration = deserializeAws_restJson1_1ImageTestsConfiguration(
+      output.imageTestsConfiguration,
+      context
+    );
   }
   if (output.infrastructureConfigurationArn !== undefined) {
-    contents.infrastructureConfigurationArn = output.infrastructureConfigurationArn;
+    contents.infrastructureConfigurationArn =
+      output.infrastructureConfigurationArn;
   }
   if (output.name !== undefined) {
     contents.name = output.name;
@@ -5882,7 +7098,10 @@ const deserializeAws_restJson1_1ImagePipeline = (
     contents.platform = output.platform;
   }
   if (output.schedule !== undefined) {
-    contents.schedule = deserializeAws_restJson1_1Schedule(output.schedule, context);
+    contents.schedule = deserializeAws_restJson1_1Schedule(
+      output.schedule,
+      context
+    );
   }
   if (output.status !== undefined) {
     contents.status = output.status;
@@ -5891,7 +7110,7 @@ const deserializeAws_restJson1_1ImagePipeline = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImagePipelineList = (
   output: any,
@@ -5900,7 +7119,7 @@ const deserializeAws_restJson1_1ImagePipelineList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImagePipeline(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ImageRecipe = (
   output: any,
@@ -5918,16 +7137,22 @@ const deserializeAws_restJson1_1ImageRecipe = (
     parentImage: undefined,
     platform: undefined,
     tags: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
   }
   if (output.blockDeviceMappings !== undefined) {
-    contents.blockDeviceMappings = deserializeAws_restJson1_1InstanceBlockDeviceMappings(output.blockDeviceMappings, context);
+    contents.blockDeviceMappings = deserializeAws_restJson1_1InstanceBlockDeviceMappings(
+      output.blockDeviceMappings,
+      context
+    );
   }
   if (output.components !== undefined) {
-    contents.components = deserializeAws_restJson1_1ComponentConfigurationList(output.components, context);
+    contents.components = deserializeAws_restJson1_1ComponentConfigurationList(
+      output.components,
+      context
+    );
   }
   if (output.dateCreated !== undefined) {
     contents.dateCreated = output.dateCreated;
@@ -5954,7 +7179,7 @@ const deserializeAws_restJson1_1ImageRecipe = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageRecipeSummary = (
   output: any,
@@ -5968,7 +7193,7 @@ const deserializeAws_restJson1_1ImageRecipeSummary = (
     owner: undefined,
     parentImage: undefined,
     platform: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -5992,7 +7217,7 @@ const deserializeAws_restJson1_1ImageRecipeSummary = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageRecipeSummaryList = (
   output: any,
@@ -6001,7 +7226,7 @@ const deserializeAws_restJson1_1ImageRecipeSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageRecipeSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ImageState = (
   output: any,
@@ -6010,7 +7235,7 @@ const deserializeAws_restJson1_1ImageState = (
   let contents: any = {
     __type: "ImageState",
     reason: undefined,
-    status: undefined,
+    status: undefined
   };
   if (output.reason !== undefined) {
     contents.reason = output.reason;
@@ -6019,7 +7244,7 @@ const deserializeAws_restJson1_1ImageState = (
     contents.status = output.status;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageSummary = (
   output: any,
@@ -6035,7 +7260,7 @@ const deserializeAws_restJson1_1ImageSummary = (
     platform: undefined,
     state: undefined,
     tags: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -6047,7 +7272,10 @@ const deserializeAws_restJson1_1ImageSummary = (
     contents.name = output.name;
   }
   if (output.outputResources !== undefined) {
-    contents.outputResources = deserializeAws_restJson1_1OutputResources(output.outputResources, context);
+    contents.outputResources = deserializeAws_restJson1_1OutputResources(
+      output.outputResources,
+      context
+    );
   }
   if (output.owner !== undefined) {
     contents.owner = output.owner;
@@ -6056,7 +7284,10 @@ const deserializeAws_restJson1_1ImageSummary = (
     contents.platform = output.platform;
   }
   if (output.state !== undefined) {
-    contents.state = deserializeAws_restJson1_1ImageState(output.state, context);
+    contents.state = deserializeAws_restJson1_1ImageState(
+      output.state,
+      context
+    );
   }
   if (output.tags !== undefined) {
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
@@ -6065,7 +7296,7 @@ const deserializeAws_restJson1_1ImageSummary = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageSummaryList = (
   output: any,
@@ -6074,7 +7305,7 @@ const deserializeAws_restJson1_1ImageSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1ImageTestsConfiguration = (
   output: any,
@@ -6083,7 +7314,7 @@ const deserializeAws_restJson1_1ImageTestsConfiguration = (
   let contents: any = {
     __type: "ImageTestsConfiguration",
     imageTestsEnabled: undefined,
-    timeoutMinutes: undefined,
+    timeoutMinutes: undefined
   };
   if (output.imageTestsEnabled !== undefined) {
     contents.imageTestsEnabled = output.imageTestsEnabled;
@@ -6092,7 +7323,7 @@ const deserializeAws_restJson1_1ImageTestsConfiguration = (
     contents.timeoutMinutes = output.timeoutMinutes;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageVersion = (
   output: any,
@@ -6105,7 +7336,7 @@ const deserializeAws_restJson1_1ImageVersion = (
     name: undefined,
     owner: undefined,
     platform: undefined,
-    version: undefined,
+    version: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -6126,7 +7357,7 @@ const deserializeAws_restJson1_1ImageVersion = (
     contents.version = output.version;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1ImageVersionList = (
   output: any,
@@ -6135,7 +7366,7 @@ const deserializeAws_restJson1_1ImageVersionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1ImageVersion(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1InfrastructureConfiguration = (
   output: any,
@@ -6156,7 +7387,7 @@ const deserializeAws_restJson1_1InfrastructureConfiguration = (
     snsTopicArn: undefined,
     subnetId: undefined,
     tags: undefined,
-    terminateInstanceOnFailure: undefined,
+    terminateInstanceOnFailure: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -6174,19 +7405,28 @@ const deserializeAws_restJson1_1InfrastructureConfiguration = (
     contents.instanceProfileName = output.instanceProfileName;
   }
   if (output.instanceTypes !== undefined) {
-    contents.instanceTypes = deserializeAws_restJson1_1InstanceTypeList(output.instanceTypes, context);
+    contents.instanceTypes = deserializeAws_restJson1_1InstanceTypeList(
+      output.instanceTypes,
+      context
+    );
   }
   if (output.keyPair !== undefined) {
     contents.keyPair = output.keyPair;
   }
   if (output.logging !== undefined) {
-    contents.logging = deserializeAws_restJson1_1Logging(output.logging, context);
+    contents.logging = deserializeAws_restJson1_1Logging(
+      output.logging,
+      context
+    );
   }
   if (output.name !== undefined) {
     contents.name = output.name;
   }
   if (output.securityGroupIds !== undefined) {
-    contents.securityGroupIds = deserializeAws_restJson1_1SecurityGroupIds(output.securityGroupIds, context);
+    contents.securityGroupIds = deserializeAws_restJson1_1SecurityGroupIds(
+      output.securityGroupIds,
+      context
+    );
   }
   if (output.snsTopicArn !== undefined) {
     contents.snsTopicArn = output.snsTopicArn;
@@ -6201,7 +7441,7 @@ const deserializeAws_restJson1_1InfrastructureConfiguration = (
     contents.terminateInstanceOnFailure = output.terminateInstanceOnFailure;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InfrastructureConfigurationSummary = (
   output: any,
@@ -6214,7 +7454,7 @@ const deserializeAws_restJson1_1InfrastructureConfigurationSummary = (
     dateUpdated: undefined,
     description: undefined,
     name: undefined,
-    tags: undefined,
+    tags: undefined
   };
   if (output.arn !== undefined) {
     contents.arn = output.arn;
@@ -6235,7 +7475,7 @@ const deserializeAws_restJson1_1InfrastructureConfigurationSummary = (
     contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InfrastructureConfigurationSummaryList = (
   output: any,
@@ -6244,7 +7484,7 @@ const deserializeAws_restJson1_1InfrastructureConfigurationSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InfrastructureConfigurationSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1InstanceBlockDeviceMapping = (
   output: any,
@@ -6255,13 +7495,16 @@ const deserializeAws_restJson1_1InstanceBlockDeviceMapping = (
     deviceName: undefined,
     ebs: undefined,
     noDevice: undefined,
-    virtualName: undefined,
+    virtualName: undefined
   };
   if (output.deviceName !== undefined) {
     contents.deviceName = output.deviceName;
   }
   if (output.ebs !== undefined) {
-    contents.ebs = deserializeAws_restJson1_1EbsInstanceBlockDeviceSpecification(output.ebs, context);
+    contents.ebs = deserializeAws_restJson1_1EbsInstanceBlockDeviceSpecification(
+      output.ebs,
+      context
+    );
   }
   if (output.noDevice !== undefined) {
     contents.noDevice = output.noDevice;
@@ -6270,7 +7513,7 @@ const deserializeAws_restJson1_1InstanceBlockDeviceMapping = (
     contents.virtualName = output.virtualName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1InstanceBlockDeviceMappings = (
   output: any,
@@ -6279,16 +7522,14 @@ const deserializeAws_restJson1_1InstanceBlockDeviceMappings = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1InstanceBlockDeviceMapping(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1InstanceTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1LaunchPermissionConfiguration = (
   output: any,
@@ -6297,16 +7538,22 @@ const deserializeAws_restJson1_1LaunchPermissionConfiguration = (
   let contents: any = {
     __type: "LaunchPermissionConfiguration",
     userGroups: undefined,
-    userIds: undefined,
+    userIds: undefined
   };
   if (output.userGroups !== undefined) {
-    contents.userGroups = deserializeAws_restJson1_1StringList(output.userGroups, context);
+    contents.userGroups = deserializeAws_restJson1_1StringList(
+      output.userGroups,
+      context
+    );
   }
   if (output.userIds !== undefined) {
-    contents.userIds = deserializeAws_restJson1_1AccountList(output.userIds, context);
+    contents.userIds = deserializeAws_restJson1_1AccountList(
+      output.userIds,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Logging = (
   output: any,
@@ -6314,13 +7561,13 @@ const deserializeAws_restJson1_1Logging = (
 ): Logging => {
   let contents: any = {
     __type: "Logging",
-    s3Logs: undefined,
+    s3Logs: undefined
   };
   if (output.s3Logs !== undefined) {
     contents.s3Logs = deserializeAws_restJson1_1S3Logs(output.s3Logs, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1OutputResources = (
   output: any,
@@ -6328,13 +7575,13 @@ const deserializeAws_restJson1_1OutputResources = (
 ): OutputResources => {
   let contents: any = {
     __type: "OutputResources",
-    amis: undefined,
+    amis: undefined
   };
   if (output.amis !== undefined) {
     contents.amis = deserializeAws_restJson1_1AmiList(output.amis, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1S3Logs = (
   output: any,
@@ -6343,7 +7590,7 @@ const deserializeAws_restJson1_1S3Logs = (
   let contents: any = {
     __type: "S3Logs",
     s3BucketName: undefined,
-    s3KeyPrefix: undefined,
+    s3KeyPrefix: undefined
   };
   if (output.s3BucketName !== undefined) {
     contents.s3BucketName = output.s3BucketName;
@@ -6352,7 +7599,7 @@ const deserializeAws_restJson1_1S3Logs = (
     contents.s3KeyPrefix = output.s3KeyPrefix;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Schedule = (
   output: any,
@@ -6361,34 +7608,31 @@ const deserializeAws_restJson1_1Schedule = (
   let contents: any = {
     __type: "Schedule",
     pipelineExecutionStartCondition: undefined,
-    scheduleExpression: undefined,
+    scheduleExpression: undefined
   };
   if (output.pipelineExecutionStartCondition !== undefined) {
-    contents.pipelineExecutionStartCondition = output.pipelineExecutionStartCondition;
+    contents.pipelineExecutionStartCondition =
+      output.pipelineExecutionStartCondition;
   }
   if (output.scheduleExpression !== undefined) {
     contents.scheduleExpression = output.scheduleExpression;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1StringList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1TagMap = (
   output: any,
@@ -6399,7 +7643,7 @@ const deserializeAws_restJson1_1TagMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AmbiguousRoleResolutionType {
   AUTHENTICATED_ROLE = "AuthenticatedRole",
-  DENY = "Deny",
+  DENY = "Deny"
 }
 
 /**
@@ -54,7 +54,9 @@ export namespace CognitoIdentityProvider {
  *          <p>Thrown if there are parallel requests to modify a resource.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -313,7 +315,9 @@ export namespace DescribeIdentityPoolInput {
  *          different identity ID.</p>
  *
  */
-export interface DeveloperUserAlreadyRegisteredException extends _smithy.SmithyException, $MetadataBearer {
+export interface DeveloperUserAlreadyRegisteredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DeveloperUserAlreadyRegisteredException";
   $fault: "client";
   /**
@@ -332,7 +336,7 @@ export namespace DeveloperUserAlreadyRegisteredException {
 
 export enum ErrorCode {
   ACCESS_DENIED = "AccessDenied",
-  INTERNAL_SERVER_ERROR = "InternalServerError",
+  INTERNAL_SERVER_ERROR = "InternalServerError"
 }
 
 /**
@@ -341,7 +345,9 @@ export enum ErrorCode {
  *          responding</p>
  *
  */
-export interface ExternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface ExternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ExternalServiceException";
   $fault: "client";
   /**
@@ -643,7 +649,8 @@ export namespace GetOpenIdTokenForDeveloperIdentityInput {
  *          request.</p>
  *
  */
-export interface GetOpenIdTokenForDeveloperIdentityResponse extends $MetadataBearer {
+export interface GetOpenIdTokenForDeveloperIdentityResponse
+  extends $MetadataBearer {
   __type?: "GetOpenIdTokenForDeveloperIdentityResponse";
   /**
    *
@@ -889,7 +896,9 @@ export namespace IdentityPoolShortDescription {
  *          <p>Thrown when the service encounters an error during processing the request.</p>
  *
  */
-export interface InternalErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalErrorException";
   $fault: "server";
   /**
@@ -912,7 +921,9 @@ export namespace InternalErrorException {
  *          (auth/unauth) or if the AssumeRole fails.</p>
  *
  */
-export interface InvalidIdentityPoolConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidIdentityPoolConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidIdentityPoolConfigurationException";
   $fault: "client";
   /**
@@ -935,7 +946,9 @@ export namespace InvalidIdentityPoolConfigurationException {
  *          <p>Thrown for missing or bad input parameter(s).</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   /**
@@ -957,7 +970,9 @@ export namespace InvalidParameterException {
  *          <p>Thrown when the total number of user pools has exceeded a preset limit.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1289,7 +1304,7 @@ export enum MappingRuleMatchType {
   CONTAINS = "Contains",
   EQUALS = "Equals",
   NOT_EQUAL = "NotEqual",
-  STARTS_WITH = "StartsWith",
+  STARTS_WITH = "StartsWith"
 }
 
 /**
@@ -1367,7 +1382,9 @@ export namespace MergeDeveloperIdentitiesResponse {
  *          <p>Thrown when a user is not authorized to access the requested resource.</p>
  *
  */
-export interface NotAuthorizedException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotAuthorizedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotAuthorizedException";
   $fault: "client";
   /**
@@ -1390,7 +1407,9 @@ export namespace NotAuthorizedException {
  *          account.</p>
  *
  */
-export interface ResourceConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceConflictException";
   $fault: "client";
   /**
@@ -1413,7 +1432,9 @@ export namespace ResourceConflictException {
  *          exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1477,7 +1498,7 @@ export namespace RoleMapping {
 
 export enum RoleMappingType {
   RULES = "Rules",
-  TOKEN = "Token",
+  TOKEN = "Token"
 }
 
 /**
@@ -1580,7 +1601,9 @@ export namespace TagResourceResponse {
  *          <p>Thrown when a request is throttled.</p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   /**

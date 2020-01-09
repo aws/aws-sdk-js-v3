@@ -1,20 +1,20 @@
 import {
   FraudDetectorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../FraudDetectorClient";
 import {
   UpdateDetectorVersionRequest,
-  UpdateDetectorVersionResult,
+  UpdateDetectorVersionResult
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateDetectorVersionCommand,
-  serializeAws_json1_1UpdateDetectorVersionCommand,
+  serializeAws_json1_1UpdateDetectorVersionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateDetectorVersionCommandInput = UpdateDetectorVersionRequest;
 export type UpdateDetectorVersionCommandOutput = UpdateDetectorVersionResult;
 
-export class UpdateDetectorVersionCommand extends $Command<UpdateDetectorVersionCommandInput, UpdateDetectorVersionCommandOutput, FraudDetectorClientResolvedConfig> {
+export class UpdateDetectorVersionCommand extends $Command<
+  UpdateDetectorVersionCommandInput,
+  UpdateDetectorVersionCommandOutput,
+  FraudDetectorClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateDetectorVersionCommand extends $Command<UpdateDetectorVersion
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FraudDetectorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDetectorVersionCommandInput, UpdateDetectorVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateDetectorVersionCommandInput,
+    UpdateDetectorVersionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

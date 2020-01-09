@@ -1,58 +1,58 @@
 import {
   AssociateAdminAccountCommandInput,
-  AssociateAdminAccountCommandOutput,
+  AssociateAdminAccountCommandOutput
 } from "../commands/AssociateAdminAccountCommand";
 import {
   DeleteNotificationChannelCommandInput,
-  DeleteNotificationChannelCommandOutput,
+  DeleteNotificationChannelCommandOutput
 } from "../commands/DeleteNotificationChannelCommand";
 import {
   DeletePolicyCommandInput,
-  DeletePolicyCommandOutput,
+  DeletePolicyCommandOutput
 } from "../commands/DeletePolicyCommand";
 import {
   DisassociateAdminAccountCommandInput,
-  DisassociateAdminAccountCommandOutput,
+  DisassociateAdminAccountCommandOutput
 } from "../commands/DisassociateAdminAccountCommand";
 import {
   GetAdminAccountCommandInput,
-  GetAdminAccountCommandOutput,
+  GetAdminAccountCommandOutput
 } from "../commands/GetAdminAccountCommand";
 import {
   GetComplianceDetailCommandInput,
-  GetComplianceDetailCommandOutput,
+  GetComplianceDetailCommandOutput
 } from "../commands/GetComplianceDetailCommand";
 import {
   GetNotificationChannelCommandInput,
-  GetNotificationChannelCommandOutput,
+  GetNotificationChannelCommandOutput
 } from "../commands/GetNotificationChannelCommand";
 import {
   GetPolicyCommandInput,
-  GetPolicyCommandOutput,
+  GetPolicyCommandOutput
 } from "../commands/GetPolicyCommand";
 import {
   GetProtectionStatusCommandInput,
-  GetProtectionStatusCommandOutput,
+  GetProtectionStatusCommandOutput
 } from "../commands/GetProtectionStatusCommand";
 import {
   ListComplianceStatusCommandInput,
-  ListComplianceStatusCommandOutput,
+  ListComplianceStatusCommandOutput
 } from "../commands/ListComplianceStatusCommand";
 import {
   ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
+  ListMemberAccountsCommandOutput
 } from "../commands/ListMemberAccountsCommand";
 import {
   ListPoliciesCommandInput,
-  ListPoliciesCommandOutput,
+  ListPoliciesCommandOutput
 } from "../commands/ListPoliciesCommand";
 import {
   PutNotificationChannelCommandInput,
-  PutNotificationChannelCommandOutput,
+  PutNotificationChannelCommandOutput
 } from "../commands/PutNotificationChannelCommand";
 import {
   PutPolicyCommandInput,
-  PutPolicyCommandOutput,
+  PutPolicyCommandOutput
 } from "../commands/PutPolicyCommand";
 import {
   AssociateAdminAccountRequest,
@@ -91,18 +91,18 @@ import {
   PutPolicyResponse,
   ResourceNotFoundException,
   ResourceTag,
-  SecurityServicePolicyData,
+  SecurityServicePolicyData
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1AssociateAdminAccountCommand(
@@ -110,11 +110,14 @@ export async function serializeAws_json1_1AssociateAdminAccountCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.AssociateAdminAccount";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.AssociateAdminAccount";
   let body: any = {};
   const wrappedBody: any = {
-    AssociateAdminAccountRequest: serializeAws_json1_1AssociateAdminAccountRequest(input, context),
+    AssociateAdminAccountRequest: serializeAws_json1_1AssociateAdminAccountRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -123,7 +126,7 @@ export async function serializeAws_json1_1AssociateAdminAccountCommand(
     method: "POST",
     path: "/AssociateAdminAccount",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -132,11 +135,14 @@ export async function serializeAws_json1_1DeleteNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.DeleteNotificationChannel";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.DeleteNotificationChannel";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteNotificationChannelRequest: serializeAws_json1_1DeleteNotificationChannelRequest(input, context),
+    DeleteNotificationChannelRequest: serializeAws_json1_1DeleteNotificationChannelRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -145,7 +151,7 @@ export async function serializeAws_json1_1DeleteNotificationChannelCommand(
     method: "POST",
     path: "/DeleteNotificationChannel",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -154,11 +160,11 @@ export async function serializeAws_json1_1DeletePolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.DeletePolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.DeletePolicy";
   let body: any = {};
   const wrappedBody: any = {
-    DeletePolicyRequest: serializeAws_json1_1DeletePolicyRequest(input, context),
+    DeletePolicyRequest: serializeAws_json1_1DeletePolicyRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -167,7 +173,7 @@ export async function serializeAws_json1_1DeletePolicyCommand(
     method: "POST",
     path: "/DeletePolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -176,11 +182,14 @@ export async function serializeAws_json1_1DisassociateAdminAccountCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.DisassociateAdminAccount";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.DisassociateAdminAccount";
   let body: any = {};
   const wrappedBody: any = {
-    DisassociateAdminAccountRequest: serializeAws_json1_1DisassociateAdminAccountRequest(input, context),
+    DisassociateAdminAccountRequest: serializeAws_json1_1DisassociateAdminAccountRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -189,7 +198,7 @@ export async function serializeAws_json1_1DisassociateAdminAccountCommand(
     method: "POST",
     path: "/DisassociateAdminAccount",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -198,11 +207,14 @@ export async function serializeAws_json1_1GetAdminAccountCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.GetAdminAccount";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.GetAdminAccount";
   let body: any = {};
   const wrappedBody: any = {
-    GetAdminAccountRequest: serializeAws_json1_1GetAdminAccountRequest(input, context),
+    GetAdminAccountRequest: serializeAws_json1_1GetAdminAccountRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -211,7 +223,7 @@ export async function serializeAws_json1_1GetAdminAccountCommand(
     method: "POST",
     path: "/GetAdminAccount",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -220,11 +232,14 @@ export async function serializeAws_json1_1GetComplianceDetailCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.GetComplianceDetail";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.GetComplianceDetail";
   let body: any = {};
   const wrappedBody: any = {
-    GetComplianceDetailRequest: serializeAws_json1_1GetComplianceDetailRequest(input, context),
+    GetComplianceDetailRequest: serializeAws_json1_1GetComplianceDetailRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -233,7 +248,7 @@ export async function serializeAws_json1_1GetComplianceDetailCommand(
     method: "POST",
     path: "/GetComplianceDetail",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -242,11 +257,14 @@ export async function serializeAws_json1_1GetNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.GetNotificationChannel";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.GetNotificationChannel";
   let body: any = {};
   const wrappedBody: any = {
-    GetNotificationChannelRequest: serializeAws_json1_1GetNotificationChannelRequest(input, context),
+    GetNotificationChannelRequest: serializeAws_json1_1GetNotificationChannelRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -255,7 +273,7 @@ export async function serializeAws_json1_1GetNotificationChannelCommand(
     method: "POST",
     path: "/GetNotificationChannel",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -264,11 +282,11 @@ export async function serializeAws_json1_1GetPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.GetPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.GetPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    GetPolicyRequest: serializeAws_json1_1GetPolicyRequest(input, context),
+    GetPolicyRequest: serializeAws_json1_1GetPolicyRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -277,7 +295,7 @@ export async function serializeAws_json1_1GetPolicyCommand(
     method: "POST",
     path: "/GetPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -286,11 +304,14 @@ export async function serializeAws_json1_1GetProtectionStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.GetProtectionStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.GetProtectionStatus";
   let body: any = {};
   const wrappedBody: any = {
-    GetProtectionStatusRequest: serializeAws_json1_1GetProtectionStatusRequest(input, context),
+    GetProtectionStatusRequest: serializeAws_json1_1GetProtectionStatusRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -299,7 +320,7 @@ export async function serializeAws_json1_1GetProtectionStatusCommand(
     method: "POST",
     path: "/GetProtectionStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -308,11 +329,14 @@ export async function serializeAws_json1_1ListComplianceStatusCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.ListComplianceStatus";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.ListComplianceStatus";
   let body: any = {};
   const wrappedBody: any = {
-    ListComplianceStatusRequest: serializeAws_json1_1ListComplianceStatusRequest(input, context),
+    ListComplianceStatusRequest: serializeAws_json1_1ListComplianceStatusRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -321,7 +345,7 @@ export async function serializeAws_json1_1ListComplianceStatusCommand(
     method: "POST",
     path: "/ListComplianceStatus",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -330,11 +354,14 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.ListMemberAccounts";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.ListMemberAccounts";
   let body: any = {};
   const wrappedBody: any = {
-    ListMemberAccountsRequest: serializeAws_json1_1ListMemberAccountsRequest(input, context),
+    ListMemberAccountsRequest: serializeAws_json1_1ListMemberAccountsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -343,7 +370,7 @@ export async function serializeAws_json1_1ListMemberAccountsCommand(
     method: "POST",
     path: "/ListMemberAccounts",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -352,11 +379,11 @@ export async function serializeAws_json1_1ListPoliciesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.ListPolicies";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.ListPolicies";
   let body: any = {};
   const wrappedBody: any = {
-    ListPoliciesRequest: serializeAws_json1_1ListPoliciesRequest(input, context),
+    ListPoliciesRequest: serializeAws_json1_1ListPoliciesRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -365,7 +392,7 @@ export async function serializeAws_json1_1ListPoliciesCommand(
     method: "POST",
     path: "/ListPolicies",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -374,11 +401,14 @@ export async function serializeAws_json1_1PutNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.PutNotificationChannel";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.PutNotificationChannel";
   let body: any = {};
   const wrappedBody: any = {
-    PutNotificationChannelRequest: serializeAws_json1_1PutNotificationChannelRequest(input, context),
+    PutNotificationChannelRequest: serializeAws_json1_1PutNotificationChannelRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -387,7 +417,7 @@ export async function serializeAws_json1_1PutNotificationChannelCommand(
     method: "POST",
     path: "/PutNotificationChannel",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -396,11 +426,11 @@ export async function serializeAws_json1_1PutPolicyCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "AWSFMS_20180101.PutPolicy";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "AWSFMS_20180101.PutPolicy";
   let body: any = {};
   const wrappedBody: any = {
-    PutPolicyRequest: serializeAws_json1_1PutPolicyRequest(input, context),
+    PutPolicyRequest: serializeAws_json1_1PutPolicyRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -409,7 +439,7 @@ export async function serializeAws_json1_1PutPolicyCommand(
     method: "POST",
     path: "/PutPolicy",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -418,49 +448,65 @@ export async function deserializeAws_json1_1AssociateAdminAccountCommand(
   context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1AssociateAdminAccountCommandError(output, context);
+    return deserializeAws_json1_1AssociateAdminAccountCommandError(
+      output,
+      context
+    );
   }
   const response: AssociateAdminAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1AssociateAdminAccountCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInputException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -471,45 +517,58 @@ export async function deserializeAws_json1_1DeleteNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DeleteNotificationChannelCommandError(output, context);
+    return deserializeAws_json1_1DeleteNotificationChannelCommandError(
+      output,
+      context
+    );
   }
   const response: DeleteNotificationChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteNotificationChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -523,42 +582,52 @@ export async function deserializeAws_json1_1DeletePolicyCommand(
     return deserializeAws_json1_1DeletePolicyCommandError(output, context);
   }
   const response: DeletePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeletePolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -569,45 +638,58 @@ export async function deserializeAws_json1_1DisassociateAdminAccountCommand(
   context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DisassociateAdminAccountCommandError(output, context);
+    return deserializeAws_json1_1DisassociateAdminAccountCommandError(
+      output,
+      context
+    );
   }
   const response: DisassociateAdminAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DisassociateAdminAccountCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -620,48 +702,58 @@ export async function deserializeAws_json1_1GetAdminAccountCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetAdminAccountCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetAdminAccountResponse(data, context);
   const response: GetAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetAdminAccountResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetAdminAccountCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetAdminAccountCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -672,46 +764,56 @@ export async function deserializeAws_json1_1GetComplianceDetailCommand(
   context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetComplianceDetailCommandError(output, context);
+    return deserializeAws_json1_1GetComplianceDetailCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetComplianceDetailResponse(data, context);
   const response: GetComplianceDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetComplianceDetailResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetComplianceDetailCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -722,50 +824,66 @@ export async function deserializeAws_json1_1GetNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetNotificationChannelCommandError(output, context);
+    return deserializeAws_json1_1GetNotificationChannelCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_1GetNotificationChannelResponse(data, context);
+  contents = deserializeAws_json1_1GetNotificationChannelResponse(
+    data,
+    context
+  );
   const response: GetNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetNotificationChannelResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetNotificationChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -778,52 +896,65 @@ export async function deserializeAws_json1_1GetPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1GetPolicyCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetPolicyResponse(data, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetPolicyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTypeException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException":
-      response = await deserializeAws_json1_1InvalidTypeExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTypeExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -834,50 +965,63 @@ export async function deserializeAws_json1_1GetProtectionStatusCommand(
   context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1GetProtectionStatusCommandError(output, context);
+    return deserializeAws_json1_1GetProtectionStatusCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1GetProtectionStatusResponse(data, context);
   const response: GetProtectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetProtectionStatusResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1GetProtectionStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInputException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -888,46 +1032,56 @@ export async function deserializeAws_json1_1ListComplianceStatusCommand(
   context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListComplianceStatusCommandError(output, context);
+    return deserializeAws_json1_1ListComplianceStatusCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListComplianceStatusResponse(data, context);
   const response: ListComplianceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListComplianceStatusResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListComplianceStatusCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -938,46 +1092,56 @@ export async function deserializeAws_json1_1ListMemberAccountsCommand(
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListMemberAccountsCommandError(output, context);
+    return deserializeAws_json1_1ListMemberAccountsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListMemberAccountsResponse(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListMemberAccountsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListMemberAccountsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -990,52 +1154,65 @@ export async function deserializeAws_json1_1ListPoliciesCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListPoliciesCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListPoliciesResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListPoliciesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1046,45 +1223,58 @@ export async function deserializeAws_json1_1PutNotificationChannelCommand(
   context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1PutNotificationChannelCommandError(output, context);
+    return deserializeAws_json1_1PutNotificationChannelCommandError(
+      output,
+      context
+    );
   }
   const response: PutNotificationChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
+    $metadata: deserializeMetadata(output)
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutNotificationChannelCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1097,60 +1287,79 @@ export async function deserializeAws_json1_1PutPolicyCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1PutPolicyCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1PutPolicyResponse(data, context);
   const response: PutPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutPolicyResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1PutPolicyCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalErrorException":
     case "com.amazonaws.roshi.customerapi.v20180101#InternalErrorException":
-      response = await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidInputException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidInputException":
-      response = await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidInputExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidOperationException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidOperationException":
-      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidOperationExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidTypeException":
     case "com.amazonaws.roshi.customerapi.v20180101#InvalidTypeException":
-      response = await deserializeAws_json1_1InvalidTypeExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidTypeExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.roshi.customerapi.v20180101#LimitExceededException":
-      response = await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.roshi.customerapi.v20180101#ResourceNotFoundException":
-      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.roshi.customerapi.v20180101#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1160,12 +1369,15 @@ const deserializeAws_json1_1InternalErrorExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalErrorException> => {
-  const deserialized: any = deserializeAws_json1_1InternalErrorException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalErrorException(
+    output.body,
+    context
+  );
   const contents: InternalErrorException = {
     __type: "InternalErrorException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1174,12 +1386,15 @@ const deserializeAws_json1_1InvalidInputExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidInputException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidInputException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidInputException(
+    output.body,
+    context
+  );
   const contents: InvalidInputException = {
     __type: "InvalidInputException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1188,12 +1403,15 @@ const deserializeAws_json1_1InvalidOperationExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidOperationException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidOperationException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidOperationException(
+    output.body,
+    context
+  );
   const contents: InvalidOperationException = {
     __type: "InvalidOperationException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1202,12 +1420,15 @@ const deserializeAws_json1_1InvalidTypeExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidTypeException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidTypeException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidTypeException(
+    output.body,
+    context
+  );
   const contents: InvalidTypeException = {
     __type: "InvalidTypeException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1216,12 +1437,15 @@ const deserializeAws_json1_1LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_1LimitExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1LimitExceededException(
+    output.body,
+    context
+  );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1230,12 +1454,15 @@ const deserializeAws_json1_1ResourceNotFoundExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1ResourceNotFoundException(
+    output.body,
+    context
+  );
   const contents: ResourceNotFoundException = {
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -1246,19 +1473,17 @@ const serializeAws_json1_1AssociateAdminAccountRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AdminAccount !== undefined) {
-    bodyParams['AdminAccount'] = input.AdminAccount;
+    bodyParams["AdminAccount"] = input.AdminAccount;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CustomerPolicyScopeIdList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1CustomerPolicyScopeMap = (
   input: { [key: string]: Array<string> },
@@ -1266,10 +1491,13 @@ const serializeAws_json1_1CustomerPolicyScopeMap = (
 ): any => {
   let mapParams: any = {};
   Object.keys(input).forEach(key => {
-    mapParams[key] = serializeAws_json1_1CustomerPolicyScopeIdList(input[key], context);
+    mapParams[key] = serializeAws_json1_1CustomerPolicyScopeIdList(
+      input[key],
+      context
+    );
   });
   return mapParams;
-}
+};
 
 const serializeAws_json1_1DeleteNotificationChannelRequest = (
   input: DeleteNotificationChannelRequest,
@@ -1277,7 +1505,7 @@ const serializeAws_json1_1DeleteNotificationChannelRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeletePolicyRequest = (
   input: DeletePolicyRequest,
@@ -1285,13 +1513,13 @@ const serializeAws_json1_1DeletePolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.DeleteAllPolicyResources !== undefined) {
-    bodyParams['DeleteAllPolicyResources'] = input.DeleteAllPolicyResources;
+    bodyParams["DeleteAllPolicyResources"] = input.DeleteAllPolicyResources;
   }
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DisassociateAdminAccountRequest = (
   input: DisassociateAdminAccountRequest,
@@ -1299,7 +1527,7 @@ const serializeAws_json1_1DisassociateAdminAccountRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetAdminAccountRequest = (
   input: GetAdminAccountRequest,
@@ -1307,7 +1535,7 @@ const serializeAws_json1_1GetAdminAccountRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetComplianceDetailRequest = (
   input: GetComplianceDetailRequest,
@@ -1315,13 +1543,13 @@ const serializeAws_json1_1GetComplianceDetailRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MemberAccount !== undefined) {
-    bodyParams['MemberAccount'] = input.MemberAccount;
+    bodyParams["MemberAccount"] = input.MemberAccount;
   }
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetNotificationChannelRequest = (
   input: GetNotificationChannelRequest,
@@ -1329,7 +1557,7 @@ const serializeAws_json1_1GetNotificationChannelRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetPolicyRequest = (
   input: GetPolicyRequest,
@@ -1337,10 +1565,10 @@ const serializeAws_json1_1GetPolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1GetProtectionStatusRequest = (
   input: GetProtectionStatusRequest,
@@ -1348,25 +1576,25 @@ const serializeAws_json1_1GetProtectionStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.EndTime !== undefined) {
-    bodyParams['EndTime'] = Math.round(input.EndTime.getTime() / 1000);
+    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.MemberAccountId !== undefined) {
-    bodyParams['MemberAccountId'] = input.MemberAccountId;
+    bodyParams["MemberAccountId"] = input.MemberAccountId;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   if (input.StartTime !== undefined) {
-    bodyParams['StartTime'] = Math.round(input.StartTime.getTime() / 1000);
+    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListComplianceStatusRequest = (
   input: ListComplianceStatusRequest,
@@ -1374,16 +1602,16 @@ const serializeAws_json1_1ListComplianceStatusRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListMemberAccountsRequest = (
   input: ListMemberAccountsRequest,
@@ -1391,13 +1619,13 @@ const serializeAws_json1_1ListMemberAccountsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListPoliciesRequest = (
   input: ListPoliciesRequest,
@@ -1405,13 +1633,13 @@ const serializeAws_json1_1ListPoliciesRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Policy = (
   input: Policy,
@@ -1419,40 +1647,57 @@ const serializeAws_json1_1Policy = (
 ): any => {
   let bodyParams: any = {};
   if (input.ExcludeMap !== undefined) {
-    bodyParams['ExcludeMap'] = serializeAws_json1_1CustomerPolicyScopeMap(input.ExcludeMap, context);
+    bodyParams["ExcludeMap"] = serializeAws_json1_1CustomerPolicyScopeMap(
+      input.ExcludeMap,
+      context
+    );
   }
   if (input.ExcludeResourceTags !== undefined) {
-    bodyParams['ExcludeResourceTags'] = input.ExcludeResourceTags;
+    bodyParams["ExcludeResourceTags"] = input.ExcludeResourceTags;
   }
   if (input.IncludeMap !== undefined) {
-    bodyParams['IncludeMap'] = serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context);
+    bodyParams["IncludeMap"] = serializeAws_json1_1CustomerPolicyScopeMap(
+      input.IncludeMap,
+      context
+    );
   }
   if (input.PolicyId !== undefined) {
-    bodyParams['PolicyId'] = input.PolicyId;
+    bodyParams["PolicyId"] = input.PolicyId;
   }
   if (input.PolicyName !== undefined) {
-    bodyParams['PolicyName'] = input.PolicyName;
+    bodyParams["PolicyName"] = input.PolicyName;
   }
   if (input.PolicyUpdateToken !== undefined) {
-    bodyParams['PolicyUpdateToken'] = input.PolicyUpdateToken;
+    bodyParams["PolicyUpdateToken"] = input.PolicyUpdateToken;
   }
   if (input.RemediationEnabled !== undefined) {
-    bodyParams['RemediationEnabled'] = input.RemediationEnabled;
+    bodyParams["RemediationEnabled"] = input.RemediationEnabled;
   }
   if (input.ResourceTags !== undefined) {
-    bodyParams['ResourceTags'] = serializeAws_json1_1ResourceTags(input.ResourceTags, context);
+    bodyParams["ResourceTags"] = serializeAws_json1_1ResourceTags(
+      input.ResourceTags,
+      context
+    );
   }
   if (input.ResourceType !== undefined) {
-    bodyParams['ResourceType'] = input.ResourceType;
+    bodyParams["ResourceType"] = input.ResourceType;
   }
   if (input.ResourceTypeList !== undefined) {
-    bodyParams['ResourceTypeList'] = serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context);
+    bodyParams["ResourceTypeList"] = serializeAws_json1_1ResourceTypeList(
+      input.ResourceTypeList,
+      context
+    );
   }
   if (input.SecurityServicePolicyData !== undefined) {
-    bodyParams['SecurityServicePolicyData'] = serializeAws_json1_1SecurityServicePolicyData(input.SecurityServicePolicyData, context);
+    bodyParams[
+      "SecurityServicePolicyData"
+    ] = serializeAws_json1_1SecurityServicePolicyData(
+      input.SecurityServicePolicyData,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutNotificationChannelRequest = (
   input: PutNotificationChannelRequest,
@@ -1460,13 +1705,13 @@ const serializeAws_json1_1PutNotificationChannelRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.SnsRoleName !== undefined) {
-    bodyParams['SnsRoleName'] = input.SnsRoleName;
+    bodyParams["SnsRoleName"] = input.SnsRoleName;
   }
   if (input.SnsTopicArn !== undefined) {
-    bodyParams['SnsTopicArn'] = input.SnsTopicArn;
+    bodyParams["SnsTopicArn"] = input.SnsTopicArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PutPolicyRequest = (
   input: PutPolicyRequest,
@@ -1474,10 +1719,10 @@ const serializeAws_json1_1PutPolicyRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Policy !== undefined) {
-    bodyParams['Policy'] = serializeAws_json1_1Policy(input.Policy, context);
+    bodyParams["Policy"] = serializeAws_json1_1Policy(input.Policy, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ResourceTag = (
   input: ResourceTag,
@@ -1485,13 +1730,13 @@ const serializeAws_json1_1ResourceTag = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ResourceTags = (
   input: Array<ResourceTag>,
@@ -1500,16 +1745,14 @@ const serializeAws_json1_1ResourceTags = (
   return (input || []).map(entry =>
     serializeAws_json1_1ResourceTag(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1ResourceTypeList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1SecurityServicePolicyData = (
   input: SecurityServicePolicyData,
@@ -1517,13 +1760,13 @@ const serializeAws_json1_1SecurityServicePolicyData = (
 ): any => {
   let bodyParams: any = {};
   if (input.ManagedServiceData !== undefined) {
-    bodyParams['ManagedServiceData'] = input.ManagedServiceData;
+    bodyParams["ManagedServiceData"] = input.ManagedServiceData;
   }
   if (input.Type !== undefined) {
-    bodyParams['Type'] = input.Type;
+    bodyParams["Type"] = input.Type;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1ComplianceViolator = (
   output: any,
@@ -1533,7 +1776,7 @@ const deserializeAws_json1_1ComplianceViolator = (
     __type: "ComplianceViolator",
     ResourceId: undefined,
     ResourceType: undefined,
-    ViolationReason: undefined,
+    ViolationReason: undefined
   };
   if (output.ResourceId !== undefined) {
     contents.ResourceId = output.ResourceId;
@@ -1545,7 +1788,7 @@ const deserializeAws_json1_1ComplianceViolator = (
     contents.ViolationReason = output.ViolationReason;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ComplianceViolators = (
   output: any,
@@ -1554,16 +1797,14 @@ const deserializeAws_json1_1ComplianceViolators = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ComplianceViolator(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1CustomerPolicyScopeIdList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1CustomerPolicyScopeMap = (
   output: any,
@@ -1571,10 +1812,13 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
 ): { [key: string]: Array<string> } => {
   let mapParams: any = {};
   Object.keys(output).forEach(key => {
-    mapParams[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(output[key], context);
+    mapParams[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(
+      output[key],
+      context
+    );
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1EvaluationResult = (
   output: any,
@@ -1584,7 +1828,7 @@ const deserializeAws_json1_1EvaluationResult = (
     __type: "EvaluationResult",
     ComplianceStatus: undefined,
     EvaluationLimitExceeded: undefined,
-    ViolatorCount: undefined,
+    ViolatorCount: undefined
   };
   if (output.ComplianceStatus !== undefined) {
     contents.ComplianceStatus = output.ComplianceStatus;
@@ -1596,7 +1840,7 @@ const deserializeAws_json1_1EvaluationResult = (
     contents.ViolatorCount = output.ViolatorCount;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1EvaluationResults = (
   output: any,
@@ -1605,7 +1849,7 @@ const deserializeAws_json1_1EvaluationResults = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1EvaluationResult(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1GetAdminAccountResponse = (
   output: any,
@@ -1614,7 +1858,7 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
   let contents: any = {
     __type: "GetAdminAccountResponse",
     AdminAccount: undefined,
-    RoleStatus: undefined,
+    RoleStatus: undefined
   };
   if (output.AdminAccount !== undefined) {
     contents.AdminAccount = output.AdminAccount;
@@ -1623,7 +1867,7 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
     contents.RoleStatus = output.RoleStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetComplianceDetailResponse = (
   output: any,
@@ -1631,13 +1875,16 @@ const deserializeAws_json1_1GetComplianceDetailResponse = (
 ): GetComplianceDetailResponse => {
   let contents: any = {
     __type: "GetComplianceDetailResponse",
-    PolicyComplianceDetail: undefined,
+    PolicyComplianceDetail: undefined
   };
   if (output.PolicyComplianceDetail !== undefined) {
-    contents.PolicyComplianceDetail = deserializeAws_json1_1PolicyComplianceDetail(output.PolicyComplianceDetail, context);
+    contents.PolicyComplianceDetail = deserializeAws_json1_1PolicyComplianceDetail(
+      output.PolicyComplianceDetail,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetNotificationChannelResponse = (
   output: any,
@@ -1646,7 +1893,7 @@ const deserializeAws_json1_1GetNotificationChannelResponse = (
   let contents: any = {
     __type: "GetNotificationChannelResponse",
     SnsRoleName: undefined,
-    SnsTopicArn: undefined,
+    SnsTopicArn: undefined
   };
   if (output.SnsRoleName !== undefined) {
     contents.SnsRoleName = output.SnsRoleName;
@@ -1655,7 +1902,7 @@ const deserializeAws_json1_1GetNotificationChannelResponse = (
     contents.SnsTopicArn = output.SnsTopicArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetPolicyResponse = (
   output: any,
@@ -1664,7 +1911,7 @@ const deserializeAws_json1_1GetPolicyResponse = (
   let contents: any = {
     __type: "GetPolicyResponse",
     Policy: undefined,
-    PolicyArn: undefined,
+    PolicyArn: undefined
   };
   if (output.Policy !== undefined) {
     contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
@@ -1673,7 +1920,7 @@ const deserializeAws_json1_1GetPolicyResponse = (
     contents.PolicyArn = output.PolicyArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1GetProtectionStatusResponse = (
   output: any,
@@ -1684,7 +1931,7 @@ const deserializeAws_json1_1GetProtectionStatusResponse = (
     AdminAccountId: undefined,
     Data: undefined,
     NextToken: undefined,
-    ServiceType: undefined,
+    ServiceType: undefined
   };
   if (output.AdminAccountId !== undefined) {
     contents.AdminAccountId = output.AdminAccountId;
@@ -1699,7 +1946,7 @@ const deserializeAws_json1_1GetProtectionStatusResponse = (
     contents.ServiceType = output.ServiceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalErrorException = (
   output: any,
@@ -1707,13 +1954,13 @@ const deserializeAws_json1_1InternalErrorException = (
 ): InternalErrorException => {
   let contents: any = {
     __type: "InternalErrorException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
@@ -1721,13 +1968,13 @@ const deserializeAws_json1_1InvalidInputException = (
 ): InvalidInputException => {
   let contents: any = {
     __type: "InvalidInputException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidOperationException = (
   output: any,
@@ -1735,13 +1982,13 @@ const deserializeAws_json1_1InvalidOperationException = (
 ): InvalidOperationException => {
   let contents: any = {
     __type: "InvalidOperationException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidTypeException = (
   output: any,
@@ -1749,13 +1996,13 @@ const deserializeAws_json1_1InvalidTypeException = (
 ): InvalidTypeException => {
   let contents: any = {
     __type: "InvalidTypeException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1IssueInfoMap = (
   output: any,
@@ -1766,7 +2013,7 @@ const deserializeAws_json1_1IssueInfoMap = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
@@ -1774,13 +2021,13 @@ const deserializeAws_json1_1LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListComplianceStatusResponse = (
   output: any,
@@ -1789,16 +2036,19 @@ const deserializeAws_json1_1ListComplianceStatusResponse = (
   let contents: any = {
     __type: "ListComplianceStatusResponse",
     NextToken: undefined,
-    PolicyComplianceStatusList: undefined,
+    PolicyComplianceStatusList: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.PolicyComplianceStatusList !== undefined) {
-    contents.PolicyComplianceStatusList = deserializeAws_json1_1PolicyComplianceStatusList(output.PolicyComplianceStatusList, context);
+    contents.PolicyComplianceStatusList = deserializeAws_json1_1PolicyComplianceStatusList(
+      output.PolicyComplianceStatusList,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListMemberAccountsResponse = (
   output: any,
@@ -1807,16 +2057,19 @@ const deserializeAws_json1_1ListMemberAccountsResponse = (
   let contents: any = {
     __type: "ListMemberAccountsResponse",
     MemberAccounts: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.MemberAccounts !== undefined) {
-    contents.MemberAccounts = deserializeAws_json1_1MemberAccounts(output.MemberAccounts, context);
+    contents.MemberAccounts = deserializeAws_json1_1MemberAccounts(
+      output.MemberAccounts,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListPoliciesResponse = (
   output: any,
@@ -1825,25 +2078,26 @@ const deserializeAws_json1_1ListPoliciesResponse = (
   let contents: any = {
     __type: "ListPoliciesResponse",
     NextToken: undefined,
-    PolicyList: undefined,
+    PolicyList: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.PolicyList !== undefined) {
-    contents.PolicyList = deserializeAws_json1_1PolicySummaryList(output.PolicyList, context);
+    contents.PolicyList = deserializeAws_json1_1PolicySummaryList(
+      output.PolicyList,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1MemberAccounts = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1Policy = (
   output: any,
@@ -1861,16 +2115,22 @@ const deserializeAws_json1_1Policy = (
     ResourceTags: undefined,
     ResourceType: undefined,
     ResourceTypeList: undefined,
-    SecurityServicePolicyData: undefined,
+    SecurityServicePolicyData: undefined
   };
   if (output.ExcludeMap !== undefined) {
-    contents.ExcludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(output.ExcludeMap, context);
+    contents.ExcludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
+      output.ExcludeMap,
+      context
+    );
   }
   if (output.ExcludeResourceTags !== undefined) {
     contents.ExcludeResourceTags = output.ExcludeResourceTags;
   }
   if (output.IncludeMap !== undefined) {
-    contents.IncludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(output.IncludeMap, context);
+    contents.IncludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
+      output.IncludeMap,
+      context
+    );
   }
   if (output.PolicyId !== undefined) {
     contents.PolicyId = output.PolicyId;
@@ -1885,19 +2145,28 @@ const deserializeAws_json1_1Policy = (
     contents.RemediationEnabled = output.RemediationEnabled;
   }
   if (output.ResourceTags !== undefined) {
-    contents.ResourceTags = deserializeAws_json1_1ResourceTags(output.ResourceTags, context);
+    contents.ResourceTags = deserializeAws_json1_1ResourceTags(
+      output.ResourceTags,
+      context
+    );
   }
   if (output.ResourceType !== undefined) {
     contents.ResourceType = output.ResourceType;
   }
   if (output.ResourceTypeList !== undefined) {
-    contents.ResourceTypeList = deserializeAws_json1_1ResourceTypeList(output.ResourceTypeList, context);
+    contents.ResourceTypeList = deserializeAws_json1_1ResourceTypeList(
+      output.ResourceTypeList,
+      context
+    );
   }
   if (output.SecurityServicePolicyData !== undefined) {
-    contents.SecurityServicePolicyData = deserializeAws_json1_1SecurityServicePolicyData(output.SecurityServicePolicyData, context);
+    contents.SecurityServicePolicyData = deserializeAws_json1_1SecurityServicePolicyData(
+      output.SecurityServicePolicyData,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PolicyComplianceDetail = (
   output: any,
@@ -1911,16 +2180,23 @@ const deserializeAws_json1_1PolicyComplianceDetail = (
     MemberAccount: undefined,
     PolicyId: undefined,
     PolicyOwner: undefined,
-    Violators: undefined,
+    Violators: undefined
   };
   if (output.EvaluationLimitExceeded !== undefined) {
     contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
   }
   if (output.ExpiredAt !== undefined) {
-    contents.ExpiredAt = new Date(output.ExpiredAt % 1 != 0 ? Math.round(output.ExpiredAt * 1000) : output.ExpiredAt);
+    contents.ExpiredAt = new Date(
+      output.ExpiredAt % 1 != 0
+        ? Math.round(output.ExpiredAt * 1000)
+        : output.ExpiredAt
+    );
   }
   if (output.IssueInfoMap !== undefined) {
-    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context);
+    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
+      output.IssueInfoMap,
+      context
+    );
   }
   if (output.MemberAccount !== undefined) {
     contents.MemberAccount = output.MemberAccount;
@@ -1932,10 +2208,13 @@ const deserializeAws_json1_1PolicyComplianceDetail = (
     contents.PolicyOwner = output.PolicyOwner;
   }
   if (output.Violators !== undefined) {
-    contents.Violators = deserializeAws_json1_1ComplianceViolators(output.Violators, context);
+    contents.Violators = deserializeAws_json1_1ComplianceViolators(
+      output.Violators,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PolicyComplianceStatus = (
   output: any,
@@ -1949,16 +2228,26 @@ const deserializeAws_json1_1PolicyComplianceStatus = (
     MemberAccount: undefined,
     PolicyId: undefined,
     PolicyName: undefined,
-    PolicyOwner: undefined,
+    PolicyOwner: undefined
   };
   if (output.EvaluationResults !== undefined) {
-    contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(output.EvaluationResults, context);
+    contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(
+      output.EvaluationResults,
+      context
+    );
   }
   if (output.IssueInfoMap !== undefined) {
-    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context);
+    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
+      output.IssueInfoMap,
+      context
+    );
   }
   if (output.LastUpdated !== undefined) {
-    contents.LastUpdated = new Date(output.LastUpdated % 1 != 0 ? Math.round(output.LastUpdated * 1000) : output.LastUpdated);
+    contents.LastUpdated = new Date(
+      output.LastUpdated % 1 != 0
+        ? Math.round(output.LastUpdated * 1000)
+        : output.LastUpdated
+    );
   }
   if (output.MemberAccount !== undefined) {
     contents.MemberAccount = output.MemberAccount;
@@ -1973,7 +2262,7 @@ const deserializeAws_json1_1PolicyComplianceStatus = (
     contents.PolicyOwner = output.PolicyOwner;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PolicyComplianceStatusList = (
   output: any,
@@ -1982,7 +2271,7 @@ const deserializeAws_json1_1PolicyComplianceStatusList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicyComplianceStatus(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PolicySummary = (
   output: any,
@@ -1995,7 +2284,7 @@ const deserializeAws_json1_1PolicySummary = (
     PolicyName: undefined,
     RemediationEnabled: undefined,
     ResourceType: undefined,
-    SecurityServiceType: undefined,
+    SecurityServiceType: undefined
   };
   if (output.PolicyArn !== undefined) {
     contents.PolicyArn = output.PolicyArn;
@@ -2016,7 +2305,7 @@ const deserializeAws_json1_1PolicySummary = (
     contents.SecurityServiceType = output.SecurityServiceType;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PolicySummaryList = (
   output: any,
@@ -2025,7 +2314,7 @@ const deserializeAws_json1_1PolicySummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1PolicySummary(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1PutPolicyResponse = (
   output: any,
@@ -2034,7 +2323,7 @@ const deserializeAws_json1_1PutPolicyResponse = (
   let contents: any = {
     __type: "PutPolicyResponse",
     Policy: undefined,
-    PolicyArn: undefined,
+    PolicyArn: undefined
   };
   if (output.Policy !== undefined) {
     contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
@@ -2043,7 +2332,7 @@ const deserializeAws_json1_1PutPolicyResponse = (
     contents.PolicyArn = output.PolicyArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
@@ -2051,13 +2340,13 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   let contents: any = {
     __type: "ResourceNotFoundException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceTag = (
   output: any,
@@ -2066,7 +2355,7 @@ const deserializeAws_json1_1ResourceTag = (
   let contents: any = {
     __type: "ResourceTag",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -2075,7 +2364,7 @@ const deserializeAws_json1_1ResourceTag = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ResourceTags = (
   output: any,
@@ -2084,16 +2373,14 @@ const deserializeAws_json1_1ResourceTags = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1ResourceTag(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1ResourceTypeList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1SecurityServicePolicyData = (
   output: any,
@@ -2102,7 +2389,7 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
   let contents: any = {
     __type: "SecurityServicePolicyData",
     ManagedServiceData: undefined,
-    Type: undefined,
+    Type: undefined
   };
   if (output.ManagedServiceData !== undefined) {
     contents.ManagedServiceData = output.ManagedServiceData;
@@ -2111,7 +2398,7 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
     contents.Type = output.Type;
   }
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -83,7 +83,7 @@ export enum AttributeName {
   DIAGNOSIS = "DIAGNOSIS",
   NEGATION = "NEGATION",
   SIGN = "SIGN",
-  SYMPTOM = "SYMPTOM",
+  SYMPTOM = "SYMPTOM"
 }
 
 /**
@@ -268,7 +268,8 @@ export namespace DescribeEntitiesDetectionV2JobRequest {
   }
 }
 
-export interface DescribeEntitiesDetectionV2JobResponse extends $MetadataBearer {
+export interface DescribeEntitiesDetectionV2JobResponse
+  extends $MetadataBearer {
   __type?: "DescribeEntitiesDetectionV2JobResponse";
   /**
    *
@@ -595,7 +596,7 @@ export enum EntitySubType {
   TEST_UNITS = "TEST_UNITS",
   TEST_VALUE = "TEST_VALUE",
   TREATMENT_NAME = "TREATMENT_NAME",
-  URL = "URL",
+  URL = "URL"
 }
 
 export enum EntityType {
@@ -603,7 +604,7 @@ export enum EntityType {
   MEDICAL_CONDITION = "MEDICAL_CONDITION",
   MEDICATION = "MEDICATION",
   PROTECTED_HEALTH_INFORMATION = "PROTECTED_HEALTH_INFORMATION",
-  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE",
+  TEST_TREATMENT_PROCEDURE = "TEST_TREATMENT_PROCEDURE"
 }
 
 /**
@@ -642,7 +643,9 @@ export namespace InputDataConfig {
  *          <p> An internal server error occurred. Retry your request. </p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -660,7 +663,9 @@ export namespace InternalServerException {
  *    request.</p>
  *
  */
-export interface InvalidEncodingException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidEncodingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidEncodingException";
   $fault: "client";
   Message?: string;
@@ -678,7 +683,9 @@ export namespace InvalidEncodingException {
  *    then retry the request.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   Message?: string;
@@ -697,11 +704,11 @@ export enum JobStatus {
   PARTIAL_SUCCESS = "PARTIAL_SUCCESS",
   STOPPED = "STOPPED",
   STOP_REQUESTED = "STOP_REQUESTED",
-  SUBMITTED = "SUBMITTED",
+  SUBMITTED = "SUBMITTED"
 }
 
 export enum LanguageCode {
-  EN = "en",
+  EN = "en"
 }
 
 export interface ListEntitiesDetectionV2JobsRequest {
@@ -742,7 +749,9 @@ export interface ListEntitiesDetectionV2JobsResponse extends $MetadataBearer {
    *          <p>A list containing the properties of each job returned.</p>
    *
    */
-  ComprehendMedicalAsyncJobPropertiesList?: Array<ComprehendMedicalAsyncJobProperties>;
+  ComprehendMedicalAsyncJobPropertiesList?: Array<
+    ComprehendMedicalAsyncJobProperties
+  >;
 
   /**
    *
@@ -796,7 +805,9 @@ export interface ListPHIDetectionJobsResponse extends $MetadataBearer {
    *          <p>A list containing the properties of each job returned.</p>
    *
    */
-  ComprehendMedicalAsyncJobPropertiesList?: Array<ComprehendMedicalAsyncJobProperties>;
+  ComprehendMedicalAsyncJobPropertiesList?: Array<
+    ComprehendMedicalAsyncJobProperties
+  >;
 
   /**
    *
@@ -850,7 +861,9 @@ export namespace OutputDataConfig {
  *    ARN and try your request again.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -868,7 +881,9 @@ export namespace ResourceNotFoundException {
  *   </p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   Message?: string;
@@ -1106,7 +1121,9 @@ export namespace StopPHIDetectionJobResponse {
  *    use a smaller document and then retry your request. </p>
  *
  */
-export interface TextSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface TextSizeLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TextSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1125,7 +1142,9 @@ export namespace TextSizeLimitExceededException {
  *    increase. </p>
  *
  */
-export interface TooManyRequestsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyRequestsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyRequestsException";
   $fault: "client";
   Message?: string;
@@ -1201,7 +1220,9 @@ export namespace UnmappedAttribute {
  *    entered and try your request again.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

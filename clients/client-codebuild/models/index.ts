@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>An AWS service limit was exceeded for the calling AWS account.</p>
  *
  */
-export interface AccountLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccountLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccountLimitExceededException";
   $fault: "client";
   message?: string;
@@ -20,24 +22,24 @@ export namespace AccountLimitExceededException {
 
 export enum ArtifactNamespace {
   BUILD_ID = "BUILD_ID",
-  NONE = "NONE",
+  NONE = "NONE"
 }
 
 export enum ArtifactPackaging {
   NONE = "NONE",
-  ZIP = "ZIP",
+  ZIP = "ZIP"
 }
 
 export enum ArtifactsType {
   CODEPIPELINE = "CODEPIPELINE",
   NO_ARTIFACTS = "NO_ARTIFACTS",
-  S3 = "S3",
+  S3 = "S3"
 }
 
 export enum AuthType {
   BASIC_AUTH = "BASIC_AUTH",
   OAUTH = "OAUTH",
-  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN",
+  PERSONAL_ACCESS_TOKEN = "PERSONAL_ACCESS_TOKEN"
 }
 
 export interface BatchDeleteBuildsInput {
@@ -818,19 +820,19 @@ export enum BuildPhaseType {
   PROVISIONING = "PROVISIONING",
   QUEUED = "QUEUED",
   SUBMITTED = "SUBMITTED",
-  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS",
+  UPLOAD_ARTIFACTS = "UPLOAD_ARTIFACTS"
 }
 
 export enum CacheMode {
   LOCAL_CUSTOM_CACHE = "LOCAL_CUSTOM_CACHE",
   LOCAL_DOCKER_LAYER_CACHE = "LOCAL_DOCKER_LAYER_CACHE",
-  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE",
+  LOCAL_SOURCE_CACHE = "LOCAL_SOURCE_CACHE"
 }
 
 export enum CacheType {
   LOCAL = "LOCAL",
   NO_CACHE = "NO_CACHE",
-  S3 = "S3",
+  S3 = "S3"
 }
 
 /**
@@ -884,7 +886,7 @@ export enum ComputeType {
   BUILD_GENERAL1_2XLARGE = "BUILD_GENERAL1_2XLARGE",
   BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE",
   BUILD_GENERAL1_MEDIUM = "BUILD_GENERAL1_MEDIUM",
-  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL",
+  BUILD_GENERAL1_SMALL = "BUILD_GENERAL1_SMALL"
 }
 
 export interface CreateProjectInput {
@@ -1208,7 +1210,7 @@ export namespace CreateWebhookOutput {
 }
 
 export enum CredentialProviderType {
-  SECRETS_MANAGER = "SECRETS_MANAGER",
+  SECRETS_MANAGER = "SECRETS_MANAGER"
 }
 
 export interface DeleteProjectInput {
@@ -1530,7 +1532,7 @@ export enum EnvironmentType {
   ARM_CONTAINER = "ARM_CONTAINER",
   LINUX_CONTAINER = "LINUX_CONTAINER",
   LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER",
-  WINDOWS_CONTAINER = "WINDOWS_CONTAINER",
+  WINDOWS_CONTAINER = "WINDOWS_CONTAINER"
 }
 
 /**
@@ -1591,7 +1593,7 @@ export namespace EnvironmentVariable {
 export enum EnvironmentVariableType {
   PARAMETER_STORE = "PARAMETER_STORE",
   PLAINTEXT = "PLAINTEXT",
-  SECRETS_MANAGER = "SECRETS_MANAGER",
+  SECRETS_MANAGER = "SECRETS_MANAGER"
 }
 
 /**
@@ -1662,7 +1664,7 @@ export namespace GitSubmodulesConfig {
 
 export enum ImagePullCredentialsType {
   CODEBUILD = "CODEBUILD",
-  SERVICE_ROLE = "SERVICE_ROLE",
+  SERVICE_ROLE = "SERVICE_ROLE"
 }
 
 export interface ImportSourceCredentialsInput {
@@ -1745,7 +1747,9 @@ export namespace ImportSourceCredentialsOutput {
  *          <p>The input value that was provided is not valid.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -1793,7 +1797,7 @@ export enum LanguageType {
   NODE_JS = "NODE_JS",
   PHP = "PHP",
   PYTHON = "PYTHON",
-  RUBY = "RUBY",
+  RUBY = "RUBY"
 }
 
 export interface ListBuildsForProjectInput {
@@ -2389,7 +2393,7 @@ export namespace LogsConfig {
 
 export enum LogsConfigStatusType {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -2503,7 +2507,9 @@ export namespace NetworkInterface {
  *          <p>There was a problem with the underlying OAuth provider.</p>
  *
  */
-export interface OAuthProviderException extends _smithy.SmithyException, $MetadataBearer {
+export interface OAuthProviderException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OAuthProviderException";
   $fault: "client";
   message?: string;
@@ -2549,7 +2555,7 @@ export enum PlatformType {
   AMAZON_LINUX = "AMAZON_LINUX",
   DEBIAN = "DEBIAN",
   UBUNTU = "UBUNTU",
-  WINDOWS_SERVER = "WINDOWS_SERVER",
+  WINDOWS_SERVER = "WINDOWS_SERVER"
 }
 
 /**
@@ -3361,7 +3367,7 @@ export namespace ProjectEnvironment {
 export enum ProjectSortByType {
   CREATED_TIME = "CREATED_TIME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
+  NAME = "NAME"
 }
 
 /**
@@ -3822,7 +3828,7 @@ export namespace ReportExportConfig {
 
 export enum ReportExportConfigType {
   NO_EXPORT = "NO_EXPORT",
-  S3 = "S3",
+  S3 = "S3"
 }
 
 /**
@@ -3924,12 +3930,12 @@ export namespace ReportGroup {
 export enum ReportGroupSortByType {
   CREATED_TIME = "CREATED_TIME",
   LAST_MODIFIED_TIME = "LAST_MODIFIED_TIME",
-  NAME = "NAME",
+  NAME = "NAME"
 }
 
 export enum ReportPackagingType {
   NONE = "NONE",
-  ZIP = "ZIP",
+  ZIP = "ZIP"
 }
 
 export enum ReportStatusType {
@@ -3937,11 +3943,11 @@ export enum ReportStatusType {
   FAILED = "FAILED",
   GENERATING = "GENERATING",
   INCOMPLETE = "INCOMPLETE",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 export enum ReportType {
-  TEST = "TEST",
+  TEST = "TEST"
 }
 
 /**
@@ -3950,7 +3956,9 @@ export enum ReportType {
  *          settings already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -3967,7 +3975,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified AWS resource cannot be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -4104,12 +4114,12 @@ export namespace S3ReportExportConfig {
 export enum ServerType {
   BITBUCKET = "BITBUCKET",
   GITHUB = "GITHUB",
-  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
+  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE"
 }
 
 export enum SortOrderType {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
+  DESCENDING = "DESCENDING"
 }
 
 /**
@@ -4150,7 +4160,7 @@ export namespace SourceAuth {
 }
 
 export enum SourceAuthType {
-  OAUTH = "OAUTH",
+  OAUTH = "OAUTH"
 }
 
 /**
@@ -4204,7 +4214,7 @@ export enum SourceType {
   GITHUB = "GITHUB",
   GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
   NO_SOURCE = "NO_SOURCE",
-  S3 = "S3",
+  S3 = "S3"
 }
 
 export interface StartBuildInput {
@@ -4514,7 +4524,7 @@ export enum StatusType {
   IN_PROGRESS = "IN_PROGRESS",
   STOPPED = "STOPPED",
   SUCCEEDED = "SUCCEEDED",
-  TIMED_OUT = "TIMED_OUT",
+  TIMED_OUT = "TIMED_OUT"
 }
 
 export interface StopBuildInput {
@@ -5309,5 +5319,5 @@ export enum WebhookFilterType {
   BASE_REF = "BASE_REF",
   EVENT = "EVENT",
   FILE_PATH = "FILE_PATH",
-  HEAD_REF = "HEAD_REF",
+  HEAD_REF = "HEAD_REF"
 }

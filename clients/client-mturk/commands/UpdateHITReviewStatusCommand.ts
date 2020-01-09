@@ -1,20 +1,20 @@
 import {
   MTurkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MTurkClient";
 import {
   UpdateHITReviewStatusRequest,
-  UpdateHITReviewStatusResponse,
+  UpdateHITReviewStatusResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateHITReviewStatusCommand,
-  serializeAws_json1_1UpdateHITReviewStatusCommand,
+  serializeAws_json1_1UpdateHITReviewStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateHITReviewStatusCommandInput = UpdateHITReviewStatusRequest;
 export type UpdateHITReviewStatusCommandOutput = UpdateHITReviewStatusResponse;
 
-export class UpdateHITReviewStatusCommand extends $Command<UpdateHITReviewStatusCommandInput, UpdateHITReviewStatusCommandOutput, MTurkClientResolvedConfig> {
+export class UpdateHITReviewStatusCommand extends $Command<
+  UpdateHITReviewStatusCommandInput,
+  UpdateHITReviewStatusCommandOutput,
+  MTurkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateHITReviewStatusCommand extends $Command<UpdateHITReviewStatus
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateHITReviewStatusCommandInput, UpdateHITReviewStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateHITReviewStatusCommandInput,
+    UpdateHITReviewStatusCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

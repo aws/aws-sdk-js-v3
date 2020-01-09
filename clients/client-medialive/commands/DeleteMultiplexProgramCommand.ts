@@ -1,20 +1,20 @@
 import {
   MediaLiveClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MediaLiveClient";
 import {
   DeleteMultiplexProgramRequest,
-  DeleteMultiplexProgramResponse,
+  DeleteMultiplexProgramResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteMultiplexProgramCommand,
-  serializeAws_restJson1_1DeleteMultiplexProgramCommand,
+  serializeAws_restJson1_1DeleteMultiplexProgramCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteMultiplexProgramCommandInput = DeleteMultiplexProgramRequest;
 export type DeleteMultiplexProgramCommandOutput = DeleteMultiplexProgramResponse;
 
-export class DeleteMultiplexProgramCommand extends $Command<DeleteMultiplexProgramCommandInput, DeleteMultiplexProgramCommandOutput, MediaLiveClientResolvedConfig> {
+export class DeleteMultiplexProgramCommand extends $Command<
+  DeleteMultiplexProgramCommandInput,
+  DeleteMultiplexProgramCommandOutput,
+  MediaLiveClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteMultiplexProgramCommand extends $Command<DeleteMultiplexProgr
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MediaLiveClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMultiplexProgramCommandInput, DeleteMultiplexProgramCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteMultiplexProgramCommandInput,
+    DeleteMultiplexProgramCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DeleteMultiplexProgramCommand extends $Command<DeleteMultiplexProgr
     input: DeleteMultiplexProgramCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteMultiplexProgramCommand(input, context);
+    return serializeAws_restJson1_1DeleteMultiplexProgramCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteMultiplexProgramCommandOutput> {
-    return deserializeAws_restJson1_1DeleteMultiplexProgramCommand(output, context);
+    return deserializeAws_restJson1_1DeleteMultiplexProgramCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

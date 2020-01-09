@@ -1870,7 +1870,9 @@ export interface DefaultHyperParameterRanges {
    *          <p>The categorical hyperparameters and their default ranges.</p>
    *
    */
-  categoricalHyperParameterRanges?: Array<DefaultCategoricalHyperParameterRange>;
+  categoricalHyperParameterRanges?: Array<
+    DefaultCategoricalHyperParameterRange
+  >;
 
   /**
    *
@@ -3476,7 +3478,7 @@ export namespace Recipe {
 }
 
 export enum RecipeProvider {
-  SERVICE = "SERVICE",
+  SERVICE = "SERVICE"
 }
 
 /**
@@ -3988,7 +3990,7 @@ export namespace SolutionVersionSummary {
 
 export enum TrainingMode {
   FULL = "FULL",
-  UPDATE = "UPDATE",
+  UPDATE = "UPDATE"
 }
 
 export interface UpdateCampaignRequest {
@@ -4043,7 +4045,9 @@ export namespace UpdateCampaignResponse {
  *          <p>Provide a valid value for the field or parameter.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   message?: string;
@@ -4060,7 +4064,9 @@ export namespace InvalidInputException {
  *          <p>The token is not valid.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   message?: string;
@@ -4077,7 +4083,9 @@ export namespace InvalidNextTokenException {
  *          <p>The limit on the number of requests per second has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message?: string;
@@ -4094,7 +4102,9 @@ export namespace LimitExceededException {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -4111,7 +4121,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The specified resource is in use.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -4128,7 +4140,9 @@ export namespace ResourceInUseException {
  *          <p>Could not find the specified resource.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;

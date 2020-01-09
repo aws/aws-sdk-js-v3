@@ -1,20 +1,20 @@
 import {
   SecurityHubClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SecurityHubClient";
 import {
   EnableImportFindingsForProductRequest,
-  EnableImportFindingsForProductResponse,
+  EnableImportFindingsForProductResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1EnableImportFindingsForProductCommand,
-  serializeAws_restJson1_1EnableImportFindingsForProductCommand,
+  serializeAws_restJson1_1EnableImportFindingsForProductCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type EnableImportFindingsForProductCommandInput = EnableImportFindingsForProductRequest;
 export type EnableImportFindingsForProductCommandOutput = EnableImportFindingsForProductResponse;
 
-export class EnableImportFindingsForProductCommand extends $Command<EnableImportFindingsForProductCommandInput, EnableImportFindingsForProductCommandOutput, SecurityHubClientResolvedConfig> {
+export class EnableImportFindingsForProductCommand extends $Command<
+  EnableImportFindingsForProductCommandInput,
+  EnableImportFindingsForProductCommandOutput,
+  SecurityHubClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class EnableImportFindingsForProductCommand extends $Command<EnableImport
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SecurityHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<EnableImportFindingsForProductCommandInput, EnableImportFindingsForProductCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    EnableImportFindingsForProductCommandInput,
+    EnableImportFindingsForProductCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class EnableImportFindingsForProductCommand extends $Command<EnableImport
     input: EnableImportFindingsForProductCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1EnableImportFindingsForProductCommand(input, context);
+    return serializeAws_restJson1_1EnableImportFindingsForProductCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<EnableImportFindingsForProductCommandOutput> {
-    return deserializeAws_restJson1_1EnableImportFindingsForProductCommand(output, context);
+    return deserializeAws_restJson1_1EnableImportFindingsForProductCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

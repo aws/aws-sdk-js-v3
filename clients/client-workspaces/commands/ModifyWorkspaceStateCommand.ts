@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig,
+  WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
 import {
   ModifyWorkspaceStateRequest,
-  ModifyWorkspaceStateResult,
+  ModifyWorkspaceStateResult
 } from "../models/index";
 import {
   deserializeAws_json1_1ModifyWorkspaceStateCommand,
-  serializeAws_json1_1ModifyWorkspaceStateCommand,
+  serializeAws_json1_1ModifyWorkspaceStateCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ModifyWorkspaceStateCommandInput = ModifyWorkspaceStateRequest;
 export type ModifyWorkspaceStateCommandOutput = ModifyWorkspaceStateResult;
 
-export class ModifyWorkspaceStateCommand extends $Command<ModifyWorkspaceStateCommandInput, ModifyWorkspaceStateCommandOutput, WorkSpacesClientResolvedConfig> {
+export class ModifyWorkspaceStateCommand extends $Command<
+  ModifyWorkspaceStateCommandInput,
+  ModifyWorkspaceStateCommandOutput,
+  WorkSpacesClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ModifyWorkspaceStateCommand extends $Command<ModifyWorkspaceStateCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ModifyWorkspaceStateCommandInput, ModifyWorkspaceStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ModifyWorkspaceStateCommandInput,
+    ModifyWorkspaceStateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   DirectConnectClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DirectConnectClient";
 import {
   AcceptDirectConnectGatewayAssociationProposalRequest,
-  AcceptDirectConnectGatewayAssociationProposalResult,
+  AcceptDirectConnectGatewayAssociationProposalResult
 } from "../models/index";
 import {
   deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,
-  serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand,
+  serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type AcceptDirectConnectGatewayAssociationProposalCommandInput = AcceptDirectConnectGatewayAssociationProposalRequest;
 export type AcceptDirectConnectGatewayAssociationProposalCommandOutput = AcceptDirectConnectGatewayAssociationProposalResult;
 
-export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command<AcceptDirectConnectGatewayAssociationProposalCommandInput, AcceptDirectConnectGatewayAssociationProposalCommandOutput, DirectConnectClientResolvedConfig> {
+export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command<
+  AcceptDirectConnectGatewayAssociationProposalCommandInput,
+  AcceptDirectConnectGatewayAssociationProposalCommandOutput,
+  DirectConnectClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: AcceptDirectConnectGatewayAssociationProposalCommandInput) {
+  constructor(
+    readonly input: AcceptDirectConnectGatewayAssociationProposalCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DirectConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AcceptDirectConnectGatewayAssociationProposalCommandInput, AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AcceptDirectConnectGatewayAssociationProposalCommandInput,
+    AcceptDirectConnectGatewayAssociationProposalCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     input: AcceptDirectConnectGatewayAssociationProposalCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(input, context);
+    return serializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> {
-    return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(output, context);
+    return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

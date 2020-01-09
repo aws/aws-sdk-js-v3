@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *         <p>General authentication failure. The request was not signed correctly.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message: string | undefined;
@@ -18,7 +20,9 @@ export namespace AccessDeniedException {
   }
 }
 
-export interface IncompatibleVersionException extends _smithy.SmithyException, $MetadataBearer {
+export interface IncompatibleVersionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IncompatibleVersionException";
   $fault: "client";
   message: string | undefined;
@@ -35,7 +39,9 @@ export namespace IncompatibleVersionException {
  *         <p>Elastic Transcoder encountered an unexpected exception while trying to fulfill the request.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   message: string | undefined;
@@ -53,7 +59,9 @@ export namespace InternalServiceException {
  *             exceeds the maximum allowed.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   message: string | undefined;
@@ -71,7 +79,9 @@ export namespace LimitExceededException {
  *             to delete a pipeline that is currently in use.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message: string | undefined;
@@ -89,7 +99,9 @@ export namespace ResourceInUseException {
  *             to which you're trying to add a job doesn't exist or is still being created.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message: string | undefined;
@@ -106,7 +118,9 @@ export namespace ResourceNotFoundException {
  *         <p>One or more required parameter values were not provided in the request.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   message: string | undefined;
@@ -1500,7 +1514,7 @@ export interface CreatePipelineRequest {
    *             </li>
    *             <li>
    *                <p>You do not want to specify the permissions that Elastic Transcoder grants to the
-   * 				
+   *
    *                     files. </p>
    * 				           <important>
    *                   <p>When Elastic Transcoder saves files in

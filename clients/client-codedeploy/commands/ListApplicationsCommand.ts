@@ -1,20 +1,17 @@
 import {
   CodeDeployClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeDeployClient";
-import {
-  ListApplicationsInput,
-  ListApplicationsOutput,
-} from "../models/index";
+import { ListApplicationsInput, ListApplicationsOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListApplicationsCommand,
-  serializeAws_json1_1ListApplicationsCommand,
+  serializeAws_json1_1ListApplicationsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListApplicationsCommandInput = ListApplicationsInput;
 export type ListApplicationsCommandOutput = ListApplicationsOutput;
 
-export class ListApplicationsCommand extends $Command<ListApplicationsCommandInput, ListApplicationsCommandOutput, CodeDeployClientResolvedConfig> {
+export class ListApplicationsCommand extends $Command<
+  ListApplicationsCommandInput,
+  ListApplicationsCommandOutput,
+  CodeDeployClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListApplicationsCommand extends $Command<ListApplicationsCommandInp
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListApplicationsCommandInput, ListApplicationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

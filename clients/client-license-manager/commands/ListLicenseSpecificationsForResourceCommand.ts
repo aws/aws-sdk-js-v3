@@ -1,20 +1,20 @@
 import {
   LicenseManagerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LicenseManagerClient";
 import {
   ListLicenseSpecificationsForResourceRequest,
-  ListLicenseSpecificationsForResourceResponse,
+  ListLicenseSpecificationsForResourceResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand,
-  serializeAws_json1_1ListLicenseSpecificationsForResourceCommand,
+  serializeAws_json1_1ListLicenseSpecificationsForResourceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,17 +23,23 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListLicenseSpecificationsForResourceCommandInput = ListLicenseSpecificationsForResourceRequest;
 export type ListLicenseSpecificationsForResourceCommandOutput = ListLicenseSpecificationsForResourceResponse;
 
-export class ListLicenseSpecificationsForResourceCommand extends $Command<ListLicenseSpecificationsForResourceCommandInput, ListLicenseSpecificationsForResourceCommandOutput, LicenseManagerClientResolvedConfig> {
+export class ListLicenseSpecificationsForResourceCommand extends $Command<
+  ListLicenseSpecificationsForResourceCommandInput,
+  ListLicenseSpecificationsForResourceCommandOutput,
+  LicenseManagerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
-  constructor(readonly input: ListLicenseSpecificationsForResourceCommandInput) {
+  constructor(
+    readonly input: ListLicenseSpecificationsForResourceCommandInput
+  ) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -43,14 +49,19 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<ListLi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListLicenseSpecificationsForResourceCommandInput, ListLicenseSpecificationsForResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListLicenseSpecificationsForResourceCommandInput,
+    ListLicenseSpecificationsForResourceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +74,20 @@ export class ListLicenseSpecificationsForResourceCommand extends $Command<ListLi
     input: ListLicenseSpecificationsForResourceCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(input, context);
+    return serializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListLicenseSpecificationsForResourceCommandOutput> {
-    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(output, context);
+    return deserializeAws_json1_1ListLicenseSpecificationsForResourceCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

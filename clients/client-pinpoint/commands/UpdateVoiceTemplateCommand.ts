@@ -1,20 +1,20 @@
 import {
   PinpointClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointClient";
 import {
   UpdateVoiceTemplateRequest,
-  UpdateVoiceTemplateResponse,
+  UpdateVoiceTemplateResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVoiceTemplateCommand,
-  serializeAws_restJson1_1UpdateVoiceTemplateCommand,
+  serializeAws_restJson1_1UpdateVoiceTemplateCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateVoiceTemplateCommandInput = UpdateVoiceTemplateRequest;
 export type UpdateVoiceTemplateCommandOutput = UpdateVoiceTemplateResponse;
 
-export class UpdateVoiceTemplateCommand extends $Command<UpdateVoiceTemplateCommandInput, UpdateVoiceTemplateCommandOutput, PinpointClientResolvedConfig> {
+export class UpdateVoiceTemplateCommand extends $Command<
+  UpdateVoiceTemplateCommandInput,
+  UpdateVoiceTemplateCommandOutput,
+  PinpointClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateVoiceTemplateCommand extends $Command<UpdateVoiceTemplateComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateVoiceTemplateCommandInput, UpdateVoiceTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateVoiceTemplateCommandInput,
+    UpdateVoiceTemplateCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateVoiceTemplateCommand extends $Command<UpdateVoiceTemplateComm
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateVoiceTemplateCommandOutput> {
-    return deserializeAws_restJson1_1UpdateVoiceTemplateCommand(output, context);
+    return deserializeAws_restJson1_1UpdateVoiceTemplateCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

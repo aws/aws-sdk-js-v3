@@ -2,332 +2,332 @@ import { CloudDirectoryClient } from "./CloudDirectoryClient";
 import {
   AddFacetToObjectCommand,
   AddFacetToObjectCommandInput,
-  AddFacetToObjectCommandOutput,
+  AddFacetToObjectCommandOutput
 } from "./commands/AddFacetToObjectCommand";
 import {
   ApplySchemaCommand,
   ApplySchemaCommandInput,
-  ApplySchemaCommandOutput,
+  ApplySchemaCommandOutput
 } from "./commands/ApplySchemaCommand";
 import {
   AttachObjectCommand,
   AttachObjectCommandInput,
-  AttachObjectCommandOutput,
+  AttachObjectCommandOutput
 } from "./commands/AttachObjectCommand";
 import {
   AttachPolicyCommand,
   AttachPolicyCommandInput,
-  AttachPolicyCommandOutput,
+  AttachPolicyCommandOutput
 } from "./commands/AttachPolicyCommand";
 import {
   AttachToIndexCommand,
   AttachToIndexCommandInput,
-  AttachToIndexCommandOutput,
+  AttachToIndexCommandOutput
 } from "./commands/AttachToIndexCommand";
 import {
   AttachTypedLinkCommand,
   AttachTypedLinkCommandInput,
-  AttachTypedLinkCommandOutput,
+  AttachTypedLinkCommandOutput
 } from "./commands/AttachTypedLinkCommand";
 import {
   BatchReadCommand,
   BatchReadCommandInput,
-  BatchReadCommandOutput,
+  BatchReadCommandOutput
 } from "./commands/BatchReadCommand";
 import {
   BatchWriteCommand,
   BatchWriteCommandInput,
-  BatchWriteCommandOutput,
+  BatchWriteCommandOutput
 } from "./commands/BatchWriteCommand";
 import {
   CreateDirectoryCommand,
   CreateDirectoryCommandInput,
-  CreateDirectoryCommandOutput,
+  CreateDirectoryCommandOutput
 } from "./commands/CreateDirectoryCommand";
 import {
   CreateFacetCommand,
   CreateFacetCommandInput,
-  CreateFacetCommandOutput,
+  CreateFacetCommandOutput
 } from "./commands/CreateFacetCommand";
 import {
   CreateIndexCommand,
   CreateIndexCommandInput,
-  CreateIndexCommandOutput,
+  CreateIndexCommandOutput
 } from "./commands/CreateIndexCommand";
 import {
   CreateObjectCommand,
   CreateObjectCommandInput,
-  CreateObjectCommandOutput,
+  CreateObjectCommandOutput
 } from "./commands/CreateObjectCommand";
 import {
   CreateSchemaCommand,
   CreateSchemaCommandInput,
-  CreateSchemaCommandOutput,
+  CreateSchemaCommandOutput
 } from "./commands/CreateSchemaCommand";
 import {
   CreateTypedLinkFacetCommand,
   CreateTypedLinkFacetCommandInput,
-  CreateTypedLinkFacetCommandOutput,
+  CreateTypedLinkFacetCommandOutput
 } from "./commands/CreateTypedLinkFacetCommand";
 import {
   DeleteDirectoryCommand,
   DeleteDirectoryCommandInput,
-  DeleteDirectoryCommandOutput,
+  DeleteDirectoryCommandOutput
 } from "./commands/DeleteDirectoryCommand";
 import {
   DeleteFacetCommand,
   DeleteFacetCommandInput,
-  DeleteFacetCommandOutput,
+  DeleteFacetCommandOutput
 } from "./commands/DeleteFacetCommand";
 import {
   DeleteObjectCommand,
   DeleteObjectCommandInput,
-  DeleteObjectCommandOutput,
+  DeleteObjectCommandOutput
 } from "./commands/DeleteObjectCommand";
 import {
   DeleteSchemaCommand,
   DeleteSchemaCommandInput,
-  DeleteSchemaCommandOutput,
+  DeleteSchemaCommandOutput
 } from "./commands/DeleteSchemaCommand";
 import {
   DeleteTypedLinkFacetCommand,
   DeleteTypedLinkFacetCommandInput,
-  DeleteTypedLinkFacetCommandOutput,
+  DeleteTypedLinkFacetCommandOutput
 } from "./commands/DeleteTypedLinkFacetCommand";
 import {
   DetachFromIndexCommand,
   DetachFromIndexCommandInput,
-  DetachFromIndexCommandOutput,
+  DetachFromIndexCommandOutput
 } from "./commands/DetachFromIndexCommand";
 import {
   DetachObjectCommand,
   DetachObjectCommandInput,
-  DetachObjectCommandOutput,
+  DetachObjectCommandOutput
 } from "./commands/DetachObjectCommand";
 import {
   DetachPolicyCommand,
   DetachPolicyCommandInput,
-  DetachPolicyCommandOutput,
+  DetachPolicyCommandOutput
 } from "./commands/DetachPolicyCommand";
 import {
   DetachTypedLinkCommand,
   DetachTypedLinkCommandInput,
-  DetachTypedLinkCommandOutput,
+  DetachTypedLinkCommandOutput
 } from "./commands/DetachTypedLinkCommand";
 import {
   DisableDirectoryCommand,
   DisableDirectoryCommandInput,
-  DisableDirectoryCommandOutput,
+  DisableDirectoryCommandOutput
 } from "./commands/DisableDirectoryCommand";
 import {
   EnableDirectoryCommand,
   EnableDirectoryCommandInput,
-  EnableDirectoryCommandOutput,
+  EnableDirectoryCommandOutput
 } from "./commands/EnableDirectoryCommand";
 import {
   GetAppliedSchemaVersionCommand,
   GetAppliedSchemaVersionCommandInput,
-  GetAppliedSchemaVersionCommandOutput,
+  GetAppliedSchemaVersionCommandOutput
 } from "./commands/GetAppliedSchemaVersionCommand";
 import {
   GetDirectoryCommand,
   GetDirectoryCommandInput,
-  GetDirectoryCommandOutput,
+  GetDirectoryCommandOutput
 } from "./commands/GetDirectoryCommand";
 import {
   GetFacetCommand,
   GetFacetCommandInput,
-  GetFacetCommandOutput,
+  GetFacetCommandOutput
 } from "./commands/GetFacetCommand";
 import {
   GetLinkAttributesCommand,
   GetLinkAttributesCommandInput,
-  GetLinkAttributesCommandOutput,
+  GetLinkAttributesCommandOutput
 } from "./commands/GetLinkAttributesCommand";
 import {
   GetObjectAttributesCommand,
   GetObjectAttributesCommandInput,
-  GetObjectAttributesCommandOutput,
+  GetObjectAttributesCommandOutput
 } from "./commands/GetObjectAttributesCommand";
 import {
   GetObjectInformationCommand,
   GetObjectInformationCommandInput,
-  GetObjectInformationCommandOutput,
+  GetObjectInformationCommandOutput
 } from "./commands/GetObjectInformationCommand";
 import {
   GetSchemaAsJsonCommand,
   GetSchemaAsJsonCommandInput,
-  GetSchemaAsJsonCommandOutput,
+  GetSchemaAsJsonCommandOutput
 } from "./commands/GetSchemaAsJsonCommand";
 import {
   GetTypedLinkFacetInformationCommand,
   GetTypedLinkFacetInformationCommandInput,
-  GetTypedLinkFacetInformationCommandOutput,
+  GetTypedLinkFacetInformationCommandOutput
 } from "./commands/GetTypedLinkFacetInformationCommand";
 import {
   ListAppliedSchemaArnsCommand,
   ListAppliedSchemaArnsCommandInput,
-  ListAppliedSchemaArnsCommandOutput,
+  ListAppliedSchemaArnsCommandOutput
 } from "./commands/ListAppliedSchemaArnsCommand";
 import {
   ListAttachedIndicesCommand,
   ListAttachedIndicesCommandInput,
-  ListAttachedIndicesCommandOutput,
+  ListAttachedIndicesCommandOutput
 } from "./commands/ListAttachedIndicesCommand";
 import {
   ListDevelopmentSchemaArnsCommand,
   ListDevelopmentSchemaArnsCommandInput,
-  ListDevelopmentSchemaArnsCommandOutput,
+  ListDevelopmentSchemaArnsCommandOutput
 } from "./commands/ListDevelopmentSchemaArnsCommand";
 import {
   ListDirectoriesCommand,
   ListDirectoriesCommandInput,
-  ListDirectoriesCommandOutput,
+  ListDirectoriesCommandOutput
 } from "./commands/ListDirectoriesCommand";
 import {
   ListFacetAttributesCommand,
   ListFacetAttributesCommandInput,
-  ListFacetAttributesCommandOutput,
+  ListFacetAttributesCommandOutput
 } from "./commands/ListFacetAttributesCommand";
 import {
   ListFacetNamesCommand,
   ListFacetNamesCommandInput,
-  ListFacetNamesCommandOutput,
+  ListFacetNamesCommandOutput
 } from "./commands/ListFacetNamesCommand";
 import {
   ListIncomingTypedLinksCommand,
   ListIncomingTypedLinksCommandInput,
-  ListIncomingTypedLinksCommandOutput,
+  ListIncomingTypedLinksCommandOutput
 } from "./commands/ListIncomingTypedLinksCommand";
 import {
   ListIndexCommand,
   ListIndexCommandInput,
-  ListIndexCommandOutput,
+  ListIndexCommandOutput
 } from "./commands/ListIndexCommand";
 import {
   ListManagedSchemaArnsCommand,
   ListManagedSchemaArnsCommandInput,
-  ListManagedSchemaArnsCommandOutput,
+  ListManagedSchemaArnsCommandOutput
 } from "./commands/ListManagedSchemaArnsCommand";
 import {
   ListObjectAttributesCommand,
   ListObjectAttributesCommandInput,
-  ListObjectAttributesCommandOutput,
+  ListObjectAttributesCommandOutput
 } from "./commands/ListObjectAttributesCommand";
 import {
   ListObjectChildrenCommand,
   ListObjectChildrenCommandInput,
-  ListObjectChildrenCommandOutput,
+  ListObjectChildrenCommandOutput
 } from "./commands/ListObjectChildrenCommand";
 import {
   ListObjectParentPathsCommand,
   ListObjectParentPathsCommandInput,
-  ListObjectParentPathsCommandOutput,
+  ListObjectParentPathsCommandOutput
 } from "./commands/ListObjectParentPathsCommand";
 import {
   ListObjectParentsCommand,
   ListObjectParentsCommandInput,
-  ListObjectParentsCommandOutput,
+  ListObjectParentsCommandOutput
 } from "./commands/ListObjectParentsCommand";
 import {
   ListObjectPoliciesCommand,
   ListObjectPoliciesCommandInput,
-  ListObjectPoliciesCommandOutput,
+  ListObjectPoliciesCommandOutput
 } from "./commands/ListObjectPoliciesCommand";
 import {
   ListOutgoingTypedLinksCommand,
   ListOutgoingTypedLinksCommandInput,
-  ListOutgoingTypedLinksCommandOutput,
+  ListOutgoingTypedLinksCommandOutput
 } from "./commands/ListOutgoingTypedLinksCommand";
 import {
   ListPolicyAttachmentsCommand,
   ListPolicyAttachmentsCommandInput,
-  ListPolicyAttachmentsCommandOutput,
+  ListPolicyAttachmentsCommandOutput
 } from "./commands/ListPolicyAttachmentsCommand";
 import {
   ListPublishedSchemaArnsCommand,
   ListPublishedSchemaArnsCommandInput,
-  ListPublishedSchemaArnsCommandOutput,
+  ListPublishedSchemaArnsCommandOutput
 } from "./commands/ListPublishedSchemaArnsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "./commands/ListTagsForResourceCommand";
 import {
   ListTypedLinkFacetAttributesCommand,
   ListTypedLinkFacetAttributesCommandInput,
-  ListTypedLinkFacetAttributesCommandOutput,
+  ListTypedLinkFacetAttributesCommandOutput
 } from "./commands/ListTypedLinkFacetAttributesCommand";
 import {
   ListTypedLinkFacetNamesCommand,
   ListTypedLinkFacetNamesCommandInput,
-  ListTypedLinkFacetNamesCommandOutput,
+  ListTypedLinkFacetNamesCommandOutput
 } from "./commands/ListTypedLinkFacetNamesCommand";
 import {
   LookupPolicyCommand,
   LookupPolicyCommandInput,
-  LookupPolicyCommandOutput,
+  LookupPolicyCommandOutput
 } from "./commands/LookupPolicyCommand";
 import {
   PublishSchemaCommand,
   PublishSchemaCommandInput,
-  PublishSchemaCommandOutput,
+  PublishSchemaCommandOutput
 } from "./commands/PublishSchemaCommand";
 import {
   PutSchemaFromJsonCommand,
   PutSchemaFromJsonCommandInput,
-  PutSchemaFromJsonCommandOutput,
+  PutSchemaFromJsonCommandOutput
 } from "./commands/PutSchemaFromJsonCommand";
 import {
   RemoveFacetFromObjectCommand,
   RemoveFacetFromObjectCommandInput,
-  RemoveFacetFromObjectCommandOutput,
+  RemoveFacetFromObjectCommandOutput
 } from "./commands/RemoveFacetFromObjectCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateFacetCommand,
   UpdateFacetCommandInput,
-  UpdateFacetCommandOutput,
+  UpdateFacetCommandOutput
 } from "./commands/UpdateFacetCommand";
 import {
   UpdateLinkAttributesCommand,
   UpdateLinkAttributesCommandInput,
-  UpdateLinkAttributesCommandOutput,
+  UpdateLinkAttributesCommandOutput
 } from "./commands/UpdateLinkAttributesCommand";
 import {
   UpdateObjectAttributesCommand,
   UpdateObjectAttributesCommandInput,
-  UpdateObjectAttributesCommandOutput,
+  UpdateObjectAttributesCommandOutput
 } from "./commands/UpdateObjectAttributesCommand";
 import {
   UpdateSchemaCommand,
   UpdateSchemaCommandInput,
-  UpdateSchemaCommandOutput,
+  UpdateSchemaCommandOutput
 } from "./commands/UpdateSchemaCommand";
 import {
   UpdateTypedLinkFacetCommand,
   UpdateTypedLinkFacetCommandInput,
-  UpdateTypedLinkFacetCommandOutput,
+  UpdateTypedLinkFacetCommandOutput
 } from "./commands/UpdateTypedLinkFacetCommand";
 import {
   UpgradeAppliedSchemaCommand,
   UpgradeAppliedSchemaCommandInput,
-  UpgradeAppliedSchemaCommandOutput,
+  UpgradeAppliedSchemaCommandOutput
 } from "./commands/UpgradeAppliedSchemaCommand";
 import {
   UpgradePublishedSchemaCommand,
   UpgradePublishedSchemaCommandInput,
-  UpgradePublishedSchemaCommandOutput,
+  UpgradePublishedSchemaCommandOutput
 } from "./commands/UpgradePublishedSchemaCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -350,7 +350,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public addFacetToObject(
     args: AddFacetToObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddFacetToObjectCommandOutput>;
   public addFacetToObject(
     args: AddFacetToObjectCommandInput,
@@ -363,16 +363,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public addFacetToObject(
     args: AddFacetToObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddFacetToObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddFacetToObjectCommandOutput) => void),
     cb?: (err: any, data?: AddFacetToObjectCommandOutput) => void
   ): Promise<AddFacetToObjectCommandOutput> | void {
     const command = new AddFacetToObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -387,7 +389,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public applySchema(
     args: ApplySchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ApplySchemaCommandOutput>;
   public applySchema(
     args: ApplySchemaCommandInput,
@@ -400,16 +402,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public applySchema(
     args: ApplySchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ApplySchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ApplySchemaCommandOutput) => void),
     cb?: (err: any, data?: ApplySchemaCommandOutput) => void
   ): Promise<ApplySchemaCommandOutput> | void {
     const command = new ApplySchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -433,7 +437,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public attachObject(
     args: AttachObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AttachObjectCommandOutput>;
   public attachObject(
     args: AttachObjectCommandInput,
@@ -446,16 +450,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachObject(
     args: AttachObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachObjectCommandOutput) => void),
     cb?: (err: any, data?: AttachObjectCommandOutput) => void
   ): Promise<AttachObjectCommandOutput> | void {
     const command = new AttachObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -470,7 +476,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AttachPolicyCommandOutput>;
   public attachPolicy(
     args: AttachPolicyCommandInput,
@@ -483,16 +489,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachPolicy(
     args: AttachPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachPolicyCommandOutput) => void),
     cb?: (err: any, data?: AttachPolicyCommandOutput) => void
   ): Promise<AttachPolicyCommandOutput> | void {
     const command = new AttachPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -506,7 +514,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public attachToIndex(
     args: AttachToIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AttachToIndexCommandOutput>;
   public attachToIndex(
     args: AttachToIndexCommandInput,
@@ -519,16 +527,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachToIndex(
     args: AttachToIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachToIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachToIndexCommandOutput) => void),
     cb?: (err: any, data?: AttachToIndexCommandOutput) => void
   ): Promise<AttachToIndexCommandOutput> | void {
     const command = new AttachToIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -542,7 +552,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public attachTypedLink(
     args: AttachTypedLinkCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AttachTypedLinkCommandOutput>;
   public attachTypedLink(
     args: AttachTypedLinkCommandInput,
@@ -555,16 +565,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public attachTypedLink(
     args: AttachTypedLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachTypedLinkCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AttachTypedLinkCommandOutput) => void),
     cb?: (err: any, data?: AttachTypedLinkCommandOutput) => void
   ): Promise<AttachTypedLinkCommandOutput> | void {
     const command = new AttachTypedLinkCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -578,7 +590,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public batchRead(
     args: BatchReadCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchReadCommandOutput>;
   public batchRead(
     args: BatchReadCommandInput,
@@ -591,16 +603,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public batchRead(
     args: BatchReadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchReadCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchReadCommandOutput) => void),
     cb?: (err: any, data?: BatchReadCommandOutput) => void
   ): Promise<BatchReadCommandOutput> | void {
     const command = new BatchReadCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -615,7 +629,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public batchWrite(
     args: BatchWriteCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<BatchWriteCommandOutput>;
   public batchWrite(
     args: BatchWriteCommandInput,
@@ -628,16 +642,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public batchWrite(
     args: BatchWriteCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchWriteCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: BatchWriteCommandOutput) => void),
     cb?: (err: any, data?: BatchWriteCommandOutput) => void
   ): Promise<BatchWriteCommandOutput> | void {
     const command = new BatchWriteCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -654,7 +670,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createDirectory(
     args: CreateDirectoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateDirectoryCommandOutput>;
   public createDirectory(
     args: CreateDirectoryCommandInput,
@@ -667,16 +683,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createDirectory(
     args: CreateDirectoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDirectoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateDirectoryCommandOutput) => void),
     cb?: (err: any, data?: CreateDirectoryCommandOutput) => void
   ): Promise<CreateDirectoryCommandOutput> | void {
     const command = new CreateDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -691,7 +709,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createFacet(
     args: CreateFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateFacetCommandOutput>;
   public createFacet(
     args: CreateFacetCommandInput,
@@ -704,16 +722,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createFacet(
     args: CreateFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateFacetCommandOutput) => void),
     cb?: (err: any, data?: CreateFacetCommandOutput) => void
   ): Promise<CreateFacetCommandOutput> | void {
     const command = new CreateFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -727,7 +747,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createIndex(
     args: CreateIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateIndexCommandOutput>;
   public createIndex(
     args: CreateIndexCommandInput,
@@ -740,16 +760,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createIndex(
     args: CreateIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateIndexCommandOutput) => void),
     cb?: (err: any, data?: CreateIndexCommandOutput) => void
   ): Promise<CreateIndexCommandOutput> | void {
     const command = new CreateIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -766,7 +788,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createObject(
     args: CreateObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateObjectCommandOutput>;
   public createObject(
     args: CreateObjectCommandInput,
@@ -779,16 +801,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createObject(
     args: CreateObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateObjectCommandOutput) => void),
     cb?: (err: any, data?: CreateObjectCommandOutput) => void
   ): Promise<CreateObjectCommandOutput> | void {
     const command = new CreateObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -822,7 +846,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createSchema(
     args: CreateSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSchemaCommandOutput>;
   public createSchema(
     args: CreateSchemaCommandInput,
@@ -835,16 +859,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createSchema(
     args: CreateSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSchemaCommandOutput) => void),
     cb?: (err: any, data?: CreateSchemaCommandOutput) => void
   ): Promise<CreateSchemaCommandOutput> | void {
     const command = new CreateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -858,7 +884,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public createTypedLinkFacet(
     args: CreateTypedLinkFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateTypedLinkFacetCommandOutput>;
   public createTypedLinkFacet(
     args: CreateTypedLinkFacetCommandInput,
@@ -871,16 +897,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public createTypedLinkFacet(
     args: CreateTypedLinkFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTypedLinkFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateTypedLinkFacetCommandOutput) => void),
     cb?: (err: any, data?: CreateTypedLinkFacetCommandOutput) => void
   ): Promise<CreateTypedLinkFacetCommandOutput> | void {
     const command = new CreateTypedLinkFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -896,7 +924,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteDirectoryCommandOutput>;
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
@@ -909,16 +937,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteDirectory(
     args: DeleteDirectoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DeleteDirectoryCommandOutput) => void
   ): Promise<DeleteDirectoryCommandOutput> | void {
     const command = new DeleteDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -934,7 +964,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public deleteFacet(
     args: DeleteFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFacetCommandOutput>;
   public deleteFacet(
     args: DeleteFacetCommandInput,
@@ -947,16 +977,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteFacet(
     args: DeleteFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFacetCommandOutput) => void),
     cb?: (err: any, data?: DeleteFacetCommandOutput) => void
   ): Promise<DeleteFacetCommandOutput> | void {
     const command = new DeleteFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -971,7 +1003,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public deleteObject(
     args: DeleteObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteObjectCommandOutput>;
   public deleteObject(
     args: DeleteObjectCommandInput,
@@ -984,16 +1016,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteObject(
     args: DeleteObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteObjectCommandOutput) => void),
     cb?: (err: any, data?: DeleteObjectCommandOutput) => void
   ): Promise<DeleteObjectCommandOutput> | void {
     const command = new DeleteObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1007,7 +1041,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSchemaCommandOutput>;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
@@ -1020,16 +1054,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteSchema(
     args: DeleteSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSchemaCommandOutput) => void),
     cb?: (err: any, data?: DeleteSchemaCommandOutput) => void
   ): Promise<DeleteSchemaCommandOutput> | void {
     const command = new DeleteSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1043,7 +1079,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public deleteTypedLinkFacet(
     args: DeleteTypedLinkFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTypedLinkFacetCommandOutput>;
   public deleteTypedLinkFacet(
     args: DeleteTypedLinkFacetCommandInput,
@@ -1056,16 +1092,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public deleteTypedLinkFacet(
     args: DeleteTypedLinkFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTypedLinkFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTypedLinkFacetCommandOutput) => void),
     cb?: (err: any, data?: DeleteTypedLinkFacetCommandOutput) => void
   ): Promise<DeleteTypedLinkFacetCommandOutput> | void {
     const command = new DeleteTypedLinkFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1079,7 +1117,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public detachFromIndex(
     args: DetachFromIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetachFromIndexCommandOutput>;
   public detachFromIndex(
     args: DetachFromIndexCommandInput,
@@ -1092,16 +1130,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachFromIndex(
     args: DetachFromIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachFromIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachFromIndexCommandOutput) => void),
     cb?: (err: any, data?: DetachFromIndexCommandOutput) => void
   ): Promise<DetachFromIndexCommandOutput> | void {
     const command = new DetachFromIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1116,7 +1156,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public detachObject(
     args: DetachObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetachObjectCommandOutput>;
   public detachObject(
     args: DetachObjectCommandInput,
@@ -1129,16 +1169,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachObject(
     args: DetachObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachObjectCommandOutput) => void),
     cb?: (err: any, data?: DetachObjectCommandOutput) => void
   ): Promise<DetachObjectCommandOutput> | void {
     const command = new DetachObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1152,7 +1194,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetachPolicyCommandOutput>;
   public detachPolicy(
     args: DetachPolicyCommandInput,
@@ -1165,16 +1207,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachPolicy(
     args: DetachPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachPolicyCommandOutput) => void),
     cb?: (err: any, data?: DetachPolicyCommandOutput) => void
   ): Promise<DetachPolicyCommandOutput> | void {
     const command = new DetachPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1188,7 +1232,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public detachTypedLink(
     args: DetachTypedLinkCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetachTypedLinkCommandOutput>;
   public detachTypedLink(
     args: DetachTypedLinkCommandInput,
@@ -1201,16 +1245,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public detachTypedLink(
     args: DetachTypedLinkCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachTypedLinkCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetachTypedLinkCommandOutput) => void),
     cb?: (err: any, data?: DetachTypedLinkCommandOutput) => void
   ): Promise<DetachTypedLinkCommandOutput> | void {
     const command = new DetachTypedLinkCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1225,7 +1271,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public disableDirectory(
     args: DisableDirectoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DisableDirectoryCommandOutput>;
   public disableDirectory(
     args: DisableDirectoryCommandInput,
@@ -1238,16 +1284,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public disableDirectory(
     args: DisableDirectoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisableDirectoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableDirectoryCommandOutput) => void),
     cb?: (err: any, data?: DisableDirectoryCommandOutput) => void
   ): Promise<DisableDirectoryCommandOutput> | void {
     const command = new DisableDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1262,7 +1310,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public enableDirectory(
     args: EnableDirectoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<EnableDirectoryCommandOutput>;
   public enableDirectory(
     args: EnableDirectoryCommandInput,
@@ -1275,16 +1323,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public enableDirectory(
     args: EnableDirectoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EnableDirectoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableDirectoryCommandOutput) => void),
     cb?: (err: any, data?: EnableDirectoryCommandOutput) => void
   ): Promise<EnableDirectoryCommandOutput> | void {
     const command = new EnableDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1297,7 +1347,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getAppliedSchemaVersion(
     args: GetAppliedSchemaVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetAppliedSchemaVersionCommandOutput>;
   public getAppliedSchemaVersion(
     args: GetAppliedSchemaVersionCommandInput,
@@ -1310,16 +1360,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getAppliedSchemaVersion(
     args: GetAppliedSchemaVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppliedSchemaVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetAppliedSchemaVersionCommandOutput) => void),
     cb?: (err: any, data?: GetAppliedSchemaVersionCommandOutput) => void
   ): Promise<GetAppliedSchemaVersionCommandOutput> | void {
     const command = new GetAppliedSchemaVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1333,7 +1385,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getDirectory(
     args: GetDirectoryCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDirectoryCommandOutput>;
   public getDirectory(
     args: GetDirectoryCommandInput,
@@ -1346,16 +1398,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getDirectory(
     args: GetDirectoryCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDirectoryCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDirectoryCommandOutput) => void),
     cb?: (err: any, data?: GetDirectoryCommandOutput) => void
   ): Promise<GetDirectoryCommandOutput> | void {
     const command = new GetDirectoryCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1370,7 +1424,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getFacet(
     args: GetFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetFacetCommandOutput>;
   public getFacet(
     args: GetFacetCommandInput,
@@ -1383,16 +1437,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getFacet(
     args: GetFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetFacetCommandOutput) => void),
     cb?: (err: any, data?: GetFacetCommandOutput) => void
   ): Promise<GetFacetCommandOutput> | void {
     const command = new GetFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1405,7 +1461,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getLinkAttributes(
     args: GetLinkAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetLinkAttributesCommandOutput>;
   public getLinkAttributes(
     args: GetLinkAttributesCommandInput,
@@ -1418,16 +1474,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getLinkAttributes(
     args: GetLinkAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLinkAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLinkAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetLinkAttributesCommandOutput) => void
   ): Promise<GetLinkAttributesCommandOutput> | void {
     const command = new GetLinkAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1440,7 +1498,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getObjectAttributes(
     args: GetObjectAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetObjectAttributesCommandOutput>;
   public getObjectAttributes(
     args: GetObjectAttributesCommandInput,
@@ -1453,16 +1511,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getObjectAttributes(
     args: GetObjectAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetObjectAttributesCommandOutput) => void),
     cb?: (err: any, data?: GetObjectAttributesCommandOutput) => void
   ): Promise<GetObjectAttributesCommandOutput> | void {
     const command = new GetObjectAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1476,7 +1536,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getObjectInformation(
     args: GetObjectInformationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetObjectInformationCommandOutput>;
   public getObjectInformation(
     args: GetObjectInformationCommandInput,
@@ -1489,16 +1549,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getObjectInformation(
     args: GetObjectInformationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetObjectInformationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetObjectInformationCommandOutput) => void),
     cb?: (err: any, data?: GetObjectInformationCommandOutput) => void
   ): Promise<GetObjectInformationCommandOutput> | void {
     const command = new GetObjectInformationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1512,7 +1574,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getSchemaAsJson(
     args: GetSchemaAsJsonCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSchemaAsJsonCommandOutput>;
   public getSchemaAsJson(
     args: GetSchemaAsJsonCommandInput,
@@ -1525,16 +1587,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getSchemaAsJson(
     args: GetSchemaAsJsonCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSchemaAsJsonCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSchemaAsJsonCommandOutput) => void),
     cb?: (err: any, data?: GetSchemaAsJsonCommandOutput) => void
   ): Promise<GetSchemaAsJsonCommandOutput> | void {
     const command = new GetSchemaAsJsonCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1548,7 +1612,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public getTypedLinkFacetInformation(
     args: GetTypedLinkFacetInformationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTypedLinkFacetInformationCommandOutput>;
   public getTypedLinkFacetInformation(
     args: GetTypedLinkFacetInformationCommandInput,
@@ -1561,16 +1625,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public getTypedLinkFacetInformation(
     args: GetTypedLinkFacetInformationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTypedLinkFacetInformationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTypedLinkFacetInformationCommandOutput) => void),
     cb?: (err: any, data?: GetTypedLinkFacetInformationCommandOutput) => void
   ): Promise<GetTypedLinkFacetInformationCommandOutput> | void {
     const command = new GetTypedLinkFacetInformationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1584,7 +1650,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listAppliedSchemaArns(
     args: ListAppliedSchemaArnsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAppliedSchemaArnsCommandOutput>;
   public listAppliedSchemaArns(
     args: ListAppliedSchemaArnsCommandInput,
@@ -1597,16 +1663,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listAppliedSchemaArns(
     args: ListAppliedSchemaArnsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAppliedSchemaArnsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAppliedSchemaArnsCommandOutput) => void),
     cb?: (err: any, data?: ListAppliedSchemaArnsCommandOutput) => void
   ): Promise<ListAppliedSchemaArnsCommandOutput> | void {
     const command = new ListAppliedSchemaArnsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1620,7 +1688,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listAttachedIndices(
     args: ListAttachedIndicesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListAttachedIndicesCommandOutput>;
   public listAttachedIndices(
     args: ListAttachedIndicesCommandInput,
@@ -1633,16 +1701,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listAttachedIndices(
     args: ListAttachedIndicesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAttachedIndicesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListAttachedIndicesCommandOutput) => void),
     cb?: (err: any, data?: ListAttachedIndicesCommandOutput) => void
   ): Promise<ListAttachedIndicesCommandOutput> | void {
     const command = new ListAttachedIndicesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1657,7 +1727,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listDevelopmentSchemaArns(
     args: ListDevelopmentSchemaArnsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDevelopmentSchemaArnsCommandOutput>;
   public listDevelopmentSchemaArns(
     args: ListDevelopmentSchemaArnsCommandInput,
@@ -1670,16 +1740,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listDevelopmentSchemaArns(
     args: ListDevelopmentSchemaArnsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDevelopmentSchemaArnsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDevelopmentSchemaArnsCommandOutput) => void),
     cb?: (err: any, data?: ListDevelopmentSchemaArnsCommandOutput) => void
   ): Promise<ListDevelopmentSchemaArnsCommandOutput> | void {
     const command = new ListDevelopmentSchemaArnsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1693,7 +1765,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listDirectories(
     args: ListDirectoriesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListDirectoriesCommandOutput>;
   public listDirectories(
     args: ListDirectoriesCommandInput,
@@ -1706,16 +1778,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listDirectories(
     args: ListDirectoriesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDirectoriesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDirectoriesCommandOutput) => void),
     cb?: (err: any, data?: ListDirectoriesCommandOutput) => void
   ): Promise<ListDirectoriesCommandOutput> | void {
     const command = new ListDirectoriesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1729,7 +1803,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listFacetAttributes(
     args: ListFacetAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFacetAttributesCommandOutput>;
   public listFacetAttributes(
     args: ListFacetAttributesCommandInput,
@@ -1742,16 +1816,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listFacetAttributes(
     args: ListFacetAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFacetAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFacetAttributesCommandOutput) => void),
     cb?: (err: any, data?: ListFacetAttributesCommandOutput) => void
   ): Promise<ListFacetAttributesCommandOutput> | void {
     const command = new ListFacetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1765,7 +1841,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listFacetNames(
     args: ListFacetNamesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFacetNamesCommandOutput>;
   public listFacetNames(
     args: ListFacetNamesCommandInput,
@@ -1778,16 +1854,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listFacetNames(
     args: ListFacetNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFacetNamesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFacetNamesCommandOutput) => void),
     cb?: (err: any, data?: ListFacetNamesCommandOutput) => void
   ): Promise<ListFacetNamesCommandOutput> | void {
     const command = new ListFacetNamesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1803,7 +1881,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listIncomingTypedLinks(
     args: ListIncomingTypedLinksCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListIncomingTypedLinksCommandOutput>;
   public listIncomingTypedLinks(
     args: ListIncomingTypedLinksCommandInput,
@@ -1816,16 +1894,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listIncomingTypedLinks(
     args: ListIncomingTypedLinksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIncomingTypedLinksCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIncomingTypedLinksCommandOutput) => void),
     cb?: (err: any, data?: ListIncomingTypedLinksCommandOutput) => void
   ): Promise<ListIncomingTypedLinksCommandOutput> | void {
     const command = new ListIncomingTypedLinksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1839,7 +1919,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listIndex(
     args: ListIndexCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListIndexCommandOutput>;
   public listIndex(
     args: ListIndexCommandInput,
@@ -1852,16 +1932,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listIndex(
     args: ListIndexCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListIndexCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListIndexCommandOutput) => void),
     cb?: (err: any, data?: ListIndexCommandOutput) => void
   ): Promise<ListIndexCommandOutput> | void {
     const command = new ListIndexCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1874,7 +1956,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listManagedSchemaArns(
     args: ListManagedSchemaArnsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListManagedSchemaArnsCommandOutput>;
   public listManagedSchemaArns(
     args: ListManagedSchemaArnsCommandInput,
@@ -1887,16 +1969,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listManagedSchemaArns(
     args: ListManagedSchemaArnsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListManagedSchemaArnsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListManagedSchemaArnsCommandOutput) => void),
     cb?: (err: any, data?: ListManagedSchemaArnsCommandOutput) => void
   ): Promise<ListManagedSchemaArnsCommandOutput> | void {
     const command = new ListManagedSchemaArnsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1911,7 +1995,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listObjectAttributes(
     args: ListObjectAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListObjectAttributesCommandOutput>;
   public listObjectAttributes(
     args: ListObjectAttributesCommandInput,
@@ -1924,16 +2008,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listObjectAttributes(
     args: ListObjectAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectAttributesCommandOutput) => void),
     cb?: (err: any, data?: ListObjectAttributesCommandOutput) => void
   ): Promise<ListObjectAttributesCommandOutput> | void {
     const command = new ListObjectAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1948,7 +2034,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listObjectChildren(
     args: ListObjectChildrenCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListObjectChildrenCommandOutput>;
   public listObjectChildren(
     args: ListObjectChildrenCommandInput,
@@ -1961,16 +2047,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listObjectChildren(
     args: ListObjectChildrenCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectChildrenCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectChildrenCommandOutput) => void),
     cb?: (err: any, data?: ListObjectChildrenCommandOutput) => void
   ): Promise<ListObjectChildrenCommandOutput> | void {
     const command = new ListObjectChildrenCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1990,7 +2078,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listObjectParentPaths(
     args: ListObjectParentPathsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListObjectParentPathsCommandOutput>;
   public listObjectParentPaths(
     args: ListObjectParentPathsCommandInput,
@@ -2003,16 +2091,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listObjectParentPaths(
     args: ListObjectParentPathsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectParentPathsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectParentPathsCommandOutput) => void),
     cb?: (err: any, data?: ListObjectParentPathsCommandOutput) => void
   ): Promise<ListObjectParentPathsCommandOutput> | void {
     const command = new ListObjectParentPathsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2026,7 +2116,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listObjectParents(
     args: ListObjectParentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListObjectParentsCommandOutput>;
   public listObjectParents(
     args: ListObjectParentsCommandInput,
@@ -2039,16 +2129,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listObjectParents(
     args: ListObjectParentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectParentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectParentsCommandOutput) => void),
     cb?: (err: any, data?: ListObjectParentsCommandOutput) => void
   ): Promise<ListObjectParentsCommandOutput> | void {
     const command = new ListObjectParentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2061,7 +2153,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listObjectPolicies(
     args: ListObjectPoliciesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListObjectPoliciesCommandOutput>;
   public listObjectPolicies(
     args: ListObjectPoliciesCommandInput,
@@ -2074,16 +2166,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listObjectPolicies(
     args: ListObjectPoliciesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListObjectPoliciesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListObjectPoliciesCommandOutput) => void),
     cb?: (err: any, data?: ListObjectPoliciesCommandOutput) => void
   ): Promise<ListObjectPoliciesCommandOutput> | void {
     const command = new ListObjectPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2099,7 +2193,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listOutgoingTypedLinks(
     args: ListOutgoingTypedLinksCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListOutgoingTypedLinksCommandOutput>;
   public listOutgoingTypedLinks(
     args: ListOutgoingTypedLinksCommandInput,
@@ -2112,16 +2206,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listOutgoingTypedLinks(
     args: ListOutgoingTypedLinksCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListOutgoingTypedLinksCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListOutgoingTypedLinksCommandOutput) => void),
     cb?: (err: any, data?: ListOutgoingTypedLinksCommandOutput) => void
   ): Promise<ListOutgoingTypedLinksCommandOutput> | void {
     const command = new ListOutgoingTypedLinksCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2134,7 +2230,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listPolicyAttachments(
     args: ListPolicyAttachmentsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPolicyAttachmentsCommandOutput>;
   public listPolicyAttachments(
     args: ListPolicyAttachmentsCommandInput,
@@ -2147,16 +2243,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listPolicyAttachments(
     args: ListPolicyAttachmentsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPolicyAttachmentsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPolicyAttachmentsCommandOutput) => void),
     cb?: (err: any, data?: ListPolicyAttachmentsCommandOutput) => void
   ): Promise<ListPolicyAttachmentsCommandOutput> | void {
     const command = new ListPolicyAttachmentsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2169,7 +2267,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listPublishedSchemaArns(
     args: ListPublishedSchemaArnsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPublishedSchemaArnsCommandOutput>;
   public listPublishedSchemaArns(
     args: ListPublishedSchemaArnsCommandInput,
@@ -2182,16 +2280,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listPublishedSchemaArns(
     args: ListPublishedSchemaArnsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPublishedSchemaArnsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPublishedSchemaArnsCommandOutput) => void),
     cb?: (err: any, data?: ListPublishedSchemaArnsCommandOutput) => void
   ): Promise<ListPublishedSchemaArnsCommandOutput> | void {
     const command = new ListPublishedSchemaArnsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2206,7 +2306,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForResourceCommandOutput>;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -2219,16 +2319,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): Promise<ListTagsForResourceCommandOutput> | void {
     const command = new ListTagsForResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2241,7 +2343,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listTypedLinkFacetAttributes(
     args: ListTypedLinkFacetAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTypedLinkFacetAttributesCommandOutput>;
   public listTypedLinkFacetAttributes(
     args: ListTypedLinkFacetAttributesCommandInput,
@@ -2254,16 +2356,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listTypedLinkFacetAttributes(
     args: ListTypedLinkFacetAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypedLinkFacetAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTypedLinkFacetAttributesCommandOutput) => void),
     cb?: (err: any, data?: ListTypedLinkFacetAttributesCommandOutput) => void
   ): Promise<ListTypedLinkFacetAttributesCommandOutput> | void {
     const command = new ListTypedLinkFacetAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2278,7 +2382,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public listTypedLinkFacetNames(
     args: ListTypedLinkFacetNamesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTypedLinkFacetNamesCommandOutput>;
   public listTypedLinkFacetNames(
     args: ListTypedLinkFacetNamesCommandInput,
@@ -2291,16 +2395,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public listTypedLinkFacetNames(
     args: ListTypedLinkFacetNamesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTypedLinkFacetNamesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTypedLinkFacetNamesCommandOutput) => void),
     cb?: (err: any, data?: ListTypedLinkFacetNamesCommandOutput) => void
   ): Promise<ListTypedLinkFacetNamesCommandOutput> | void {
     const command = new ListTypedLinkFacetNamesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2318,7 +2424,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public lookupPolicy(
     args: LookupPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<LookupPolicyCommandOutput>;
   public lookupPolicy(
     args: LookupPolicyCommandInput,
@@ -2331,16 +2437,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public lookupPolicy(
     args: LookupPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: LookupPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: LookupPolicyCommandOutput) => void),
     cb?: (err: any, data?: LookupPolicyCommandOutput) => void
   ): Promise<LookupPolicyCommandOutput> | void {
     const command = new LookupPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2353,7 +2461,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public publishSchema(
     args: PublishSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PublishSchemaCommandOutput>;
   public publishSchema(
     args: PublishSchemaCommandInput,
@@ -2366,16 +2474,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public publishSchema(
     args: PublishSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PublishSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PublishSchemaCommandOutput) => void),
     cb?: (err: any, data?: PublishSchemaCommandOutput) => void
   ): Promise<PublishSchemaCommandOutput> | void {
     const command = new PublishSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2388,7 +2498,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public putSchemaFromJson(
     args: PutSchemaFromJsonCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutSchemaFromJsonCommandOutput>;
   public putSchemaFromJson(
     args: PutSchemaFromJsonCommandInput,
@@ -2401,16 +2511,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public putSchemaFromJson(
     args: PutSchemaFromJsonCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSchemaFromJsonCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutSchemaFromJsonCommandOutput) => void),
     cb?: (err: any, data?: PutSchemaFromJsonCommandOutput) => void
   ): Promise<PutSchemaFromJsonCommandOutput> | void {
     const command = new PutSchemaFromJsonCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2423,7 +2535,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public removeFacetFromObject(
     args: RemoveFacetFromObjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveFacetFromObjectCommandOutput>;
   public removeFacetFromObject(
     args: RemoveFacetFromObjectCommandInput,
@@ -2436,16 +2548,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public removeFacetFromObject(
     args: RemoveFacetFromObjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveFacetFromObjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveFacetFromObjectCommandOutput) => void),
     cb?: (err: any, data?: RemoveFacetFromObjectCommandOutput) => void
   ): Promise<RemoveFacetFromObjectCommandOutput> | void {
     const command = new RemoveFacetFromObjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2458,7 +2572,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -2471,16 +2585,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2493,7 +2609,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -2506,16 +2622,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2539,7 +2657,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public updateFacet(
     args: UpdateFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateFacetCommandOutput>;
   public updateFacet(
     args: UpdateFacetCommandInput,
@@ -2552,16 +2670,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateFacet(
     args: UpdateFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateFacetCommandOutput) => void),
     cb?: (err: any, data?: UpdateFacetCommandOutput) => void
   ): Promise<UpdateFacetCommandOutput> | void {
     const command = new UpdateFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2574,7 +2694,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public updateLinkAttributes(
     args: UpdateLinkAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateLinkAttributesCommandOutput>;
   public updateLinkAttributes(
     args: UpdateLinkAttributesCommandInput,
@@ -2587,16 +2707,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateLinkAttributes(
     args: UpdateLinkAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateLinkAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateLinkAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateLinkAttributesCommandOutput) => void
   ): Promise<UpdateLinkAttributesCommandOutput> | void {
     const command = new UpdateLinkAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2609,7 +2731,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public updateObjectAttributes(
     args: UpdateObjectAttributesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateObjectAttributesCommandOutput>;
   public updateObjectAttributes(
     args: UpdateObjectAttributesCommandInput,
@@ -2622,16 +2744,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateObjectAttributes(
     args: UpdateObjectAttributesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateObjectAttributesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateObjectAttributesCommandOutput) => void),
     cb?: (err: any, data?: UpdateObjectAttributesCommandOutput) => void
   ): Promise<UpdateObjectAttributesCommandOutput> | void {
     const command = new UpdateObjectAttributesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2645,7 +2769,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public updateSchema(
     args: UpdateSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateSchemaCommandOutput>;
   public updateSchema(
     args: UpdateSchemaCommandInput,
@@ -2658,16 +2782,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateSchema(
     args: UpdateSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSchemaCommandOutput) => void),
     cb?: (err: any, data?: UpdateSchemaCommandOutput) => void
   ): Promise<UpdateSchemaCommandOutput> | void {
     const command = new UpdateSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2681,7 +2807,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public updateTypedLinkFacet(
     args: UpdateTypedLinkFacetCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateTypedLinkFacetCommandOutput>;
   public updateTypedLinkFacet(
     args: UpdateTypedLinkFacetCommandInput,
@@ -2694,16 +2820,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public updateTypedLinkFacet(
     args: UpdateTypedLinkFacetCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTypedLinkFacetCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateTypedLinkFacetCommandOutput) => void),
     cb?: (err: any, data?: UpdateTypedLinkFacetCommandOutput) => void
   ): Promise<UpdateTypedLinkFacetCommandOutput> | void {
     const command = new UpdateTypedLinkFacetCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2716,7 +2844,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public upgradeAppliedSchema(
     args: UpgradeAppliedSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpgradeAppliedSchemaCommandOutput>;
   public upgradeAppliedSchema(
     args: UpgradeAppliedSchemaCommandInput,
@@ -2729,16 +2857,18 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public upgradeAppliedSchema(
     args: UpgradeAppliedSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpgradeAppliedSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpgradeAppliedSchemaCommandOutput) => void),
     cb?: (err: any, data?: UpgradeAppliedSchemaCommandOutput) => void
   ): Promise<UpgradeAppliedSchemaCommandOutput> | void {
     const command = new UpgradeAppliedSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2751,7 +2881,7 @@ export class CloudDirectory extends CloudDirectoryClient {
    */
   public upgradePublishedSchema(
     args: UpgradePublishedSchemaCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpgradePublishedSchemaCommandOutput>;
   public upgradePublishedSchema(
     args: UpgradePublishedSchemaCommandInput,
@@ -2764,19 +2894,20 @@ export class CloudDirectory extends CloudDirectoryClient {
   ): void;
   public upgradePublishedSchema(
     args: UpgradePublishedSchemaCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpgradePublishedSchemaCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpgradePublishedSchemaCommandOutput) => void),
     cb?: (err: any, data?: UpgradePublishedSchemaCommandOutput) => void
   ): Promise<UpgradePublishedSchemaCommandOutput> | void {
     const command = new UpgradePublishedSchemaCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

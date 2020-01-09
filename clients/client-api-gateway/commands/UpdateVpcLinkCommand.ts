@@ -1,20 +1,17 @@
 import {
   APIGatewayClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../APIGatewayClient";
-import {
-  UpdateVpcLinkRequest,
-  VpcLink,
-} from "../models/index";
+import { UpdateVpcLinkRequest, VpcLink } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateVpcLinkCommand,
-  serializeAws_restJson1_1UpdateVpcLinkCommand,
+  serializeAws_restJson1_1UpdateVpcLinkCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateVpcLinkCommandInput = UpdateVpcLinkRequest;
 export type UpdateVpcLinkCommandOutput = VpcLink;
 
-export class UpdateVpcLinkCommand extends $Command<UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput, APIGatewayClientResolvedConfig> {
+export class UpdateVpcLinkCommand extends $Command<
+  UpdateVpcLinkCommandInput,
+  UpdateVpcLinkCommandOutput,
+  APIGatewayClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateVpcLinkCommand extends $Command<UpdateVpcLinkCommandInput, Up
     configuration: APIGatewayClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateVpcLinkCommandInput, UpdateVpcLinkCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

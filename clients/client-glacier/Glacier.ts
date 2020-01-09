@@ -2,167 +2,167 @@ import { GlacierClient } from "./GlacierClient";
 import {
   AbortMultipartUploadCommand,
   AbortMultipartUploadCommandInput,
-  AbortMultipartUploadCommandOutput,
+  AbortMultipartUploadCommandOutput
 } from "./commands/AbortMultipartUploadCommand";
 import {
   AbortVaultLockCommand,
   AbortVaultLockCommandInput,
-  AbortVaultLockCommandOutput,
+  AbortVaultLockCommandOutput
 } from "./commands/AbortVaultLockCommand";
 import {
   AddTagsToVaultCommand,
   AddTagsToVaultCommandInput,
-  AddTagsToVaultCommandOutput,
+  AddTagsToVaultCommandOutput
 } from "./commands/AddTagsToVaultCommand";
 import {
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandInput,
-  CompleteMultipartUploadCommandOutput,
+  CompleteMultipartUploadCommandOutput
 } from "./commands/CompleteMultipartUploadCommand";
 import {
   CompleteVaultLockCommand,
   CompleteVaultLockCommandInput,
-  CompleteVaultLockCommandOutput,
+  CompleteVaultLockCommandOutput
 } from "./commands/CompleteVaultLockCommand";
 import {
   CreateVaultCommand,
   CreateVaultCommandInput,
-  CreateVaultCommandOutput,
+  CreateVaultCommandOutput
 } from "./commands/CreateVaultCommand";
 import {
   DeleteArchiveCommand,
   DeleteArchiveCommandInput,
-  DeleteArchiveCommandOutput,
+  DeleteArchiveCommandOutput
 } from "./commands/DeleteArchiveCommand";
 import {
   DeleteVaultAccessPolicyCommand,
   DeleteVaultAccessPolicyCommandInput,
-  DeleteVaultAccessPolicyCommandOutput,
+  DeleteVaultAccessPolicyCommandOutput
 } from "./commands/DeleteVaultAccessPolicyCommand";
 import {
   DeleteVaultCommand,
   DeleteVaultCommandInput,
-  DeleteVaultCommandOutput,
+  DeleteVaultCommandOutput
 } from "./commands/DeleteVaultCommand";
 import {
   DeleteVaultNotificationsCommand,
   DeleteVaultNotificationsCommandInput,
-  DeleteVaultNotificationsCommandOutput,
+  DeleteVaultNotificationsCommandOutput
 } from "./commands/DeleteVaultNotificationsCommand";
 import {
   DescribeJobCommand,
   DescribeJobCommandInput,
-  DescribeJobCommandOutput,
+  DescribeJobCommandOutput
 } from "./commands/DescribeJobCommand";
 import {
   DescribeVaultCommand,
   DescribeVaultCommandInput,
-  DescribeVaultCommandOutput,
+  DescribeVaultCommandOutput
 } from "./commands/DescribeVaultCommand";
 import {
   GetDataRetrievalPolicyCommand,
   GetDataRetrievalPolicyCommandInput,
-  GetDataRetrievalPolicyCommandOutput,
+  GetDataRetrievalPolicyCommandOutput
 } from "./commands/GetDataRetrievalPolicyCommand";
 import {
   GetJobOutputCommand,
   GetJobOutputCommandInput,
-  GetJobOutputCommandOutput,
+  GetJobOutputCommandOutput
 } from "./commands/GetJobOutputCommand";
 import {
   GetVaultAccessPolicyCommand,
   GetVaultAccessPolicyCommandInput,
-  GetVaultAccessPolicyCommandOutput,
+  GetVaultAccessPolicyCommandOutput
 } from "./commands/GetVaultAccessPolicyCommand";
 import {
   GetVaultLockCommand,
   GetVaultLockCommandInput,
-  GetVaultLockCommandOutput,
+  GetVaultLockCommandOutput
 } from "./commands/GetVaultLockCommand";
 import {
   GetVaultNotificationsCommand,
   GetVaultNotificationsCommandInput,
-  GetVaultNotificationsCommandOutput,
+  GetVaultNotificationsCommandOutput
 } from "./commands/GetVaultNotificationsCommand";
 import {
   InitiateJobCommand,
   InitiateJobCommandInput,
-  InitiateJobCommandOutput,
+  InitiateJobCommandOutput
 } from "./commands/InitiateJobCommand";
 import {
   InitiateMultipartUploadCommand,
   InitiateMultipartUploadCommandInput,
-  InitiateMultipartUploadCommandOutput,
+  InitiateMultipartUploadCommandOutput
 } from "./commands/InitiateMultipartUploadCommand";
 import {
   InitiateVaultLockCommand,
   InitiateVaultLockCommandInput,
-  InitiateVaultLockCommandOutput,
+  InitiateVaultLockCommandOutput
 } from "./commands/InitiateVaultLockCommand";
 import {
   ListJobsCommand,
   ListJobsCommandInput,
-  ListJobsCommandOutput,
+  ListJobsCommandOutput
 } from "./commands/ListJobsCommand";
 import {
   ListMultipartUploadsCommand,
   ListMultipartUploadsCommandInput,
-  ListMultipartUploadsCommandOutput,
+  ListMultipartUploadsCommandOutput
 } from "./commands/ListMultipartUploadsCommand";
 import {
   ListPartsCommand,
   ListPartsCommandInput,
-  ListPartsCommandOutput,
+  ListPartsCommandOutput
 } from "./commands/ListPartsCommand";
 import {
   ListProvisionedCapacityCommand,
   ListProvisionedCapacityCommandInput,
-  ListProvisionedCapacityCommandOutput,
+  ListProvisionedCapacityCommandOutput
 } from "./commands/ListProvisionedCapacityCommand";
 import {
   ListTagsForVaultCommand,
   ListTagsForVaultCommandInput,
-  ListTagsForVaultCommandOutput,
+  ListTagsForVaultCommandOutput
 } from "./commands/ListTagsForVaultCommand";
 import {
   ListVaultsCommand,
   ListVaultsCommandInput,
-  ListVaultsCommandOutput,
+  ListVaultsCommandOutput
 } from "./commands/ListVaultsCommand";
 import {
   PurchaseProvisionedCapacityCommand,
   PurchaseProvisionedCapacityCommandInput,
-  PurchaseProvisionedCapacityCommandOutput,
+  PurchaseProvisionedCapacityCommandOutput
 } from "./commands/PurchaseProvisionedCapacityCommand";
 import {
   RemoveTagsFromVaultCommand,
   RemoveTagsFromVaultCommandInput,
-  RemoveTagsFromVaultCommandOutput,
+  RemoveTagsFromVaultCommandOutput
 } from "./commands/RemoveTagsFromVaultCommand";
 import {
   SetDataRetrievalPolicyCommand,
   SetDataRetrievalPolicyCommandInput,
-  SetDataRetrievalPolicyCommandOutput,
+  SetDataRetrievalPolicyCommandOutput
 } from "./commands/SetDataRetrievalPolicyCommand";
 import {
   SetVaultAccessPolicyCommand,
   SetVaultAccessPolicyCommandInput,
-  SetVaultAccessPolicyCommandOutput,
+  SetVaultAccessPolicyCommandOutput
 } from "./commands/SetVaultAccessPolicyCommand";
 import {
   SetVaultNotificationsCommand,
   SetVaultNotificationsCommandInput,
-  SetVaultNotificationsCommandOutput,
+  SetVaultNotificationsCommandOutput
 } from "./commands/SetVaultNotificationsCommand";
 import {
   UploadArchiveCommand,
   UploadArchiveCommandInput,
-  UploadArchiveCommandOutput,
+  UploadArchiveCommandOutput
 } from "./commands/UploadArchiveCommand";
 import {
   UploadMultipartPartCommand,
   UploadMultipartPartCommandInput,
-  UploadMultipartPartCommandOutput,
+  UploadMultipartPartCommandOutput
 } from "./commands/UploadMultipartPartCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -233,7 +233,7 @@ export class Glacier extends GlacierClient {
    */
   public abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AbortMultipartUploadCommandOutput>;
   public abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
@@ -246,16 +246,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public abortMultipartUpload(
     args: AbortMultipartUploadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortMultipartUploadCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AbortMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: AbortMultipartUploadCommandOutput) => void
   ): Promise<AbortMultipartUploadCommandOutput> | void {
     const command = new AbortMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -281,7 +283,7 @@ export class Glacier extends GlacierClient {
    */
   public abortVaultLock(
     args: AbortVaultLockCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AbortVaultLockCommandOutput>;
   public abortVaultLock(
     args: AbortVaultLockCommandInput,
@@ -294,16 +296,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public abortVaultLock(
     args: AbortVaultLockCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AbortVaultLockCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AbortVaultLockCommandOutput) => void),
     cb?: (err: any, data?: AbortVaultLockCommandOutput) => void
   ): Promise<AbortVaultLockCommandOutput> | void {
     const command = new AbortVaultLockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -321,7 +325,7 @@ export class Glacier extends GlacierClient {
    */
   public addTagsToVault(
     args: AddTagsToVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<AddTagsToVaultCommandOutput>;
   public addTagsToVault(
     args: AddTagsToVaultCommandInput,
@@ -334,16 +338,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public addTagsToVault(
     args: AddTagsToVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AddTagsToVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: AddTagsToVaultCommandOutput) => void),
     cb?: (err: any, data?: AddTagsToVaultCommandOutput) => void
   ): Promise<AddTagsToVaultCommandOutput> | void {
     const command = new AddTagsToVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -393,7 +399,7 @@ export class Glacier extends GlacierClient {
    */
   public completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CompleteMultipartUploadCommandOutput>;
   public completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
@@ -406,16 +412,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public completeMultipartUpload(
     args: CompleteMultipartUploadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteMultipartUploadCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CompleteMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: CompleteMultipartUploadCommandOutput) => void
   ): Promise<CompleteMultipartUploadCommandOutput> | void {
     const command = new CompleteMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -441,7 +449,7 @@ export class Glacier extends GlacierClient {
    */
   public completeVaultLock(
     args: CompleteVaultLockCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CompleteVaultLockCommandOutput>;
   public completeVaultLock(
     args: CompleteVaultLockCommandInput,
@@ -454,16 +462,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public completeVaultLock(
     args: CompleteVaultLockCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompleteVaultLockCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CompleteVaultLockCommandOutput) => void),
     cb?: (err: any, data?: CompleteVaultLockCommandOutput) => void
   ): Promise<CompleteVaultLockCommandOutput> | void {
     const command = new CompleteVaultLockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -499,7 +509,7 @@ export class Glacier extends GlacierClient {
    */
   public createVault(
     args: CreateVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateVaultCommandOutput>;
   public createVault(
     args: CreateVaultCommandInput,
@@ -512,16 +522,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public createVault(
     args: CreateVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateVaultCommandOutput) => void),
     cb?: (err: any, data?: CreateVaultCommandOutput) => void
   ): Promise<CreateVaultCommandOutput> | void {
     const command = new CreateVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -560,7 +572,7 @@ export class Glacier extends GlacierClient {
    */
   public deleteArchive(
     args: DeleteArchiveCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteArchiveCommandOutput>;
   public deleteArchive(
     args: DeleteArchiveCommandInput,
@@ -573,16 +585,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteArchive(
     args: DeleteArchiveCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteArchiveCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteArchiveCommandOutput) => void),
     cb?: (err: any, data?: DeleteArchiveCommandOutput) => void
   ): Promise<DeleteArchiveCommandOutput> | void {
     const command = new DeleteArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -614,7 +628,7 @@ export class Glacier extends GlacierClient {
    */
   public deleteVault(
     args: DeleteVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteVaultCommandOutput>;
   public deleteVault(
     args: DeleteVaultCommandInput,
@@ -627,16 +641,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteVault(
     args: DeleteVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteVaultCommandOutput) => void),
     cb?: (err: any, data?: DeleteVaultCommandOutput) => void
   ): Promise<DeleteVaultCommandOutput> | void {
     const command = new DeleteVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -655,7 +671,7 @@ export class Glacier extends GlacierClient {
    */
   public deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteVaultAccessPolicyCommandOutput>;
   public deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
@@ -668,16 +684,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteVaultAccessPolicy(
     args: DeleteVaultAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteVaultAccessPolicyCommandOutput) => void
   ): Promise<DeleteVaultAccessPolicyCommandOutput> | void {
     const command = new DeleteVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -702,7 +720,7 @@ export class Glacier extends GlacierClient {
    */
   public deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteVaultNotificationsCommandOutput>;
   public deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
@@ -715,16 +733,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public deleteVaultNotifications(
     args: DeleteVaultNotificationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVaultNotificationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: DeleteVaultNotificationsCommandOutput) => void
   ): Promise<DeleteVaultNotificationsCommandOutput> | void {
     const command = new DeleteVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -761,7 +781,7 @@ export class Glacier extends GlacierClient {
    */
   public describeJob(
     args: DescribeJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeJobCommandOutput>;
   public describeJob(
     args: DescribeJobCommandInput,
@@ -774,16 +794,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public describeJob(
     args: DescribeJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeJobCommandOutput) => void),
     cb?: (err: any, data?: DescribeJobCommandOutput) => void
   ): Promise<DescribeJobCommandOutput> | void {
     const command = new DescribeJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -813,7 +835,7 @@ export class Glacier extends GlacierClient {
    */
   public describeVault(
     args: DescribeVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeVaultCommandOutput>;
   public describeVault(
     args: DescribeVaultCommandInput,
@@ -826,16 +848,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public describeVault(
     args: DescribeVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeVaultCommandOutput) => void),
     cb?: (err: any, data?: DescribeVaultCommandOutput) => void
   ): Promise<DescribeVaultCommandOutput> | void {
     const command = new DescribeVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -850,7 +874,7 @@ export class Glacier extends GlacierClient {
    */
   public getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetDataRetrievalPolicyCommandOutput>;
   public getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
@@ -863,16 +887,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public getDataRetrievalPolicy(
     args: GetDataRetrievalPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataRetrievalPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetDataRetrievalPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetDataRetrievalPolicyCommandOutput) => void
   ): Promise<GetDataRetrievalPolicyCommandOutput> | void {
     const command = new GetDataRetrievalPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -921,7 +947,7 @@ export class Glacier extends GlacierClient {
    */
   public getJobOutput(
     args: GetJobOutputCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetJobOutputCommandOutput>;
   public getJobOutput(
     args: GetJobOutputCommandInput,
@@ -934,16 +960,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public getJobOutput(
     args: GetJobOutputCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetJobOutputCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetJobOutputCommandOutput) => void),
     cb?: (err: any, data?: GetJobOutputCommandOutput) => void
   ): Promise<GetJobOutputCommandOutput> | void {
     const command = new GetJobOutputCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -961,7 +989,7 @@ export class Glacier extends GlacierClient {
    */
   public getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetVaultAccessPolicyCommandOutput>;
   public getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
@@ -974,16 +1002,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public getVaultAccessPolicy(
     args: GetVaultAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: GetVaultAccessPolicyCommandOutput) => void
   ): Promise<GetVaultAccessPolicyCommandOutput> | void {
     const command = new GetVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1023,7 +1053,7 @@ export class Glacier extends GlacierClient {
    */
   public getVaultLock(
     args: GetVaultLockCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetVaultLockCommandOutput>;
   public getVaultLock(
     args: GetVaultLockCommandInput,
@@ -1036,16 +1066,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public getVaultLock(
     args: GetVaultLockCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVaultLockCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVaultLockCommandOutput) => void),
     cb?: (err: any, data?: GetVaultLockCommandOutput) => void
   ): Promise<GetVaultLockCommandOutput> | void {
     const command = new GetVaultLockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1073,7 +1105,7 @@ export class Glacier extends GlacierClient {
    */
   public getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetVaultNotificationsCommandOutput>;
   public getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
@@ -1086,16 +1118,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public getVaultNotifications(
     args: GetVaultNotificationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVaultNotificationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: GetVaultNotificationsCommandOutput) => void
   ): Promise<GetVaultNotificationsCommandOutput> | void {
     const command = new GetVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1113,7 +1147,7 @@ export class Glacier extends GlacierClient {
    */
   public initiateJob(
     args: InitiateJobCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InitiateJobCommandOutput>;
   public initiateJob(
     args: InitiateJobCommandInput,
@@ -1126,16 +1160,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public initiateJob(
     args: InitiateJobCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateJobCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InitiateJobCommandOutput) => void),
     cb?: (err: any, data?: InitiateJobCommandOutput) => void
   ): Promise<InitiateJobCommandOutput> | void {
     const command = new InitiateJobCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1181,7 +1217,7 @@ export class Glacier extends GlacierClient {
    */
   public initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InitiateMultipartUploadCommandOutput>;
   public initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
@@ -1194,16 +1230,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public initiateMultipartUpload(
     args: InitiateMultipartUploadCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateMultipartUploadCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InitiateMultipartUploadCommandOutput) => void),
     cb?: (err: any, data?: InitiateMultipartUploadCommandOutput) => void
   ): Promise<InitiateMultipartUploadCommandOutput> | void {
     const command = new InitiateMultipartUploadCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1250,7 +1288,7 @@ export class Glacier extends GlacierClient {
    */
   public initiateVaultLock(
     args: InitiateVaultLockCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<InitiateVaultLockCommandOutput>;
   public initiateVaultLock(
     args: InitiateVaultLockCommandInput,
@@ -1263,16 +1301,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public initiateVaultLock(
     args: InitiateVaultLockCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: InitiateVaultLockCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: InitiateVaultLockCommandOutput) => void),
     cb?: (err: any, data?: InitiateVaultLockCommandOutput) => void
   ): Promise<InitiateVaultLockCommandOutput> | void {
     const command = new InitiateVaultLockCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1320,7 +1360,7 @@ export class Glacier extends GlacierClient {
    */
   public listJobs(
     args: ListJobsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListJobsCommandOutput>;
   public listJobs(
     args: ListJobsCommandInput,
@@ -1333,16 +1373,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listJobs(
     args: ListJobsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListJobsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListJobsCommandOutput) => void),
     cb?: (err: any, data?: ListJobsCommandOutput) => void
   ): Promise<ListJobsCommandOutput> | void {
     const command = new ListJobsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1380,7 +1422,7 @@ export class Glacier extends GlacierClient {
    */
   public listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListMultipartUploadsCommandOutput>;
   public listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
@@ -1393,16 +1435,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listMultipartUploads(
     args: ListMultipartUploadsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMultipartUploadsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListMultipartUploadsCommandOutput) => void),
     cb?: (err: any, data?: ListMultipartUploadsCommandOutput) => void
   ): Promise<ListMultipartUploadsCommandOutput> | void {
     const command = new ListMultipartUploadsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1436,7 +1480,7 @@ export class Glacier extends GlacierClient {
    */
   public listParts(
     args: ListPartsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListPartsCommandOutput>;
   public listParts(
     args: ListPartsCommandInput,
@@ -1449,16 +1493,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listParts(
     args: ListPartsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListPartsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListPartsCommandOutput) => void),
     cb?: (err: any, data?: ListPartsCommandOutput) => void
   ): Promise<ListPartsCommandOutput> | void {
     const command = new ListPartsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1472,7 +1518,7 @@ export class Glacier extends GlacierClient {
    */
   public listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListProvisionedCapacityCommandOutput>;
   public listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
@@ -1485,16 +1531,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listProvisionedCapacity(
     args: ListProvisionedCapacityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListProvisionedCapacityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListProvisionedCapacityCommandOutput) => void),
     cb?: (err: any, data?: ListProvisionedCapacityCommandOutput) => void
   ): Promise<ListProvisionedCapacityCommandOutput> | void {
     const command = new ListProvisionedCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1509,7 +1557,7 @@ export class Glacier extends GlacierClient {
    */
   public listTagsForVault(
     args: ListTagsForVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTagsForVaultCommandOutput>;
   public listTagsForVault(
     args: ListTagsForVaultCommandInput,
@@ -1522,16 +1570,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listTagsForVault(
     args: ListTagsForVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTagsForVaultCommandOutput) => void),
     cb?: (err: any, data?: ListTagsForVaultCommandOutput) => void
   ): Promise<ListTagsForVaultCommandOutput> | void {
     const command = new ListTagsForVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1562,7 +1612,7 @@ export class Glacier extends GlacierClient {
    */
   public listVaults(
     args: ListVaultsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListVaultsCommandOutput>;
   public listVaults(
     args: ListVaultsCommandInput,
@@ -1575,16 +1625,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public listVaults(
     args: ListVaultsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListVaultsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListVaultsCommandOutput) => void),
     cb?: (err: any, data?: ListVaultsCommandOutput) => void
   ): Promise<ListVaultsCommandOutput> | void {
     const command = new ListVaultsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1597,7 +1649,7 @@ export class Glacier extends GlacierClient {
    */
   public purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PurchaseProvisionedCapacityCommandOutput>;
   public purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
@@ -1610,16 +1662,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public purchaseProvisionedCapacity(
     args: PurchaseProvisionedCapacityCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PurchaseProvisionedCapacityCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PurchaseProvisionedCapacityCommandOutput) => void),
     cb?: (err: any, data?: PurchaseProvisionedCapacityCommandOutput) => void
   ): Promise<PurchaseProvisionedCapacityCommandOutput> | void {
     const command = new PurchaseProvisionedCapacityCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1635,7 +1689,7 @@ export class Glacier extends GlacierClient {
    */
   public removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RemoveTagsFromVaultCommandOutput>;
   public removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
@@ -1648,16 +1702,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public removeTagsFromVault(
     args: RemoveTagsFromVaultCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RemoveTagsFromVaultCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RemoveTagsFromVaultCommandOutput) => void),
     cb?: (err: any, data?: RemoveTagsFromVaultCommandOutput) => void
   ): Promise<RemoveTagsFromVaultCommandOutput> | void {
     const command = new RemoveTagsFromVaultCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1675,7 +1731,7 @@ export class Glacier extends GlacierClient {
    */
   public setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SetDataRetrievalPolicyCommandOutput>;
   public setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
@@ -1688,16 +1744,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public setDataRetrievalPolicy(
     args: SetDataRetrievalPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetDataRetrievalPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetDataRetrievalPolicyCommandOutput) => void),
     cb?: (err: any, data?: SetDataRetrievalPolicyCommandOutput) => void
   ): Promise<SetDataRetrievalPolicyCommandOutput> | void {
     const command = new SetDataRetrievalPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1715,7 +1773,7 @@ export class Glacier extends GlacierClient {
    */
   public setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SetVaultAccessPolicyCommandOutput>;
   public setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
@@ -1728,16 +1786,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public setVaultAccessPolicy(
     args: SetVaultAccessPolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetVaultAccessPolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetVaultAccessPolicyCommandOutput) => void),
     cb?: (err: any, data?: SetVaultAccessPolicyCommandOutput) => void
   ): Promise<SetVaultAccessPolicyCommandOutput> | void {
     const command = new SetVaultAccessPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1787,7 +1847,7 @@ export class Glacier extends GlacierClient {
    */
   public setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SetVaultNotificationsCommandOutput>;
   public setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
@@ -1800,16 +1860,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public setVaultNotifications(
     args: SetVaultNotificationsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SetVaultNotificationsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SetVaultNotificationsCommandOutput) => void),
     cb?: (err: any, data?: SetVaultNotificationsCommandOutput) => void
   ): Promise<SetVaultNotificationsCommandOutput> | void {
     const command = new SetVaultNotificationsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1853,7 +1915,7 @@ export class Glacier extends GlacierClient {
    */
   public uploadArchive(
     args: UploadArchiveCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UploadArchiveCommandOutput>;
   public uploadArchive(
     args: UploadArchiveCommandInput,
@@ -1866,16 +1928,18 @@ export class Glacier extends GlacierClient {
   ): void;
   public uploadArchive(
     args: UploadArchiveCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadArchiveCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UploadArchiveCommandOutput) => void),
     cb?: (err: any, data?: UploadArchiveCommandOutput) => void
   ): Promise<UploadArchiveCommandOutput> | void {
     const command = new UploadArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1938,7 +2002,7 @@ export class Glacier extends GlacierClient {
    */
   public uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UploadMultipartPartCommandOutput>;
   public uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
@@ -1951,19 +2015,20 @@ export class Glacier extends GlacierClient {
   ): void;
   public uploadMultipartPart(
     args: UploadMultipartPartCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UploadMultipartPartCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UploadMultipartPartCommandOutput) => void),
     cb?: (err: any, data?: UploadMultipartPartCommandOutput) => void
   ): Promise<UploadMultipartPartCommandOutput> | void {
     const command = new UploadMultipartPartCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

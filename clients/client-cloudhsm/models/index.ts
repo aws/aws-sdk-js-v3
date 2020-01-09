@@ -42,7 +42,7 @@ export namespace AddTagsToResourceResponse {
 
 export enum ClientVersion {
   FIVE_ONE = "5.1",
-  FIVE_THREE = "5.3",
+  FIVE_THREE = "5.3"
 }
 
 /**
@@ -50,7 +50,9 @@ export enum ClientVersion {
  *          <p>Indicates that an internal error occurred.</p>
  *
  */
-export interface CloudHsmInternalException extends _smithy.SmithyException, $MetadataBearer {
+export interface CloudHsmInternalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CloudHsmInternalException";
   $fault: "server";
   /**
@@ -77,7 +79,7 @@ export namespace CloudHsmInternalException {
 export enum CloudHsmObjectState {
   DEGRADED = "DEGRADED",
   READY = "READY",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -85,7 +87,9 @@ export enum CloudHsmObjectState {
  *          <p>Indicates that an exception occurred in the AWS CloudHSM service.</p>
  *
  */
-export interface CloudHsmServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface CloudHsmServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CloudHsmServiceException";
   $fault: "client";
   /**
@@ -862,7 +866,7 @@ export enum HsmStatus {
   SUSPENDED = "SUSPENDED",
   TERMINATED = "TERMINATED",
   TERMINATING = "TERMINATING",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -870,7 +874,9 @@ export enum HsmStatus {
  *          <p>Indicates that one or more of the request parameters are not valid.</p>
  *
  */
-export interface InvalidRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRequestException";
   $fault: "client";
   /**
@@ -1295,7 +1301,7 @@ export namespace RemoveTagsFromResourceResponse {
 }
 
 export enum SubscriptionType {
-  PRODUCTION = "PRODUCTION",
+  PRODUCTION = "PRODUCTION"
 }
 
 /**

@@ -1,20 +1,20 @@
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CognitoIdentityProviderClient";
 import {
   UpdateUserPoolClientRequest,
-  UpdateUserPoolClientResponse,
+  UpdateUserPoolClientResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateUserPoolClientCommand,
-  serializeAws_json1_1UpdateUserPoolClientCommand,
+  serializeAws_json1_1UpdateUserPoolClientCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateUserPoolClientCommandInput = UpdateUserPoolClientRequest;
 export type UpdateUserPoolClientCommandOutput = UpdateUserPoolClientResponse;
 
-export class UpdateUserPoolClientCommand extends $Command<UpdateUserPoolClientCommandInput, UpdateUserPoolClientCommandOutput, CognitoIdentityProviderClientResolvedConfig> {
+export class UpdateUserPoolClientCommand extends $Command<
+  UpdateUserPoolClientCommandInput,
+  UpdateUserPoolClientCommandOutput,
+  CognitoIdentityProviderClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateUserPoolClientCommand extends $Command<UpdateUserPoolClientCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CognitoIdentityProviderClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateUserPoolClientCommandInput, UpdateUserPoolClientCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateUserPoolClientCommandInput,
+    UpdateUserPoolClientCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

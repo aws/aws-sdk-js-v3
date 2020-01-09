@@ -3,7 +3,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export enum AccountScope {
   LINKED = "LINKED",
-  PAYER = "PAYER",
+  PAYER = "PAYER"
 }
 
 /**
@@ -11,7 +11,9 @@ export enum AccountScope {
  *         <p>The requested report expired. Update the date interval and try again.</p>
  *
  */
-export interface BillExpirationException extends _smithy.SmithyException, $MetadataBearer {
+export interface BillExpirationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BillExpirationException";
   $fault: "client";
   Message?: string;
@@ -26,7 +28,7 @@ export namespace BillExpirationException {
 export enum Context {
   COST_AND_USAGE = "COST_AND_USAGE",
   RESERVATIONS = "RESERVATIONS",
-  SAVINGS_PLANS = "SAVINGS_PLANS",
+  SAVINGS_PLANS = "SAVINGS_PLANS"
 }
 
 /**
@@ -189,7 +191,7 @@ export namespace CostCategoryRule {
 }
 
 export enum CostCategoryRuleVersion {
-  CostCategoryExpressionV1 = "CostCategoryExpression.v1",
+  CostCategoryExpressionV1 = "CostCategoryExpression.v1"
 }
 
 /**
@@ -563,7 +565,9 @@ export namespace CurrentInstance {
  *         <p>The requested data is unavailable.</p>
  *
  */
-export interface DataUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface DataUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DataUnavailableException";
   $fault: "client";
   Message?: string;
@@ -683,7 +687,8 @@ export namespace DescribeCostCategoryDefinitionRequest {
   }
 }
 
-export interface DescribeCostCategoryDefinitionResponse extends $MetadataBearer {
+export interface DescribeCostCategoryDefinitionResponse
+  extends $MetadataBearer {
   __type?: "DescribeCostCategoryDefinitionResponse";
   /**
    *
@@ -733,7 +738,7 @@ export enum Dimension {
   SUBSCRIPTION_ID = "SUBSCRIPTION_ID",
   TENANCY = "TENANCY",
   USAGE_TYPE = "USAGE_TYPE",
-  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP",
+  USAGE_TYPE_GROUP = "USAGE_TYPE_GROUP"
 }
 
 /**
@@ -1276,7 +1281,7 @@ export interface GetCostAndUsageRequest {
    * 			and get the costs that are associated with that account's usage of that service. You can nest <code>Expression</code> objects
    * 			to define any combination of dimension filters. For more information, see
    * 			<a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   * 	
+   *
    */
   Filter?: Expression;
 
@@ -1284,7 +1289,7 @@ export interface GetCostAndUsageRequest {
    *
    * 	        <p>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. If <code>Granularity</code> isn't set,
    * 	    the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. </p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
@@ -1295,7 +1300,7 @@ export interface GetCostAndUsageRequest {
    * 		       <p>Valid values are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>LINKED_ACCOUNT</code>,
    * 			<code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TAGS</code>,
    * 		  <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
-   * 	
+   *
    */
   GroupBy?: Array<GroupDefinition>;
 
@@ -1315,7 +1320,7 @@ export interface GetCostAndUsageRequest {
    * 		       </note>
    * 		       <p>
    *             <code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</p>
-   * 	
+   *
    */
   Metrics?: Array<string>;
 
@@ -1331,7 +1336,7 @@ export interface GetCostAndUsageRequest {
    * 		       <p>Sets the start and end dates for retrieving AWS costs. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -1347,7 +1352,7 @@ export interface GetCostAndUsageResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code> parameters in the request.</p>
-   * 	
+   *
    */
   GroupDefinitions?: Array<GroupDefinition>;
 
@@ -1361,7 +1366,7 @@ export interface GetCostAndUsageResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The time period that is covered by the results in the response.</p>
-   * 	
+   *
    */
   ResultsByTime?: Array<ResultByTime>;
 }
@@ -1392,7 +1397,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    * 	        <p>Sets the AWS cost granularity to <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. If
    * 	    <code>Granularity</code> isn't set, the response object doesn't include the
    * 	    <code>Granularity</code>, <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. </p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
@@ -1486,7 +1491,7 @@ export interface GetCostForecastRequest {
   /**
    *
    * 		       <p>The filters that you want to use to filter your forecast. Cost Explorer API supports all of the Cost Explorer filters.</p>
-   * 	
+   *
    */
   Filter?: Expression;
 
@@ -1494,7 +1499,7 @@ export interface GetCostForecastRequest {
    *
    * 		       <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code> forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
    * 		       <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity: Granularity | string | undefined;
 
@@ -1521,7 +1526,7 @@ export interface GetCostForecastRequest {
    * 				           <p>UNBLENDED_COST</p>
    * 			         </li>
    *          </ul>
-   * 	
+   *
    */
   Metric: Metric | string | undefined;
 
@@ -1530,14 +1535,14 @@ export interface GetCostForecastRequest {
    * 		       <p>Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean
    * 			by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value
    * 			falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
-   * 	
+   *
    */
   PredictionIntervalLevel?: number;
 
   /**
    *
    * 		       <p>The period of time that you want the forecast to cover.</p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -1554,14 +1559,14 @@ export interface GetCostForecastResponse extends $MetadataBearer {
    *
    * 		       <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
    * 			this is a list of months.</p>
-   * 	
+   *
    */
   ForecastResultsByTime?: Array<ForecastResult>;
 
   /**
    *
    * 		       <p>How much you are forecasted to spend over the forecast period, in <code>USD</code>.</p>
-   * 	
+   *
    */
   Total?: MetricValue;
 }
@@ -1687,7 +1692,7 @@ export interface GetDimensionValuesRequest {
    *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    */
   Context?: Context | string;
 
@@ -1695,9 +1700,9 @@ export interface GetDimensionValuesRequest {
    *
    * 		       <p>The name of the dimension. Each <code>Dimension</code> is available for a different <code>Context</code>.
    * 			For more information, see <code>Context</code>.
-   * 			
+   *
    * 		</p>
-   * 	
+   *
    */
   Dimension: Dimension | string | undefined;
 
@@ -1711,7 +1716,7 @@ export interface GetDimensionValuesRequest {
   /**
    *
    * 		       <p>The value that you want to search the filter values for.</p>
-   * 	
+   *
    */
   SearchString?: string;
 
@@ -1720,7 +1725,7 @@ export interface GetDimensionValuesRequest {
    * 		       <p>The start and end dates for retrieving the dimension values. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -1843,7 +1848,7 @@ export interface GetDimensionValuesResponse extends $MetadataBearer {
    *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    */
   DimensionValues: Array<DimensionValuesWithAttributes> | undefined;
 
@@ -1857,14 +1862,14 @@ export interface GetDimensionValuesResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The number of results that AWS returned at one time.</p>
-   * 	
+   *
    */
   ReturnSize: number | undefined;
 
   /**
    *
    * 		       <p>The total number of search results.</p>
-   * 	
+   *
    */
   TotalSize: number | undefined;
 }
@@ -1878,10 +1883,10 @@ export namespace GetDimensionValuesResponse {
 /**
  *
  * 		       <p>You can use the following request parameters to query for how much of your instance usage a reservation covered.</p>
- * 		
- * 		
- * 		
- * 	
+ *
+ *
+ *
+ *
  */
 export interface GetReservationCoverageRequest {
   __type?: "GetReservationCoverageRequest";
@@ -1932,7 +1937,7 @@ export interface GetReservationCoverageRequest {
    * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.
    * 			If there are multiple values for a dimension, they are OR'd together.</p>
    * 		       <p>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.</p>
-   * 	
+   *
    */
   Filter?: Expression;
 
@@ -1942,7 +1947,7 @@ export interface GetReservationCoverageRequest {
    * 		       <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set,
    * 			the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.</p>
    * 		       <p>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
@@ -1981,7 +1986,7 @@ export interface GetReservationCoverageRequest {
    *                <p>TENANCY</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    */
   GroupBy?: Array<GroupDefinition>;
 
@@ -1989,7 +1994,7 @@ export interface GetReservationCoverageRequest {
    *
    * 		       <p>The measurement that you want your reservation coverage reported in.</p>
    * 		       <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a request.</p>
-   * 	
+   *
    */
   Metrics?: Array<string>;
 
@@ -2006,7 +2011,7 @@ export interface GetReservationCoverageRequest {
    * 			for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>. </p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -2022,7 +2027,7 @@ export interface GetReservationCoverageResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The amount of time that your reservations covered.</p>
-   * 	
+   *
    */
   CoveragesByTime: Array<CoverageByTime> | undefined;
 
@@ -2036,7 +2041,7 @@ export interface GetReservationCoverageResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The total amount of instance usage that a reservation covered.</p>
-   * 	
+   *
    */
   Total?: Coverage;
 }
@@ -2052,7 +2057,7 @@ export interface GetReservationPurchaseRecommendationRequest {
   /**
    *
    * 		       <p>The account ID that is associated with the recommendation. </p>
-   * 	
+   *
    */
   AccountId?: string;
 
@@ -2062,92 +2067,97 @@ export interface GetReservationPurchaseRecommendationRequest {
    * 			any member accounts when it calculates its recommendations. <code>LINKED</code> means that AWS includes only member accounts
    * 			when it calculates its recommendations.</p>
    * 		       <p>Valid values are <code>PAYER</code> and <code>LINKED</code>.</p>
-   * 	
+   *
    */
   AccountScope?: AccountScope | string;
 
   /**
    *
    * 		       <p>The number of previous days that you want AWS to consider when it calculates your recommendations.</p>
-   * 	
+   *
    */
   LookbackPeriodInDays?: LookbackPeriodInDays | string;
 
   /**
    *
    * 		       <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
-   * 	
+   *
    */
   NextPageToken?: string;
 
   /**
    *
    * 		       <p>The number of recommendations that you want returned in a single response object.</p>
-   * 	
+   *
    */
   PageSize?: number;
 
   /**
    *
    * 		       <p>The reservation purchase option that you want recommendations for.</p>
-   * 	
+   *
    */
   PaymentOption?: PaymentOption | string;
 
   /**
    *
    * 		       <p>The specific service that you want recommendations for.</p>
-   * 	
+   *
    */
   Service: string | undefined;
 
   /**
    *
    * 		       <p>The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.</p>
-   * 	
+   *
    */
   ServiceSpecification?: ServiceSpecification;
 
   /**
    *
    * 		       <p>The reservation term that you want recommendations for.</p>
-   * 	
+   *
    */
   TermInYears?: TermInYears | string;
 }
 
 export namespace GetReservationPurchaseRecommendationRequest {
-  export function isa(o: any): o is GetReservationPurchaseRecommendationRequest {
+  export function isa(
+    o: any
+  ): o is GetReservationPurchaseRecommendationRequest {
     return _smithy.isa(o, "GetReservationPurchaseRecommendationRequest");
   }
 }
 
-export interface GetReservationPurchaseRecommendationResponse extends $MetadataBearer {
+export interface GetReservationPurchaseRecommendationResponse
+  extends $MetadataBearer {
   __type?: "GetReservationPurchaseRecommendationResponse";
   /**
    *
    * 		       <p>Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.</p>
-   * 	
+   *
    */
   Metadata?: ReservationPurchaseRecommendationMetadata;
 
   /**
    *
    * 		       <p>The pagination token for the next set of retrievable results.</p>
-   * 	
+   *
    */
   NextPageToken?: string;
 
   /**
    *
    * 		       <p>Recommendations for reservations to purchase.</p>
-   * 	
+   *
    */
   Recommendations?: Array<ReservationPurchaseRecommendation>;
 }
 
 export namespace GetReservationPurchaseRecommendationResponse {
-  export function isa(o: any): o is GetReservationPurchaseRecommendationResponse {
+  export function isa(
+    o: any
+  ): o is GetReservationPurchaseRecommendationResponse {
     return _smithy.isa(o, "GetReservationPurchaseRecommendationResponse");
   }
 }
@@ -2200,7 +2210,7 @@ export interface GetReservationUtilizationRequest {
    * 			<a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    * 			as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is supported up to
    * 			only one level deep. If there are multiple values for a dimension, they are OR'd together.</p>
-   * 	
+   *
    */
   Filter?: Expression;
 
@@ -2210,14 +2220,14 @@ export interface GetReservationUtilizationRequest {
    * 			the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
    * 			If both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
    * 		       <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
   /**
    *
    * 		       <p>Groups only by <code>SUBSCRIPTION_ID</code>. Metadata is included.</p>
-   * 	
+   *
    */
   GroupBy?: Array<GroupDefinition>;
 
@@ -2233,7 +2243,7 @@ export interface GetReservationUtilizationRequest {
    * 		       <p>Sets the start and end dates for retrieving RI utilization. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>. </p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -2256,14 +2266,14 @@ export interface GetReservationUtilizationResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The total amount of time that you used your RIs.</p>
-   * 	
+   *
    */
   Total?: ReservationAggregates;
 
   /**
    *
    * 		       <p>The amount of time that you used your RIs.</p>
-   * 	
+   *
    */
   UtilizationsByTime: Array<UtilizationByTime> | undefined;
 }
@@ -2438,35 +2448,35 @@ export interface GetSavingsPlansCoverageRequest {
    *
    * 	        <p>The granularity of the Amazon Web Services cost data for your Savings Plans. <code>Granularity</code> can't be set if <code>GroupBy</code> is set.</p>
    * 	        <p>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
   /**
    *
    * 	        <p>You can group the data using the attributes <code>INSTANCE_FAMILY</code>, <code>REGION</code>, or <code>SERVICE</code>.</p>
-   * 	
+   *
    */
   GroupBy?: Array<GroupDefinition>;
 
   /**
    *
    * 	        <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
-   * 	
+   *
    */
   MaxResults?: number;
 
   /**
    *
    * 	        <p>The measurement that you want your Savings Plans coverage reported in. The only valid value is <code>SpendCoveredBySavingsPlans</code>.</p>
-   * 	
+   *
    */
   Metrics?: Array<string>;
 
   /**
    *
    * 	        <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   * 	
+   *
    */
   NextToken?: string;
 
@@ -2489,14 +2499,14 @@ export interface GetSavingsPlansCoverageResponse extends $MetadataBearer {
   /**
    *
    * 	        <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   * 	
+   *
    */
   NextToken?: string;
 
   /**
    *
    * 	        <p>The amount of spend that your Savings Plans covered.</p>
-   * 	
+   *
    */
   SavingsPlansCoverages: Array<SavingsPlansCoverage> | undefined;
 }
@@ -2512,58 +2522,61 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
   /**
    *
    * 	        <p>The lookback period used to generate the recommendation.</p>
-   * 	
+   *
    */
   LookbackPeriodInDays: LookbackPeriodInDays | string | undefined;
 
   /**
    *
    * 	        <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   * 	
+   *
    */
   NextPageToken?: string;
 
   /**
    *
    * 	        <p>The number of recommendations that you want returned in a single response object.</p>
-   * 	
+   *
    */
   PageSize?: number;
 
   /**
    *
    * 	        <p>The payment option used to generate these recommendations.</p>
-   * 	
+   *
    */
   PaymentOption: PaymentOption | string | undefined;
 
   /**
    *
    * 	        <p>The Savings Plans recommendation type requested.</p>
-   * 	
+   *
    */
   SavingsPlansType: SupportedSavingsPlansType | string | undefined;
 
   /**
    *
    * 	        <p>The savings plan recommendation term used to generated these recommendations.</p>
-   * 	
+   *
    */
   TermInYears: TermInYears | string | undefined;
 }
 
 export namespace GetSavingsPlansPurchaseRecommendationRequest {
-  export function isa(o: any): o is GetSavingsPlansPurchaseRecommendationRequest {
+  export function isa(
+    o: any
+  ): o is GetSavingsPlansPurchaseRecommendationRequest {
     return _smithy.isa(o, "GetSavingsPlansPurchaseRecommendationRequest");
   }
 }
 
-export interface GetSavingsPlansPurchaseRecommendationResponse extends $MetadataBearer {
+export interface GetSavingsPlansPurchaseRecommendationResponse
+  extends $MetadataBearer {
   __type?: "GetSavingsPlansPurchaseRecommendationResponse";
   /**
    *
    * 	        <p>Information regarding this specific recommendation set.</p>
-   * 	
+   *
    */
   Metadata?: SavingsPlansPurchaseRecommendationMetadata;
 
@@ -2571,20 +2584,22 @@ export interface GetSavingsPlansPurchaseRecommendationResponse extends $Metadata
    *
    * 	        <p>The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.</p>
    *
-   * 	
+   *
    */
   NextPageToken?: string;
 
   /**
    *
    * 	        <p>Contains your request parameters, Savings Plan Recommendations Summary, and Details.</p>
-   * 	
+   *
    */
   SavingsPlansPurchaseRecommendation?: SavingsPlansPurchaseRecommendation;
 }
 
 export namespace GetSavingsPlansPurchaseRecommendationResponse {
-  export function isa(o: any): o is GetSavingsPlansPurchaseRecommendationResponse {
+  export function isa(
+    o: any
+  ): o is GetSavingsPlansPurchaseRecommendationResponse {
     return _smithy.isa(o, "GetSavingsPlansPurchaseRecommendationResponse");
   }
 }
@@ -2632,14 +2647,14 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
   /**
    *
    * 	        <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
-   * 	
+   *
    */
   MaxResults?: number;
 
   /**
    *
    * 	        <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   * 	
+   *
    */
   NextToken?: string;
 
@@ -2657,21 +2672,24 @@ export namespace GetSavingsPlansUtilizationDetailsRequest {
   }
 }
 
-export interface GetSavingsPlansUtilizationDetailsResponse extends $MetadataBearer {
+export interface GetSavingsPlansUtilizationDetailsResponse
+  extends $MetadataBearer {
   __type?: "GetSavingsPlansUtilizationDetailsResponse";
   /**
    *
    * 	        <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   * 	
+   *
    */
   NextToken?: string;
 
   /**
    *
    * 	        <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.</p>
-   * 	
+   *
    */
-  SavingsPlansUtilizationDetails: Array<SavingsPlansUtilizationDetail> | undefined;
+  SavingsPlansUtilizationDetails:
+    | Array<SavingsPlansUtilizationDetail>
+    | undefined;
 
   /**
    *
@@ -2685,7 +2703,7 @@ export interface GetSavingsPlansUtilizationDetailsResponse extends $MetadataBear
   /**
    *
    * 	        <p>The total Savings Plans utilization, regardless of time period.</p>
-   * 	
+   *
    */
   Total?: SavingsPlansUtilizationAggregates;
 }
@@ -2746,7 +2764,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *
    * 	        <p>The granularity of the Amazon Web Services utillization data for your Savings Plans.</p>
    * 	        <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity?: Granularity | string;
 
@@ -2769,14 +2787,14 @@ export interface GetSavingsPlansUtilizationResponse extends $MetadataBearer {
   /**
    *
    * 	        <p>The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.</p>
-   * 	
+   *
    */
   SavingsPlansUtilizationsByTime?: Array<SavingsPlansUtilizationByTime>;
 
   /**
    *
    * 	        <p>The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.</p>
-   * 	
+   *
    */
   Total: SavingsPlansUtilizationAggregates | undefined;
 }
@@ -2799,14 +2817,14 @@ export interface GetTagsRequest {
   /**
    *
    * 		       <p>The value that you want to search for.</p>
-   * 	
+   *
    */
   SearchString?: string;
 
   /**
    *
    * 		       <p>The key of the tag that you want to return values for.</p>
-   * 	
+   *
    */
   TagKey?: string;
 
@@ -2815,7 +2833,7 @@ export interface GetTagsRequest {
    * 		       <p>The start and end dates for retrieving the dimension values. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -2838,21 +2856,21 @@ export interface GetTagsResponse extends $MetadataBearer {
   /**
    *
    * 		       <p>The number of query results that AWS returns at a time.</p>
-   * 	
+   *
    */
   ReturnSize: number | undefined;
 
   /**
    *
    * 		       <p>The tags that match your request.</p>
-   * 	
+   *
    */
   Tags: Array<string> | undefined;
 
   /**
    *
    * 		       <p>The total number of query results.</p>
-   * 	
+   *
    */
   TotalSize: number | undefined;
 }
@@ -2868,7 +2886,7 @@ export interface GetUsageForecastRequest {
   /**
    *
    * 		       <p>The filters that you want to use to filter your forecast. Cost Explorer API supports all of the Cost Explorer filters.</p>
-   * 	
+   *
    */
   Filter?: Expression;
 
@@ -2876,7 +2894,7 @@ export interface GetUsageForecastRequest {
    *
    * 		       <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code> forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
    * 		       <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
-   * 	
+   *
    */
   Granularity: Granularity | string | undefined;
 
@@ -2892,7 +2910,7 @@ export interface GetUsageForecastRequest {
    * 				           <p>NORMALIZED_USAGE_AMOUNT</p>
    * 			         </li>
    *          </ul>
-   * 	
+   *
    */
   Metric: Metric | string | undefined;
 
@@ -2901,7 +2919,7 @@ export interface GetUsageForecastRequest {
    * 		       <p>Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean
    * 			by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value
    * 			falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
-   * 	
+   *
    */
   PredictionIntervalLevel?: number;
 
@@ -2910,7 +2928,7 @@ export interface GetUsageForecastRequest {
    * 		       <p>The start and end dates of the period that you want to retrieve usage forecast for. The start date is inclusive,  but the end date is exclusive. For
    *             example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
    *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
-   * 	
+   *
    */
   TimePeriod: DateInterval | undefined;
 }
@@ -2927,14 +2945,14 @@ export interface GetUsageForecastResponse extends $MetadataBearer {
    *
    * 		       <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
    * 			this is a list of months.</p>
-   * 	
+   *
    */
   ForecastResultsByTime?: Array<ForecastResult>;
 
   /**
    *
    * 		       <p>How much you're forecasted to use over the forecast period.</p>
-   * 	
+   *
    */
   Total?: MetricValue;
 }
@@ -2948,7 +2966,7 @@ export namespace GetUsageForecastResponse {
 export enum Granularity {
   DAILY = "DAILY",
   HOURLY = "HOURLY",
-  MONTHLY = "MONTHLY",
+  MONTHLY = "MONTHLY"
 }
 
 /**
@@ -3011,7 +3029,7 @@ export namespace GroupDefinition {
 export enum GroupDefinitionType {
   COST_CATEGORY = "COST_CATEGORY",
   DIMENSION = "DIMENSION",
-  TAG = "TAG",
+  TAG = "TAG"
 }
 
 /**
@@ -3068,7 +3086,9 @@ export namespace InstanceDetails {
  *         <p>The pagination token is invalid. Try again without a pagination token.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -3085,7 +3105,9 @@ export namespace InvalidNextTokenException {
  *         <p>You made too many calls in a short period of time. Try again later.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -3155,7 +3177,7 @@ export namespace ListCostCategoryDefinitionsResponse {
 export enum LookbackPeriodInDays {
   SEVEN_DAYS = "SEVEN_DAYS",
   SIXTY_DAYS = "SIXTY_DAYS",
-  THIRTY_DAYS = "THIRTY_DAYS",
+  THIRTY_DAYS = "THIRTY_DAYS"
 }
 
 export enum Metric {
@@ -3165,7 +3187,7 @@ export enum Metric {
   NET_UNBLENDED_COST = "NET_UNBLENDED_COST",
   NORMALIZED_USAGE_AMOUNT = "NORMALIZED_USAGE_AMOUNT",
   UNBLENDED_COST = "UNBLENDED_COST",
-  USAGE_QUANTITY = "USAGE_QUANTITY",
+  USAGE_QUANTITY = "USAGE_QUANTITY"
 }
 
 /**
@@ -3219,7 +3241,7 @@ export namespace ModifyRecommendationDetail {
 
 export enum OfferingClass {
   CONVERTIBLE = "CONVERTIBLE",
-  STANDARD = "STANDARD",
+  STANDARD = "STANDARD"
 }
 
 export enum PaymentOption {
@@ -3228,7 +3250,7 @@ export enum PaymentOption {
   LIGHT_UTILIZATION = "LIGHT_UTILIZATION",
   MEDIUM_UTILIZATION = "MEDIUM_UTILIZATION",
   NO_UPFRONT = "NO_UPFRONT",
-  PARTIAL_UPFRONT = "PARTIAL_UPFRONT",
+  PARTIAL_UPFRONT = "PARTIAL_UPFRONT"
 }
 
 /**
@@ -3366,7 +3388,9 @@ export namespace RedshiftInstanceDetails {
  *             without a pagination token.</p>
  *
  */
-export interface RequestChangedException extends _smithy.SmithyException, $MetadataBearer {
+export interface RequestChangedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RequestChangedException";
   $fault: "client";
   Message?: string;
@@ -3900,7 +3924,9 @@ export namespace ResourceDetails {
  *         </p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -4104,34 +4130,34 @@ export namespace RightsizingRecommendationSummary {
 
 export enum RightsizingType {
   MODIFY = "MODIFY",
-  TERMINATE = "TERMINATE",
+  TERMINATE = "TERMINATE"
 }
 
 /**
  *
  * 	        <p>The amortized amount of Savings Plans purchased in a specific account during a specific time interval.</p>
- * 	
+ *
  */
 export interface SavingsPlansAmortizedCommitment {
   __type?: "SavingsPlansAmortizedCommitment";
   /**
    *
    * 	        <p>The amortized amount of your Savings Plans commitment that was purchased with either a <code>Partial</code> or a <code>NoUpfront</code>.</p>
-   * 	
+   *
    */
   AmortizedRecurringCommitment?: string;
 
   /**
    *
    * 	        <p>The amortized amount of your Savings Plans commitment that was purchased with an <code>Upfront</code> or <code>PartialUpfront</code> Savings Plans.</p>
-   * 	
+   *
    */
   AmortizedUpfrontCommitment?: string;
 
   /**
    *
    * 	        <p>The total amortized amount of your Savings Plans commitment, regardless of your Savings Plans purchase method. </p>
-   * 	
+   *
    */
   TotalAmortizedCommitment?: string;
 }
@@ -4145,21 +4171,21 @@ export namespace SavingsPlansAmortizedCommitment {
 /**
  *
  * 	        <p>The amount of Savings Plans eligible usage that is covered by Savings Plans. All calculations consider the On-Demand equivalent of your Savings Plans usage.</p>
- * 	
+ *
  */
 export interface SavingsPlansCoverage {
   __type?: "SavingsPlansCoverage";
   /**
    *
    * 	        <p>The attribute that applies to a specific <code>Dimension</code>.</p>
-   * 	
+   *
    */
   Attributes?: { [key: string]: string };
 
   /**
    *
    * 	        <p>The amount of Savings Plans eligible usage that the Savings Plans covered.</p>
-   * 	
+   *
    */
   Coverage?: SavingsPlansCoverageData;
 
@@ -4182,35 +4208,35 @@ export namespace SavingsPlansCoverage {
 /**
  *
  * 	        <p>Specific coverage percentage, On-Demand costs, and spend covered by Savings Plans, and total Savings Plans costs for an account.</p>
- * 	
+ *
  */
 export interface SavingsPlansCoverageData {
   __type?: "SavingsPlansCoverageData";
   /**
    *
    * 	        <p>The percentage of your existing Savings Planscovered usage, divided by all of your eligible Savings Plans usage in an account(or set of accounts).</p>
-   * 	
+   *
    */
   CoveragePercentage?: string;
 
   /**
    *
    * 	        <p>The cost of your Amazon Web Services usage at the public On-Demand rate.</p>
-   * 	
+   *
    */
   OnDemandCost?: string;
 
   /**
    *
    * 	        <p>The amount of your Amazon Web Services usage that is covered by a Savings Plans.</p>
-   * 	
+   *
    */
   SpendCoveredBySavingsPlans?: string;
 
   /**
    *
    * 	        <p>The total cost of your Amazon Web Services usage, regardless of your purchase option.</p>
-   * 	
+   *
    */
   TotalCost?: string;
 }
@@ -4224,14 +4250,14 @@ export namespace SavingsPlansCoverageData {
 /**
  *
  * 	        <p>Attribute details on a specific Savings Plan.</p>
- * 	
+ *
  */
 export interface SavingsPlansDetails {
   __type?: "SavingsPlansDetails";
   /**
    *
    * 	        <p>A group of instance types that Savings Plans applies to.</p>
-   * 	
+   *
    */
   InstanceFamily?: string;
 
@@ -4245,7 +4271,7 @@ export interface SavingsPlansDetails {
   /**
    *
    * 	        <p>A collection of AWS resources in a geographic area. Each AWS Region is isolated and independent of the other Regions.</p>
-   * 	
+   *
    */
   Region?: string;
 }
@@ -4259,49 +4285,51 @@ export namespace SavingsPlansDetails {
 /**
  *
  * 	        <p>Contains your request parameters, Savings Plan Recommendations Summary, and Details.</p>
- * 	
+ *
  */
 export interface SavingsPlansPurchaseRecommendation {
   __type?: "SavingsPlansPurchaseRecommendation";
   /**
    *
    * 	        <p>The lookback period in days, used to generate the recommendation.</p>
-   * 	
+   *
    */
   LookbackPeriodInDays?: LookbackPeriodInDays | string;
 
   /**
    *
    * 	        <p>The payment option used to generate the recommendation.</p>
-   * 	
+   *
    */
   PaymentOption?: PaymentOption | string;
 
   /**
    *
    * 	        <p>Details for the Savings Plans we recommend you to purchase to cover existing, Savings Plans eligible workloads.</p>
-   * 	
+   *
    */
-  SavingsPlansPurchaseRecommendationDetails?: Array<SavingsPlansPurchaseRecommendationDetail>;
+  SavingsPlansPurchaseRecommendationDetails?: Array<
+    SavingsPlansPurchaseRecommendationDetail
+  >;
 
   /**
    *
    * 	        <p>Summary metrics for your Savings Plans Recommendations. </p>
-   * 	
+   *
    */
   SavingsPlansPurchaseRecommendationSummary?: SavingsPlansPurchaseRecommendationSummary;
 
   /**
    *
    * 	        <p>The requested Savings Plans recommendation type.</p>
-   * 	
+   *
    */
   SavingsPlansType?: SupportedSavingsPlansType | string;
 
   /**
    *
    * 	        <p>The Savings Plans recommendation term in years, used to generate the recommendation.</p>
-   * 	
+   *
    */
   TermInYears?: TermInYears | string;
 }
@@ -4315,63 +4343,63 @@ export namespace SavingsPlansPurchaseRecommendation {
 /**
  *
  * 	        <p>Details for your recommended Savings Plans.</p>
- * 	
+ *
  */
 export interface SavingsPlansPurchaseRecommendationDetail {
   __type?: "SavingsPlansPurchaseRecommendationDetail";
   /**
    *
    * 	        <p>The <code>AccountID</code> the recommendation is generated for.</p>
-   * 	
+   *
    */
   AccountId?: string;
 
   /**
    *
    * 	        <p>The currency code Amazon Web Services used to generate the recommendations and present potential savings.</p>
-   * 	
+   *
    */
   CurrencyCode?: string;
 
   /**
    *
    * 	        <p>The average value of hourly On-Demand spend over the lookback period of the applicable usage type.</p>
-   * 	
+   *
    */
   CurrentAverageHourlyOnDemandSpend?: string;
 
   /**
    *
    * 	        <p>The highest value of hourly On-Demand spend over the lookback period of the applicable usage type.</p>
-   * 	
+   *
    */
   CurrentMaximumHourlyOnDemandSpend?: string;
 
   /**
    *
    * 	        <p>The lowest value of hourly On-Demand spend over the lookback period of the applicable usage type.</p>
-   * 	
+   *
    */
   CurrentMinimumHourlyOnDemandSpend?: string;
 
   /**
    *
    * 	        <p>The estimated utilization of the recommended Savings Plans.</p>
-   * 	
+   *
    */
   EstimatedAverageUtilization?: string;
 
   /**
    *
    * 	        <p>The estimated monthly savings amount, based on the recommended Savings Plans.</p>
-   * 	
+   *
    */
   EstimatedMonthlySavingsAmount?: string;
 
   /**
    *
    * 	        <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings Plans, over the length of the lookback period.</p>
-   * 	
+   *
    */
   EstimatedOnDemandCost?: string;
 
@@ -4387,49 +4415,49 @@ export interface SavingsPlansPurchaseRecommendationDetail {
   /**
    *
    * 	        <p>The estimated return on investment based on the recommended Savings Plans purchased. This is calculated as <code>estimatedSavingsAmount</code>/ <code>estimatedSPCost</code>*100.</p>
-   * 	
+   *
    */
   EstimatedROI?: string;
 
   /**
    *
    * 	        <p>The cost of the recommended Savings Plans over the length of the lookback period.</p>
-   * 	
+   *
    */
   EstimatedSPCost?: string;
 
   /**
    *
    * 	        <p>The estimated savings amount based on the recommended Savings Plans over the length of the lookback period.</p>
-   * 	
+   *
    */
   EstimatedSavingsAmount?: string;
 
   /**
    *
    * 	        <p>The estimated savings percentage relative to the total cost of applicable On-Demand usage over the lookback period.</p>
-   * 	
+   *
    */
   EstimatedSavingsPercentage?: string;
 
   /**
    *
    * 	        <p>The recommended hourly commitment level for the Savings Plans type, and configuration based on the usage during the lookback period.</p>
-   * 	
+   *
    */
   HourlyCommitmentToPurchase?: string;
 
   /**
    *
    * 	        <p>Details for your recommended Savings Plans.</p>
-   * 	
+   *
    */
   SavingsPlansDetails?: SavingsPlansDetails;
 
   /**
    *
    * 	        <p>The upfront cost of the recommended Savings Plans, based on the selected payment option.</p>
-   * 	
+   *
    */
   UpfrontCost?: string;
 }
@@ -4443,21 +4471,21 @@ export namespace SavingsPlansPurchaseRecommendationDetail {
 /**
  *
  * 	        <p>Metadata about your Savings Plans Purchase Recommendations.</p>
- * 	
+ *
  */
 export interface SavingsPlansPurchaseRecommendationMetadata {
   __type?: "SavingsPlansPurchaseRecommendationMetadata";
   /**
    *
    * 	        <p>The timestamp showing when the recommendations were generated.</p>
-   * 	
+   *
    */
   GenerationTimestamp?: string;
 
   /**
    *
    * 	        <p>The unique identifier for the recommendation set.</p>
-   * 	
+   *
    */
   RecommendationId?: string;
 }
@@ -4471,35 +4499,35 @@ export namespace SavingsPlansPurchaseRecommendationMetadata {
 /**
  *
  * 	        <p>Summary metrics for your Savings Plans Purchase Recommendations.</p>
- * 	
+ *
  */
 export interface SavingsPlansPurchaseRecommendationSummary {
   __type?: "SavingsPlansPurchaseRecommendationSummary";
   /**
    *
    * 	        <p>The currency code Amazon Web Services used to generate the recommendations and present potential savings.</p>
-   * 	
+   *
    */
   CurrencyCode?: string;
 
   /**
    *
    * 	        <p>The current total on demand spend of the applicable usage types over the lookback period.</p>
-   * 	
+   *
    */
   CurrentOnDemandSpend?: string;
 
   /**
    *
    * 	        <p>The recommended Savings Plans cost on a daily (24 hourly) basis.</p>
-   * 	
+   *
    */
   DailyCommitmentToPurchase?: string;
 
   /**
    *
    * 	        <p>The estimated monthly savings amount, based on the recommended Savings Plans purchase.</p>
-   * 	
+   *
    */
   EstimatedMonthlySavingsAmount?: string;
 
@@ -4515,42 +4543,42 @@ export interface SavingsPlansPurchaseRecommendationSummary {
   /**
    *
    * 	        <p>The estimated return on investment based on the recommended Savings Plans and estimated savings.</p>
-   * 	
+   *
    */
   EstimatedROI?: string;
 
   /**
    *
    * 	        <p>The estimated total savings over the lookback period, based on the purchase of the recommended Savings Plans.</p>
-   * 	
+   *
    */
   EstimatedSavingsAmount?: string;
 
   /**
    *
    * 	        <p>The estimated savings relative to the total cost of On-Demand usage, over the lookback period. This is calculated as <code>estimatedSavingsAmount</code>/ <code>CurrentOnDemandSpend</code>*100.</p>
-   * 	
+   *
    */
   EstimatedSavingsPercentage?: string;
 
   /**
    *
    * 	        <p>The estimated total cost of the usage after purchasing the recommended Savings Plans. This is a sum of the cost of Savings Plans during this term, and the remaining On-Demand usage.</p>
-   * 	
+   *
    */
   EstimatedTotalCost?: string;
 
   /**
    *
    * 	        <p>The recommended hourly commitment based on the recommendation parameters.</p>
-   * 	
+   *
    */
   HourlyCommitmentToPurchase?: string;
 
   /**
    *
    * 	        <p>The aggregate number of Savings Plans recommendations that exist for your account.</p>
-   * 	
+   *
    */
   TotalRecommendationCount?: string;
 }
@@ -4564,14 +4592,14 @@ export namespace SavingsPlansPurchaseRecommendationSummary {
 /**
  *
  * 	        <p>The amount of savings you're accumulating, against the public On-Demand rate of the usage accrued in an account.</p>
- * 	
+ *
  */
 export interface SavingsPlansSavings {
   __type?: "SavingsPlansSavings";
   /**
    *
    * 	        <p>The savings amount that you are accumulating for the usage that is covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage.</p>
-   * 	
+   *
    */
   NetSavings?: string;
 
@@ -4580,7 +4608,7 @@ export interface SavingsPlansSavings {
    * 	        <p>How much the amount that the usage would have cost if it was
    *             accrued
    *             at the On-Demand rate.</p>
-   * 	
+   *
    */
   OnDemandCostEquivalent?: string;
 }
@@ -4594,35 +4622,35 @@ export namespace SavingsPlansSavings {
 /**
  *
  * 	        <p>The measurement of how well you are using your existing Savings Plans.</p>
- * 	
+ *
  */
 export interface SavingsPlansUtilization {
   __type?: "SavingsPlansUtilization";
   /**
    *
    * 	        <p>The total amount of Savings Plans commitment that's been purchased in an account (or set of accounts).</p>
-   * 	
+   *
    */
   TotalCommitment?: string;
 
   /**
    *
    * 	        <p>The amount of your Savings Plans commitment that was not consumed from Savings Plans eligible usage in a specific period.</p>
-   * 	
+   *
    */
   UnusedCommitment?: string;
 
   /**
    *
    * 	        <p>The amount of your Savings Plans commitment that was consumed from Savings Plans eligible usage in a specific period.</p>
-   * 	
+   *
    */
   UsedCommitment?: string;
 
   /**
    *
    * 	        <p>The amount of <code>UsedCommitment</code> divided by the <code>TotalCommitment</code> for your Savings Plans.</p>
-   * 	
+   *
    */
   UtilizationPercentage?: string;
 }
@@ -4636,28 +4664,28 @@ export namespace SavingsPlansUtilization {
 /**
  *
  * 	        <p>The aggregated utilization metrics for your Savings Plans usage.</p>
- * 	
+ *
  */
 export interface SavingsPlansUtilizationAggregates {
   __type?: "SavingsPlansUtilizationAggregates";
   /**
    *
    * 	        <p>The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.</p>
-   * 	
+   *
    */
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 
   /**
    *
    * 	        <p>The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans, as well as the <code>onDemandCostEquivalent</code> of the Savings Plans when considering the utilization rate.</p>
-   * 	
+   *
    */
   Savings?: SavingsPlansSavings;
 
   /**
    *
    * 	        <p>A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.</p>
-   * 	
+   *
    */
   Utilization: SavingsPlansUtilization | undefined;
 }
@@ -4671,21 +4699,21 @@ export namespace SavingsPlansUtilizationAggregates {
 /**
  *
  * 	        <p>The amount of Savings Plans utilization, in hours.</p>
- * 	
+ *
  */
 export interface SavingsPlansUtilizationByTime {
   __type?: "SavingsPlansUtilizationByTime";
   /**
    *
    * 	        <p>The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.</p>
-   * 	
+   *
    */
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 
   /**
    *
    * 	        <p>The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the <code>onDemandCostEquivalent</code> of the Savings Plans when considering the utilization rate.</p>
-   * 	
+   *
    */
   Savings?: SavingsPlansSavings;
 
@@ -4701,7 +4729,7 @@ export interface SavingsPlansUtilizationByTime {
   /**
    *
    * 	        <p>A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.</p>
-   * 	
+   *
    */
   Utilization: SavingsPlansUtilization | undefined;
 }
@@ -4715,42 +4743,42 @@ export namespace SavingsPlansUtilizationByTime {
 /**
  *
  * 	        <p>A single daily or monthly Savings Plans utilization rate, and details for your account. Master accounts in an organization have access to member accounts. You can use <code>GetDimensionValues</code> to determine the possible dimension values. </p>
- * 	
+ *
  */
 export interface SavingsPlansUtilizationDetail {
   __type?: "SavingsPlansUtilizationDetail";
   /**
    *
    * 	        <p>The total amortized commitment for a Savings Plans. Includes the sum of the upfront and recurring Savings Plans fees.</p>
-   * 	
+   *
    */
   AmortizedCommitment?: SavingsPlansAmortizedCommitment;
 
   /**
    *
    * 	        <p>The attribute that applies to a specific <code>Dimension</code>.</p>
-   * 	
+   *
    */
   Attributes?: { [key: string]: string };
 
   /**
    *
    * 	        <p>The amount saved by using existing Savings Plans. Savings returns both net savings from savings plans as well as the <code>onDemandCostEquivalent</code> of the Savings Plans when considering the utilization rate.</p>
-   * 	
+   *
    */
   Savings?: SavingsPlansSavings;
 
   /**
    *
    *         <p>The unique Amazon Resource Name (ARN) for a particular Savings Plan.</p>
-   * 	
+   *
    */
   SavingsPlanArn?: string;
 
   /**
    *
    * 	        <p>A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.</p>
-   * 	
+   *
    */
   Utilization?: SavingsPlansUtilization;
 }
@@ -4768,7 +4796,9 @@ export namespace SavingsPlansUtilizationDetail {
  *         </p>
  *
  */
-export interface ServiceQuotaExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceQuotaExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceQuotaExceededException";
   $fault: "client";
   Message?: string;
@@ -4805,7 +4835,7 @@ export namespace ServiceSpecification {
 
 export enum SupportedSavingsPlansType {
   COMPUTE_SP = "COMPUTE_SP",
-  EC2_INSTANCE_SP = "EC2_INSTANCE_SP",
+  EC2_INSTANCE_SP = "EC2_INSTANCE_SP"
 }
 
 /**
@@ -4894,7 +4924,7 @@ export namespace TargetInstance {
 
 export enum TermInYears {
   ONE_YEAR = "ONE_YEAR",
-  THREE_YEARS = "THREE_YEARS",
+  THREE_YEARS = "THREE_YEARS"
 }
 
 /**
@@ -4930,7 +4960,9 @@ export namespace TerminateRecommendationDetail {
  *         <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
  *
  */
-export interface UnresolvableUsageUnitException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnresolvableUsageUnitException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnresolvableUsageUnitException";
   $fault: "client";
   Message?: string;

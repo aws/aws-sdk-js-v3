@@ -73,7 +73,9 @@ export namespace Container {
  *          updated.</p>
  *
  */
-export interface ContainerInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ContainerInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ContainerInUseException";
   $fault: "client";
   Message?: string;
@@ -90,7 +92,9 @@ export namespace ContainerInUseException {
  *          <p>The container that you specified in the request does not exist.</p>
  *
  */
-export interface ContainerNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ContainerNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ContainerNotFoundException";
   $fault: "client";
   Message?: string;
@@ -105,7 +109,7 @@ export namespace ContainerNotFoundException {
 export enum ContainerStatus {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
-  DELETING = "DELETING",
+  DELETING = "DELETING"
 }
 
 /**
@@ -113,7 +117,9 @@ export enum ContainerStatus {
  *          <p>The CORS policy that you specified in the request does not exist.</p>
  *
  */
-export interface CorsPolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface CorsPolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CorsPolicyNotFoundException";
   $fault: "client";
   Message?: string;
@@ -484,7 +490,9 @@ export namespace GetLifecyclePolicyOutput {
  *          <p>The service is temporarily unavailable.</p>
  *
  */
-export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -501,7 +509,9 @@ export namespace InternalServerError {
  *          <p>A service limit has been exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -601,7 +611,7 @@ export enum MethodName {
   DELETE = "DELETE",
   GET = "GET",
   HEAD = "HEAD",
-  PUT = "PUT",
+  PUT = "PUT"
 }
 
 /**
@@ -609,7 +619,9 @@ export enum MethodName {
  *          <p>The policy that you specified in the request does not exist.</p>
  *
  */
-export interface PolicyNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyNotFoundException";
   $fault: "client";
   Message?: string;

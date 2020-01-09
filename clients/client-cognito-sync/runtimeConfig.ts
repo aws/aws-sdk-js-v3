@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "cognito-sync",
   credentialDefaultProvider,
-  regionDefaultProvider,
+  regionDefaultProvider
 };

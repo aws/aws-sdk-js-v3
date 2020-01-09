@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum AdjustmentType {
   ChangeInCapacity = "ChangeInCapacity",
   ExactCapacity = "ExactCapacity",
-  PercentChangeInCapacity = "PercentChangeInCapacity",
+  PercentChangeInCapacity = "PercentChangeInCapacity"
 }
 
 /**
@@ -41,7 +41,9 @@ export namespace Alarm {
  *          Application Auto Scaling resource that already has a pending update.</p>
  *
  */
-export interface ConcurrentUpdateException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentUpdateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentUpdateException";
   $fault: "server";
   Message?: string;
@@ -1299,7 +1301,9 @@ export namespace DescribeScheduledActionsResponse {
  *          call the CloudWatch <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
  *
  */
-export interface FailedResourceAccessException extends _smithy.SmithyException, $MetadataBearer {
+export interface FailedResourceAccessException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FailedResourceAccessException";
   $fault: "client";
   Message?: string;
@@ -1316,7 +1320,9 @@ export namespace FailedResourceAccessException {
  *          <p>The service encountered an internal error.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -1333,7 +1339,9 @@ export namespace InternalServiceException {
  *          <p>The next token supplied was invalid.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -1350,7 +1358,9 @@ export namespace InvalidNextTokenException {
  *          <p>A per-account resource limit is exceeded. For more information, see <a href="https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1365,7 +1375,7 @@ export namespace LimitExceededException {
 export enum MetricAggregationType {
   Average = "Average",
   Maximum = "Maximum",
-  Minimum = "Minimum",
+  Minimum = "Minimum"
 }
 
 /**
@@ -1401,7 +1411,7 @@ export enum MetricStatistic {
   Maximum = "Maximum",
   Minimum = "Minimum",
   SampleCount = "SampleCount",
-  Sum = "Sum",
+  Sum = "Sum"
 }
 
 export enum MetricType {
@@ -1418,7 +1428,7 @@ export enum MetricType {
   LambdaProvisionedConcurrencyUtilization = "LambdaProvisionedConcurrencyUtilization",
   RDSReaderAverageCPUUtilization = "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections = "RDSReaderAverageDatabaseConnections",
-  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance",
+  SageMakerVariantInvocationsPerInstance = "SageMakerVariantInvocationsPerInstance"
 }
 
 /**
@@ -1430,7 +1440,9 @@ export enum MetricType {
  *          found.</p>
  *
  */
-export interface ObjectNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ObjectNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ObjectNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1444,7 +1456,7 @@ export namespace ObjectNotFoundException {
 
 export enum PolicyType {
   StepScaling = "StepScaling",
-  TargetTrackingScaling = "TargetTrackingScaling",
+  TargetTrackingScaling = "TargetTrackingScaling"
 }
 
 /**
@@ -2099,7 +2111,7 @@ export enum ScalableDimension {
   EMRInstanceGroupInstanceCount = "elasticmapreduce:instancegroup:InstanceCount",
   LambdaFunctionProvisionedConcurrency = "lambda:function:ProvisionedConcurrency",
   RDSClusterReadReplicaCount = "rds:cluster:ReadReplicaCount",
-  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount",
+  SageMakerVariantDesiredInstanceCount = "sagemaker:variant:DesiredInstanceCount"
 }
 
 /**
@@ -2506,7 +2518,7 @@ export enum ScalingActivityStatusCode {
   Overridden = "Overridden",
   Pending = "Pending",
   Successful = "Successful",
-  Unfulfilled = "Unfulfilled",
+  Unfulfilled = "Unfulfilled"
 }
 
 /**
@@ -2912,7 +2924,7 @@ export enum ServiceNamespace {
   EMR = "elasticmapreduce",
   LAMBDA = "lambda",
   RDS = "rds",
-  SAGEMAKER = "sagemaker",
+  SAGEMAKER = "sagemaker"
 }
 
 /**
@@ -3190,7 +3202,9 @@ export namespace TargetTrackingScalingPolicyConfiguration {
  *          API request.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

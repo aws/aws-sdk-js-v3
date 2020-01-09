@@ -1,20 +1,17 @@
 import {
   CloudDirectoryClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CloudDirectoryClient";
-import {
-  GetFacetRequest,
-  GetFacetResponse,
-} from "../models/index";
+import { GetFacetRequest, GetFacetResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1GetFacetCommand,
-  serializeAws_restJson1_1GetFacetCommand,
+  serializeAws_restJson1_1GetFacetCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetFacetCommandInput = GetFacetRequest;
 export type GetFacetCommandOutput = GetFacetResponse;
 
-export class GetFacetCommand extends $Command<GetFacetCommandInput, GetFacetCommandOutput, CloudDirectoryClientResolvedConfig> {
+export class GetFacetCommand extends $Command<
+  GetFacetCommandInput,
+  GetFacetCommandOutput,
+  CloudDirectoryClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetFacetCommand extends $Command<GetFacetCommandInput, GetFacetComm
     configuration: CloudDirectoryClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetFacetCommandInput, GetFacetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

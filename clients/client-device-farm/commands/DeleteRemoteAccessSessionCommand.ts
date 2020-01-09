@@ -1,20 +1,20 @@
 import {
   DeviceFarmClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DeviceFarmClient";
 import {
   DeleteRemoteAccessSessionRequest,
-  DeleteRemoteAccessSessionResult,
+  DeleteRemoteAccessSessionResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteRemoteAccessSessionCommand,
-  serializeAws_json1_1DeleteRemoteAccessSessionCommand,
+  serializeAws_json1_1DeleteRemoteAccessSessionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteRemoteAccessSessionCommandInput = DeleteRemoteAccessSessionRequest;
 export type DeleteRemoteAccessSessionCommandOutput = DeleteRemoteAccessSessionResult;
 
-export class DeleteRemoteAccessSessionCommand extends $Command<DeleteRemoteAccessSessionCommandInput, DeleteRemoteAccessSessionCommandOutput, DeviceFarmClientResolvedConfig> {
+export class DeleteRemoteAccessSessionCommand extends $Command<
+  DeleteRemoteAccessSessionCommandInput,
+  DeleteRemoteAccessSessionCommandOutput,
+  DeviceFarmClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteRemoteAccessSessionCommand extends $Command<DeleteRemoteAcces
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteRemoteAccessSessionCommandInput, DeleteRemoteAccessSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteRemoteAccessSessionCommandInput,
+    DeleteRemoteAccessSessionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DeleteRemoteAccessSessionCommand extends $Command<DeleteRemoteAcces
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteRemoteAccessSessionCommandOutput> {
-    return deserializeAws_json1_1DeleteRemoteAccessSessionCommand(output, context);
+    return deserializeAws_json1_1DeleteRemoteAccessSessionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

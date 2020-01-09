@@ -1,20 +1,20 @@
 import {
   MigrationHubClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MigrationHubClient";
 import {
   AssociateDiscoveredResourceRequest,
-  AssociateDiscoveredResourceResult,
+  AssociateDiscoveredResourceResult
 } from "../models/index";
 import {
   deserializeAws_json1_1AssociateDiscoveredResourceCommand,
-  serializeAws_json1_1AssociateDiscoveredResourceCommand,
+  serializeAws_json1_1AssociateDiscoveredResourceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type AssociateDiscoveredResourceCommandInput = AssociateDiscoveredResourceRequest;
 export type AssociateDiscoveredResourceCommandOutput = AssociateDiscoveredResourceResult;
 
-export class AssociateDiscoveredResourceCommand extends $Command<AssociateDiscoveredResourceCommandInput, AssociateDiscoveredResourceCommandOutput, MigrationHubClientResolvedConfig> {
+export class AssociateDiscoveredResourceCommand extends $Command<
+  AssociateDiscoveredResourceCommandInput,
+  AssociateDiscoveredResourceCommandOutput,
+  MigrationHubClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class AssociateDiscoveredResourceCommand extends $Command<AssociateDiscov
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MigrationHubClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateDiscoveredResourceCommandInput, AssociateDiscoveredResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    AssociateDiscoveredResourceCommandInput,
+    AssociateDiscoveredResourceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class AssociateDiscoveredResourceCommand extends $Command<AssociateDiscov
     input: AssociateDiscoveredResourceCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1AssociateDiscoveredResourceCommand(input, context);
+    return serializeAws_json1_1AssociateDiscoveredResourceCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<AssociateDiscoveredResourceCommandOutput> {
-    return deserializeAws_json1_1AssociateDiscoveredResourceCommand(output, context);
+    return deserializeAws_json1_1AssociateDiscoveredResourceCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

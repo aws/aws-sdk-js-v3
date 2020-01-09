@@ -1,20 +1,17 @@
 import {
   EMRClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../EMRClient";
-import {
-  ListClustersInput,
-  ListClustersOutput,
-} from "../models/index";
+import { ListClustersInput, ListClustersOutput } from "../models/index";
 import {
   deserializeAws_json1_1ListClustersCommand,
-  serializeAws_json1_1ListClustersCommand,
+  serializeAws_json1_1ListClustersCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListClustersCommandInput = ListClustersInput;
 export type ListClustersCommandOutput = ListClustersOutput;
 
-export class ListClustersCommand extends $Command<ListClustersCommandInput, ListClustersCommandOutput, EMRClientResolvedConfig> {
+export class ListClustersCommand extends $Command<
+  ListClustersCommandInput,
+  ListClustersCommandOutput,
+  EMRClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListClustersCommand extends $Command<ListClustersCommandInput, List
     configuration: EMRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListClustersCommandInput, ListClustersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

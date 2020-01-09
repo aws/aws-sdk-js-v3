@@ -4,7 +4,7 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 export enum ActionCode {
   ArchiveRetrieval = "ArchiveRetrieval",
   InventoryRetrieval = "InventoryRetrieval",
-  Select = "Select",
+  Select = "Select"
 }
 
 /**
@@ -127,7 +127,7 @@ export enum CannedACL {
   BucketOwnerRead = "bucket-owner-read",
   Private = "private",
   PublicRead = "public-read",
-  PublicReadWrite = "public-read-write",
+  PublicReadWrite = "public-read-write"
 }
 
 /**
@@ -171,17 +171,17 @@ export namespace Encryption {
 
 export enum EncryptionType {
   KMS = "aws:kms",
-  S3 = "AES256",
+  S3 = "AES256"
 }
 
 export enum ExpressionType {
-  SQL = "SQL",
+  SQL = "SQL"
 }
 
 export enum FileHeaderInfo {
   Ignore = "IGNORE",
   None = "NONE",
-  Use = "USE",
+  Use = "USE"
 }
 
 /**
@@ -596,12 +596,12 @@ export enum Permission {
   READ = "READ",
   READ_ACP = "READ_ACP",
   WRITE = "WRITE",
-  WRITE_ACP = "WRITE_ACP",
+  WRITE_ACP = "WRITE_ACP"
 }
 
 export enum QuoteFields {
   Always = "ALWAYS",
-  AsNeeded = "ASNEEDED",
+  AsNeeded = "ASNEEDED"
 }
 
 /**
@@ -719,19 +719,19 @@ export namespace SelectParameters {
 export enum StatusCode {
   Failed = "Failed",
   InProgress = "InProgress",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 export enum StorageClass {
   ReducedRedundancy = "REDUCED_REDUNDANCY",
   Standard = "STANDARD",
-  StandardInfrequentAccess = "STANDARD_IA",
+  StandardInfrequentAccess = "STANDARD_IA"
 }
 
 export enum Type {
   AmazonCustomerByEmail = "AmazonCustomerByEmail",
   CanonicalUser = "CanonicalUser",
-  Group = "Group",
+  Group = "Group"
 }
 
 /**
@@ -1983,7 +1983,9 @@ export namespace InitiateVaultLockOutput {
  *          retrievals.</p>
  *
  */
-export interface InsufficientCapacityException extends _smithy.SmithyException, $MetadataBearer {
+export interface InsufficientCapacityException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InsufficientCapacityException";
   $fault: "client";
   code?: string;
@@ -2002,7 +2004,9 @@ export namespace InsufficientCapacityException {
  *          <p>Returned if a parameter of the request is incorrectly specified.</p>
  *
  */
-export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   /**
@@ -2194,7 +2198,9 @@ export namespace JobParameters {
  *          <p>Returned if the request results in a vault or account limit being exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -2309,7 +2315,7 @@ export interface ListJobsOutput extends $MetadataBearer {
 
   /**
    *
-   *          <p>	
+   *          <p>
    *          An opaque string used for pagination that specifies the job at which the listing of jobs should begin.
    *          You get the <code>marker</code> value from a previous List Jobs response.
    *          You only need to include the marker if you are continuing the pagination of the results started in a
@@ -2700,7 +2706,9 @@ export namespace ListVaultsOutput {
  *          <p>Returned if a required header or parameter is missing from the request.</p>
  *
  */
-export interface MissingParameterValueException extends _smithy.SmithyException, $MetadataBearer {
+export interface MissingParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MissingParameterValueException";
   $fault: "client";
   /**
@@ -2766,7 +2774,9 @@ export namespace PartListElement {
  *          limit. For more information about data retrieval policies,</p>
  *
  */
-export interface PolicyEnforcedException extends _smithy.SmithyException, $MetadataBearer {
+export interface PolicyEnforcedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PolicyEnforcedException";
   $fault: "client";
   /**
@@ -2912,7 +2922,9 @@ export namespace RemoveTagsFromVaultInput {
  *          upload.</p>
  *
  */
-export interface RequestTimeoutException extends _smithy.SmithyException, $MetadataBearer {
+export interface RequestTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RequestTimeoutException";
   $fault: "client";
   /**
@@ -2950,7 +2962,9 @@ export namespace RequestTimeoutException {
  *          exist.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2987,7 +3001,9 @@ export namespace ResourceNotFoundException {
  *          <p>Returned if the service cannot complete the request.</p>
  *
  */
-export interface ServiceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceUnavailableException";
   $fault: "server";
   /**

@@ -2,92 +2,92 @@ import { SecretsManagerClient } from "./SecretsManagerClient";
 import {
   CancelRotateSecretCommand,
   CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput,
+  CancelRotateSecretCommandOutput
 } from "./commands/CancelRotateSecretCommand";
 import {
   CreateSecretCommand,
   CreateSecretCommandInput,
-  CreateSecretCommandOutput,
+  CreateSecretCommandOutput
 } from "./commands/CreateSecretCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
-  DeleteResourcePolicyCommandOutput,
+  DeleteResourcePolicyCommandOutput
 } from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteSecretCommand,
   DeleteSecretCommandInput,
-  DeleteSecretCommandOutput,
+  DeleteSecretCommandOutput
 } from "./commands/DeleteSecretCommand";
 import {
   DescribeSecretCommand,
   DescribeSecretCommandInput,
-  DescribeSecretCommandOutput,
+  DescribeSecretCommandOutput
 } from "./commands/DescribeSecretCommand";
 import {
   GetRandomPasswordCommand,
   GetRandomPasswordCommandInput,
-  GetRandomPasswordCommandOutput,
+  GetRandomPasswordCommandOutput
 } from "./commands/GetRandomPasswordCommand";
 import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
-  GetResourcePolicyCommandOutput,
+  GetResourcePolicyCommandOutput
 } from "./commands/GetResourcePolicyCommand";
 import {
   GetSecretValueCommand,
   GetSecretValueCommandInput,
-  GetSecretValueCommandOutput,
+  GetSecretValueCommandOutput
 } from "./commands/GetSecretValueCommand";
 import {
   ListSecretVersionIdsCommand,
   ListSecretVersionIdsCommandInput,
-  ListSecretVersionIdsCommandOutput,
+  ListSecretVersionIdsCommandOutput
 } from "./commands/ListSecretVersionIdsCommand";
 import {
   ListSecretsCommand,
   ListSecretsCommandInput,
-  ListSecretsCommandOutput,
+  ListSecretsCommandOutput
 } from "./commands/ListSecretsCommand";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
-  PutResourcePolicyCommandOutput,
+  PutResourcePolicyCommandOutput
 } from "./commands/PutResourcePolicyCommand";
 import {
   PutSecretValueCommand,
   PutSecretValueCommandInput,
-  PutSecretValueCommandOutput,
+  PutSecretValueCommandOutput
 } from "./commands/PutSecretValueCommand";
 import {
   RestoreSecretCommand,
   RestoreSecretCommandInput,
-  RestoreSecretCommandOutput,
+  RestoreSecretCommandOutput
 } from "./commands/RestoreSecretCommand";
 import {
   RotateSecretCommand,
   RotateSecretCommandInput,
-  RotateSecretCommandOutput,
+  RotateSecretCommandOutput
 } from "./commands/RotateSecretCommand";
 import {
   TagResourceCommand,
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "./commands/UntagResourceCommand";
 import {
   UpdateSecretCommand,
   UpdateSecretCommandInput,
-  UpdateSecretCommandOutput,
+  UpdateSecretCommandOutput
 } from "./commands/UpdateSecretCommand";
 import {
   UpdateSecretVersionStageCommand,
   UpdateSecretVersionStageCommandInput,
-  UpdateSecretVersionStageCommandOutput,
+  UpdateSecretVersionStageCommandOutput
 } from "./commands/UpdateSecretVersionStageCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -228,7 +228,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CancelRotateSecretCommandOutput>;
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
@@ -241,16 +241,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public cancelRotateSecret(
     args: CancelRotateSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelRotateSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelRotateSecretCommandOutput) => void),
     cb?: (err: any, data?: CancelRotateSecretCommandOutput) => void
   ): Promise<CancelRotateSecretCommandOutput> | void {
     const command = new CancelRotateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -354,7 +356,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public createSecret(
     args: CreateSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateSecretCommandOutput>;
   public createSecret(
     args: CreateSecretCommandInput,
@@ -367,16 +369,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public createSecret(
     args: CreateSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateSecretCommandOutput) => void),
     cb?: (err: any, data?: CreateSecretCommandOutput) => void
   ): Promise<CreateSecretCommandOutput> | void {
     const command = new CreateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -415,7 +419,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteResourcePolicyCommandOutput>;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
@@ -428,16 +432,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): Promise<DeleteResourcePolicyCommandOutput> | void {
     const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -500,7 +506,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public deleteSecret(
     args: DeleteSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteSecretCommandOutput>;
   public deleteSecret(
     args: DeleteSecretCommandInput,
@@ -513,16 +519,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public deleteSecret(
     args: DeleteSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteSecretCommandOutput) => void),
     cb?: (err: any, data?: DeleteSecretCommandOutput) => void
   ): Promise<DeleteSecretCommandOutput> | void {
     const command = new DeleteSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -567,7 +575,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public describeSecret(
     args: DescribeSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeSecretCommandOutput>;
   public describeSecret(
     args: DescribeSecretCommandInput,
@@ -580,16 +588,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public describeSecret(
     args: DescribeSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeSecretCommandOutput) => void),
     cb?: (err: any, data?: DescribeSecretCommandOutput) => void
   ): Promise<DescribeSecretCommandOutput> | void {
     const command = new DescribeSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -619,7 +629,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetRandomPasswordCommandOutput>;
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
@@ -632,16 +642,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getRandomPassword(
     args: GetRandomPasswordCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRandomPasswordCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetRandomPasswordCommandOutput) => void),
     cb?: (err: any, data?: GetRandomPasswordCommandOutput) => void
   ): Promise<GetRandomPasswordCommandOutput> | void {
     const command = new GetRandomPasswordCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -682,7 +694,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetResourcePolicyCommandOutput>;
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
@@ -695,16 +707,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getResourcePolicy(
     args: GetResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): Promise<GetResourcePolicyCommandOutput> | void {
     const command = new GetResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -748,7 +762,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public getSecretValue(
     args: GetSecretValueCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetSecretValueCommandOutput>;
   public getSecretValue(
     args: GetSecretValueCommandInput,
@@ -761,16 +775,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public getSecretValue(
     args: GetSecretValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSecretValueCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetSecretValueCommandOutput) => void),
     cb?: (err: any, data?: GetSecretValueCommandOutput) => void
   ): Promise<GetSecretValueCommandOutput> | void {
     const command = new GetSecretValueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -816,7 +832,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSecretVersionIdsCommandOutput>;
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
@@ -829,16 +845,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public listSecretVersionIds(
     args: ListSecretVersionIdsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecretVersionIdsCommandOutput) => void),
     cb?: (err: any, data?: ListSecretVersionIdsCommandOutput) => void
   ): Promise<ListSecretVersionIdsCommandOutput> | void {
     const command = new ListSecretVersionIdsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -884,7 +902,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public listSecrets(
     args: ListSecretsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListSecretsCommandOutput>;
   public listSecrets(
     args: ListSecretsCommandInput,
@@ -897,16 +915,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public listSecrets(
     args: ListSecretsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSecretsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListSecretsCommandOutput) => void),
     cb?: (err: any, data?: ListSecretsCommandOutput) => void
   ): Promise<ListSecretsCommandOutput> | void {
     const command = new ListSecretsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -952,7 +972,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutResourcePolicyCommandOutput>;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
@@ -965,16 +985,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public putResourcePolicy(
     args: PutResourcePolicyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
     cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): Promise<PutResourcePolicyCommandOutput> | void {
     const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1080,7 +1102,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public putSecretValue(
     args: PutSecretValueCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<PutSecretValueCommandOutput>;
   public putSecretValue(
     args: PutSecretValueCommandInput,
@@ -1093,16 +1115,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public putSecretValue(
     args: PutSecretValueCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutSecretValueCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: PutSecretValueCommandOutput) => void),
     cb?: (err: any, data?: PutSecretValueCommandOutput) => void
   ): Promise<PutSecretValueCommandOutput> | void {
     const command = new PutSecretValueCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1139,7 +1163,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public restoreSecret(
     args: RestoreSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RestoreSecretCommandOutput>;
   public restoreSecret(
     args: RestoreSecretCommandInput,
@@ -1152,16 +1176,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public restoreSecret(
     args: RestoreSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RestoreSecretCommandOutput) => void),
     cb?: (err: any, data?: RestoreSecretCommandOutput) => void
   ): Promise<RestoreSecretCommandOutput> | void {
     const command = new RestoreSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1241,7 +1267,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public rotateSecret(
     args: RotateSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RotateSecretCommandOutput>;
   public rotateSecret(
     args: RotateSecretCommandInput,
@@ -1254,16 +1280,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public rotateSecret(
     args: RotateSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RotateSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RotateSecretCommandOutput) => void),
     cb?: (err: any, data?: RotateSecretCommandOutput) => void
   ): Promise<RotateSecretCommandOutput> | void {
     const command = new RotateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1336,7 +1364,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public tagResource(
     args: TagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TagResourceCommandOutput>;
   public tagResource(
     args: TagResourceCommandInput,
@@ -1349,16 +1377,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public tagResource(
     args: TagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TagResourceCommandOutput) => void),
     cb?: (err: any, data?: TagResourceCommandOutput) => void
   ): Promise<TagResourceCommandOutput> | void {
     const command = new TagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1405,7 +1435,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public untagResource(
     args: UntagResourceCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UntagResourceCommandOutput>;
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1418,16 +1448,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public untagResource(
     args: UntagResourceCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UntagResourceCommandOutput) => void),
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1529,7 +1561,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public updateSecret(
     args: UpdateSecretCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateSecretCommandOutput>;
   public updateSecret(
     args: UpdateSecretCommandInput,
@@ -1542,16 +1574,18 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public updateSecret(
     args: UpdateSecretCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecretCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSecretCommandOutput) => void),
     cb?: (err: any, data?: UpdateSecretCommandOutput) => void
   ): Promise<UpdateSecretCommandOutput> | void {
     const command = new UpdateSecretCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1604,7 +1638,7 @@ export class SecretsManager extends SecretsManagerClient {
    */
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<UpdateSecretVersionStageCommandOutput>;
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
@@ -1617,19 +1651,20 @@ export class SecretsManager extends SecretsManagerClient {
   ): void;
   public updateSecretVersionStage(
     args: UpdateSecretVersionStageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSecretVersionStageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: UpdateSecretVersionStageCommandOutput) => void),
     cb?: (err: any, data?: UpdateSecretVersionStageCommandOutput) => void
   ): Promise<UpdateSecretVersionStageCommandOutput> | void {
     const command = new UpdateSecretVersionStageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

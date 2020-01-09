@@ -1,20 +1,20 @@
 import {
   KMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KMSClient";
 import {
   ImportKeyMaterialRequest,
-  ImportKeyMaterialResponse,
+  ImportKeyMaterialResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ImportKeyMaterialCommand,
-  serializeAws_json1_1ImportKeyMaterialCommand,
+  serializeAws_json1_1ImportKeyMaterialCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ImportKeyMaterialCommandInput = ImportKeyMaterialRequest;
 export type ImportKeyMaterialCommandOutput = ImportKeyMaterialResponse;
 
-export class ImportKeyMaterialCommand extends $Command<ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput, KMSClientResolvedConfig> {
+export class ImportKeyMaterialCommand extends $Command<
+  ImportKeyMaterialCommandInput,
+  ImportKeyMaterialCommandOutput,
+  KMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class ImportKeyMaterialCommand extends $Command<ImportKeyMaterialCommandI
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ImportKeyMaterialCommandInput, ImportKeyMaterialCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

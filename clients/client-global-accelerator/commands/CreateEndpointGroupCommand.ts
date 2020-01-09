@@ -1,20 +1,20 @@
 import {
   GlobalAcceleratorClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GlobalAcceleratorClient";
 import {
   CreateEndpointGroupRequest,
-  CreateEndpointGroupResponse,
+  CreateEndpointGroupResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1CreateEndpointGroupCommand,
-  serializeAws_json1_1CreateEndpointGroupCommand,
+  serializeAws_json1_1CreateEndpointGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateEndpointGroupCommandInput = CreateEndpointGroupRequest;
 export type CreateEndpointGroupCommandOutput = CreateEndpointGroupResponse;
 
-export class CreateEndpointGroupCommand extends $Command<CreateEndpointGroupCommandInput, CreateEndpointGroupCommandOutput, GlobalAcceleratorClientResolvedConfig> {
+export class CreateEndpointGroupCommand extends $Command<
+  CreateEndpointGroupCommandInput,
+  CreateEndpointGroupCommandOutput,
+  GlobalAcceleratorClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateEndpointGroupCommand extends $Command<CreateEndpointGroupComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlobalAcceleratorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateEndpointGroupCommandInput, CreateEndpointGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateEndpointGroupCommandInput,
+    CreateEndpointGroupCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

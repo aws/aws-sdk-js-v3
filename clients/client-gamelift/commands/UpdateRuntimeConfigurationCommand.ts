@@ -1,20 +1,20 @@
 import {
   GameLiftClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../GameLiftClient";
 import {
   UpdateRuntimeConfigurationInput,
-  UpdateRuntimeConfigurationOutput,
+  UpdateRuntimeConfigurationOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateRuntimeConfigurationCommand,
-  serializeAws_json1_1UpdateRuntimeConfigurationCommand,
+  serializeAws_json1_1UpdateRuntimeConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateRuntimeConfigurationCommandInput = UpdateRuntimeConfigurationInput;
 export type UpdateRuntimeConfigurationCommandOutput = UpdateRuntimeConfigurationOutput;
 
-export class UpdateRuntimeConfigurationCommand extends $Command<UpdateRuntimeConfigurationCommandInput, UpdateRuntimeConfigurationCommandOutput, GameLiftClientResolvedConfig> {
+export class UpdateRuntimeConfigurationCommand extends $Command<
+  UpdateRuntimeConfigurationCommandInput,
+  UpdateRuntimeConfigurationCommandOutput,
+  GameLiftClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateRuntimeConfigurationCommand extends $Command<UpdateRuntimeCon
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GameLiftClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateRuntimeConfigurationCommandInput, UpdateRuntimeConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateRuntimeConfigurationCommandInput,
+    UpdateRuntimeConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateRuntimeConfigurationCommand extends $Command<UpdateRuntimeCon
     input: UpdateRuntimeConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateRuntimeConfigurationCommand(input, context);
+    return serializeAws_json1_1UpdateRuntimeConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateRuntimeConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateRuntimeConfigurationCommand(output, context);
+    return deserializeAws_json1_1UpdateRuntimeConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

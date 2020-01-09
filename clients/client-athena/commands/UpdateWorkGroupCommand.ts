@@ -1,20 +1,17 @@
 import {
   AthenaClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../AthenaClient";
-import {
-  UpdateWorkGroupInput,
-  UpdateWorkGroupOutput,
-} from "../models/index";
+import { UpdateWorkGroupInput, UpdateWorkGroupOutput } from "../models/index";
 import {
   deserializeAws_json1_1UpdateWorkGroupCommand,
-  serializeAws_json1_1UpdateWorkGroupCommand,
+  serializeAws_json1_1UpdateWorkGroupCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateWorkGroupCommandInput = UpdateWorkGroupInput;
 export type UpdateWorkGroupCommandOutput = UpdateWorkGroupOutput;
 
-export class UpdateWorkGroupCommand extends $Command<UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput, AthenaClientResolvedConfig> {
+export class UpdateWorkGroupCommand extends $Command<
+  UpdateWorkGroupCommandInput,
+  UpdateWorkGroupCommandOutput,
+  AthenaClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class UpdateWorkGroupCommand extends $Command<UpdateWorkGroupCommandInput
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateWorkGroupCommandInput, UpdateWorkGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

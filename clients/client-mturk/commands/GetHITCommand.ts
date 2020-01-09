@@ -1,20 +1,17 @@
 import {
   MTurkClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../MTurkClient";
-import {
-  GetHITRequest,
-  GetHITResponse,
-} from "../models/index";
+import { GetHITRequest, GetHITResponse } from "../models/index";
 import {
   deserializeAws_json1_1GetHITCommand,
-  serializeAws_json1_1GetHITCommand,
+  serializeAws_json1_1GetHITCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetHITCommandInput = GetHITRequest;
 export type GetHITCommandOutput = GetHITResponse;
 
-export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOutput, MTurkClientResolvedConfig> {
+export class GetHITCommand extends $Command<
+  GetHITCommandInput,
+  GetHITCommandOutput,
+  MTurkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetHITCommand extends $Command<GetHITCommandInput, GetHITCommandOut
     configuration: MTurkClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetHITCommandInput, GetHITCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

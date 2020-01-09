@@ -2,207 +2,207 @@ import { RekognitionClient } from "./RekognitionClient";
 import {
   CompareFacesCommand,
   CompareFacesCommandInput,
-  CompareFacesCommandOutput,
+  CompareFacesCommandOutput
 } from "./commands/CompareFacesCommand";
 import {
   CreateCollectionCommand,
   CreateCollectionCommandInput,
-  CreateCollectionCommandOutput,
+  CreateCollectionCommandOutput
 } from "./commands/CreateCollectionCommand";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
-  CreateProjectCommandOutput,
+  CreateProjectCommandOutput
 } from "./commands/CreateProjectCommand";
 import {
   CreateProjectVersionCommand,
   CreateProjectVersionCommandInput,
-  CreateProjectVersionCommandOutput,
+  CreateProjectVersionCommandOutput
 } from "./commands/CreateProjectVersionCommand";
 import {
   CreateStreamProcessorCommand,
   CreateStreamProcessorCommandInput,
-  CreateStreamProcessorCommandOutput,
+  CreateStreamProcessorCommandOutput
 } from "./commands/CreateStreamProcessorCommand";
 import {
   DeleteCollectionCommand,
   DeleteCollectionCommandInput,
-  DeleteCollectionCommandOutput,
+  DeleteCollectionCommandOutput
 } from "./commands/DeleteCollectionCommand";
 import {
   DeleteFacesCommand,
   DeleteFacesCommandInput,
-  DeleteFacesCommandOutput,
+  DeleteFacesCommandOutput
 } from "./commands/DeleteFacesCommand";
 import {
   DeleteStreamProcessorCommand,
   DeleteStreamProcessorCommandInput,
-  DeleteStreamProcessorCommandOutput,
+  DeleteStreamProcessorCommandOutput
 } from "./commands/DeleteStreamProcessorCommand";
 import {
   DescribeCollectionCommand,
   DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput,
+  DescribeCollectionCommandOutput
 } from "./commands/DescribeCollectionCommand";
 import {
   DescribeProjectVersionsCommand,
   DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput,
+  DescribeProjectVersionsCommandOutput
 } from "./commands/DescribeProjectVersionsCommand";
 import {
   DescribeProjectsCommand,
   DescribeProjectsCommandInput,
-  DescribeProjectsCommandOutput,
+  DescribeProjectsCommandOutput
 } from "./commands/DescribeProjectsCommand";
 import {
   DescribeStreamProcessorCommand,
   DescribeStreamProcessorCommandInput,
-  DescribeStreamProcessorCommandOutput,
+  DescribeStreamProcessorCommandOutput
 } from "./commands/DescribeStreamProcessorCommand";
 import {
   DetectCustomLabelsCommand,
   DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput,
+  DetectCustomLabelsCommandOutput
 } from "./commands/DetectCustomLabelsCommand";
 import {
   DetectFacesCommand,
   DetectFacesCommandInput,
-  DetectFacesCommandOutput,
+  DetectFacesCommandOutput
 } from "./commands/DetectFacesCommand";
 import {
   DetectLabelsCommand,
   DetectLabelsCommandInput,
-  DetectLabelsCommandOutput,
+  DetectLabelsCommandOutput
 } from "./commands/DetectLabelsCommand";
 import {
   DetectModerationLabelsCommand,
   DetectModerationLabelsCommandInput,
-  DetectModerationLabelsCommandOutput,
+  DetectModerationLabelsCommandOutput
 } from "./commands/DetectModerationLabelsCommand";
 import {
   DetectTextCommand,
   DetectTextCommandInput,
-  DetectTextCommandOutput,
+  DetectTextCommandOutput
 } from "./commands/DetectTextCommand";
 import {
   GetCelebrityInfoCommand,
   GetCelebrityInfoCommandInput,
-  GetCelebrityInfoCommandOutput,
+  GetCelebrityInfoCommandOutput
 } from "./commands/GetCelebrityInfoCommand";
 import {
   GetCelebrityRecognitionCommand,
   GetCelebrityRecognitionCommandInput,
-  GetCelebrityRecognitionCommandOutput,
+  GetCelebrityRecognitionCommandOutput
 } from "./commands/GetCelebrityRecognitionCommand";
 import {
   GetContentModerationCommand,
   GetContentModerationCommandInput,
-  GetContentModerationCommandOutput,
+  GetContentModerationCommandOutput
 } from "./commands/GetContentModerationCommand";
 import {
   GetFaceDetectionCommand,
   GetFaceDetectionCommandInput,
-  GetFaceDetectionCommandOutput,
+  GetFaceDetectionCommandOutput
 } from "./commands/GetFaceDetectionCommand";
 import {
   GetFaceSearchCommand,
   GetFaceSearchCommandInput,
-  GetFaceSearchCommandOutput,
+  GetFaceSearchCommandOutput
 } from "./commands/GetFaceSearchCommand";
 import {
   GetLabelDetectionCommand,
   GetLabelDetectionCommandInput,
-  GetLabelDetectionCommandOutput,
+  GetLabelDetectionCommandOutput
 } from "./commands/GetLabelDetectionCommand";
 import {
   GetPersonTrackingCommand,
   GetPersonTrackingCommandInput,
-  GetPersonTrackingCommandOutput,
+  GetPersonTrackingCommandOutput
 } from "./commands/GetPersonTrackingCommand";
 import {
   IndexFacesCommand,
   IndexFacesCommandInput,
-  IndexFacesCommandOutput,
+  IndexFacesCommandOutput
 } from "./commands/IndexFacesCommand";
 import {
   ListCollectionsCommand,
   ListCollectionsCommandInput,
-  ListCollectionsCommandOutput,
+  ListCollectionsCommandOutput
 } from "./commands/ListCollectionsCommand";
 import {
   ListFacesCommand,
   ListFacesCommandInput,
-  ListFacesCommandOutput,
+  ListFacesCommandOutput
 } from "./commands/ListFacesCommand";
 import {
   ListStreamProcessorsCommand,
   ListStreamProcessorsCommandInput,
-  ListStreamProcessorsCommandOutput,
+  ListStreamProcessorsCommandOutput
 } from "./commands/ListStreamProcessorsCommand";
 import {
   RecognizeCelebritiesCommand,
   RecognizeCelebritiesCommandInput,
-  RecognizeCelebritiesCommandOutput,
+  RecognizeCelebritiesCommandOutput
 } from "./commands/RecognizeCelebritiesCommand";
 import {
   SearchFacesByImageCommand,
   SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput,
+  SearchFacesByImageCommandOutput
 } from "./commands/SearchFacesByImageCommand";
 import {
   SearchFacesCommand,
   SearchFacesCommandInput,
-  SearchFacesCommandOutput,
+  SearchFacesCommandOutput
 } from "./commands/SearchFacesCommand";
 import {
   StartCelebrityRecognitionCommand,
   StartCelebrityRecognitionCommandInput,
-  StartCelebrityRecognitionCommandOutput,
+  StartCelebrityRecognitionCommandOutput
 } from "./commands/StartCelebrityRecognitionCommand";
 import {
   StartContentModerationCommand,
   StartContentModerationCommandInput,
-  StartContentModerationCommandOutput,
+  StartContentModerationCommandOutput
 } from "./commands/StartContentModerationCommand";
 import {
   StartFaceDetectionCommand,
   StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput,
+  StartFaceDetectionCommandOutput
 } from "./commands/StartFaceDetectionCommand";
 import {
   StartFaceSearchCommand,
   StartFaceSearchCommandInput,
-  StartFaceSearchCommandOutput,
+  StartFaceSearchCommandOutput
 } from "./commands/StartFaceSearchCommand";
 import {
   StartLabelDetectionCommand,
   StartLabelDetectionCommandInput,
-  StartLabelDetectionCommandOutput,
+  StartLabelDetectionCommandOutput
 } from "./commands/StartLabelDetectionCommand";
 import {
   StartPersonTrackingCommand,
   StartPersonTrackingCommandInput,
-  StartPersonTrackingCommandOutput,
+  StartPersonTrackingCommandOutput
 } from "./commands/StartPersonTrackingCommand";
 import {
   StartProjectVersionCommand,
   StartProjectVersionCommandInput,
-  StartProjectVersionCommandOutput,
+  StartProjectVersionCommandOutput
 } from "./commands/StartProjectVersionCommand";
 import {
   StartStreamProcessorCommand,
   StartStreamProcessorCommandInput,
-  StartStreamProcessorCommandOutput,
+  StartStreamProcessorCommandOutput
 } from "./commands/StartStreamProcessorCommand";
 import {
   StopProjectVersionCommand,
   StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput,
+  StopProjectVersionCommandOutput
 } from "./commands/StopProjectVersionCommand";
 import {
   StopStreamProcessorCommand,
   StopStreamProcessorCommandInput,
-  StopStreamProcessorCommandOutput,
+  StopStreamProcessorCommandOutput
 } from "./commands/StopStreamProcessorCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -275,7 +275,7 @@ export class Rekognition extends RekognitionClient {
    */
   public compareFaces(
     args: CompareFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CompareFacesCommandOutput>;
   public compareFaces(
     args: CompareFacesCommandInput,
@@ -288,16 +288,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public compareFaces(
     args: CompareFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CompareFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CompareFacesCommandOutput) => void),
     cb?: (err: any, data?: CompareFacesCommandOutput) => void
   ): Promise<CompareFacesCommandOutput> | void {
     const command = new CompareFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -324,7 +326,7 @@ export class Rekognition extends RekognitionClient {
    */
   public createCollection(
     args: CreateCollectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateCollectionCommandOutput>;
   public createCollection(
     args: CreateCollectionCommandInput,
@@ -337,16 +339,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createCollection(
     args: CreateCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateCollectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateCollectionCommandOutput) => void),
     cb?: (err: any, data?: CreateCollectionCommandOutput) => void
   ): Promise<CreateCollectionCommandOutput> | void {
     const command = new CreateCollectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -362,7 +366,7 @@ export class Rekognition extends RekognitionClient {
    */
   public createProject(
     args: CreateProjectCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateProjectCommandOutput>;
   public createProject(
     args: CreateProjectCommandInput,
@@ -375,16 +379,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createProject(
     args: CreateProjectCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateProjectCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectCommandOutput) => void
   ): Promise<CreateProjectCommandOutput> | void {
     const command = new CreateProjectCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -409,7 +415,7 @@ export class Rekognition extends RekognitionClient {
    */
   public createProjectVersion(
     args: CreateProjectVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateProjectVersionCommandOutput>;
   public createProjectVersion(
     args: CreateProjectVersionCommandInput,
@@ -422,16 +428,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createProjectVersion(
     args: CreateProjectVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateProjectVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateProjectVersionCommandOutput) => void),
     cb?: (err: any, data?: CreateProjectVersionCommandOutput) => void
   ): Promise<CreateProjectVersionCommandOutput> | void {
     const command = new CreateProjectVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -452,7 +460,7 @@ export class Rekognition extends RekognitionClient {
    */
   public createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<CreateStreamProcessorCommandOutput>;
   public createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
@@ -465,16 +473,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public createStreamProcessor(
     args: CreateStreamProcessorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStreamProcessorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CreateStreamProcessorCommandOutput) => void),
     cb?: (err: any, data?: CreateStreamProcessorCommandOutput) => void
   ): Promise<CreateStreamProcessorCommandOutput> | void {
     const command = new CreateStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -493,7 +503,7 @@ export class Rekognition extends RekognitionClient {
    */
   public deleteCollection(
     args: DeleteCollectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteCollectionCommandOutput>;
   public deleteCollection(
     args: DeleteCollectionCommandInput,
@@ -506,16 +516,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public deleteCollection(
     args: DeleteCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteCollectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteCollectionCommandOutput) => void),
     cb?: (err: any, data?: DeleteCollectionCommandOutput) => void
   ): Promise<DeleteCollectionCommandOutput> | void {
     const command = new DeleteCollectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -533,7 +545,7 @@ export class Rekognition extends RekognitionClient {
    */
   public deleteFaces(
     args: DeleteFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteFacesCommandOutput>;
   public deleteFaces(
     args: DeleteFacesCommandInput,
@@ -546,16 +558,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public deleteFaces(
     args: DeleteFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteFacesCommandOutput) => void),
     cb?: (err: any, data?: DeleteFacesCommandOutput) => void
   ): Promise<DeleteFacesCommandOutput> | void {
     const command = new DeleteFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -569,7 +583,7 @@ export class Rekognition extends RekognitionClient {
    */
   public deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteStreamProcessorCommandOutput>;
   public deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
@@ -582,16 +596,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public deleteStreamProcessor(
     args: DeleteStreamProcessorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteStreamProcessorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteStreamProcessorCommandOutput) => void),
     cb?: (err: any, data?: DeleteStreamProcessorCommandOutput) => void
   ): Promise<DeleteStreamProcessorCommandOutput> | void {
     const command = new DeleteStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -609,7 +625,7 @@ export class Rekognition extends RekognitionClient {
    */
   public describeCollection(
     args: DescribeCollectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeCollectionCommandOutput>;
   public describeCollection(
     args: DescribeCollectionCommandInput,
@@ -622,16 +638,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public describeCollection(
     args: DescribeCollectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeCollectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeCollectionCommandOutput) => void),
     cb?: (err: any, data?: DescribeCollectionCommandOutput) => void
   ): Promise<DescribeCollectionCommandOutput> | void {
     const command = new DescribeCollectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -649,7 +667,7 @@ export class Rekognition extends RekognitionClient {
    */
   public describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProjectVersionsCommandOutput>;
   public describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
@@ -662,16 +680,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public describeProjectVersions(
     args: DescribeProjectVersionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectVersionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProjectVersionsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectVersionsCommandOutput) => void
   ): Promise<DescribeProjectVersionsCommandOutput> | void {
     const command = new DescribeProjectVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -685,7 +705,7 @@ export class Rekognition extends RekognitionClient {
    */
   public describeProjects(
     args: DescribeProjectsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeProjectsCommandOutput>;
   public describeProjects(
     args: DescribeProjectsCommandInput,
@@ -698,16 +718,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public describeProjects(
     args: DescribeProjectsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeProjectsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeProjectsCommandOutput) => void),
     cb?: (err: any, data?: DescribeProjectsCommandOutput) => void
   ): Promise<DescribeProjectsCommandOutput> | void {
     const command = new DescribeProjectsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -721,7 +743,7 @@ export class Rekognition extends RekognitionClient {
    */
   public describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DescribeStreamProcessorCommandOutput>;
   public describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
@@ -734,16 +756,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public describeStreamProcessor(
     args: DescribeStreamProcessorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeStreamProcessorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeStreamProcessorCommandOutput) => void),
     cb?: (err: any, data?: DescribeStreamProcessorCommandOutput) => void
   ): Promise<DescribeStreamProcessorCommandOutput> | void {
     const command = new DescribeStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -781,7 +805,7 @@ export class Rekognition extends RekognitionClient {
    */
   public detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetectCustomLabelsCommandOutput>;
   public detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
@@ -794,16 +818,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectCustomLabels(
     args: DetectCustomLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectCustomLabelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectCustomLabelsCommandOutput) => void),
     cb?: (err: any, data?: DetectCustomLabelsCommandOutput) => void
   ): Promise<DetectCustomLabelsCommandOutput> | void {
     const command = new DetectCustomLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -839,7 +865,7 @@ export class Rekognition extends RekognitionClient {
    */
   public detectFaces(
     args: DetectFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetectFacesCommandOutput>;
   public detectFaces(
     args: DetectFacesCommandInput,
@@ -852,16 +878,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectFaces(
     args: DetectFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectFacesCommandOutput) => void),
     cb?: (err: any, data?: DetectFacesCommandOutput) => void
   ): Promise<DetectFacesCommandOutput> | void {
     const command = new DetectFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -951,7 +979,7 @@ export class Rekognition extends RekognitionClient {
    */
   public detectLabels(
     args: DetectLabelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetectLabelsCommandOutput>;
   public detectLabels(
     args: DetectLabelsCommandInput,
@@ -964,16 +992,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectLabels(
     args: DetectLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectLabelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectLabelsCommandOutput) => void),
     cb?: (err: any, data?: DetectLabelsCommandOutput) => void
   ): Promise<DetectLabelsCommandOutput> | void {
     const command = new DetectLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1001,7 +1031,7 @@ export class Rekognition extends RekognitionClient {
    */
   public detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetectModerationLabelsCommandOutput>;
   public detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
@@ -1014,16 +1044,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectModerationLabels(
     args: DetectModerationLabelsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectModerationLabelsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectModerationLabelsCommandOutput) => void),
     cb?: (err: any, data?: DetectModerationLabelsCommandOutput) => void
   ): Promise<DetectModerationLabelsCommandOutput> | void {
     const command = new DetectModerationLabelsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1058,7 +1090,7 @@ export class Rekognition extends RekognitionClient {
    */
   public detectText(
     args: DetectTextCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DetectTextCommandOutput>;
   public detectText(
     args: DetectTextCommandInput,
@@ -1071,16 +1103,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public detectText(
     args: DetectTextCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetectTextCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DetectTextCommandOutput) => void),
     cb?: (err: any, data?: DetectTextCommandOutput) => void
   ): Promise<DetectTextCommandOutput> | void {
     const command = new DetectTextCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1101,7 +1135,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCelebrityInfoCommandOutput>;
   public getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
@@ -1114,16 +1148,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getCelebrityInfo(
     args: GetCelebrityInfoCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCelebrityInfoCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCelebrityInfoCommandOutput) => void),
     cb?: (err: any, data?: GetCelebrityInfoCommandOutput) => void
   ): Promise<GetCelebrityInfoCommandOutput> | void {
     const command = new GetCelebrityInfoCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1174,7 +1210,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetCelebrityRecognitionCommandOutput>;
   public getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
@@ -1187,16 +1223,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getCelebrityRecognition(
     args: GetCelebrityRecognitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetCelebrityRecognitionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetCelebrityRecognitionCommandOutput) => void),
     cb?: (err: any, data?: GetCelebrityRecognitionCommandOutput) => void
   ): Promise<GetCelebrityRecognitionCommandOutput> | void {
     const command = new GetCelebrityRecognitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1239,7 +1277,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getContentModeration(
     args: GetContentModerationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetContentModerationCommandOutput>;
   public getContentModeration(
     args: GetContentModerationCommandInput,
@@ -1252,16 +1290,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getContentModeration(
     args: GetContentModerationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContentModerationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetContentModerationCommandOutput) => void),
     cb?: (err: any, data?: GetContentModerationCommandOutput) => void
   ): Promise<GetContentModerationCommandOutput> | void {
     const command = new GetContentModerationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1286,7 +1326,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getFaceDetection(
     args: GetFaceDetectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetFaceDetectionCommandOutput>;
   public getFaceDetection(
     args: GetFaceDetectionCommandInput,
@@ -1299,16 +1339,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getFaceDetection(
     args: GetFaceDetectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFaceDetectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetFaceDetectionCommandOutput) => void),
     cb?: (err: any, data?: GetFaceDetectionCommandOutput) => void
   ): Promise<GetFaceDetectionCommandOutput> | void {
     const command = new GetFaceDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1353,7 +1395,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getFaceSearch(
     args: GetFaceSearchCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetFaceSearchCommandOutput>;
   public getFaceSearch(
     args: GetFaceSearchCommandInput,
@@ -1366,16 +1408,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getFaceSearch(
     args: GetFaceSearchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetFaceSearchCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetFaceSearchCommandOutput) => void),
     cb?: (err: any, data?: GetFaceSearchCommandOutput) => void
   ): Promise<GetFaceSearchCommandOutput> | void {
     const command = new GetFaceSearchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1409,7 +1453,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getLabelDetection(
     args: GetLabelDetectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetLabelDetectionCommandOutput>;
   public getLabelDetection(
     args: GetLabelDetectionCommandInput,
@@ -1422,16 +1466,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getLabelDetection(
     args: GetLabelDetectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLabelDetectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetLabelDetectionCommandOutput) => void),
     cb?: (err: any, data?: GetLabelDetectionCommandOutput) => void
   ): Promise<GetLabelDetectionCommandOutput> | void {
     const command = new GetLabelDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1474,7 +1520,7 @@ export class Rekognition extends RekognitionClient {
    */
   public getPersonTracking(
     args: GetPersonTrackingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetPersonTrackingCommandOutput>;
   public getPersonTracking(
     args: GetPersonTrackingCommandInput,
@@ -1487,16 +1533,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public getPersonTracking(
     args: GetPersonTrackingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPersonTrackingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetPersonTrackingCommandOutput) => void),
     cb?: (err: any, data?: GetPersonTrackingCommandOutput) => void
   ): Promise<GetPersonTrackingCommandOutput> | void {
     const command = new GetPersonTrackingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1609,7 +1657,7 @@ export class Rekognition extends RekognitionClient {
    */
   public indexFaces(
     args: IndexFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<IndexFacesCommandOutput>;
   public indexFaces(
     args: IndexFacesCommandInput,
@@ -1622,16 +1670,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public indexFaces(
     args: IndexFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: IndexFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: IndexFacesCommandOutput) => void),
     cb?: (err: any, data?: IndexFacesCommandOutput) => void
   ): Promise<IndexFacesCommandOutput> | void {
     const command = new IndexFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1652,7 +1702,7 @@ export class Rekognition extends RekognitionClient {
    */
   public listCollections(
     args: ListCollectionsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListCollectionsCommandOutput>;
   public listCollections(
     args: ListCollectionsCommandInput,
@@ -1665,16 +1715,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public listCollections(
     args: ListCollectionsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListCollectionsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListCollectionsCommandOutput) => void),
     cb?: (err: any, data?: ListCollectionsCommandOutput) => void
   ): Promise<ListCollectionsCommandOutput> | void {
     const command = new ListCollectionsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1697,7 +1749,7 @@ export class Rekognition extends RekognitionClient {
    */
   public listFaces(
     args: ListFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListFacesCommandOutput>;
   public listFaces(
     args: ListFacesCommandInput,
@@ -1710,16 +1762,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public listFaces(
     args: ListFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListFacesCommandOutput) => void),
     cb?: (err: any, data?: ListFacesCommandOutput) => void
   ): Promise<ListFacesCommandOutput> | void {
     const command = new ListFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1732,7 +1786,7 @@ export class Rekognition extends RekognitionClient {
    */
   public listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListStreamProcessorsCommandOutput>;
   public listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
@@ -1745,16 +1799,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListStreamProcessorsCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListStreamProcessorsCommandOutput) => void),
     cb?: (err: any, data?: ListStreamProcessorsCommandOutput) => void
   ): Promise<ListStreamProcessorsCommandOutput> | void {
     const command = new ListStreamProcessorsCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1799,7 +1855,7 @@ export class Rekognition extends RekognitionClient {
    */
   public recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<RecognizeCelebritiesCommandOutput>;
   public recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
@@ -1812,16 +1868,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public recognizeCelebrities(
     args: RecognizeCelebritiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RecognizeCelebritiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: RecognizeCelebritiesCommandOutput) => void),
     cb?: (err: any, data?: RecognizeCelebritiesCommandOutput) => void
   ): Promise<RecognizeCelebritiesCommandOutput> | void {
     const command = new RecognizeCelebritiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1855,7 +1913,7 @@ export class Rekognition extends RekognitionClient {
    */
   public searchFaces(
     args: SearchFacesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SearchFacesCommandOutput>;
   public searchFaces(
     args: SearchFacesCommandInput,
@@ -1868,16 +1926,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public searchFaces(
     args: SearchFacesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFacesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchFacesCommandOutput) => void),
     cb?: (err: any, data?: SearchFacesCommandOutput) => void
   ): Promise<SearchFacesCommandOutput> | void {
     const command = new SearchFacesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1936,7 +1996,7 @@ export class Rekognition extends RekognitionClient {
    */
   public searchFacesByImage(
     args: SearchFacesByImageCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<SearchFacesByImageCommandOutput>;
   public searchFacesByImage(
     args: SearchFacesByImageCommandInput,
@@ -1949,16 +2009,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public searchFacesByImage(
     args: SearchFacesByImageCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchFacesByImageCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: SearchFacesByImageCommandOutput) => void),
     cb?: (err: any, data?: SearchFacesByImageCommandOutput) => void
   ): Promise<SearchFacesByImageCommandOutput> | void {
     const command = new SearchFacesByImageCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -1982,7 +2044,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartCelebrityRecognitionCommandOutput>;
   public startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
@@ -1995,16 +2057,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startCelebrityRecognition(
     args: StartCelebrityRecognitionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartCelebrityRecognitionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartCelebrityRecognitionCommandOutput) => void),
     cb?: (err: any, data?: StartCelebrityRecognitionCommandOutput) => void
   ): Promise<StartCelebrityRecognitionCommandOutput> | void {
     const command = new StartCelebrityRecognitionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2027,7 +2091,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startContentModeration(
     args: StartContentModerationCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartContentModerationCommandOutput>;
   public startContentModeration(
     args: StartContentModerationCommandInput,
@@ -2040,16 +2104,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startContentModeration(
     args: StartContentModerationCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartContentModerationCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartContentModerationCommandOutput) => void),
     cb?: (err: any, data?: StartContentModerationCommandOutput) => void
   ): Promise<StartContentModerationCommandOutput> | void {
     const command = new StartContentModerationCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2074,7 +2140,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startFaceDetection(
     args: StartFaceDetectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartFaceDetectionCommandOutput>;
   public startFaceDetection(
     args: StartFaceDetectionCommandInput,
@@ -2087,16 +2153,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startFaceDetection(
     args: StartFaceDetectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFaceDetectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartFaceDetectionCommandOutput) => void),
     cb?: (err: any, data?: StartFaceDetectionCommandOutput) => void
   ): Promise<StartFaceDetectionCommandOutput> | void {
     const command = new StartFaceDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2118,7 +2186,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartFaceSearchCommandOutput>;
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
@@ -2131,16 +2199,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startFaceSearch(
     args: StartFaceSearchCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartFaceSearchCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartFaceSearchCommandOutput) => void),
     cb?: (err: any, data?: StartFaceSearchCommandOutput) => void
   ): Promise<StartFaceSearchCommandOutput> | void {
     const command = new StartFaceSearchCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2167,7 +2237,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startLabelDetection(
     args: StartLabelDetectionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartLabelDetectionCommandOutput>;
   public startLabelDetection(
     args: StartLabelDetectionCommandInput,
@@ -2180,16 +2250,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startLabelDetection(
     args: StartLabelDetectionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartLabelDetectionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartLabelDetectionCommandOutput) => void),
     cb?: (err: any, data?: StartLabelDetectionCommandOutput) => void
   ): Promise<StartLabelDetectionCommandOutput> | void {
     const command = new StartLabelDetectionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2210,7 +2282,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startPersonTracking(
     args: StartPersonTrackingCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartPersonTrackingCommandOutput>;
   public startPersonTracking(
     args: StartPersonTrackingCommandInput,
@@ -2223,16 +2295,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startPersonTracking(
     args: StartPersonTrackingCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartPersonTrackingCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartPersonTrackingCommandOutput) => void),
     cb?: (err: any, data?: StartPersonTrackingCommandOutput) => void
   ): Promise<StartPersonTrackingCommandOutput> | void {
     const command = new StartPersonTrackingCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2255,7 +2329,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startProjectVersion(
     args: StartProjectVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartProjectVersionCommandOutput>;
   public startProjectVersion(
     args: StartProjectVersionCommandInput,
@@ -2268,16 +2342,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startProjectVersion(
     args: StartProjectVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartProjectVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartProjectVersionCommandOutput) => void),
     cb?: (err: any, data?: StartProjectVersionCommandOutput) => void
   ): Promise<StartProjectVersionCommandOutput> | void {
     const command = new StartProjectVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2292,7 +2368,7 @@ export class Rekognition extends RekognitionClient {
    */
   public startStreamProcessor(
     args: StartStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartStreamProcessorCommandOutput>;
   public startStreamProcessor(
     args: StartStreamProcessorCommandInput,
@@ -2305,16 +2381,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public startStreamProcessor(
     args: StartStreamProcessorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStreamProcessorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartStreamProcessorCommandOutput) => void),
     cb?: (err: any, data?: StartStreamProcessorCommandOutput) => void
   ): Promise<StartStreamProcessorCommandOutput> | void {
     const command = new StartStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2328,7 +2406,7 @@ export class Rekognition extends RekognitionClient {
    */
   public stopProjectVersion(
     args: StopProjectVersionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopProjectVersionCommandOutput>;
   public stopProjectVersion(
     args: StopProjectVersionCommandInput,
@@ -2341,16 +2419,18 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public stopProjectVersion(
     args: StopProjectVersionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopProjectVersionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopProjectVersionCommandOutput) => void),
     cb?: (err: any, data?: StopProjectVersionCommandOutput) => void
   ): Promise<StopProjectVersionCommandOutput> | void {
     const command = new StopProjectVersionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -2363,7 +2443,7 @@ export class Rekognition extends RekognitionClient {
    */
   public stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StopStreamProcessorCommandOutput>;
   public stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
@@ -2376,19 +2456,20 @@ export class Rekognition extends RekognitionClient {
   ): void;
   public stopStreamProcessor(
     args: StopStreamProcessorCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopStreamProcessorCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StopStreamProcessorCommandOutput) => void),
     cb?: (err: any, data?: StopStreamProcessorCommandOutput) => void
   ): Promise<StopStreamProcessorCommandOutput> | void {
     const command = new StopStreamProcessorCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

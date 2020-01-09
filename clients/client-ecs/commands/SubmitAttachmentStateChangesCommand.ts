@@ -1,20 +1,20 @@
 import {
   ECSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ECSClient";
 import {
   SubmitAttachmentStateChangesRequest,
-  SubmitAttachmentStateChangesResponse,
+  SubmitAttachmentStateChangesResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1SubmitAttachmentStateChangesCommand,
-  serializeAws_json1_1SubmitAttachmentStateChangesCommand,
+  serializeAws_json1_1SubmitAttachmentStateChangesCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type SubmitAttachmentStateChangesCommandInput = SubmitAttachmentStateChangesRequest;
 export type SubmitAttachmentStateChangesCommandOutput = SubmitAttachmentStateChangesResponse;
 
-export class SubmitAttachmentStateChangesCommand extends $Command<SubmitAttachmentStateChangesCommandInput, SubmitAttachmentStateChangesCommandOutput, ECSClientResolvedConfig> {
+export class SubmitAttachmentStateChangesCommand extends $Command<
+  SubmitAttachmentStateChangesCommandInput,
+  SubmitAttachmentStateChangesCommandOutput,
+  ECSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class SubmitAttachmentStateChangesCommand extends $Command<SubmitAttachme
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<SubmitAttachmentStateChangesCommandInput, SubmitAttachmentStateChangesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    SubmitAttachmentStateChangesCommandInput,
+    SubmitAttachmentStateChangesCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class SubmitAttachmentStateChangesCommand extends $Command<SubmitAttachme
     input: SubmitAttachmentStateChangesCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1SubmitAttachmentStateChangesCommand(input, context);
+    return serializeAws_json1_1SubmitAttachmentStateChangesCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<SubmitAttachmentStateChangesCommandOutput> {
-    return deserializeAws_json1_1SubmitAttachmentStateChangesCommand(output, context);
+    return deserializeAws_json1_1SubmitAttachmentStateChangesCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

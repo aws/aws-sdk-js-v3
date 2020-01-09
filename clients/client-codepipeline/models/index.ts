@@ -189,7 +189,7 @@ export namespace ActionConfigurationProperty {
 export enum ActionConfigurationPropertyType {
   Boolean = "Boolean",
   Number = "Number",
-  String = "String",
+  String = "String"
 }
 
 /**
@@ -617,7 +617,7 @@ export namespace ActionExecutionResult {
 export enum ActionExecutionStatus {
   Failed = "Failed",
   InProgress = "InProgress",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 /**
@@ -625,7 +625,9 @@ export enum ActionExecutionStatus {
  *         <p>The specified action cannot be found.</p>
  *
  */
-export interface ActionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ActionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ActionNotFoundException";
   $fault: "client";
   /**
@@ -835,7 +837,9 @@ export namespace ActionTypeSettings {
  *         <p>The approval action has already been approved or rejected.</p>
  *
  */
-export interface ApprovalAlreadyCompletedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ApprovalAlreadyCompletedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ApprovalAlreadyCompletedException";
   $fault: "client";
   /**
@@ -883,7 +887,7 @@ export namespace ApprovalResult {
 
 export enum ApprovalStatus {
   Approved = "Approved",
-  Rejected = "Rejected",
+  Rejected = "Rejected"
 }
 
 /**
@@ -1053,7 +1057,7 @@ export namespace ArtifactStore {
 }
 
 export enum ArtifactStoreType {
-  S3 = "S3",
+  S3 = "S3"
 }
 
 /**
@@ -1088,7 +1092,7 @@ export namespace BlockerDeclaration {
 }
 
 export enum BlockerType {
-  Schedule = "Schedule",
+  Schedule = "Schedule"
 }
 
 /**
@@ -1096,7 +1100,9 @@ export enum BlockerType {
  *         <p>Unable to modify the tag due to a simultaneous update request.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   message?: string;
@@ -1850,7 +1856,9 @@ export namespace InputArtifact {
  *         <p>The action declaration was specified in an invalid format.</p>
  *
  */
-export interface InvalidActionDeclarationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidActionDeclarationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidActionDeclarationException";
   $fault: "client";
   /**
@@ -1872,7 +1880,9 @@ export namespace InvalidActionDeclarationException {
  *         <p>The approval request already received a response or has expired.</p>
  *
  */
-export interface InvalidApprovalTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidApprovalTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidApprovalTokenException";
   $fault: "client";
   /**
@@ -1894,7 +1904,9 @@ export namespace InvalidApprovalTokenException {
  *         <p>The specified resource ARN is invalid.</p>
  *
  */
-export interface InvalidArnException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArnException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArnException";
   $fault: "client";
   message?: string;
@@ -1912,7 +1924,9 @@ export namespace InvalidArnException {
  *
  *
  */
-export interface InvalidBlockerDeclarationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidBlockerDeclarationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidBlockerDeclarationException";
   $fault: "client";
   /**
@@ -1934,7 +1948,9 @@ export namespace InvalidBlockerDeclarationException {
  *         <p>The client token was specified in an invalid format</p>
  *
  */
-export interface InvalidClientTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidClientTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidClientTokenException";
   $fault: "client";
   /**
@@ -1956,7 +1972,9 @@ export namespace InvalidClientTokenException {
  *         <p>The job was specified in an invalid format or cannot be found.</p>
  *
  */
-export interface InvalidJobException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidJobException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidJobException";
   $fault: "client";
   /**
@@ -1979,7 +1997,9 @@ export namespace InvalidJobException {
  *             you provide is the token returned by a previous call.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -2001,7 +2021,9 @@ export namespace InvalidNextTokenException {
  *         <p>The stage declaration was specified in an invalid format.</p>
  *
  */
-export interface InvalidStageDeclarationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidStageDeclarationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidStageDeclarationException";
   $fault: "client";
   /**
@@ -2023,7 +2045,9 @@ export namespace InvalidStageDeclarationException {
  *         <p>The structure was specified in an invalid format.</p>
  *
  */
-export interface InvalidStructureException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidStructureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidStructureException";
   $fault: "client";
   /**
@@ -2045,7 +2069,9 @@ export namespace InvalidStructureException {
  *         <p>The specified resource tags are invalid.</p>
  *
  */
-export interface InvalidTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTagsException";
   $fault: "client";
   message?: string;
@@ -2062,7 +2088,9 @@ export namespace InvalidTagsException {
  *         <p>The specified authentication type is in an invalid format.</p>
  *
  */
-export interface InvalidWebhookAuthenticationParametersException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidWebhookAuthenticationParametersException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidWebhookAuthenticationParametersException";
   $fault: "client";
   /**
@@ -2074,7 +2102,9 @@ export interface InvalidWebhookAuthenticationParametersException extends _smithy
 }
 
 export namespace InvalidWebhookAuthenticationParametersException {
-  export function isa(o: any): o is InvalidWebhookAuthenticationParametersException {
+  export function isa(
+    o: any
+  ): o is InvalidWebhookAuthenticationParametersException {
     return _smithy.isa(o, "InvalidWebhookAuthenticationParametersException");
   }
 }
@@ -2084,7 +2114,9 @@ export namespace InvalidWebhookAuthenticationParametersException {
  *         <p>The specified event filter rule is in an invalid format.</p>
  *
  */
-export interface InvalidWebhookFilterPatternException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidWebhookFilterPatternException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidWebhookFilterPatternException";
   $fault: "client";
   /**
@@ -2266,7 +2298,9 @@ export namespace JobDetails {
  *             allowed for the account.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -2718,7 +2752,9 @@ export namespace ListWebhooksOutput {
  *             associated with the request is out of date.</p>
  *
  */
-export interface NotLatestPipelineExecutionException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotLatestPipelineExecutionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotLatestPipelineExecutionException";
   $fault: "client";
   /**
@@ -2909,7 +2945,9 @@ export namespace PipelineExecution {
  *             execution ID does not belong to the specified pipeline. </p>
  *
  */
-export interface PipelineExecutionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineExecutionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineExecutionNotFoundException";
   $fault: "client";
   /**
@@ -2930,7 +2968,7 @@ export enum PipelineExecutionStatus {
   Failed = "Failed",
   InProgress = "InProgress",
   Succeeded = "Succeeded",
-  Superseded = "Superseded",
+  Superseded = "Superseded"
 }
 
 /**
@@ -3048,7 +3086,9 @@ export namespace PipelineMetadata {
  *         <p>The specified pipeline name is already in use.</p>
  *
  */
-export interface PipelineNameInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineNameInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineNameInUseException";
   $fault: "client";
   /**
@@ -3071,7 +3111,9 @@ export namespace PipelineNameInUseException {
  *             found.</p>
  *
  */
-export interface PipelineNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineNotFoundException";
   $fault: "client";
   /**
@@ -3137,7 +3179,9 @@ export namespace PipelineSummary {
  *             found.</p>
  *
  */
-export interface PipelineVersionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface PipelineVersionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PipelineVersionNotFoundException";
   $fault: "client";
   /**
@@ -3870,7 +3914,7 @@ export namespace StageExecution {
 export enum StageExecutionStatus {
   Failed = "Failed",
   InProgress = "InProgress",
-  Succeeded = "Succeeded",
+  Succeeded = "Succeeded"
 }
 
 /**
@@ -3879,7 +3923,9 @@ export enum StageExecutionStatus {
  *             found.</p>
  *
  */
-export interface StageNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface StageNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StageNotFoundException";
   $fault: "client";
   /**
@@ -3904,7 +3950,9 @@ export namespace StageNotFoundException {
  *             actions.</p>
  *
  */
-export interface StageNotRetryableException extends _smithy.SmithyException, $MetadataBearer {
+export interface StageNotRetryableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StageNotRetryableException";
   $fault: "client";
   /**
@@ -3922,7 +3970,7 @@ export namespace StageNotRetryableException {
 }
 
 export enum StageRetryMode {
-  FAILED_ACTIONS = "FAILED_ACTIONS",
+  FAILED_ACTIONS = "FAILED_ACTIONS"
 }
 
 /**
@@ -3970,7 +4018,7 @@ export namespace StageState {
 
 export enum StageTransitionType {
   Inbound = "Inbound",
-  Outbound = "Outbound",
+  Outbound = "Outbound"
 }
 
 /**
@@ -4243,7 +4291,9 @@ export namespace ThirdPartyJobDetails {
  *         <p>The tags limit for a resource has been exceeded.</p>
  *
  */
-export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   message?: string;
@@ -4306,7 +4356,7 @@ export enum TriggerType {
   PollForSourceChanges = "PollForSourceChanges",
   PutActionRevision = "PutActionRevision",
   StartPipelineExecution = "StartPipelineExecution",
-  Webhook = "Webhook",
+  Webhook = "Webhook"
 }
 
 export interface UntagResourceInput {
@@ -4418,7 +4468,7 @@ export namespace WebhookAuthConfiguration {
 export enum WebhookAuthenticationType {
   GITHUB_HMAC = "GITHUB_HMAC",
   IP = "IP",
-  UNAUTHENTICATED = "UNAUTHENTICATED",
+  UNAUTHENTICATED = "UNAUTHENTICATED"
 }
 
 /**
@@ -4545,7 +4595,9 @@ export namespace WebhookFilterRule {
  *             found.</p>
  *
  */
-export interface WebhookNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface WebhookNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "WebhookNotFoundException";
   $fault: "client";
 }
@@ -4600,7 +4652,7 @@ export enum ActionCategory {
   Deploy = "Deploy",
   Invoke = "Invoke",
   Source = "Source",
-  Test = "Test",
+  Test = "Test"
 }
 
 /**
@@ -4656,7 +4708,7 @@ export namespace ActionContext {
 export enum ActionOwner {
   AWS = "AWS",
   Custom = "Custom",
-  ThirdParty = "ThirdParty",
+  ThirdParty = "ThirdParty"
 }
 
 /**
@@ -4710,7 +4762,9 @@ export namespace ActionTypeId {
  *         <p>The specified action type cannot be found.</p>
  *
  */
-export interface ActionTypeNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ActionTypeNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ActionTypeNotFoundException";
   $fault: "client";
   /**
@@ -4793,7 +4847,7 @@ export namespace ArtifactLocation {
 }
 
 export enum ArtifactLocationType {
-  S3 = "S3",
+  S3 = "S3"
 }
 
 /**
@@ -4876,7 +4930,7 @@ export namespace EncryptionKey {
 }
 
 export enum EncryptionKeyType {
-  KMS = "KMS",
+  KMS = "KMS"
 }
 
 /**
@@ -4958,7 +5012,7 @@ export enum FailureType {
   PermissionError = "PermissionError",
   RevisionOutOfSync = "RevisionOutOfSync",
   RevisionUnavailable = "RevisionUnavailable",
-  SystemUnavailable = "SystemUnavailable",
+  SystemUnavailable = "SystemUnavailable"
 }
 
 /**
@@ -4966,7 +5020,9 @@ export enum FailureType {
  *         <p>The job state was specified in an invalid format.</p>
  *
  */
-export interface InvalidJobStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidJobStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidJobStateException";
   $fault: "client";
   /**
@@ -4988,7 +5044,9 @@ export namespace InvalidJobStateException {
  *         <p>The nonce was specified in an invalid format.</p>
  *
  */
-export interface InvalidNonceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNonceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNonceException";
   $fault: "client";
   /**
@@ -5010,7 +5068,9 @@ export namespace InvalidNonceException {
  *         <p>The job was specified in an invalid format or cannot be found.</p>
  *
  */
-export interface JobNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface JobNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "JobNotFoundException";
   $fault: "client";
   /**
@@ -5034,7 +5094,7 @@ export enum JobStatus {
   InProgress = "InProgress",
   Queued = "Queued",
   Succeeded = "Succeeded",
-  TimedOut = "TimedOut",
+  TimedOut = "TimedOut"
 }
 
 /**
@@ -5042,7 +5102,9 @@ export enum JobStatus {
  *         <p>Exceeded the total size limit for all variables in the pipeline.</p>
  *
  */
-export interface OutputVariablesSizeExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface OutputVariablesSizeExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OutputVariablesSizeExceededException";
   $fault: "client";
   message?: string;
@@ -5115,7 +5177,9 @@ export namespace PipelineContext {
  *         <p>The resource was specified in an invalid format.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -5187,7 +5251,9 @@ export namespace StageContext {
  *         <p>The validation was specified in an invalid format.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**

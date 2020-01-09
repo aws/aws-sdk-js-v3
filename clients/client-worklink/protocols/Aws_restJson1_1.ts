@@ -1,122 +1,122 @@
 import {
   AssociateDomainCommandInput,
-  AssociateDomainCommandOutput,
+  AssociateDomainCommandOutput
 } from "../commands/AssociateDomainCommand";
 import {
   AssociateWebsiteAuthorizationProviderCommandInput,
-  AssociateWebsiteAuthorizationProviderCommandOutput,
+  AssociateWebsiteAuthorizationProviderCommandOutput
 } from "../commands/AssociateWebsiteAuthorizationProviderCommand";
 import {
   AssociateWebsiteCertificateAuthorityCommandInput,
-  AssociateWebsiteCertificateAuthorityCommandOutput,
+  AssociateWebsiteCertificateAuthorityCommandOutput
 } from "../commands/AssociateWebsiteCertificateAuthorityCommand";
 import {
   CreateFleetCommandInput,
-  CreateFleetCommandOutput,
+  CreateFleetCommandOutput
 } from "../commands/CreateFleetCommand";
 import {
   DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
+  DeleteFleetCommandOutput
 } from "../commands/DeleteFleetCommand";
 import {
   DescribeAuditStreamConfigurationCommandInput,
-  DescribeAuditStreamConfigurationCommandOutput,
+  DescribeAuditStreamConfigurationCommandOutput
 } from "../commands/DescribeAuditStreamConfigurationCommand";
 import {
   DescribeCompanyNetworkConfigurationCommandInput,
-  DescribeCompanyNetworkConfigurationCommandOutput,
+  DescribeCompanyNetworkConfigurationCommandOutput
 } from "../commands/DescribeCompanyNetworkConfigurationCommand";
 import {
   DescribeDeviceCommandInput,
-  DescribeDeviceCommandOutput,
+  DescribeDeviceCommandOutput
 } from "../commands/DescribeDeviceCommand";
 import {
   DescribeDevicePolicyConfigurationCommandInput,
-  DescribeDevicePolicyConfigurationCommandOutput,
+  DescribeDevicePolicyConfigurationCommandOutput
 } from "../commands/DescribeDevicePolicyConfigurationCommand";
 import {
   DescribeDomainCommandInput,
-  DescribeDomainCommandOutput,
+  DescribeDomainCommandOutput
 } from "../commands/DescribeDomainCommand";
 import {
   DescribeFleetMetadataCommandInput,
-  DescribeFleetMetadataCommandOutput,
+  DescribeFleetMetadataCommandOutput
 } from "../commands/DescribeFleetMetadataCommand";
 import {
   DescribeIdentityProviderConfigurationCommandInput,
-  DescribeIdentityProviderConfigurationCommandOutput,
+  DescribeIdentityProviderConfigurationCommandOutput
 } from "../commands/DescribeIdentityProviderConfigurationCommand";
 import {
   DescribeWebsiteCertificateAuthorityCommandInput,
-  DescribeWebsiteCertificateAuthorityCommandOutput,
+  DescribeWebsiteCertificateAuthorityCommandOutput
 } from "../commands/DescribeWebsiteCertificateAuthorityCommand";
 import {
   DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput,
+  DisassociateDomainCommandOutput
 } from "../commands/DisassociateDomainCommand";
 import {
   DisassociateWebsiteAuthorizationProviderCommandInput,
-  DisassociateWebsiteAuthorizationProviderCommandOutput,
+  DisassociateWebsiteAuthorizationProviderCommandOutput
 } from "../commands/DisassociateWebsiteAuthorizationProviderCommand";
 import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
-  DisassociateWebsiteCertificateAuthorityCommandOutput,
+  DisassociateWebsiteCertificateAuthorityCommandOutput
 } from "../commands/DisassociateWebsiteCertificateAuthorityCommand";
 import {
   ListDevicesCommandInput,
-  ListDevicesCommandOutput,
+  ListDevicesCommandOutput
 } from "../commands/ListDevicesCommand";
 import {
   ListDomainsCommandInput,
-  ListDomainsCommandOutput,
+  ListDomainsCommandOutput
 } from "../commands/ListDomainsCommand";
 import {
   ListFleetsCommandInput,
-  ListFleetsCommandOutput,
+  ListFleetsCommandOutput
 } from "../commands/ListFleetsCommand";
 import {
   ListWebsiteAuthorizationProvidersCommandInput,
-  ListWebsiteAuthorizationProvidersCommandOutput,
+  ListWebsiteAuthorizationProvidersCommandOutput
 } from "../commands/ListWebsiteAuthorizationProvidersCommand";
 import {
   ListWebsiteCertificateAuthoritiesCommandInput,
-  ListWebsiteCertificateAuthoritiesCommandOutput,
+  ListWebsiteCertificateAuthoritiesCommandOutput
 } from "../commands/ListWebsiteCertificateAuthoritiesCommand";
 import {
   RestoreDomainAccessCommandInput,
-  RestoreDomainAccessCommandOutput,
+  RestoreDomainAccessCommandOutput
 } from "../commands/RestoreDomainAccessCommand";
 import {
   RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput,
+  RevokeDomainAccessCommandOutput
 } from "../commands/RevokeDomainAccessCommand";
 import {
   SignOutUserCommandInput,
-  SignOutUserCommandOutput,
+  SignOutUserCommandOutput
 } from "../commands/SignOutUserCommand";
 import {
   UpdateAuditStreamConfigurationCommandInput,
-  UpdateAuditStreamConfigurationCommandOutput,
+  UpdateAuditStreamConfigurationCommandOutput
 } from "../commands/UpdateAuditStreamConfigurationCommand";
 import {
   UpdateCompanyNetworkConfigurationCommandInput,
-  UpdateCompanyNetworkConfigurationCommandOutput,
+  UpdateCompanyNetworkConfigurationCommandOutput
 } from "../commands/UpdateCompanyNetworkConfigurationCommand";
 import {
   UpdateDevicePolicyConfigurationCommandInput,
-  UpdateDevicePolicyConfigurationCommandOutput,
+  UpdateDevicePolicyConfigurationCommandOutput
 } from "../commands/UpdateDevicePolicyConfigurationCommand";
 import {
   UpdateDomainMetadataCommandInput,
-  UpdateDomainMetadataCommandOutput,
+  UpdateDomainMetadataCommandOutput
 } from "../commands/UpdateDomainMetadataCommand";
 import {
   UpdateFleetMetadataCommandInput,
-  UpdateFleetMetadataCommandOutput,
+  UpdateFleetMetadataCommandOutput
 } from "../commands/UpdateFleetMetadataCommand";
 import {
   UpdateIdentityProviderConfigurationCommandInput,
-  UpdateIdentityProviderConfigurationCommandOutput,
+  UpdateIdentityProviderConfigurationCommandOutput
 } from "../commands/UpdateIdentityProviderConfigurationCommand";
 import {
   DeviceSummary,
@@ -129,18 +129,18 @@ import {
   TooManyRequestsException,
   UnauthorizedException,
   WebsiteAuthorizationProviderSummary,
-  WebsiteCaSummary,
+  WebsiteCaSummary
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1AssociateDomainCommand(
@@ -148,21 +148,21 @@ export async function serializeAws_restJson1_1AssociateDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateDomain";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AcmCertificateArn !== undefined) {
-    bodyParams['AcmCertificateArn'] = input.AcmCertificateArn;
+    bodyParams["AcmCertificateArn"] = input.AcmCertificateArn;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams['DisplayName'] = input.DisplayName;
+    bodyParams["DisplayName"] = input.DisplayName;
   }
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -171,7 +171,7 @@ export async function serializeAws_restJson1_1AssociateDomainCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -180,18 +180,18 @@ export async function serializeAws_restJson1_1AssociateWebsiteAuthorizationProvi
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateWebsiteAuthorizationProvider";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AuthorizationProviderType !== undefined) {
-    bodyParams['AuthorizationProviderType'] = input.AuthorizationProviderType;
+    bodyParams["AuthorizationProviderType"] = input.AuthorizationProviderType;
   }
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -200,7 +200,7 @@ export async function serializeAws_restJson1_1AssociateWebsiteAuthorizationProvi
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -209,18 +209,18 @@ export async function serializeAws_restJson1_1AssociateWebsiteCertificateAuthori
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/associateWebsiteCertificateAuthority";
   let body: any = {};
   const bodyParams: any = {};
   if (input.Certificate !== undefined) {
-    bodyParams['Certificate'] = input.Certificate;
+    bodyParams["Certificate"] = input.Certificate;
   }
   if (input.DisplayName !== undefined) {
-    bodyParams['DisplayName'] = input.DisplayName;
+    bodyParams["DisplayName"] = input.DisplayName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -229,7 +229,7 @@ export async function serializeAws_restJson1_1AssociateWebsiteCertificateAuthori
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -238,18 +238,18 @@ export async function serializeAws_restJson1_1CreateFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/createFleet";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
-    bodyParams['DisplayName'] = input.DisplayName;
+    bodyParams["DisplayName"] = input.DisplayName;
   }
   if (input.FleetName !== undefined) {
-    bodyParams['FleetName'] = input.FleetName;
+    bodyParams["FleetName"] = input.FleetName;
   }
   if (input.OptimizeForEndUserLocation !== undefined) {
-    bodyParams['OptimizeForEndUserLocation'] = input.OptimizeForEndUserLocation;
+    bodyParams["OptimizeForEndUserLocation"] = input.OptimizeForEndUserLocation;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -258,7 +258,7 @@ export async function serializeAws_restJson1_1CreateFleetCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -267,12 +267,12 @@ export async function serializeAws_restJson1_1DeleteFleetCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/deleteFleet";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -281,7 +281,7 @@ export async function serializeAws_restJson1_1DeleteFleetCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -290,12 +290,12 @@ export async function serializeAws_restJson1_1DescribeAuditStreamConfigurationCo
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeAuditStreamConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -304,7 +304,7 @@ export async function serializeAws_restJson1_1DescribeAuditStreamConfigurationCo
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -313,12 +313,12 @@ export async function serializeAws_restJson1_1DescribeCompanyNetworkConfiguratio
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeCompanyNetworkConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -327,7 +327,7 @@ export async function serializeAws_restJson1_1DescribeCompanyNetworkConfiguratio
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -336,15 +336,15 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDevice";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DeviceId !== undefined) {
-    bodyParams['DeviceId'] = input.DeviceId;
+    bodyParams["DeviceId"] = input.DeviceId;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -353,7 +353,7 @@ export async function serializeAws_restJson1_1DescribeDeviceCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -362,12 +362,12 @@ export async function serializeAws_restJson1_1DescribeDevicePolicyConfigurationC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDevicePolicyConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -376,7 +376,7 @@ export async function serializeAws_restJson1_1DescribeDevicePolicyConfigurationC
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -385,15 +385,15 @@ export async function serializeAws_restJson1_1DescribeDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeDomain";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -402,7 +402,7 @@ export async function serializeAws_restJson1_1DescribeDomainCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -411,12 +411,12 @@ export async function serializeAws_restJson1_1DescribeFleetMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeFleetMetadata";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -425,7 +425,7 @@ export async function serializeAws_restJson1_1DescribeFleetMetadataCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -434,12 +434,12 @@ export async function serializeAws_restJson1_1DescribeIdentityProviderConfigurat
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeIdentityProviderConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -448,7 +448,7 @@ export async function serializeAws_restJson1_1DescribeIdentityProviderConfigurat
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -457,15 +457,15 @@ export async function serializeAws_restJson1_1DescribeWebsiteCertificateAuthorit
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/describeWebsiteCertificateAuthority";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.WebsiteCaId !== undefined) {
-    bodyParams['WebsiteCaId'] = input.WebsiteCaId;
+    bodyParams["WebsiteCaId"] = input.WebsiteCaId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -474,7 +474,7 @@ export async function serializeAws_restJson1_1DescribeWebsiteCertificateAuthorit
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -483,15 +483,15 @@ export async function serializeAws_restJson1_1DisassociateDomainCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateDomain";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -500,7 +500,7 @@ export async function serializeAws_restJson1_1DisassociateDomainCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -509,15 +509,15 @@ export async function serializeAws_restJson1_1DisassociateWebsiteAuthorizationPr
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AuthorizationProviderId !== undefined) {
-    bodyParams['AuthorizationProviderId'] = input.AuthorizationProviderId;
+    bodyParams["AuthorizationProviderId"] = input.AuthorizationProviderId;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -526,7 +526,7 @@ export async function serializeAws_restJson1_1DisassociateWebsiteAuthorizationPr
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -535,15 +535,15 @@ export async function serializeAws_restJson1_1DisassociateWebsiteCertificateAuth
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/disassociateWebsiteCertificateAuthority";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.WebsiteCaId !== undefined) {
-    bodyParams['WebsiteCaId'] = input.WebsiteCaId;
+    bodyParams["WebsiteCaId"] = input.WebsiteCaId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -552,7 +552,7 @@ export async function serializeAws_restJson1_1DisassociateWebsiteCertificateAuth
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -561,18 +561,18 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDevices";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -581,7 +581,7 @@ export async function serializeAws_restJson1_1ListDevicesCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -590,18 +590,18 @@ export async function serializeAws_restJson1_1ListDomainsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/listDomains";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -610,7 +610,7 @@ export async function serializeAws_restJson1_1ListDomainsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -619,15 +619,15 @@ export async function serializeAws_restJson1_1ListFleetsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/listFleets";
   let body: any = {};
   const bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -636,7 +636,7 @@ export async function serializeAws_restJson1_1ListFleetsCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -645,18 +645,18 @@ export async function serializeAws_restJson1_1ListWebsiteAuthorizationProvidersC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/listWebsiteAuthorizationProviders";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -665,7 +665,7 @@ export async function serializeAws_restJson1_1ListWebsiteAuthorizationProvidersC
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -674,18 +674,18 @@ export async function serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/listWebsiteCertificateAuthorities";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -694,7 +694,7 @@ export async function serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesC
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -703,15 +703,15 @@ export async function serializeAws_restJson1_1RestoreDomainAccessCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/restoreDomainAccess";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -720,7 +720,7 @@ export async function serializeAws_restJson1_1RestoreDomainAccessCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -729,15 +729,15 @@ export async function serializeAws_restJson1_1RevokeDomainAccessCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/revokeDomainAccess";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -746,7 +746,7 @@ export async function serializeAws_restJson1_1RevokeDomainAccessCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -755,15 +755,15 @@ export async function serializeAws_restJson1_1SignOutUserCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/signOutUser";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.Username !== undefined) {
-    bodyParams['Username'] = input.Username;
+    bodyParams["Username"] = input.Username;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -772,7 +772,7 @@ export async function serializeAws_restJson1_1SignOutUserCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -781,15 +781,15 @@ export async function serializeAws_restJson1_1UpdateAuditStreamConfigurationComm
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateAuditStreamConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.AuditStreamArn !== undefined) {
-    bodyParams['AuditStreamArn'] = input.AuditStreamArn;
+    bodyParams["AuditStreamArn"] = input.AuditStreamArn;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -798,7 +798,7 @@ export async function serializeAws_restJson1_1UpdateAuditStreamConfigurationComm
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -807,21 +807,27 @@ export async function serializeAws_restJson1_1UpdateCompanyNetworkConfigurationC
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateCompanyNetworkConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.SecurityGroupIds !== undefined) {
-    bodyParams['SecurityGroupIds'] = serializeAws_restJson1_1SecurityGroupIds(input.SecurityGroupIds, context);
+    bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
+      input.SecurityGroupIds,
+      context
+    );
   }
   if (input.SubnetIds !== undefined) {
-    bodyParams['SubnetIds'] = serializeAws_restJson1_1SubnetIds(input.SubnetIds, context);
+    bodyParams["SubnetIds"] = serializeAws_restJson1_1SubnetIds(
+      input.SubnetIds,
+      context
+    );
   }
   if (input.VpcId !== undefined) {
-    bodyParams['VpcId'] = input.VpcId;
+    bodyParams["VpcId"] = input.VpcId;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -830,7 +836,7 @@ export async function serializeAws_restJson1_1UpdateCompanyNetworkConfigurationC
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -839,15 +845,15 @@ export async function serializeAws_restJson1_1UpdateDevicePolicyConfigurationCom
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateDevicePolicyConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DeviceCaCertificate !== undefined) {
-    bodyParams['DeviceCaCertificate'] = input.DeviceCaCertificate;
+    bodyParams["DeviceCaCertificate"] = input.DeviceCaCertificate;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -856,7 +862,7 @@ export async function serializeAws_restJson1_1UpdateDevicePolicyConfigurationCom
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -865,18 +871,18 @@ export async function serializeAws_restJson1_1UpdateDomainMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateDomainMetadata";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
-    bodyParams['DisplayName'] = input.DisplayName;
+    bodyParams["DisplayName"] = input.DisplayName;
   }
   if (input.DomainName !== undefined) {
-    bodyParams['DomainName'] = input.DomainName;
+    bodyParams["DomainName"] = input.DomainName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -885,7 +891,7 @@ export async function serializeAws_restJson1_1UpdateDomainMetadataCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -894,18 +900,18 @@ export async function serializeAws_restJson1_1UpdateFleetMetadataCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/UpdateFleetMetadata";
   let body: any = {};
   const bodyParams: any = {};
   if (input.DisplayName !== undefined) {
-    bodyParams['DisplayName'] = input.DisplayName;
+    bodyParams["DisplayName"] = input.DisplayName;
   }
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.OptimizeForEndUserLocation !== undefined) {
-    bodyParams['OptimizeForEndUserLocation'] = input.OptimizeForEndUserLocation;
+    bodyParams["OptimizeForEndUserLocation"] = input.OptimizeForEndUserLocation;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -914,7 +920,7 @@ export async function serializeAws_restJson1_1UpdateFleetMetadataCommand(
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -923,18 +929,19 @@ export async function serializeAws_restJson1_1UpdateIdentityProviderConfiguratio
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/json";
+  headers["Content-Type"] = "application/json";
   let resolvedPath = "/updateIdentityProviderConfiguration";
   let body: any = {};
   const bodyParams: any = {};
   if (input.FleetArn !== undefined) {
-    bodyParams['FleetArn'] = input.FleetArn;
+    bodyParams["FleetArn"] = input.FleetArn;
   }
   if (input.IdentityProviderSamlMetadata !== undefined) {
-    bodyParams['IdentityProviderSamlMetadata'] = input.IdentityProviderSamlMetadata;
+    bodyParams["IdentityProviderSamlMetadata"] =
+      input.IdentityProviderSamlMetadata;
   }
   if (input.IdentityProviderType !== undefined) {
-    bodyParams['IdentityProviderType'] = input.IdentityProviderType;
+    bodyParams["IdentityProviderType"] = input.IdentityProviderType;
   }
   body = JSON.stringify(bodyParams);
   return new __HttpRequest({
@@ -943,7 +950,7 @@ export async function serializeAws_restJson1_1UpdateIdentityProviderConfiguratio
     method: "POST",
     headers: headers,
     path: resolvedPath,
-    body: body,
+    body: body
   });
 }
 
@@ -952,59 +959,80 @@ export async function deserializeAws_restJson1_1AssociateDomainCommand(
   context: __SerdeContext
 ): Promise<AssociateDomainCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1AssociateDomainCommandError(output, context);
+    return deserializeAws_restJson1_1AssociateDomainCommandError(
+      output,
+      context
+    );
   }
   const contents: AssociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDomainResponse",
+    __type: "AssociateDomainResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1AssociateDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AssociateDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1015,12 +1043,15 @@ export async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationPro
   context: __SerdeContext
 ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandError(output, context);
+    return deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandError(
+      output,
+      context
+    );
   }
   const contents: AssociateWebsiteAuthorizationProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateWebsiteAuthorizationProviderResponse",
-    AuthorizationProviderId: undefined,
+    AuthorizationProviderId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuthorizationProviderId !== undefined) {
@@ -1031,48 +1062,66 @@ export async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationPro
 
 async function deserializeAws_restJson1_1AssociateWebsiteAuthorizationProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AssociateWebsiteAuthorizationProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1083,12 +1132,15 @@ export async function deserializeAws_restJson1_1AssociateWebsiteCertificateAutho
   context: __SerdeContext
 ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError(output, context);
+    return deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError(
+      output,
+      context
+    );
   }
   const contents: AssociateWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "AssociateWebsiteCertificateAuthorityResponse",
-    WebsiteCaId: undefined,
+    WebsiteCaId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.WebsiteCaId !== undefined) {
@@ -1099,48 +1151,66 @@ export async function deserializeAws_restJson1_1AssociateWebsiteCertificateAutho
 
 async function deserializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<AssociateWebsiteCertificateAuthorityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1156,7 +1226,7 @@ export async function deserializeAws_restJson1_1CreateFleetCommand(
   const contents: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateFleetResponse",
-    FleetArn: undefined,
+    FleetArn: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.FleetArn !== undefined) {
@@ -1167,48 +1237,66 @@ export async function deserializeAws_restJson1_1CreateFleetCommand(
 
 async function deserializeAws_restJson1_1CreateFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1223,51 +1311,66 @@ export async function deserializeAws_restJson1_1DeleteFleetCommand(
   }
   const contents: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFleetResponse",
+    __type: "DeleteFleetResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DeleteFleetCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1278,12 +1381,15 @@ export async function deserializeAws_restJson1_1DescribeAuditStreamConfiguration
   context: __SerdeContext
 ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAuditStreamConfigurationResponse",
-    AuditStreamArn: undefined,
+    AuditStreamArn: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.AuditStreamArn !== undefined) {
@@ -1294,44 +1400,59 @@ export async function deserializeAws_restJson1_1DescribeAuditStreamConfiguration
 
 async function deserializeAws_restJson1_1DescribeAuditStreamConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeAuditStreamConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1342,21 +1463,30 @@ export async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurat
   context: __SerdeContext
 ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeCompanyNetworkConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeCompanyNetworkConfigurationResponse",
     SecurityGroupIds: undefined,
     SubnetIds: undefined,
-    VpcId: undefined,
+    VpcId: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.SecurityGroupIds !== undefined) {
-    contents.SecurityGroupIds = deserializeAws_restJson1_1SecurityGroupIds(data.SecurityGroupIds, context);
+    contents.SecurityGroupIds = deserializeAws_restJson1_1SecurityGroupIds(
+      data.SecurityGroupIds,
+      context
+    );
   }
   if (data.SubnetIds !== undefined) {
-    contents.SubnetIds = deserializeAws_restJson1_1SubnetIds(data.SubnetIds, context);
+    contents.SubnetIds = deserializeAws_restJson1_1SubnetIds(
+      data.SubnetIds,
+      context
+    );
   }
   if (data.VpcId !== undefined) {
     contents.VpcId = data.VpcId;
@@ -1366,44 +1496,59 @@ export async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurat
 
 async function deserializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeCompanyNetworkConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1414,7 +1559,10 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
   context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeDeviceCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeDeviceCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1427,14 +1575,22 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
     OperatingSystemVersion: undefined,
     PatchLevel: undefined,
     Status: undefined,
-    Username: undefined,
+    Username: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.FirstAccessedTime !== undefined) {
-    contents.FirstAccessedTime = new Date(data.FirstAccessedTime % 1 != 0 ? Math.round(data.FirstAccessedTime * 1000) : data.FirstAccessedTime);
+    contents.FirstAccessedTime = new Date(
+      data.FirstAccessedTime % 1 != 0
+        ? Math.round(data.FirstAccessedTime * 1000)
+        : data.FirstAccessedTime
+    );
   }
   if (data.LastAccessedTime !== undefined) {
-    contents.LastAccessedTime = new Date(data.LastAccessedTime % 1 != 0 ? Math.round(data.LastAccessedTime * 1000) : data.LastAccessedTime);
+    contents.LastAccessedTime = new Date(
+      data.LastAccessedTime % 1 != 0
+        ? Math.round(data.LastAccessedTime * 1000)
+        : data.LastAccessedTime
+    );
   }
   if (data.Manufacturer !== undefined) {
     contents.Manufacturer = data.Manufacturer;
@@ -1462,44 +1618,59 @@ export async function deserializeAws_restJson1_1DescribeDeviceCommand(
 
 async function deserializeAws_restJson1_1DescribeDeviceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeDeviceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1510,12 +1681,15 @@ export async function deserializeAws_restJson1_1DescribeDevicePolicyConfiguratio
   context: __SerdeContext
 ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeDevicePolicyConfigurationResponse",
-    DeviceCaCertificate: undefined,
+    DeviceCaCertificate: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.DeviceCaCertificate !== undefined) {
@@ -1526,44 +1700,59 @@ export async function deserializeAws_restJson1_1DescribeDevicePolicyConfiguratio
 
 async function deserializeAws_restJson1_1DescribeDevicePolicyConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeDevicePolicyConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1574,7 +1763,10 @@ export async function deserializeAws_restJson1_1DescribeDomainCommand(
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeDomainCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeDomainCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1583,14 +1775,18 @@ export async function deserializeAws_restJson1_1DescribeDomainCommand(
     CreatedTime: undefined,
     DisplayName: undefined,
     DomainName: undefined,
-    DomainStatus: undefined,
+    DomainStatus: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.AcmCertificateArn !== undefined) {
     contents.AcmCertificateArn = data.AcmCertificateArn;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(data.CreatedTime % 1 != 0 ? Math.round(data.CreatedTime * 1000) : data.CreatedTime);
+    contents.CreatedTime = new Date(
+      data.CreatedTime % 1 != 0
+        ? Math.round(data.CreatedTime * 1000)
+        : data.CreatedTime
+    );
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -1606,44 +1802,59 @@ export async function deserializeAws_restJson1_1DescribeDomainCommand(
 
 async function deserializeAws_restJson1_1DescribeDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1654,7 +1865,10 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
   context: __SerdeContext
 ): Promise<DescribeFleetMetadataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeFleetMetadataCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -1665,14 +1879,18 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
     FleetName: undefined,
     FleetStatus: undefined,
     LastUpdatedTime: undefined,
-    OptimizeForEndUserLocation: undefined,
+    OptimizeForEndUserLocation: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.CompanyCode !== undefined) {
     contents.CompanyCode = data.CompanyCode;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(data.CreatedTime % 1 != 0 ? Math.round(data.CreatedTime * 1000) : data.CreatedTime);
+    contents.CreatedTime = new Date(
+      data.CreatedTime % 1 != 0
+        ? Math.round(data.CreatedTime * 1000)
+        : data.CreatedTime
+    );
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -1684,7 +1902,11 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
     contents.FleetStatus = data.FleetStatus;
   }
   if (data.LastUpdatedTime !== undefined) {
-    contents.LastUpdatedTime = new Date(data.LastUpdatedTime % 1 != 0 ? Math.round(data.LastUpdatedTime * 1000) : data.LastUpdatedTime);
+    contents.LastUpdatedTime = new Date(
+      data.LastUpdatedTime % 1 != 0
+        ? Math.round(data.LastUpdatedTime * 1000)
+        : data.LastUpdatedTime
+    );
   }
   if (data.OptimizeForEndUserLocation !== undefined) {
     contents.OptimizeForEndUserLocation = data.OptimizeForEndUserLocation;
@@ -1694,44 +1916,59 @@ export async function deserializeAws_restJson1_1DescribeFleetMetadataCommand(
 
 async function deserializeAws_restJson1_1DescribeFleetMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeFleetMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1742,14 +1979,17 @@ export async function deserializeAws_restJson1_1DescribeIdentityProviderConfigur
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeIdentityProviderConfigurationResponse",
     IdentityProviderSamlMetadata: undefined,
     IdentityProviderType: undefined,
-    ServiceProviderSamlMetadata: undefined,
+    ServiceProviderSamlMetadata: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.IdentityProviderSamlMetadata !== undefined) {
@@ -1766,44 +2006,59 @@ export async function deserializeAws_restJson1_1DescribeIdentityProviderConfigur
 
 async function deserializeAws_restJson1_1DescribeIdentityProviderConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeIdentityProviderConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1814,21 +2069,28 @@ export async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthor
   context: __SerdeContext
 ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError(output, context);
+    return deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError(
+      output,
+      context
+    );
   }
   const contents: DescribeWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeWebsiteCertificateAuthorityResponse",
     Certificate: undefined,
     CreatedTime: undefined,
-    DisplayName: undefined,
+    DisplayName: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Certificate !== undefined) {
     contents.Certificate = data.Certificate;
   }
   if (data.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(data.CreatedTime % 1 != 0 ? Math.round(data.CreatedTime * 1000) : data.CreatedTime);
+    contents.CreatedTime = new Date(
+      data.CreatedTime % 1 != 0
+        ? Math.round(data.CreatedTime * 1000)
+        : data.CreatedTime
+    );
   }
   if (data.DisplayName !== undefined) {
     contents.DisplayName = data.DisplayName;
@@ -1838,44 +2100,59 @@ export async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthor
 
 async function deserializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeWebsiteCertificateAuthorityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1886,55 +2163,73 @@ export async function deserializeAws_restJson1_1DisassociateDomainCommand(
   context: __SerdeContext
 ): Promise<DisassociateDomainCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DisassociateDomainCommandError(output, context);
+    return deserializeAws_restJson1_1DisassociateDomainCommandError(
+      output,
+      context
+    );
   }
   const contents: DisassociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDomainResponse",
+    __type: "DisassociateDomainResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DisassociateDomainCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisassociateDomainCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1945,59 +2240,80 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteAuthorization
   context: __SerdeContext
 ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandError(output, context);
+    return deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandError(
+      output,
+      context
+    );
   }
   const contents: DisassociateWebsiteAuthorizationProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateWebsiteAuthorizationProviderResponse",
+    __type: "DisassociateWebsiteAuthorizationProviderResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisassociateWebsiteAuthorizationProviderCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.awsargoncontrolplane#ResourceAlreadyExistsException":
-      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2008,55 +2324,73 @@ export async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAu
   context: __SerdeContext
 ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandError(output, context);
+    return deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandError(
+      output,
+      context
+    );
   }
   const contents: DisassociateWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateWebsiteCertificateAuthorityResponse",
+    __type: "DisassociateWebsiteCertificateAuthorityResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DisassociateWebsiteCertificateAuthorityCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2073,11 +2407,14 @@ export async function deserializeAws_restJson1_1ListDevicesCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListDevicesResponse",
     Devices: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Devices !== undefined) {
-    contents.Devices = deserializeAws_restJson1_1DeviceSummaryList(data.Devices, context);
+    contents.Devices = deserializeAws_restJson1_1DeviceSummaryList(
+      data.Devices,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -2087,44 +2424,59 @@ export async function deserializeAws_restJson1_1ListDevicesCommand(
 
 async function deserializeAws_restJson1_1ListDevicesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2141,11 +2493,14 @@ export async function deserializeAws_restJson1_1ListDomainsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListDomainsResponse",
     Domains: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.Domains !== undefined) {
-    contents.Domains = deserializeAws_restJson1_1DomainSummaryList(data.Domains, context);
+    contents.Domains = deserializeAws_restJson1_1DomainSummaryList(
+      data.Domains,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -2155,40 +2510,52 @@ export async function deserializeAws_restJson1_1ListDomainsCommand(
 
 async function deserializeAws_restJson1_1ListDomainsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2205,11 +2572,14 @@ export async function deserializeAws_restJson1_1ListFleetsCommand(
     $metadata: deserializeMetadata(output),
     __type: "ListFleetsResponse",
     FleetSummaryList: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.FleetSummaryList !== undefined) {
-    contents.FleetSummaryList = deserializeAws_restJson1_1FleetSummaryList(data.FleetSummaryList, context);
+    contents.FleetSummaryList = deserializeAws_restJson1_1FleetSummaryList(
+      data.FleetSummaryList,
+      context
+    );
   }
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
@@ -2219,40 +2589,52 @@ export async function deserializeAws_restJson1_1ListFleetsCommand(
 
 async function deserializeAws_restJson1_1ListFleetsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2263,64 +2645,85 @@ export async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvider
   context: __SerdeContext
 ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(output, context);
+    return deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(
+      output,
+      context
+    );
   }
   const contents: ListWebsiteAuthorizationProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebsiteAuthorizationProvidersResponse",
     NextToken: undefined,
-    WebsiteAuthorizationProviders: undefined,
+    WebsiteAuthorizationProviders: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.WebsiteAuthorizationProviders !== undefined) {
-    contents.WebsiteAuthorizationProviders = deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList(data.WebsiteAuthorizationProviders, context);
+    contents.WebsiteAuthorizationProviders = deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList(
+      data.WebsiteAuthorizationProviders,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListWebsiteAuthorizationProvidersCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2331,60 +2734,78 @@ export async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritie
   context: __SerdeContext
 ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(output, context);
+    return deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(
+      output,
+      context
+    );
   }
   const contents: ListWebsiteCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListWebsiteCertificateAuthoritiesResponse",
     NextToken: undefined,
-    WebsiteCertificateAuthorities: undefined,
+    WebsiteCertificateAuthorities: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.NextToken !== undefined) {
     contents.NextToken = data.NextToken;
   }
   if (data.WebsiteCertificateAuthorities !== undefined) {
-    contents.WebsiteCertificateAuthorities = deserializeAws_restJson1_1WebsiteCaSummaryList(data.WebsiteCertificateAuthorities, context);
+    contents.WebsiteCertificateAuthorities = deserializeAws_restJson1_1WebsiteCaSummaryList(
+      data.WebsiteCertificateAuthorities,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListWebsiteCertificateAuthoritiesCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2395,55 +2816,73 @@ export async function deserializeAws_restJson1_1RestoreDomainAccessCommand(
   context: __SerdeContext
 ): Promise<RestoreDomainAccessCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RestoreDomainAccessCommandError(output, context);
+    return deserializeAws_restJson1_1RestoreDomainAccessCommandError(
+      output,
+      context
+    );
   }
   const contents: RestoreDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreDomainAccessResponse",
+    __type: "RestoreDomainAccessResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RestoreDomainAccessCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RestoreDomainAccessCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2454,55 +2893,73 @@ export async function deserializeAws_restJson1_1RevokeDomainAccessCommand(
   context: __SerdeContext
 ): Promise<RevokeDomainAccessCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1RevokeDomainAccessCommandError(output, context);
+    return deserializeAws_restJson1_1RevokeDomainAccessCommandError(
+      output,
+      context
+    );
   }
   const contents: RevokeDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeDomainAccessResponse",
+    __type: "RevokeDomainAccessResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1RevokeDomainAccessCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<RevokeDomainAccessCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2517,51 +2974,66 @@ export async function deserializeAws_restJson1_1SignOutUserCommand(
   }
   const contents: SignOutUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SignOutUserResponse",
+    __type: "SignOutUserResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SignOutUserCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SignOutUserCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2572,55 +3044,73 @@ export async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCo
   context: __SerdeContext
 ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAuditStreamConfigurationResponse",
+    __type: "UpdateAuditStreamConfigurationResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateAuditStreamConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateAuditStreamConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2631,55 +3121,73 @@ export async function deserializeAws_restJson1_1UpdateCompanyNetworkConfiguratio
   context: __SerdeContext
 ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateCompanyNetworkConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCompanyNetworkConfigurationResponse",
+    __type: "UpdateCompanyNetworkConfigurationResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2690,55 +3198,73 @@ export async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationC
   context: __SerdeContext
 ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDevicePolicyConfigurationResponse",
+    __type: "UpdateDevicePolicyConfigurationResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateDevicePolicyConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateDevicePolicyConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2749,55 +3275,73 @@ export async function deserializeAws_restJson1_1UpdateDomainMetadataCommand(
   context: __SerdeContext
 ): Promise<UpdateDomainMetadataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateDomainMetadataCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateDomainMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainMetadataResponse",
+    __type: "UpdateDomainMetadataResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateDomainMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateDomainMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2808,55 +3352,73 @@ export async function deserializeAws_restJson1_1UpdateFleetMetadataCommand(
   context: __SerdeContext
 ): Promise<UpdateFleetMetadataCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateFleetMetadataCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetMetadataResponse",
+    __type: "UpdateFleetMetadataResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateFleetMetadataCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateFleetMetadataCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2867,55 +3429,73 @@ export async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurat
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError(output, context);
+    return deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError(
+      output,
+      context
+    );
   }
   const contents: UpdateIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIdentityProviderConfigurationResponse",
+    __type: "UpdateIdentityProviderConfigurationResponse"
   };
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UpdateIdentityProviderConfigurationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateIdentityProviderConfigurationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "InternalServerErrorException":
     case "com.amazonaws.awsargoncontrolplane#InternalServerErrorException":
-      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InternalServerErrorExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.awsargoncontrolplane#InvalidRequestException":
-      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "ResourceNotFoundException":
     case "com.amazonaws.awsargoncontrolplane#ResourceNotFoundException":
-      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1ResourceNotFoundExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "TooManyRequestsException":
     case "com.amazonaws.awsargoncontrolplane#TooManyRequestsException":
-      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1TooManyRequestsExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "UnauthorizedException":
     case "com.amazonaws.awsargoncontrolplane#UnauthorizedException":
-      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1UnauthorizedExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.awsargoncontrolplane#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2929,7 +3509,7 @@ const deserializeAws_restJson1_1InternalServerErrorExceptionResponse = async (
     __type: "InternalServerErrorException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2946,7 +3526,7 @@ const deserializeAws_restJson1_1InvalidRequestExceptionResponse = async (
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2963,7 +3543,7 @@ const deserializeAws_restJson1_1ResourceAlreadyExistsExceptionResponse = async (
     __type: "ResourceAlreadyExistsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2980,7 +3560,7 @@ const deserializeAws_restJson1_1ResourceNotFoundExceptionResponse = async (
     __type: "ResourceNotFoundException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -2997,7 +3577,7 @@ const deserializeAws_restJson1_1TooManyRequestsExceptionResponse = async (
     __type: "TooManyRequestsException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3014,7 +3594,7 @@ const deserializeAws_restJson1_1UnauthorizedExceptionResponse = async (
     __type: "UnauthorizedException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    Message: undefined,
+    Message: undefined
   };
   const data: any = output.body;
   if (data.Message !== undefined) {
@@ -3027,19 +3607,15 @@ const serializeAws_restJson1_1SecurityGroupIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_restJson1_1SubnetIds = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const deserializeAws_restJson1_1DeviceSummary = (
   output: any,
@@ -3048,7 +3624,7 @@ const deserializeAws_restJson1_1DeviceSummary = (
   let contents: any = {
     __type: "DeviceSummary",
     DeviceId: undefined,
-    DeviceStatus: undefined,
+    DeviceStatus: undefined
   };
   if (output.DeviceId !== undefined) {
     contents.DeviceId = output.DeviceId;
@@ -3057,7 +3633,7 @@ const deserializeAws_restJson1_1DeviceSummary = (
     contents.DeviceStatus = output.DeviceStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DeviceSummaryList = (
   output: any,
@@ -3066,7 +3642,7 @@ const deserializeAws_restJson1_1DeviceSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DeviceSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1DomainSummary = (
   output: any,
@@ -3077,10 +3653,14 @@ const deserializeAws_restJson1_1DomainSummary = (
     CreatedTime: undefined,
     DisplayName: undefined,
     DomainName: undefined,
-    DomainStatus: undefined,
+    DomainStatus: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
+    contents.CreatedTime = new Date(
+      output.CreatedTime % 1 != 0
+        ? Math.round(output.CreatedTime * 1000)
+        : output.CreatedTime
+    );
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -3092,7 +3672,7 @@ const deserializeAws_restJson1_1DomainSummary = (
     contents.DomainStatus = output.DomainStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DomainSummaryList = (
   output: any,
@@ -3101,7 +3681,7 @@ const deserializeAws_restJson1_1DomainSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DomainSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1FleetSummary = (
   output: any,
@@ -3115,13 +3695,17 @@ const deserializeAws_restJson1_1FleetSummary = (
     FleetArn: undefined,
     FleetName: undefined,
     FleetStatus: undefined,
-    LastUpdatedTime: undefined,
+    LastUpdatedTime: undefined
   };
   if (output.CompanyCode !== undefined) {
     contents.CompanyCode = output.CompanyCode;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
+    contents.CreatedTime = new Date(
+      output.CreatedTime % 1 != 0
+        ? Math.round(output.CreatedTime * 1000)
+        : output.CreatedTime
+    );
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -3136,10 +3720,14 @@ const deserializeAws_restJson1_1FleetSummary = (
     contents.FleetStatus = output.FleetStatus;
   }
   if (output.LastUpdatedTime !== undefined) {
-    contents.LastUpdatedTime = new Date(output.LastUpdatedTime % 1 != 0 ? Math.round(output.LastUpdatedTime * 1000) : output.LastUpdatedTime);
+    contents.LastUpdatedTime = new Date(
+      output.LastUpdatedTime % 1 != 0
+        ? Math.round(output.LastUpdatedTime * 1000)
+        : output.LastUpdatedTime
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FleetSummaryList = (
   output: any,
@@ -3148,25 +3736,21 @@ const deserializeAws_restJson1_1FleetSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1FleetSummary(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1SecurityGroupIds = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1SubnetIds = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
   output: any,
@@ -3177,7 +3761,7 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
     AuthorizationProviderId: undefined,
     AuthorizationProviderType: undefined,
     CreatedTime: undefined,
-    DomainName: undefined,
+    DomainName: undefined
   };
   if (output.AuthorizationProviderId !== undefined) {
     contents.AuthorizationProviderId = output.AuthorizationProviderId;
@@ -3186,22 +3770,29 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
     contents.AuthorizationProviderType = output.AuthorizationProviderType;
   }
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
+    contents.CreatedTime = new Date(
+      output.CreatedTime % 1 != 0
+        ? Math.round(output.CreatedTime * 1000)
+        : output.CreatedTime
+    );
   }
   if (output.DomainName !== undefined) {
     contents.DomainName = output.DomainName;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList = (
   output: any,
   context: __SerdeContext
 ): Array<WebsiteAuthorizationProviderSummary> => {
   return (output || []).map((entry: any) =>
-    deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary(entry, context)
+    deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary(
+      entry,
+      context
+    )
   );
-}
+};
 
 const deserializeAws_restJson1_1WebsiteCaSummary = (
   output: any,
@@ -3211,10 +3802,14 @@ const deserializeAws_restJson1_1WebsiteCaSummary = (
     __type: "WebsiteCaSummary",
     CreatedTime: undefined,
     DisplayName: undefined,
-    WebsiteCaId: undefined,
+    WebsiteCaId: undefined
   };
   if (output.CreatedTime !== undefined) {
-    contents.CreatedTime = new Date(output.CreatedTime % 1 != 0 ? Math.round(output.CreatedTime * 1000) : output.CreatedTime);
+    contents.CreatedTime = new Date(
+      output.CreatedTime % 1 != 0
+        ? Math.round(output.CreatedTime * 1000)
+        : output.CreatedTime
+    );
   }
   if (output.DisplayName !== undefined) {
     contents.DisplayName = output.DisplayName;
@@ -3223,7 +3818,7 @@ const deserializeAws_restJson1_1WebsiteCaSummary = (
     contents.WebsiteCaId = output.WebsiteCaId;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1WebsiteCaSummaryList = (
   output: any,
@@ -3232,7 +3827,7 @@ const deserializeAws_restJson1_1WebsiteCaSummaryList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1WebsiteCaSummary(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

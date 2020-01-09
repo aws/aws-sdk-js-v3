@@ -1,20 +1,20 @@
 import {
   ServiceCatalogClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ServiceCatalogClient";
 import {
   DisassociateBudgetFromResourceInput,
-  DisassociateBudgetFromResourceOutput,
+  DisassociateBudgetFromResourceOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1DisassociateBudgetFromResourceCommand,
-  serializeAws_json1_1DisassociateBudgetFromResourceCommand,
+  serializeAws_json1_1DisassociateBudgetFromResourceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DisassociateBudgetFromResourceCommandInput = DisassociateBudgetFromResourceInput;
 export type DisassociateBudgetFromResourceCommandOutput = DisassociateBudgetFromResourceOutput;
 
-export class DisassociateBudgetFromResourceCommand extends $Command<DisassociateBudgetFromResourceCommandInput, DisassociateBudgetFromResourceCommandOutput, ServiceCatalogClientResolvedConfig> {
+export class DisassociateBudgetFromResourceCommand extends $Command<
+  DisassociateBudgetFromResourceCommandInput,
+  DisassociateBudgetFromResourceCommandOutput,
+  ServiceCatalogClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DisassociateBudgetFromResourceCommand extends $Command<Disassociate
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateBudgetFromResourceCommandInput, DisassociateBudgetFromResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DisassociateBudgetFromResourceCommandInput,
+    DisassociateBudgetFromResourceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DisassociateBudgetFromResourceCommand extends $Command<Disassociate
     input: DisassociateBudgetFromResourceCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(input, context);
+    return serializeAws_json1_1DisassociateBudgetFromResourceCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DisassociateBudgetFromResourceCommandOutput> {
-    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(output, context);
+    return deserializeAws_json1_1DisassociateBudgetFromResourceCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

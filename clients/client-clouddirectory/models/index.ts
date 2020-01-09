@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>Access denied. Check your permissions.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   Message?: string;
@@ -1955,7 +1957,7 @@ export enum BatchReadExceptionType {
   NotNodeException = "NotNodeException",
   NotPolicyException = "NotPolicyException",
   ResourceNotFoundException = "ResourceNotFoundException",
-  ValidationException = "ValidationException",
+  ValidationException = "ValidationException"
 }
 
 /**
@@ -2408,7 +2410,9 @@ export namespace BatchUpdateObjectAttributesResponse {
  *          <p>A <code>BatchWrite</code> exception has occurred.</p>
  *
  */
-export interface BatchWriteException extends _smithy.SmithyException, $MetadataBearer {
+export interface BatchWriteException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BatchWriteException";
   $fault: "client";
   Index?: number;
@@ -2440,7 +2444,7 @@ export enum BatchWriteExceptionType {
   ResourceNotFoundException = "ResourceNotFoundException",
   StillContainsLinksException = "StillContainsLinksException",
   UnsupportedIndexTypeException = "UnsupportedIndexTypeException",
-  ValidationException = "ValidationException",
+  ValidationException = "ValidationException"
 }
 
 /**
@@ -2728,7 +2732,9 @@ export namespace BatchWriteResponse {
  *          <p>Cannot list the parents of a <a>Directory</a> root.</p>
  *
  */
-export interface CannotListParentOfRootException extends _smithy.SmithyException, $MetadataBearer {
+export interface CannotListParentOfRootException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CannotListParentOfRootException";
   $fault: "client";
   Message?: string;
@@ -2742,7 +2748,7 @@ export namespace CannotListParentOfRootException {
 
 export enum ConsistencyLevel {
   EVENTUAL = "EVENTUAL",
-  SERIALIZABLE = "SERIALIZABLE",
+  SERIALIZABLE = "SERIALIZABLE"
 }
 
 export interface CreateDirectoryRequest {
@@ -3458,7 +3464,9 @@ export namespace Directory {
  *       conflict. Choose a different name and try again.</p>
  *
  */
-export interface DirectoryAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface DirectoryAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DirectoryAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -3476,7 +3484,9 @@ export namespace DirectoryAlreadyExistsException {
  *       requested resource will eventually cease to exist.</p>
  *
  */
-export interface DirectoryDeletedException extends _smithy.SmithyException, $MetadataBearer {
+export interface DirectoryDeletedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DirectoryDeletedException";
   $fault: "client";
   Message?: string;
@@ -3493,7 +3503,9 @@ export namespace DirectoryDeletedException {
  *          <p>An operation can only operate on a disabled directory.</p>
  *
  */
-export interface DirectoryNotDisabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface DirectoryNotDisabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DirectoryNotDisabledException";
   $fault: "client";
   Message?: string;
@@ -3510,7 +3522,9 @@ export namespace DirectoryNotDisabledException {
  *          <p>Operations are only permitted on enabled directories.</p>
  *
  */
-export interface DirectoryNotEnabledException extends _smithy.SmithyException, $MetadataBearer {
+export interface DirectoryNotEnabledException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DirectoryNotEnabledException";
   $fault: "client";
   Message?: string;
@@ -3525,7 +3539,7 @@ export namespace DirectoryNotEnabledException {
 export enum DirectoryState {
   DELETED = "DELETED",
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 export interface DisableDirectoryRequest {
@@ -3634,7 +3648,9 @@ export namespace Facet {
  *          <p>A facet with the same name already exists.</p>
  *
  */
-export interface FacetAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface FacetAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FacetAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -3766,7 +3782,7 @@ export enum FacetAttributeType {
   DATETIME = "DATETIME",
   NUMBER = "NUMBER",
   STRING = "STRING",
-  VARIANT = "VARIANT",
+  VARIANT = "VARIANT"
 }
 
 /**
@@ -3803,7 +3819,9 @@ export namespace FacetAttributeUpdate {
  *       attribute reference in a different facet.</p>
  *
  */
-export interface FacetInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface FacetInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FacetInUseException";
   $fault: "client";
   Message?: string;
@@ -3820,7 +3838,9 @@ export namespace FacetInUseException {
  *          <p>The specified <a>Facet</a> could not be found.</p>
  *
  */
-export interface FacetNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface FacetNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FacetNotFoundException";
   $fault: "client";
   Message?: string;
@@ -3834,7 +3854,7 @@ export namespace FacetNotFoundException {
 
 export enum FacetStyle {
   DYNAMIC = "DYNAMIC",
-  STATIC = "STATIC",
+  STATIC = "STATIC"
 }
 
 /**
@@ -3843,7 +3863,9 @@ export enum FacetStyle {
  *       validated with the schema.</p>
  *
  */
-export interface FacetValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface FacetValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FacetValidationException";
   $fault: "client";
   Message?: string;
@@ -4214,7 +4236,9 @@ export namespace GetTypedLinkFacetInformationResponse {
  *          <p>Indicates a failure occurred while performing a check for backward compatibility between the specified schema and the schema that is currently applied to the directory.</p>
  *
  */
-export interface IncompatibleSchemaException extends _smithy.SmithyException, $MetadataBearer {
+export interface IncompatibleSchemaException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IncompatibleSchemaException";
   $fault: "client";
   Message?: string;
@@ -4259,7 +4283,9 @@ export namespace IndexAttachment {
  *          <p>An object has been attempted to be attached to an object that does not have the appropriate attribute value.</p>
  *
  */
-export interface IndexedAttributeMissingException extends _smithy.SmithyException, $MetadataBearer {
+export interface IndexedAttributeMissingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IndexedAttributeMissingException";
   $fault: "client";
   Message?: string;
@@ -4276,7 +4302,9 @@ export namespace IndexedAttributeMissingException {
  *          <p>Indicates a problem that must be resolved by Amazon Web Services. This might be a transient error in which case you can retry your request until it succeeds. Otherwise, go to the <a href="http://status.aws.amazon.com/">AWS Service Health Dashboard</a> site to see if there are any operational issues with the service.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   Message?: string;
@@ -4293,7 +4321,9 @@ export namespace InternalServiceException {
  *          <p>Indicates that the provided ARN value is not valid.</p>
  *
  */
-export interface InvalidArnException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidArnException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidArnException";
   $fault: "client";
   Message?: string;
@@ -4311,7 +4341,9 @@ export namespace InvalidArnException {
  *       with a link type that is not applicable to the nodes or attempting to apply a schema to a directory a second time.</p>
  *
  */
-export interface InvalidAttachmentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAttachmentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAttachmentException";
   $fault: "client";
   Message?: string;
@@ -4329,7 +4361,9 @@ export namespace InvalidAttachmentException {
  *       exception.</p>
  *
  */
-export interface InvalidFacetUpdateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidFacetUpdateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidFacetUpdateException";
   $fault: "client";
   Message?: string;
@@ -4346,7 +4380,9 @@ export namespace InvalidFacetUpdateException {
  *          <p>Indicates that the <code>NextToken</code> value is not valid.</p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   Message?: string;
@@ -4363,7 +4399,9 @@ export namespace InvalidNextTokenException {
  *          <p>Occurs when any of the rule parameter keys or values are invalid.</p>
  *
  */
-export interface InvalidRuleException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRuleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRuleException";
   $fault: "client";
   Message?: string;
@@ -4380,7 +4418,9 @@ export namespace InvalidRuleException {
  *          <p>Indicates that the provided <code>SchemaDoc</code> value is not valid.</p>
  *
  */
-export interface InvalidSchemaDocException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSchemaDocException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSchemaDocException";
   $fault: "client";
   Message?: string;
@@ -4397,7 +4437,9 @@ export namespace InvalidSchemaDocException {
  *          <p>Can occur for multiple reasons such as when you tag a resource that doesn’t exist or if you specify a higher number of tags for a resource than the allowed limit. Allowed limit is 50 tags per resource.</p>
  *
  */
-export interface InvalidTaggingRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTaggingRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTaggingRequestException";
   $fault: "client";
   Message?: string;
@@ -4414,7 +4456,9 @@ export namespace InvalidTaggingRequestException {
  *          <p>Indicates that limits are exceeded. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Limits</a> for more information.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -4489,7 +4533,9 @@ export namespace LinkAttributeUpdate {
  *       name and then try again.</p>
  *
  */
-export interface LinkNameAlreadyInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface LinkNameAlreadyInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LinkNameAlreadyInUseException";
   $fault: "client";
   Message?: string;
@@ -5872,7 +5918,9 @@ export namespace LookupPolicyResponse {
  *          <p>Indicates that the requested operation can only operate on index objects.</p>
  *
  */
-export interface NotIndexException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotIndexException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotIndexException";
   $fault: "client";
   Message?: string;
@@ -5890,7 +5938,9 @@ export namespace NotIndexException {
  *       as calling <code>ListObjectChildren</code> for a leaf node object.</p>
  *
  */
-export interface NotNodeException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotNodeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotNodeException";
   $fault: "client";
   Message?: string;
@@ -5907,7 +5957,9 @@ export namespace NotNodeException {
  *          <p>Indicates that the requested operation can only operate on policy objects.</p>
  *
  */
-export interface NotPolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface NotPolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NotPolicyException";
   $fault: "client";
   Message?: string;
@@ -5924,7 +5976,9 @@ export namespace NotPolicyException {
  *          <p>Indicates that the object is not attached to the index.</p>
  *
  */
-export interface ObjectAlreadyDetachedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ObjectAlreadyDetachedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ObjectAlreadyDetachedException";
   $fault: "client";
   Message?: string;
@@ -6054,7 +6108,9 @@ export namespace ObjectIdentifierAndLinkNameTuple {
  *       been detached from the tree.</p>
  *
  */
-export interface ObjectNotDetachedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ObjectNotDetachedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ObjectNotDetachedException";
   $fault: "client";
   Message?: string;
@@ -6105,7 +6161,7 @@ export enum ObjectType {
   INDEX = "INDEX",
   LEAF_NODE = "LEAF_NODE",
   NODE = "NODE",
-  POLICY = "POLICY",
+  POLICY = "POLICY"
 }
 
 /**
@@ -6305,7 +6361,7 @@ export enum RangeMode {
   FIRST = "FIRST",
   INCLUSIVE = "INCLUSIVE",
   LAST = "LAST",
-  LAST_BEFORE_MISSING_VALUES = "LAST_BEFORE_MISSING_VALUES",
+  LAST_BEFORE_MISSING_VALUES = "LAST_BEFORE_MISSING_VALUES"
 }
 
 export interface RemoveFacetFromObjectRequest {
@@ -6350,7 +6406,7 @@ export namespace RemoveFacetFromObjectResponse {
 
 export enum RequiredAttributeBehavior {
   NOT_REQUIRED = "NOT_REQUIRED",
-  REQUIRED_ALWAYS = "REQUIRED_ALWAYS",
+  REQUIRED_ALWAYS = "REQUIRED_ALWAYS"
 }
 
 /**
@@ -6358,7 +6414,9 @@ export enum RequiredAttributeBehavior {
  *          <p>The specified resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -6375,7 +6433,9 @@ export namespace ResourceNotFoundException {
  *          <p>Occurs when a conflict with a previous successful write is detected. For example, if a write operation occurs on an object and then an attempt is made to read the object using “SERIALIZABLE” consistency, this exception may result. This generally occurs when the previous write did not have time to propagate to the host serving the current request. A retry (with appropriate backoff logic) is the recommended response to this exception.</p>
  *
  */
-export interface RetryableConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface RetryableConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RetryableConflictException";
   $fault: "client";
   Message?: string;
@@ -6420,7 +6480,7 @@ export enum RuleType {
   BINARY_LENGTH = "BINARY_LENGTH",
   NUMBER_COMPARISON = "NUMBER_COMPARISON",
   STRING_FROM_SET = "STRING_FROM_SET",
-  STRING_LENGTH = "STRING_LENGTH",
+  STRING_LENGTH = "STRING_LENGTH"
 }
 
 /**
@@ -6429,7 +6489,9 @@ export enum RuleType {
  *       different name and then try again.</p>
  *
  */
-export interface SchemaAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface SchemaAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SchemaAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -6446,7 +6508,9 @@ export namespace SchemaAlreadyExistsException {
  *          <p>Indicates that a schema is already published.</p>
  *
  */
-export interface SchemaAlreadyPublishedException extends _smithy.SmithyException, $MetadataBearer {
+export interface SchemaAlreadyPublishedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SchemaAlreadyPublishedException";
   $fault: "client";
   Message?: string;
@@ -6492,7 +6556,9 @@ export namespace SchemaFacet {
  *       try the operation again.</p>
  *
  */
-export interface StillContainsLinksException extends _smithy.SmithyException, $MetadataBearer {
+export interface StillContainsLinksException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StillContainsLinksException";
   $fault: "client";
   Message?: string;
@@ -6888,7 +6954,9 @@ export namespace TypedLinkSpecifier {
  *          <p>Indicates that the requested index type is not supported.</p>
  *
  */
-export interface UnsupportedIndexTypeException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedIndexTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedIndexTypeException";
   $fault: "client";
   Message?: string;
@@ -6936,7 +7004,7 @@ export namespace UntagResourceResponse {
 
 export enum UpdateActionType {
   CREATE_OR_UPDATE = "CREATE_OR_UPDATE",
-  DELETE = "DELETE",
+  DELETE = "DELETE"
 }
 
 export interface UpdateFacetRequest {
@@ -7281,7 +7349,9 @@ export namespace UpgradePublishedSchemaResponse {
  *       message.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

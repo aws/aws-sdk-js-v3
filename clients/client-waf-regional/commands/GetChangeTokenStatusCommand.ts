@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WAFRegionalClientResolvedConfig,
+  WAFRegionalClientResolvedConfig
 } from "../WAFRegionalClient";
 import {
   GetChangeTokenStatusRequest,
-  GetChangeTokenStatusResponse,
+  GetChangeTokenStatusResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1GetChangeTokenStatusCommand,
-  serializeAws_json1_1GetChangeTokenStatusCommand,
+  serializeAws_json1_1GetChangeTokenStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetChangeTokenStatusCommandInput = GetChangeTokenStatusRequest;
 export type GetChangeTokenStatusCommandOutput = GetChangeTokenStatusResponse;
 
-export class GetChangeTokenStatusCommand extends $Command<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput, WAFRegionalClientResolvedConfig> {
+export class GetChangeTokenStatusCommand extends $Command<
+  GetChangeTokenStatusCommandInput,
+  GetChangeTokenStatusCommandOutput,
+  WAFRegionalClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class GetChangeTokenStatusCommand extends $Command<GetChangeTokenStatusCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WAFRegionalClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetChangeTokenStatusCommandInput, GetChangeTokenStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    GetChangeTokenStatusCommandInput,
+    GetChangeTokenStatusCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

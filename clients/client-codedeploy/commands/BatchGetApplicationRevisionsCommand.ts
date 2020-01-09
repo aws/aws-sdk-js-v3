@@ -1,20 +1,20 @@
 import {
   CodeDeployClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeDeployClient";
 import {
   BatchGetApplicationRevisionsInput,
-  BatchGetApplicationRevisionsOutput,
+  BatchGetApplicationRevisionsOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchGetApplicationRevisionsCommand,
-  serializeAws_json1_1BatchGetApplicationRevisionsCommand,
+  serializeAws_json1_1BatchGetApplicationRevisionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type BatchGetApplicationRevisionsCommandInput = BatchGetApplicationRevisionsInput;
 export type BatchGetApplicationRevisionsCommandOutput = BatchGetApplicationRevisionsOutput;
 
-export class BatchGetApplicationRevisionsCommand extends $Command<BatchGetApplicationRevisionsCommandInput, BatchGetApplicationRevisionsCommandOutput, CodeDeployClientResolvedConfig> {
+export class BatchGetApplicationRevisionsCommand extends $Command<
+  BatchGetApplicationRevisionsCommandInput,
+  BatchGetApplicationRevisionsCommandOutput,
+  CodeDeployClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class BatchGetApplicationRevisionsCommand extends $Command<BatchGetApplic
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CodeDeployClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<BatchGetApplicationRevisionsCommandInput, BatchGetApplicationRevisionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    BatchGetApplicationRevisionsCommandInput,
+    BatchGetApplicationRevisionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class BatchGetApplicationRevisionsCommand extends $Command<BatchGetApplic
     input: BatchGetApplicationRevisionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1BatchGetApplicationRevisionsCommand(input, context);
+    return serializeAws_json1_1BatchGetApplicationRevisionsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<BatchGetApplicationRevisionsCommandOutput> {
-    return deserializeAws_json1_1BatchGetApplicationRevisionsCommand(output, context);
+    return deserializeAws_json1_1BatchGetApplicationRevisionsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

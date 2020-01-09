@@ -2,27 +2,27 @@ import { TranslateClient } from "./TranslateClient";
 import {
   DeleteTerminologyCommand,
   DeleteTerminologyCommandInput,
-  DeleteTerminologyCommandOutput,
+  DeleteTerminologyCommandOutput
 } from "./commands/DeleteTerminologyCommand";
 import {
   GetTerminologyCommand,
   GetTerminologyCommandInput,
-  GetTerminologyCommandOutput,
+  GetTerminologyCommandOutput
 } from "./commands/GetTerminologyCommand";
 import {
   ImportTerminologyCommand,
   ImportTerminologyCommandInput,
-  ImportTerminologyCommandOutput,
+  ImportTerminologyCommandOutput
 } from "./commands/ImportTerminologyCommand";
 import {
   ListTerminologiesCommand,
   ListTerminologiesCommandInput,
-  ListTerminologiesCommandOutput,
+  ListTerminologiesCommandOutput
 } from "./commands/ListTerminologiesCommand";
 import {
   TranslateTextCommand,
   TranslateTextCommandInput,
-  TranslateTextCommandOutput,
+  TranslateTextCommandOutput
 } from "./commands/TranslateTextCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -39,7 +39,7 @@ export class Translate extends TranslateClient {
    */
   public deleteTerminology(
     args: DeleteTerminologyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<DeleteTerminologyCommandOutput>;
   public deleteTerminology(
     args: DeleteTerminologyCommandInput,
@@ -52,16 +52,18 @@ export class Translate extends TranslateClient {
   ): void;
   public deleteTerminology(
     args: DeleteTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTerminologyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DeleteTerminologyCommandOutput) => void),
     cb?: (err: any, data?: DeleteTerminologyCommandOutput) => void
   ): Promise<DeleteTerminologyCommandOutput> | void {
     const command = new DeleteTerminologyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -74,7 +76,7 @@ export class Translate extends TranslateClient {
    */
   public getTerminology(
     args: GetTerminologyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<GetTerminologyCommandOutput>;
   public getTerminology(
     args: GetTerminologyCommandInput,
@@ -87,16 +89,18 @@ export class Translate extends TranslateClient {
   ): void;
   public getTerminology(
     args: GetTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTerminologyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: GetTerminologyCommandOutput) => void),
     cb?: (err: any, data?: GetTerminologyCommandOutput) => void
   ): Promise<GetTerminologyCommandOutput> | void {
     const command = new GetTerminologyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -115,7 +119,7 @@ export class Translate extends TranslateClient {
    */
   public importTerminology(
     args: ImportTerminologyCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ImportTerminologyCommandOutput>;
   public importTerminology(
     args: ImportTerminologyCommandInput,
@@ -128,16 +132,18 @@ export class Translate extends TranslateClient {
   ): void;
   public importTerminology(
     args: ImportTerminologyCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportTerminologyCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ImportTerminologyCommandOutput) => void),
     cb?: (err: any, data?: ImportTerminologyCommandOutput) => void
   ): Promise<ImportTerminologyCommandOutput> | void {
     const command = new ImportTerminologyCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -150,7 +156,7 @@ export class Translate extends TranslateClient {
    */
   public listTerminologies(
     args: ListTerminologiesCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<ListTerminologiesCommandOutput>;
   public listTerminologies(
     args: ListTerminologiesCommandInput,
@@ -163,16 +169,18 @@ export class Translate extends TranslateClient {
   ): void;
   public listTerminologies(
     args: ListTerminologiesCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTerminologiesCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListTerminologiesCommandOutput) => void),
     cb?: (err: any, data?: ListTerminologiesCommandOutput) => void
   ): Promise<ListTerminologiesCommandOutput> | void {
     const command = new ListTerminologiesCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
@@ -255,7 +263,7 @@ export class Translate extends TranslateClient {
    */
   public translateText(
     args: TranslateTextCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<TranslateTextCommandOutput>;
   public translateText(
     args: TranslateTextCommandInput,
@@ -268,19 +276,20 @@ export class Translate extends TranslateClient {
   ): void;
   public translateText(
     args: TranslateTextCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TranslateTextCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: TranslateTextCommandOutput) => void),
     cb?: (err: any, data?: TranslateTextCommandOutput) => void
   ): Promise<TranslateTextCommandOutput> | void {
     const command = new TranslateTextCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

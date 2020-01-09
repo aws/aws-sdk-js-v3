@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkLinkClientResolvedConfig,
+  WorkLinkClientResolvedConfig
 } from "../WorkLinkClient";
 import {
   UpdateCompanyNetworkConfigurationRequest,
-  UpdateCompanyNetworkConfigurationResponse,
+  UpdateCompanyNetworkConfigurationResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand,
-  serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand,
+  serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateCompanyNetworkConfigurationCommandInput = UpdateCompanyNetworkConfigurationRequest;
 export type UpdateCompanyNetworkConfigurationCommandOutput = UpdateCompanyNetworkConfigurationResponse;
 
-export class UpdateCompanyNetworkConfigurationCommand extends $Command<UpdateCompanyNetworkConfigurationCommandInput, UpdateCompanyNetworkConfigurationCommandOutput, WorkLinkClientResolvedConfig> {
+export class UpdateCompanyNetworkConfigurationCommand extends $Command<
+  UpdateCompanyNetworkConfigurationCommandInput,
+  UpdateCompanyNetworkConfigurationCommandOutput,
+  WorkLinkClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<UpdateCom
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkLinkClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateCompanyNetworkConfigurationCommandInput, UpdateCompanyNetworkConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateCompanyNetworkConfigurationCommandInput,
+    UpdateCompanyNetworkConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class UpdateCompanyNetworkConfigurationCommand extends $Command<UpdateCom
     input: UpdateCompanyNetworkConfigurationCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand(input, context);
+    return serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateCompanyNetworkConfigurationCommandOutput> {
-    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand(output, context);
+    return deserializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

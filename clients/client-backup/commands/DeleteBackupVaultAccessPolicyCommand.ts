@@ -1,17 +1,17 @@
 import {
   BackupClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../BackupClient";
 import { DeleteBackupVaultAccessPolicyInput } from "../models/index";
 import {
   deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand,
-  serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand,
+  serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteBackupVaultAccessPolicyCommandInput = DeleteBackupVaultAccessPolicyInput;
-export type DeleteBackupVaultAccessPolicyCommandOutput = __MetadataBearer
+export type DeleteBackupVaultAccessPolicyCommandOutput = __MetadataBearer;
 
-export class DeleteBackupVaultAccessPolicyCommand extends $Command<DeleteBackupVaultAccessPolicyCommandInput, DeleteBackupVaultAccessPolicyCommandOutput, BackupClientResolvedConfig> {
+export class DeleteBackupVaultAccessPolicyCommand extends $Command<
+  DeleteBackupVaultAccessPolicyCommandInput,
+  DeleteBackupVaultAccessPolicyCommandOutput,
+  BackupClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<DeleteBackupV
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteBackupVaultAccessPolicyCommandInput, DeleteBackupVaultAccessPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteBackupVaultAccessPolicyCommandInput,
+    DeleteBackupVaultAccessPolicyCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -61,14 +70,20 @@ export class DeleteBackupVaultAccessPolicyCommand extends $Command<DeleteBackupV
     input: DeleteBackupVaultAccessPolicyCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(input, context);
+    return serializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> {
-    return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(output, context);
+    return deserializeAws_restJson1_1DeleteBackupVaultAccessPolicyCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

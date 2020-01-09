@@ -1,110 +1,110 @@
 import {
   CancelTaskExecutionCommandInput,
-  CancelTaskExecutionCommandOutput,
+  CancelTaskExecutionCommandOutput
 } from "../commands/CancelTaskExecutionCommand";
 import {
   CreateAgentCommandInput,
-  CreateAgentCommandOutput,
+  CreateAgentCommandOutput
 } from "../commands/CreateAgentCommand";
 import {
   CreateLocationEfsCommandInput,
-  CreateLocationEfsCommandOutput,
+  CreateLocationEfsCommandOutput
 } from "../commands/CreateLocationEfsCommand";
 import {
   CreateLocationNfsCommandInput,
-  CreateLocationNfsCommandOutput,
+  CreateLocationNfsCommandOutput
 } from "../commands/CreateLocationNfsCommand";
 import {
   CreateLocationS3CommandInput,
-  CreateLocationS3CommandOutput,
+  CreateLocationS3CommandOutput
 } from "../commands/CreateLocationS3Command";
 import {
   CreateLocationSmbCommandInput,
-  CreateLocationSmbCommandOutput,
+  CreateLocationSmbCommandOutput
 } from "../commands/CreateLocationSmbCommand";
 import {
   CreateTaskCommandInput,
-  CreateTaskCommandOutput,
+  CreateTaskCommandOutput
 } from "../commands/CreateTaskCommand";
 import {
   DeleteAgentCommandInput,
-  DeleteAgentCommandOutput,
+  DeleteAgentCommandOutput
 } from "../commands/DeleteAgentCommand";
 import {
   DeleteLocationCommandInput,
-  DeleteLocationCommandOutput,
+  DeleteLocationCommandOutput
 } from "../commands/DeleteLocationCommand";
 import {
   DeleteTaskCommandInput,
-  DeleteTaskCommandOutput,
+  DeleteTaskCommandOutput
 } from "../commands/DeleteTaskCommand";
 import {
   DescribeAgentCommandInput,
-  DescribeAgentCommandOutput,
+  DescribeAgentCommandOutput
 } from "../commands/DescribeAgentCommand";
 import {
   DescribeLocationEfsCommandInput,
-  DescribeLocationEfsCommandOutput,
+  DescribeLocationEfsCommandOutput
 } from "../commands/DescribeLocationEfsCommand";
 import {
   DescribeLocationNfsCommandInput,
-  DescribeLocationNfsCommandOutput,
+  DescribeLocationNfsCommandOutput
 } from "../commands/DescribeLocationNfsCommand";
 import {
   DescribeLocationS3CommandInput,
-  DescribeLocationS3CommandOutput,
+  DescribeLocationS3CommandOutput
 } from "../commands/DescribeLocationS3Command";
 import {
   DescribeLocationSmbCommandInput,
-  DescribeLocationSmbCommandOutput,
+  DescribeLocationSmbCommandOutput
 } from "../commands/DescribeLocationSmbCommand";
 import {
   DescribeTaskCommandInput,
-  DescribeTaskCommandOutput,
+  DescribeTaskCommandOutput
 } from "../commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
-  DescribeTaskExecutionCommandOutput,
+  DescribeTaskExecutionCommandOutput
 } from "../commands/DescribeTaskExecutionCommand";
 import {
   ListAgentsCommandInput,
-  ListAgentsCommandOutput,
+  ListAgentsCommandOutput
 } from "../commands/ListAgentsCommand";
 import {
   ListLocationsCommandInput,
-  ListLocationsCommandOutput,
+  ListLocationsCommandOutput
 } from "../commands/ListLocationsCommand";
 import {
   ListTagsForResourceCommandInput,
-  ListTagsForResourceCommandOutput,
+  ListTagsForResourceCommandOutput
 } from "../commands/ListTagsForResourceCommand";
 import {
   ListTaskExecutionsCommandInput,
-  ListTaskExecutionsCommandOutput,
+  ListTaskExecutionsCommandOutput
 } from "../commands/ListTaskExecutionsCommand";
 import {
   ListTasksCommandInput,
-  ListTasksCommandOutput,
+  ListTasksCommandOutput
 } from "../commands/ListTasksCommand";
 import {
   StartTaskExecutionCommandInput,
-  StartTaskExecutionCommandOutput,
+  StartTaskExecutionCommandOutput
 } from "../commands/StartTaskExecutionCommand";
 import {
   TagResourceCommandInput,
-  TagResourceCommandOutput,
+  TagResourceCommandOutput
 } from "../commands/TagResourceCommand";
 import {
   UntagResourceCommandInput,
-  UntagResourceCommandOutput,
+  UntagResourceCommandOutput
 } from "../commands/UntagResourceCommand";
 import {
   UpdateAgentCommandInput,
-  UpdateAgentCommandOutput,
+  UpdateAgentCommandOutput
 } from "../commands/UpdateAgentCommand";
 import {
   UpdateTaskCommandInput,
-  UpdateTaskCommandOutput,
+  UpdateTaskCommandOutput
 } from "../commands/UpdateTaskCommand";
 import {
   AgentListEntry,
@@ -177,18 +177,18 @@ import {
   UpdateAgentRequest,
   UpdateAgentResponse,
   UpdateTaskRequest,
-  UpdateTaskResponse,
+  UpdateTaskResponse
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_1CancelTaskExecutionCommand(
@@ -196,11 +196,14 @@ export async function serializeAws_json1_1CancelTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CancelTaskExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CancelTaskExecution";
   let body: any = {};
   const wrappedBody: any = {
-    CancelTaskExecutionRequest: serializeAws_json1_1CancelTaskExecutionRequest(input, context),
+    CancelTaskExecutionRequest: serializeAws_json1_1CancelTaskExecutionRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -209,7 +212,7 @@ export async function serializeAws_json1_1CancelTaskExecutionCommand(
     method: "POST",
     path: "/CancelTaskExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -218,11 +221,11 @@ export async function serializeAws_json1_1CreateAgentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateAgent";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateAgent";
   let body: any = {};
   const wrappedBody: any = {
-    CreateAgentRequest: serializeAws_json1_1CreateAgentRequest(input, context),
+    CreateAgentRequest: serializeAws_json1_1CreateAgentRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -231,7 +234,7 @@ export async function serializeAws_json1_1CreateAgentCommand(
     method: "POST",
     path: "/CreateAgent",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -240,11 +243,14 @@ export async function serializeAws_json1_1CreateLocationEfsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateLocationEfs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateLocationEfs";
   let body: any = {};
   const wrappedBody: any = {
-    CreateLocationEfsRequest: serializeAws_json1_1CreateLocationEfsRequest(input, context),
+    CreateLocationEfsRequest: serializeAws_json1_1CreateLocationEfsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -253,7 +259,7 @@ export async function serializeAws_json1_1CreateLocationEfsCommand(
     method: "POST",
     path: "/CreateLocationEfs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -262,11 +268,14 @@ export async function serializeAws_json1_1CreateLocationNfsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateLocationNfs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateLocationNfs";
   let body: any = {};
   const wrappedBody: any = {
-    CreateLocationNfsRequest: serializeAws_json1_1CreateLocationNfsRequest(input, context),
+    CreateLocationNfsRequest: serializeAws_json1_1CreateLocationNfsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -275,7 +284,7 @@ export async function serializeAws_json1_1CreateLocationNfsCommand(
     method: "POST",
     path: "/CreateLocationNfs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -284,11 +293,14 @@ export async function serializeAws_json1_1CreateLocationS3Command(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateLocationS3";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateLocationS3";
   let body: any = {};
   const wrappedBody: any = {
-    CreateLocationS3Request: serializeAws_json1_1CreateLocationS3Request(input, context),
+    CreateLocationS3Request: serializeAws_json1_1CreateLocationS3Request(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -297,7 +309,7 @@ export async function serializeAws_json1_1CreateLocationS3Command(
     method: "POST",
     path: "/CreateLocationS3",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -306,11 +318,14 @@ export async function serializeAws_json1_1CreateLocationSmbCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateLocationSmb";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateLocationSmb";
   let body: any = {};
   const wrappedBody: any = {
-    CreateLocationSmbRequest: serializeAws_json1_1CreateLocationSmbRequest(input, context),
+    CreateLocationSmbRequest: serializeAws_json1_1CreateLocationSmbRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -319,7 +334,7 @@ export async function serializeAws_json1_1CreateLocationSmbCommand(
     method: "POST",
     path: "/CreateLocationSmb",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -328,11 +343,11 @@ export async function serializeAws_json1_1CreateTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.CreateTask";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.CreateTask";
   let body: any = {};
   const wrappedBody: any = {
-    CreateTaskRequest: serializeAws_json1_1CreateTaskRequest(input, context),
+    CreateTaskRequest: serializeAws_json1_1CreateTaskRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -341,7 +356,7 @@ export async function serializeAws_json1_1CreateTaskCommand(
     method: "POST",
     path: "/CreateTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -350,11 +365,11 @@ export async function serializeAws_json1_1DeleteAgentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DeleteAgent";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DeleteAgent";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteAgentRequest: serializeAws_json1_1DeleteAgentRequest(input, context),
+    DeleteAgentRequest: serializeAws_json1_1DeleteAgentRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -363,7 +378,7 @@ export async function serializeAws_json1_1DeleteAgentCommand(
     method: "POST",
     path: "/DeleteAgent",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -372,11 +387,14 @@ export async function serializeAws_json1_1DeleteLocationCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DeleteLocation";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DeleteLocation";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteLocationRequest: serializeAws_json1_1DeleteLocationRequest(input, context),
+    DeleteLocationRequest: serializeAws_json1_1DeleteLocationRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -385,7 +403,7 @@ export async function serializeAws_json1_1DeleteLocationCommand(
     method: "POST",
     path: "/DeleteLocation",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -394,11 +412,11 @@ export async function serializeAws_json1_1DeleteTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DeleteTask";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DeleteTask";
   let body: any = {};
   const wrappedBody: any = {
-    DeleteTaskRequest: serializeAws_json1_1DeleteTaskRequest(input, context),
+    DeleteTaskRequest: serializeAws_json1_1DeleteTaskRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -407,7 +425,7 @@ export async function serializeAws_json1_1DeleteTaskCommand(
     method: "POST",
     path: "/DeleteTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -416,11 +434,14 @@ export async function serializeAws_json1_1DescribeAgentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeAgent";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeAgent";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeAgentRequest: serializeAws_json1_1DescribeAgentRequest(input, context),
+    DescribeAgentRequest: serializeAws_json1_1DescribeAgentRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -429,7 +450,7 @@ export async function serializeAws_json1_1DescribeAgentCommand(
     method: "POST",
     path: "/DescribeAgent",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -438,11 +459,14 @@ export async function serializeAws_json1_1DescribeLocationEfsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeLocationEfs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeLocationEfs";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLocationEfsRequest: serializeAws_json1_1DescribeLocationEfsRequest(input, context),
+    DescribeLocationEfsRequest: serializeAws_json1_1DescribeLocationEfsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -451,7 +475,7 @@ export async function serializeAws_json1_1DescribeLocationEfsCommand(
     method: "POST",
     path: "/DescribeLocationEfs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -460,11 +484,14 @@ export async function serializeAws_json1_1DescribeLocationNfsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeLocationNfs";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeLocationNfs";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLocationNfsRequest: serializeAws_json1_1DescribeLocationNfsRequest(input, context),
+    DescribeLocationNfsRequest: serializeAws_json1_1DescribeLocationNfsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -473,7 +500,7 @@ export async function serializeAws_json1_1DescribeLocationNfsCommand(
     method: "POST",
     path: "/DescribeLocationNfs",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -482,11 +509,14 @@ export async function serializeAws_json1_1DescribeLocationS3Command(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeLocationS3";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeLocationS3";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLocationS3Request: serializeAws_json1_1DescribeLocationS3Request(input, context),
+    DescribeLocationS3Request: serializeAws_json1_1DescribeLocationS3Request(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -495,7 +525,7 @@ export async function serializeAws_json1_1DescribeLocationS3Command(
     method: "POST",
     path: "/DescribeLocationS3",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -504,11 +534,14 @@ export async function serializeAws_json1_1DescribeLocationSmbCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeLocationSmb";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeLocationSmb";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeLocationSmbRequest: serializeAws_json1_1DescribeLocationSmbRequest(input, context),
+    DescribeLocationSmbRequest: serializeAws_json1_1DescribeLocationSmbRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -517,7 +550,7 @@ export async function serializeAws_json1_1DescribeLocationSmbCommand(
     method: "POST",
     path: "/DescribeLocationSmb",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -526,11 +559,11 @@ export async function serializeAws_json1_1DescribeTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeTask";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeTask";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeTaskRequest: serializeAws_json1_1DescribeTaskRequest(input, context),
+    DescribeTaskRequest: serializeAws_json1_1DescribeTaskRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -539,7 +572,7 @@ export async function serializeAws_json1_1DescribeTaskCommand(
     method: "POST",
     path: "/DescribeTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -548,11 +581,14 @@ export async function serializeAws_json1_1DescribeTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.DescribeTaskExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.DescribeTaskExecution";
   let body: any = {};
   const wrappedBody: any = {
-    DescribeTaskExecutionRequest: serializeAws_json1_1DescribeTaskExecutionRequest(input, context),
+    DescribeTaskExecutionRequest: serializeAws_json1_1DescribeTaskExecutionRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -561,7 +597,7 @@ export async function serializeAws_json1_1DescribeTaskExecutionCommand(
     method: "POST",
     path: "/DescribeTaskExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -570,11 +606,11 @@ export async function serializeAws_json1_1ListAgentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.ListAgents";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.ListAgents";
   let body: any = {};
   const wrappedBody: any = {
-    ListAgentsRequest: serializeAws_json1_1ListAgentsRequest(input, context),
+    ListAgentsRequest: serializeAws_json1_1ListAgentsRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -583,7 +619,7 @@ export async function serializeAws_json1_1ListAgentsCommand(
     method: "POST",
     path: "/ListAgents",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -592,11 +628,14 @@ export async function serializeAws_json1_1ListLocationsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.ListLocations";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.ListLocations";
   let body: any = {};
   const wrappedBody: any = {
-    ListLocationsRequest: serializeAws_json1_1ListLocationsRequest(input, context),
+    ListLocationsRequest: serializeAws_json1_1ListLocationsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -605,7 +644,7 @@ export async function serializeAws_json1_1ListLocationsCommand(
     method: "POST",
     path: "/ListLocations",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -614,11 +653,14 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.ListTagsForResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.ListTagsForResource";
   let body: any = {};
   const wrappedBody: any = {
-    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(input, context),
+    ListTagsForResourceRequest: serializeAws_json1_1ListTagsForResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -627,7 +669,7 @@ export async function serializeAws_json1_1ListTagsForResourceCommand(
     method: "POST",
     path: "/ListTagsForResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -636,11 +678,14 @@ export async function serializeAws_json1_1ListTaskExecutionsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.ListTaskExecutions";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.ListTaskExecutions";
   let body: any = {};
   const wrappedBody: any = {
-    ListTaskExecutionsRequest: serializeAws_json1_1ListTaskExecutionsRequest(input, context),
+    ListTaskExecutionsRequest: serializeAws_json1_1ListTaskExecutionsRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -649,7 +694,7 @@ export async function serializeAws_json1_1ListTaskExecutionsCommand(
     method: "POST",
     path: "/ListTaskExecutions",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -658,11 +703,11 @@ export async function serializeAws_json1_1ListTasksCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.ListTasks";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.ListTasks";
   let body: any = {};
   const wrappedBody: any = {
-    ListTasksRequest: serializeAws_json1_1ListTasksRequest(input, context),
+    ListTasksRequest: serializeAws_json1_1ListTasksRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -671,7 +716,7 @@ export async function serializeAws_json1_1ListTasksCommand(
     method: "POST",
     path: "/ListTasks",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -680,11 +725,14 @@ export async function serializeAws_json1_1StartTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.StartTaskExecution";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.StartTaskExecution";
   let body: any = {};
   const wrappedBody: any = {
-    StartTaskExecutionRequest: serializeAws_json1_1StartTaskExecutionRequest(input, context),
+    StartTaskExecutionRequest: serializeAws_json1_1StartTaskExecutionRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -693,7 +741,7 @@ export async function serializeAws_json1_1StartTaskExecutionCommand(
     method: "POST",
     path: "/StartTaskExecution",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -702,11 +750,11 @@ export async function serializeAws_json1_1TagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.TagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.TagResource";
   let body: any = {};
   const wrappedBody: any = {
-    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context),
+    TagResourceRequest: serializeAws_json1_1TagResourceRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -715,7 +763,7 @@ export async function serializeAws_json1_1TagResourceCommand(
     method: "POST",
     path: "/TagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -724,11 +772,14 @@ export async function serializeAws_json1_1UntagResourceCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.UntagResource";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.UntagResource";
   let body: any = {};
   const wrappedBody: any = {
-    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(input, context),
+    UntagResourceRequest: serializeAws_json1_1UntagResourceRequest(
+      input,
+      context
+    )
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -737,7 +788,7 @@ export async function serializeAws_json1_1UntagResourceCommand(
     method: "POST",
     path: "/UntagResource",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -746,11 +797,11 @@ export async function serializeAws_json1_1UpdateAgentCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.UpdateAgent";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.UpdateAgent";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateAgentRequest: serializeAws_json1_1UpdateAgentRequest(input, context),
+    UpdateAgentRequest: serializeAws_json1_1UpdateAgentRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -759,7 +810,7 @@ export async function serializeAws_json1_1UpdateAgentCommand(
     method: "POST",
     path: "/UpdateAgent",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -768,11 +819,11 @@ export async function serializeAws_json1_1UpdateTaskCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.1";
-  headers['X-Amz-Target'] = "FmrsService.UpdateTask";
+  headers["Content-Type"] = "application/x-amz-json-1.1";
+  headers["X-Amz-Target"] = "FmrsService.UpdateTask";
   let body: any = {};
   const wrappedBody: any = {
-    UpdateTaskRequest: serializeAws_json1_1UpdateTaskRequest(input, context),
+    UpdateTaskRequest: serializeAws_json1_1UpdateTaskRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -781,7 +832,7 @@ export async function serializeAws_json1_1UpdateTaskCommand(
     method: "POST",
     path: "/UpdateTask",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -790,46 +841,56 @@ export async function deserializeAws_json1_1CancelTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<CancelTaskExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1CancelTaskExecutionCommandError(output, context);
+    return deserializeAws_json1_1CancelTaskExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CancelTaskExecutionResponse(data, context);
   const response: CancelTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CancelTaskExecutionResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CancelTaskExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CancelTaskExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -842,44 +903,51 @@ export async function deserializeAws_json1_1CreateAgentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateAgentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateAgentResponse(data, context);
   const response: CreateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateAgentResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateAgentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateAgentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -892,44 +960,51 @@ export async function deserializeAws_json1_1CreateLocationEfsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLocationEfsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLocationEfsResponse(data, context);
   const response: CreateLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationEfsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateLocationEfsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateLocationEfsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -942,44 +1017,51 @@ export async function deserializeAws_json1_1CreateLocationNfsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLocationNfsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLocationNfsResponse(data, context);
   const response: CreateLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationNfsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateLocationNfsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateLocationNfsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -992,44 +1074,51 @@ export async function deserializeAws_json1_1CreateLocationS3Command(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLocationS3CommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLocationS3Response(data, context);
   const response: CreateLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationS3Response",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateLocationS3CommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateLocationS3CommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1042,44 +1131,51 @@ export async function deserializeAws_json1_1CreateLocationSmbCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateLocationSmbCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateLocationSmbResponse(data, context);
   const response: CreateLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateLocationSmbResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateLocationSmbCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateLocationSmbCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1092,44 +1188,51 @@ export async function deserializeAws_json1_1CreateTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1CreateTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1CreateTaskResponse(data, context);
   const response: CreateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTaskResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1CreateTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<CreateTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1142,44 +1245,51 @@ export async function deserializeAws_json1_1DeleteAgentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteAgentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteAgentResponse(data, context);
   const response: DeleteAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteAgentResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteAgentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteAgentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1192,44 +1302,51 @@ export async function deserializeAws_json1_1DeleteLocationCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteLocationCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteLocationResponse(data, context);
   const response: DeleteLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteLocationResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteLocationCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteLocationCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1242,44 +1359,51 @@ export async function deserializeAws_json1_1DeleteTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DeleteTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DeleteTaskResponse(data, context);
   const response: DeleteTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTaskResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DeleteTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DeleteTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1292,44 +1416,51 @@ export async function deserializeAws_json1_1DescribeAgentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeAgentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeAgentResponse(data, context);
   const response: DescribeAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeAgentResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeAgentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeAgentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1340,46 +1471,56 @@ export async function deserializeAws_json1_1DescribeLocationEfsCommand(
   context: __SerdeContext
 ): Promise<DescribeLocationEfsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLocationEfsCommandError(output, context);
+    return deserializeAws_json1_1DescribeLocationEfsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLocationEfsResponse(data, context);
   const response: DescribeLocationEfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationEfsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLocationEfsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeLocationEfsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1390,46 +1531,56 @@ export async function deserializeAws_json1_1DescribeLocationNfsCommand(
   context: __SerdeContext
 ): Promise<DescribeLocationNfsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLocationNfsCommandError(output, context);
+    return deserializeAws_json1_1DescribeLocationNfsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLocationNfsResponse(data, context);
   const response: DescribeLocationNfsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationNfsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLocationNfsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeLocationNfsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1440,46 +1591,56 @@ export async function deserializeAws_json1_1DescribeLocationS3Command(
   context: __SerdeContext
 ): Promise<DescribeLocationS3CommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLocationS3CommandError(output, context);
+    return deserializeAws_json1_1DescribeLocationS3CommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLocationS3Response(data, context);
   const response: DescribeLocationS3CommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationS3Response",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLocationS3CommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeLocationS3CommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1490,46 +1651,56 @@ export async function deserializeAws_json1_1DescribeLocationSmbCommand(
   context: __SerdeContext
 ): Promise<DescribeLocationSmbCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeLocationSmbCommandError(output, context);
+    return deserializeAws_json1_1DescribeLocationSmbCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeLocationSmbResponse(data, context);
   const response: DescribeLocationSmbCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLocationSmbResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeLocationSmbCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeLocationSmbCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1542,44 +1713,51 @@ export async function deserializeAws_json1_1DescribeTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1DescribeTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTaskResponse(data, context);
   const response: DescribeTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1590,46 +1768,56 @@ export async function deserializeAws_json1_1DescribeTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<DescribeTaskExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1DescribeTaskExecutionCommandError(output, context);
+    return deserializeAws_json1_1DescribeTaskExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1DescribeTaskExecutionResponse(data, context);
   const response: DescribeTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTaskExecutionResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1DescribeTaskExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<DescribeTaskExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1642,44 +1830,51 @@ export async function deserializeAws_json1_1ListAgentsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListAgentsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListAgentsResponse(data, context);
   const response: ListAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListAgentsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListAgentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListAgentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1692,44 +1887,51 @@ export async function deserializeAws_json1_1ListLocationsCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListLocationsCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListLocationsResponse(data, context);
   const response: ListLocationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListLocationsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListLocationsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListLocationsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1740,46 +1942,56 @@ export async function deserializeAws_json1_1ListTagsForResourceCommand(
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
+    return deserializeAws_json1_1ListTagsForResourceCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTagsForResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1790,46 +2002,56 @@ export async function deserializeAws_json1_1ListTaskExecutionsCommand(
   context: __SerdeContext
 ): Promise<ListTaskExecutionsCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1ListTaskExecutionsCommandError(output, context);
+    return deserializeAws_json1_1ListTaskExecutionsCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTaskExecutionsResponse(data, context);
   const response: ListTaskExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTaskExecutionsResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTaskExecutionsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTaskExecutionsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1842,44 +2064,51 @@ export async function deserializeAws_json1_1ListTasksCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1ListTasksCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1ListTasksResponse(data, context);
   const response: ListTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTasksResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1ListTasksCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<ListTasksCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1890,46 +2119,56 @@ export async function deserializeAws_json1_1StartTaskExecutionCommand(
   context: __SerdeContext
 ): Promise<StartTaskExecutionCommandOutput> {
   if (output.statusCode >= 400) {
-    return deserializeAws_json1_1StartTaskExecutionCommandError(output, context);
+    return deserializeAws_json1_1StartTaskExecutionCommandError(
+      output,
+      context
+    );
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1StartTaskExecutionResponse(data, context);
   const response: StartTaskExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartTaskExecutionResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1StartTaskExecutionCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<StartTaskExecutionCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1942,44 +2181,51 @@ export async function deserializeAws_json1_1TagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1TagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<TagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -1992,44 +2238,51 @@ export async function deserializeAws_json1_1UntagResourceCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UntagResourceCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2042,44 +2295,51 @@ export async function deserializeAws_json1_1UpdateAgentCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateAgentCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateAgentResponse(data, context);
   const response: UpdateAgentCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateAgentResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateAgentCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateAgentCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2092,44 +2352,51 @@ export async function deserializeAws_json1_1UpdateTaskCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_1UpdateTaskCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_1UpdateTaskResponse(data, context);
   const response: UpdateTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTaskResponse",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_1UpdateTaskCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UpdateTaskCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "InternalException":
     case "com.amazonaws.fmrs#InternalException":
-      response = await deserializeAws_json1_1InternalExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InternalExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidRequestException":
     case "com.amazonaws.fmrs#InvalidRequestException":
-      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_1InvalidRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.fmrs#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -2139,12 +2406,15 @@ const deserializeAws_json1_1InternalExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InternalException> => {
-  const deserialized: any = deserializeAws_json1_1InternalException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InternalException(
+    output.body,
+    context
+  );
   const contents: InternalException = {
     __type: "InternalException",
     $fault: "server",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2153,12 +2423,15 @@ const deserializeAws_json1_1InvalidRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidRequestException> => {
-  const deserialized: any = deserializeAws_json1_1InvalidRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_1InvalidRequestException(
+    output.body,
+    context
+  );
   const contents: InvalidRequestException = {
     __type: "InvalidRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -2167,10 +2440,8 @@ const serializeAws_json1_1AgentArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1CancelTaskExecutionRequest = (
   input: CancelTaskExecutionRequest,
@@ -2178,10 +2449,10 @@ const serializeAws_json1_1CancelTaskExecutionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.TaskExecutionArn !== undefined) {
-    bodyParams['TaskExecutionArn'] = input.TaskExecutionArn;
+    bodyParams["TaskExecutionArn"] = input.TaskExecutionArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateAgentRequest = (
   input: CreateAgentRequest,
@@ -2189,25 +2460,33 @@ const serializeAws_json1_1CreateAgentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ActivationKey !== undefined) {
-    bodyParams['ActivationKey'] = input.ActivationKey;
+    bodyParams["ActivationKey"] = input.ActivationKey;
   }
   if (input.AgentName !== undefined) {
-    bodyParams['AgentName'] = input.AgentName;
+    bodyParams["AgentName"] = input.AgentName;
   }
   if (input.SecurityGroupArns !== undefined) {
-    bodyParams['SecurityGroupArns'] = serializeAws_json1_1PLSecurityGroupArnList(input.SecurityGroupArns, context);
+    bodyParams[
+      "SecurityGroupArns"
+    ] = serializeAws_json1_1PLSecurityGroupArnList(
+      input.SecurityGroupArns,
+      context
+    );
   }
   if (input.SubnetArns !== undefined) {
-    bodyParams['SubnetArns'] = serializeAws_json1_1PLSubnetArnList(input.SubnetArns, context);
+    bodyParams["SubnetArns"] = serializeAws_json1_1PLSubnetArnList(
+      input.SubnetArns,
+      context
+    );
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.VpcEndpointId !== undefined) {
-    bodyParams['VpcEndpointId'] = input.VpcEndpointId;
+    bodyParams["VpcEndpointId"] = input.VpcEndpointId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateLocationEfsRequest = (
   input: CreateLocationEfsRequest,
@@ -2215,19 +2494,22 @@ const serializeAws_json1_1CreateLocationEfsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Ec2Config !== undefined) {
-    bodyParams['Ec2Config'] = serializeAws_json1_1Ec2Config(input.Ec2Config, context);
+    bodyParams["Ec2Config"] = serializeAws_json1_1Ec2Config(
+      input.Ec2Config,
+      context
+    );
   }
   if (input.EfsFilesystemArn !== undefined) {
-    bodyParams['EfsFilesystemArn'] = input.EfsFilesystemArn;
+    bodyParams["EfsFilesystemArn"] = input.EfsFilesystemArn;
   }
   if (input.Subdirectory !== undefined) {
-    bodyParams['Subdirectory'] = input.Subdirectory;
+    bodyParams["Subdirectory"] = input.Subdirectory;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateLocationNfsRequest = (
   input: CreateLocationNfsRequest,
@@ -2235,22 +2517,28 @@ const serializeAws_json1_1CreateLocationNfsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MountOptions !== undefined) {
-    bodyParams['MountOptions'] = serializeAws_json1_1NfsMountOptions(input.MountOptions, context);
+    bodyParams["MountOptions"] = serializeAws_json1_1NfsMountOptions(
+      input.MountOptions,
+      context
+    );
   }
   if (input.OnPremConfig !== undefined) {
-    bodyParams['OnPremConfig'] = serializeAws_json1_1OnPremConfig(input.OnPremConfig, context);
+    bodyParams["OnPremConfig"] = serializeAws_json1_1OnPremConfig(
+      input.OnPremConfig,
+      context
+    );
   }
   if (input.ServerHostname !== undefined) {
-    bodyParams['ServerHostname'] = input.ServerHostname;
+    bodyParams["ServerHostname"] = input.ServerHostname;
   }
   if (input.Subdirectory !== undefined) {
-    bodyParams['Subdirectory'] = input.Subdirectory;
+    bodyParams["Subdirectory"] = input.Subdirectory;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateLocationS3Request = (
   input: CreateLocationS3Request,
@@ -2258,22 +2546,25 @@ const serializeAws_json1_1CreateLocationS3Request = (
 ): any => {
   let bodyParams: any = {};
   if (input.S3BucketArn !== undefined) {
-    bodyParams['S3BucketArn'] = input.S3BucketArn;
+    bodyParams["S3BucketArn"] = input.S3BucketArn;
   }
   if (input.S3Config !== undefined) {
-    bodyParams['S3Config'] = serializeAws_json1_1S3Config(input.S3Config, context);
+    bodyParams["S3Config"] = serializeAws_json1_1S3Config(
+      input.S3Config,
+      context
+    );
   }
   if (input.S3StorageClass !== undefined) {
-    bodyParams['S3StorageClass'] = input.S3StorageClass;
+    bodyParams["S3StorageClass"] = input.S3StorageClass;
   }
   if (input.Subdirectory !== undefined) {
-    bodyParams['Subdirectory'] = input.Subdirectory;
+    bodyParams["Subdirectory"] = input.Subdirectory;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateLocationSmbRequest = (
   input: CreateLocationSmbRequest,
@@ -2281,31 +2572,37 @@ const serializeAws_json1_1CreateLocationSmbRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AgentArns !== undefined) {
-    bodyParams['AgentArns'] = serializeAws_json1_1AgentArnList(input.AgentArns, context);
+    bodyParams["AgentArns"] = serializeAws_json1_1AgentArnList(
+      input.AgentArns,
+      context
+    );
   }
   if (input.Domain !== undefined) {
-    bodyParams['Domain'] = input.Domain;
+    bodyParams["Domain"] = input.Domain;
   }
   if (input.MountOptions !== undefined) {
-    bodyParams['MountOptions'] = serializeAws_json1_1SmbMountOptions(input.MountOptions, context);
+    bodyParams["MountOptions"] = serializeAws_json1_1SmbMountOptions(
+      input.MountOptions,
+      context
+    );
   }
   if (input.Password !== undefined) {
-    bodyParams['Password'] = input.Password;
+    bodyParams["Password"] = input.Password;
   }
   if (input.ServerHostname !== undefined) {
-    bodyParams['ServerHostname'] = input.ServerHostname;
+    bodyParams["ServerHostname"] = input.ServerHostname;
   }
   if (input.Subdirectory !== undefined) {
-    bodyParams['Subdirectory'] = input.Subdirectory;
+    bodyParams["Subdirectory"] = input.Subdirectory;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   if (input.User !== undefined) {
-    bodyParams['User'] = input.User;
+    bodyParams["User"] = input.User;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1CreateTaskRequest = (
   input: CreateTaskRequest,
@@ -2313,31 +2610,37 @@ const serializeAws_json1_1CreateTaskRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLogGroupArn !== undefined) {
-    bodyParams['CloudWatchLogGroupArn'] = input.CloudWatchLogGroupArn;
+    bodyParams["CloudWatchLogGroupArn"] = input.CloudWatchLogGroupArn;
   }
   if (input.DestinationLocationArn !== undefined) {
-    bodyParams['DestinationLocationArn'] = input.DestinationLocationArn;
+    bodyParams["DestinationLocationArn"] = input.DestinationLocationArn;
   }
   if (input.Excludes !== undefined) {
-    bodyParams['Excludes'] = serializeAws_json1_1FilterList(input.Excludes, context);
+    bodyParams["Excludes"] = serializeAws_json1_1FilterList(
+      input.Excludes,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Options !== undefined) {
-    bodyParams['Options'] = serializeAws_json1_1Options(input.Options, context);
+    bodyParams["Options"] = serializeAws_json1_1Options(input.Options, context);
   }
   if (input.Schedule !== undefined) {
-    bodyParams['Schedule'] = serializeAws_json1_1TaskSchedule(input.Schedule, context);
+    bodyParams["Schedule"] = serializeAws_json1_1TaskSchedule(
+      input.Schedule,
+      context
+    );
   }
   if (input.SourceLocationArn !== undefined) {
-    bodyParams['SourceLocationArn'] = input.SourceLocationArn;
+    bodyParams["SourceLocationArn"] = input.SourceLocationArn;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteAgentRequest = (
   input: DeleteAgentRequest,
@@ -2345,10 +2648,10 @@ const serializeAws_json1_1DeleteAgentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AgentArn !== undefined) {
-    bodyParams['AgentArn'] = input.AgentArn;
+    bodyParams["AgentArn"] = input.AgentArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteLocationRequest = (
   input: DeleteLocationRequest,
@@ -2356,10 +2659,10 @@ const serializeAws_json1_1DeleteLocationRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LocationArn !== undefined) {
-    bodyParams['LocationArn'] = input.LocationArn;
+    bodyParams["LocationArn"] = input.LocationArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DeleteTaskRequest = (
   input: DeleteTaskRequest,
@@ -2367,10 +2670,10 @@ const serializeAws_json1_1DeleteTaskRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.TaskArn !== undefined) {
-    bodyParams['TaskArn'] = input.TaskArn;
+    bodyParams["TaskArn"] = input.TaskArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeAgentRequest = (
   input: DescribeAgentRequest,
@@ -2378,10 +2681,10 @@ const serializeAws_json1_1DescribeAgentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AgentArn !== undefined) {
-    bodyParams['AgentArn'] = input.AgentArn;
+    bodyParams["AgentArn"] = input.AgentArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeLocationEfsRequest = (
   input: DescribeLocationEfsRequest,
@@ -2389,10 +2692,10 @@ const serializeAws_json1_1DescribeLocationEfsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LocationArn !== undefined) {
-    bodyParams['LocationArn'] = input.LocationArn;
+    bodyParams["LocationArn"] = input.LocationArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeLocationNfsRequest = (
   input: DescribeLocationNfsRequest,
@@ -2400,10 +2703,10 @@ const serializeAws_json1_1DescribeLocationNfsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LocationArn !== undefined) {
-    bodyParams['LocationArn'] = input.LocationArn;
+    bodyParams["LocationArn"] = input.LocationArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeLocationS3Request = (
   input: DescribeLocationS3Request,
@@ -2411,10 +2714,10 @@ const serializeAws_json1_1DescribeLocationS3Request = (
 ): any => {
   let bodyParams: any = {};
   if (input.LocationArn !== undefined) {
-    bodyParams['LocationArn'] = input.LocationArn;
+    bodyParams["LocationArn"] = input.LocationArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeLocationSmbRequest = (
   input: DescribeLocationSmbRequest,
@@ -2422,10 +2725,10 @@ const serializeAws_json1_1DescribeLocationSmbRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LocationArn !== undefined) {
-    bodyParams['LocationArn'] = input.LocationArn;
+    bodyParams["LocationArn"] = input.LocationArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeTaskExecutionRequest = (
   input: DescribeTaskExecutionRequest,
@@ -2433,10 +2736,10 @@ const serializeAws_json1_1DescribeTaskExecutionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.TaskExecutionArn !== undefined) {
-    bodyParams['TaskExecutionArn'] = input.TaskExecutionArn;
+    bodyParams["TaskExecutionArn"] = input.TaskExecutionArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1DescribeTaskRequest = (
   input: DescribeTaskRequest,
@@ -2444,10 +2747,10 @@ const serializeAws_json1_1DescribeTaskRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.TaskArn !== undefined) {
-    bodyParams['TaskArn'] = input.TaskArn;
+    bodyParams["TaskArn"] = input.TaskArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Ec2Config = (
   input: Ec2Config,
@@ -2455,22 +2758,25 @@ const serializeAws_json1_1Ec2Config = (
 ): any => {
   let bodyParams: any = {};
   if (input.SecurityGroupArns !== undefined) {
-    bodyParams['SecurityGroupArns'] = serializeAws_json1_1Ec2SecurityGroupArnList(input.SecurityGroupArns, context);
+    bodyParams[
+      "SecurityGroupArns"
+    ] = serializeAws_json1_1Ec2SecurityGroupArnList(
+      input.SecurityGroupArns,
+      context
+    );
   }
   if (input.SubnetArn !== undefined) {
-    bodyParams['SubnetArn'] = input.SubnetArn;
+    bodyParams["SubnetArn"] = input.SubnetArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Ec2SecurityGroupArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1FilterList = (
   input: Array<FilterRule>,
@@ -2479,7 +2785,7 @@ const serializeAws_json1_1FilterList = (
   return (input || []).map(entry =>
     serializeAws_json1_1FilterRule(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1FilterRule = (
   input: FilterRule,
@@ -2487,13 +2793,13 @@ const serializeAws_json1_1FilterRule = (
 ): any => {
   let bodyParams: any = {};
   if (input.FilterType !== undefined) {
-    bodyParams['FilterType'] = input.FilterType;
+    bodyParams["FilterType"] = input.FilterType;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListAgentsRequest = (
   input: ListAgentsRequest,
@@ -2501,13 +2807,13 @@ const serializeAws_json1_1ListAgentsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListLocationsRequest = (
   input: ListLocationsRequest,
@@ -2515,13 +2821,13 @@ const serializeAws_json1_1ListLocationsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
@@ -2529,16 +2835,16 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTaskExecutionsRequest = (
   input: ListTaskExecutionsRequest,
@@ -2546,16 +2852,16 @@ const serializeAws_json1_1ListTaskExecutionsRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   if (input.TaskArn !== undefined) {
-    bodyParams['TaskArn'] = input.TaskArn;
+    bodyParams["TaskArn"] = input.TaskArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1ListTasksRequest = (
   input: ListTasksRequest,
@@ -2563,13 +2869,13 @@ const serializeAws_json1_1ListTasksRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.MaxResults !== undefined) {
-    bodyParams['MaxResults'] = input.MaxResults;
+    bodyParams["MaxResults"] = input.MaxResults;
   }
   if (input.NextToken !== undefined) {
-    bodyParams['NextToken'] = input.NextToken;
+    bodyParams["NextToken"] = input.NextToken;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1NfsMountOptions = (
   input: NfsMountOptions,
@@ -2577,10 +2883,10 @@ const serializeAws_json1_1NfsMountOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.Version !== undefined) {
-    bodyParams['Version'] = input.Version;
+    bodyParams["Version"] = input.Version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1OnPremConfig = (
   input: OnPremConfig,
@@ -2588,10 +2894,13 @@ const serializeAws_json1_1OnPremConfig = (
 ): any => {
   let bodyParams: any = {};
   if (input.AgentArns !== undefined) {
-    bodyParams['AgentArns'] = serializeAws_json1_1AgentArnList(input.AgentArns, context);
+    bodyParams["AgentArns"] = serializeAws_json1_1AgentArnList(
+      input.AgentArns,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1Options = (
   input: Options,
@@ -2599,58 +2908,54 @@ const serializeAws_json1_1Options = (
 ): any => {
   let bodyParams: any = {};
   if (input.Atime !== undefined) {
-    bodyParams['Atime'] = input.Atime;
+    bodyParams["Atime"] = input.Atime;
   }
   if (input.BytesPerSecond !== undefined) {
-    bodyParams['BytesPerSecond'] = input.BytesPerSecond;
+    bodyParams["BytesPerSecond"] = input.BytesPerSecond;
   }
   if (input.Gid !== undefined) {
-    bodyParams['Gid'] = input.Gid;
+    bodyParams["Gid"] = input.Gid;
   }
   if (input.Mtime !== undefined) {
-    bodyParams['Mtime'] = input.Mtime;
+    bodyParams["Mtime"] = input.Mtime;
   }
   if (input.OverwriteMode !== undefined) {
-    bodyParams['OverwriteMode'] = input.OverwriteMode;
+    bodyParams["OverwriteMode"] = input.OverwriteMode;
   }
   if (input.PosixPermissions !== undefined) {
-    bodyParams['PosixPermissions'] = input.PosixPermissions;
+    bodyParams["PosixPermissions"] = input.PosixPermissions;
   }
   if (input.PreserveDeletedFiles !== undefined) {
-    bodyParams['PreserveDeletedFiles'] = input.PreserveDeletedFiles;
+    bodyParams["PreserveDeletedFiles"] = input.PreserveDeletedFiles;
   }
   if (input.PreserveDevices !== undefined) {
-    bodyParams['PreserveDevices'] = input.PreserveDevices;
+    bodyParams["PreserveDevices"] = input.PreserveDevices;
   }
   if (input.TaskQueueing !== undefined) {
-    bodyParams['TaskQueueing'] = input.TaskQueueing;
+    bodyParams["TaskQueueing"] = input.TaskQueueing;
   }
   if (input.Uid !== undefined) {
-    bodyParams['Uid'] = input.Uid;
+    bodyParams["Uid"] = input.Uid;
   }
   if (input.VerifyMode !== undefined) {
-    bodyParams['VerifyMode'] = input.VerifyMode;
+    bodyParams["VerifyMode"] = input.VerifyMode;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1PLSecurityGroupArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1PLSubnetArnList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1S3Config = (
   input: S3Config,
@@ -2658,10 +2963,10 @@ const serializeAws_json1_1S3Config = (
 ): any => {
   let bodyParams: any = {};
   if (input.BucketAccessRoleArn !== undefined) {
-    bodyParams['BucketAccessRoleArn'] = input.BucketAccessRoleArn;
+    bodyParams["BucketAccessRoleArn"] = input.BucketAccessRoleArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1SmbMountOptions = (
   input: SmbMountOptions,
@@ -2669,10 +2974,10 @@ const serializeAws_json1_1SmbMountOptions = (
 ): any => {
   let bodyParams: any = {};
   if (input.Version !== undefined) {
-    bodyParams['Version'] = input.Version;
+    bodyParams["Version"] = input.Version;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1StartTaskExecutionRequest = (
   input: StartTaskExecutionRequest,
@@ -2680,25 +2985,29 @@ const serializeAws_json1_1StartTaskExecutionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Includes !== undefined) {
-    bodyParams['Includes'] = serializeAws_json1_1FilterList(input.Includes, context);
+    bodyParams["Includes"] = serializeAws_json1_1FilterList(
+      input.Includes,
+      context
+    );
   }
   if (input.OverrideOptions !== undefined) {
-    bodyParams['OverrideOptions'] = serializeAws_json1_1Options(input.OverrideOptions, context);
+    bodyParams["OverrideOptions"] = serializeAws_json1_1Options(
+      input.OverrideOptions,
+      context
+    );
   }
   if (input.TaskArn !== undefined) {
-    bodyParams['TaskArn'] = input.TaskArn;
+    bodyParams["TaskArn"] = input.TaskArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagKeyList = (
   input: Array<string>,
   context: __SerdeContext
 ): any => {
-  return (input || []).map(entry =>
-    entry
-  );
-}
+  return (input || []).map(entry => entry);
+};
 
 const serializeAws_json1_1TagList = (
   input: Array<TagListEntry>,
@@ -2707,7 +3016,7 @@ const serializeAws_json1_1TagList = (
   return (input || []).map(entry =>
     serializeAws_json1_1TagListEntry(entry, context)
   );
-}
+};
 
 const serializeAws_json1_1TagListEntry = (
   input: TagListEntry,
@@ -2715,13 +3024,13 @@ const serializeAws_json1_1TagListEntry = (
 ): any => {
   let bodyParams: any = {};
   if (input.Key !== undefined) {
-    bodyParams['Key'] = input.Key;
+    bodyParams["Key"] = input.Key;
   }
   if (input.Value !== undefined) {
-    bodyParams['Value'] = input.Value;
+    bodyParams["Value"] = input.Value;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
@@ -2729,13 +3038,13 @@ const serializeAws_json1_1TagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   if (input.Tags !== undefined) {
-    bodyParams['Tags'] = serializeAws_json1_1TagList(input.Tags, context);
+    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1TaskSchedule = (
   input: TaskSchedule,
@@ -2743,10 +3052,10 @@ const serializeAws_json1_1TaskSchedule = (
 ): any => {
   let bodyParams: any = {};
   if (input.ScheduleExpression !== undefined) {
-    bodyParams['ScheduleExpression'] = input.ScheduleExpression;
+    bodyParams["ScheduleExpression"] = input.ScheduleExpression;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
@@ -2754,13 +3063,13 @@ const serializeAws_json1_1UntagResourceRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Keys !== undefined) {
-    bodyParams['Keys'] = serializeAws_json1_1TagKeyList(input.Keys, context);
+    bodyParams["Keys"] = serializeAws_json1_1TagKeyList(input.Keys, context);
   }
   if (input.ResourceArn !== undefined) {
-    bodyParams['ResourceArn'] = input.ResourceArn;
+    bodyParams["ResourceArn"] = input.ResourceArn;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateAgentRequest = (
   input: UpdateAgentRequest,
@@ -2768,13 +3077,13 @@ const serializeAws_json1_1UpdateAgentRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AgentArn !== undefined) {
-    bodyParams['AgentArn'] = input.AgentArn;
+    bodyParams["AgentArn"] = input.AgentArn;
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_1UpdateTaskRequest = (
   input: UpdateTaskRequest,
@@ -2782,34 +3091,38 @@ const serializeAws_json1_1UpdateTaskRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CloudWatchLogGroupArn !== undefined) {
-    bodyParams['CloudWatchLogGroupArn'] = input.CloudWatchLogGroupArn;
+    bodyParams["CloudWatchLogGroupArn"] = input.CloudWatchLogGroupArn;
   }
   if (input.Excludes !== undefined) {
-    bodyParams['Excludes'] = serializeAws_json1_1FilterList(input.Excludes, context);
+    bodyParams["Excludes"] = serializeAws_json1_1FilterList(
+      input.Excludes,
+      context
+    );
   }
   if (input.Name !== undefined) {
-    bodyParams['Name'] = input.Name;
+    bodyParams["Name"] = input.Name;
   }
   if (input.Options !== undefined) {
-    bodyParams['Options'] = serializeAws_json1_1Options(input.Options, context);
+    bodyParams["Options"] = serializeAws_json1_1Options(input.Options, context);
   }
   if (input.Schedule !== undefined) {
-    bodyParams['Schedule'] = serializeAws_json1_1TaskSchedule(input.Schedule, context);
+    bodyParams["Schedule"] = serializeAws_json1_1TaskSchedule(
+      input.Schedule,
+      context
+    );
   }
   if (input.TaskArn !== undefined) {
-    bodyParams['TaskArn'] = input.TaskArn;
+    bodyParams["TaskArn"] = input.TaskArn;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_1AgentArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1AgentList = (
   output: any,
@@ -2818,7 +3131,7 @@ const deserializeAws_json1_1AgentList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1AgentListEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1AgentListEntry = (
   output: any,
@@ -2828,7 +3141,7 @@ const deserializeAws_json1_1AgentListEntry = (
     __type: "AgentListEntry",
     AgentArn: undefined,
     Name: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.AgentArn !== undefined) {
     contents.AgentArn = output.AgentArn;
@@ -2840,17 +3153,17 @@ const deserializeAws_json1_1AgentListEntry = (
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CancelTaskExecutionResponse = (
   output: any,
   context: __SerdeContext
 ): CancelTaskExecutionResponse => {
   let contents: any = {
-    __type: "CancelTaskExecutionResponse",
+    __type: "CancelTaskExecutionResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateAgentResponse = (
   output: any,
@@ -2858,13 +3171,13 @@ const deserializeAws_json1_1CreateAgentResponse = (
 ): CreateAgentResponse => {
   let contents: any = {
     __type: "CreateAgentResponse",
-    AgentArn: undefined,
+    AgentArn: undefined
   };
   if (output.AgentArn !== undefined) {
     contents.AgentArn = output.AgentArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateLocationEfsResponse = (
   output: any,
@@ -2872,13 +3185,13 @@ const deserializeAws_json1_1CreateLocationEfsResponse = (
 ): CreateLocationEfsResponse => {
   let contents: any = {
     __type: "CreateLocationEfsResponse",
-    LocationArn: undefined,
+    LocationArn: undefined
   };
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateLocationNfsResponse = (
   output: any,
@@ -2886,13 +3199,13 @@ const deserializeAws_json1_1CreateLocationNfsResponse = (
 ): CreateLocationNfsResponse => {
   let contents: any = {
     __type: "CreateLocationNfsResponse",
-    LocationArn: undefined,
+    LocationArn: undefined
   };
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateLocationS3Response = (
   output: any,
@@ -2900,13 +3213,13 @@ const deserializeAws_json1_1CreateLocationS3Response = (
 ): CreateLocationS3Response => {
   let contents: any = {
     __type: "CreateLocationS3Response",
-    LocationArn: undefined,
+    LocationArn: undefined
   };
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateLocationSmbResponse = (
   output: any,
@@ -2914,13 +3227,13 @@ const deserializeAws_json1_1CreateLocationSmbResponse = (
 ): CreateLocationSmbResponse => {
   let contents: any = {
     __type: "CreateLocationSmbResponse",
-    LocationArn: undefined,
+    LocationArn: undefined
   };
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1CreateTaskResponse = (
   output: any,
@@ -2928,43 +3241,43 @@ const deserializeAws_json1_1CreateTaskResponse = (
 ): CreateTaskResponse => {
   let contents: any = {
     __type: "CreateTaskResponse",
-    TaskArn: undefined,
+    TaskArn: undefined
   };
   if (output.TaskArn !== undefined) {
     contents.TaskArn = output.TaskArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteAgentResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAgentResponse => {
   let contents: any = {
-    __type: "DeleteAgentResponse",
+    __type: "DeleteAgentResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteLocationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLocationResponse => {
   let contents: any = {
-    __type: "DeleteLocationResponse",
+    __type: "DeleteLocationResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DeleteTaskResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteTaskResponse => {
   let contents: any = {
-    __type: "DeleteTaskResponse",
+    __type: "DeleteTaskResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeAgentResponse = (
   output: any,
@@ -2978,31 +3291,42 @@ const deserializeAws_json1_1DescribeAgentResponse = (
     LastConnectionTime: undefined,
     Name: undefined,
     PrivateLinkConfig: undefined,
-    Status: undefined,
+    Status: undefined
   };
   if (output.AgentArn !== undefined) {
     contents.AgentArn = output.AgentArn;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.EndpointType !== undefined) {
     contents.EndpointType = output.EndpointType;
   }
   if (output.LastConnectionTime !== undefined) {
-    contents.LastConnectionTime = new Date(output.LastConnectionTime % 1 != 0 ? Math.round(output.LastConnectionTime * 1000) : output.LastConnectionTime);
+    contents.LastConnectionTime = new Date(
+      output.LastConnectionTime % 1 != 0
+        ? Math.round(output.LastConnectionTime * 1000)
+        : output.LastConnectionTime
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
   }
   if (output.PrivateLinkConfig !== undefined) {
-    contents.PrivateLinkConfig = deserializeAws_json1_1PrivateLinkConfig(output.PrivateLinkConfig, context);
+    contents.PrivateLinkConfig = deserializeAws_json1_1PrivateLinkConfig(
+      output.PrivateLinkConfig,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeLocationEfsResponse = (
   output: any,
@@ -3013,13 +3337,20 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
     CreationTime: undefined,
     Ec2Config: undefined,
     LocationArn: undefined,
-    LocationUri: undefined,
+    LocationUri: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.Ec2Config !== undefined) {
-    contents.Ec2Config = deserializeAws_json1_1Ec2Config(output.Ec2Config, context);
+    contents.Ec2Config = deserializeAws_json1_1Ec2Config(
+      output.Ec2Config,
+      context
+    );
   }
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3028,7 +3359,7 @@ const deserializeAws_json1_1DescribeLocationEfsResponse = (
     contents.LocationUri = output.LocationUri;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeLocationNfsResponse = (
   output: any,
@@ -3040,10 +3371,14 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
     LocationArn: undefined,
     LocationUri: undefined,
     MountOptions: undefined,
-    OnPremConfig: undefined,
+    OnPremConfig: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3052,13 +3387,19 @@ const deserializeAws_json1_1DescribeLocationNfsResponse = (
     contents.LocationUri = output.LocationUri;
   }
   if (output.MountOptions !== undefined) {
-    contents.MountOptions = deserializeAws_json1_1NfsMountOptions(output.MountOptions, context);
+    contents.MountOptions = deserializeAws_json1_1NfsMountOptions(
+      output.MountOptions,
+      context
+    );
   }
   if (output.OnPremConfig !== undefined) {
-    contents.OnPremConfig = deserializeAws_json1_1OnPremConfig(output.OnPremConfig, context);
+    contents.OnPremConfig = deserializeAws_json1_1OnPremConfig(
+      output.OnPremConfig,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeLocationS3Response = (
   output: any,
@@ -3070,10 +3411,14 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
     LocationArn: undefined,
     LocationUri: undefined,
     S3Config: undefined,
-    S3StorageClass: undefined,
+    S3StorageClass: undefined
   };
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3082,13 +3427,16 @@ const deserializeAws_json1_1DescribeLocationS3Response = (
     contents.LocationUri = output.LocationUri;
   }
   if (output.S3Config !== undefined) {
-    contents.S3Config = deserializeAws_json1_1S3Config(output.S3Config, context);
+    contents.S3Config = deserializeAws_json1_1S3Config(
+      output.S3Config,
+      context
+    );
   }
   if (output.S3StorageClass !== undefined) {
     contents.S3StorageClass = output.S3StorageClass;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeLocationSmbResponse = (
   output: any,
@@ -3102,13 +3450,20 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
     LocationArn: undefined,
     LocationUri: undefined,
     MountOptions: undefined,
-    User: undefined,
+    User: undefined
   };
   if (output.AgentArns !== undefined) {
-    contents.AgentArns = deserializeAws_json1_1AgentArnList(output.AgentArns, context);
+    contents.AgentArns = deserializeAws_json1_1AgentArnList(
+      output.AgentArns,
+      context
+    );
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.Domain !== undefined) {
     contents.Domain = output.Domain;
@@ -3120,13 +3475,16 @@ const deserializeAws_json1_1DescribeLocationSmbResponse = (
     contents.LocationUri = output.LocationUri;
   }
   if (output.MountOptions !== undefined) {
-    contents.MountOptions = deserializeAws_json1_1SmbMountOptions(output.MountOptions, context);
+    contents.MountOptions = deserializeAws_json1_1SmbMountOptions(
+      output.MountOptions,
+      context
+    );
   }
   if (output.User !== undefined) {
     contents.User = output.User;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeTaskExecutionResponse = (
   output: any,
@@ -3145,7 +3503,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
     Result: undefined,
     StartTime: undefined,
     Status: undefined,
-    TaskExecutionArn: undefined,
+    TaskExecutionArn: undefined
   };
   if (output.BytesTransferred !== undefined) {
     contents.BytesTransferred = output.BytesTransferred;
@@ -3160,22 +3518,35 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
     contents.EstimatedFilesToTransfer = output.EstimatedFilesToTransfer;
   }
   if (output.Excludes !== undefined) {
-    contents.Excludes = deserializeAws_json1_1FilterList(output.Excludes, context);
+    contents.Excludes = deserializeAws_json1_1FilterList(
+      output.Excludes,
+      context
+    );
   }
   if (output.FilesTransferred !== undefined) {
     contents.FilesTransferred = output.FilesTransferred;
   }
   if (output.Includes !== undefined) {
-    contents.Includes = deserializeAws_json1_1FilterList(output.Includes, context);
+    contents.Includes = deserializeAws_json1_1FilterList(
+      output.Includes,
+      context
+    );
   }
   if (output.Options !== undefined) {
     contents.Options = deserializeAws_json1_1Options(output.Options, context);
   }
   if (output.Result !== undefined) {
-    contents.Result = deserializeAws_json1_1TaskExecutionResultDetail(output.Result, context);
+    contents.Result = deserializeAws_json1_1TaskExecutionResultDetail(
+      output.Result,
+      context
+    );
   }
   if (output.StartTime !== undefined) {
-    contents.StartTime = new Date(output.StartTime % 1 != 0 ? Math.round(output.StartTime * 1000) : output.StartTime);
+    contents.StartTime = new Date(
+      output.StartTime % 1 != 0
+        ? Math.round(output.StartTime * 1000)
+        : output.StartTime
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3184,7 +3555,7 @@ const deserializeAws_json1_1DescribeTaskExecutionResponse = (
     contents.TaskExecutionArn = output.TaskExecutionArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DescribeTaskResponse = (
   output: any,
@@ -3206,13 +3577,17 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     SourceLocationArn: undefined,
     SourceNetworkInterfaceArns: undefined,
     Status: undefined,
-    TaskArn: undefined,
+    TaskArn: undefined
   };
   if (output.CloudWatchLogGroupArn !== undefined) {
     contents.CloudWatchLogGroupArn = output.CloudWatchLogGroupArn;
   }
   if (output.CreationTime !== undefined) {
-    contents.CreationTime = new Date(output.CreationTime % 1 != 0 ? Math.round(output.CreationTime * 1000) : output.CreationTime);
+    contents.CreationTime = new Date(
+      output.CreationTime % 1 != 0
+        ? Math.round(output.CreationTime * 1000)
+        : output.CreationTime
+    );
   }
   if (output.CurrentTaskExecutionArn !== undefined) {
     contents.CurrentTaskExecutionArn = output.CurrentTaskExecutionArn;
@@ -3221,7 +3596,10 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     contents.DestinationLocationArn = output.DestinationLocationArn;
   }
   if (output.DestinationNetworkInterfaceArns !== undefined) {
-    contents.DestinationNetworkInterfaceArns = deserializeAws_json1_1DestinationNetworkInterfaceArns(output.DestinationNetworkInterfaceArns, context);
+    contents.DestinationNetworkInterfaceArns = deserializeAws_json1_1DestinationNetworkInterfaceArns(
+      output.DestinationNetworkInterfaceArns,
+      context
+    );
   }
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3230,7 +3608,10 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     contents.ErrorDetail = output.ErrorDetail;
   }
   if (output.Excludes !== undefined) {
-    contents.Excludes = deserializeAws_json1_1FilterList(output.Excludes, context);
+    contents.Excludes = deserializeAws_json1_1FilterList(
+      output.Excludes,
+      context
+    );
   }
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -3239,13 +3620,19 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     contents.Options = deserializeAws_json1_1Options(output.Options, context);
   }
   if (output.Schedule !== undefined) {
-    contents.Schedule = deserializeAws_json1_1TaskSchedule(output.Schedule, context);
+    contents.Schedule = deserializeAws_json1_1TaskSchedule(
+      output.Schedule,
+      context
+    );
   }
   if (output.SourceLocationArn !== undefined) {
     contents.SourceLocationArn = output.SourceLocationArn;
   }
   if (output.SourceNetworkInterfaceArns !== undefined) {
-    contents.SourceNetworkInterfaceArns = deserializeAws_json1_1SourceNetworkInterfaceArns(output.SourceNetworkInterfaceArns, context);
+    contents.SourceNetworkInterfaceArns = deserializeAws_json1_1SourceNetworkInterfaceArns(
+      output.SourceNetworkInterfaceArns,
+      context
+    );
   }
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3254,16 +3641,14 @@ const deserializeAws_json1_1DescribeTaskResponse = (
     contents.TaskArn = output.TaskArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1DestinationNetworkInterfaceArns = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1Ec2Config = (
   output: any,
@@ -3272,25 +3657,26 @@ const deserializeAws_json1_1Ec2Config = (
   let contents: any = {
     __type: "Ec2Config",
     SecurityGroupArns: undefined,
-    SubnetArn: undefined,
+    SubnetArn: undefined
   };
   if (output.SecurityGroupArns !== undefined) {
-    contents.SecurityGroupArns = deserializeAws_json1_1Ec2SecurityGroupArnList(output.SecurityGroupArns, context);
+    contents.SecurityGroupArns = deserializeAws_json1_1Ec2SecurityGroupArnList(
+      output.SecurityGroupArns,
+      context
+    );
   }
   if (output.SubnetArn !== undefined) {
     contents.SubnetArn = output.SubnetArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Ec2SecurityGroupArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1FilterList = (
   output: any,
@@ -3299,7 +3685,7 @@ const deserializeAws_json1_1FilterList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1FilterRule(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1FilterRule = (
   output: any,
@@ -3308,7 +3694,7 @@ const deserializeAws_json1_1FilterRule = (
   let contents: any = {
     __type: "FilterRule",
     FilterType: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.FilterType !== undefined) {
     contents.FilterType = output.FilterType;
@@ -3317,7 +3703,7 @@ const deserializeAws_json1_1FilterRule = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InternalException = (
   output: any,
@@ -3326,7 +3712,7 @@ const deserializeAws_json1_1InternalException = (
   let contents: any = {
     __type: "InternalException",
     errorCode: undefined,
-    message: undefined,
+    message: undefined
   };
   if (output.errorCode !== undefined) {
     contents.errorCode = output.errorCode;
@@ -3335,7 +3721,7 @@ const deserializeAws_json1_1InternalException = (
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
@@ -3344,7 +3730,7 @@ const deserializeAws_json1_1InvalidRequestException = (
   let contents: any = {
     __type: "InvalidRequestException",
     errorCode: undefined,
-    message: undefined,
+    message: undefined
   };
   if (output.errorCode !== undefined) {
     contents.errorCode = output.errorCode;
@@ -3353,7 +3739,7 @@ const deserializeAws_json1_1InvalidRequestException = (
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListAgentsResponse = (
   output: any,
@@ -3362,7 +3748,7 @@ const deserializeAws_json1_1ListAgentsResponse = (
   let contents: any = {
     __type: "ListAgentsResponse",
     Agents: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.Agents !== undefined) {
     contents.Agents = deserializeAws_json1_1AgentList(output.Agents, context);
@@ -3371,7 +3757,7 @@ const deserializeAws_json1_1ListAgentsResponse = (
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListLocationsResponse = (
   output: any,
@@ -3380,16 +3766,19 @@ const deserializeAws_json1_1ListLocationsResponse = (
   let contents: any = {
     __type: "ListLocationsResponse",
     Locations: undefined,
-    NextToken: undefined,
+    NextToken: undefined
   };
   if (output.Locations !== undefined) {
-    contents.Locations = deserializeAws_json1_1LocationList(output.Locations, context);
+    contents.Locations = deserializeAws_json1_1LocationList(
+      output.Locations,
+      context
+    );
   }
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
@@ -3398,7 +3787,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   let contents: any = {
     __type: "ListTagsForResourceResponse",
     NextToken: undefined,
-    Tags: undefined,
+    Tags: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -3407,7 +3796,7 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTaskExecutionsResponse = (
   output: any,
@@ -3416,16 +3805,19 @@ const deserializeAws_json1_1ListTaskExecutionsResponse = (
   let contents: any = {
     __type: "ListTaskExecutionsResponse",
     NextToken: undefined,
-    TaskExecutions: undefined,
+    TaskExecutions: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
   }
   if (output.TaskExecutions !== undefined) {
-    contents.TaskExecutions = deserializeAws_json1_1TaskExecutionList(output.TaskExecutions, context);
+    contents.TaskExecutions = deserializeAws_json1_1TaskExecutionList(
+      output.TaskExecutions,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1ListTasksResponse = (
   output: any,
@@ -3434,7 +3826,7 @@ const deserializeAws_json1_1ListTasksResponse = (
   let contents: any = {
     __type: "ListTasksResponse",
     NextToken: undefined,
-    Tasks: undefined,
+    Tasks: undefined
   };
   if (output.NextToken !== undefined) {
     contents.NextToken = output.NextToken;
@@ -3443,7 +3835,7 @@ const deserializeAws_json1_1ListTasksResponse = (
     contents.Tasks = deserializeAws_json1_1TaskList(output.Tasks, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1LocationList = (
   output: any,
@@ -3452,7 +3844,7 @@ const deserializeAws_json1_1LocationList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1LocationListEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1LocationListEntry = (
   output: any,
@@ -3461,7 +3853,7 @@ const deserializeAws_json1_1LocationListEntry = (
   let contents: any = {
     __type: "LocationListEntry",
     LocationArn: undefined,
-    LocationUri: undefined,
+    LocationUri: undefined
   };
   if (output.LocationArn !== undefined) {
     contents.LocationArn = output.LocationArn;
@@ -3470,7 +3862,7 @@ const deserializeAws_json1_1LocationListEntry = (
     contents.LocationUri = output.LocationUri;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1NfsMountOptions = (
   output: any,
@@ -3478,13 +3870,13 @@ const deserializeAws_json1_1NfsMountOptions = (
 ): NfsMountOptions => {
   let contents: any = {
     __type: "NfsMountOptions",
-    Version: undefined,
+    Version: undefined
   };
   if (output.Version !== undefined) {
     contents.Version = output.Version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1OnPremConfig = (
   output: any,
@@ -3492,13 +3884,16 @@ const deserializeAws_json1_1OnPremConfig = (
 ): OnPremConfig => {
   let contents: any = {
     __type: "OnPremConfig",
-    AgentArns: undefined,
+    AgentArns: undefined
   };
   if (output.AgentArns !== undefined) {
-    contents.AgentArns = deserializeAws_json1_1AgentArnList(output.AgentArns, context);
+    contents.AgentArns = deserializeAws_json1_1AgentArnList(
+      output.AgentArns,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1Options = (
   output: any,
@@ -3516,7 +3911,7 @@ const deserializeAws_json1_1Options = (
     PreserveDevices: undefined,
     TaskQueueing: undefined,
     Uid: undefined,
-    VerifyMode: undefined,
+    VerifyMode: undefined
   };
   if (output.Atime !== undefined) {
     contents.Atime = output.Atime;
@@ -3552,25 +3947,21 @@ const deserializeAws_json1_1Options = (
     contents.VerifyMode = output.VerifyMode;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1PLSecurityGroupArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1PLSubnetArnList = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1PrivateLinkConfig = (
   output: any,
@@ -3581,22 +3972,28 @@ const deserializeAws_json1_1PrivateLinkConfig = (
     PrivateLinkEndpoint: undefined,
     SecurityGroupArns: undefined,
     SubnetArns: undefined,
-    VpcEndpointId: undefined,
+    VpcEndpointId: undefined
   };
   if (output.PrivateLinkEndpoint !== undefined) {
     contents.PrivateLinkEndpoint = output.PrivateLinkEndpoint;
   }
   if (output.SecurityGroupArns !== undefined) {
-    contents.SecurityGroupArns = deserializeAws_json1_1PLSecurityGroupArnList(output.SecurityGroupArns, context);
+    contents.SecurityGroupArns = deserializeAws_json1_1PLSecurityGroupArnList(
+      output.SecurityGroupArns,
+      context
+    );
   }
   if (output.SubnetArns !== undefined) {
-    contents.SubnetArns = deserializeAws_json1_1PLSubnetArnList(output.SubnetArns, context);
+    contents.SubnetArns = deserializeAws_json1_1PLSubnetArnList(
+      output.SubnetArns,
+      context
+    );
   }
   if (output.VpcEndpointId !== undefined) {
     contents.VpcEndpointId = output.VpcEndpointId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1S3Config = (
   output: any,
@@ -3604,13 +4001,13 @@ const deserializeAws_json1_1S3Config = (
 ): S3Config => {
   let contents: any = {
     __type: "S3Config",
-    BucketAccessRoleArn: undefined,
+    BucketAccessRoleArn: undefined
   };
   if (output.BucketAccessRoleArn !== undefined) {
     contents.BucketAccessRoleArn = output.BucketAccessRoleArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SmbMountOptions = (
   output: any,
@@ -3618,22 +4015,20 @@ const deserializeAws_json1_1SmbMountOptions = (
 ): SmbMountOptions => {
   let contents: any = {
     __type: "SmbMountOptions",
-    Version: undefined,
+    Version: undefined
   };
   if (output.Version !== undefined) {
     contents.Version = output.Version;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1SourceNetworkInterfaceArns = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_json1_1StartTaskExecutionResponse = (
   output: any,
@@ -3641,13 +4036,13 @@ const deserializeAws_json1_1StartTaskExecutionResponse = (
 ): StartTaskExecutionResponse => {
   let contents: any = {
     __type: "StartTaskExecutionResponse",
-    TaskExecutionArn: undefined,
+    TaskExecutionArn: undefined
   };
   if (output.TaskExecutionArn !== undefined) {
     contents.TaskExecutionArn = output.TaskExecutionArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagList = (
   output: any,
@@ -3656,7 +4051,7 @@ const deserializeAws_json1_1TagList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TagListEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TagListEntry = (
   output: any,
@@ -3665,7 +4060,7 @@ const deserializeAws_json1_1TagListEntry = (
   let contents: any = {
     __type: "TagListEntry",
     Key: undefined,
-    Value: undefined,
+    Value: undefined
   };
   if (output.Key !== undefined) {
     contents.Key = output.Key;
@@ -3674,17 +4069,17 @@ const deserializeAws_json1_1TagListEntry = (
     contents.Value = output.Value;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
   let contents: any = {
-    __type: "TagResourceResponse",
+    __type: "TagResourceResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskExecutionList = (
   output: any,
@@ -3693,7 +4088,7 @@ const deserializeAws_json1_1TaskExecutionList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TaskExecutionListEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TaskExecutionListEntry = (
   output: any,
@@ -3702,7 +4097,7 @@ const deserializeAws_json1_1TaskExecutionListEntry = (
   let contents: any = {
     __type: "TaskExecutionListEntry",
     Status: undefined,
-    TaskExecutionArn: undefined,
+    TaskExecutionArn: undefined
   };
   if (output.Status !== undefined) {
     contents.Status = output.Status;
@@ -3711,7 +4106,7 @@ const deserializeAws_json1_1TaskExecutionListEntry = (
     contents.TaskExecutionArn = output.TaskExecutionArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskExecutionResultDetail = (
   output: any,
@@ -3727,7 +4122,7 @@ const deserializeAws_json1_1TaskExecutionResultDetail = (
     TransferDuration: undefined,
     TransferStatus: undefined,
     VerifyDuration: undefined,
-    VerifyStatus: undefined,
+    VerifyStatus: undefined
   };
   if (output.ErrorCode !== undefined) {
     contents.ErrorCode = output.ErrorCode;
@@ -3757,7 +4152,7 @@ const deserializeAws_json1_1TaskExecutionResultDetail = (
     contents.VerifyStatus = output.VerifyStatus;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskList = (
   output: any,
@@ -3766,7 +4161,7 @@ const deserializeAws_json1_1TaskList = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_1TaskListEntry(entry, context)
   );
-}
+};
 
 const deserializeAws_json1_1TaskListEntry = (
   output: any,
@@ -3776,7 +4171,7 @@ const deserializeAws_json1_1TaskListEntry = (
     __type: "TaskListEntry",
     Name: undefined,
     Status: undefined,
-    TaskArn: undefined,
+    TaskArn: undefined
   };
   if (output.Name !== undefined) {
     contents.Name = output.Name;
@@ -3788,7 +4183,7 @@ const deserializeAws_json1_1TaskListEntry = (
     contents.TaskArn = output.TaskArn;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1TaskSchedule = (
   output: any,
@@ -3796,43 +4191,43 @@ const deserializeAws_json1_1TaskSchedule = (
 ): TaskSchedule => {
   let contents: any = {
     __type: "TaskSchedule",
-    ScheduleExpression: undefined,
+    ScheduleExpression: undefined
   };
   if (output.ScheduleExpression !== undefined) {
     contents.ScheduleExpression = output.ScheduleExpression;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
   let contents: any = {
-    __type: "UntagResourceResponse",
+    __type: "UntagResourceResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateAgentResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAgentResponse => {
   let contents: any = {
-    __type: "UpdateAgentResponse",
+    __type: "UpdateAgentResponse"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_1UpdateTaskResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateTaskResponse => {
   let contents: any = {
-    __type: "UpdateTaskResponse",
+    __type: "UpdateTaskResponse"
   };
   return contents;
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

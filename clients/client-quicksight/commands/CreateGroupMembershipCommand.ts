@@ -1,20 +1,20 @@
 import {
   QuickSightClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../QuickSightClient";
 import {
   CreateGroupMembershipRequest,
-  CreateGroupMembershipResponse,
+  CreateGroupMembershipResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1CreateGroupMembershipCommand,
-  serializeAws_restJson1_1CreateGroupMembershipCommand,
+  serializeAws_restJson1_1CreateGroupMembershipCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CreateGroupMembershipCommandInput = CreateGroupMembershipRequest;
 export type CreateGroupMembershipCommandOutput = CreateGroupMembershipResponse;
 
-export class CreateGroupMembershipCommand extends $Command<CreateGroupMembershipCommandInput, CreateGroupMembershipCommandOutput, QuickSightClientResolvedConfig> {
+export class CreateGroupMembershipCommand extends $Command<
+  CreateGroupMembershipCommandInput,
+  CreateGroupMembershipCommandOutput,
+  QuickSightClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CreateGroupMembershipCommand extends $Command<CreateGroupMembership
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateGroupMembershipCommandInput, CreateGroupMembershipCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CreateGroupMembershipCommandInput,
+    CreateGroupMembershipCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class CreateGroupMembershipCommand extends $Command<CreateGroupMembership
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CreateGroupMembershipCommandOutput> {
-    return deserializeAws_restJson1_1CreateGroupMembershipCommand(output, context);
+    return deserializeAws_restJson1_1CreateGroupMembershipCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -102,34 +102,36 @@ export namespace UntagResourceResponse {
 
 export enum CloudWatchEncryptionMode {
   DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
+  SSEKMS = "SSE-KMS"
 }
 
 export enum ExistCondition {
   MUST_EXIST = "MUST_EXIST",
   NONE = "NONE",
-  NOT_EXIST = "NOT_EXIST",
+  NOT_EXIST = "NOT_EXIST"
 }
 
 export enum JobBookmarksEncryptionMode {
   CSEKMS = "CSE-KMS",
-  DISABLED = "DISABLED",
+  DISABLED = "DISABLED"
 }
 
 export enum S3EncryptionMode {
   DISABLED = "DISABLED",
   SSEKMS = "SSE-KMS",
-  SSES3 = "SSE-S3",
+  SSES3 = "SSE-S3"
 }
 
-export type WorkerType = "G.1X" | "G.2X" | "Standard"
+export type WorkerType = "G.1X" | "G.2X" | "Standard";
 
 /**
  *
  *          <p>Access to a resource was denied.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   /**
@@ -151,7 +153,9 @@ export namespace AccessDeniedException {
  *          <p>A resource to be created or added already exists.</p>
  *
  */
-export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   /**
@@ -173,7 +177,9 @@ export namespace AlreadyExistsException {
  *          <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -195,7 +201,9 @@ export namespace ConcurrentModificationException {
  *          <p>Too many jobs are being run concurrently.</p>
  *
  */
-export interface ConcurrentRunsExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentRunsExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentRunsExceededException";
   $fault: "client";
   /**
@@ -217,7 +225,9 @@ export namespace ConcurrentRunsExceededException {
  *          <p>A specified condition was not satisfied.</p>
  *
  */
-export interface ConditionCheckFailureException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConditionCheckFailureException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConditionCheckFailureException";
   $fault: "client";
   /**
@@ -239,7 +249,9 @@ export namespace ConditionCheckFailureException {
  *          <p>A specified entity does not exist</p>
  *
  */
-export interface EntityNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface EntityNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "EntityNotFoundException";
   $fault: "client";
   /**
@@ -289,7 +301,9 @@ export namespace ErrorDetail {
  *          <p>An encryption operation failed.</p>
  *
  */
-export interface GlueEncryptionException extends _smithy.SmithyException, $MetadataBearer {
+export interface GlueEncryptionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "GlueEncryptionException";
   $fault: "client";
   /**
@@ -311,7 +325,9 @@ export namespace GlueEncryptionException {
  *          <p>The same unique identifier was associated with two different records.</p>
  *
  */
-export interface IdempotentParameterMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface IdempotentParameterMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IdempotentParameterMismatchException";
   $fault: "client";
   /**
@@ -333,7 +349,9 @@ export namespace IdempotentParameterMismatchException {
  *          <p>An internal service error occurred.</p>
  *
  */
-export interface InternalServiceException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServiceException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServiceException";
   $fault: "server";
   /**
@@ -355,7 +373,9 @@ export namespace InternalServiceException {
  *          <p>The input provided was not valid.</p>
  *
  */
-export interface InvalidInputException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInputException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInputException";
   $fault: "client";
   /**
@@ -377,7 +397,9 @@ export namespace InvalidInputException {
  *          <p>The operation timed out.</p>
  *
  */
-export interface OperationTimeoutException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationTimeoutException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationTimeoutException";
   $fault: "client";
   /**
@@ -399,7 +421,9 @@ export namespace OperationTimeoutException {
  *          <p>A resource numerical limit was exceeded.</p>
  *
  */
-export interface ResourceNumberLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNumberLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNumberLimitExceededException";
   $fault: "client";
   /**
@@ -421,7 +445,9 @@ export namespace ResourceNumberLimitExceededException {
  *          <p>A value could not be validated.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**
@@ -443,7 +469,9 @@ export namespace ValidationException {
  *          <p>There was a version conflict.</p>
  *
  */
-export interface VersionMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface VersionMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "VersionMismatchException";
   $fault: "client";
   /**
@@ -790,7 +818,7 @@ export namespace BatchGetPartitionResponse {
 
 export enum CatalogEncryptionMode {
   DISABLED = "DISABLED",
-  SSEKMS = "SSE-KMS",
+  SSEKMS = "SSE-KMS"
 }
 
 /**
@@ -876,7 +904,7 @@ export enum Comparator {
   GREATER_THAN = "GREATER_THAN",
   GREATER_THAN_EQUALS = "GREATER_THAN_EQUALS",
   LESS_THAN = "LESS_THAN",
-  LESS_THAN_EQUALS = "LESS_THAN_EQUALS",
+  LESS_THAN_EQUALS = "LESS_THAN_EQUALS"
 }
 
 /**
@@ -1097,7 +1125,7 @@ export namespace ConnectionInput {
  *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
  *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
  *       encryption or only password encryption.</p>
- * 	
+ *
  * 	        <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
  *       Catalog first encrypts the password using your AWS KMS key. It then encrypts the whole
  *       connection object again if catalog encryption is also enabled.</p>
@@ -1113,7 +1141,7 @@ export interface ConnectionPasswordEncryption {
   /**
    *
    *          <p>An AWS KMS key that is used to encrypt the connection password. </p>
-   * 	
+   *
    *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
    *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
    *       specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
@@ -1153,12 +1181,12 @@ export enum ConnectionPropertyKey {
   PASSWORD = "PASSWORD",
   PORT = "PORT",
   SKIP_CUSTOM_JDBC_CERT_VALIDATION = "SKIP_CUSTOM_JDBC_CERT_VALIDATION",
-  USER_NAME = "USERNAME",
+  USER_NAME = "USERNAME"
 }
 
 export enum ConnectionType {
   JDBC = "JDBC",
-  SFTP = "SFTP",
+  SFTP = "SFTP"
 }
 
 export interface CreateConnectionRequest {
@@ -2038,7 +2066,8 @@ export namespace GetDataCatalogEncryptionSettingsRequest {
   }
 }
 
-export interface GetDataCatalogEncryptionSettingsResponse extends $MetadataBearer {
+export interface GetDataCatalogEncryptionSettingsResponse
+  extends $MetadataBearer {
   __type?: "GetDataCatalogEncryptionSettingsResponse";
   /**
    *
@@ -3003,7 +3032,7 @@ export interface PartitionInput {
   /**
    *
    *          <p>The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.</p>
-   * 	
+   *
    * 	        <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise AWS Glue will add the values to the wrong keys.</p>
    *
    */
@@ -3046,7 +3075,7 @@ export enum Permission {
   DELETE = "DELETE",
   DROP = "DROP",
   INSERT = "INSERT",
-  SELECT = "SELECT",
+  SELECT = "SELECT"
 }
 
 /**
@@ -3117,7 +3146,7 @@ export namespace PrincipalPermissions {
 export enum PrincipalType {
   GROUP = "GROUP",
   ROLE = "ROLE",
-  USER = "USER",
+  USER = "USER"
 }
 
 /**
@@ -3179,7 +3208,8 @@ export namespace PutDataCatalogEncryptionSettingsRequest {
   }
 }
 
-export interface PutDataCatalogEncryptionSettingsResponse extends $MetadataBearer {
+export interface PutDataCatalogEncryptionSettingsResponse
+  extends $MetadataBearer {
   __type?: "PutDataCatalogEncryptionSettingsResponse";
 }
 
@@ -3244,7 +3274,7 @@ export namespace PutResourcePolicyResponse {
 export enum ResourceType {
   ARCHIVE = "ARCHIVE",
   FILE = "FILE",
-  JAR = "JAR",
+  JAR = "JAR"
 }
 
 /**
@@ -3457,7 +3487,7 @@ export namespace SkewedInfo {
 
 export enum Sort {
   ASCENDING = "ASC",
-  DESCENDING = "DESC",
+  DESCENDING = "DESC"
 }
 
 /**
@@ -3685,7 +3715,7 @@ export interface Table {
    *          <p>
    *             <code>"PartitionKeys": []</code>
    *          </p>
-   * 	
+   *
    */
   PartitionKeys?: Array<Column>;
 
@@ -4397,9 +4427,9 @@ export interface CreateDevEndpointRequest {
    *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
    *
    *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   * 	
+   *
    * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   * 	
+   *
    * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    *
    *
@@ -4417,7 +4447,7 @@ export interface CreateDevEndpointRequest {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   * 	
+   *
    * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    *
    */
@@ -4517,7 +4547,7 @@ export interface CreateDevEndpointResponse extends $MetadataBearer {
   /**
    *
    *          <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
-   * 	
+   *
    * 	        <p>Valid arguments are:</p>
    * 	        <ul>
    *             <li>
@@ -4536,9 +4566,9 @@ export interface CreateDevEndpointResponse extends $MetadataBearer {
    *                </p>
    *             </li>
    *          </ul>
-   * 	
+   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   * 	
+   *
    *
    */
   Arguments?: { [key: string]: string };
@@ -4807,7 +4837,7 @@ export interface DevEndpoint {
    *                </p>
    *             </li>
    *          </ul>
-   * 	
+   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    *
    *
@@ -4873,9 +4903,9 @@ export interface DevEndpoint {
    *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
    *
    *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   * 	
+   *
    * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   * 	
+   *
    * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    *
    *
@@ -4907,7 +4937,7 @@ export interface DevEndpoint {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   * 	
+   *
    * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    *
    */
@@ -5013,7 +5043,7 @@ export interface DevEndpoint {
    *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    *
@@ -5566,7 +5596,7 @@ export interface UpdateDevEndpointRequest {
    *
    *   	      <p>The map of arguments to add the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
-   * 		
+   *
    * 	        <p>Valid arguments are:</p>
    * 	        <ul>
    *             <li>
@@ -5585,9 +5615,9 @@ export interface UpdateDevEndpointRequest {
    *                </p>
    *             </li>
    *          </ul>
-   * 	
+   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
-   * 	
+   *
    *
    */
   AddArguments?: { [key: string]: string };
@@ -5717,7 +5747,7 @@ export namespace CancelMLTaskRunResponse {
 /**
  *
  *          <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
- * 	
+ *
  * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
  *
  */
@@ -5772,7 +5802,7 @@ export interface CreateMLTransformRequest {
 
   /**
    *
-   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>	
+   *          <p>This value determines which version of AWS Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">AWS Glue Versions</a> in the developer guide.</p>
    *
    */
   GlueVersion?: string;
@@ -5790,7 +5820,7 @@ export interface CreateMLTransformRequest {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
    *         page</a>. </p>
-   * 		
+   *
    * 			      <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
    *         <ul>
@@ -5808,11 +5838,11 @@ export interface CreateMLTransformRequest {
    *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
    *             </li>
    *          </ul>
-   * 		
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>	
    *
-   * 		
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>	
+   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    *
    */
   MaxCapacity?: number;
@@ -5834,7 +5864,7 @@ export interface CreateMLTransformRequest {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   * 	
+   *
    * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
    *
    */
@@ -5885,7 +5915,7 @@ export interface CreateMLTransformRequest {
    *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    * 	        <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
    *         <ul>
@@ -6087,9 +6117,9 @@ export interface FindMatchesParameters {
    *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
    *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
    *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
-   * 	
+   *
    * 	        <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
-   * 	
+   *
    * 	        <p>Cost measures how many compute resources, and thus money, are consumed to run the
    *       transform.</p>
    *
@@ -6110,9 +6140,9 @@ export interface FindMatchesParameters {
    *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
    *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
    *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
-   * 	
+   *
    * 	        <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
-   * 	
+   *
    * 	        <p>The recall metric indicates that for an actual match, how often your model predicts the
    *       match.</p>
    *
@@ -6411,8 +6441,8 @@ export interface GetMLTransformResponse extends $MetadataBearer {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
    *         page</a>. </p>
-   * 		
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>	
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    *
    */
   MaxCapacity?: number;
@@ -6724,7 +6754,7 @@ export interface MLTransform {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="http://aws.amazon.com/glue/pricing/">AWS Glue pricing
    *         page</a>. </p>
-   * 		
+   *
    * 		       <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
    *         <ul>
@@ -6742,8 +6772,8 @@ export interface MLTransform {
    *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
    *             </li>
    *          </ul>
-   * 		
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>	
+   *
+   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    *
    */
   MaxCapacity?: number;
@@ -6767,7 +6797,7 @@ export interface MLTransform {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
-   * 	
+   *
    * 	        <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
    *
    */
@@ -6842,7 +6872,7 @@ export interface MLTransform {
    *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
    *             </li>
    *          </ul>
-   * 	
+   *
    * 	        <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
    *         <ul>
@@ -6876,7 +6906,9 @@ export namespace MLTransform {
  *          <p>The machine learning transform is not ready to run.</p>
  *
  */
-export interface MLTransformNotReadyException extends _smithy.SmithyException, $MetadataBearer {
+export interface MLTransformNotReadyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MLTransformNotReadyException";
   $fault: "client";
   /**
@@ -6924,7 +6956,7 @@ export namespace SchemaColumn {
 
 export enum SortDirectionType {
   ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
+  DESCENDING = "DESCENDING"
 }
 
 export interface StartExportLabelsTaskRunRequest {
@@ -7069,7 +7101,8 @@ export namespace StartMLLabelingSetGenerationTaskRunRequest {
   }
 }
 
-export interface StartMLLabelingSetGenerationTaskRunResponse extends $MetadataBearer {
+export interface StartMLLabelingSetGenerationTaskRunResponse
+  extends $MetadataBearer {
   __type?: "StartMLLabelingSetGenerationTaskRunResponse";
   /**
    *
@@ -7080,7 +7113,9 @@ export interface StartMLLabelingSetGenerationTaskRunResponse extends $MetadataBe
 }
 
 export namespace StartMLLabelingSetGenerationTaskRunResponse {
-  export function isa(o: any): o is StartMLLabelingSetGenerationTaskRunResponse {
+  export function isa(
+    o: any
+  ): o is StartMLLabelingSetGenerationTaskRunResponse {
     return _smithy.isa(o, "StartMLLabelingSetGenerationTaskRunResponse");
   }
 }
@@ -7264,7 +7299,7 @@ export namespace TaskRunProperties {
 export enum TaskRunSortColumnType {
   STARTED = "STARTED",
   STATUS = "STATUS",
-  TASK_RUN_TYPE = "TASK_RUN_TYPE",
+  TASK_RUN_TYPE = "TASK_RUN_TYPE"
 }
 
 /**
@@ -7305,7 +7340,7 @@ export enum TaskStatusType {
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
   SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
+  TIMEOUT = "TIMEOUT"
 }
 
 export enum TaskType {
@@ -7313,7 +7348,7 @@ export enum TaskType {
   EXPORT_LABELS = "EXPORT_LABELS",
   FIND_MATCHES = "FIND_MATCHES",
   IMPORT_LABELS = "IMPORT_LABELS",
-  LABELING_SET_GENERATION = "LABELING_SET_GENERATION",
+  LABELING_SET_GENERATION = "LABELING_SET_GENERATION"
 }
 
 /**
@@ -7432,7 +7467,7 @@ export enum TransformSortColumnType {
   LAST_MODIFIED = "LAST_MODIFIED",
   NAME = "NAME",
   STATUS = "STATUS",
-  TRANSFORM_TYPE = "TRANSFORM_TYPE",
+  TRANSFORM_TYPE = "TRANSFORM_TYPE"
 }
 
 /**
@@ -7468,11 +7503,11 @@ export namespace TransformSortCriteria {
 export enum TransformStatusType {
   DELETING = "DELETING",
   NOT_READY = "NOT_READY",
-  READY = "READY",
+  READY = "READY"
 }
 
 export enum TransformType {
-  FIND_MATCHES = "FIND_MATCHES",
+  FIND_MATCHES = "FIND_MATCHES"
 }
 
 export interface UpdateMLTransformRequest {
@@ -7497,8 +7532,8 @@ export interface UpdateMLTransformRequest {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing
    *         page</a>. </p>
-   * 		
-   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>	
+   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    *
    */
   MaxCapacity?: number;
@@ -8028,7 +8063,7 @@ export enum CrawlState {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
   RUNNING = "RUNNING",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -8057,7 +8092,7 @@ export interface CreateJobRequest {
   /**
    *
    *          <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   * 	
+   *
    *          <p>The number of AWS Glue data processing units (DPUs) to allocate to this Job. You can
    *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -8112,7 +8147,7 @@ export interface CreateJobRequest {
    *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
    *
    *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   * 	
+   *
    * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    *
    */
@@ -8131,7 +8166,7 @@ export interface CreateJobRequest {
    *        of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *        For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
    *          pricing page</a>.</p>
-   * 		
+   *
    * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
    *
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
@@ -8144,7 +8179,7 @@ export interface CreateJobRequest {
    *             <li>
    *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
-   *          </ul>		
+   *          </ul>
    *
    */
   MaxCapacity?: number;
@@ -8173,7 +8208,7 @@ export interface CreateJobRequest {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * 	
+   *
    * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    *
    */
@@ -9006,7 +9041,7 @@ export interface Job {
   /**
    *
    *          <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   * 	
+   *
    *          <p>The number of AWS Glue data processing units (DPUs) allocated to runs of this job. You can
    *       allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -9069,7 +9104,7 @@ export interface Job {
    *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
    *
    *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   * 	
+   *
    * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    *
    */
@@ -9095,9 +9130,9 @@ export interface Job {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
    *       pricing page</a>.</p>
-   * 	
+   *
    * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   * 	
+   *
    * 	        <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
    *         <ul>
@@ -9108,7 +9143,7 @@ export interface Job {
    *             <li>
    *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
-   *          </ul>		
+   *          </ul>
    *
    */
   MaxCapacity?: number;
@@ -9137,7 +9172,7 @@ export interface Job {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * 	
+   *
    * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    *
    */
@@ -9314,7 +9349,7 @@ export interface JobRun {
    *          <p>Glue version determines the versions of Apache Spark and Python that AWS Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
    *
    *          <p>For more information about the available AWS Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   * 	
+   *
    * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    *
    */
@@ -9478,7 +9513,7 @@ export enum JobRunState {
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
   SUCCEEDED = "SUCCEEDED",
-  TIMEOUT = "TIMEOUT",
+  TIMEOUT = "TIMEOUT"
 }
 
 /**
@@ -9563,8 +9598,8 @@ export interface JobUpdate {
    *          <p>The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
    *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue pricing page</a>.</p>
    *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>	
-   * 	
+   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
    *
@@ -9576,7 +9611,7 @@ export interface JobUpdate {
    *             <li>
    *                <p>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"), you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
-   *          </ul>		
+   *          </ul>
    *
    */
   MaxCapacity?: number;
@@ -9598,7 +9633,7 @@ export interface JobUpdate {
   /**
    *
    *          <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
-   * 	
+   *
    *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    *
    */
@@ -9818,11 +9853,11 @@ export namespace ListWorkflowsResponse {
 
 export enum Logical {
   AND = "AND",
-  ANY = "ANY",
+  ANY = "ANY"
 }
 
 export enum LogicalOperator {
-  EQUALS = "EQUALS",
+  EQUALS = "EQUALS"
 }
 
 /**
@@ -9884,7 +9919,7 @@ export namespace Node {
 export enum NodeType {
   CRAWLER = "CRAWLER",
   JOB = "JOB",
-  TRIGGER = "TRIGGER",
+  TRIGGER = "TRIGGER"
 }
 
 /**
@@ -10350,13 +10385,13 @@ export enum TriggerState {
   DEACTIVATED = "DEACTIVATED",
   DEACTIVATING = "DEACTIVATING",
   DELETING = "DELETING",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 export enum TriggerType {
   CONDITIONAL = "CONDITIONAL",
   ON_DEMAND = "ON_DEMAND",
-  SCHEDULED = "SCHEDULED",
+  SCHEDULED = "SCHEDULED"
 }
 
 /**
@@ -10759,7 +10794,7 @@ export namespace WorkflowRunStatistics {
 
 export enum WorkflowRunStatus {
   COMPLETED = "COMPLETED",
-  RUNNING = "RUNNING",
+  RUNNING = "RUNNING"
 }
 
 export interface BatchGetCrawlersRequest {
@@ -11236,7 +11271,9 @@ export namespace CrawlerMetrics {
  *          <p>The specified crawler is not running.</p>
  *
  */
-export interface CrawlerNotRunningException extends _smithy.SmithyException, $MetadataBearer {
+export interface CrawlerNotRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CrawlerNotRunningException";
   $fault: "client";
   /**
@@ -11258,7 +11295,9 @@ export namespace CrawlerNotRunningException {
  *          <p>The operation cannot be performed because the crawler is already running.</p>
  *
  */
-export interface CrawlerRunningException extends _smithy.SmithyException, $MetadataBearer {
+export interface CrawlerRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CrawlerRunningException";
   $fault: "client";
   /**
@@ -11278,7 +11317,7 @@ export namespace CrawlerRunningException {
 export enum CrawlerState {
   READY = "READY",
   RUNNING = "RUNNING",
-  STOPPING = "STOPPING",
+  STOPPING = "STOPPING"
 }
 
 /**
@@ -11286,7 +11325,9 @@ export enum CrawlerState {
  *          <p>The specified crawler is stopping.</p>
  *
  */
-export interface CrawlerStoppingException extends _smithy.SmithyException, $MetadataBearer {
+export interface CrawlerStoppingException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CrawlerStoppingException";
   $fault: "client";
   /**
@@ -11827,13 +11868,13 @@ export namespace CsvClassifier {
 export enum CsvHeaderOption {
   ABSENT = "ABSENT",
   PRESENT = "PRESENT",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export enum DeleteBehavior {
   DELETE_FROM_DATABASE = "DELETE_FROM_DATABASE",
   DEPRECATE_IN_DATABASE = "DEPRECATE_IN_DATABASE",
-  LOG = "LOG",
+  LOG = "LOG"
 }
 
 export interface DeleteClassifierRequest {
@@ -12428,7 +12469,7 @@ export namespace JsonClassifier {
 
 export enum Language {
   PYTHON = "PYTHON",
-  SCALA = "SCALA",
+  SCALA = "SCALA"
 }
 
 /**
@@ -12490,7 +12531,7 @@ export namespace LastCrawlInfo {
 export enum LastCrawlStatus {
   CANCELLED = "CANCELLED",
   FAILED = "FAILED",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 export interface ListCrawlersRequest {
@@ -12643,7 +12684,9 @@ export namespace MappingEntry {
  *          <p>There is no applicable schedule.</p>
  *
  */
-export interface NoScheduleException extends _smithy.SmithyException, $MetadataBearer {
+export interface NoScheduleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "NoScheduleException";
   $fault: "client";
   /**
@@ -12722,7 +12765,7 @@ export namespace Schedule {
 export enum ScheduleState {
   NOT_SCHEDULED = "NOT_SCHEDULED",
   SCHEDULED = "SCHEDULED",
-  TRANSITIONING = "TRANSITIONING",
+  TRANSITIONING = "TRANSITIONING"
 }
 
 /**
@@ -12730,7 +12773,9 @@ export enum ScheduleState {
  *          <p>The specified scheduler is not running.</p>
  *
  */
-export interface SchedulerNotRunningException extends _smithy.SmithyException, $MetadataBearer {
+export interface SchedulerNotRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SchedulerNotRunningException";
   $fault: "client";
   /**
@@ -12752,7 +12797,9 @@ export namespace SchedulerNotRunningException {
  *          <p>The specified scheduler is already running.</p>
  *
  */
-export interface SchedulerRunningException extends _smithy.SmithyException, $MetadataBearer {
+export interface SchedulerRunningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SchedulerRunningException";
   $fault: "client";
   /**
@@ -12774,7 +12821,9 @@ export namespace SchedulerRunningException {
  *          <p>The specified scheduler is transitioning.</p>
  *
  */
-export interface SchedulerTransitioningException extends _smithy.SmithyException, $MetadataBearer {
+export interface SchedulerTransitioningException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SchedulerTransitioningException";
   $fault: "client";
   /**
@@ -12925,7 +12974,7 @@ export namespace StopCrawlerScheduleResponse {
 
 export enum UpdateBehavior {
   LOG = "LOG",
-  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE",
+  UPDATE_IN_DATABASE = "UPDATE_IN_DATABASE"
 }
 
 export interface UpdateClassifierRequest {

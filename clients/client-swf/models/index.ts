@@ -403,7 +403,11 @@ export namespace ActivityTaskTimedOutEventAttributes {
   }
 }
 
-export type ActivityTaskTimeoutType = "HEARTBEAT" | "SCHEDULE_TO_CLOSE" | "SCHEDULE_TO_START" | "START_TO_CLOSE"
+export type ActivityTaskTimeoutType =
+  | "HEARTBEAT"
+  | "SCHEDULE_TO_CLOSE"
+  | "SCHEDULE_TO_START"
+  | "START_TO_CLOSE";
 
 /**
  *
@@ -694,7 +698,9 @@ export namespace CancelTimerDecisionAttributes {
   }
 }
 
-export type CancelTimerFailedCause = "OPERATION_NOT_PERMITTED" | "TIMER_ID_UNKNOWN"
+export type CancelTimerFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "TIMER_ID_UNKNOWN";
 
 /**
  *
@@ -778,7 +784,9 @@ export namespace CancelWorkflowExecutionDecisionAttributes {
   }
 }
 
-export type CancelWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION"
+export type CancelWorkflowExecutionFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "UNHANDLED_DECISION";
 
 /**
  *
@@ -808,12 +816,14 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CancelWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is CancelWorkflowExecutionFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is CancelWorkflowExecutionFailedEventAttributes {
     return _smithy.isa(o, "CancelWorkflowExecutionFailedEventAttributes");
   }
 }
 
-export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE"
+export type ChildPolicy = "ABANDON" | "REQUEST_CANCEL" | "TERMINATE";
 
 /**
  *
@@ -865,7 +875,9 @@ export interface ChildWorkflowExecutionCanceledEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCanceledEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionCanceledEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionCanceledEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionCanceledEventAttributes");
   }
 }
@@ -917,7 +929,9 @@ export interface ChildWorkflowExecutionCompletedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionCompletedEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionCompletedEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionCompletedEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionCompletedEventAttributes");
   }
 }
@@ -979,7 +993,9 @@ export interface ChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionFailedEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionFailedEventAttributes");
   }
 }
@@ -1018,7 +1034,9 @@ export interface ChildWorkflowExecutionStartedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionStartedEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionStartedEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionStartedEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionStartedEventAttributes");
   }
 }
@@ -1066,7 +1084,9 @@ export interface ChildWorkflowExecutionTerminatedEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTerminatedEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionTerminatedEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionTerminatedEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionTerminatedEventAttributes");
   }
 }
@@ -1120,12 +1140,20 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
 }
 
 export namespace ChildWorkflowExecutionTimedOutEventAttributes {
-  export function isa(o: any): o is ChildWorkflowExecutionTimedOutEventAttributes {
+  export function isa(
+    o: any
+  ): o is ChildWorkflowExecutionTimedOutEventAttributes {
     return _smithy.isa(o, "ChildWorkflowExecutionTimedOutEventAttributes");
   }
 }
 
-export type CloseStatus = "CANCELED" | "COMPLETED" | "CONTINUED_AS_NEW" | "FAILED" | "TERMINATED" | "TIMED_OUT"
+export type CloseStatus =
+  | "CANCELED"
+  | "COMPLETED"
+  | "CONTINUED_AS_NEW"
+  | "FAILED"
+  | "TERMINATED"
+  | "TIMED_OUT";
 
 /**
  *
@@ -1186,12 +1214,16 @@ export interface CompleteWorkflowExecutionDecisionAttributes {
 }
 
 export namespace CompleteWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is CompleteWorkflowExecutionDecisionAttributes {
+  export function isa(
+    o: any
+  ): o is CompleteWorkflowExecutionDecisionAttributes {
     return _smithy.isa(o, "CompleteWorkflowExecutionDecisionAttributes");
   }
 }
 
-export type CompleteWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION"
+export type CompleteWorkflowExecutionFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "UNHANDLED_DECISION";
 
 /**
  *
@@ -1223,7 +1255,9 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace CompleteWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is CompleteWorkflowExecutionFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is CompleteWorkflowExecutionFailedEventAttributes {
     return _smithy.isa(o, "CompleteWorkflowExecutionFailedEventAttributes");
   }
 }
@@ -1377,12 +1411,23 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is ContinueAsNewWorkflowExecutionDecisionAttributes {
+  export function isa(
+    o: any
+  ): o is ContinueAsNewWorkflowExecutionDecisionAttributes {
     return _smithy.isa(o, "ContinueAsNewWorkflowExecutionDecisionAttributes");
   }
 }
 
-export type ContinueAsNewWorkflowExecutionFailedCause = "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED" | "DEFAULT_CHILD_POLICY_UNDEFINED" | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" | "DEFAULT_TASK_LIST_UNDEFINED" | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED" | "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION" | "WORKFLOW_TYPE_DEPRECATED" | "WORKFLOW_TYPE_DOES_NOT_EXIST"
+export type ContinueAsNewWorkflowExecutionFailedCause =
+  | "CONTINUE_AS_NEW_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+  | "DEFAULT_CHILD_POLICY_UNDEFINED"
+  | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "DEFAULT_TASK_LIST_UNDEFINED"
+  | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "OPERATION_NOT_PERMITTED"
+  | "UNHANDLED_DECISION"
+  | "WORKFLOW_TYPE_DEPRECATED"
+  | "WORKFLOW_TYPE_DOES_NOT_EXIST";
 
 /**
  *
@@ -1414,8 +1459,13 @@ export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace ContinueAsNewWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is ContinueAsNewWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "ContinueAsNewWorkflowExecutionFailedEventAttributes");
+  export function isa(
+    o: any
+  ): o is ContinueAsNewWorkflowExecutionFailedEventAttributes {
+    return _smithy.isa(
+      o,
+      "ContinueAsNewWorkflowExecutionFailedEventAttributes"
+    );
   }
 }
 
@@ -2020,9 +2070,22 @@ export namespace DecisionTaskTimedOutEventAttributes {
   }
 }
 
-export type DecisionTaskTimeoutType = "START_TO_CLOSE"
+export type DecisionTaskTimeoutType = "START_TO_CLOSE";
 
-export type DecisionType = "CancelTimer" | "CancelWorkflowExecution" | "CompleteWorkflowExecution" | "ContinueAsNewWorkflowExecution" | "FailWorkflowExecution" | "RecordMarker" | "RequestCancelActivityTask" | "RequestCancelExternalWorkflowExecution" | "ScheduleActivityTask" | "ScheduleLambdaFunction" | "SignalExternalWorkflowExecution" | "StartChildWorkflowExecution" | "StartTimer"
+export type DecisionType =
+  | "CancelTimer"
+  | "CancelWorkflowExecution"
+  | "CompleteWorkflowExecution"
+  | "ContinueAsNewWorkflowExecution"
+  | "FailWorkflowExecution"
+  | "RecordMarker"
+  | "RequestCancelActivityTask"
+  | "RequestCancelExternalWorkflowExecution"
+  | "ScheduleActivityTask"
+  | "ScheduleLambdaFunction"
+  | "SignalExternalWorkflowExecution"
+  | "StartChildWorkflowExecution"
+  | "StartTimer";
 
 /**
  *
@@ -2039,7 +2102,9 @@ export type DecisionType = "CancelTimer" | "CancelWorkflowExecution" | "Complete
  *          </note>
  *
  */
-export interface DefaultUndefinedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface DefaultUndefinedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DefaultUndefinedFault";
   $fault: "client";
   message?: string;
@@ -2056,7 +2121,9 @@ export namespace DefaultUndefinedFault {
  *          <p>Returned if the domain already exists. You may get this fault if you are registering a domain that is either already registered or deprecated, or if you undeprecate a domain that is currently registered.</p>
  *
  */
-export interface DomainAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface DomainAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DomainAlreadyExistsFault";
   $fault: "client";
   /**
@@ -2099,7 +2166,9 @@ export namespace DomainConfiguration {
  *          <p>Returned when the specified domain has been deprecated.</p>
  *
  */
-export interface DomainDeprecatedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface DomainDeprecatedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DomainDeprecatedFault";
   $fault: "client";
   /**
@@ -2233,9 +2302,63 @@ export namespace DomainInfos {
   }
 }
 
-export type EventType = "ActivityTaskCancelRequested" | "ActivityTaskCanceled" | "ActivityTaskCompleted" | "ActivityTaskFailed" | "ActivityTaskScheduled" | "ActivityTaskStarted" | "ActivityTaskTimedOut" | "CancelTimerFailed" | "CancelWorkflowExecutionFailed" | "ChildWorkflowExecutionCanceled" | "ChildWorkflowExecutionCompleted" | "ChildWorkflowExecutionFailed" | "ChildWorkflowExecutionStarted" | "ChildWorkflowExecutionTerminated" | "ChildWorkflowExecutionTimedOut" | "CompleteWorkflowExecutionFailed" | "ContinueAsNewWorkflowExecutionFailed" | "DecisionTaskCompleted" | "DecisionTaskScheduled" | "DecisionTaskStarted" | "DecisionTaskTimedOut" | "ExternalWorkflowExecutionCancelRequested" | "ExternalWorkflowExecutionSignaled" | "FailWorkflowExecutionFailed" | "LambdaFunctionCompleted" | "LambdaFunctionFailed" | "LambdaFunctionScheduled" | "LambdaFunctionStarted" | "LambdaFunctionTimedOut" | "MarkerRecorded" | "RecordMarkerFailed" | "RequestCancelActivityTaskFailed" | "RequestCancelExternalWorkflowExecutionFailed" | "RequestCancelExternalWorkflowExecutionInitiated" | "ScheduleActivityTaskFailed" | "ScheduleLambdaFunctionFailed" | "SignalExternalWorkflowExecutionFailed" | "SignalExternalWorkflowExecutionInitiated" | "StartChildWorkflowExecutionFailed" | "StartChildWorkflowExecutionInitiated" | "StartLambdaFunctionFailed" | "StartTimerFailed" | "TimerCanceled" | "TimerFired" | "TimerStarted" | "WorkflowExecutionCancelRequested" | "WorkflowExecutionCanceled" | "WorkflowExecutionCompleted" | "WorkflowExecutionContinuedAsNew" | "WorkflowExecutionFailed" | "WorkflowExecutionSignaled" | "WorkflowExecutionStarted" | "WorkflowExecutionTerminated" | "WorkflowExecutionTimedOut"
+export type EventType =
+  | "ActivityTaskCancelRequested"
+  | "ActivityTaskCanceled"
+  | "ActivityTaskCompleted"
+  | "ActivityTaskFailed"
+  | "ActivityTaskScheduled"
+  | "ActivityTaskStarted"
+  | "ActivityTaskTimedOut"
+  | "CancelTimerFailed"
+  | "CancelWorkflowExecutionFailed"
+  | "ChildWorkflowExecutionCanceled"
+  | "ChildWorkflowExecutionCompleted"
+  | "ChildWorkflowExecutionFailed"
+  | "ChildWorkflowExecutionStarted"
+  | "ChildWorkflowExecutionTerminated"
+  | "ChildWorkflowExecutionTimedOut"
+  | "CompleteWorkflowExecutionFailed"
+  | "ContinueAsNewWorkflowExecutionFailed"
+  | "DecisionTaskCompleted"
+  | "DecisionTaskScheduled"
+  | "DecisionTaskStarted"
+  | "DecisionTaskTimedOut"
+  | "ExternalWorkflowExecutionCancelRequested"
+  | "ExternalWorkflowExecutionSignaled"
+  | "FailWorkflowExecutionFailed"
+  | "LambdaFunctionCompleted"
+  | "LambdaFunctionFailed"
+  | "LambdaFunctionScheduled"
+  | "LambdaFunctionStarted"
+  | "LambdaFunctionTimedOut"
+  | "MarkerRecorded"
+  | "RecordMarkerFailed"
+  | "RequestCancelActivityTaskFailed"
+  | "RequestCancelExternalWorkflowExecutionFailed"
+  | "RequestCancelExternalWorkflowExecutionInitiated"
+  | "ScheduleActivityTaskFailed"
+  | "ScheduleLambdaFunctionFailed"
+  | "SignalExternalWorkflowExecutionFailed"
+  | "SignalExternalWorkflowExecutionInitiated"
+  | "StartChildWorkflowExecutionFailed"
+  | "StartChildWorkflowExecutionInitiated"
+  | "StartLambdaFunctionFailed"
+  | "StartTimerFailed"
+  | "TimerCanceled"
+  | "TimerFired"
+  | "TimerStarted"
+  | "WorkflowExecutionCancelRequested"
+  | "WorkflowExecutionCanceled"
+  | "WorkflowExecutionCompleted"
+  | "WorkflowExecutionContinuedAsNew"
+  | "WorkflowExecutionFailed"
+  | "WorkflowExecutionSignaled"
+  | "WorkflowExecutionStarted"
+  | "WorkflowExecutionTerminated"
+  | "WorkflowExecutionTimedOut";
 
-export type ExecutionStatus = "CLOSED" | "OPEN"
+export type ExecutionStatus = "CLOSED" | "OPEN";
 
 /**
  *
@@ -2294,8 +2417,13 @@ export interface ExternalWorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionCancelRequestedEventAttributes {
-  export function isa(o: any): o is ExternalWorkflowExecutionCancelRequestedEventAttributes {
-    return _smithy.isa(o, "ExternalWorkflowExecutionCancelRequestedEventAttributes");
+  export function isa(
+    o: any
+  ): o is ExternalWorkflowExecutionCancelRequestedEventAttributes {
+    return _smithy.isa(
+      o,
+      "ExternalWorkflowExecutionCancelRequestedEventAttributes"
+    );
   }
 }
 
@@ -2324,7 +2452,9 @@ export interface ExternalWorkflowExecutionSignaledEventAttributes {
 }
 
 export namespace ExternalWorkflowExecutionSignaledEventAttributes {
-  export function isa(o: any): o is ExternalWorkflowExecutionSignaledEventAttributes {
+  export function isa(
+    o: any
+  ): o is ExternalWorkflowExecutionSignaledEventAttributes {
     return _smithy.isa(o, "ExternalWorkflowExecutionSignaledEventAttributes");
   }
 }
@@ -2379,7 +2509,9 @@ export namespace FailWorkflowExecutionDecisionAttributes {
   }
 }
 
-export type FailWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "UNHANDLED_DECISION"
+export type FailWorkflowExecutionFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "UNHANDLED_DECISION";
 
 /**
  *
@@ -3333,14 +3465,16 @@ export namespace LambdaFunctionTimedOutEventAttributes {
   }
 }
 
-export type LambdaFunctionTimeoutType = "START_TO_CLOSE"
+export type LambdaFunctionTimeoutType = "START_TO_CLOSE";
 
 /**
  *
  *          <p>Returned by any operation if a system imposed limitation has been reached. To address this fault you should either clean up unused resources or increase the limit by contacting AWS.</p>
  *
  */
-export interface LimitExceededFault extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededFault";
   $fault: "client";
   /**
@@ -3399,7 +3533,9 @@ export namespace MarkerRecordedEventAttributes {
  *          <p>Returned when the caller doesn't have sufficient permissions to invoke the action.</p>
  *
  */
-export interface OperationNotPermittedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationNotPermittedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationNotPermittedFault";
   $fault: "client";
   /**
@@ -3494,7 +3630,7 @@ export namespace RecordMarkerDecisionAttributes {
   }
 }
 
-export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED"
+export type RecordMarkerFailedCause = "OPERATION_NOT_PERMITTED";
 
 /**
  *
@@ -3538,7 +3674,7 @@ export namespace RecordMarkerFailedEventAttributes {
   }
 }
 
-export type RegistrationStatus = "DEPRECATED" | "REGISTERED"
+export type RegistrationStatus = "DEPRECATED" | "REGISTERED";
 
 /**
  *
@@ -3577,12 +3713,16 @@ export interface RequestCancelActivityTaskDecisionAttributes {
 }
 
 export namespace RequestCancelActivityTaskDecisionAttributes {
-  export function isa(o: any): o is RequestCancelActivityTaskDecisionAttributes {
+  export function isa(
+    o: any
+  ): o is RequestCancelActivityTaskDecisionAttributes {
     return _smithy.isa(o, "RequestCancelActivityTaskDecisionAttributes");
   }
 }
 
-export type RequestCancelActivityTaskFailedCause = "ACTIVITY_ID_UNKNOWN" | "OPERATION_NOT_PERMITTED"
+export type RequestCancelActivityTaskFailedCause =
+  | "ACTIVITY_ID_UNKNOWN"
+  | "OPERATION_NOT_PERMITTED";
 
 /**
  *
@@ -3621,7 +3761,9 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
 }
 
 export namespace RequestCancelActivityTaskFailedEventAttributes {
-  export function isa(o: any): o is RequestCancelActivityTaskFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is RequestCancelActivityTaskFailedEventAttributes {
     return _smithy.isa(o, "RequestCancelActivityTaskFailedEventAttributes");
   }
 }
@@ -3677,12 +3819,20 @@ export interface RequestCancelExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is RequestCancelExternalWorkflowExecutionDecisionAttributes {
-    return _smithy.isa(o, "RequestCancelExternalWorkflowExecutionDecisionAttributes");
+  export function isa(
+    o: any
+  ): o is RequestCancelExternalWorkflowExecutionDecisionAttributes {
+    return _smithy.isa(
+      o,
+      "RequestCancelExternalWorkflowExecutionDecisionAttributes"
+    );
   }
 }
 
-export type RequestCancelExternalWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+export type RequestCancelExternalWorkflowExecutionFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "REQUEST_CANCEL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+  | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION";
 
 /**
  *
@@ -3746,8 +3896,13 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "RequestCancelExternalWorkflowExecutionFailedEventAttributes");
+  export function isa(
+    o: any
+  ): o is RequestCancelExternalWorkflowExecutionFailedEventAttributes {
+    return _smithy.isa(
+      o,
+      "RequestCancelExternalWorkflowExecutionFailedEventAttributes"
+    );
   }
 }
 
@@ -3791,8 +3946,13 @@ export interface RequestCancelExternalWorkflowExecutionInitiatedEventAttributes 
 }
 
 export namespace RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-  export function isa(o: any): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(o, "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes");
+  export function isa(
+    o: any
+  ): o is RequestCancelExternalWorkflowExecutionInitiatedEventAttributes {
+    return _smithy.isa(
+      o,
+      "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes"
+    );
   }
 }
 
@@ -3982,7 +4142,18 @@ export namespace ScheduleActivityTaskDecisionAttributes {
   }
 }
 
-export type ScheduleActivityTaskFailedCause = "ACTIVITY_CREATION_RATE_EXCEEDED" | "ACTIVITY_ID_ALREADY_IN_USE" | "ACTIVITY_TYPE_DEPRECATED" | "ACTIVITY_TYPE_DOES_NOT_EXIST" | "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED" | "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED" | "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED" | "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED" | "DEFAULT_TASK_LIST_UNDEFINED" | "OPEN_ACTIVITIES_LIMIT_EXCEEDED" | "OPERATION_NOT_PERMITTED"
+export type ScheduleActivityTaskFailedCause =
+  | "ACTIVITY_CREATION_RATE_EXCEEDED"
+  | "ACTIVITY_ID_ALREADY_IN_USE"
+  | "ACTIVITY_TYPE_DEPRECATED"
+  | "ACTIVITY_TYPE_DOES_NOT_EXIST"
+  | "DEFAULT_HEARTBEAT_TIMEOUT_UNDEFINED"
+  | "DEFAULT_SCHEDULE_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "DEFAULT_SCHEDULE_TO_START_TIMEOUT_UNDEFINED"
+  | "DEFAULT_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "DEFAULT_TASK_LIST_UNDEFINED"
+  | "OPEN_ACTIVITIES_LIMIT_EXCEEDED"
+  | "OPERATION_NOT_PERMITTED";
 
 /**
  *
@@ -4084,7 +4255,11 @@ export namespace ScheduleLambdaFunctionDecisionAttributes {
   }
 }
 
-export type ScheduleLambdaFunctionFailedCause = "ID_ALREADY_IN_USE" | "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED" | "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION" | "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED"
+export type ScheduleLambdaFunctionFailedCause =
+  | "ID_ALREADY_IN_USE"
+  | "LAMBDA_FUNCTION_CREATION_RATE_EXCEEDED"
+  | "LAMBDA_SERVICE_NOT_AVAILABLE_IN_REGION"
+  | "OPEN_LAMBDA_FUNCTIONS_LIMIT_EXCEEDED";
 
 /**
  *
@@ -4133,7 +4308,9 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
 }
 
 export namespace ScheduleLambdaFunctionFailedEventAttributes {
-  export function isa(o: any): o is ScheduleLambdaFunctionFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is ScheduleLambdaFunctionFailedEventAttributes {
     return _smithy.isa(o, "ScheduleLambdaFunctionFailedEventAttributes");
   }
 }
@@ -4207,12 +4384,17 @@ export interface SignalExternalWorkflowExecutionDecisionAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is SignalExternalWorkflowExecutionDecisionAttributes {
+  export function isa(
+    o: any
+  ): o is SignalExternalWorkflowExecutionDecisionAttributes {
     return _smithy.isa(o, "SignalExternalWorkflowExecutionDecisionAttributes");
   }
 }
 
-export type SignalExternalWorkflowExecutionFailedCause = "OPERATION_NOT_PERMITTED" | "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED" | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION"
+export type SignalExternalWorkflowExecutionFailedCause =
+  | "OPERATION_NOT_PERMITTED"
+  | "SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_RATE_EXCEEDED"
+  | "UNKNOWN_EXTERNAL_WORKFLOW_EXECUTION";
 
 /**
  *
@@ -4275,8 +4457,13 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is SignalExternalWorkflowExecutionFailedEventAttributes {
-    return _smithy.isa(o, "SignalExternalWorkflowExecutionFailedEventAttributes");
+  export function isa(
+    o: any
+  ): o is SignalExternalWorkflowExecutionFailedEventAttributes {
+    return _smithy.isa(
+      o,
+      "SignalExternalWorkflowExecutionFailedEventAttributes"
+    );
   }
 }
 
@@ -4333,8 +4520,13 @@ export interface SignalExternalWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace SignalExternalWorkflowExecutionInitiatedEventAttributes {
-  export function isa(o: any): o is SignalExternalWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(o, "SignalExternalWorkflowExecutionInitiatedEventAttributes");
+  export function isa(
+    o: any
+  ): o is SignalExternalWorkflowExecutionInitiatedEventAttributes {
+    return _smithy.isa(
+      o,
+      "SignalExternalWorkflowExecutionInitiatedEventAttributes"
+    );
   }
 }
 
@@ -4514,12 +4706,25 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
 }
 
 export namespace StartChildWorkflowExecutionDecisionAttributes {
-  export function isa(o: any): o is StartChildWorkflowExecutionDecisionAttributes {
+  export function isa(
+    o: any
+  ): o is StartChildWorkflowExecutionDecisionAttributes {
     return _smithy.isa(o, "StartChildWorkflowExecutionDecisionAttributes");
   }
 }
 
-export type StartChildWorkflowExecutionFailedCause = "CHILD_CREATION_RATE_EXCEEDED" | "DEFAULT_CHILD_POLICY_UNDEFINED" | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED" | "DEFAULT_TASK_LIST_UNDEFINED" | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED" | "OPEN_CHILDREN_LIMIT_EXCEEDED" | "OPEN_WORKFLOWS_LIMIT_EXCEEDED" | "OPERATION_NOT_PERMITTED" | "WORKFLOW_ALREADY_RUNNING" | "WORKFLOW_TYPE_DEPRECATED" | "WORKFLOW_TYPE_DOES_NOT_EXIST"
+export type StartChildWorkflowExecutionFailedCause =
+  | "CHILD_CREATION_RATE_EXCEEDED"
+  | "DEFAULT_CHILD_POLICY_UNDEFINED"
+  | "DEFAULT_EXECUTION_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "DEFAULT_TASK_LIST_UNDEFINED"
+  | "DEFAULT_TASK_START_TO_CLOSE_TIMEOUT_UNDEFINED"
+  | "OPEN_CHILDREN_LIMIT_EXCEEDED"
+  | "OPEN_WORKFLOWS_LIMIT_EXCEEDED"
+  | "OPERATION_NOT_PERMITTED"
+  | "WORKFLOW_ALREADY_RUNNING"
+  | "WORKFLOW_TYPE_DEPRECATED"
+  | "WORKFLOW_TYPE_DOES_NOT_EXIST";
 
 /**
  *
@@ -4585,7 +4790,9 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionFailedEventAttributes {
-  export function isa(o: any): o is StartChildWorkflowExecutionFailedEventAttributes {
+  export function isa(
+    o: any
+  ): o is StartChildWorkflowExecutionFailedEventAttributes {
     return _smithy.isa(o, "StartChildWorkflowExecutionFailedEventAttributes");
   }
 }
@@ -4710,12 +4917,17 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
 }
 
 export namespace StartChildWorkflowExecutionInitiatedEventAttributes {
-  export function isa(o: any): o is StartChildWorkflowExecutionInitiatedEventAttributes {
-    return _smithy.isa(o, "StartChildWorkflowExecutionInitiatedEventAttributes");
+  export function isa(
+    o: any
+  ): o is StartChildWorkflowExecutionInitiatedEventAttributes {
+    return _smithy.isa(
+      o,
+      "StartChildWorkflowExecutionInitiatedEventAttributes"
+    );
   }
 }
 
-export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED"
+export type StartLambdaFunctionFailedCause = "ASSUME_ROLE_FAILED";
 
 /**
  *
@@ -4820,7 +5032,11 @@ export namespace StartTimerDecisionAttributes {
   }
 }
 
-export type StartTimerFailedCause = "OPEN_TIMERS_LIMIT_EXCEEDED" | "OPERATION_NOT_PERMITTED" | "TIMER_CREATION_RATE_EXCEEDED" | "TIMER_ID_ALREADY_IN_USE"
+export type StartTimerFailedCause =
+  | "OPEN_TIMERS_LIMIT_EXCEEDED"
+  | "OPERATION_NOT_PERMITTED"
+  | "TIMER_CREATION_RATE_EXCEEDED"
+  | "TIMER_ID_ALREADY_IN_USE";
 
 /**
  *
@@ -5030,7 +5246,9 @@ export namespace TimerStartedEventAttributes {
  *          <p>You've exceeded the number of tags allowed for a domain.</p>
  *
  */
-export interface TooManyTagsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsFault";
   $fault: "client";
   message?: string;
@@ -5047,7 +5265,9 @@ export namespace TooManyTagsFault {
  *          <p>Returned if the type already exists in the specified domain. You may get this fault if you are registering a type that is either already registered or deprecated, or if you undeprecate a type that is currently registered.</p>
  *
  */
-export interface TypeAlreadyExistsFault extends _smithy.SmithyException, $MetadataBearer {
+export interface TypeAlreadyExistsFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TypeAlreadyExistsFault";
   $fault: "client";
   /**
@@ -5069,7 +5289,9 @@ export namespace TypeAlreadyExistsFault {
  *          <p>Returned when the specified activity or workflow type was already deprecated.</p>
  *
  */
-export interface TypeDeprecatedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface TypeDeprecatedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TypeDeprecatedFault";
   $fault: "client";
   /**
@@ -5091,7 +5313,9 @@ export namespace TypeDeprecatedFault {
  *          <p>Returned when the named resource cannot be found with in the scope of this operation (region or domain). This could happen if the named resource was never created or is no longer available for this operation.</p>
  *
  */
-export interface UnknownResourceFault extends _smithy.SmithyException, $MetadataBearer {
+export interface UnknownResourceFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnknownResourceFault";
   $fault: "client";
   /**
@@ -5142,7 +5366,9 @@ export namespace WorkflowExecution {
  *       the specified domain.</p>
  *
  */
-export interface WorkflowExecutionAlreadyStartedFault extends _smithy.SmithyException, $MetadataBearer {
+export interface WorkflowExecutionAlreadyStartedFault
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "WorkflowExecutionAlreadyStartedFault";
   $fault: "client";
   /**
@@ -5159,7 +5385,7 @@ export namespace WorkflowExecutionAlreadyStartedFault {
   }
 }
 
-export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED"
+export type WorkflowExecutionCancelRequestedCause = "CHILD_POLICY_APPLIED";
 
 /**
  *
@@ -5194,7 +5420,9 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
 }
 
 export namespace WorkflowExecutionCancelRequestedEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionCancelRequestedEventAttributes {
+  export function isa(
+    o: any
+  ): o is WorkflowExecutionCancelRequestedEventAttributes {
     return _smithy.isa(o, "WorkflowExecutionCancelRequestedEventAttributes");
   }
 }
@@ -5447,7 +5675,9 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
 }
 
 export namespace WorkflowExecutionContinuedAsNewEventAttributes {
-  export function isa(o: any): o is WorkflowExecutionContinuedAsNewEventAttributes {
+  export function isa(
+    o: any
+  ): o is WorkflowExecutionContinuedAsNewEventAttributes {
     return _smithy.isa(o, "WorkflowExecutionContinuedAsNewEventAttributes");
   }
 }
@@ -5946,7 +6176,10 @@ export namespace WorkflowExecutionStartedEventAttributes {
   }
 }
 
-export type WorkflowExecutionTerminatedCause = "CHILD_POLICY_APPLIED" | "EVENT_LIMIT_EXCEEDED" | "OPERATOR_INITIATED"
+export type WorkflowExecutionTerminatedCause =
+  | "CHILD_POLICY_APPLIED"
+  | "EVENT_LIMIT_EXCEEDED"
+  | "OPERATOR_INITIATED";
 
 /**
  *
@@ -6052,7 +6285,7 @@ export namespace WorkflowExecutionTimedOutEventAttributes {
   }
 }
 
-export type WorkflowExecutionTimeoutType = "START_TO_CLOSE"
+export type WorkflowExecutionTimeoutType = "START_TO_CLOSE";
 
 /**
  *

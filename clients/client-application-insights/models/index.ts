@@ -105,7 +105,9 @@ export namespace ApplicationInfo {
  *          <p>The request is not understood by the server.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Message?: string;
@@ -443,12 +445,18 @@ export interface DescribeComponentConfigurationRecommendationRequest {
 }
 
 export namespace DescribeComponentConfigurationRecommendationRequest {
-  export function isa(o: any): o is DescribeComponentConfigurationRecommendationRequest {
-    return _smithy.isa(o, "DescribeComponentConfigurationRecommendationRequest");
+  export function isa(
+    o: any
+  ): o is DescribeComponentConfigurationRecommendationRequest {
+    return _smithy.isa(
+      o,
+      "DescribeComponentConfigurationRecommendationRequest"
+    );
   }
 }
 
-export interface DescribeComponentConfigurationRecommendationResponse extends $MetadataBearer {
+export interface DescribeComponentConfigurationRecommendationResponse
+  extends $MetadataBearer {
   __type?: "DescribeComponentConfigurationRecommendationResponse";
   /**
    *
@@ -459,8 +467,13 @@ export interface DescribeComponentConfigurationRecommendationResponse extends $M
 }
 
 export namespace DescribeComponentConfigurationRecommendationResponse {
-  export function isa(o: any): o is DescribeComponentConfigurationRecommendationResponse {
-    return _smithy.isa(o, "DescribeComponentConfigurationRecommendationResponse");
+  export function isa(
+    o: any
+  ): o is DescribeComponentConfigurationRecommendationResponse {
+    return _smithy.isa(
+      o,
+      "DescribeComponentConfigurationRecommendationResponse"
+    );
   }
 }
 
@@ -487,7 +500,8 @@ export namespace DescribeComponentConfigurationRequest {
   }
 }
 
-export interface DescribeComponentConfigurationResponse extends $MetadataBearer {
+export interface DescribeComponentConfigurationResponse
+  extends $MetadataBearer {
   __type?: "DescribeComponentConfigurationResponse";
   /**
    *
@@ -716,16 +730,18 @@ export namespace DescribeProblemResponse {
   }
 }
 
-export type FeedbackKey = "INSIGHTS_FEEDBACK"
+export type FeedbackKey = "INSIGHTS_FEEDBACK";
 
-export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL"
+export type FeedbackValue = "NOT_SPECIFIED" | "NOT_USEFUL" | "USEFUL";
 
 /**
  *
  *          <p>The server encountered an internal error and is unable to complete the request.</p>
  *
  */
-export interface InternalServerException extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerException";
   $fault: "server";
   Message?: string;
@@ -1076,7 +1092,7 @@ export namespace ListTagsForResourceResponse {
   }
 }
 
-export type LogFilter = "ERROR" | "INFO" | "WARN"
+export type LogFilter = "ERROR" | "INFO" | "WARN";
 
 /**
  *
@@ -1338,7 +1354,9 @@ export namespace RelatedObservations {
  *          <p>The resource is already created or in use.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -1355,7 +1373,9 @@ export namespace ResourceInUseException {
  *          <p>The resource does not exist in the customer account.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1367,9 +1387,9 @@ export namespace ResourceNotFoundException {
   }
 }
 
-export type SeverityLevel = "High" | "Low" | "Medium"
+export type SeverityLevel = "High" | "Low" | "Medium";
 
-export type Status = "IGNORE" | "PENDING" | "RESOLVED"
+export type Status = "IGNORE" | "PENDING" | "RESOLVED";
 
 /**
  *
@@ -1467,7 +1487,9 @@ export namespace TagResourceResponse {
  *          <p>Tags are already registered for the specified application ARN.</p>
  *
  */
-export interface TagsAlreadyExistException extends _smithy.SmithyException, $MetadataBearer {
+export interface TagsAlreadyExistException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TagsAlreadyExistException";
   $fault: "client";
   Message?: string;
@@ -1479,7 +1501,12 @@ export namespace TagsAlreadyExistException {
   }
 }
 
-export type Tier = "DEFAULT" | "DOT_NET_CORE" | "DOT_NET_WEB" | "DOT_NET_WORKER" | "SQL_SERVER"
+export type Tier =
+  | "DEFAULT"
+  | "DOT_NET_CORE"
+  | "DOT_NET_WEB"
+  | "DOT_NET_WORKER"
+  | "SQL_SERVER";
 
 /**
  *
@@ -1487,7 +1514,9 @@ export type Tier = "DEFAULT" | "DOT_NET_CORE" | "DOT_NET_WEB" | "DOT_NET_WORKER"
  *          the number of total tags you are trying to attach to the specified resource exceeds the limit.</p>
  *
  */
-export interface TooManyTagsException extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsException";
   $fault: "client";
   Message?: string;
@@ -1777,7 +1806,9 @@ export namespace UpdateLogPatternResponse {
  *          <p>The parameter is not valid.</p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   Message?: string;

@@ -6,7 +6,9 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
  *          <p>The user is not authorized to access a resource.</p>
  *
  */
-export interface AccessDeniedException extends _smithy.SmithyException, $MetadataBearer {
+export interface AccessDeniedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AccessDeniedException";
   $fault: "client";
   message?: string;
@@ -20,7 +22,7 @@ export namespace AccessDeniedException {
 
 export enum AccessPropertyValue {
   ALLOW = "ALLOW",
-  DENY = "DENY",
+  DENY = "DENY"
 }
 
 /**
@@ -206,7 +208,7 @@ export enum Compute {
   POWER = "POWER",
   POWERPRO = "POWERPRO",
   STANDARD = "STANDARD",
-  VALUE = "VALUE",
+  VALUE = "VALUE"
 }
 
 /**
@@ -233,7 +235,7 @@ export namespace ComputeType {
 export enum ConnectionState {
   CONNECTED = "CONNECTED",
   DISCONNECTED = "DISCONNECTED",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export interface CopyWorkspaceImageRequest {
@@ -428,16 +430,16 @@ export namespace CreateWorkspacesResult {
 export enum DedicatedTenancyModificationStateEnum {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 export enum DedicatedTenancySupportEnum {
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 export enum DedicatedTenancySupportResultEnum {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 /**
@@ -1050,7 +1052,8 @@ export namespace DescribeWorkspacesConnectionStatusRequest {
   }
 }
 
-export interface DescribeWorkspacesConnectionStatusResult extends $MetadataBearer {
+export interface DescribeWorkspacesConnectionStatusResult
+  extends $MetadataBearer {
   __type?: "DescribeWorkspacesConnectionStatusResult";
   /**
    *
@@ -1331,7 +1334,9 @@ export namespace ImportWorkspaceImageResult {
  *          <p>One or more parameter values are not valid.</p>
  *
  */
-export interface InvalidParameterValuesException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterValuesException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterValuesException";
   $fault: "client";
   /**
@@ -1353,7 +1358,9 @@ export namespace InvalidParameterValuesException {
  *          <p>The state of the resource is not valid for this operation.</p>
  *
  */
-export interface InvalidResourceStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceStateException";
   $fault: "client";
   message?: string;
@@ -1425,7 +1432,8 @@ export namespace ListAvailableManagementCidrRangesRequest {
   }
 }
 
-export interface ListAvailableManagementCidrRangesResult extends $MetadataBearer {
+export interface ListAvailableManagementCidrRangesResult
+  extends $MetadataBearer {
   __type?: "ListAvailableManagementCidrRangesResult";
   /**
    *
@@ -1452,7 +1460,7 @@ export namespace ListAvailableManagementCidrRangesResult {
 export enum ModificationResourceEnum {
   COMPUTE_TYPE = "COMPUTE_TYPE",
   ROOT_VOLUME = "ROOT_VOLUME",
-  USER_VOLUME = "USER_VOLUME",
+  USER_VOLUME = "USER_VOLUME"
 }
 
 /**
@@ -1485,7 +1493,7 @@ export namespace ModificationState {
 
 export enum ModificationStateEnum {
   UPDATE_INITIATED = "UPDATE_INITIATED",
-  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS",
+  UPDATE_IN_PROGRESS = "UPDATE_IN_PROGRESS"
 }
 
 export interface ModifyAccountRequest {
@@ -1647,7 +1655,8 @@ export namespace ModifyWorkspaceCreationPropertiesRequest {
   }
 }
 
-export interface ModifyWorkspaceCreationPropertiesResult extends $MetadataBearer {
+export interface ModifyWorkspaceCreationPropertiesResult
+  extends $MetadataBearer {
   __type?: "ModifyWorkspaceCreationPropertiesResult";
 }
 
@@ -1746,7 +1755,7 @@ export namespace OperatingSystem {
 
 export enum OperatingSystemType {
   LINUX = "LINUX",
-  WINDOWS = "WINDOWS",
+  WINDOWS = "WINDOWS"
 }
 
 /**
@@ -1754,7 +1763,9 @@ export enum OperatingSystemType {
  *          <p>The properties of this WorkSpace are currently being modified. Try again in a moment.</p>
  *
  */
-export interface OperationInProgressException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationInProgressException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationInProgressException";
   $fault: "client";
   message?: string;
@@ -1771,7 +1782,9 @@ export namespace OperationInProgressException {
  *          <p>This operation is not supported.</p>
  *
  */
-export interface OperationNotSupportedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationNotSupportedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationNotSupportedException";
   $fault: "client";
   message?: string;
@@ -1891,7 +1904,7 @@ export namespace RebuildWorkspacesResult {
 
 export enum ReconnectEnum {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
 export interface RegisterWorkspaceDirectoryRequest {
@@ -1972,7 +1985,9 @@ export namespace RegisterWorkspaceDirectoryResult {
  *          <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   message?: string;
@@ -1989,7 +2004,9 @@ export namespace ResourceAlreadyExistsException {
  *          <p>The resource is associated with a directory.</p>
  *
  */
-export interface ResourceAssociatedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAssociatedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAssociatedException";
   $fault: "client";
   message?: string;
@@ -2006,7 +2023,9 @@ export namespace ResourceAssociatedException {
  *          <p>The resource could not be created.</p>
  *
  */
-export interface ResourceCreationFailedException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceCreationFailedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceCreationFailedException";
   $fault: "client";
   message?: string;
@@ -2023,7 +2042,9 @@ export namespace ResourceCreationFailedException {
  *          <p>Your resource limits have been exceeded.</p>
  *
  */
-export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   /**
@@ -2045,7 +2066,9 @@ export namespace ResourceLimitExceededException {
  *          <p>The resource could not be found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -2074,7 +2097,9 @@ export namespace ResourceNotFoundException {
  *          <p>The specified resource is not available.</p>
  *
  */
-export interface ResourceUnavailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceUnavailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceUnavailableException";
   $fault: "client";
   /**
@@ -2180,7 +2205,7 @@ export namespace RootStorage {
 
 export enum RunningMode {
   ALWAYS_ON = "ALWAYS_ON",
-  AUTO_STOP = "AUTO_STOP",
+  AUTO_STOP = "AUTO_STOP"
 }
 
 /**
@@ -2391,12 +2416,12 @@ export namespace Tag {
 
 export enum TargetWorkspaceState {
   ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
+  AVAILABLE = "AVAILABLE"
 }
 
 export enum Tenancy {
   DEDICATED = "DEDICATED",
-  SHARED = "SHARED",
+  SHARED = "SHARED"
 }
 
 /**
@@ -2460,7 +2485,9 @@ export namespace TerminateWorkspacesResult {
  *             Configure a VPC for Amazon WorkSpaces</a>.</p>
  *
  */
-export interface UnsupportedNetworkConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedNetworkConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedNetworkConfigurationException";
   $fault: "client";
   message?: string;
@@ -2479,7 +2506,9 @@ export namespace UnsupportedNetworkConfigurationException {
  *             Configuration and Service Components for WorkSpaces </a>.</p>
  *
  */
-export interface UnsupportedWorkspaceConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedWorkspaceConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedWorkspaceConfigurationException";
   $fault: "client";
   message?: string;
@@ -3045,12 +3074,12 @@ export enum WorkspaceDirectoryState {
   DEREGISTERING = "DEREGISTERING",
   ERROR = "ERROR",
   REGISTERED = "REGISTERED",
-  REGISTERING = "REGISTERING",
+  REGISTERING = "REGISTERING"
 }
 
 export enum WorkspaceDirectoryType {
   AD_CONNECTOR = "AD_CONNECTOR",
-  SIMPLE_AD = "SIMPLE_AD",
+  SIMPLE_AD = "SIMPLE_AD"
 }
 
 /**
@@ -3129,18 +3158,18 @@ export namespace WorkspaceImage {
 export enum WorkspaceImageIngestionProcess {
   BYOL_GRAPHICS = "BYOL_GRAPHICS",
   BYOL_GRAPHICSPRO = "BYOL_GRAPHICSPRO",
-  BYOL_REGULAR = "BYOL_REGULAR",
+  BYOL_REGULAR = "BYOL_REGULAR"
 }
 
 export enum WorkspaceImageRequiredTenancy {
   DEDICATED = "DEDICATED",
-  DEFAULT = "DEFAULT",
+  DEFAULT = "DEFAULT"
 }
 
 export enum WorkspaceImageState {
   AVAILABLE = "AVAILABLE",
   ERROR = "ERROR",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -3283,7 +3312,7 @@ export enum WorkspaceState {
   TERMINATED = "TERMINATED",
   TERMINATING = "TERMINATING",
   UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
+  UPDATING = "UPDATING"
 }
 
 /**
@@ -3292,7 +3321,9 @@ export enum WorkspaceState {
  *          will need to create the workspaces_DefaultRole role before you can register a directory. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role">Creating the workspaces_DefaultRole Role</a>.</p>
  *
  */
-export interface WorkspacesDefaultRoleNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface WorkspacesDefaultRoleNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "WorkspacesDefaultRoleNotFoundException";
   $fault: "client";
   message?: string;

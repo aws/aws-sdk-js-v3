@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   ListResourceDataSyncRequest,
-  ListResourceDataSyncResult,
+  ListResourceDataSyncResult
 } from "../models/index";
 import {
   deserializeAws_json1_1ListResourceDataSyncCommand,
-  serializeAws_json1_1ListResourceDataSyncCommand,
+  serializeAws_json1_1ListResourceDataSyncCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListResourceDataSyncCommandInput = ListResourceDataSyncRequest;
 export type ListResourceDataSyncCommandOutput = ListResourceDataSyncResult;
 
-export class ListResourceDataSyncCommand extends $Command<ListResourceDataSyncCommandInput, ListResourceDataSyncCommandOutput, SSMClientResolvedConfig> {
+export class ListResourceDataSyncCommand extends $Command<
+  ListResourceDataSyncCommandInput,
+  ListResourceDataSyncCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListResourceDataSyncCommand extends $Command<ListResourceDataSyncCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListResourceDataSyncCommandInput, ListResourceDataSyncCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListResourceDataSyncCommandInput,
+    ListResourceDataSyncCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

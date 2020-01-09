@@ -1,20 +1,20 @@
 import {
   SageMakerClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SageMakerClient";
 import {
   DescribeCodeRepositoryInput,
-  DescribeCodeRepositoryOutput,
+  DescribeCodeRepositoryOutput
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeCodeRepositoryCommand,
-  serializeAws_json1_1DescribeCodeRepositoryCommand,
+  serializeAws_json1_1DescribeCodeRepositoryCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeCodeRepositoryCommandInput = DescribeCodeRepositoryInput;
 export type DescribeCodeRepositoryCommandOutput = DescribeCodeRepositoryOutput;
 
-export class DescribeCodeRepositoryCommand extends $Command<DescribeCodeRepositoryCommandInput, DescribeCodeRepositoryCommandOutput, SageMakerClientResolvedConfig> {
+export class DescribeCodeRepositoryCommand extends $Command<
+  DescribeCodeRepositoryCommandInput,
+  DescribeCodeRepositoryCommandOutput,
+  SageMakerClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeCodeRepositoryCommand extends $Command<DescribeCodeReposito
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeCodeRepositoryCommandInput, DescribeCodeRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeCodeRepositoryCommandInput,
+    DescribeCodeRepositoryCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

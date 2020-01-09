@@ -1,20 +1,20 @@
 import {
   ComprehendClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ComprehendClient";
 import {
   ListDocumentClassificationJobsRequest,
-  ListDocumentClassificationJobsResponse,
+  ListDocumentClassificationJobsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListDocumentClassificationJobsCommand,
-  serializeAws_json1_1ListDocumentClassificationJobsCommand,
+  serializeAws_json1_1ListDocumentClassificationJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListDocumentClassificationJobsCommandInput = ListDocumentClassificationJobsRequest;
 export type ListDocumentClassificationJobsCommandOutput = ListDocumentClassificationJobsResponse;
 
-export class ListDocumentClassificationJobsCommand extends $Command<ListDocumentClassificationJobsCommandInput, ListDocumentClassificationJobsCommandOutput, ComprehendClientResolvedConfig> {
+export class ListDocumentClassificationJobsCommand extends $Command<
+  ListDocumentClassificationJobsCommandInput,
+  ListDocumentClassificationJobsCommandOutput,
+  ComprehendClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListDocumentClassificationJobsCommand extends $Command<ListDocument
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ComprehendClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDocumentClassificationJobsCommandInput, ListDocumentClassificationJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListDocumentClassificationJobsCommandInput,
+    ListDocumentClassificationJobsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListDocumentClassificationJobsCommand extends $Command<ListDocument
     input: ListDocumentClassificationJobsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListDocumentClassificationJobsCommand(input, context);
+    return serializeAws_json1_1ListDocumentClassificationJobsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListDocumentClassificationJobsCommandOutput> {
-    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(output, context);
+    return deserializeAws_json1_1ListDocumentClassificationJobsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -181,7 +181,9 @@ export namespace AddTagsToResourceResult {
  *    already registered with a different patch baseline.</p>
  *
  */
-export interface AlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface AlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -198,7 +200,9 @@ export namespace AlreadyExistsException {
  *          <p>You must disassociate a document from all instances before you can delete it.</p>
  *
  */
-export interface AssociatedInstances extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociatedInstances
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociatedInstances";
   $fault: "client";
 }
@@ -305,7 +309,9 @@ export namespace Association {
  *          <p>The specified association already exists.</p>
  *
  */
-export interface AssociationAlreadyExists extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociationAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociationAlreadyExists";
   $fault: "client";
 }
@@ -321,7 +327,7 @@ export enum AssociationComplianceSeverity {
   High = "HIGH",
   Low = "LOW",
   Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
+  Unspecified = "UNSPECIFIED"
 }
 
 /**
@@ -500,7 +506,9 @@ export namespace AssociationDescription {
  *          <p>The specified association does not exist.</p>
  *
  */
-export interface AssociationDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociationDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociationDoesNotExist";
   $fault: "client";
   Message?: string;
@@ -587,7 +595,9 @@ export namespace AssociationExecution {
  *          <p>The specified execution ID does not exist. Verify the ID number and try again.</p>
  *
  */
-export interface AssociationExecutionDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociationExecutionDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociationExecutionDoesNotExist";
   $fault: "client";
   Message?: string;
@@ -637,7 +647,7 @@ export namespace AssociationExecutionFilter {
 export enum AssociationExecutionFilterKey {
   CreatedTime = "CreatedTime",
   ExecutionId = "ExecutionId",
-  Status = "Status",
+  Status = "Status"
 }
 
 /**
@@ -748,7 +758,7 @@ export namespace AssociationExecutionTargetsFilter {
 export enum AssociationExecutionTargetsFilterKey {
   ResourceId = "ResourceId",
   ResourceType = "ResourceType",
-  Status = "Status",
+  Status = "Status"
 }
 
 /**
@@ -786,13 +796,13 @@ export enum AssociationFilterKey {
   LastExecutedAfter = "LastExecutedAfter",
   LastExecutedBefore = "LastExecutedBefore",
   Name = "Name",
-  Status = "AssociationStatusName",
+  Status = "AssociationStatusName"
 }
 
 export enum AssociationFilterOperatorType {
   Equal = "EQUAL",
   GreaterThan = "GREATER_THAN",
-  LessThan = "LESS_THAN",
+  LessThan = "LESS_THAN"
 }
 
 /**
@@ -800,7 +810,9 @@ export enum AssociationFilterOperatorType {
  *          <p>You can have at most 2,000 active associations.</p>
  *
  */
-export interface AssociationLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociationLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociationLimitExceeded";
   $fault: "client";
 }
@@ -893,7 +905,7 @@ export namespace AssociationStatus {
 export enum AssociationStatusName {
   Failed = "Failed",
   Pending = "Pending",
-  Success = "Success",
+  Success = "Success"
 }
 
 /**
@@ -1026,7 +1038,9 @@ export namespace AssociationVersionInfo {
  *    has a limit of 1,000 versions. </p>
  *
  */
-export interface AssociationVersionLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface AssociationVersionLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AssociationVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -1088,7 +1102,7 @@ export namespace AttachmentContent {
 }
 
 export enum AttachmentHashType {
-  SHA256 = "Sha256",
+  SHA256 = "Sha256"
 }
 
 /**
@@ -1153,7 +1167,7 @@ export namespace AttachmentsSource {
 
 export enum AttachmentsSourceKey {
   S3FileUrl = "S3FileUrl",
-  SourceUrl = "SourceUrl",
+  SourceUrl = "SourceUrl"
 }
 
 /**
@@ -1161,7 +1175,9 @@ export enum AttachmentsSourceKey {
  *          <p>An Automation document with the specified name could not be found.</p>
  *
  */
-export interface AutomationDefinitionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface AutomationDefinitionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AutomationDefinitionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1178,14 +1194,18 @@ export namespace AutomationDefinitionNotFoundException {
  *          <p>An Automation document with the specified name and version could not be found.</p>
  *
  */
-export interface AutomationDefinitionVersionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface AutomationDefinitionVersionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AutomationDefinitionVersionNotFoundException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace AutomationDefinitionVersionNotFoundException {
-  export function isa(o: any): o is AutomationDefinitionVersionNotFoundException {
+  export function isa(
+    o: any
+  ): o is AutomationDefinitionVersionNotFoundException {
     return _smithy.isa(o, "AutomationDefinitionVersionNotFoundException");
   }
 }
@@ -1424,7 +1444,7 @@ export enum AutomationExecutionFilterKey {
   EXECUTION_STATUS = "ExecutionStatus",
   PARENT_EXECUTION_ID = "ParentExecutionId",
   START_TIME_AFTER = "StartTimeAfter",
-  START_TIME_BEFORE = "StartTimeBefore",
+  START_TIME_BEFORE = "StartTimeBefore"
 }
 
 /**
@@ -1433,7 +1453,9 @@ export enum AutomationExecutionFilterKey {
  *    limit.</p>
  *
  */
-export interface AutomationExecutionLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface AutomationExecutionLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AutomationExecutionLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -1625,7 +1647,9 @@ export namespace AutomationExecutionMetadata {
  *    ID.</p>
  *
  */
-export interface AutomationExecutionNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface AutomationExecutionNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AutomationExecutionNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1645,7 +1669,7 @@ export enum AutomationExecutionStatus {
   PENDING = "Pending",
   SUCCESS = "Success",
   TIMEDOUT = "TimedOut",
-  WAITING = "Waiting",
+  WAITING = "Waiting"
 }
 
 /**
@@ -1654,7 +1678,9 @@ export enum AutomationExecutionStatus {
  *    again.</p>
  *
  */
-export interface AutomationStepNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface AutomationStepNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AutomationStepNotFoundException";
   $fault: "client";
   Message?: string;
@@ -1668,7 +1694,7 @@ export namespace AutomationStepNotFoundException {
 
 export enum AutomationType {
   CrossAccount = "CrossAccount",
-  Local = "Local",
+  Local = "Local"
 }
 
 /**
@@ -1734,7 +1760,8 @@ export namespace CancelMaintenanceWindowExecutionRequest {
   }
 }
 
-export interface CancelMaintenanceWindowExecutionResult extends $MetadataBearer {
+export interface CancelMaintenanceWindowExecutionResult
+  extends $MetadataBearer {
   __type?: "CancelMaintenanceWindowExecutionResult";
   /**
    *
@@ -2126,7 +2153,7 @@ export enum CommandFilterKey {
   EXECUTION_STAGE = "ExecutionStage",
   INVOKED_AFTER = "InvokedAfter",
   INVOKED_BEFORE = "InvokedBefore",
-  STATUS = "Status",
+  STATUS = "Status"
 }
 
 /**
@@ -2317,7 +2344,7 @@ export enum CommandInvocationStatus {
   IN_PROGRESS = "InProgress",
   PENDING = "Pending",
   SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
+  TIMED_OUT = "TimedOut"
 }
 
 /**
@@ -2492,7 +2519,7 @@ export enum CommandPluginStatus {
   IN_PROGRESS = "InProgress",
   PENDING = "Pending",
   SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
+  TIMED_OUT = "TimedOut"
 }
 
 export enum CommandStatus {
@@ -2502,7 +2529,7 @@ export enum CommandStatus {
   IN_PROGRESS = "InProgress",
   PENDING = "Pending",
   SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
+  TIMED_OUT = "TimedOut"
 }
 
 /**
@@ -2688,7 +2715,7 @@ export enum ComplianceQueryOperatorType {
   Equal = "EQUAL",
   GreaterThan = "GREATER_THAN",
   LessThan = "LESS_THAN",
-  NotEqual = "NOT_EQUAL",
+  NotEqual = "NOT_EQUAL"
 }
 
 export enum ComplianceSeverity {
@@ -2697,12 +2724,12 @@ export enum ComplianceSeverity {
   Informational = "INFORMATIONAL",
   Low = "LOW",
   Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
+  Unspecified = "UNSPECIFIED"
 }
 
 export enum ComplianceStatus {
   Compliant = "COMPLIANT",
-  NonCompliant = "NON_COMPLIANT",
+  NonCompliant = "NON_COMPLIANT"
 }
 
 /**
@@ -2783,7 +2810,9 @@ export namespace ComplianceSummaryItem {
  *    types. </p>
  *
  */
-export interface ComplianceTypeCountLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ComplianceTypeCountLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ComplianceTypeCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -2826,7 +2855,7 @@ export namespace CompliantSummary {
 
 export enum ConnectionStatus {
   CONNECTED = "Connected",
-  NOT_CONNECTED = "NotConnected",
+  NOT_CONNECTED = "NotConnected"
 }
 
 export interface CreateActivationRequest {
@@ -3912,7 +3941,9 @@ export namespace CreateResourceDataSyncResult {
  *    again.</p>
  *
  */
-export interface CustomSchemaCountLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface CustomSchemaCountLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "CustomSchemaCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -4327,12 +4358,15 @@ export interface DeregisterPatchBaselineForPatchGroupRequest {
 }
 
 export namespace DeregisterPatchBaselineForPatchGroupRequest {
-  export function isa(o: any): o is DeregisterPatchBaselineForPatchGroupRequest {
+  export function isa(
+    o: any
+  ): o is DeregisterPatchBaselineForPatchGroupRequest {
     return _smithy.isa(o, "DeregisterPatchBaselineForPatchGroupRequest");
   }
 }
 
-export interface DeregisterPatchBaselineForPatchGroupResult extends $MetadataBearer {
+export interface DeregisterPatchBaselineForPatchGroupResult
+  extends $MetadataBearer {
   __type?: "DeregisterPatchBaselineForPatchGroupResult";
   /**
    *
@@ -4382,12 +4416,15 @@ export interface DeregisterTargetFromMaintenanceWindowRequest {
 }
 
 export namespace DeregisterTargetFromMaintenanceWindowRequest {
-  export function isa(o: any): o is DeregisterTargetFromMaintenanceWindowRequest {
+  export function isa(
+    o: any
+  ): o is DeregisterTargetFromMaintenanceWindowRequest {
     return _smithy.isa(o, "DeregisterTargetFromMaintenanceWindowRequest");
   }
 }
 
-export interface DeregisterTargetFromMaintenanceWindowResult extends $MetadataBearer {
+export interface DeregisterTargetFromMaintenanceWindowResult
+  extends $MetadataBearer {
   __type?: "DeregisterTargetFromMaintenanceWindowResult";
   /**
    *
@@ -4405,7 +4442,9 @@ export interface DeregisterTargetFromMaintenanceWindowResult extends $MetadataBe
 }
 
 export namespace DeregisterTargetFromMaintenanceWindowResult {
-  export function isa(o: any): o is DeregisterTargetFromMaintenanceWindowResult {
+  export function isa(
+    o: any
+  ): o is DeregisterTargetFromMaintenanceWindowResult {
     return _smithy.isa(o, "DeregisterTargetFromMaintenanceWindowResult");
   }
 }
@@ -4433,7 +4472,8 @@ export namespace DeregisterTaskFromMaintenanceWindowRequest {
   }
 }
 
-export interface DeregisterTaskFromMaintenanceWindowResult extends $MetadataBearer {
+export interface DeregisterTaskFromMaintenanceWindowResult
+  extends $MetadataBearer {
   __type?: "DeregisterTaskFromMaintenanceWindowResult";
   /**
    *
@@ -4487,7 +4527,7 @@ export namespace DescribeActivationsFilter {
 export enum DescribeActivationsFilterKeys {
   ACTIVATION_IDS = "ActivationIds",
   DEFAULT_INSTANCE_NAME = "DefaultInstanceName",
-  IAM_ROLE = "IamRole",
+  IAM_ROLE = "IamRole"
 }
 
 export interface DescribeActivationsRequest {
@@ -4593,7 +4633,8 @@ export namespace DescribeAssociationExecutionTargetsRequest {
   }
 }
 
-export interface DescribeAssociationExecutionTargetsResult extends $MetadataBearer {
+export interface DescribeAssociationExecutionTargetsResult
+  extends $MetadataBearer {
   __type?: "DescribeAssociationExecutionTargetsResult";
   /**
    *
@@ -4842,7 +4883,8 @@ export namespace DescribeAutomationStepExecutionsRequest {
   }
 }
 
-export interface DescribeAutomationStepExecutionsResult extends $MetadataBearer {
+export interface DescribeAutomationStepExecutionsResult
+  extends $MetadataBearer {
   __type?: "DescribeAutomationStepExecutionsResult";
   /**
    *
@@ -5045,12 +5087,15 @@ export interface DescribeEffectiveInstanceAssociationsRequest {
 }
 
 export namespace DescribeEffectiveInstanceAssociationsRequest {
-  export function isa(o: any): o is DescribeEffectiveInstanceAssociationsRequest {
+  export function isa(
+    o: any
+  ): o is DescribeEffectiveInstanceAssociationsRequest {
     return _smithy.isa(o, "DescribeEffectiveInstanceAssociationsRequest");
   }
 }
 
-export interface DescribeEffectiveInstanceAssociationsResult extends $MetadataBearer {
+export interface DescribeEffectiveInstanceAssociationsResult
+  extends $MetadataBearer {
   __type?: "DescribeEffectiveInstanceAssociationsResult";
   /**
    *
@@ -5069,7 +5114,9 @@ export interface DescribeEffectiveInstanceAssociationsResult extends $MetadataBe
 }
 
 export namespace DescribeEffectiveInstanceAssociationsResult {
-  export function isa(o: any): o is DescribeEffectiveInstanceAssociationsResult {
+  export function isa(
+    o: any
+  ): o is DescribeEffectiveInstanceAssociationsResult {
     return _smithy.isa(o, "DescribeEffectiveInstanceAssociationsResult");
   }
 }
@@ -5100,12 +5147,15 @@ export interface DescribeEffectivePatchesForPatchBaselineRequest {
 }
 
 export namespace DescribeEffectivePatchesForPatchBaselineRequest {
-  export function isa(o: any): o is DescribeEffectivePatchesForPatchBaselineRequest {
+  export function isa(
+    o: any
+  ): o is DescribeEffectivePatchesForPatchBaselineRequest {
     return _smithy.isa(o, "DescribeEffectivePatchesForPatchBaselineRequest");
   }
 }
 
-export interface DescribeEffectivePatchesForPatchBaselineResult extends $MetadataBearer {
+export interface DescribeEffectivePatchesForPatchBaselineResult
+  extends $MetadataBearer {
   __type?: "DescribeEffectivePatchesForPatchBaselineResult";
   /**
    *
@@ -5124,7 +5174,9 @@ export interface DescribeEffectivePatchesForPatchBaselineResult extends $Metadat
 }
 
 export namespace DescribeEffectivePatchesForPatchBaselineResult {
-  export function isa(o: any): o is DescribeEffectivePatchesForPatchBaselineResult {
+  export function isa(
+    o: any
+  ): o is DescribeEffectivePatchesForPatchBaselineResult {
     return _smithy.isa(o, "DescribeEffectivePatchesForPatchBaselineResult");
   }
 }
@@ -5161,7 +5213,8 @@ export namespace DescribeInstanceAssociationsStatusRequest {
   }
 }
 
-export interface DescribeInstanceAssociationsStatusResult extends $MetadataBearer {
+export interface DescribeInstanceAssociationsStatusResult
+  extends $MetadataBearer {
   __type?: "DescribeInstanceAssociationsStatusResult";
   /**
    *
@@ -5292,12 +5345,15 @@ export interface DescribeInstancePatchStatesForPatchGroupRequest {
 }
 
 export namespace DescribeInstancePatchStatesForPatchGroupRequest {
-  export function isa(o: any): o is DescribeInstancePatchStatesForPatchGroupRequest {
+  export function isa(
+    o: any
+  ): o is DescribeInstancePatchStatesForPatchGroupRequest {
     return _smithy.isa(o, "DescribeInstancePatchStatesForPatchGroupRequest");
   }
 }
 
-export interface DescribeInstancePatchStatesForPatchGroupResult extends $MetadataBearer {
+export interface DescribeInstancePatchStatesForPatchGroupResult
+  extends $MetadataBearer {
   __type?: "DescribeInstancePatchStatesForPatchGroupResult";
   /**
    *
@@ -5316,7 +5372,9 @@ export interface DescribeInstancePatchStatesForPatchGroupResult extends $Metadat
 }
 
 export namespace DescribeInstancePatchStatesForPatchGroupResult {
-  export function isa(o: any): o is DescribeInstancePatchStatesForPatchGroupResult {
+  export function isa(
+    o: any
+  ): o is DescribeInstancePatchStatesForPatchGroupResult {
     return _smithy.isa(o, "DescribeInstancePatchStatesForPatchGroupResult");
   }
 }
@@ -5546,12 +5604,18 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
-  export function isa(o: any): o is DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
-    return _smithy.isa(o, "DescribeMaintenanceWindowExecutionTaskInvocationsRequest");
+  export function isa(
+    o: any
+  ): o is DescribeMaintenanceWindowExecutionTaskInvocationsRequest {
+    return _smithy.isa(
+      o,
+      "DescribeMaintenanceWindowExecutionTaskInvocationsRequest"
+    );
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowExecutionTaskInvocationsResult";
   /**
    *
@@ -5566,12 +5630,19 @@ export interface DescribeMaintenanceWindowExecutionTaskInvocationsResult extends
    *          <p>Information about the task invocation results per invocation.</p>
    *
    */
-  WindowExecutionTaskInvocationIdentities?: Array<MaintenanceWindowExecutionTaskInvocationIdentity>;
+  WindowExecutionTaskInvocationIdentities?: Array<
+    MaintenanceWindowExecutionTaskInvocationIdentity
+  >;
 }
 
 export namespace DescribeMaintenanceWindowExecutionTaskInvocationsResult {
-  export function isa(o: any): o is DescribeMaintenanceWindowExecutionTaskInvocationsResult {
-    return _smithy.isa(o, "DescribeMaintenanceWindowExecutionTaskInvocationsResult");
+  export function isa(
+    o: any
+  ): o is DescribeMaintenanceWindowExecutionTaskInvocationsResult {
+    return _smithy.isa(
+      o,
+      "DescribeMaintenanceWindowExecutionTaskInvocationsResult"
+    );
   }
 }
 
@@ -5611,12 +5682,15 @@ export interface DescribeMaintenanceWindowExecutionTasksRequest {
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksRequest {
-  export function isa(o: any): o is DescribeMaintenanceWindowExecutionTasksRequest {
+  export function isa(
+    o: any
+  ): o is DescribeMaintenanceWindowExecutionTasksRequest {
     return _smithy.isa(o, "DescribeMaintenanceWindowExecutionTasksRequest");
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionTasksResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionTasksResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowExecutionTasksResult";
   /**
    *
@@ -5635,7 +5709,9 @@ export interface DescribeMaintenanceWindowExecutionTasksResult extends $Metadata
 }
 
 export namespace DescribeMaintenanceWindowExecutionTasksResult {
-  export function isa(o: any): o is DescribeMaintenanceWindowExecutionTasksResult {
+  export function isa(
+    o: any
+  ): o is DescribeMaintenanceWindowExecutionTasksResult {
     return _smithy.isa(o, "DescribeMaintenanceWindowExecutionTasksResult");
   }
 }
@@ -5683,7 +5759,8 @@ export namespace DescribeMaintenanceWindowExecutionsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowExecutionsResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowExecutionsResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowExecutionsResult";
   /**
    *
@@ -5761,7 +5838,8 @@ export namespace DescribeMaintenanceWindowScheduleRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowScheduleResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowScheduleResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowScheduleResult";
   /**
    *
@@ -5825,7 +5903,8 @@ export namespace DescribeMaintenanceWindowTargetsRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowTargetsResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowTargetsResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowTargetsResult";
   /**
    *
@@ -5952,7 +6031,8 @@ export namespace DescribeMaintenanceWindowsForTargetRequest {
   }
 }
 
-export interface DescribeMaintenanceWindowsForTargetResult extends $MetadataBearer {
+export interface DescribeMaintenanceWindowsForTargetResult
+  extends $MetadataBearer {
   __type?: "DescribeMaintenanceWindowsForTargetResult";
   /**
    *
@@ -6558,7 +6638,9 @@ export namespace DescribeSessionsResponse {
  *          <p>The specified document already exists.</p>
  *
  */
-export interface DocumentAlreadyExists extends _smithy.SmithyException, $MetadataBearer {
+export interface DocumentAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DocumentAlreadyExists";
   $fault: "client";
   Message?: string;
@@ -6819,17 +6901,17 @@ export enum DocumentFilterKey {
   DocumentType = "DocumentType",
   Name = "Name",
   Owner = "Owner",
-  PlatformTypes = "PlatformTypes",
+  PlatformTypes = "PlatformTypes"
 }
 
 export enum DocumentFormat {
   JSON = "JSON",
-  YAML = "YAML",
+  YAML = "YAML"
 }
 
 export enum DocumentHashType {
   SHA1 = "Sha1",
-  SHA256 = "Sha256",
+  SHA256 = "Sha256"
 }
 
 /**
@@ -6984,7 +7066,9 @@ export namespace DocumentKeyValuesFilter {
  *          <p>You can have at most 500 active Systems Manager documents.</p>
  *
  */
-export interface DocumentLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface DocumentLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DocumentLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -7041,7 +7125,7 @@ export namespace DocumentParameter {
   }
 }
 
-export type DocumentParameterType = "String" | "StringList"
+export type DocumentParameterType = "String" | "StringList";
 
 /**
  *
@@ -7050,7 +7134,9 @@ export type DocumentParameterType = "String" | "StringList"
  *    limit, contact AWS Support.</p>
  *
  */
-export interface DocumentPermissionLimit extends _smithy.SmithyException, $MetadataBearer {
+export interface DocumentPermissionLimit
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DocumentPermissionLimit";
   $fault: "client";
   Message?: string;
@@ -7063,7 +7149,7 @@ export namespace DocumentPermissionLimit {
 }
 
 export enum DocumentPermissionType {
-  SHARE = "Share",
+  SHARE = "Share"
 }
 
 /**
@@ -7099,7 +7185,7 @@ export enum DocumentStatus {
   Creating = "Creating",
   Deleting = "Deleting",
   Failed = "Failed",
-  Updating = "Updating",
+  Updating = "Updating"
 }
 
 export enum DocumentType {
@@ -7110,7 +7196,7 @@ export enum DocumentType {
   DeploymentStrategy = "DeploymentStrategy",
   Package = "Package",
   Policy = "Policy",
-  Session = "Session",
+  Session = "Session"
 }
 
 /**
@@ -7193,7 +7279,9 @@ export namespace DocumentVersionInfo {
  *    again.</p>
  *
  */
-export interface DocumentVersionLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface DocumentVersionLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DocumentVersionLimitExceeded";
   $fault: "client";
   Message?: string;
@@ -7212,7 +7300,9 @@ export namespace DocumentVersionLimitExceeded {
  *          <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
  *
  */
-export interface DoesNotExistException extends _smithy.SmithyException, $MetadataBearer {
+export interface DoesNotExistException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DoesNotExistException";
   $fault: "client";
   Message?: string;
@@ -7230,7 +7320,9 @@ export namespace DoesNotExistException {
  *    document and try again.</p>
  *
  */
-export interface DuplicateDocumentContent extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateDocumentContent
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateDocumentContent";
   $fault: "client";
   Message?: string;
@@ -7248,7 +7340,9 @@ export namespace DuplicateDocumentContent {
  *    and then try again.</p>
  *
  */
-export interface DuplicateDocumentVersionName extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateDocumentVersionName
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateDocumentVersionName";
   $fault: "client";
   Message?: string;
@@ -7265,7 +7359,9 @@ export namespace DuplicateDocumentVersionName {
  *          <p>You cannot specify an instance ID in more than one association.</p>
  *
  */
-export interface DuplicateInstanceId extends _smithy.SmithyException, $MetadataBearer {
+export interface DuplicateInstanceId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "DuplicateInstanceId";
   $fault: "client";
 }
@@ -7312,7 +7408,7 @@ export namespace EffectivePatch {
 
 export enum ExecutionMode {
   Auto = "Auto",
-  Interactive = "Interactive",
+  Interactive = "Interactive"
 }
 
 /**
@@ -7387,7 +7483,7 @@ export namespace FailureDetails {
   }
 }
 
-export type Fault = "Client" | "Server" | "Unknown"
+export type Fault = "Client" | "Server" | "Unknown";
 
 /**
  *
@@ -7395,7 +7491,9 @@ export type Fault = "Client" | "Server" | "Unknown"
  *    corresponding service is not available. </p>
  *
  */
-export interface FeatureNotAvailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface FeatureNotAvailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "FeatureNotAvailableException";
   $fault: "client";
   Message?: string;
@@ -7773,12 +7871,15 @@ export interface GetDeployablePatchSnapshotForInstanceRequest {
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceRequest {
-  export function isa(o: any): o is GetDeployablePatchSnapshotForInstanceRequest {
+  export function isa(
+    o: any
+  ): o is GetDeployablePatchSnapshotForInstanceRequest {
     return _smithy.isa(o, "GetDeployablePatchSnapshotForInstanceRequest");
   }
 }
 
-export interface GetDeployablePatchSnapshotForInstanceResult extends $MetadataBearer {
+export interface GetDeployablePatchSnapshotForInstanceResult
+  extends $MetadataBearer {
   __type?: "GetDeployablePatchSnapshotForInstanceResult";
   /**
    *
@@ -7811,7 +7912,9 @@ export interface GetDeployablePatchSnapshotForInstanceResult extends $MetadataBe
 }
 
 export namespace GetDeployablePatchSnapshotForInstanceResult {
-  export function isa(o: any): o is GetDeployablePatchSnapshotForInstanceResult {
+  export function isa(
+    o: any
+  ): o is GetDeployablePatchSnapshotForInstanceResult {
     return _smithy.isa(o, "GetDeployablePatchSnapshotForInstanceResult");
   }
 }
@@ -8179,12 +8282,15 @@ export interface GetMaintenanceWindowExecutionTaskInvocationRequest {
 }
 
 export namespace GetMaintenanceWindowExecutionTaskInvocationRequest {
-  export function isa(o: any): o is GetMaintenanceWindowExecutionTaskInvocationRequest {
+  export function isa(
+    o: any
+  ): o is GetMaintenanceWindowExecutionTaskInvocationRequest {
     return _smithy.isa(o, "GetMaintenanceWindowExecutionTaskInvocationRequest");
   }
 }
 
-export interface GetMaintenanceWindowExecutionTaskInvocationResult extends $MetadataBearer {
+export interface GetMaintenanceWindowExecutionTaskInvocationResult
+  extends $MetadataBearer {
   __type?: "GetMaintenanceWindowExecutionTaskInvocationResult";
   /**
    *
@@ -8275,7 +8381,9 @@ export interface GetMaintenanceWindowExecutionTaskInvocationResult extends $Meta
 }
 
 export namespace GetMaintenanceWindowExecutionTaskInvocationResult {
-  export function isa(o: any): o is GetMaintenanceWindowExecutionTaskInvocationResult {
+  export function isa(
+    o: any
+  ): o is GetMaintenanceWindowExecutionTaskInvocationResult {
     return _smithy.isa(o, "GetMaintenanceWindowExecutionTaskInvocationResult");
   }
 }
@@ -8304,7 +8412,8 @@ export namespace GetMaintenanceWindowExecutionTaskRequest {
   }
 }
 
-export interface GetMaintenanceWindowExecutionTaskResult extends $MetadataBearer {
+export interface GetMaintenanceWindowExecutionTaskResult
+  extends $MetadataBearer {
   __type?: "GetMaintenanceWindowExecutionTaskResult";
   /**
    *
@@ -8393,7 +8502,9 @@ export interface GetMaintenanceWindowExecutionTaskResult extends $MetadataBearer
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    *
    */
-  TaskParameters?: Array<{ [key: string]: MaintenanceWindowTaskParameterValueExpression }>;
+  TaskParameters?: Array<{
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  }>;
 
   /**
    *
@@ -8665,7 +8776,9 @@ export interface GetMaintenanceWindowTaskResult extends $MetadataBearer {
    *          </note>
    *
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: {
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  };
 
   /**
    *
@@ -9277,7 +9390,9 @@ export namespace GetServiceSettingResult {
  *     Parameter Names</a> in the <i>AWS Systems Manager User Guide</i>. </p>
  *
  */
-export interface HierarchyLevelLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface HierarchyLevelLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HierarchyLevelLimitExceededException";
   $fault: "client";
   /**
@@ -9302,7 +9417,9 @@ export namespace HierarchyLevelLimitExceededException {
  *    parameter.</p>
  *
  */
-export interface HierarchyTypeMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface HierarchyTypeMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HierarchyTypeMismatchException";
   $fault: "client";
   /**
@@ -9327,7 +9444,9 @@ export namespace HierarchyTypeMismatchException {
  *    original call to the API with the same idempotency token. </p>
  *
  */
-export interface IdempotentParameterMismatch extends _smithy.SmithyException, $MetadataBearer {
+export interface IdempotentParameterMismatch
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IdempotentParameterMismatch";
   $fault: "client";
   Message?: string;
@@ -9345,7 +9464,9 @@ export namespace IdempotentParameterMismatch {
  *    specify two Expiration policies for a parameter. Review your policies, and try again.</p>
  *
  */
-export interface IncompatiblePolicyException extends _smithy.SmithyException, $MetadataBearer {
+export interface IncompatiblePolicyException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IncompatiblePolicyException";
   $fault: "client";
   message?: string;
@@ -9760,7 +9881,7 @@ export enum InstanceInformationFilterKey {
   INSTANCE_IDS = "InstanceIds",
   PING_STATUS = "PingStatus",
   PLATFORM_TYPES = "PlatformTypes",
-  RESOURCE_TYPE = "ResourceType",
+  RESOURCE_TYPE = "ResourceType"
 }
 
 /**
@@ -10029,7 +10150,7 @@ export enum InstancePatchStateOperatorType {
   EQUAL = "Equal",
   GREATER_THAN = "GreaterThan",
   LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
+  NOT_EQUAL = "NotEqual"
 }
 
 /**
@@ -10037,7 +10158,9 @@ export enum InstancePatchStateOperatorType {
  *          <p>An error occurred on the server side.</p>
  *
  */
-export interface InternalServerError extends _smithy.SmithyException, $MetadataBearer {
+export interface InternalServerError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InternalServerError";
   $fault: "server";
   Message?: string;
@@ -10055,7 +10178,9 @@ export namespace InternalServerError {
  *    the ActivationCode do not match.</p>
  *
  */
-export interface InvalidActivation extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidActivation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidActivation";
   $fault: "client";
   Message?: string;
@@ -10073,7 +10198,9 @@ export namespace InvalidActivation {
  *    ActivationCode and try again.</p>
  *
  */
-export interface InvalidActivationId extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidActivationId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidActivationId";
   $fault: "client";
   Message?: string;
@@ -10092,7 +10219,9 @@ export namespace InvalidActivationId {
  *     <code>AWS:InstanceInformation</code>.</p>
  *
  */
-export interface InvalidAggregatorException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAggregatorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAggregatorException";
   $fault: "client";
   Message?: string;
@@ -10110,7 +10239,9 @@ export namespace InvalidAggregatorException {
  *
  *
  */
-export interface InvalidAllowedPatternException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAllowedPatternException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAllowedPatternException";
   $fault: "client";
   /**
@@ -10133,7 +10264,9 @@ export namespace InvalidAllowedPatternException {
  *          <p>The association is not valid or does not exist. </p>
  *
  */
-export interface InvalidAssociation extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAssociation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAssociation";
   $fault: "client";
   Message?: string;
@@ -10152,7 +10285,9 @@ export namespace InvalidAssociation {
  *    view the latest version of the association.</p>
  *
  */
-export interface InvalidAssociationVersion extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAssociationVersion
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAssociationVersion";
   $fault: "client";
   Message?: string;
@@ -10171,14 +10306,18 @@ export namespace InvalidAssociationVersion {
  *    document.</p>
  *
  */
-export interface InvalidAutomationExecutionParametersException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAutomationExecutionParametersException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAutomationExecutionParametersException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace InvalidAutomationExecutionParametersException {
-  export function isa(o: any): o is InvalidAutomationExecutionParametersException {
+  export function isa(
+    o: any
+  ): o is InvalidAutomationExecutionParametersException {
     return _smithy.isa(o, "InvalidAutomationExecutionParametersException");
   }
 }
@@ -10188,7 +10327,9 @@ export namespace InvalidAutomationExecutionParametersException {
  *          <p>The signal is not valid for the current Automation execution.</p>
  *
  */
-export interface InvalidAutomationSignalException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAutomationSignalException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAutomationSignalException";
   $fault: "client";
   Message?: string;
@@ -10205,7 +10346,9 @@ export namespace InvalidAutomationSignalException {
  *          <p>The specified update status operation is not valid.</p>
  *
  */
-export interface InvalidAutomationStatusUpdateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAutomationStatusUpdateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAutomationStatusUpdateException";
   $fault: "client";
   Message?: string;
@@ -10217,7 +10360,9 @@ export namespace InvalidAutomationStatusUpdateException {
   }
 }
 
-export interface InvalidCommandId extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidCommandId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidCommandId";
   $fault: "client";
 }
@@ -10234,7 +10379,9 @@ export namespace InvalidCommandId {
  *    parameters and try again.</p>
  *
  */
-export interface InvalidDeleteInventoryParametersException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDeleteInventoryParametersException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDeleteInventoryParametersException";
   $fault: "client";
   Message?: string;
@@ -10252,7 +10399,9 @@ export namespace InvalidDeleteInventoryParametersException {
  *    try again.</p>
  *
  */
-export interface InvalidDeletionIdException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDeletionIdException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDeletionIdException";
   $fault: "client";
   Message?: string;
@@ -10269,7 +10418,9 @@ export namespace InvalidDeletionIdException {
  *          <p>The specified document does not exist.</p>
  *
  */
-export interface InvalidDocument extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDocument
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDocument";
   $fault: "client";
   /**
@@ -10294,7 +10445,9 @@ export namespace InvalidDocument {
  *          <p>The content for the document is not valid.</p>
  *
  */
-export interface InvalidDocumentContent extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDocumentContent
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDocumentContent";
   $fault: "client";
   /**
@@ -10317,7 +10470,9 @@ export namespace InvalidDocumentContent {
  *    document before you can delete it.</p>
  *
  */
-export interface InvalidDocumentOperation extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDocumentOperation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDocumentOperation";
   $fault: "client";
   Message?: string;
@@ -10334,7 +10489,9 @@ export namespace InvalidDocumentOperation {
  *          <p>The version of the document schema is not supported.</p>
  *
  */
-export interface InvalidDocumentSchemaVersion extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDocumentSchemaVersion
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDocumentSchemaVersion";
   $fault: "client";
   Message?: string;
@@ -10351,7 +10508,9 @@ export namespace InvalidDocumentSchemaVersion {
  *          <p>The document version is not valid or does not exist.</p>
  *
  */
-export interface InvalidDocumentVersion extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidDocumentVersion
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidDocumentVersion";
   $fault: "client";
   Message?: string;
@@ -10368,7 +10527,9 @@ export namespace InvalidDocumentVersion {
  *          <p>The filter name is not valid. Verify the you entered the correct name and try again.</p>
  *
  */
-export interface InvalidFilter extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidFilter
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidFilter";
   $fault: "client";
   Message?: string;
@@ -10385,7 +10546,9 @@ export namespace InvalidFilter {
  *          <p>The specified key is not valid.</p>
  *
  */
-export interface InvalidFilterKey extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidFilterKey
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidFilterKey";
   $fault: "client";
 }
@@ -10402,7 +10565,9 @@ export namespace InvalidFilterKey {
  *    filter, valid options are Recursive and OneLevel.</p>
  *
  */
-export interface InvalidFilterOption extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidFilterOption
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidFilterOption";
   $fault: "client";
   /**
@@ -10425,7 +10590,9 @@ export namespace InvalidFilterOption {
  *          <p>The filter value is not valid. Verify the value and try again.</p>
  *
  */
-export interface InvalidFilterValue extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidFilterValue
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidFilterValue";
   $fault: "client";
   Message?: string;
@@ -10447,7 +10614,9 @@ export namespace InvalidFilterValue {
  *    Invalid states are: Shutting-down and Terminated.</p>
  *
  */
-export interface InvalidInstanceId extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInstanceId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInstanceId";
   $fault: "client";
   Message?: string;
@@ -10464,7 +10633,9 @@ export namespace InvalidInstanceId {
  *          <p>The specified filter value is not valid.</p>
  *
  */
-export interface InvalidInstanceInformationFilterValue extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInstanceInformationFilterValue
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInstanceInformationFilterValue";
   $fault: "client";
   message?: string;
@@ -10481,7 +10652,9 @@ export namespace InvalidInstanceInformationFilterValue {
  *          <p>The specified inventory group is not valid.</p>
  *
  */
-export interface InvalidInventoryGroupException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInventoryGroupException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInventoryGroupException";
   $fault: "client";
   Message?: string;
@@ -10499,7 +10672,9 @@ export namespace InvalidInventoryGroupException {
  *     <code>InventoryItem</code>. Verify the keys and values, and try again.</p>
  *
  */
-export interface InvalidInventoryItemContextException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInventoryItemContextException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInventoryItemContextException";
   $fault: "client";
   Message?: string;
@@ -10516,7 +10691,9 @@ export namespace InvalidInventoryItemContextException {
  *          <p>The request is not valid.</p>
  *
  */
-export interface InvalidInventoryRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidInventoryRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidInventoryRequestException";
   $fault: "client";
   Message?: string;
@@ -10533,7 +10710,9 @@ export namespace InvalidInventoryRequestException {
  *          <p>One or more content items is not valid.</p>
  *
  */
-export interface InvalidItemContentException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidItemContentException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidItemContentException";
   $fault: "client";
   Message?: string;
@@ -10568,7 +10747,9 @@ export namespace InvalidKeyId {
  *          <p>The specified token is not valid.</p>
  *
  */
-export interface InvalidNextToken extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextToken
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextToken";
   $fault: "client";
   Message?: string;
@@ -10586,7 +10767,9 @@ export namespace InvalidNextToken {
  *    was provided for an Amazon SNS topic.</p>
  *
  */
-export interface InvalidNotificationConfig extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNotificationConfig
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNotificationConfig";
   $fault: "client";
   Message?: string;
@@ -10603,7 +10786,9 @@ export namespace InvalidNotificationConfig {
  *          <p>The delete inventory option specified is not valid. Verify the option and try again.</p>
  *
  */
-export interface InvalidOptionException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOptionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOptionException";
   $fault: "client";
   Message?: string;
@@ -10620,7 +10805,9 @@ export namespace InvalidOptionException {
  *          <p>The S3 bucket does not exist.</p>
  *
  */
-export interface InvalidOutputFolder extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOutputFolder
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOutputFolder";
   $fault: "client";
 }
@@ -10636,7 +10823,9 @@ export namespace InvalidOutputFolder {
  *          <p>The output location is not valid or does not exist.</p>
  *
  */
-export interface InvalidOutputLocation extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidOutputLocation
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidOutputLocation";
   $fault: "client";
 }
@@ -10653,7 +10842,9 @@ export namespace InvalidOutputLocation {
  *    supply values to parameters defined in the Systems Manager document.</p>
  *
  */
-export interface InvalidParameters extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameters
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameters";
   $fault: "client";
   Message?: string;
@@ -10671,7 +10862,9 @@ export namespace InvalidParameters {
  *    permission type.</p>
  *
  */
-export interface InvalidPermissionType extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPermissionType
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPermissionType";
   $fault: "client";
   Message?: string;
@@ -10688,7 +10881,9 @@ export namespace InvalidPermissionType {
  *          <p>The plugin name is not valid.</p>
  *
  */
-export interface InvalidPluginName extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPluginName
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPluginName";
   $fault: "client";
 }
@@ -10704,7 +10899,9 @@ export namespace InvalidPluginName {
  *          <p>A policy attribute or its value is invalid. </p>
  *
  */
-export interface InvalidPolicyAttributeException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPolicyAttributeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPolicyAttributeException";
   $fault: "client";
   message?: string;
@@ -10722,7 +10919,9 @@ export namespace InvalidPolicyAttributeException {
  *    Expiration, ExpirationNotification, and NoChangeNotification.</p>
  *
  */
-export interface InvalidPolicyTypeException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidPolicyTypeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidPolicyTypeException";
   $fault: "client";
   message?: string;
@@ -10739,7 +10938,9 @@ export namespace InvalidPolicyTypeException {
  *          <p>The resource ID is not valid. Verify that you entered the correct ID and try again.</p>
  *
  */
-export interface InvalidResourceId extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceId
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceId";
   $fault: "client";
 }
@@ -10756,7 +10957,9 @@ export namespace InvalidResourceId {
  *    instance must be a registered, managed instance.</p>
  *
  */
-export interface InvalidResourceType extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResourceType
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResourceType";
   $fault: "client";
 }
@@ -10772,7 +10975,9 @@ export namespace InvalidResourceType {
  *          <p>The specified inventory item result attribute is not valid.</p>
  *
  */
-export interface InvalidResultAttributeException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidResultAttributeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidResultAttributeException";
   $fault: "client";
   Message?: string;
@@ -10809,7 +11014,9 @@ export namespace InvalidRole {
  *          <p>The schedule is invalid. Verify your cron or rate expression and try again.</p>
  *
  */
-export interface InvalidSchedule extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSchedule
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSchedule";
   $fault: "client";
   Message?: string;
@@ -10827,7 +11034,9 @@ export namespace InvalidSchedule {
  *    Manager or you might not have permission to perform the operation.</p>
  *
  */
-export interface InvalidTarget extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTarget
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTarget";
   $fault: "client";
   Message?: string;
@@ -10844,7 +11053,9 @@ export namespace InvalidTarget {
  *          <p>The parameter type name is not valid.</p>
  *
  */
-export interface InvalidTypeNameException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidTypeNameException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidTypeNameException";
   $fault: "client";
   Message?: string;
@@ -10861,7 +11072,9 @@ export namespace InvalidTypeNameException {
  *          <p>The update is not valid.</p>
  *
  */
-export interface InvalidUpdate extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidUpdate
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidUpdate";
   $fault: "client";
   Message?: string;
@@ -10911,12 +11124,12 @@ export namespace InventoryAggregator {
 
 export enum InventoryAttributeDataType {
   NUMBER = "number",
-  STRING = "string",
+  STRING = "string"
 }
 
 export enum InventoryDeletionStatus {
   COMPLETE = "Complete",
-  IN_PROGRESS = "InProgress",
+  IN_PROGRESS = "InProgress"
 }
 
 /**
@@ -11267,7 +11480,7 @@ export enum InventoryQueryOperatorType {
   EXISTS = "Exists",
   GREATER_THAN = "GreaterThan",
   LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
+  NOT_EQUAL = "NotEqual"
 }
 
 /**
@@ -11354,7 +11567,7 @@ export namespace InventoryResultItem {
 
 export enum InventorySchemaDeleteOption {
   DELETE_SCHEMA = "DeleteSchema",
-  DISABLE_SCHEMA = "DisableSchema",
+  DISABLE_SCHEMA = "DisableSchema"
 }
 
 /**
@@ -11363,7 +11576,9 @@ export enum InventorySchemaDeleteOption {
  *    command ID and the instance ID and try again. </p>
  *
  */
-export interface InvocationDoesNotExist extends _smithy.SmithyException, $MetadataBearer {
+export interface InvocationDoesNotExist
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvocationDoesNotExist";
   $fault: "client";
 }
@@ -11379,7 +11594,9 @@ export namespace InvocationDoesNotExist {
  *          <p>The inventory item has invalid content. </p>
  *
  */
-export interface ItemContentMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface ItemContentMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ItemContentMismatchException";
   $fault: "client";
   Message?: string;
@@ -11397,7 +11614,9 @@ export namespace ItemContentMismatchException {
  *          <p>The inventory item size has exceeded the size limit.</p>
  *
  */
-export interface ItemSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ItemSizeLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ItemSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -11469,7 +11688,7 @@ export namespace LabelParameterVersionResult {
 export enum LastResourceDataSyncStatus {
   FAILED = "Failed",
   INPROGRESS = "InProgress",
-  SUCCESSFUL = "Successful",
+  SUCCESSFUL = "Successful"
 }
 
 export interface ListAssociationVersionsRequest {
@@ -12392,7 +12611,7 @@ export enum MaintenanceWindowExecutionStatus {
   Pending = "PENDING",
   SkippedOverlapping = "SKIPPED_OVERLAPPING",
   Success = "SUCCESS",
-  TimedOut = "TIMED_OUT",
+  TimedOut = "TIMED_OUT"
 }
 
 /**
@@ -12565,7 +12784,9 @@ export interface MaintenanceWindowExecutionTaskInvocationIdentity {
 }
 
 export namespace MaintenanceWindowExecutionTaskInvocationIdentity {
-  export function isa(o: any): o is MaintenanceWindowExecutionTaskInvocationIdentity {
+  export function isa(
+    o: any
+  ): o is MaintenanceWindowExecutionTaskInvocationIdentity {
     return _smithy.isa(o, "MaintenanceWindowExecutionTaskInvocationIdentity");
   }
 }
@@ -12791,7 +13012,7 @@ export namespace MaintenanceWindowLambdaParameters {
 
 export enum MaintenanceWindowResourceType {
   Instance = "INSTANCE",
-  ResourceGroup = "RESOURCE_GROUP",
+  ResourceGroup = "RESOURCE_GROUP"
 }
 
 /**
@@ -13130,7 +13351,9 @@ export interface MaintenanceWindowTask {
    *          </note>
    *
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: {
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  };
 
   /**
    *
@@ -13227,7 +13450,9 @@ export interface MaintenanceWindowTaskParameterValueExpression {
 }
 
 export namespace MaintenanceWindowTaskParameterValueExpression {
-  export function isa(o: any): o is MaintenanceWindowTaskParameterValueExpression {
+  export function isa(
+    o: any
+  ): o is MaintenanceWindowTaskParameterValueExpression {
     return _smithy.isa(o, "MaintenanceWindowTaskParameterValueExpression");
   }
 }
@@ -13236,7 +13461,7 @@ export enum MaintenanceWindowTaskType {
   Automation = "AUTOMATION",
   Lambda = "LAMBDA",
   RunCommand = "RUN_COMMAND",
-  StepFunctions = "STEP_FUNCTIONS",
+  StepFunctions = "STEP_FUNCTIONS"
 }
 
 /**
@@ -13244,7 +13469,9 @@ export enum MaintenanceWindowTaskType {
  *          <p>The size limit of a document is 64 KB.</p>
  *
  */
-export interface MaxDocumentSizeExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface MaxDocumentSizeExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "MaxDocumentSizeExceeded";
   $fault: "client";
   Message?: string;
@@ -13395,12 +13622,12 @@ export enum NotificationEvent {
   FAILED = "Failed",
   IN_PROGRESS = "InProgress",
   SUCCESS = "Success",
-  TIMED_OUT = "TimedOut",
+  TIMED_OUT = "TimedOut"
 }
 
 export enum NotificationType {
   Command = "Command",
-  Invocation = "Invocation",
+  Invocation = "Invocation"
 }
 
 export enum OperatingSystem {
@@ -13410,7 +13637,7 @@ export enum OperatingSystem {
   RedhatEnterpriseLinux = "REDHAT_ENTERPRISE_LINUX",
   Suse = "SUSE",
   Ubuntu = "UBUNTU",
-  Windows = "WINDOWS",
+  Windows = "WINDOWS"
 }
 
 /**
@@ -13568,7 +13795,7 @@ export enum OpsFilterOperatorType {
   EXISTS = "Exists",
   GREATER_THAN = "GreaterThan",
   LESS_THAN = "LessThan",
-  NOT_EQUAL = "NotEqual",
+  NOT_EQUAL = "NotEqual"
 }
 
 /**
@@ -13730,7 +13957,9 @@ export namespace OpsItem {
  *          <p>The OpsItem already exists.</p>
  *
  */
-export interface OpsItemAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface OpsItemAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OpsItemAlreadyExistsException";
   $fault: "client";
   Message?: string;
@@ -13745,7 +13974,7 @@ export namespace OpsItemAlreadyExistsException {
 
 export enum OpsItemDataType {
   SEARCHABLE_STRING = "SearchableString",
-  STRING = "String",
+  STRING = "String"
 }
 
 /**
@@ -13827,14 +14056,14 @@ export enum OpsItemFilterKey {
   SEVERITY = "Severity",
   SOURCE = "Source",
   STATUS = "Status",
-  TITLE = "Title",
+  TITLE = "Title"
 }
 
 export enum OpsItemFilterOperator {
   CONTAINS = "Contains",
   EQUAL = "Equal",
   GREATER_THAN = "GreaterThan",
-  LESS_THAN = "LessThan",
+  LESS_THAN = "LessThan"
 }
 
 /**
@@ -13843,7 +14072,9 @@ export enum OpsItemFilterOperator {
  *    again.</p>
  *
  */
-export interface OpsItemInvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface OpsItemInvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OpsItemInvalidParameterException";
   $fault: "client";
   Message?: string;
@@ -13863,7 +14094,9 @@ export namespace OpsItemInvalidParameterException {
  *     are the resource limits for OpsCenter?</a>.</p>
  *
  */
-export interface OpsItemLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface OpsItemLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OpsItemLimitExceededException";
   $fault: "client";
   Limit?: number;
@@ -13883,7 +14116,9 @@ export namespace OpsItemLimitExceededException {
  *          <p>The specified OpsItem ID doesn't exist. Verify the ID and try again.</p>
  *
  */
-export interface OpsItemNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface OpsItemNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OpsItemNotFoundException";
   $fault: "client";
   Message?: string;
@@ -13920,7 +14155,7 @@ export namespace OpsItemNotification {
 export enum OpsItemStatus {
   IN_PROGRESS = "InProgress",
   OPEN = "Open",
-  RESOLVED = "Resolved",
+  RESOLVED = "Resolved"
 }
 
 /**
@@ -14157,7 +14392,9 @@ export namespace Parameter {
  *          <p>The parameter already exists. You can't create duplicate parameters.</p>
  *
  */
-export interface ParameterAlreadyExists extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterAlreadyExists
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterAlreadyExists";
   $fault: "client";
   message?: string;
@@ -14319,7 +14556,9 @@ export namespace ParameterInlinePolicy {
  *    parameters and try again.</p>
  *
  */
-export interface ParameterLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterLimitExceeded";
   $fault: "client";
   message?: string;
@@ -14336,7 +14575,9 @@ export namespace ParameterLimitExceeded {
  *          <p>The parameter exceeded the maximum number of allowed versions.</p>
  *
  */
-export interface ParameterMaxVersionLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterMaxVersionLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterMaxVersionLimitExceeded";
   $fault: "client";
   message?: string;
@@ -14440,7 +14681,9 @@ export namespace ParameterMetadata {
  *          <p>The parameter could not be found. Verify the name and try again.</p>
  *
  */
-export interface ParameterNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterNotFound";
   $fault: "client";
   message?: string;
@@ -14457,7 +14700,9 @@ export namespace ParameterNotFound {
  *          <p>The parameter name is not valid.</p>
  *
  */
-export interface ParameterPatternMismatchException extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterPatternMismatchException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterPatternMismatchException";
   $fault: "client";
   /**
@@ -14530,13 +14775,13 @@ export namespace ParameterStringFilter {
 export enum ParameterTier {
   ADVANCED = "Advanced",
   INTELLIGENT_TIERING = "Intelligent-Tiering",
-  STANDARD = "Standard",
+  STANDARD = "Standard"
 }
 
 export enum ParameterType {
   SECURE_STRING = "SecureString",
   STRING = "String",
-  STRING_LIST = "StringList",
+  STRING_LIST = "StringList"
 }
 
 /**
@@ -14544,7 +14789,9 @@ export enum ParameterType {
  *          <p>A parameter version can have a maximum of ten labels.</p>
  *
  */
-export interface ParameterVersionLabelLimitExceeded extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterVersionLabelLimitExceeded
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterVersionLabelLimitExceeded";
   $fault: "client";
   message?: string;
@@ -14562,7 +14809,9 @@ export namespace ParameterVersionLabelLimitExceeded {
  *    try again.</p>
  *
  */
-export interface ParameterVersionNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface ParameterVersionNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ParameterVersionNotFound";
   $fault: "client";
   message?: string;
@@ -14605,7 +14854,7 @@ export namespace ParametersFilter {
 export enum ParametersFilterKey {
   KEY_ID = "KeyId",
   NAME = "Name",
-  TYPE = "Type",
+  TYPE = "Type"
 }
 
 /**
@@ -14716,7 +14965,7 @@ export namespace Patch {
 
 export enum PatchAction {
   AllowAsDependency = "ALLOW_AS_DEPENDENCY",
-  Block = "BLOCK",
+  Block = "BLOCK"
 }
 
 /**
@@ -14840,7 +15089,7 @@ export enum PatchComplianceDataState {
   InstalledPendingReboot = "INSTALLED_PENDING_REBOOT",
   InstalledRejected = "INSTALLED_REJECTED",
   Missing = "MISSING",
-  NotApplicable = "NOT_APPLICABLE",
+  NotApplicable = "NOT_APPLICABLE"
 }
 
 export enum PatchComplianceLevel {
@@ -14849,14 +15098,14 @@ export enum PatchComplianceLevel {
   Informational = "INFORMATIONAL",
   Low = "LOW",
   Medium = "MEDIUM",
-  Unspecified = "UNSPECIFIED",
+  Unspecified = "UNSPECIFIED"
 }
 
 export enum PatchDeploymentStatus {
   Approved = "APPROVED",
   ExplicitApproved = "EXPLICIT_APPROVED",
   ExplicitRejected = "EXPLICIT_REJECTED",
-  PendingApproval = "PENDING_APPROVAL",
+  PendingApproval = "PENDING_APPROVAL"
 }
 
 /**
@@ -14937,7 +15186,7 @@ export enum PatchFilterKey {
   Product = "PRODUCT",
   ProductFamily = "PRODUCT_FAMILY",
   Section = "SECTION",
-  Severity = "SEVERITY",
+  Severity = "SEVERITY"
 }
 
 /**
@@ -14971,7 +15220,7 @@ export namespace PatchGroupPatchBaselineMapping {
 
 export enum PatchOperationType {
   INSTALL = "Install",
-  SCAN = "Scan",
+  SCAN = "Scan"
 }
 
 /**
@@ -15008,7 +15257,7 @@ export enum PatchProperty {
   PatchPriority = "PRIORITY",
   PatchProductFamily = "PRODUCT_FAMILY",
   PatchSeverity = "SEVERITY",
-  Product = "PRODUCT",
+  Product = "PRODUCT"
 }
 
 /**
@@ -15088,7 +15337,7 @@ export namespace PatchRuleGroup {
 
 export enum PatchSet {
   Application = "APPLICATION",
-  Os = "OS",
+  Os = "OS"
 }
 
 /**
@@ -15185,12 +15434,12 @@ export namespace PatchStatus {
 export enum PingStatus {
   CONNECTION_LOST = "ConnectionLost",
   INACTIVE = "Inactive",
-  ONLINE = "Online",
+  ONLINE = "Online"
 }
 
 export enum PlatformType {
   LINUX = "Linux",
-  WINDOWS = "Windows",
+  WINDOWS = "Windows"
 }
 
 /**
@@ -15199,7 +15448,9 @@ export enum PlatformType {
  *    maximum is 10.</p>
  *
  */
-export interface PoliciesLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface PoliciesLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PoliciesLimitExceededException";
   $fault: "client";
   message?: string;
@@ -15651,7 +15902,7 @@ export namespace PutParameterResult {
 
 export enum RebootOption {
   NO_REBOOT = "NoReboot",
-  REBOOT_IF_NEEDED = "RebootIfNeeded",
+  REBOOT_IF_NEEDED = "RebootIfNeeded"
 }
 
 export interface RegisterDefaultPatchBaselineRequest {
@@ -15710,7 +15961,8 @@ export namespace RegisterPatchBaselineForPatchGroupRequest {
   }
 }
 
-export interface RegisterPatchBaselineForPatchGroupResult extends $MetadataBearer {
+export interface RegisterPatchBaselineForPatchGroupResult
+  extends $MetadataBearer {
   __type?: "RegisterPatchBaselineForPatchGroupResult";
   /**
    *
@@ -15840,7 +16092,8 @@ export namespace RegisterTargetWithMaintenanceWindowRequest {
   }
 }
 
-export interface RegisterTargetWithMaintenanceWindowResult extends $MetadataBearer {
+export interface RegisterTargetWithMaintenanceWindowResult
+  extends $MetadataBearer {
   __type?: "RegisterTargetWithMaintenanceWindowResult";
   /**
    *
@@ -15985,7 +16238,9 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *          </note>
    *
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: {
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  };
 
   /**
    *
@@ -16008,7 +16263,8 @@ export namespace RegisterTaskWithMaintenanceWindowRequest {
   }
 }
 
-export interface RegisterTaskWithMaintenanceWindowResult extends $MetadataBearer {
+export interface RegisterTaskWithMaintenanceWindowResult
+  extends $MetadataBearer {
   __type?: "RegisterTaskWithMaintenanceWindowResult";
   /**
    *
@@ -16249,7 +16505,9 @@ export namespace ResourceComplianceSummaryItem {
  *          <p>A sync configuration with the same name already exists.</p>
  *
  */
-export interface ResourceDataSyncAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceDataSyncAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceDataSyncAlreadyExistsException";
   $fault: "client";
   SyncName?: string;
@@ -16300,7 +16558,9 @@ export namespace ResourceDataSyncAwsOrganizationsSource {
  *    and try again.</p>
  *
  */
-export interface ResourceDataSyncConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceDataSyncConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceDataSyncConflictException";
   $fault: "client";
   Message?: string;
@@ -16317,7 +16577,9 @@ export namespace ResourceDataSyncConflictException {
  *          <p>You have exceeded the allowed maximum sync configurations.</p>
  *
  */
-export interface ResourceDataSyncCountExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceDataSyncCountExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceDataSyncCountExceededException";
   $fault: "client";
   Message?: string;
@@ -16334,14 +16596,18 @@ export namespace ResourceDataSyncCountExceededException {
  *          <p>The specified sync configuration is invalid.</p>
  *
  */
-export interface ResourceDataSyncInvalidConfigurationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceDataSyncInvalidConfigurationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceDataSyncInvalidConfigurationException";
   $fault: "client";
   Message?: string;
 }
 
 export namespace ResourceDataSyncInvalidConfigurationException {
-  export function isa(o: any): o is ResourceDataSyncInvalidConfigurationException {
+  export function isa(
+    o: any
+  ): o is ResourceDataSyncInvalidConfigurationException {
     return _smithy.isa(o, "ResourceDataSyncInvalidConfigurationException");
   }
 }
@@ -16440,7 +16706,9 @@ export namespace ResourceDataSyncItem {
  *          <p>The specified sync name was not found.</p>
  *
  */
-export interface ResourceDataSyncNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceDataSyncNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceDataSyncNotFoundException";
   $fault: "client";
   Message?: string;
@@ -16531,7 +16799,7 @@ export namespace ResourceDataSyncS3Destination {
 }
 
 export enum ResourceDataSyncS3Format {
-  JSON_SERDE = "JsonSerDe",
+  JSON_SERDE = "JsonSerDe"
 }
 
 /**
@@ -16665,7 +16933,9 @@ export namespace ResourceDataSyncSourceWithState {
  *    patch group.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   Message?: string;
@@ -16684,7 +16954,9 @@ export namespace ResourceInUseException {
  *          <p>For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS Systems Manager Limits</a>.</p>
  *
  */
-export interface ResourceLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -16699,7 +16971,7 @@ export namespace ResourceLimitExceededException {
 export enum ResourceType {
   DOCUMENT = "Document",
   EC2_INSTANCE = "EC2Instance",
-  MANAGED_INSTANCE = "ManagedInstance",
+  MANAGED_INSTANCE = "ManagedInstance"
 }
 
 export enum ResourceTypeForTagging {
@@ -16708,7 +16980,7 @@ export enum ResourceTypeForTagging {
   MANAGED_INSTANCE = "ManagedInstance",
   OPS_ITEM = "OpsItem",
   PARAMETER = "Parameter",
-  PATCH_BASELINE = "PatchBaseline",
+  PATCH_BASELINE = "PatchBaseline"
 }
 
 /**
@@ -17209,7 +17481,9 @@ export namespace ServiceSetting {
  *    been provisioned by the AWS service team.</p>
  *
  */
-export interface ServiceSettingNotFound extends _smithy.SmithyException, $MetadataBearer {
+export interface ServiceSettingNotFound
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServiceSettingNotFound";
   $fault: "client";
   Message?: string;
@@ -17372,7 +17646,7 @@ export enum SessionFilterKey {
   INVOKED_BEFORE = "InvokedBefore",
   OWNER = "Owner",
   STATUS = "Status",
-  TARGET_ID = "Target",
+  TARGET_ID = "Target"
 }
 
 /**
@@ -17405,7 +17679,7 @@ export namespace SessionManagerOutputUrl {
 
 export enum SessionState {
   ACTIVE = "Active",
-  HISTORY = "History",
+  HISTORY = "History"
 }
 
 export enum SessionStatus {
@@ -17414,7 +17688,7 @@ export enum SessionStatus {
   DISCONNECTED = "Disconnected",
   FAILED = "Failed",
   TERMINATED = "Terminated",
-  TERMINATING = "Terminating",
+  TERMINATING = "Terminating"
 }
 
 /**
@@ -17487,7 +17761,7 @@ export enum SignalType {
   REJECT = "Reject",
   RESUME = "Resume",
   START_STEP = "StartStep",
-  STOP_STEP = "StopStep",
+  STOP_STEP = "StopStep"
 }
 
 export interface StartAssociationsOnceRequest {
@@ -17716,7 +17990,9 @@ export namespace StartSessionResponse {
  *          <p>The updated status is the same as the current status.</p>
  *
  */
-export interface StatusUnchanged extends _smithy.SmithyException, $MetadataBearer {
+export interface StatusUnchanged
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "StatusUnchanged";
   $fault: "client";
 }
@@ -17939,7 +18215,7 @@ export enum StepExecutionFilterKey {
   START_TIME_BEFORE = "StartTimeBefore",
   STEP_EXECUTION_ID = "StepExecutionId",
   STEP_EXECUTION_STATUS = "StepExecutionStatus",
-  STEP_NAME = "StepName",
+  STEP_NAME = "StepName"
 }
 
 export interface StopAutomationExecutionRequest {
@@ -17978,7 +18254,7 @@ export namespace StopAutomationExecutionResult {
 
 export enum StopType {
   CANCEL = "Cancel",
-  COMPLETE = "Complete",
+  COMPLETE = "Complete"
 }
 
 /**
@@ -17986,7 +18262,9 @@ export enum StopType {
  *          <p>The sub-type count exceeded the limit for the inventory type.</p>
  *
  */
-export interface SubTypeCountLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface SubTypeCountLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "SubTypeCountLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -18155,7 +18433,9 @@ export namespace Target {
  *    operation, but the target is still referenced in a task.</p>
  *
  */
-export interface TargetInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface TargetInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TargetInUseException";
   $fault: "client";
   Message?: string;
@@ -18226,7 +18506,9 @@ export namespace TargetLocation {
  *     Started with Session Manager</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  *
  */
-export interface TargetNotConnected extends _smithy.SmithyException, $MetadataBearer {
+export interface TargetNotConnected
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TargetNotConnected";
   $fault: "client";
   Message?: string;
@@ -18276,7 +18558,9 @@ export namespace TerminateSessionResponse {
  *    the command again.</p>
  *
  */
-export interface TooManyTagsError extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyTagsError
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyTagsError";
   $fault: "client";
 }
@@ -18292,7 +18576,9 @@ export namespace TooManyTagsError {
  *          <p>There are concurrent updates for a resource that supports one update at a time.</p>
  *
  */
-export interface TooManyUpdates extends _smithy.SmithyException, $MetadataBearer {
+export interface TooManyUpdates
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TooManyUpdates";
   $fault: "client";
   Message?: string;
@@ -18309,7 +18595,9 @@ export namespace TooManyUpdates {
  *          <p>The size of inventory data has exceeded the total size limit for the resource.</p>
  *
  */
-export interface TotalSizeLimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface TotalSizeLimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "TotalSizeLimitExceededException";
   $fault: "client";
   Message?: string;
@@ -18329,7 +18617,9 @@ export namespace TotalSizeLimitExceededException {
  *     Tier</a> in the <i>AWS Systems Manager User Guide</i>.</p>
  *
  */
-export interface UnsupportedFeatureRequiredException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedFeatureRequiredException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedFeatureRequiredException";
   $fault: "client";
   Message?: string;
@@ -18348,7 +18638,9 @@ export namespace UnsupportedFeatureRequiredException {
  *    inventory types like <code>AWS:ComplianceItem</code>.</p>
  *
  */
-export interface UnsupportedInventoryItemContextException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedInventoryItemContextException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedInventoryItemContextException";
   $fault: "client";
   Message?: string;
@@ -18367,7 +18659,9 @@ export namespace UnsupportedInventoryItemContextException {
  *    output of GetInventorySchema to see the available schema version for each type.</p>
  *
  */
-export interface UnsupportedInventorySchemaVersionException extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedInventorySchemaVersionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedInventorySchemaVersionException";
   $fault: "client";
   Message?: string;
@@ -18386,7 +18680,9 @@ export namespace UnsupportedInventorySchemaVersionException {
  *    RedhatEnterpriseLinux, and Ubuntu.</p>
  *
  */
-export interface UnsupportedOperatingSystem extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedOperatingSystem
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedOperatingSystem";
   $fault: "client";
   Message?: string;
@@ -18403,7 +18699,9 @@ export namespace UnsupportedOperatingSystem {
  *          <p>The parameter type is not supported.</p>
  *
  */
-export interface UnsupportedParameterType extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedParameterType
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedParameterType";
   $fault: "client";
   message?: string;
@@ -18421,7 +18719,9 @@ export namespace UnsupportedParameterType {
  *    you sent an document for a Windows instance to a Linux instance.</p>
  *
  */
-export interface UnsupportedPlatformType extends _smithy.SmithyException, $MetadataBearer {
+export interface UnsupportedPlatformType
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "UnsupportedPlatformType";
   $fault: "client";
   Message?: string;
@@ -19183,7 +19483,9 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    *
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: {
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  };
 
   /**
    *
@@ -19298,7 +19600,9 @@ export interface UpdateMaintenanceWindowTaskResult extends $MetadataBearer {
    *          </note>
    *
    */
-  TaskParameters?: { [key: string]: MaintenanceWindowTaskParameterValueExpression };
+  TaskParameters?: {
+    [key: string]: MaintenanceWindowTaskParameterValueExpression;
+  };
 
   /**
    *

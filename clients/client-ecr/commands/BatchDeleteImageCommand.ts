@@ -1,20 +1,20 @@
 import {
   ECRClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ECRClient";
 import {
   BatchDeleteImageRequest,
-  BatchDeleteImageResponse,
+  BatchDeleteImageResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1BatchDeleteImageCommand,
-  serializeAws_json1_1BatchDeleteImageCommand,
+  serializeAws_json1_1BatchDeleteImageCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type BatchDeleteImageCommandInput = BatchDeleteImageRequest;
 export type BatchDeleteImageCommandOutput = BatchDeleteImageResponse;
 
-export class BatchDeleteImageCommand extends $Command<BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput, ECRClientResolvedConfig> {
+export class BatchDeleteImageCommand extends $Command<
+  BatchDeleteImageCommandInput,
+  BatchDeleteImageCommandOutput,
+  ECRClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class BatchDeleteImageCommand extends $Command<BatchDeleteImageCommandInp
     configuration: ECRClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<BatchDeleteImageCommandInput, BatchDeleteImageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

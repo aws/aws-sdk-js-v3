@@ -1,17 +1,17 @@
 import {
   KMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KMSClient";
 import { PutKeyPolicyRequest } from "../models/index";
 import {
   deserializeAws_json1_1PutKeyPolicyCommand,
-  serializeAws_json1_1PutKeyPolicyCommand,
+  serializeAws_json1_1PutKeyPolicyCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type PutKeyPolicyCommandInput = PutKeyPolicyRequest;
-export type PutKeyPolicyCommandOutput = __MetadataBearer
+export type PutKeyPolicyCommandOutput = __MetadataBearer;
 
-export class PutKeyPolicyCommand extends $Command<PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput, KMSClientResolvedConfig> {
+export class PutKeyPolicyCommand extends $Command<
+  PutKeyPolicyCommandInput,
+  PutKeyPolicyCommandOutput,
+  KMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class PutKeyPolicyCommand extends $Command<PutKeyPolicyCommandInput, PutK
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<PutKeyPolicyCommandInput, PutKeyPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

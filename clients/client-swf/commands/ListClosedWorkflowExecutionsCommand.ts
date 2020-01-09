@@ -1,20 +1,20 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import {
   ListClosedWorkflowExecutionsInput,
-  WorkflowExecutionInfos,
+  WorkflowExecutionInfos
 } from "../models/index";
 import {
   deserializeAws_json1_0ListClosedWorkflowExecutionsCommand,
-  serializeAws_json1_0ListClosedWorkflowExecutionsCommand,
+  serializeAws_json1_0ListClosedWorkflowExecutionsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListClosedWorkflowExecutionsCommandInput = ListClosedWorkflowExecutionsInput;
 export type ListClosedWorkflowExecutionsCommandOutput = WorkflowExecutionInfos;
 
-export class ListClosedWorkflowExecutionsCommand extends $Command<ListClosedWorkflowExecutionsCommandInput, ListClosedWorkflowExecutionsCommandOutput, SWFClientResolvedConfig> {
+export class ListClosedWorkflowExecutionsCommand extends $Command<
+  ListClosedWorkflowExecutionsCommandInput,
+  ListClosedWorkflowExecutionsCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<ListClosedWork
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListClosedWorkflowExecutionsCommandInput, ListClosedWorkflowExecutionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListClosedWorkflowExecutionsCommandInput,
+    ListClosedWorkflowExecutionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class ListClosedWorkflowExecutionsCommand extends $Command<ListClosedWork
     input: ListClosedWorkflowExecutionsCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(input, context);
+    return serializeAws_json1_0ListClosedWorkflowExecutionsCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListClosedWorkflowExecutionsCommandOutput> {
-    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(output, context);
+    return deserializeAws_json1_0ListClosedWorkflowExecutionsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,20 +1,20 @@
 import {
   CostandUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CostandUsageReportServiceClient";
 import {
   DescribeReportDefinitionsRequest,
-  DescribeReportDefinitionsResponse,
+  DescribeReportDefinitionsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeReportDefinitionsCommand,
-  serializeAws_json1_1DescribeReportDefinitionsCommand,
+  serializeAws_json1_1DescribeReportDefinitionsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeReportDefinitionsCommandInput = DescribeReportDefinitionsRequest;
 export type DescribeReportDefinitionsCommandOutput = DescribeReportDefinitionsResponse;
 
-export class DescribeReportDefinitionsCommand extends $Command<DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput, CostandUsageReportServiceClientResolvedConfig> {
+export class DescribeReportDefinitionsCommand extends $Command<
+  DescribeReportDefinitionsCommandInput,
+  DescribeReportDefinitionsCommandOutput,
+  CostandUsageReportServiceClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeReportDefinitionsCommand extends $Command<DescribeReportDef
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostandUsageReportServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeReportDefinitionsCommandInput, DescribeReportDefinitionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeReportDefinitionsCommandInput,
+    DescribeReportDefinitionsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DescribeReportDefinitionsCommand extends $Command<DescribeReportDef
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeReportDefinitionsCommandOutput> {
-    return deserializeAws_json1_1DescribeReportDefinitionsCommand(output, context);
+    return deserializeAws_json1_1DescribeReportDefinitionsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

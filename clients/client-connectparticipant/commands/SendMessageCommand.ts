@@ -1,20 +1,17 @@
 import {
   ConnectParticipantClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ConnectParticipantClient";
-import {
-  SendMessageRequest,
-  SendMessageResponse,
-} from "../models/index";
+import { SendMessageRequest, SendMessageResponse } from "../models/index";
 import {
   deserializeAws_restJson1_1SendMessageCommand,
-  serializeAws_restJson1_1SendMessageCommand,
+  serializeAws_restJson1_1SendMessageCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type SendMessageCommandInput = SendMessageRequest;
 export type SendMessageCommandOutput = SendMessageResponse;
 
-export class SendMessageCommand extends $Command<SendMessageCommandInput, SendMessageCommandOutput, ConnectParticipantClientResolvedConfig> {
+export class SendMessageCommand extends $Command<
+  SendMessageCommandInput,
+  SendMessageCommandOutput,
+  ConnectParticipantClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class SendMessageCommand extends $Command<SendMessageCommandInput, SendMe
     configuration: ConnectParticipantClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<SendMessageCommandInput, SendMessageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

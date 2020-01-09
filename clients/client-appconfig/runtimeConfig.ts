@@ -27,5 +27,5 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   runtime: "node",
   signingName: "appconfig",
   credentialDefaultProvider,
-  regionDefaultProvider,
+  regionDefaultProvider
 };

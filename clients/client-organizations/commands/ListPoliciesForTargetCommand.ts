@@ -1,20 +1,20 @@
 import {
   OrganizationsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../OrganizationsClient";
 import {
   ListPoliciesForTargetRequest,
-  ListPoliciesForTargetResponse,
+  ListPoliciesForTargetResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListPoliciesForTargetCommand,
-  serializeAws_json1_1ListPoliciesForTargetCommand,
+  serializeAws_json1_1ListPoliciesForTargetCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListPoliciesForTargetCommandInput = ListPoliciesForTargetRequest;
 export type ListPoliciesForTargetCommandOutput = ListPoliciesForTargetResponse;
 
-export class ListPoliciesForTargetCommand extends $Command<ListPoliciesForTargetCommandInput, ListPoliciesForTargetCommandOutput, OrganizationsClientResolvedConfig> {
+export class ListPoliciesForTargetCommand extends $Command<
+  ListPoliciesForTargetCommandInput,
+  ListPoliciesForTargetCommandOutput,
+  OrganizationsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListPoliciesForTargetCommand extends $Command<ListPoliciesForTarget
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OrganizationsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListPoliciesForTargetCommandInput, ListPoliciesForTargetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListPoliciesForTargetCommandInput,
+    ListPoliciesForTargetCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

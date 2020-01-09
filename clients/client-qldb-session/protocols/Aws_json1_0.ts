@@ -1,6 +1,6 @@
 import {
   SendCommandCommandInput,
-  SendCommandCommandOutput,
+  SendCommandCommandOutput
 } from "../commands/SendCommandCommand";
 import {
   AbortTransactionRequest,
@@ -25,18 +25,18 @@ import {
   StartSessionResult,
   StartTransactionRequest,
   StartTransactionResult,
-  ValueHolder,
+  ValueHolder
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_json1_0SendCommandCommand(
@@ -44,11 +44,11 @@ export async function serializeAws_json1_0SendCommandCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/x-amz-json-1.0";
-  headers['X-Amz-Target'] = "QLDBSession.SendCommand";
+  headers["Content-Type"] = "application/x-amz-json-1.0";
+  headers["X-Amz-Target"] = "QLDBSession.SendCommand";
   let body: any = {};
   const wrappedBody: any = {
-    SendCommandRequest: serializeAws_json1_0SendCommandRequest(input, context),
+    SendCommandRequest: serializeAws_json1_0SendCommandRequest(input, context)
   };
   body = JSON.stringify(wrappedBody);
   return new __HttpRequest({
@@ -57,7 +57,7 @@ export async function serializeAws_json1_0SendCommandCommand(
     method: "POST",
     path: "/SendCommand",
     headers: headers,
-    body: body,
+    body: body
   });
 }
 
@@ -68,56 +68,72 @@ export async function deserializeAws_json1_0SendCommandCommand(
   if (output.statusCode >= 400) {
     return deserializeAws_json1_0SendCommandCommandError(output, context);
   }
-  const data: any = await parseBody(output.body, context)
+  const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0SendCommandResult(data, context);
   const response: SendCommandCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendCommandResult",
-    ...contents,
+    ...contents
   };
   return Promise.resolve(response);
 }
 
 async function deserializeAws_json1_0SendCommandCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SendCommandCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
-  const errorTypeParts: String = data["__type"].split('#');
-  errorCode = (errorTypeParts[1] === undefined) ? errorTypeParts[0] : errorTypeParts[1];
+  const errorTypeParts: String = data["__type"].split("#");
+  errorCode =
+    errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
     case "BadRequestException":
     case "com.amazonaws.qldb.session#BadRequestException":
-      response = await deserializeAws_json1_0BadRequestExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0BadRequestExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "InvalidSessionException":
     case "com.amazonaws.qldb.session#InvalidSessionException":
-      response = await deserializeAws_json1_0InvalidSessionExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0InvalidSessionExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "LimitExceededException":
     case "com.amazonaws.qldb.session#LimitExceededException":
-      response = await deserializeAws_json1_0LimitExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0LimitExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "OccConflictException":
     case "com.amazonaws.qldb.session#OccConflictException":
-      response = await deserializeAws_json1_0OccConflictExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0OccConflictExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     case "RateExceededException":
     case "com.amazonaws.qldb.session#RateExceededException":
-      response = await deserializeAws_json1_0RateExceededExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_json1_0RateExceededExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.amazonaws.qldb.session#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -127,12 +143,15 @@ const deserializeAws_json1_0BadRequestExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<BadRequestException> => {
-  const deserialized: any = deserializeAws_json1_0BadRequestException(output.body, context);
+  const deserialized: any = deserializeAws_json1_0BadRequestException(
+    output.body,
+    context
+  );
   const contents: BadRequestException = {
     __type: "BadRequestException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -141,12 +160,15 @@ const deserializeAws_json1_0InvalidSessionExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<InvalidSessionException> => {
-  const deserialized: any = deserializeAws_json1_0InvalidSessionException(output.body, context);
+  const deserialized: any = deserializeAws_json1_0InvalidSessionException(
+    output.body,
+    context
+  );
   const contents: InvalidSessionException = {
     __type: "InvalidSessionException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -155,12 +177,15 @@ const deserializeAws_json1_0LimitExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
-  const deserialized: any = deserializeAws_json1_0LimitExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_0LimitExceededException(
+    output.body,
+    context
+  );
   const contents: LimitExceededException = {
     __type: "LimitExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -169,12 +194,15 @@ const deserializeAws_json1_0OccConflictExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<OccConflictException> => {
-  const deserialized: any = deserializeAws_json1_0OccConflictException(output.body, context);
+  const deserialized: any = deserializeAws_json1_0OccConflictException(
+    output.body,
+    context
+  );
   const contents: OccConflictException = {
     __type: "OccConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -183,12 +211,15 @@ const deserializeAws_json1_0RateExceededExceptionResponse = async (
   output: any,
   context: __SerdeContext
 ): Promise<RateExceededException> => {
-  const deserialized: any = deserializeAws_json1_0RateExceededException(output.body, context);
+  const deserialized: any = deserializeAws_json1_0RateExceededException(
+    output.body,
+    context
+  );
   const contents: RateExceededException = {
     __type: "RateExceededException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    ...deserialized,
+    ...deserialized
   };
   return contents;
 };
@@ -199,7 +230,7 @@ const serializeAws_json1_0AbortTransactionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0CommitTransactionRequest = (
   input: CommitTransactionRequest,
@@ -207,13 +238,13 @@ const serializeAws_json1_0CommitTransactionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.CommitDigest !== undefined) {
-    bodyParams['CommitDigest'] = context.base64Encoder(input.CommitDigest);
+    bodyParams["CommitDigest"] = context.base64Encoder(input.CommitDigest);
   }
   if (input.TransactionId !== undefined) {
-    bodyParams['TransactionId'] = input.TransactionId;
+    bodyParams["TransactionId"] = input.TransactionId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0EndSessionRequest = (
   input: EndSessionRequest,
@@ -221,7 +252,7 @@ const serializeAws_json1_0EndSessionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0ExecuteStatementRequest = (
   input: ExecuteStatementRequest,
@@ -229,16 +260,19 @@ const serializeAws_json1_0ExecuteStatementRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.Parameters !== undefined) {
-    bodyParams['Parameters'] = serializeAws_json1_0StatementParameters(input.Parameters, context);
+    bodyParams["Parameters"] = serializeAws_json1_0StatementParameters(
+      input.Parameters,
+      context
+    );
   }
   if (input.Statement !== undefined) {
-    bodyParams['Statement'] = input.Statement;
+    bodyParams["Statement"] = input.Statement;
   }
   if (input.TransactionId !== undefined) {
-    bodyParams['TransactionId'] = input.TransactionId;
+    bodyParams["TransactionId"] = input.TransactionId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0FetchPageRequest = (
   input: FetchPageRequest,
@@ -246,13 +280,13 @@ const serializeAws_json1_0FetchPageRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.NextPageToken !== undefined) {
-    bodyParams['NextPageToken'] = input.NextPageToken;
+    bodyParams["NextPageToken"] = input.NextPageToken;
   }
   if (input.TransactionId !== undefined) {
-    bodyParams['TransactionId'] = input.TransactionId;
+    bodyParams["TransactionId"] = input.TransactionId;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0SendCommandRequest = (
   input: SendCommandRequest,
@@ -260,31 +294,60 @@ const serializeAws_json1_0SendCommandRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.AbortTransaction !== undefined) {
-    bodyParams['AbortTransaction'] = serializeAws_json1_0AbortTransactionRequest(input.AbortTransaction, context);
+    bodyParams[
+      "AbortTransaction"
+    ] = serializeAws_json1_0AbortTransactionRequest(
+      input.AbortTransaction,
+      context
+    );
   }
   if (input.CommitTransaction !== undefined) {
-    bodyParams['CommitTransaction'] = serializeAws_json1_0CommitTransactionRequest(input.CommitTransaction, context);
+    bodyParams[
+      "CommitTransaction"
+    ] = serializeAws_json1_0CommitTransactionRequest(
+      input.CommitTransaction,
+      context
+    );
   }
   if (input.EndSession !== undefined) {
-    bodyParams['EndSession'] = serializeAws_json1_0EndSessionRequest(input.EndSession, context);
+    bodyParams["EndSession"] = serializeAws_json1_0EndSessionRequest(
+      input.EndSession,
+      context
+    );
   }
   if (input.ExecuteStatement !== undefined) {
-    bodyParams['ExecuteStatement'] = serializeAws_json1_0ExecuteStatementRequest(input.ExecuteStatement, context);
+    bodyParams[
+      "ExecuteStatement"
+    ] = serializeAws_json1_0ExecuteStatementRequest(
+      input.ExecuteStatement,
+      context
+    );
   }
   if (input.FetchPage !== undefined) {
-    bodyParams['FetchPage'] = serializeAws_json1_0FetchPageRequest(input.FetchPage, context);
+    bodyParams["FetchPage"] = serializeAws_json1_0FetchPageRequest(
+      input.FetchPage,
+      context
+    );
   }
   if (input.SessionToken !== undefined) {
-    bodyParams['SessionToken'] = input.SessionToken;
+    bodyParams["SessionToken"] = input.SessionToken;
   }
   if (input.StartSession !== undefined) {
-    bodyParams['StartSession'] = serializeAws_json1_0StartSessionRequest(input.StartSession, context);
+    bodyParams["StartSession"] = serializeAws_json1_0StartSessionRequest(
+      input.StartSession,
+      context
+    );
   }
   if (input.StartTransaction !== undefined) {
-    bodyParams['StartTransaction'] = serializeAws_json1_0StartTransactionRequest(input.StartTransaction, context);
+    bodyParams[
+      "StartTransaction"
+    ] = serializeAws_json1_0StartTransactionRequest(
+      input.StartTransaction,
+      context
+    );
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0StartSessionRequest = (
   input: StartSessionRequest,
@@ -292,10 +355,10 @@ const serializeAws_json1_0StartSessionRequest = (
 ): any => {
   let bodyParams: any = {};
   if (input.LedgerName !== undefined) {
-    bodyParams['LedgerName'] = input.LedgerName;
+    bodyParams["LedgerName"] = input.LedgerName;
   }
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0StartTransactionRequest = (
   input: StartTransactionRequest,
@@ -303,7 +366,7 @@ const serializeAws_json1_0StartTransactionRequest = (
 ): any => {
   let bodyParams: any = {};
   return bodyParams;
-}
+};
 
 const serializeAws_json1_0StatementParameters = (
   input: Array<ValueHolder>,
@@ -312,7 +375,7 @@ const serializeAws_json1_0StatementParameters = (
   return (input || []).map(entry =>
     serializeAws_json1_0ValueHolder(entry, context)
   );
-}
+};
 
 const serializeAws_json1_0ValueHolder = (
   input: ValueHolder,
@@ -320,23 +383,23 @@ const serializeAws_json1_0ValueHolder = (
 ): any => {
   let bodyParams: any = {};
   if (input.IonBinary !== undefined) {
-    bodyParams['IonBinary'] = context.base64Encoder(input.IonBinary);
+    bodyParams["IonBinary"] = context.base64Encoder(input.IonBinary);
   }
   if (input.IonText !== undefined) {
-    bodyParams['IonText'] = input.IonText;
+    bodyParams["IonText"] = input.IonText;
   }
   return bodyParams;
-}
+};
 
 const deserializeAws_json1_0AbortTransactionResult = (
   output: any,
   context: __SerdeContext
 ): AbortTransactionResult => {
   let contents: any = {
-    __type: "AbortTransactionResult",
+    __type: "AbortTransactionResult"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0BadRequestException = (
   output: any,
@@ -345,7 +408,7 @@ const deserializeAws_json1_0BadRequestException = (
   let contents: any = {
     __type: "BadRequestException",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -354,7 +417,7 @@ const deserializeAws_json1_0BadRequestException = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0CommitTransactionResult = (
   output: any,
@@ -363,7 +426,7 @@ const deserializeAws_json1_0CommitTransactionResult = (
   let contents: any = {
     __type: "CommitTransactionResult",
     CommitDigest: undefined,
-    TransactionId: undefined,
+    TransactionId: undefined
   };
   if (output.CommitDigest !== undefined) {
     contents.CommitDigest = context.base64Decoder(output.CommitDigest);
@@ -372,17 +435,17 @@ const deserializeAws_json1_0CommitTransactionResult = (
     contents.TransactionId = output.TransactionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0EndSessionResult = (
   output: any,
   context: __SerdeContext
 ): EndSessionResult => {
   let contents: any = {
-    __type: "EndSessionResult",
+    __type: "EndSessionResult"
   };
   return contents;
-}
+};
 
 const deserializeAws_json1_0ExecuteStatementResult = (
   output: any,
@@ -390,13 +453,13 @@ const deserializeAws_json1_0ExecuteStatementResult = (
 ): ExecuteStatementResult => {
   let contents: any = {
     __type: "ExecuteStatementResult",
-    FirstPage: undefined,
+    FirstPage: undefined
   };
   if (output.FirstPage !== undefined) {
     contents.FirstPage = deserializeAws_json1_0Page(output.FirstPage, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0FetchPageResult = (
   output: any,
@@ -404,13 +467,13 @@ const deserializeAws_json1_0FetchPageResult = (
 ): FetchPageResult => {
   let contents: any = {
     __type: "FetchPageResult",
-    Page: undefined,
+    Page: undefined
   };
   if (output.Page !== undefined) {
     contents.Page = deserializeAws_json1_0Page(output.Page, context);
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0InvalidSessionException = (
   output: any,
@@ -419,7 +482,7 @@ const deserializeAws_json1_0InvalidSessionException = (
   let contents: any = {
     __type: "InvalidSessionException",
     Code: undefined,
-    Message: undefined,
+    Message: undefined
   };
   if (output.Code !== undefined) {
     contents.Code = output.Code;
@@ -428,7 +491,7 @@ const deserializeAws_json1_0InvalidSessionException = (
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0LimitExceededException = (
   output: any,
@@ -436,13 +499,13 @@ const deserializeAws_json1_0LimitExceededException = (
 ): LimitExceededException => {
   let contents: any = {
     __type: "LimitExceededException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0OccConflictException = (
   output: any,
@@ -450,13 +513,13 @@ const deserializeAws_json1_0OccConflictException = (
 ): OccConflictException => {
   let contents: any = {
     __type: "OccConflictException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0Page = (
   output: any,
@@ -465,16 +528,19 @@ const deserializeAws_json1_0Page = (
   let contents: any = {
     __type: "Page",
     NextPageToken: undefined,
-    Values: undefined,
+    Values: undefined
   };
   if (output.NextPageToken !== undefined) {
     contents.NextPageToken = output.NextPageToken;
   }
   if (output.Values !== undefined) {
-    contents.Values = deserializeAws_json1_0ValueHolders(output.Values, context);
+    contents.Values = deserializeAws_json1_0ValueHolders(
+      output.Values,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0RateExceededException = (
   output: any,
@@ -482,13 +548,13 @@ const deserializeAws_json1_0RateExceededException = (
 ): RateExceededException => {
   let contents: any = {
     __type: "RateExceededException",
-    Message: undefined,
+    Message: undefined
   };
   if (output.Message !== undefined) {
     contents.Message = output.Message;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0SendCommandResult = (
   output: any,
@@ -502,31 +568,52 @@ const deserializeAws_json1_0SendCommandResult = (
     ExecuteStatement: undefined,
     FetchPage: undefined,
     StartSession: undefined,
-    StartTransaction: undefined,
+    StartTransaction: undefined
   };
   if (output.AbortTransaction !== undefined) {
-    contents.AbortTransaction = deserializeAws_json1_0AbortTransactionResult(output.AbortTransaction, context);
+    contents.AbortTransaction = deserializeAws_json1_0AbortTransactionResult(
+      output.AbortTransaction,
+      context
+    );
   }
   if (output.CommitTransaction !== undefined) {
-    contents.CommitTransaction = deserializeAws_json1_0CommitTransactionResult(output.CommitTransaction, context);
+    contents.CommitTransaction = deserializeAws_json1_0CommitTransactionResult(
+      output.CommitTransaction,
+      context
+    );
   }
   if (output.EndSession !== undefined) {
-    contents.EndSession = deserializeAws_json1_0EndSessionResult(output.EndSession, context);
+    contents.EndSession = deserializeAws_json1_0EndSessionResult(
+      output.EndSession,
+      context
+    );
   }
   if (output.ExecuteStatement !== undefined) {
-    contents.ExecuteStatement = deserializeAws_json1_0ExecuteStatementResult(output.ExecuteStatement, context);
+    contents.ExecuteStatement = deserializeAws_json1_0ExecuteStatementResult(
+      output.ExecuteStatement,
+      context
+    );
   }
   if (output.FetchPage !== undefined) {
-    contents.FetchPage = deserializeAws_json1_0FetchPageResult(output.FetchPage, context);
+    contents.FetchPage = deserializeAws_json1_0FetchPageResult(
+      output.FetchPage,
+      context
+    );
   }
   if (output.StartSession !== undefined) {
-    contents.StartSession = deserializeAws_json1_0StartSessionResult(output.StartSession, context);
+    contents.StartSession = deserializeAws_json1_0StartSessionResult(
+      output.StartSession,
+      context
+    );
   }
   if (output.StartTransaction !== undefined) {
-    contents.StartTransaction = deserializeAws_json1_0StartTransactionResult(output.StartTransaction, context);
+    contents.StartTransaction = deserializeAws_json1_0StartTransactionResult(
+      output.StartTransaction,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StartSessionResult = (
   output: any,
@@ -534,13 +621,13 @@ const deserializeAws_json1_0StartSessionResult = (
 ): StartSessionResult => {
   let contents: any = {
     __type: "StartSessionResult",
-    SessionToken: undefined,
+    SessionToken: undefined
   };
   if (output.SessionToken !== undefined) {
     contents.SessionToken = output.SessionToken;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0StartTransactionResult = (
   output: any,
@@ -548,13 +635,13 @@ const deserializeAws_json1_0StartTransactionResult = (
 ): StartTransactionResult => {
   let contents: any = {
     __type: "StartTransactionResult",
-    TransactionId: undefined,
+    TransactionId: undefined
   };
   if (output.TransactionId !== undefined) {
     contents.TransactionId = output.TransactionId;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ValueHolder = (
   output: any,
@@ -563,7 +650,7 @@ const deserializeAws_json1_0ValueHolder = (
   let contents: any = {
     __type: "ValueHolder",
     IonBinary: undefined,
-    IonText: undefined,
+    IonText: undefined
   };
   if (output.IonBinary !== undefined) {
     contents.IonBinary = context.base64Decoder(output.IonBinary);
@@ -572,7 +659,7 @@ const deserializeAws_json1_0ValueHolder = (
     contents.IonText = output.IonText;
   }
   return contents;
-}
+};
 
 const deserializeAws_json1_0ValueHolders = (
   output: any,
@@ -581,7 +668,7 @@ const deserializeAws_json1_0ValueHolders = (
   return (output || []).map((entry: any) =>
     deserializeAws_json1_0ValueHolder(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

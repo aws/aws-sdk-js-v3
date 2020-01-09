@@ -163,7 +163,7 @@ export enum AgentStatus {
   RUNNING = "RUNNING",
   SHUTDOWN = "SHUTDOWN",
   UNHEALTHY = "UNHEALTHY",
-  UNKNOWN = "UNKNOWN",
+  UNKNOWN = "UNKNOWN"
 }
 
 export interface AssociateConfigurationItemsToApplicationRequest {
@@ -184,17 +184,22 @@ export interface AssociateConfigurationItemsToApplicationRequest {
 }
 
 export namespace AssociateConfigurationItemsToApplicationRequest {
-  export function isa(o: any): o is AssociateConfigurationItemsToApplicationRequest {
+  export function isa(
+    o: any
+  ): o is AssociateConfigurationItemsToApplicationRequest {
     return _smithy.isa(o, "AssociateConfigurationItemsToApplicationRequest");
   }
 }
 
-export interface AssociateConfigurationItemsToApplicationResponse extends $MetadataBearer {
+export interface AssociateConfigurationItemsToApplicationResponse
+  extends $MetadataBearer {
   __type?: "AssociateConfigurationItemsToApplicationResponse";
 }
 
 export namespace AssociateConfigurationItemsToApplicationResponse {
-  export function isa(o: any): o is AssociateConfigurationItemsToApplicationResponse {
+  export function isa(
+    o: any
+  ): o is AssociateConfigurationItemsToApplicationResponse {
     return _smithy.isa(o, "AssociateConfigurationItemsToApplicationResponse");
   }
 }
@@ -205,7 +210,9 @@ export namespace AssociateConfigurationItemsToApplicationResponse {
  *       policy associated with this account.</p>
  *
  */
-export interface AuthorizationErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface AuthorizationErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "AuthorizationErrorException";
   $fault: "client";
   message?: string;
@@ -256,7 +263,7 @@ export namespace BatchDeleteImportDataError {
 export enum BatchDeleteImportDataErrorCode {
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
   NOT_FOUND = "NOT_FOUND",
-  OVER_LIMIT = "OVER_LIMIT",
+  OVER_LIMIT = "OVER_LIMIT"
 }
 
 export interface BatchDeleteImportDataRequest {
@@ -296,7 +303,7 @@ export enum ConfigurationItemType {
   APPLICATION = "APPLICATION",
   CONNECTIONS = "CONNECTION",
   PROCESS = "PROCESS",
-  SERVER = "SERVER",
+  SERVER = "SERVER"
 }
 
 /**
@@ -358,7 +365,9 @@ export namespace ConfigurationTag {
  *          <p></p>
  *
  */
-export interface ConflictErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConflictErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConflictErrorException";
   $fault: "client";
   message?: string;
@@ -525,7 +534,7 @@ export enum ContinuousExportStatus {
   START_FAILED = "START_FAILED",
   START_IN_PROGRESS = "START_IN_PROGRESS",
   STOP_FAILED = "STOP_FAILED",
-  STOP_IN_PROGRESS = "STOP_IN_PROGRESS",
+  STOP_IN_PROGRESS = "STOP_IN_PROGRESS"
 }
 
 export interface CreateApplicationRequest {
@@ -732,7 +741,7 @@ export namespace CustomerConnectorInfo {
 }
 
 export enum DataSource {
-  AGENT = "AGENT",
+  AGENT = "AGENT"
 }
 
 export interface DeleteApplicationsRequest {
@@ -1226,18 +1235,29 @@ export interface DisassociateConfigurationItemsFromApplicationRequest {
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationRequest {
-  export function isa(o: any): o is DisassociateConfigurationItemsFromApplicationRequest {
-    return _smithy.isa(o, "DisassociateConfigurationItemsFromApplicationRequest");
+  export function isa(
+    o: any
+  ): o is DisassociateConfigurationItemsFromApplicationRequest {
+    return _smithy.isa(
+      o,
+      "DisassociateConfigurationItemsFromApplicationRequest"
+    );
   }
 }
 
-export interface DisassociateConfigurationItemsFromApplicationResponse extends $MetadataBearer {
+export interface DisassociateConfigurationItemsFromApplicationResponse
+  extends $MetadataBearer {
   __type?: "DisassociateConfigurationItemsFromApplicationResponse";
 }
 
 export namespace DisassociateConfigurationItemsFromApplicationResponse {
-  export function isa(o: any): o is DisassociateConfigurationItemsFromApplicationResponse {
-    return _smithy.isa(o, "DisassociateConfigurationItemsFromApplicationResponse");
+  export function isa(
+    o: any
+  ): o is DisassociateConfigurationItemsFromApplicationResponse {
+    return _smithy.isa(
+      o,
+      "DisassociateConfigurationItemsFromApplicationResponse"
+    );
   }
 }
 
@@ -1259,7 +1279,7 @@ export namespace ExportConfigurationsResponse {
 
 export enum ExportDataFormat {
   CSV = "CSV",
-  GRAPHML = "GRAPHML",
+  GRAPHML = "GRAPHML"
 }
 
 /**
@@ -1384,7 +1404,7 @@ export namespace ExportInfo {
 export enum ExportStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCEEDED = "SUCCEEDED",
+  SUCCEEDED = "SUCCEEDED"
 }
 
 /**
@@ -1496,7 +1516,9 @@ export namespace GetDiscoverySummaryResponse {
  *          <p>The home region is not set. Set the home region to continue.</p>
  *
  */
-export interface HomeRegionNotSetException extends _smithy.SmithyException, $MetadataBearer {
+export interface HomeRegionNotSetException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "HomeRegionNotSetException";
   $fault: "client";
   message?: string;
@@ -1519,7 +1541,7 @@ export enum ImportStatus {
   IMPORT_FAILED_RECORD_LIMIT_EXCEEDED = "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
   IMPORT_FAILED_SERVER_LIMIT_EXCEEDED = "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
   IMPORT_IN_PROGRESS = "IMPORT_IN_PROGRESS",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -1692,7 +1714,7 @@ export namespace ImportTaskFilter {
 export enum ImportTaskFilterName {
   IMPORT_TASK_ID = "IMPORT_TASK_ID",
   NAME = "NAME",
-  STATUS = "STATUS",
+  STATUS = "STATUS"
 }
 
 /**
@@ -1700,7 +1722,9 @@ export enum ImportTaskFilterName {
  *          <p>One or more parameters are not valid. Verify the parameters and try again.</p>
  *
  */
-export interface InvalidParameterException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterException";
   $fault: "client";
   message?: string;
@@ -1718,7 +1742,9 @@ export namespace InvalidParameterException {
  *       parameter values and try again.</p>
  *
  */
-export interface InvalidParameterValueException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterValueException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterValueException";
   $fault: "client";
   message?: string;
@@ -1948,7 +1974,9 @@ export namespace NeighborConnectionDetail {
  *          <p>This operation is not permitted.</p>
  *
  */
-export interface OperationNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationNotPermittedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationNotPermittedException";
   $fault: "client";
   message?: string;
@@ -1997,7 +2025,9 @@ export namespace OrderByElement {
  *       try again.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   message?: string;
@@ -2015,7 +2045,9 @@ export namespace ResourceInUseException {
  *       again.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   message?: string;
@@ -2032,7 +2064,9 @@ export namespace ResourceNotFoundException {
  *          <p>The server experienced an internal error. Try again.</p>
  *
  */
-export interface ServerInternalErrorException extends _smithy.SmithyException, $MetadataBearer {
+export interface ServerInternalErrorException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ServerInternalErrorException";
   $fault: "server";
   message?: string;
@@ -2448,5 +2482,5 @@ export namespace UpdateApplicationResponse {
 
 export enum OrderString {
   ASC = "ASC",
-  DESC = "DESC",
+  DESC = "DESC"
 }

@@ -36,7 +36,9 @@ export namespace AbortTransactionResult {
  *          <p>Returned if the request is malformed or contains an error such as an invalid parameter value or a missing required parameter.</p>
  *
  */
-export interface BadRequestException extends _smithy.SmithyException, $MetadataBearer {
+export interface BadRequestException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "BadRequestException";
   $fault: "client";
   Code?: string;
@@ -248,7 +250,9 @@ export namespace FetchPageResult {
  *          <p>Returned if the session doesn't exist anymore because it timed-out or expired.</p>
  *
  */
-export interface InvalidSessionException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidSessionException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidSessionException";
   $fault: "client";
   Code?: string;
@@ -266,7 +270,9 @@ export namespace InvalidSessionException {
  *          <p>Returned if a resource limit such as number of active sessions is exceeded.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   Message?: string;
@@ -283,7 +289,9 @@ export namespace LimitExceededException {
  *          <p>Returned when a transaction cannot be written to the journal due to a failure in the verification phase of Optimistic Concurrency Control.</p>
  *
  */
-export interface OccConflictException extends _smithy.SmithyException, $MetadataBearer {
+export interface OccConflictException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OccConflictException";
   $fault: "client";
   Message?: string;
@@ -328,7 +336,9 @@ export namespace Page {
  *          <p>Returned when the rate of requests exceeds the allowed throughput.</p>
  *
  */
-export interface RateExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface RateExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "RateExceededException";
   $fault: "client";
   Message?: string;

@@ -1,20 +1,17 @@
 import {
   SFNClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SFNClient";
-import {
-  GetActivityTaskInput,
-  GetActivityTaskOutput,
-} from "../models/index";
+import { GetActivityTaskInput, GetActivityTaskOutput } from "../models/index";
 import {
   deserializeAws_json1_0GetActivityTaskCommand,
-  serializeAws_json1_0GetActivityTaskCommand,
+  serializeAws_json1_0GetActivityTaskCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetActivityTaskCommandInput = GetActivityTaskInput;
 export type GetActivityTaskCommandOutput = GetActivityTaskOutput;
 
-export class GetActivityTaskCommand extends $Command<GetActivityTaskCommandInput, GetActivityTaskCommandOutput, SFNClientResolvedConfig> {
+export class GetActivityTaskCommand extends $Command<
+  GetActivityTaskCommandInput,
+  GetActivityTaskCommandOutput,
+  SFNClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetActivityTaskCommand extends $Command<GetActivityTaskCommandInput
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetActivityTaskCommandInput, GetActivityTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

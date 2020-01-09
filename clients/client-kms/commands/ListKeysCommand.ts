@@ -1,20 +1,17 @@
 import {
   KMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../KMSClient";
-import {
-  ListKeysRequest,
-  ListKeysResponse,
-} from "../models/index";
+import { ListKeysRequest, ListKeysResponse } from "../models/index";
 import {
   deserializeAws_json1_1ListKeysCommand,
-  serializeAws_json1_1ListKeysCommand,
+  serializeAws_json1_1ListKeysCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListKeysCommandInput = ListKeysRequest;
 export type ListKeysCommandOutput = ListKeysResponse;
 
-export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysCommandOutput, KMSClientResolvedConfig> {
+export class ListKeysCommand extends $Command<
+  ListKeysCommandInput,
+  ListKeysCommandOutput,
+  KMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class ListKeysCommand extends $Command<ListKeysCommandInput, ListKeysComm
     configuration: KMSClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<ListKeysCommandInput, ListKeysCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

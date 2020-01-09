@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   CancelMaintenanceWindowExecutionRequest,
-  CancelMaintenanceWindowExecutionResult,
+  CancelMaintenanceWindowExecutionResult
 } from "../models/index";
 import {
   deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
-  serializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
+  serializeAws_json1_1CancelMaintenanceWindowExecutionCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type CancelMaintenanceWindowExecutionCommandInput = CancelMaintenanceWindowExecutionRequest;
 export type CancelMaintenanceWindowExecutionCommandOutput = CancelMaintenanceWindowExecutionResult;
 
-export class CancelMaintenanceWindowExecutionCommand extends $Command<CancelMaintenanceWindowExecutionCommandInput, CancelMaintenanceWindowExecutionCommandOutput, SSMClientResolvedConfig> {
+export class CancelMaintenanceWindowExecutionCommand extends $Command<
+  CancelMaintenanceWindowExecutionCommandInput,
+  CancelMaintenanceWindowExecutionCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<CancelMain
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CancelMaintenanceWindowExecutionCommandInput, CancelMaintenanceWindowExecutionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    CancelMaintenanceWindowExecutionCommandInput,
+    CancelMaintenanceWindowExecutionCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class CancelMaintenanceWindowExecutionCommand extends $Command<CancelMain
     input: CancelMaintenanceWindowExecutionCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(input, context);
+    return serializeAws_json1_1CancelMaintenanceWindowExecutionCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<CancelMaintenanceWindowExecutionCommandOutput> {
-    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(output, context);
+    return deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

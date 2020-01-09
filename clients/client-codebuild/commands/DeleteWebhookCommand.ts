@@ -1,20 +1,17 @@
 import {
   CodeBuildClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../CodeBuildClient";
-import {
-  DeleteWebhookInput,
-  DeleteWebhookOutput,
-} from "../models/index";
+import { DeleteWebhookInput, DeleteWebhookOutput } from "../models/index";
 import {
   deserializeAws_json1_1DeleteWebhookCommand,
-  serializeAws_json1_1DeleteWebhookCommand,
+  serializeAws_json1_1DeleteWebhookCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteWebhookCommandInput = DeleteWebhookInput;
 export type DeleteWebhookCommandOutput = DeleteWebhookOutput;
 
-export class DeleteWebhookCommand extends $Command<DeleteWebhookCommandInput, DeleteWebhookCommandOutput, CodeBuildClientResolvedConfig> {
+export class DeleteWebhookCommand extends $Command<
+  DeleteWebhookCommandInput,
+  DeleteWebhookCommandOutput,
+  CodeBuildClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class DeleteWebhookCommand extends $Command<DeleteWebhookCommandInput, De
     configuration: CodeBuildClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DeleteWebhookCommandInput, DeleteWebhookCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

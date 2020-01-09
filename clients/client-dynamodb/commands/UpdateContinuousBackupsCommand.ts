@@ -1,20 +1,20 @@
 import {
   DynamoDBClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DynamoDBClient";
 import {
   UpdateContinuousBackupsInput,
-  UpdateContinuousBackupsOutput,
+  UpdateContinuousBackupsOutput
 } from "../models/index";
 import {
   deserializeAws_json1_0UpdateContinuousBackupsCommand,
-  serializeAws_json1_0UpdateContinuousBackupsCommand,
+  serializeAws_json1_0UpdateContinuousBackupsCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateContinuousBackupsCommandInput = UpdateContinuousBackupsInput;
 export type UpdateContinuousBackupsCommandOutput = UpdateContinuousBackupsOutput;
 
-export class UpdateContinuousBackupsCommand extends $Command<UpdateContinuousBackupsCommandInput, UpdateContinuousBackupsCommandOutput, DynamoDBClientResolvedConfig> {
+export class UpdateContinuousBackupsCommand extends $Command<
+  UpdateContinuousBackupsCommandInput,
+  UpdateContinuousBackupsCommandOutput,
+  DynamoDBClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateContinuousBackupsCommand extends $Command<UpdateContinuousBac
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DynamoDBClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateContinuousBackupsCommandInput, UpdateContinuousBackupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateContinuousBackupsCommandInput,
+    UpdateContinuousBackupsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateContinuousBackupsCommand extends $Command<UpdateContinuousBac
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateContinuousBackupsCommandOutput> {
-    return deserializeAws_json1_0UpdateContinuousBackupsCommand(output, context);
+    return deserializeAws_json1_0UpdateContinuousBackupsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

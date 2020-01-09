@@ -1,14 +1,14 @@
 import {
   SearchCommandInput,
-  SearchCommandOutput,
+  SearchCommandOutput
 } from "../commands/SearchCommand";
 import {
   SuggestCommandInput,
-  SuggestCommandOutput,
+  SuggestCommandOutput
 } from "../commands/SuggestCommand";
 import {
   UploadDocumentsCommandInput,
-  UploadDocumentsCommandOutput,
+  UploadDocumentsCommandOutput
 } from "../commands/UploadDocumentsCommand";
 import {
   Bucket,
@@ -22,18 +22,18 @@ import {
   SearchStatus,
   SuggestModel,
   SuggestStatus,
-  SuggestionMatch,
+  SuggestionMatch
 } from "../models/index";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
   Endpoint as __Endpoint,
   MetadataBearer as __MetadataBearer,
   ResponseMetadata as __ResponseMetadata,
-  SerdeContext as __SerdeContext,
+  SerdeContext as __SerdeContext
 } from "@aws-sdk/types";
 
 export async function serializeAws_restJson1_1SearchCommand(
@@ -41,53 +41,53 @@ export async function serializeAws_restJson1_1SearchCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2013-01-01/search";
   const query: any = {
-    "format": "sdk",
-    "pretty": "true",
+    format: "sdk",
+    pretty: "true"
   };
   if (input.cursor !== undefined) {
-    query['cursor'] = input.cursor.toString();
+    query["cursor"] = input.cursor.toString();
   }
   if (input.expr !== undefined) {
-    query['expr'] = input.expr.toString();
+    query["expr"] = input.expr.toString();
   }
   if (input.facet !== undefined) {
-    query['facet'] = input.facet.toString();
+    query["facet"] = input.facet.toString();
   }
   if (input.filterQuery !== undefined) {
-    query['fq'] = input.filterQuery.toString();
+    query["fq"] = input.filterQuery.toString();
   }
   if (input.highlight !== undefined) {
-    query['highlight'] = input.highlight.toString();
+    query["highlight"] = input.highlight.toString();
   }
   if (input.partial !== undefined) {
-    query['partial'] = input.partial.toString();
+    query["partial"] = input.partial.toString();
   }
   if (input.query !== undefined) {
-    query['q'] = input.query.toString();
+    query["q"] = input.query.toString();
   }
   if (input.queryOptions !== undefined) {
-    query['q.options'] = input.queryOptions.toString();
+    query["q.options"] = input.queryOptions.toString();
   }
   if (input.queryParser !== undefined) {
-    query['q.parser'] = input.queryParser.toString();
+    query["q.parser"] = input.queryParser.toString();
   }
   if (input.return !== undefined) {
-    query['return'] = input.return.toString();
+    query["return"] = input.return.toString();
   }
   if (input.size !== undefined) {
-    query['size'] = input.size.toString();
+    query["size"] = input.size.toString();
   }
   if (input.sort !== undefined) {
-    query['sort'] = input.sort.toString();
+    query["sort"] = input.sort.toString();
   }
   if (input.start !== undefined) {
-    query['start'] = input.start.toString();
+    query["start"] = input.start.toString();
   }
   if (input.stats !== undefined) {
-    query['stats'] = input.stats.toString();
+    query["stats"] = input.stats.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -95,7 +95,7 @@ export async function serializeAws_restJson1_1SearchCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -104,20 +104,20 @@ export async function serializeAws_restJson1_1SuggestCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "";
+  headers["Content-Type"] = "";
   let resolvedPath = "/2013-01-01/suggest";
   const query: any = {
-    "format": "sdk",
-    "pretty": "true",
+    format: "sdk",
+    pretty: "true"
   };
   if (input.query !== undefined) {
-    query['q'] = input.query.toString();
+    query["q"] = input.query.toString();
   }
   if (input.size !== undefined) {
-    query['size'] = input.size.toString();
+    query["size"] = input.size.toString();
   }
   if (input.suggester !== undefined) {
-    query['suggester'] = input.suggester.toString();
+    query["suggester"] = input.suggester.toString();
   }
   return new __HttpRequest({
     ...context.endpoint,
@@ -125,7 +125,7 @@ export async function serializeAws_restJson1_1SuggestCommand(
     method: "GET",
     headers: headers,
     path: resolvedPath,
-    query: query,
+    query: query
   });
 }
 
@@ -134,13 +134,13 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
   context: __SerdeContext
 ): Promise<__HttpRequest> {
   const headers: any = {};
-  headers['Content-Type'] = "application/octet-stream";
+  headers["Content-Type"] = "application/octet-stream";
   if (input.contentType !== undefined) {
     headers["Content-Type"] = input.contentType.toString();
   }
   let resolvedPath = "/2013-01-01/documents/batch";
   const query: any = {
-    "format": "sdk",
+    format: "sdk"
   };
   let body: any = {};
   if (input.documents !== undefined) {
@@ -153,7 +153,7 @@ export async function serializeAws_restJson1_1UploadDocumentsCommand(
     headers: headers,
     path: resolvedPath,
     query: query,
-    body: body,
+    body: body
   });
 }
 
@@ -170,7 +170,7 @@ export async function deserializeAws_restJson1_1SearchCommand(
     facets: undefined,
     hits: undefined,
     stats: undefined,
-    status: undefined,
+    status: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.facets !== undefined) {
@@ -183,35 +183,41 @@ export async function deserializeAws_restJson1_1SearchCommand(
     contents.stats = deserializeAws_restJson1_1Stats(data.stats, context);
   }
   if (data.status !== undefined) {
-    contents.status = deserializeAws_restJson1_1SearchStatus(data.status, context);
+    contents.status = deserializeAws_restJson1_1SearchStatus(
+      data.status,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SearchCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SearchCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
-      response = await deserializeAws_restJson1_1SearchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1SearchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -228,42 +234,51 @@ export async function deserializeAws_restJson1_1SuggestCommand(
     $metadata: deserializeMetadata(output),
     __type: "SuggestResponse",
     status: undefined,
-    suggest: undefined,
+    suggest: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.status !== undefined) {
-    contents.status = deserializeAws_restJson1_1SuggestStatus(data.status, context);
+    contents.status = deserializeAws_restJson1_1SuggestStatus(
+      data.status,
+      context
+    );
   }
   if (data.suggest !== undefined) {
-    contents.suggest = deserializeAws_restJson1_1SuggestModel(data.suggest, context);
+    contents.suggest = deserializeAws_restJson1_1SuggestModel(
+      data.suggest,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1SuggestCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<SuggestCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "SearchException":
     case "com.a9.cloudsearch.service2013#SearchException":
-      response = await deserializeAws_restJson1_1SearchExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1SearchExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -274,7 +289,10 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
   context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> {
   if (output.statusCode !== 200) {
-    return deserializeAws_restJson1_1UploadDocumentsCommandError(output, context);
+    return deserializeAws_restJson1_1UploadDocumentsCommandError(
+      output,
+      context
+    );
   }
   const contents: UploadDocumentsCommandOutput = {
     $metadata: deserializeMetadata(output),
@@ -282,7 +300,7 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
     adds: undefined,
     deletes: undefined,
     status: undefined,
-    warnings: undefined,
+    warnings: undefined
   };
   const data: any = await parseBody(output.body, context);
   if (data.adds !== undefined) {
@@ -295,35 +313,41 @@ export async function deserializeAws_restJson1_1UploadDocumentsCommand(
     contents.status = data.status;
   }
   if (data.warnings !== undefined) {
-    contents.warnings = deserializeAws_restJson1_1DocumentServiceWarnings(data.warnings, context);
+    contents.warnings = deserializeAws_restJson1_1DocumentServiceWarnings(
+      data.warnings,
+      context
+    );
   }
   return Promise.resolve(contents);
 }
 
 async function deserializeAws_restJson1_1UploadDocumentsCommandError(
   output: __HttpResponse,
-  context: __SerdeContext,
+  context: __SerdeContext
 ): Promise<UploadDocumentsCommandOutput> {
   const data: any = await parseBody(output.body, context);
   const parsedOutput: any = {
     ...output,
-    body: data,
+    body: data
   };
   let response: __SmithyException & __MetadataBearer;
   let errorCode: String = "UnknownError";
   if (output.headers["x-amzn-errortype"]) {
-    errorCode = output.headers["x-amzn-errortype"].split(':')[0];
+    errorCode = output.headers["x-amzn-errortype"].split(":")[0];
   }
   switch (errorCode) {
     case "DocumentServiceException":
     case "com.a9.cloudsearch.service2013#DocumentServiceException":
-      response = await deserializeAws_restJson1_1DocumentServiceExceptionResponse(parsedOutput, context);
+      response = await deserializeAws_restJson1_1DocumentServiceExceptionResponse(
+        parsedOutput,
+        context
+      );
       break;
     default:
       response = {
         __type: `com.a9.cloudsearch.service2013#${errorCode}`,
         $fault: "client",
-        $metadata: deserializeMetadata(output),
+        $metadata: deserializeMetadata(output)
       };
   }
   return Promise.reject(Object.assign(new Error(response.__type), response));
@@ -338,7 +362,7 @@ const deserializeAws_restJson1_1DocumentServiceExceptionResponse = async (
     $fault: "client",
     $metadata: deserializeMetadata(output),
     message: undefined,
-    status: undefined,
+    status: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -358,7 +382,7 @@ const deserializeAws_restJson1_1SearchExceptionResponse = async (
     __type: "SearchException",
     $fault: "client",
     $metadata: deserializeMetadata(output),
-    message: undefined,
+    message: undefined
   };
   const data: any = output.body;
   if (data.message !== undefined) {
@@ -374,7 +398,7 @@ const deserializeAws_restJson1_1Bucket = (
   let contents: any = {
     __type: "Bucket",
     count: undefined,
-    value: undefined,
+    value: undefined
   };
   if (output.count !== undefined) {
     contents.count = output.count;
@@ -383,7 +407,7 @@ const deserializeAws_restJson1_1Bucket = (
     contents.value = output.value;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1BucketInfo = (
   output: any,
@@ -391,13 +415,16 @@ const deserializeAws_restJson1_1BucketInfo = (
 ): BucketInfo => {
   let contents: any = {
     __type: "BucketInfo",
-    buckets: undefined,
+    buckets: undefined
   };
   if (output.buckets !== undefined) {
-    contents.buckets = deserializeAws_restJson1_1BucketList(output.buckets, context);
+    contents.buckets = deserializeAws_restJson1_1BucketList(
+      output.buckets,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1BucketList = (
   output: any,
@@ -406,7 +433,7 @@ const deserializeAws_restJson1_1BucketList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Bucket(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1DocumentServiceWarning = (
   output: any,
@@ -414,13 +441,13 @@ const deserializeAws_restJson1_1DocumentServiceWarning = (
 ): DocumentServiceWarning => {
   let contents: any = {
     __type: "DocumentServiceWarning",
-    message: undefined,
+    message: undefined
   };
   if (output.message !== undefined) {
     contents.message = output.message;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1DocumentServiceWarnings = (
   output: any,
@@ -429,7 +456,7 @@ const deserializeAws_restJson1_1DocumentServiceWarnings = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1DocumentServiceWarning(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Exprs = (
   output: any,
@@ -440,7 +467,7 @@ const deserializeAws_restJson1_1Exprs = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1Facets = (
   output: any,
@@ -451,7 +478,7 @@ const deserializeAws_restJson1_1Facets = (
     mapParams[key] = deserializeAws_restJson1_1BucketInfo(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1FieldStats = (
   output: any,
@@ -466,7 +493,7 @@ const deserializeAws_restJson1_1FieldStats = (
     missing: undefined,
     stddev: undefined,
     sum: undefined,
-    sumOfSquares: undefined,
+    sumOfSquares: undefined
   };
   if (output.count !== undefined) {
     contents.count = output.count;
@@ -493,16 +520,14 @@ const deserializeAws_restJson1_1FieldStats = (
     contents.sumOfSquares = output.sumOfSquares;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1FieldValue = (
   output: any,
   context: __SerdeContext
 ): Array<string> => {
-  return (output || []).map((entry: any) =>
-    entry
-  );
-}
+  return (output || []).map((entry: any) => entry);
+};
 
 const deserializeAws_restJson1_1Fields = (
   output: any,
@@ -513,7 +538,7 @@ const deserializeAws_restJson1_1Fields = (
     mapParams[key] = deserializeAws_restJson1_1FieldValue(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1Highlights = (
   output: any,
@@ -524,7 +549,7 @@ const deserializeAws_restJson1_1Highlights = (
     mapParams[key] = output[key];
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1Hit = (
   output: any,
@@ -535,7 +560,7 @@ const deserializeAws_restJson1_1Hit = (
     exprs: undefined,
     fields: undefined,
     highlights: undefined,
-    id: undefined,
+    id: undefined
   };
   if (output.exprs !== undefined) {
     contents.exprs = deserializeAws_restJson1_1Exprs(output.exprs, context);
@@ -544,13 +569,16 @@ const deserializeAws_restJson1_1Hit = (
     contents.fields = deserializeAws_restJson1_1Fields(output.fields, context);
   }
   if (output.highlights !== undefined) {
-    contents.highlights = deserializeAws_restJson1_1Highlights(output.highlights, context);
+    contents.highlights = deserializeAws_restJson1_1Highlights(
+      output.highlights,
+      context
+    );
   }
   if (output.id !== undefined) {
     contents.id = output.id;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1HitList = (
   output: any,
@@ -559,7 +587,7 @@ const deserializeAws_restJson1_1HitList = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1Hit(entry, context)
   );
-}
+};
 
 const deserializeAws_restJson1_1Hits = (
   output: any,
@@ -570,7 +598,7 @@ const deserializeAws_restJson1_1Hits = (
     cursor: undefined,
     found: undefined,
     hit: undefined,
-    start: undefined,
+    start: undefined
   };
   if (output.cursor !== undefined) {
     contents.cursor = output.cursor;
@@ -585,7 +613,7 @@ const deserializeAws_restJson1_1Hits = (
     contents.start = output.start;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SearchStatus = (
   output: any,
@@ -594,7 +622,7 @@ const deserializeAws_restJson1_1SearchStatus = (
   let contents: any = {
     __type: "SearchStatus",
     rid: undefined,
-    timems: undefined,
+    timems: undefined
   };
   if (output.rid !== undefined) {
     contents.rid = output.rid;
@@ -603,7 +631,7 @@ const deserializeAws_restJson1_1SearchStatus = (
     contents.timems = output.timems;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Stats = (
   output: any,
@@ -614,7 +642,7 @@ const deserializeAws_restJson1_1Stats = (
     mapParams[key] = deserializeAws_restJson1_1FieldStats(output[key], context);
   });
   return mapParams;
-}
+};
 
 const deserializeAws_restJson1_1SuggestModel = (
   output: any,
@@ -624,7 +652,7 @@ const deserializeAws_restJson1_1SuggestModel = (
     __type: "SuggestModel",
     found: undefined,
     query: undefined,
-    suggestions: undefined,
+    suggestions: undefined
   };
   if (output.found !== undefined) {
     contents.found = output.found;
@@ -633,10 +661,13 @@ const deserializeAws_restJson1_1SuggestModel = (
     contents.query = output.query;
   }
   if (output.suggestions !== undefined) {
-    contents.suggestions = deserializeAws_restJson1_1Suggestions(output.suggestions, context);
+    contents.suggestions = deserializeAws_restJson1_1Suggestions(
+      output.suggestions,
+      context
+    );
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SuggestStatus = (
   output: any,
@@ -645,7 +676,7 @@ const deserializeAws_restJson1_1SuggestStatus = (
   let contents: any = {
     __type: "SuggestStatus",
     rid: undefined,
-    timems: undefined,
+    timems: undefined
   };
   if (output.rid !== undefined) {
     contents.rid = output.rid;
@@ -654,7 +685,7 @@ const deserializeAws_restJson1_1SuggestStatus = (
     contents.timems = output.timems;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1SuggestionMatch = (
   output: any,
@@ -664,7 +695,7 @@ const deserializeAws_restJson1_1SuggestionMatch = (
     __type: "SuggestionMatch",
     id: undefined,
     score: undefined,
-    suggestion: undefined,
+    suggestion: undefined
   };
   if (output.id !== undefined) {
     contents.id = output.id;
@@ -676,7 +707,7 @@ const deserializeAws_restJson1_1SuggestionMatch = (
     contents.suggestion = output.suggestion;
   }
   return contents;
-}
+};
 
 const deserializeAws_restJson1_1Suggestions = (
   output: any,
@@ -685,7 +716,7 @@ const deserializeAws_restJson1_1Suggestions = (
   return (output || []).map((entry: any) =>
     deserializeAws_restJson1_1SuggestionMatch(entry, context)
   );
-}
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

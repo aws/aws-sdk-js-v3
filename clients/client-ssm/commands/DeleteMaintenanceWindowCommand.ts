@@ -1,20 +1,20 @@
 import {
   SSMClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SSMClient";
 import {
   DeleteMaintenanceWindowRequest,
-  DeleteMaintenanceWindowResult,
+  DeleteMaintenanceWindowResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteMaintenanceWindowCommand,
-  serializeAws_json1_1DeleteMaintenanceWindowCommand,
+  serializeAws_json1_1DeleteMaintenanceWindowCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteMaintenanceWindowCommandInput = DeleteMaintenanceWindowRequest;
 export type DeleteMaintenanceWindowCommandOutput = DeleteMaintenanceWindowResult;
 
-export class DeleteMaintenanceWindowCommand extends $Command<DeleteMaintenanceWindowCommandInput, DeleteMaintenanceWindowCommandOutput, SSMClientResolvedConfig> {
+export class DeleteMaintenanceWindowCommand extends $Command<
+  DeleteMaintenanceWindowCommandInput,
+  DeleteMaintenanceWindowCommandOutput,
+  SSMClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteMaintenanceWindowCommand extends $Command<DeleteMaintenanceWi
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteMaintenanceWindowCommandInput, DeleteMaintenanceWindowCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteMaintenanceWindowCommandInput,
+    DeleteMaintenanceWindowCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class DeleteMaintenanceWindowCommand extends $Command<DeleteMaintenanceWi
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteMaintenanceWindowCommandOutput> {
-    return deserializeAws_json1_1DeleteMaintenanceWindowCommand(output, context);
+    return deserializeAws_json1_1DeleteMaintenanceWindowCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

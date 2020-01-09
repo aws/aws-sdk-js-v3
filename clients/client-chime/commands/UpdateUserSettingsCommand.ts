@@ -1,17 +1,17 @@
 import {
   ChimeClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../ChimeClient";
 import { UpdateUserSettingsRequest } from "../models/index";
 import {
   deserializeAws_restJson1_1UpdateUserSettingsCommand,
-  serializeAws_restJson1_1UpdateUserSettingsCommand,
+  serializeAws_restJson1_1UpdateUserSettingsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type UpdateUserSettingsCommandInput = UpdateUserSettingsRequest;
-export type UpdateUserSettingsCommandOutput = __MetadataBearer
+export type UpdateUserSettingsCommandOutput = __MetadataBearer;
 
-export class UpdateUserSettingsCommand extends $Command<UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput, ChimeClientResolvedConfig> {
+export class UpdateUserSettingsCommand extends $Command<
+  UpdateUserSettingsCommandInput,
+  UpdateUserSettingsCommandOutput,
+  ChimeClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -42,13 +46,15 @@ export class UpdateUserSettingsCommand extends $Command<UpdateUserSettingsComman
     configuration: ChimeClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

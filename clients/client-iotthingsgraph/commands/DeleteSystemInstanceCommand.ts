@@ -1,20 +1,20 @@
 import {
   IoTThingsGraphClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../IoTThingsGraphClient";
 import {
   DeleteSystemInstanceRequest,
-  DeleteSystemInstanceResponse,
+  DeleteSystemInstanceResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1DeleteSystemInstanceCommand,
-  serializeAws_json1_1DeleteSystemInstanceCommand,
+  serializeAws_json1_1DeleteSystemInstanceCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DeleteSystemInstanceCommandInput = DeleteSystemInstanceRequest;
 export type DeleteSystemInstanceCommandOutput = DeleteSystemInstanceResponse;
 
-export class DeleteSystemInstanceCommand extends $Command<DeleteSystemInstanceCommandInput, DeleteSystemInstanceCommandOutput, IoTThingsGraphClientResolvedConfig> {
+export class DeleteSystemInstanceCommand extends $Command<
+  DeleteSystemInstanceCommandInput,
+  DeleteSystemInstanceCommandOutput,
+  IoTThingsGraphClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DeleteSystemInstanceCommand extends $Command<DeleteSystemInstanceCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTThingsGraphClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteSystemInstanceCommandInput, DeleteSystemInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteSystemInstanceCommandInput,
+    DeleteSystemInstanceCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

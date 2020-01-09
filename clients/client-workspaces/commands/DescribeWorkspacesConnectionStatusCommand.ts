@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  WorkSpacesClientResolvedConfig,
+  WorkSpacesClientResolvedConfig
 } from "../WorkSpacesClient";
 import {
   DescribeWorkspacesConnectionStatusRequest,
-  DescribeWorkspacesConnectionStatusResult,
+  DescribeWorkspacesConnectionStatusResult
 } from "../models/index";
 import {
   deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
-  serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
+  serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribeWorkspacesConnectionStatusCommandInput = DescribeWorkspacesConnectionStatusRequest;
 export type DescribeWorkspacesConnectionStatusCommandOutput = DescribeWorkspacesConnectionStatusResult;
 
-export class DescribeWorkspacesConnectionStatusCommand extends $Command<DescribeWorkspacesConnectionStatusCommandInput, DescribeWorkspacesConnectionStatusCommandOutput, WorkSpacesClientResolvedConfig> {
+export class DescribeWorkspacesConnectionStatusCommand extends $Command<
+  DescribeWorkspacesConnectionStatusCommandInput,
+  DescribeWorkspacesConnectionStatusCommandOutput,
+  WorkSpacesClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<Describe
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WorkSpacesClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeWorkspacesConnectionStatusCommandInput, DescribeWorkspacesConnectionStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DescribeWorkspacesConnectionStatusCommandInput,
+    DescribeWorkspacesConnectionStatusCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class DescribeWorkspacesConnectionStatusCommand extends $Command<Describe
     input: DescribeWorkspacesConnectionStatusCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(input, context);
+    return serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DescribeWorkspacesConnectionStatusCommandOutput> {
-    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(output, context);
+    return deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

@@ -1,17 +1,17 @@
 import {
   FMSClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../FMSClient";
 import { DeleteNotificationChannelRequest } from "../models/index";
 import {
   deserializeAws_json1_1DeleteNotificationChannelCommand,
-  serializeAws_json1_1DeleteNotificationChannelCommand,
+  serializeAws_json1_1DeleteNotificationChannelCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -21,13 +21,17 @@ import {
   MiddlewareStack,
   SerdeContext,
   HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
+  MetadataBearer as __MetadataBearer
 } from "@aws-sdk/types";
 
 export type DeleteNotificationChannelCommandInput = DeleteNotificationChannelRequest;
-export type DeleteNotificationChannelCommandOutput = __MetadataBearer
+export type DeleteNotificationChannelCommandOutput = __MetadataBearer;
 
-export class DeleteNotificationChannelCommand extends $Command<DeleteNotificationChannelCommandInput, DeleteNotificationChannelCommandOutput, FMSClientResolvedConfig> {
+export class DeleteNotificationChannelCommand extends $Command<
+  DeleteNotificationChannelCommandInput,
+  DeleteNotificationChannelCommandOutput,
+  FMSClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -41,14 +45,19 @@ export class DeleteNotificationChannelCommand extends $Command<DeleteNotificatio
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: FMSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteNotificationChannelCommandInput, DeleteNotificationChannelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    DeleteNotificationChannelCommandInput,
+    DeleteNotificationChannelCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -68,7 +77,10 @@ export class DeleteNotificationChannelCommand extends $Command<DeleteNotificatio
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<DeleteNotificationChannelCommandOutput> {
-    return deserializeAws_json1_1DeleteNotificationChannelCommand(output, context);
+    return deserializeAws_json1_1DeleteNotificationChannelCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

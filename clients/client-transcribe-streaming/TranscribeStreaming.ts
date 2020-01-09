@@ -2,7 +2,7 @@ import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 import {
   StartStreamTranscriptionCommand,
   StartStreamTranscriptionCommandInput,
-  StartStreamTranscriptionCommandOutput,
+  StartStreamTranscriptionCommandOutput
 } from "./commands/StartStreamTranscriptionCommand";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
@@ -35,7 +35,7 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
    */
   public startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
-    options?: __HttpHandlerOptions,
+    options?: __HttpHandlerOptions
   ): Promise<StartStreamTranscriptionCommandOutput>;
   public startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
@@ -48,19 +48,20 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
   ): void;
   public startStreamTranscription(
     args: StartStreamTranscriptionCommandInput,
-    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartStreamTranscriptionCommandOutput) => void),
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartStreamTranscriptionCommandOutput) => void),
     cb?: (err: any, data?: StartStreamTranscriptionCommandOutput) => void
   ): Promise<StartStreamTranscriptionCommandOutput> | void {
     const command = new StartStreamTranscriptionCommand(args);
     if (typeof optionsOrCb === "function") {
-      this.send(command, optionsOrCb)
+      this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
       if (typeof optionsOrCb !== "object")
-        throw new Error(`Expect http options but get ${typeof optionsOrCb}`)
-      this.send(command, optionsOrCb || {}, cb)
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
     }
   }
-
 }

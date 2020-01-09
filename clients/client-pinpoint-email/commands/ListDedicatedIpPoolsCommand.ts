@@ -1,20 +1,20 @@
 import {
   PinpointEmailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../PinpointEmailClient";
 import {
   ListDedicatedIpPoolsRequest,
-  ListDedicatedIpPoolsResponse,
+  ListDedicatedIpPoolsResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1ListDedicatedIpPoolsCommand,
-  serializeAws_restJson1_1ListDedicatedIpPoolsCommand,
+  serializeAws_restJson1_1ListDedicatedIpPoolsCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListDedicatedIpPoolsCommandInput = ListDedicatedIpPoolsRequest;
 export type ListDedicatedIpPoolsCommandOutput = ListDedicatedIpPoolsResponse;
 
-export class ListDedicatedIpPoolsCommand extends $Command<ListDedicatedIpPoolsCommandInput, ListDedicatedIpPoolsCommandOutput, PinpointEmailClientResolvedConfig> {
+export class ListDedicatedIpPoolsCommand extends $Command<
+  ListDedicatedIpPoolsCommandInput,
+  ListDedicatedIpPoolsCommandOutput,
+  PinpointEmailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListDedicatedIpPoolsCommand extends $Command<ListDedicatedIpPoolsCo
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: PinpointEmailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDedicatedIpPoolsCommandInput, ListDedicatedIpPoolsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListDedicatedIpPoolsCommandInput,
+    ListDedicatedIpPoolsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class ListDedicatedIpPoolsCommand extends $Command<ListDedicatedIpPoolsCo
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<ListDedicatedIpPoolsCommandOutput> {
-    return deserializeAws_restJson1_1ListDedicatedIpPoolsCommand(output, context);
+    return deserializeAws_restJson1_1ListDedicatedIpPoolsCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

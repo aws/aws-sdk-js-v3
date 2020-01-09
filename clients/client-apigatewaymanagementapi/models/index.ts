@@ -15,7 +15,9 @@ export namespace DeleteConnectionRequest {
 /**
  * <p>The caller is not authorized to invoke this operation.</p>
  */
-export interface ForbiddenException extends _smithy.SmithyException, $MetadataBearer {
+export interface ForbiddenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ForbiddenException";
   $fault: "client";
 }
@@ -60,7 +62,9 @@ export namespace GetConnectionResponse {
 /**
  * <p>The connection with the provided id no longer exists.</p>
  */
-export interface GoneException extends _smithy.SmithyException, $MetadataBearer {
+export interface GoneException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "GoneException";
   $fault: "client";
 }
@@ -93,7 +97,9 @@ export namespace Identity {
 /**
  * <p>The client is sending more than the allowed number of requests per unit of time or the WebSocket client side buffer is full.</p>
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
 }
@@ -107,7 +113,9 @@ export namespace LimitExceededException {
 /**
  * <p>The data has exceeded the maximum size allowed.</p>
  */
-export interface PayloadTooLargeException extends _smithy.SmithyException, $MetadataBearer {
+export interface PayloadTooLargeException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "PayloadTooLargeException";
   $fault: "client";
   Message?: string;

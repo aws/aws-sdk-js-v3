@@ -1,20 +1,20 @@
 import {
   DeviceFarmClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../DeviceFarmClient";
 import {
   UpdateVPCEConfigurationRequest,
-  UpdateVPCEConfigurationResult,
+  UpdateVPCEConfigurationResult
 } from "../models/index";
 import {
   deserializeAws_json1_1UpdateVPCEConfigurationCommand,
-  serializeAws_json1_1UpdateVPCEConfigurationCommand,
+  serializeAws_json1_1UpdateVPCEConfigurationCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type UpdateVPCEConfigurationCommandInput = UpdateVPCEConfigurationRequest;
 export type UpdateVPCEConfigurationCommandOutput = UpdateVPCEConfigurationResult;
 
-export class UpdateVPCEConfigurationCommand extends $Command<UpdateVPCEConfigurationCommandInput, UpdateVPCEConfigurationCommandOutput, DeviceFarmClientResolvedConfig> {
+export class UpdateVPCEConfigurationCommand extends $Command<
+  UpdateVPCEConfigurationCommandInput,
+  UpdateVPCEConfigurationCommandOutput,
+  DeviceFarmClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class UpdateVPCEConfigurationCommand extends $Command<UpdateVPCEConfigura
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: DeviceFarmClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateVPCEConfigurationCommandInput, UpdateVPCEConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    UpdateVPCEConfigurationCommandInput,
+    UpdateVPCEConfigurationCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -70,7 +79,10 @@ export class UpdateVPCEConfigurationCommand extends $Command<UpdateVPCEConfigura
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<UpdateVPCEConfigurationCommandOutput> {
-    return deserializeAws_json1_1UpdateVPCEConfigurationCommand(output, context);
+    return deserializeAws_json1_1UpdateVPCEConfigurationCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

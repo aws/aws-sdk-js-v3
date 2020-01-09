@@ -1,20 +1,20 @@
 import {
   IoTAnalyticsClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../IoTAnalyticsClient";
 import {
   DescribePipelineRequest,
-  DescribePipelineResponse,
+  DescribePipelineResponse
 } from "../models/index";
 import {
   deserializeAws_restJson1_1DescribePipelineCommand,
-  serializeAws_restJson1_1DescribePipelineCommand,
+  serializeAws_restJson1_1DescribePipelineCommand
 } from "../protocols/Aws_restJson1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type DescribePipelineCommandInput = DescribePipelineRequest;
 export type DescribePipelineCommandOutput = DescribePipelineResponse;
 
-export class DescribePipelineCommand extends $Command<DescribePipelineCommandInput, DescribePipelineCommandOutput, IoTAnalyticsClientResolvedConfig> {
+export class DescribePipelineCommand extends $Command<
+  DescribePipelineCommandInput,
+  DescribePipelineCommandOutput,
+  IoTAnalyticsClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +48,15 @@ export class DescribePipelineCommand extends $Command<DescribePipelineCommandInp
     configuration: IoTAnalyticsClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<DescribePipelineCommandInput, DescribePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

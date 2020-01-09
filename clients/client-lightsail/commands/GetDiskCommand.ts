@@ -1,20 +1,17 @@
 import {
   LightsailClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../LightsailClient";
-import {
-  GetDiskRequest,
-  GetDiskResult,
-} from "../models/index";
+import { GetDiskRequest, GetDiskResult } from "../models/index";
 import {
   deserializeAws_json1_1GetDiskCommand,
-  serializeAws_json1_1GetDiskCommand,
+  serializeAws_json1_1GetDiskCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +20,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type GetDiskCommandInput = GetDiskRequest;
 export type GetDiskCommandOutput = GetDiskResult;
 
-export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommandOutput, LightsailClientResolvedConfig> {
+export class GetDiskCommand extends $Command<
+  GetDiskCommandInput,
+  GetDiskCommandOutput,
+  LightsailClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -44,13 +45,15 @@ export class GetDiskCommand extends $Command<GetDiskCommandInput, GetDiskCommand
     configuration: LightsailClientResolvedConfig,
     options?: __HttpHandlerOptions
   ): Handler<GetDiskCommandInput, GetDiskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,20 +1,20 @@
 import {
   ServiceInputTypes,
   ServiceOutputTypes,
-  forecastClientResolvedConfig,
+  forecastClientResolvedConfig
 } from "../forecastClient";
 import {
   ListDatasetImportJobsRequest,
-  ListDatasetImportJobsResponse,
+  ListDatasetImportJobsResponse
 } from "../models/index";
 import {
   deserializeAws_json1_1ListDatasetImportJobsCommand,
-  serializeAws_json1_1ListDatasetImportJobsCommand,
+  serializeAws_json1_1ListDatasetImportJobsCommand
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type ListDatasetImportJobsCommandInput = ListDatasetImportJobsRequest;
 export type ListDatasetImportJobsCommandOutput = ListDatasetImportJobsResponse;
 
-export class ListDatasetImportJobsCommand extends $Command<ListDatasetImportJobsCommandInput, ListDatasetImportJobsCommandOutput, forecastClientResolvedConfig> {
+export class ListDatasetImportJobsCommand extends $Command<
+  ListDatasetImportJobsCommandInput,
+  ListDatasetImportJobsCommandOutput,
+  forecastClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class ListDatasetImportJobsCommand extends $Command<ListDatasetImportJobs
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: forecastClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListDatasetImportJobsCommandInput, ListDatasetImportJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    ListDatasetImportJobsCommandInput,
+    ListDatasetImportJobsCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

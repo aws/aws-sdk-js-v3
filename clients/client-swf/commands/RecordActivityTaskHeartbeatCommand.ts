@@ -1,20 +1,20 @@
 import {
   SWFClientResolvedConfig,
   ServiceInputTypes,
-  ServiceOutputTypes,
+  ServiceOutputTypes
 } from "../SWFClient";
 import {
   ActivityTaskStatus,
-  RecordActivityTaskHeartbeatInput,
+  RecordActivityTaskHeartbeatInput
 } from "../models/index";
 import {
   deserializeAws_json1_0RecordActivityTaskHeartbeatCommand,
-  serializeAws_json1_0RecordActivityTaskHeartbeatCommand,
+  serializeAws_json1_0RecordActivityTaskHeartbeatCommand
 } from "../protocols/Aws_json1_0";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import {
   HttpRequest as __HttpRequest,
-  HttpResponse as __HttpResponse,
+  HttpResponse as __HttpResponse
 } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -23,13 +23,17 @@ import {
   HandlerExecutionContext,
   MiddlewareStack,
   SerdeContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
+  HttpHandlerOptions as __HttpHandlerOptions
 } from "@aws-sdk/types";
 
 export type RecordActivityTaskHeartbeatCommandInput = RecordActivityTaskHeartbeatInput;
 export type RecordActivityTaskHeartbeatCommandOutput = ActivityTaskStatus;
 
-export class RecordActivityTaskHeartbeatCommand extends $Command<RecordActivityTaskHeartbeatCommandInput, RecordActivityTaskHeartbeatCommandOutput, SWFClientResolvedConfig> {
+export class RecordActivityTaskHeartbeatCommand extends $Command<
+  RecordActivityTaskHeartbeatCommandInput,
+  RecordActivityTaskHeartbeatCommandOutput,
+  SWFClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -43,14 +47,19 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<RecordActivityT
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SWFClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RecordActivityTaskHeartbeatCommandInput, RecordActivityTaskHeartbeatCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+  ): Handler<
+    RecordActivityTaskHeartbeatCommandInput,
+    RecordActivityTaskHeartbeatCommandOutput
+  > {
+    this.middlewareStack.use(
+      getSerdePlugin(configuration, this.serialize, this.deserialize)
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
-    }
+      logger: {} as any
+    };
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>
@@ -63,14 +72,20 @@ export class RecordActivityTaskHeartbeatCommand extends $Command<RecordActivityT
     input: RecordActivityTaskHeartbeatCommandInput,
     context: SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(input, context);
+    return serializeAws_json1_0RecordActivityTaskHeartbeatCommand(
+      input,
+      context
+    );
   }
 
   private deserialize(
     output: __HttpResponse,
     context: SerdeContext
   ): Promise<RecordActivityTaskHeartbeatCommandOutput> {
-    return deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(output, context);
+    return deserializeAws_json1_0RecordActivityTaskHeartbeatCommand(
+      output,
+      context
+    );
   }
 
   // Start section: command_body_extra

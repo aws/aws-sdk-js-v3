@@ -367,12 +367,12 @@ export enum BackupStatus {
   DELETING = "DELETING",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  OK = "OK",
+  OK = "OK"
 }
 
 export enum BackupType {
   AUTOMATED = "AUTOMATED",
-  MANUAL = "MANUAL",
+  MANUAL = "MANUAL"
 }
 
 export interface CreateBackupRequest {
@@ -1259,7 +1259,9 @@ export namespace ExportServerEngineAttributeResponse {
  *     </p>
  *
  */
-export interface InvalidNextTokenException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidNextTokenException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidNextTokenException";
   $fault: "client";
   /**
@@ -1283,7 +1285,9 @@ export namespace InvalidNextTokenException {
  *     </p>
  *
  */
-export interface InvalidStateException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidStateException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidStateException";
   $fault: "client";
   /**
@@ -1308,7 +1312,9 @@ export namespace InvalidStateException {
  *     </p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -1328,13 +1334,13 @@ export namespace LimitExceededException {
 
 export enum MaintenanceStatus {
   FAILED = "FAILED",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 export enum NodeAssociationStatus {
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
-  SUCCESS = "SUCCESS",
+  SUCCESS = "SUCCESS"
 }
 
 /**
@@ -1343,7 +1349,9 @@ export enum NodeAssociationStatus {
  *     </p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -1367,7 +1375,9 @@ export namespace ResourceAlreadyExistsException {
  *     </p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -1752,7 +1762,7 @@ export enum ServerStatus {
   SETUP = "SETUP",
   TERMINATED = "TERMINATED",
   UNDER_MAINTENANCE = "UNDER_MAINTENANCE",
-  UNHEALTHY = "UNHEALTHY",
+  UNHEALTHY = "UNHEALTHY"
 }
 
 export interface StartMaintenanceRequest {
@@ -1929,7 +1939,9 @@ export namespace UpdateServerResponse {
  *     </p>
  *
  */
-export interface ValidationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ValidationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ValidationException";
   $fault: "client";
   /**

@@ -30,7 +30,7 @@ export namespace AccessEndpoint {
 }
 
 export enum AccessEndpointType {
-  STREAMING = "STREAMING",
+  STREAMING = "STREAMING"
 }
 
 export enum Action {
@@ -38,7 +38,7 @@ export enum Action {
   CLIPBOARD_COPY_TO_LOCAL_DEVICE = "CLIPBOARD_COPY_TO_LOCAL_DEVICE",
   FILE_DOWNLOAD = "FILE_DOWNLOAD",
   FILE_UPLOAD = "FILE_UPLOAD",
-  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE",
+  PRINTING_TO_LOCAL_DEVICE = "PRINTING_TO_LOCAL_DEVICE"
 }
 
 /**
@@ -204,7 +204,7 @@ export namespace AssociateFleetResult {
 export enum AuthenticationType {
   API = "API",
   SAML = "SAML",
-  USERPOOL = "USERPOOL",
+  USERPOOL = "USERPOOL"
 }
 
 export interface BatchAssociateUserStackRequest {
@@ -340,7 +340,9 @@ export namespace ComputeCapacityStatus {
  *         <p>An API error occurred. Wait a few minutes and try again.</p>
  *
  */
-export interface ConcurrentModificationException extends _smithy.SmithyException, $MetadataBearer {
+export interface ConcurrentModificationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ConcurrentModificationException";
   $fault: "client";
   /**
@@ -1876,7 +1878,8 @@ export namespace DescribeUsageReportSubscriptionsRequest {
   }
 }
 
-export interface DescribeUsageReportSubscriptionsResult extends $MetadataBearer {
+export interface DescribeUsageReportSubscriptionsResult
+  extends $MetadataBearer {
   __type?: "DescribeUsageReportSubscriptionsResult";
   /**
    *
@@ -2470,7 +2473,7 @@ export enum FleetAttribute {
   DOMAIN_JOIN_INFO = "DOMAIN_JOIN_INFO",
   IAM_ROLE_ARN = "IAM_ROLE_ARN",
   VPC_CONFIGURATION = "VPC_CONFIGURATION",
-  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS",
+  VPC_CONFIGURATION_SECURITY_GROUP_IDS = "VPC_CONFIGURATION_SECURITY_GROUP_IDS"
 }
 
 /**
@@ -2529,19 +2532,19 @@ export enum FleetErrorCode {
   SECURITY_GROUPS_NOT_FOUND = "SECURITY_GROUPS_NOT_FOUND",
   STS_DISABLED_IN_REGION = "STS_DISABLED_IN_REGION",
   SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES = "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES",
-  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND",
+  SUBNET_NOT_FOUND = "SUBNET_NOT_FOUND"
 }
 
 export enum FleetState {
   RUNNING = "RUNNING",
   STARTING = "STARTING",
   STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
+  STOPPING = "STOPPING"
 }
 
 export enum FleetType {
   ALWAYS_ON = "ALWAYS_ON",
-  ON_DEMAND = "ON_DEMAND",
+  ON_DEMAND = "ON_DEMAND"
 }
 
 /**
@@ -2885,7 +2888,7 @@ export enum ImageBuilderState {
   SNAPSHOTTING = "SNAPSHOTTING",
   STOPPED = "STOPPED",
   STOPPING = "STOPPING",
-  UPDATING_AGENT = "UPDATING_AGENT",
+  UPDATING_AGENT = "UPDATING_AGENT"
 }
 
 /**
@@ -2918,7 +2921,7 @@ export namespace ImageBuilderStateChangeReason {
 
 export enum ImageBuilderStateChangeReasonCode {
   IMAGE_UNAVAILABLE = "IMAGE_UNAVAILABLE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -2954,7 +2957,7 @@ export enum ImageState {
   COPYING = "COPYING",
   DELETING = "DELETING",
   FAILED = "FAILED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -2988,7 +2991,7 @@ export namespace ImageStateChangeReason {
 export enum ImageStateChangeReasonCode {
   IMAGE_BUILDER_NOT_AVAILABLE = "IMAGE_BUILDER_NOT_AVAILABLE",
   IMAGE_COPY_FAILURE = "IMAGE_COPY_FAILURE",
-  INTERNAL_ERROR = "INTERNAL_ERROR",
+  INTERNAL_ERROR = "INTERNAL_ERROR"
 }
 
 /**
@@ -2996,7 +2999,9 @@ export enum ImageStateChangeReasonCode {
  *         <p>The image does not support storage connectors.</p>
  *
  */
-export interface IncompatibleImageException extends _smithy.SmithyException, $MetadataBearer {
+export interface IncompatibleImageException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "IncompatibleImageException";
   $fault: "client";
   /**
@@ -3018,7 +3023,9 @@ export namespace IncompatibleImageException {
  *             <p>The resource cannot be created because your AWS account is suspended. For assistance, contact AWS Support. </p>
  *
  */
-export interface InvalidAccountStatusException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidAccountStatusException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidAccountStatusException";
   $fault: "client";
   /**
@@ -3040,7 +3047,9 @@ export namespace InvalidAccountStatusException {
  *         <p>Indicates an incorrect combination of parameters, or a missing parameter.</p>
  *
  */
-export interface InvalidParameterCombinationException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidParameterCombinationException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidParameterCombinationException";
   $fault: "client";
   /**
@@ -3062,7 +3071,9 @@ export namespace InvalidParameterCombinationException {
  *         <p>The specified role is invalid.</p>
  *
  */
-export interface InvalidRoleException extends _smithy.SmithyException, $MetadataBearer {
+export interface InvalidRoleException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "InvalidRoleException";
   $fault: "client";
   /**
@@ -3112,7 +3123,9 @@ export namespace LastReportGenerationExecutionError {
  *         <p>The requested limit exceeds the permitted limit for an account.</p>
  *
  */
-export interface LimitExceededException extends _smithy.SmithyException, $MetadataBearer {
+export interface LimitExceededException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "LimitExceededException";
   $fault: "client";
   /**
@@ -3255,7 +3268,7 @@ export namespace ListTagsForResourceResponse {
 
 export enum MessageAction {
   RESEND = "RESEND",
-  SUPPRESS = "SUPPRESS",
+  SUPPRESS = "SUPPRESS"
 }
 
 /**
@@ -3291,7 +3304,9 @@ export namespace NetworkAccessConfiguration {
  *         <p>The attempted operation is not permitted.</p>
  *
  */
-export interface OperationNotPermittedException extends _smithy.SmithyException, $MetadataBearer {
+export interface OperationNotPermittedException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "OperationNotPermittedException";
   $fault: "client";
   /**
@@ -3310,17 +3325,22 @@ export namespace OperationNotPermittedException {
 
 export enum Permission {
   DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
+  ENABLED = "ENABLED"
 }
 
-export type PlatformType = "WINDOWS" | "WINDOWS_SERVER_2016" | "WINDOWS_SERVER_2019"
+export type PlatformType =
+  | "WINDOWS"
+  | "WINDOWS_SERVER_2016"
+  | "WINDOWS_SERVER_2019";
 
 /**
  *
  *         <p>The specified resource already exists.</p>
  *
  */
-export interface ResourceAlreadyExistsException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceAlreadyExistsException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceAlreadyExistsException";
   $fault: "client";
   /**
@@ -3377,7 +3397,9 @@ export namespace ResourceError {
  *         <p>The specified resource is in use.</p>
  *
  */
-export interface ResourceInUseException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceInUseException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceInUseException";
   $fault: "client";
   /**
@@ -3399,7 +3421,9 @@ export namespace ResourceInUseException {
  *         <p>The specified resource exists and is not in use, but isn't available.</p>
  *
  */
-export interface ResourceNotAvailableException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotAvailableException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotAvailableException";
   $fault: "client";
   /**
@@ -3421,7 +3445,9 @@ export namespace ResourceNotAvailableException {
  *         <p>The specified resource was not found.</p>
  *
  */
-export interface ResourceNotFoundException extends _smithy.SmithyException, $MetadataBearer {
+export interface ResourceNotFoundException
+  extends _smithy.SmithyException,
+    $MetadataBearer {
   __type: "ResourceNotFoundException";
   $fault: "client";
   /**
@@ -3555,13 +3581,13 @@ export namespace Session {
 
 export enum SessionConnectionState {
   CONNECTED = "CONNECTED",
-  NOT_CONNECTED = "NOT_CONNECTED",
+  NOT_CONNECTED = "NOT_CONNECTED"
 }
 
 export enum SessionState {
   ACTIVE = "ACTIVE",
   EXPIRED = "EXPIRED",
-  PENDING = "PENDING",
+  PENDING = "PENDING"
 }
 
 /**
@@ -3708,7 +3734,7 @@ export enum StackAttribute {
   STORAGE_CONNECTOR_HOMEFOLDERS = "STORAGE_CONNECTOR_HOMEFOLDERS",
   STORAGE_CONNECTOR_ONE_DRIVE = "STORAGE_CONNECTOR_ONE_DRIVE",
   THEME_NAME = "THEME_NAME",
-  USER_SETTINGS = "USER_SETTINGS",
+  USER_SETTINGS = "USER_SETTINGS"
 }
 
 /**
@@ -3741,7 +3767,7 @@ export namespace StackError {
 
 export enum StackErrorCode {
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR",
+  STORAGE_CONNECTOR_ERROR = "STORAGE_CONNECTOR_ERROR"
 }
 
 export interface StartFleetRequest {
@@ -3905,7 +3931,7 @@ export namespace StorageConnector {
 export enum StorageConnectorType {
   GOOGLE_DRIVE = "GOOGLE_DRIVE",
   HOMEFOLDERS = "HOMEFOLDERS",
-  ONE_DRIVE = "ONE_DRIVE",
+  ONE_DRIVE = "ONE_DRIVE"
 }
 
 export interface TagResourceRequest {
@@ -4394,11 +4420,11 @@ export namespace UpdateStackResult {
 export enum UsageReportExecutionErrorCode {
   ACCESS_DENIED = "ACCESS_DENIED",
   INTERNAL_SERVICE_ERROR = "INTERNAL_SERVICE_ERROR",
-  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND",
+  RESOURCE_NOT_FOUND = "RESOURCE_NOT_FOUND"
 }
 
 export enum UsageReportSchedule {
-  DAILY = "DAILY",
+  DAILY = "DAILY"
 }
 
 /**
@@ -4653,13 +4679,13 @@ export namespace UserStackAssociationError {
 export enum UserStackAssociationErrorCode {
   INTERNAL_ERROR = "INTERNAL_ERROR",
   STACK_NOT_FOUND = "STACK_NOT_FOUND",
-  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND",
+  USER_NAME_NOT_FOUND = "USER_NAME_NOT_FOUND"
 }
 
 export enum VisibilityType {
   PRIVATE = "PRIVATE",
   PUBLIC = "PUBLIC",
-  SHARED = "SHARED",
+  SHARED = "SHARED"
 }
 
 /**
