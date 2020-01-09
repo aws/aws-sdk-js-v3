@@ -939,7 +939,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Elemental MediaStore"
+        "smithy.api#title": "AWS Elemental MediaStore",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://mediastore.amazonaws.com/doc/2017-09-01"
+        }
       }
     },
     "com.amazonaws.mediastore#MethodName": {

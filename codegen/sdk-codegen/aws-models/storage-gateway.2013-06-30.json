@@ -3973,7 +3973,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An internal server error has occurred during the request. For more information, see\n         the error and message fields.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.awsappliancecontrolplaneapi#InvalidGatewayRequestException": {
@@ -3994,7 +3995,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception occurred because an invalid gateway request was issued to the service.\n         For more information, see the error and message fields.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.awsappliancecontrolplaneapi#IqnName": {
@@ -5409,7 +5411,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An internal server error has occurred because the service is unavailable. For more\n         information, see the error and message fields.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 503
       }
     },
     "com.amazonaws.storagegateway.v20130630#SetLocalConsolePassword": {
@@ -5941,7 +5944,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS Storage Gateway"
+        "smithy.api#title": "AWS Storage Gateway",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://storagegateway.amazonaws.com/doc/2013-06-30"
+        }
       }
     },
     "com.amazonaws.storagegateway.v20130630#StorediSCSIVolume": {

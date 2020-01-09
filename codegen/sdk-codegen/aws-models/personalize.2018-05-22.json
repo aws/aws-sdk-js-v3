@@ -3158,7 +3158,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Provide a valid value for the field or parameter.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.personalize.exceptions#InvalidNextTokenException": {
@@ -3170,7 +3171,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The token is not valid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.services.personalize#KmsKeyArn": {
@@ -3185,7 +3187,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The limit on the number of requests per second has been exceeded.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.services.personalize#ListBatchInferenceJobs": {
@@ -4075,7 +4078,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource already exists.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 403
       }
     },
     "com.amazonaws.services.personalize#ResourceConfig": {
@@ -4102,7 +4106,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified resource is in use.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 409
       }
     },
     "com.amazonaws.services.personalize.exceptions#ResourceNotFoundException": {
@@ -4114,7 +4119,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Could not find the specified resource.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404
       }
     },
     "com.amazonaws.services.personalize#RoleArn": {

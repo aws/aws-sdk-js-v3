@@ -17868,7 +17868,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon SageMaker Service"
+        "smithy.api#title": "Amazon SageMaker Service",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://sagemaker.amazonaws.com/doc/2017-05-13/"
+        }
       }
     },
     "com.amazonaws.sagemaker.api#SamplingPercentage": {

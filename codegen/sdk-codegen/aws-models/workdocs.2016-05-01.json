@@ -169,7 +169,10 @@
             ]
           }
         ],
-        "smithy.api#title": "Amazon WorkDocs"
+        "smithy.api#title": "Amazon WorkDocs",
+        "smithy.api#xmlNamespace": {
+          "uri": "https://aws.amazon.com/api/v1/"
+        }
       }
     },
     "com.amazon.aws.gorillaboy#AbortDocumentVersionUpload": {

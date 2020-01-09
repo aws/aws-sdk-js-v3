@@ -1701,7 +1701,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS CodeCommit"
+        "smithy.api#title": "AWS CodeCommit",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://codecommit.amazonaws.com/doc/2015-04-13"
+        }
       }
     },
     "com.amazonaws.codecommit#Comment": {

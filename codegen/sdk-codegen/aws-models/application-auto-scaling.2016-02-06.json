@@ -132,7 +132,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Concurrent updates caused an exception, for example, if you request an update to an\n         Application Auto Scaling resource that already has a pending update.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#Cooldown": {
@@ -737,7 +738,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling\n         is unable to retrieve the alarms associated with a scaling policy due to a client error,\n         for example, if the role ARN specified for a scalable target does not have permission to\n         call the CloudWatch <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html\">DescribeAlarms</a> on your behalf.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#InternalServiceException": {
@@ -749,7 +751,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The service encountered an internal error.</p>\n      ",
-        "smithy.api#error": "server"
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#InvalidNextTokenException": {
@@ -761,7 +764,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The next token supplied was invalid.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#LimitExceededException": {
@@ -773,7 +777,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>A per-account resource limit is exceeded. For more information, see <a href=\"https://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html\">Application Auto Scaling Limits</a>.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#MaxResults": {
@@ -933,7 +938,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>The specified object could not be found. For any operation that depends on the existence\n         of a scalable target, this exception is thrown if the scalable target with the specified\n         service namespace, resource ID, and scalable dimension does not exist. For any operation\n         that deletes or deregisters a resource, this exception is thrown if the resource cannot be\n         found.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#PolicyName": {
@@ -1907,7 +1913,8 @@
       },
       "traits": {
         "smithy.api#documentation": "\n         <p>An exception was thrown for a validation issue. Review the available parameters for the\n         API request.</p>\n      ",
-        "smithy.api#error": "client"
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.autoscaling.anyscale.frontend#XmlString": {

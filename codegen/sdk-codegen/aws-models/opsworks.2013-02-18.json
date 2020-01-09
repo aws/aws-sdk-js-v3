@@ -4714,7 +4714,10 @@
             ]
           }
         ],
-        "smithy.api#title": "AWS OpsWorks"
+        "smithy.api#title": "AWS OpsWorks",
+        "smithy.api#xmlNamespace": {
+          "uri": "http://opsworks.amazonaws.com/doc/2013-02-18/"
+        }
       }
     },
     "com.amazonaws.opsworks#Parameters": {
