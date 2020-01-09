@@ -1340,10 +1340,7 @@ export async function deserializeAws_json1_0DescribeEndpointsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeEndpointsResponse(
-    data.DescribeEndpointsResponse,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeEndpointsResponse",
@@ -1383,10 +1380,7 @@ export async function deserializeAws_json1_0BatchGetItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchGetItemOutput(
-    data.BatchGetItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0BatchGetItemOutput(data, context);
   const response: BatchGetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchGetItemOutput",
@@ -1465,10 +1459,7 @@ export async function deserializeAws_json1_0BatchWriteItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0BatchWriteItemOutput(
-    data.BatchWriteItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0BatchWriteItemOutput(data, context);
   const response: BatchWriteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "BatchWriteItemOutput",
@@ -1554,10 +1545,7 @@ export async function deserializeAws_json1_0CreateBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateBackupOutput(
-    data.CreateBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateBackupOutput(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateBackupOutput",
@@ -1650,10 +1638,7 @@ export async function deserializeAws_json1_0CreateGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateGlobalTableOutput(
-    data.CreateGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateGlobalTableOutput(data, context);
   const response: CreateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateGlobalTableOutput",
@@ -1732,10 +1717,7 @@ export async function deserializeAws_json1_0CreateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateTableOutput(
-    data.CreateTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateTableOutput(data, context);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateTableOutput",
@@ -1807,10 +1789,7 @@ export async function deserializeAws_json1_0DeleteBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteBackupOutput(
-    data.DeleteBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteBackupOutput(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteBackupOutput",
@@ -1889,10 +1868,7 @@ export async function deserializeAws_json1_0DeleteItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteItemOutput(
-    data.DeleteItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteItemOutput(data, context);
   const response: DeleteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteItemOutput",
@@ -1992,10 +1968,7 @@ export async function deserializeAws_json1_0DeleteTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteTableOutput(
-    data.DeleteTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteTableOutput(data, context);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteTableOutput",
@@ -2074,10 +2047,7 @@ export async function deserializeAws_json1_0DescribeBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeBackupOutput(
-    data.DescribeBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeBackupOutput(data, context);
   const response: DescribeBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeBackupOutput",
@@ -2146,7 +2116,7 @@ export async function deserializeAws_json1_0DescribeContinuousBackupsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeContinuousBackupsOutput(
-    data.DescribeContinuousBackupsOutput,
+    data,
     context
   );
   const response: DescribeContinuousBackupsCommandOutput = {
@@ -2217,7 +2187,7 @@ export async function deserializeAws_json1_0DescribeContributorInsightsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeContributorInsightsOutput(
-    data.DescribeContributorInsightsOutput,
+    data,
     context
   );
   const response: DescribeContributorInsightsCommandOutput = {
@@ -2280,10 +2250,7 @@ export async function deserializeAws_json1_0DescribeGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeGlobalTableOutput(
-    data.DescribeGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeGlobalTableOutput(data, context);
   const response: DescribeGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeGlobalTableOutput",
@@ -2352,7 +2319,7 @@ export async function deserializeAws_json1_0DescribeGlobalTableSettingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeGlobalTableSettingsOutput(
-    data.DescribeGlobalTableSettingsOutput,
+    data,
     context
   );
   const response: DescribeGlobalTableSettingsCommandOutput = {
@@ -2419,10 +2386,7 @@ export async function deserializeAws_json1_0DescribeLimitsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeLimitsOutput(
-    data.DescribeLimitsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeLimitsOutput(data, context);
   const response: DescribeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeLimitsOutput",
@@ -2480,10 +2444,7 @@ export async function deserializeAws_json1_0DescribeTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeTableOutput(
-    data.DescribeTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeTableOutput(data, context);
   const response: DescribeTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTableOutput",
@@ -2552,7 +2513,7 @@ export async function deserializeAws_json1_0DescribeTableReplicaAutoScalingComma
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput(
-    data.DescribeTableReplicaAutoScalingOutput,
+    data,
     context
   );
   const response: DescribeTableReplicaAutoScalingCommandOutput = {
@@ -2615,10 +2576,7 @@ export async function deserializeAws_json1_0DescribeTimeToLiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeTimeToLiveOutput(
-    data.DescribeTimeToLiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeTimeToLiveOutput(data, context);
   const response: DescribeTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeTimeToLiveOutput",
@@ -2683,7 +2641,7 @@ export async function deserializeAws_json1_0GetItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetItemOutput(data.GetItemOutput, context);
+  contents = deserializeAws_json1_0GetItemOutput(data, context);
   const response: GetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetItemOutput",
@@ -2762,10 +2720,7 @@ export async function deserializeAws_json1_0ListBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListBackupsOutput(
-    data.ListBackupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListBackupsOutput(data, context);
   const response: ListBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListBackupsOutput",
@@ -2826,10 +2781,7 @@ export async function deserializeAws_json1_0ListContributorInsightsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListContributorInsightsOutput(
-    data.ListContributorInsightsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListContributorInsightsOutput(data, context);
   const response: ListContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListContributorInsightsOutput",
@@ -2887,10 +2839,7 @@ export async function deserializeAws_json1_0ListGlobalTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListGlobalTablesOutput(
-    data.ListGlobalTablesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListGlobalTablesOutput(data, context);
   const response: ListGlobalTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListGlobalTablesOutput",
@@ -2948,10 +2897,7 @@ export async function deserializeAws_json1_0ListTablesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTablesOutput(
-    data.ListTablesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTablesOutput(data, context);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTablesOutput",
@@ -3012,10 +2958,7 @@ export async function deserializeAws_json1_0ListTagsOfResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsOfResourceOutput(
-    data.ListTagsOfResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTagsOfResourceOutput(data, context);
   const response: ListTagsOfResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsOfResourceOutput",
@@ -3080,7 +3023,7 @@ export async function deserializeAws_json1_0PutItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0PutItemOutput(data.PutItemOutput, context);
+  contents = deserializeAws_json1_0PutItemOutput(data, context);
   const response: PutItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "PutItemOutput",
@@ -3180,7 +3123,7 @@ export async function deserializeAws_json1_0QueryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0QueryOutput(data.QueryOutput, context);
+  contents = deserializeAws_json1_0QueryOutput(data, context);
   const response: QueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "QueryOutput",
@@ -3262,10 +3205,7 @@ export async function deserializeAws_json1_0RestoreTableFromBackupCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0RestoreTableFromBackupOutput(
-    data.RestoreTableFromBackupOutput,
-    context
-  );
+  contents = deserializeAws_json1_0RestoreTableFromBackupOutput(data, context);
   const response: RestoreTableFromBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "RestoreTableFromBackupOutput",
@@ -3362,7 +3302,7 @@ export async function deserializeAws_json1_0RestoreTableToPointInTimeCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0RestoreTableToPointInTimeOutput(
-    data.RestoreTableToPointInTimeOutput,
+    data,
     context
   );
   const response: RestoreTableToPointInTimeCommandOutput = {
@@ -3464,7 +3404,7 @@ export async function deserializeAws_json1_0ScanCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ScanOutput(data.ScanOutput, context);
+  contents = deserializeAws_json1_0ScanOutput(data, context);
   const response: ScanCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ScanOutput",
@@ -3617,10 +3557,7 @@ export async function deserializeAws_json1_0TransactGetItemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TransactGetItemsOutput(
-    data.TransactGetItemsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TransactGetItemsOutput(data, context);
   const response: TransactGetItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TransactGetItemsOutput",
@@ -3709,10 +3646,7 @@ export async function deserializeAws_json1_0TransactWriteItemsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TransactWriteItemsOutput(
-    data.TransactWriteItemsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TransactWriteItemsOutput(data, context);
   const response: TransactWriteItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TransactWriteItemsOutput",
@@ -3889,10 +3823,7 @@ export async function deserializeAws_json1_0UpdateContinuousBackupsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateContinuousBackupsOutput(
-    data.UpdateContinuousBackupsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateContinuousBackupsOutput(data, context);
   const response: UpdateContinuousBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateContinuousBackupsOutput",
@@ -3968,7 +3899,7 @@ export async function deserializeAws_json1_0UpdateContributorInsightsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateContributorInsightsOutput(
-    data.UpdateContributorInsightsOutput,
+    data,
     context
   );
   const response: UpdateContributorInsightsCommandOutput = {
@@ -4028,10 +3959,7 @@ export async function deserializeAws_json1_0UpdateGlobalTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateGlobalTableOutput(
-    data.UpdateGlobalTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateGlobalTableOutput(data, context);
   const response: UpdateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateGlobalTableOutput",
@@ -4121,7 +4049,7 @@ export async function deserializeAws_json1_0UpdateGlobalTableSettingsCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateGlobalTableSettingsOutput(
-    data.UpdateGlobalTableSettingsOutput,
+    data,
     context
   );
   const response: UpdateGlobalTableSettingsCommandOutput = {
@@ -4216,10 +4144,7 @@ export async function deserializeAws_json1_0UpdateItemCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateItemOutput(
-    data.UpdateItemOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateItemOutput(data, context);
   const response: UpdateItemCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateItemOutput",
@@ -4319,10 +4244,7 @@ export async function deserializeAws_json1_0UpdateTableCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTableOutput(
-    data.UpdateTableOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateTableOutput(data, context);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTableOutput",
@@ -4405,7 +4327,7 @@ export async function deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput(
-    data.UpdateTableReplicaAutoScalingOutput,
+    data,
     context
   );
   const response: UpdateTableReplicaAutoScalingCommandOutput = {
@@ -4479,10 +4401,7 @@ export async function deserializeAws_json1_0UpdateTimeToLiveCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateTimeToLiveOutput(
-    data.UpdateTimeToLiveOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateTimeToLiveOutput(data, context);
   const response: UpdateTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateTimeToLiveOutput",

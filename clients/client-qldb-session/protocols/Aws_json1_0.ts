@@ -70,10 +70,7 @@ export async function deserializeAws_json1_0SendCommandCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendCommandResult(
-    data.SendCommandResult,
-    context
-  );
+  contents = deserializeAws_json1_0SendCommandResult(data, context);
   const response: SendCommandCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendCommandResult",

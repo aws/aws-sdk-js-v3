@@ -150,10 +150,7 @@ export async function deserializeAws_json1_0DescribeStreamCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStreamOutput(
-    data.DescribeStreamOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeStreamOutput(data, context);
   const response: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStreamOutput",
@@ -211,10 +208,7 @@ export async function deserializeAws_json1_0GetRecordsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetRecordsOutput(
-    data.GetRecordsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetRecordsOutput(data, context);
   const response: GetRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetRecordsOutput",
@@ -293,10 +287,7 @@ export async function deserializeAws_json1_0GetShardIteratorCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetShardIteratorOutput(
-    data.GetShardIteratorOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetShardIteratorOutput(data, context);
   const response: GetShardIteratorCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetShardIteratorOutput",
@@ -361,10 +352,7 @@ export async function deserializeAws_json1_0ListStreamsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStreamsOutput(
-    data.ListStreamsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListStreamsOutput(data, context);
   const response: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStreamsOutput",

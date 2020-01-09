@@ -236,7 +236,7 @@ export async function deserializeAws_json1_0GetAutoScalingGroupRecommendationsCo
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse(
-    data.GetAutoScalingGroupRecommendationsResponse,
+    data,
     context
   );
   const response: GetAutoScalingGroupRecommendationsCommandOutput = {
@@ -342,7 +342,7 @@ export async function deserializeAws_json1_0GetEC2InstanceRecommendationsCommand
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetEC2InstanceRecommendationsResponse(
-    data.GetEC2InstanceRecommendationsResponse,
+    data,
     context
   );
   const response: GetEC2InstanceRecommendationsCommandOutput = {
@@ -448,7 +448,7 @@ export async function deserializeAws_json1_0GetEC2RecommendationProjectedMetrics
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse(
-    data.GetEC2RecommendationProjectedMetricsResponse,
+    data,
     context
   );
   const response: GetEC2RecommendationProjectedMetricsCommandOutput = {
@@ -553,10 +553,7 @@ export async function deserializeAws_json1_0GetEnrollmentStatusCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetEnrollmentStatusResponse(
-    data.GetEnrollmentStatusResponse,
-    context
-  );
+  contents = deserializeAws_json1_0GetEnrollmentStatusResponse(data, context);
   const response: GetEnrollmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetEnrollmentStatusResponse",
@@ -646,7 +643,7 @@ export async function deserializeAws_json1_0GetRecommendationSummariesCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0GetRecommendationSummariesResponse(
-    data.GetRecommendationSummariesResponse,
+    data,
     context
   );
   const response: GetRecommendationSummariesCommandOutput = {
@@ -745,7 +742,7 @@ export async function deserializeAws_json1_0UpdateEnrollmentStatusCommand(
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0UpdateEnrollmentStatusResponse(
-    data.UpdateEnrollmentStatusResponse,
+    data,
     context
   );
   const response: UpdateEnrollmentStatusCommandOutput = {

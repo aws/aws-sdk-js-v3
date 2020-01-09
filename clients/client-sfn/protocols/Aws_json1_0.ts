@@ -739,10 +739,7 @@ export async function deserializeAws_json1_0CreateActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateActivityOutput(
-    data.CreateActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateActivityOutput(data, context);
   const response: CreateActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateActivityOutput",
@@ -810,10 +807,7 @@ export async function deserializeAws_json1_0CreateStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0CreateStateMachineOutput(
-    data.CreateStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0CreateStateMachineOutput(data, context);
   const response: CreateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "CreateStateMachineOutput",
@@ -920,10 +914,7 @@ export async function deserializeAws_json1_0DeleteActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteActivityOutput(
-    data.DeleteActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteActivityOutput(data, context);
   const response: DeleteActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteActivityOutput",
@@ -977,10 +968,7 @@ export async function deserializeAws_json1_0DeleteStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DeleteStateMachineOutput(
-    data.DeleteStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DeleteStateMachineOutput(data, context);
   const response: DeleteStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DeleteStateMachineOutput",
@@ -1031,10 +1019,7 @@ export async function deserializeAws_json1_0DescribeActivityCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeActivityOutput(
-    data.DescribeActivityOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeActivityOutput(data, context);
   const response: DescribeActivityCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeActivityOutput",
@@ -1092,10 +1077,7 @@ export async function deserializeAws_json1_0DescribeExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeExecutionOutput(
-    data.DescribeExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeExecutionOutput(data, context);
   const response: DescribeExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeExecutionOutput",
@@ -1156,10 +1138,7 @@ export async function deserializeAws_json1_0DescribeStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0DescribeStateMachineOutput(
-    data.DescribeStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0DescribeStateMachineOutput(data, context);
   const response: DescribeStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "DescribeStateMachineOutput",
@@ -1221,7 +1200,7 @@ export async function deserializeAws_json1_0DescribeStateMachineForExecutionComm
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
   contents = deserializeAws_json1_0DescribeStateMachineForExecutionOutput(
-    data.DescribeStateMachineForExecutionOutput,
+    data,
     context
   );
   const response: DescribeStateMachineForExecutionCommandOutput = {
@@ -1281,10 +1260,7 @@ export async function deserializeAws_json1_0GetActivityTaskCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetActivityTaskOutput(
-    data.GetActivityTaskOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetActivityTaskOutput(data, context);
   const response: GetActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetActivityTaskOutput",
@@ -1352,10 +1328,7 @@ export async function deserializeAws_json1_0GetExecutionHistoryCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0GetExecutionHistoryOutput(
-    data.GetExecutionHistoryOutput,
-    context
-  );
+  contents = deserializeAws_json1_0GetExecutionHistoryOutput(data, context);
   const response: GetExecutionHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "GetExecutionHistoryOutput",
@@ -1420,10 +1393,7 @@ export async function deserializeAws_json1_0ListActivitiesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListActivitiesOutput(
-    data.ListActivitiesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListActivitiesOutput(data, context);
   const response: ListActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListActivitiesOutput",
@@ -1474,10 +1444,7 @@ export async function deserializeAws_json1_0ListExecutionsCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListExecutionsOutput(
-    data.ListExecutionsOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListExecutionsOutput(data, context);
   const response: ListExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListExecutionsOutput",
@@ -1549,10 +1516,7 @@ export async function deserializeAws_json1_0ListStateMachinesCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListStateMachinesOutput(
-    data.ListStateMachinesOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListStateMachinesOutput(data, context);
   const response: ListStateMachinesCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListStateMachinesOutput",
@@ -1606,10 +1570,7 @@ export async function deserializeAws_json1_0ListTagsForResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0ListTagsForResourceOutput(
-    data.ListTagsForResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "ListTagsForResourceOutput",
@@ -1667,10 +1628,7 @@ export async function deserializeAws_json1_0SendTaskFailureCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskFailureOutput(
-    data.SendTaskFailureOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskFailureOutput(data, context);
   const response: SendTaskFailureCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskFailureOutput",
@@ -1735,10 +1693,7 @@ export async function deserializeAws_json1_0SendTaskHeartbeatCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskHeartbeatOutput(
-    data.SendTaskHeartbeatOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskHeartbeatOutput(data, context);
   const response: SendTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskHeartbeatOutput",
@@ -1803,10 +1758,7 @@ export async function deserializeAws_json1_0SendTaskSuccessCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0SendTaskSuccessOutput(
-    data.SendTaskSuccessOutput,
-    context
-  );
+  contents = deserializeAws_json1_0SendTaskSuccessOutput(data, context);
   const response: SendTaskSuccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "SendTaskSuccessOutput",
@@ -1878,10 +1830,7 @@ export async function deserializeAws_json1_0StartExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StartExecutionOutput(
-    data.StartExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0StartExecutionOutput(data, context);
   const response: StartExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StartExecutionOutput",
@@ -1974,10 +1923,7 @@ export async function deserializeAws_json1_0StopExecutionCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0StopExecutionOutput(
-    data.StopExecutionOutput,
-    context
-  );
+  contents = deserializeAws_json1_0StopExecutionOutput(data, context);
   const response: StopExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "StopExecutionOutput",
@@ -2035,10 +1981,7 @@ export async function deserializeAws_json1_0TagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0TagResourceOutput(
-    data.TagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0TagResourceOutput(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "TagResourceOutput",
@@ -2103,10 +2046,7 @@ export async function deserializeAws_json1_0UntagResourceCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UntagResourceOutput(
-    data.UntagResourceOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UntagResourceOutput(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UntagResourceOutput",
@@ -2167,10 +2107,7 @@ export async function deserializeAws_json1_0UpdateStateMachineCommand(
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = deserializeAws_json1_0UpdateStateMachineOutput(
-    data.UpdateStateMachineOutput,
-    context
-  );
+  contents = deserializeAws_json1_0UpdateStateMachineOutput(data, context);
   const response: UpdateStateMachineCommandOutput = {
     $metadata: deserializeMetadata(output),
     __type: "UpdateStateMachineOutput",
